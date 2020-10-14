@@ -1,0 +1,497 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "a96403a4-a8b8-42b7-bda5-0ee1e2693b56",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>N</sub>{<i>~t,~d,b,s,r,l</i>}",
+      "tooling": "tN{~t,~d,b,s,r,l}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Log",
+    "aliases": [
+      "Log",
+      "Logging",
+      "Event Recorder",
+      "Audit"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Log, is a non-fungible token that serves as a trusted log that is used to record event data for some shared process, application or other type of context specific log data that is of interest to multiple parties. This token is owned by some shared source that can submit new log entries as the owner and viewable by parties that are members of a LogViewer role.",
+      "businessExample": "This token is useful when the owner of the token must record periodic data that multiple parties may want to monitor or audit.",
+      "analogies": [
+        {
+          "name": "Log table",
+          "description": "A Table containing multiple rows, where each row is a log entry.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "Log.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "Log.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {},
+    "contributors": [
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "d4bdee60-55ae-4f00-9e06-2bc9e79ecf9e",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "referenceNotes": "Singleton, non-fungible, quantity of 1 with 0 decimals",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": 1,
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "c1189d7a-e142-4504-bf26-44c35b76c9d6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "singleton",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "non-subdividable",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any subdivision",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "referenceNotes": "non-transferable",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "referenceNotes": "burnable",
+        "values":  null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "roles",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [
+        {
+          "id":"9c8c2373-cf3c-4743-932a-03fee6a192fe",
+          "type": "BEHAVIOR",
+          "visual": "<i>l</i>",
+          "tooling": "l",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      ],
+      "invocations": [],
+      "influenceBindings": [
+        {
+          "influencedId": "9c8c2373-cf3c-4743-932a-03fee6a192fe",
+          "influencedInvocationId": "00e91598-b162-47d7-8636-baac251e98e7",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "00a665e3-1dda-441e-8262-5750435c153c",
+            "name": "RoleCheck",
+            "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+            "request": {
+              "controlMessageName": "IsInRole",
+              "description": "Check that the account is in the 'LogViewer' role.",
+              "inputParameters": [
+                {
+                  "name": "AccountId",
+                  "valueDescription": "AccountId of the requestor."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "True/False",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "IsInRole",
+                  "valueDescription": "True/False"
+                }
+              ]
+            }
+          },
+          "influencedInvocation": {
+            "id": "00e91598-b162-47d7-8636-baac251e98e7",
+            "name": "GetEntry",
+            "description": "A request to retrieve a specific Entry by its unique identifier.",
+            "request": {
+              "controlMessageName": "GetEntryRequest",
+              "description": "Fetch a log entry by its entryId only.",
+              "inputParameters": [
+                {
+                  "name": "Identifier",
+                  "valueDescription": "Id of the Log Entry to retrieve."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "GetEntryResponse",
+              "description": "The matching entry response",
+              "outputParameters": [
+                {
+                  "name": "Entry",
+                  "valueDescription": "A response containing the specific log entry if found."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "influencedId": "9c8c2373-cf3c-4743-932a-03fee6a192fe",
+          "influencedInvocationId": "589c478d-8852-4237-b559-6414e54ecbb2",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "00a665e3-1dda-441e-8262-5750435c153c",
+            "name": "RoleCheck",
+            "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+            "request": {
+              "controlMessageName": "IsInRole",
+              "description": "Check that the account is in the 'LogViewer' role.",
+              "inputParameters": [
+                {
+                  "name": "AccountId",
+                  "valueDescription": "AccountId of the requestor."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "True/False",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "IsInRole",
+                  "valueDescription": "True/False"
+                }
+              ]
+            }
+          },
+          "influencedInvocation": null
+        },
+        {
+          "influencedId": "9c8c2373-cf3c-4743-932a-03fee6a192fe",
+          "influencedInvocationId": "7af943cc-03ec-49c1-bed6-450ac624d8d3",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "00a665e3-1dda-441e-8262-5750435c153c",
+            "name": "RoleCheck",
+            "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+            "request": {
+              "controlMessageName": "IsInRole",
+              "description": "Check that the account is in the 'LogViewer' role.",
+              "inputParameters": [
+                {
+                  "name": "AccountId",
+                  "valueDescription": "AccountId of the requestor."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "True/False",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "IsInRole",
+                  "valueDescription": "True/False"
+                }
+              ]
+            }
+          },
+          "influencedInvocation": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "Role",
+          "valueDescription": "A group or list an account can be a member or be in.",
+          "templateValue": "LogViewer",
+          "propertyInvocations": [
+            {
+              "name": "GetRoleMembers",
+              "description": "Request the the list of member accounts in the role.",
+              "request": {
+                "controlMessageName": "GetRoleMembersRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetRoleMembersResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Members",
+                    "valueDescription": "Returning the list of accounts in the role."
+                  }
+                ]
+              }
+            },
+            {
+              "name": "AddRoleMember",
+              "description": "Add a member to the group or role property.",
+              "request": {
+                "controlMessageName": "AddRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be added to the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "name": "RemoveRoleMember",
+              "description": "Remove a member to the group or role property.",
+              "request": {
+                "controlMessageName": "RemoveRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "name": "IsInRole",
+              "description": "Check to see if an account is in the role.",
+              "request": {
+                "controlMessageName": "IsInRoleRequest",
+                "description": "The request may be internal only and not exposed externally.",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are checking membership of. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be checked."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "IsInRoleRequestResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "InRole",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "9c8c2373-cf3c-4743-932a-03fee6a192fe",
+        "type": "BEHAVIOR",
+        "referenceNotes": "logable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "name": "CreateEntrySeries",
+          "description": "A request create a series of log entries.",
+          "request": {
+            "controlMessageName": "CreateEntrySeriesRequest",
+            "description": "The request",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "CreateEntrySeriesResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "SeriesId",
+                "valueDescription": "A response containing a unique SeriesId that should be set for each entry's RecordEntryRequest message in the series."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

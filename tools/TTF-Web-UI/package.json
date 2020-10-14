@@ -1,0 +1,111 @@
+{
+  "name": "ttfweb",
+  "version": "0.1.0",
+  "description": "TTF-Web-UI",
+  "author": "EEA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EntEthAlliance/TokenTaxonomyFramework"
+  },
+  "main": "src/index.ts",
+  "bin": {
+    "ttfweb": "./bin/ttfweb"
+  },
+  "preferGlobal": true,
+  "homepage": "/",
+  "scripts": {
+    "build": "react-scripts build",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --ext .ts src/",
+    "lint-fix": "eslint --ext .ts src/ --fix",
+    "pretest": "yarn run check-types",
+    "test:unit": "nyc -r lcov -e .ts mocha -r ./.babel-register 'test/**/*.test.ts' && nyc report",
+    "test": "react-scripts test",
+    "coverage": "codecov",
+    "start": "react-scripts start",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EntEthAlliance/TokenTaxonomyFramework.git"
+  },
+  "keywords": [
+    "token",
+    "blockchain"
+  ],
+  "dependencies": {
+    "@types/google-protobuf": "^3.7.1",
+    "@types/jest": "24.0.16",
+    "@types/node": "^10.14.13",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "16.8.24",
+    "@types/react-custom-scrollbars": "^4.0.6",
+    "@types/react-dom": "16.8.5",
+    "@types/react-redux": "^7.1.1",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/styled-components": "^4.1.18",
+    "antd": "^3.20.7",
+    "google-protobuf": "^3.7.1",
+    "grpc-web": "^1.0.5",
+    "nprogress": "^0.2.0",
+    "react": "^16.9.0",
+    "react-async-component": "^2.0.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.8.6",
+    "react-placeholder": "^3.0.2",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.2",
+    "styled-theme": "^0.3.3",
+    "typescript": "3.5.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.6.0",
+    "@polkadot/ts": "^0.1.56",
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.14.13",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "codecov": "^3.1.0",
+    "eslint": "^6.6.0",
+    "mocha": "^5.2.0",
+    "node-sass": "^4.13.1",
+    "nyc": "^13.3.0",
+    "sass-loader": "^8.0.0",
+    "sinon": "^7.2.7",
+    "supertest": "^4.0.2",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^7.0.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {}
+}

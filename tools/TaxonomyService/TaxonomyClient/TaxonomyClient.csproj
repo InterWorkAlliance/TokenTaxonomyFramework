@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>IWA.TTF.Taxonomy</RootNamespace>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.13.0" />
+      <PackageReference Include="Grpc" Version="2.31.0" />
+      <PackageReference Include="log4net" Version="2.0.8" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.7" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.7" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="log4net.config">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TaxonomyModel\TaxonomyModel.csproj" />
+    </ItemGroup>
+
+</Project>

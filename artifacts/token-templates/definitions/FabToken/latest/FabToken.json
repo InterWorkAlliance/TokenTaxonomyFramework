@@ -1,0 +1,624 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "6fd8578f-75d9-4441-8c33-21d81cd3aa2e",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>F'</sub>{<i>~d,f,u,r,e</i>}",
+      "tooling": "tF'{~d,f,u,r,e}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "FabToken",
+    "aliases": [
+      "Loyalty",
+      "Whole Fungible"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "FabToken is a token management system that allows you to issue, transfer, and redeem tokens. These are Unique Whole Fungible Token with Variable Supply where supply is set when the tokens are fabricated, and supply can be added to new owners and removed by owners by redeeming. It is Whole by setting the Decimals property on the divisible behavior = 0.",
+      "businessExample": "Loyalty points are a common use of this type of token. Representing a loyalty point using fractional amounts like `.081231` does not make sense, so a point is just that a single whole unit. Redemption of these is easy for users to understand using whole numbers. New points can be fabricated or issued based on customer activity and points can be removed when they are redeemed. This formula supports transferable points as well.",
+      "analogies": [
+        {
+          "name": "Airline Points",
+          "description": "A customer can earn a point for each mile travelled and then redeem these points for upgrades or new tickets. Points awarded for each flight can be fabricated in a single token issue for the customer.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "FabToken.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "FabToken.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "FabToken Alpha",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "https://github.com/hyperledger/fabric/tree/v2.0.0-alpha/token",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "FabToken Alpha",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/docs/source/token/FabToken.md",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "Nitin Gaur",
+        "organization": "IBM"
+      },
+      {
+        "name": "Bobbie Cochrane",
+        "organization": "IBM"
+      },
+      {
+        "name": "Angelo De Caro1",
+        "organization": "IBM"
+      },
+      {
+        "name": "Elli Androulaki",
+        "organization": "IBM"
+      },
+      {
+        "name": "Jim Tomonto",
+        "organization": "IBM"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "2e804da0-4903-49c2-8942-9c2b0ba38156",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "FabToken",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "2d291501-4cca-43cf-8330-e2440e58d7df",
+      "type": "BASE",
+      "referenceNotes": "Unique Whole Fungible",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "REFERENCE",
+    "supply": "INFINITE",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-Subdividable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any subdivision, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "76c6ebb0-8ab8-457b-b6e3-29c38102ed22",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Fabricate",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "FabToken Alpha",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/token/cmd/issue.go",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "39181196-12e0-4fd4-b8fa-4e965a6fef66",
+          "name": "Fabricate",
+          "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Can contain multiple issues to more than one new owner.",
+          "request": {
+            "controlMessageName": "FabricateRequest",
+            "description": "A list of Issue properties defining the new token Owner, Token Type and Quantity.",
+            "inputParameters": [
+              {
+                "name": "Issues",
+                "valueDescription": "A list of Issue properties with values for the new Token Owner, Type and Quantity."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "FabricateResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the fabricate request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Issue",
+          "valueDescription": "Values for Owner, Type and Quantity for issuing a Fabricated token. This can be repeated",
+          "templateValue": "",
+          "propertyInvocations": [],
+          "properties": [
+            {
+              "name": "Owner Id",
+              "valueDescription": "identifies the owner that can transfer or redeem the new token.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": []
+            },
+            {
+              "name": "TokenType",
+              "valueDescription": "Name or type name of the asset that the token represents.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": []
+            },
+            {
+              "name": "Quantity",
+              "valueDescription": "Quantity of the type the token represents.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "f324a190-2f17-454a-b5b3-e1bcc50ee2d2",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Unique-Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "FabCoin Alpha",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/token/cmd/transfer.go",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "a1861aea-d2f3-47a9-bbfd-7c8ee3cf9070",
+          "name": "Transfer",
+          "description": "A transfer request will invoke a quantity transfer from tokens provided to the recipient as long as tokens being transferred need to belong to the transaction initiator and are unspent. Any remaining quantity will be returned as a new unspent quantity to the invoker/owner.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request includes an asset quantity to transfer to a recipient and a list of tokens that have quantities that equal or exceed the quantity to transfer. Any remaining balance will be deposited into a new token with the invoker as the owner.",
+            "inputParameters": [
+              {
+                "name": "TokenIds",
+                "valueDescription": "List of Token Identifiers submitted to draw the quantity to transfer from. This data type is defined at implementation."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              },
+              {
+                "name": "Recipient",
+                "valueDescription": "The Id to transfer ownership to."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Roles",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [
+        {
+          "id":"76c6ebb0-8ab8-457b-b6e3-29c38102ed22",
+          "type": "BEHAVIOR",
+          "visual": "<i>f</i>",
+          "tooling": "f",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      ],
+      "invocations": [
+        {
+          "id": "00a665e3-1dda-441e-8262-5750435c153c",
+          "name": "RoleCheck",
+          "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+          "request": {
+            "controlMessageName": "IsInRole",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "AccountId of the requestor."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "True/False",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "IsInRole",
+                "valueDescription": "True/False"
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [
+        {
+          "influencedId": "76c6ebb0-8ab8-457b-b6e3-29c38102ed22",
+          "influencedInvocationId": "39181196-12e0-4fd4-b8fa-4e965a6fef66",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "00a665e3-1dda-441e-8262-5750435c153c",
+            "name": "RoleCheck",
+            "description": "Check to see if the account is in the Role called 'Issuers'",
+            "request": {
+              "controlMessageName": "IsInRole",
+              "description": "Checking the 'Issuers' role.",
+              "inputParameters": [
+                {
+                  "name": "AccountId",
+                  "valueDescription": "AccountId of the requestor."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "True/False",
+              "description": "Respond true if the account is in the 'Issuers' role.",
+              "outputParameters": [
+                {
+                  "name": "IsInRole",
+                  "valueDescription": "True/False"
+                }
+              ]
+            }
+          },
+          "influencedInvocation": {
+            "id": "39181196-12e0-4fd4-b8fa-4e965a6fef66",
+            "name": "Fabricate",
+            "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Can contain multiple issues to more than one new owner.",
+            "request": {
+              "controlMessageName": "FabricateRequest",
+              "description": "A list of Issue properties defining the new token Owner, Token Type and Quantity.",
+              "inputParameters": [
+                {
+                  "name": "Issues",
+                  "valueDescription": "A list of Issue properties with values for the new Token Owner, Type and Quantity."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "FabricateResponse",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "Confirmation",
+                  "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the fabricate request."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Role",
+          "valueDescription": "A group or list an account can be a member or be in.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetRoleMembers",
+              "description": "Request the the list of member accounts in the role.",
+              "request": {
+                "controlMessageName": "GetRoleMembersRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetRoleMembersResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Members",
+                    "valueDescription": "Returning the list of accounts in the role."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+              "name": "AddRoleMember",
+              "description": "Add a member to the group or role property.",
+              "request": {
+                "controlMessageName": "AddRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be added to the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+              "name": "RemoveRoleMember",
+              "description": "Remove a member to the group or role property.",
+              "request": {
+                "controlMessageName": "RemoveRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+              "name": "IsInRole",
+              "description": "Check to see if an account is in the role.",
+              "request": {
+                "controlMessageName": "IsInRoleRequest",
+                "description": "The request may be internal only and not exposed externally.",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are checking membership of. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be checked."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "IsInRoleRequestResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "InRole",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "51a62eba-0e84-433a-a3f1-9b3e7f72d928",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Redeemable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "FabToken Alpha",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/token/cmd/redeem.go",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "c6a0ef93-0d7d-4c68-a3b4-8f5d0bbadcbe",
+          "name": "Redeem",
+          "description": "A redeem request will redeem a quantity transfer from tokens provided to an account that has no owner, removing them permanently from circulation, as long as tokens being redeemed need to belong to the transaction initiator and are unspent. Any remaining quantity will be returned as a new unspent quantity to the invoker/owner.",
+          "request": {
+            "controlMessageName": "RedeemRequest",
+            "description": "The request includes an asset quantity to redeem and a list of tokens that have quantities that equal or exceed the quantity to redeem. Any remaining balance will be deposited into a new token with the invoker as the owner.",
+            "inputParameters": [
+              {
+                "name": "TokenIds",
+                "valueDescription": "List of Token Identifiers submitted to draw the quantity to redeem from. This data type is defined at implementation."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              },
+              {
+                "name": "Recipient",
+                "valueDescription": "Always null, empty or to a know account that has no owner."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "RedeemResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the fabricate request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

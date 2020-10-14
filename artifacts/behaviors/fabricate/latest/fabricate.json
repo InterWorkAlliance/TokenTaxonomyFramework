@@ -1,0 +1,164 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"76c6ebb0-8ab8-457b-b6e3-29c38102ed22",
+      "type": "BEHAVIOR",
+      "visual": "<i>f</i>",
+      "tooling": "f",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Fabricate",
+    "aliases": [
+      "Issue",
+      "Mint"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Unique tokens can be fabricated from a base tokenization capability present in the platform being used. Similar to minting or issuing of new token instances, tokens are given a type, which can be a simple string, and a quantity. The result will be a single token of some quantity of the type. You can fabricate multiple tokens in the same issue request to different new owners of the fabricated tokens.",
+      "businessExample": "Fabricated tokens have a type and quantity, like a check or IOU, a single token can represent a distinct quantity of a value identified by its type.",
+      "analogies": [
+        {
+          "name": "Writing a Check",
+          "description": "Like writing a check, the amount of the check is like the quantity on a token and the denomination is like the type of token.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"89ca6daf-5585-469e-abd1-19bc44e7a012",
+        "type": "BASE",
+        "visual": "&tau;<sub>F</sub>{<i>d</i>}",
+        "tooling": "tF{d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"8314a797-df3c-409b-835c-0e80af92714f",
+        "type": "BASE",
+        "visual": "&tau<sub>N</sub>{<i>d</i>}",
+        "tooling": "tN{d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"b1eacdf8-35d8-454a-b1af-92eb0b6f45d4",
+        "type": "BASE",
+        "visual": "&tau;<sub>F</sub>{<i>~d</i>}",
+        "tooling": "tF{~d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+        "type": "BASE",
+        "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+        "tooling": "tN{~d}",
+        "version": "1.0",
+        "templateValidated": true
+      }
+    ],
+    "influencedBySymbols": [
+      {
+        "description": "Roles is common to implement to provide authorization checks for invoking the behavior.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      },
+      {
+        "description": "If Compliance is present, a CheckMintAllowed request has to be made and verified before a Mint request or a MintTo request.",
+        "symbol": {
+          "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+          "type": "BEHAVIOR",
+          "visual": "<i>c</i>",
+          "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "fabricate.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "fabricate.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "FabToken Alpha",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/token/cmd/issue.go",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "39181196-12e0-4fd4-b8fa-4e965a6fef66",
+      "name": "Fabricate",
+      "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Can contain multiple issues to more than one new owner.",
+      "request": {
+        "controlMessageName": "FabricateRequest",
+        "description": "A list of Issue properties defining the new token Owner, Token Type and Quantity.",
+        "inputParameters": [
+          {
+            "name": "Issues",
+            "valueDescription": "A list of Issue properties with values for the new Token Owner, Type and Quantity."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "FabricateResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the fabricate request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "Issue",
+      "valueDescription": "Values for Owner, Type and Quantity for issuing a Fabricated token. This can be repeated",
+      "templateValue": "",
+      "propertyInvocations": [],
+      "properties":[
+        {
+          "name": "Owner Id",
+          "valueDescription": "identifies the owner that can transfer or redeem the new token."
+        },
+        {
+          "name":"TokenType",
+          "valueDescription": "Name or type name of the asset that the token represents."
+        },
+        {
+          "name": "Quantity",
+          "valueDescription": "Quantity of the type the token represents."
+        }
+      ]
+    }
+  ]
+}

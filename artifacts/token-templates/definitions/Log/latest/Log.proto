@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package logtoken;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "TTI.TTF.TokenTemplates.LogToken";
+option java_package = "org.tti.ttf.tokenTemplates.logToken";
+option java_multiple_files = true;
+
+message Constructor{
+    string role_name = 1;
+    int32 decimals = 2;
+}
+
+message CreateEntrySeriesRequest{
+    string series_name = 1;
+}
+
+message CreateEntrySeriesResponse{
+    string series_id = 1;
+}

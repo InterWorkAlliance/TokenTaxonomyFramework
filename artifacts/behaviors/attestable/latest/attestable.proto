@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package attestable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Attestable";
+option java_package = "org.iwa.ttf.behaviors.attestable";
+option java_multiple_files = true;
+
+message AttestRequest {
+    tokens.MessageHeader header = 1;
+    bytes attestation = 2;
+}
+
+message AttestResponse {
+    tokens.MessageHeader header = 1;
+    bool confirmation = 2;
+}
+
+//if Delegable present
+message AttestByAccountRequest {
+    tokens.MessageHeader header = 1;
+    string account_id = 2;
+}
+
+//if Delegable present
+message AttestByAccountResponse {
+    tokens.MessageHeader header = 1;
+    bool confirmation = 2;
+    bytes attestation = 3;
+}

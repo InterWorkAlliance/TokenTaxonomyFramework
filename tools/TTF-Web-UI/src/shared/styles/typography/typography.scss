@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,600,700&display=swap');
+
+html {
+    font-size: 10px;
+}
+
+* {
+    font-family: 'PTSans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $dark;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+h2 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+    color: $dark;
+}
+
+h3 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 500;
+    color: $dark;
+}
+
+h4 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: $dark;
+
+    &.bold {
+        font-weight: 700;
+    }
+}
+
+h5 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    color: $dark;
+}
+
+h6 {
+    font-family: 'PTSans', sans-serif;
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: 500;
+    color: $dark;
+}
+
+p,span {
+    color: $dark;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+input {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.p2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.p3 {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.regular {
+    font-weight: 400;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.semibold {
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 700;
+}

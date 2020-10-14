@@ -1,0 +1,705 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "16729af5-8bce-44d9-9d8f-986e69cd3bc8",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>F'</sub>{<i>d,t,m,r</i>}+&ph;EGO+&ph;GGPSC]",
+      "tooling": "[tF’{d,t,m,r}+phEGO+phGGPSC]",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "CET",
+    "aliases": [
+      "Carbon Emission Token"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This a reference token which represents a specified volume of metric tons of greenhouse gas (GHG) emissions. This token is fractional or divisible up to 8 decimal places. It is a unique token so that it may be issued in quantities of a fraction or numbers larger than 1. Meaning, if in the production of an item that a supplier creates generates 1.242 tons of carbon a token can be created with the same amount. The token has the Greenhouse Gas Protocol Scope and Category property set as well as the Carbon Emission Generator Object property set that allows the creator of the token to specify what item the carbon is related to, which is helpful for track and trace supply chain requirements.",
+      "businessExample": "CET tokens are useful for tracking carbon emissions within a supply chain as it allow for CETs to follow items through the supply chain between parties. This allows for carbon tracing for commodities and an enables accounting for total carbon emissions for finished goods to be calculated and traced to sources.",
+      "analogies": [
+        {
+          "name": "Carbon Emissions Token",
+          "description": "A token created by a supplier of goods that generates carbon emissions.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "CET.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "CET.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      },
+      {
+        "name": "Jason Pancis",
+        "organization": "Envision Blockchain"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "7983368b-9d1a-478c-85f5-688a1899b707",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "CET",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "3e05130c-969a-4dfc-abe6-c83fad98a4ec",
+      "type": "BASE",
+      "referenceNotes": "Decimals set to 8.",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "INFINITE",
+    "name": "CET",
+    "symbol": "CET",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 8,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Divisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to a number greater than Zero, allowing subdivision",
+          "templateValue": "8",
+          "propertyInvocations": [
+            {
+              "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
+              "name": "GetDecimals",
+              "description": "Return the value",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return number of decimal places",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "integer"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "name": "Transfer",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          }
+        },
+        {
+          "id": "516b4e2f-4a14-4c4f-a6f2-1419d4af35c6",
+          "name": "TransferFrom",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferFromRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferFromResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer from request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Mintable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Mintable.sol",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "3ddf15db-c919-4f72-a57b-d089931bc901",
+          "name": "Mint",
+          "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Minted tokens using this invocation will be owned by the owner or token pool account. Requires a Quantity field in the request.",
+          "request": {
+            "controlMessageName": "MintRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of new tokens to create."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "MintResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+              }
+            ]
+          }
+        },
+        {
+          "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+          "name": "MintTo",
+          "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+          "request": {
+            "controlMessageName": "MintToRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "ToAccount",
+                "valueDescription": "Account Id to mint the tokens to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of new tokens to create."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "MintToResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Minters Role",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin - Roles",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Roles.sol",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "00a665e3-1dda-441e-8262-5750435c153c",
+          "name": "RoleCheck",
+          "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+          "request": {
+            "controlMessageName": "IsInRole",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "AccountId of the requestor."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "True/False",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "IsInRole",
+                "valueDescription": "True/False"
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Minters",
+          "valueDescription": "A group or list an account can be a member or be in.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetRoleMembers",
+              "description": "Request the the list of member accounts in the role.",
+              "request": {
+                "controlMessageName": "GetRoleMembersRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetRoleMembersResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Members",
+                    "valueDescription": "Returning the list of accounts in the role."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+              "name": "AddRoleMember",
+              "description": "Add a member to the group or role property.",
+              "request": {
+                "controlMessageName": "AddRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be added to the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+              "name": "RemoveRoleMember",
+              "description": "Remove a member to the group or role property.",
+              "request": {
+                "controlMessageName": "RemoveRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+              "name": "IsInRole",
+              "description": "Check to see if an account is in the role.",
+              "request": {
+                "controlMessageName": "IsInRoleRequest",
+                "description": "The request may be internal only and not exposed externally.",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are checking membership of. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be checked."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "IsInRoleRequestResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "InRole",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "3e1e9bc1-0f99-4db7-9831-1eaa6f4f45cb",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Carbon Emission Generator Object",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "representationType": "UNIQUE",
+      "properties": [
+        {
+          "name": "EGOS",
+          "valueDescription": "Contains one or more EGO composite property.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetEGOS",
+              "description": "Request the list of the EGOS.",
+              "request": {
+                "controlMessageName": "GetEGOSRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetEGOSResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "EGOS",
+                    "valueDescription": "Returning the list of EGOS."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "",
+              "name": "AddSEGO",
+              "description": "Add a SEGO entry into the list of the Property, note if Roles should be applied to the Setter.",
+              "request": {
+                "controlMessageName": "AddSEGORequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "NewSEGO",
+                    "valueDescription": "The SEGO data element to add to the list."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddEGOResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the EGO of the set request."
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "EGO",
+              "valueDescription": "Contains one EGO property, of which there can potentially be many,",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": [
+                {
+                  "name": "OrgId",
+                  "valueDescription": "Id or name of the organization that created the EGO.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": []
+                },
+                {
+                  "name": "EGOId",
+                  "valueDescription": "Unique identifier for the object, can be a GUID/UUID or a DiD",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": []
+                },
+                {
+                  "name": "Description",
+                  "valueDescription": "Description of the EGO i.e. 'pallet of steel', etc.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "e5b66a04-3a2e-440e-8d02-e8b7a7db9b4b",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Greenhouse Gas Protocol Scope & Category",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "GGPSC",
+          "valueDescription": "Contains the reported emission scope and it's category from pick list, see ggbsc.proto.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetGGPSC",
+              "description": "Request the list of the GGPSC.",
+              "request": {
+                "controlMessageName": "GetGGPSCRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetGGPSCResponse",
+                "outputParameters": [
+                  {
+                    "name": "Scope",
+                    "valueDescription": "Returning the scope."
+                  },
+                  {
+                    "name": "Category",
+                    "valueDescription": "Returning category."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetGGBSC",
+              "description": "Add a SEGO entry into the list of the Property, note if Roles should be applied to the Setter. This property should validate that the category submitted is valid for the scope.",
+              "request": {
+                "controlMessageName": "SetGGBSCRequest",
+                "inputParameters": [
+                  {
+                    "name": "Scope",
+                    "valueDescription": "The Scope number for the emission."
+                  },
+                  {
+                    "name":"Category",
+                    "valueDescription": "The value description number from the pick list."
+                  }
+    
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetGGBSCResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the GGBSC of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "GGBSC",
+              "valueDescription": "Contains the SetGGBSC property values.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "Scope",
+                  "valueDescription": "1, 2 or 3.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Category",
+                  "valueDescription": "Picked from the category list for the scope.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "childTokens": []
+}

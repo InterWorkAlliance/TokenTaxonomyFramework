@@ -1,0 +1,187 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"9c8c2373-cf3c-4743-932a-03fee6a192fe",
+      "type": "BEHAVIOR",
+      "visual": "<i>l</i>",
+      "tooling": "l",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Logable",
+    "aliases": [
+      "Audit",
+      "Event Recorder"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will record log entries from its owner with a generic payload. These entries can be recorded stand alone and be given a unique identifier, EntryId, upon recording or these entries can be recorded in a series or group that will create a SeriesId and a EntryId, where all the entries will have a unique EntryId but have the same SeriesId. Log entries can be queried by their EntryId or you can request an entire series with the SeriesId. The last recorded entry can also be requested without an Id and you can also request entries from a starting point to a finish point. For example, you could request entries 100 through 125, which will return the entries starting at position 100 through 125 or the last entry recorded up to 125.",
+      "businessExample": "You may want to record certain actions like validations or external uses of a token or asset into a token log.",
+      "analogies": [
+        {
+          "name": "Media Use",
+          "description": "You may create a token for a video or song and want to log each time it is played or viewed.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Audit Log",
+          "description": "You may want to create a token for auditing external events, like a access control log that record what user access some resource. Access to the resource can be blocked if the log token is unable to record the access.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "Logable requires the log property-set for its data structure.  The invocations in this behavior control the property set.",
+        "symbol": {
+          "id":"eace6072-fd96-4b02-b7cf-56425c7af2b2",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>Log</i>",
+          "tooling": "phLog",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "logable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "logable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "dc7e0ec1-32f7-4930-9a8d-a9a29dc6c5c6",
+      "name": "CreateEntrySeries",
+      "description": "A request create a series of log entries.",
+      "request": {
+        "controlMessageName": "CreateEntrySeriesRequest",
+        "description": "When invoked, a seriesId should be generated.",
+        "inputParameters": []
+      },
+      "response": {
+        "controlMessageName": "CreateEntrySeriesResponse",
+        "description": "Return the generated seriesId",
+        "outputParameters": [
+          {
+            "name": "SeriesId",
+            "valueDescription": "A response containing a unique SeriesId that should be set for each entry's RecordEntryRequest message in the series."
+          }
+        ]
+      }
+    },
+    {
+      "id": "0f0f0983-1b14-479d-bcb6-18be7e19b313",
+      "name": "RecordEntry",
+      "description": "A request to record an log entry.",
+      "request": {
+        "controlMessageName": "RecordEntryRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "SeriesId",
+            "valueDescription": "The seriesId for the event. If blank a common series could be used like all zeros or a 1."
+          },
+          {
+            "name": "Entry",
+            "valueDescription": "Data to be logged like bytes or a string ."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "RecordEntryResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation of recording the entry including"
+          }
+        ]
+      }
+    },
+    {
+      "id": "00e91598-b162-47d7-8636-baac251e98e7",
+      "name": "GetEntry",
+      "description": "A request to retrieve a specific Entry by its unique identifier.",
+      "request": {
+        "controlMessageName": "GetEntryRequest",
+        "description": "Fetch a log entry by its entryId only.",
+        "inputParameters": [
+          {
+            "name": "Identifier",
+            "valueDescription": "Id of the Log Entry to retrieve."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "GetEntryResponse",
+        "description": "The matching entry response",
+        "outputParameters": [
+          {
+            "name": "Entry",
+            "valueDescription": "A response containing the specific log entry if found."
+          }
+        ]
+      }
+    },
+    {
+      "id": "589c478d-8852-4237-b559-6414e54ecbb2",
+      "name": "GetLastEntry",
+      "description": "A request to retrieve the last log entry needing no parameters.",
+      "request": {
+        "controlMessageName": "GetLastEntryRequest",
+        "description": "The request",
+        "inputParameters": []
+      },
+      "response": {
+        "controlMessageName": "GetLastEntryResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Entry",
+            "valueDescription": "Response containing the last log entry if it exists."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7af943cc-03ec-49c1-bed6-450ac624d8d3",
+      "name": "GetEntrySeries",
+      "description": "A request retrieve all the log entries for a particular series by SeriesId.",
+      "request": {
+        "controlMessageName": "GetEntrySeriesRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "SeriesId",
+            "valueDescription": "Id for the series to retrieve."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "GetEntrySeriesResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Entries",
+            "valueDescription": "A response containing a list of all the log entries for the requested SeriesId, if found."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

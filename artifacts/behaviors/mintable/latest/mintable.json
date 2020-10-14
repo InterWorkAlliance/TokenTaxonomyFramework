@@ -1,0 +1,154 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+      "type": "BEHAVIOR",
+      "visual": "<i>m</i>",
+      "tooling": "m",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Mintable",
+    "aliases": [
+      "Create"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will support the minting or issuing of new token instances in the class.  These new tokens can be minted and belong to the owner or minted to another account. This behavior may be invalidated by a restrictive behavior like Singleton, where only a single instance of the token can exist. Mintable is technically delegable, but it's delegation should be controlled by a behavior like Roles.",
+      "businessExample": "A consortium of oil producers needs to create tokens for each barrel of oil they are putting on the market to trade. There are separate classes of tokens for each grade of oil. Producers of barrels will need be have the ability to mint new tokens in order to facilitate the trading of them in the supply chain.",
+      "analogies": [
+        {
+          "name": "SKU",
+          "description": "A token class can represent a particular item SKU, where the manufacturer of the item has the ability to mint or issue new inventory of the SKU into the supply chain.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles is common to implement to provide authorization checks for invoking the behavior. Highly Recommended that Role restrictions be applied to MintTo invocations.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      },
+      {
+        "description": "If Compliance is present, a CheckMintAllowed request has to be made and verified before a Mint request or a MintTo request.",
+        "symbol": {
+          "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+          "type": "BEHAVIOR",
+          "visual": "<i>c</i>",
+          "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "mintable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "mintable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Mintable.sol",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Implementation 1",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "",
+          "maps": null
+        }
+      ],
+      "resources": [
+        {
+          "mappingType": "RESOURCE",
+          "name": "Regulation Reference 1",
+          "description": "",
+          "resourcePath": "",
+          "maps": null
+        }
+      ],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "3ddf15db-c919-4f72-a57b-d089931bc901",
+      "name": "Mint",
+      "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Minted tokens using this invocation will be owned by the owner or token pool account. Requires a Quantity field in the request.",
+      "request": {
+        "controlMessageName": "MintRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of new tokens to create."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "MintResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+          }
+        ]
+      }
+    },
+    {
+      "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+      "name": "MintTo",
+      "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+      "request": {
+        "controlMessageName": "MintToRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "ToAccount",
+            "valueDescription": "Account Id to mint the tokens to."
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of new tokens to create."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "MintToResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

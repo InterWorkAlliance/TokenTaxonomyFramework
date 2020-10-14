@@ -1,0 +1,257 @@
+{
+  "singleTokenGrammar": {
+    "groupStart": "[",
+    "baseTokenToolingSymbol": "",
+    "behaviors": {
+      "listStart": "{",
+      "behaviorToolingSymbols": [
+        "",
+        ""
+      ],
+      "listEnd": "}"
+    },
+    "propertySets": {
+      "listStart": "+",
+      "propertySets": [
+        {
+          "propertySetSymbol": ""
+        }
+      ]
+    },
+    "groupEnd": "]"
+  },
+  "hybridGrammar": {
+    "parent": {
+      "groupStart": "[",
+      "baseTokenToolingSymbol": "",
+      "behaviors": {
+        "listStart": "{",
+        "behaviorToolingSymbols": [
+          "",
+          ""
+        ],
+        "listEnd": "}"
+      },
+      "propertySets": {
+        "listStart": "+",
+        "propertySets": [
+          {
+            "propertySetSymbol": ""
+          }
+        ]
+      },
+      "groupEnd": "]"
+    },
+    "childrenStart": "(",
+    "childTokens": [
+      {
+        "groupStart": "[",
+        "baseTokenToolingSymbol": "",
+        "behaviors": {
+          "listStart": "{",
+          "behaviorToolingSymbols": [
+            "",
+            ""
+          ],
+          "listEnd": "}"
+        },
+        "propertySets": {
+          "listStart": "+",
+          "propertySets": [
+            {
+              "propertySetSymbol": ""
+            }
+          ]
+        },
+        "groupEnd": "]"
+      },
+      {
+        "groupStart": "[",
+        "baseTokenToolingSymbol": "",
+        "behaviors": {
+          "listStart": "{",
+          "behaviorToolingSymbols": [
+            "",
+            ""
+          ],
+          "listEnd": "}"
+        },
+        "propertySets": {
+          "listStart": "+",
+          "propertySets": [
+            {
+              "propertySetSymbol": ""
+            }
+          ]
+        },
+        "groupEnd": "]"
+      }
+    ],
+    "childrenEnd": ")"
+  },
+  "hybridWithHybridsGrammar": {
+    "parent": {
+      "groupStart": "[",
+      "baseTokenToolingSymbol": "",
+      "behaviors": {
+        "listStart": "{",
+        "behaviorToolingSymbols": [
+          "",
+          ""
+        ],
+        "listEnd": "}"
+      },
+      "propertySets": {
+        "listStart": "+",
+        "propertySets": [
+          {
+            "propertySetSymbol": ""
+          }
+        ]
+      },
+      "groupEnd": "]"
+    },
+    "hybridChildrenStart": "(",
+    "hybridChildTokens": [
+      {
+        "parent": {
+          "groupStart": "[",
+          "baseTokenToolingSymbol": "",
+          "behaviors": {
+            "listStart": "{",
+            "behaviorToolingSymbols": [
+              "",
+              ""
+            ],
+            "listEnd": "}"
+          },
+          "propertySets": {
+            "listStart": "+",
+            "propertySets": [
+              {
+                "propertySetSymbol": ""
+              }
+            ]
+          },
+          "groupEnd": "]"
+        },
+        "childrenStart": "(",
+        "childTokens": [
+          {
+            "groupStart": "[",
+            "baseTokenToolingSymbol": "",
+            "behaviors": {
+              "listStart": "{",
+              "behaviorToolingSymbols": [
+                "",
+                ""
+              ],
+              "listEnd": "}"
+            },
+            "propertySets": {
+              "listStart": "+",
+              "propertySets": [
+                {
+                  "propertySetSymbol": ""
+                }
+              ]
+            },
+            "groupEnd": "]"
+          },
+          {
+            "groupStart": "[",
+            "baseTokenToolingSymbol": "",
+            "behaviors": {
+              "listStart": "{",
+              "behaviorToolingSymbols": [
+                "",
+                ""
+              ],
+              "listEnd": "}"
+            },
+            "propertySets": {
+              "listStart": "+",
+              "propertySets": [
+                {
+                  "propertySetSymbol": ""
+                }
+              ]
+            },
+            "groupEnd": "]"
+          }
+        ],
+        "childrenEnd": ")"
+      },
+      {
+        "parent": {
+          "groupStart": "[",
+          "baseTokenToolingSymbol": "",
+          "behaviors": {
+            "listStart": "{",
+            "behaviorToolingSymbols": [
+              "",
+              ""
+            ],
+            "listEnd": "}"
+          },
+          "propertySets": {
+            "listStart": "+",
+            "propertySets": [
+              {
+                "propertySetSymbol": ""
+              }
+            ]
+          },
+          "groupEnd": "]"
+        },
+        "childrenStart": "(",
+        "childTokens": [
+          {
+            "groupStart": "[",
+            "baseTokenToolingSymbol": "",
+            "behaviors": {
+              "listStart": "{",
+              "behaviorToolingSymbols": [
+                "",
+                ""
+              ],
+              "listEnd": "}"
+            },
+            "propertySets": {
+              "listStart": "+",
+              "propertySets": [
+                {
+                  "propertySetSymbol": ""
+                }
+              ]
+            },
+            "groupEnd": "]"
+          },
+          {
+            "groupStart": "[",
+            "baseTokenToolingSymbol": "",
+            "behaviors": {
+              "listStart": "{",
+              "behaviorToolingSymbols": [
+                "",
+                ""
+              ],
+              "listEnd": "}"
+            },
+            "propertySets": {
+              "listStart": "+",
+              "propertySets": [
+                {
+                  "propertySetSymbol": ""
+                }
+              ]
+            },
+            "groupEnd": "]"
+          }
+        ],
+        "childrenEnd": ")"
+      }
+    ],
+    "hybridChildrenEnd": ")"
+  }
+}

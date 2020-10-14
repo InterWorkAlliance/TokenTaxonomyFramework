@@ -1,0 +1,145 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"803297a1-c0f9-4898-9d44-29c9d41cca97",
+      "type": "BEHAVIOR",
+      "visual": "<i>b</i>",
+      "tooling": "b",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Burnable",
+    "aliases": [
+      "Redeem",
+      "Retire"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will support the burning or decommissioning of token instances of the class. This does not delete a token, but rather places it in a permanent non-use state.  Burning is a one way operation and cannot be reversed. This behavior is Delegable. If the token definition is Delegable, BurnFrom will be available.",
+      "businessExample": "When a token is used in a certain way, you may want to remove it from circulation or from being used again. Since the ledger doesn't allow for deletions, burning a token essentially 'deletes' the token from being used, but not from history.",
+      "analogies": [
+        {
+          "name": "Oil Barrels",
+          "description": "If you mint a new token for each barrel of oil created, you may transfer ownership several times until the barrel is refined. The refining process should burn the barrel of oil to remove it from circulation.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Redeem",
+          "description": "A token that is a coupon or single use ticket, should be burned when it is redeemed.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Delegable or not, will determine if the BurnFrom Control will be available in the implementation.",
+        "symbol": {
+          "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+          "type": "BEHAVIOR",
+          "visual": "<i>g</i>",
+          "tooling": "g",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "If Compliance is present, a CheckBurnAllowed request has to be made and verified before a Burn request or a BurnFrom request.",
+        "symbol": {
+          "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+          "type": "BEHAVIOR",
+          "visual": "<i>c</i>",
+          "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "burnable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "burnable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Burnable.sol",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "f063dcaa-49f9-4c49-bf0f-2766301e1033",
+      "name": "Burn",
+      "description": "A request to burn a token instance(s) in the class by the owner of the token instance(s).  Optional Quantity field in the request.",
+      "request": {
+        "controlMessageName": "BurnRequest",
+        "description": "The request to Burn or Retire tokens.",
+        "inputParameters": [
+          {
+            "name": "Quantity",
+            "valueDescription": "The number of tokens to burn, might not apply to the implementation."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "BurnResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the burn request"
+          }
+        ],
+        "description": "The response from the request to burn."
+      }
+    },
+    {
+      "id": "49b53152-3360-426f-9e0a-24a0b4e7c881",
+      "name": "BurnFrom",
+      "description": "Requires Delegable. A request to burn token instance(s) in the class by a party or account that has allowance to do so.  Requires a From and Quantity fields in the request.",
+      "request": {
+        "controlMessageName": "BurnFromRequest",
+        "description": "The request to Burn or Retire tokens.",
+        "inputParameters": [
+          {
+            "name": "From",
+            "valueDescription": "AccountId from which tokens are burnt"
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "The number of tokens to burn, might not apply to the implementation."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "BurnFromResponse",
+        "description": "The response from the request to burn.",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the burn from request"
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

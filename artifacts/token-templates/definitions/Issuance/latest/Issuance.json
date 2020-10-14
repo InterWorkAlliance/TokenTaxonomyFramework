@@ -1,0 +1,339 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "8f50d7b5-c93d-4285-8d57-2e76e1713b52",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>F'</sub>{<i>~d,t,i</i>}",
+      "tooling": "tF'{~d,t,i}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Issuance",
+    "aliases": [
+      "Central Party Control",
+      "Token Issuance"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Whole Fungible Token with Fixed Supply, where a central party, the issuer, is the only one able to create/transfer/destroy tokens. Other parties can inspect (only their own) wallets, but may not transfer tokens directly; to do this they need to request the issuer to perform the action using a `RequestTokens` message. The issuer creates this token with an initial quantity that is fixed, and belong to the issuer. The issuer can then Authorize a wallet to hold tokens up to a maximum allowed amount. After a wallet is Authorized, it can request tokens from the issuer, who must then Approve the request that will then delegate/invoke transferable to transfer the tokens from the issuer's account to the authorized wallet.",
+      "businessExample": "Provide a business example...",
+      "analogies": [
+        {
+          "name": "Shares",
+          "description": "TBA: An analogy of shares...",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "Issuance.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "Issuance.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Digital Asset Token Issuance",
+          "platform": "DAML",
+          "referencePath": "https://github.com/digital-asset/ex-models/blob/master/issuertoken/daml/Main.daml",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Digital Asset Token Issuance",
+          "platform": "DAML",
+          "referencePath": "https://github.com/digital-asset/ex-models/tree/master/issuertoken",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "Daniel Feichtinger",
+        "organization": "Digital Asset"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "0928315c-31b3-4d6e-8154-35f2a0659491",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "Issuance",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "2d291501-4cca-43cf-8330-e2440e58d7df",
+      "type": "BASE",
+      "referenceNotes": "Unique Whole Fungible",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "CAPPED_VARIABLE",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-Subdividable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any subdivision, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": false,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "name": "Transfer",
+          "description": "Transfer is invoked directly by issuers or indirectly though AcceptTokenRequest and is hidden from external. A transfer request will invoke a transfer from the owner of the token to the wallet provided in the To field of the request. This request also includes a value in the Amount field of the request to transfer more than one token of the class in a single request. The transfer will fail if the recipient's wallet amount exceeds the wallet limit.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "2068a5fb-90eb-4084-b5f4-1e74485e5c02",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Issuable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Digital Asset Token Issuance",
+                "platform": "DAML",
+                "referencePath": "https://github.com/digital-asset/ex-models/blob/master/issuertoken/daml/Main.daml",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Digital Asset Token Issuance",
+                "platform": "DAML",
+                "referencePath": "https://github.com/digital-asset/ex-models/tree/master/issuertoken",
+                "maps": null
+              }
+            ],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "e070f88f-6fa4-4749-b417-9ffaeae7f583",
+          "name": "AuthorizeInvestor",
+          "description": "A request to create a wallet limited to MaxTokens that can then request the issued tokens.",
+          "request": {
+            "controlMessageName": "AuthorizeInvestorRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "AuthorizedAccountId",
+                "valueDescription": "The account being authorized to request issued tokens."
+              },
+              {
+                "name": "MaxTokens",
+                "valueDescription": "Maximum quantity of tokens the authorized account can request."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AuthorizeInvestorResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the authorization request."
+              }
+            ]
+          }
+        },
+        {
+          "id": "2bf89c22-4bd4-4f1b-ad21-1bba37de13b3",
+          "name": "RequestTokens",
+          "description": "A request to receive issued tokens from the Issuer in response to an authorization.",
+          "request": {
+            "controlMessageName": "RequestTokensRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of issued tokens requested."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "RequestTokensResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "RequestId",
+                "valueDescription": "A confirmation receipt in the form of a RequestId that is used by the Issuer to Accept the request, correlating the request with the authorization."
+              }
+            ]
+          }
+        },
+        {
+          "id": "6a5a549a-89d4-495c-b0da-02d2e4f8127b",
+          "name": "AcceptTokenRequest",
+          "description": "Once an AuthorizeInvestor is processed and the investor sends a RequestToken, this issuer of the token needs to AcceptTokenRequest to invoke the transfer method on the token.",
+          "request": {
+            "controlMessageName": "AcceptTokenRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "RequestId",
+                "valueDescription": "RequestId from the TokenRequest."
+              },
+              {
+                "name": "FromAccountId",
+                "valueDescription": "Account Id the TokenRequest came from."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of new tokens to issue."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AcceptTokenResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of accepting the request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

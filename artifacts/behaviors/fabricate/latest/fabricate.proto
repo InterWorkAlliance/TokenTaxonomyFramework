@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package fabricate;
+
+import "tokens.proto";
+option csharp_namespace = "IWA.TTF.Behaviors.Fabricate";
+option java_package = "org.iwa.ttf.behaviors.fabricate";
+option java_multiple_files = true;
+
+message FabricateRequest {
+    tokens.MessageHeader header = 1;
+    repeated Issue issues = 2;
+}
+
+message FabricateResponse{
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message Issue {
+    bytes owner = 1;
+    string token_type = 2;
+    string quantity = 3;
+}
+

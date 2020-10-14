@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package encumberable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Encumberable";
+option java_package = "org.iwa.ttf.behaviors.ecumberable";
+option java_multiple_files = true;
+
+message EncumberRequest {
+    tokens.MessageHeader header = 1;
+    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
+}
+
+message NotifyOwnerOfEncumberRequest{
+    tokens.MessageHeader Header = 1;
+    string encumber_id = 1;
+    string d_i_d = 3;
+}
+
+message EncumberResponse {
+    tokens.MessageHeader Header = 1;
+    tokens.TransactionConfirmation confirmations = 2;
+}
+
+message ApproveEncumberRequest {
+    tokens.MessageHeader header = 1;
+    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
+}
+
+message ApproveEncumberResponse {
+    tokens.MessageHeader Header = 1;
+    string encumber_id = 2;
+    tokens.TransactionConfirmation confirmations = 3;
+}
+
+message RemoveEncumberRequest {
+    tokens.MessageHeader header = 1;
+    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+    bytes signature = 3;
+}
+
+message RemoveEncumberResponse {
+    tokens.MessageHeader Header = 1;
+    tokens.TransactionConfirmation confirmations = 2;
+}
+
+
+message Encumbrances{
+    repeated Encumbered encumbered = 1;
+}
+
+//this is the property that a token with this behavior should have one or a repeated list of them.
+message Encumbered{
+    google.protobuf.timestamp timestamp = 1;
+    string encumber_id = 2;
+    string d_i_d = 3;
+    bytes signature = 4;
+    string hash_type = 5;
+}

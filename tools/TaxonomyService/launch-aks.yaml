@@ -1,0 +1,104 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ttf
+spec:
+  ports:
+  - port: 80
+    name: http
+    protocol: TCP
+    targetPort: 8080
+  - port: 8086
+    name: grpc
+    protocol: TCP
+    targetPort: 8086
+  selector:
+    app: ttf
+    version: v1
+  type: LoadBalancer
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ttf
+  labels:
+    deployment: 1.0.1
+    phase: develop
+spec:
+  containers:
+  - name: iwa-ttf-service
+    image: eeatcreg.azurecr.io/iwa/ttf/taxonomyservice:1.0.1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: artifacts
+    ports:
+    - containerPort: 8086
+    imagePullPolicy: Always
+    env:
+    - name: gRpcHost
+      value: "localhost"
+    - name: gRpcPort
+      value: "8086"
+    - name: artifactPath
+      value: "/mnt/azure/artifacts"
+  - name: iwa-ttf-envoy
+    image: eeatcreg.azurecr.io/iwa/ttf/envoy:1.0.1
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    ports:
+    - containerPort: 9808
+    imagePullPolicy: Always
+  - name: iwa-ttf-ui
+    image: eeatcreg.azurecr.io/iwa/ttf/ui:1.0.1
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    ports:
+    - containerPort: 8000
+    imagePullPolicy: Always
+  - name: iwa-ttf-printer
+    image: eeatcreg.azurecr.io/iwa/ttf/printer:1.0.1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: artifacts
+    ports:
+    - containerPort: 8088
+    imagePullPolicy: Always
+    env:
+    - name: taxonomyHost
+      value: "localhost"
+    - name: taxonomyPort
+      value: "8086"
+    - name: printerHost
+      value: "localhost"
+    - name: printerPort
+      value: "8088"
+    - name: artifactPath
+      value: "/mnt/azure/artifacts"
+  volumes:
+  - name: artifacts
+    persistentVolumeClaim:
+      claimName: azure-managed-disk

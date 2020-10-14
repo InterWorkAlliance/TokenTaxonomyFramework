@@ -1,0 +1,74 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tN{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Whole Non-Fungible Token",
+    "aliases": [
+      "Title",
+      "Deed",
+      "Art"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Every non-fungible token is unique, but the class of a non-fungible token may be of the same type. A class of non-fungible tokens can be used to represent many tokens that share the same properties, but have different values for them. Meaning a non-fungible token is not interchangeable with other tokens of the same class but can have some shared properties and values while also having unique property values between token instances in the class. These tokens are whole tokens and can have quantities greater than 1 and also could support variable supply.",
+      "businessExample": "CryptoKitties, Art, Reserved Seat for an event.",
+      "analogies": [
+        {
+          "name": "Property Title",
+          "description": "The physical property title, land for example, have the identical look and feel from the paper, colors and seal. The difference between them are the values like property address, plot numbers, etc. These values make the title unique. There are some properties on a class of titles that are the same, like the county or jurisdiction the property is in. For titles that have some shared values and unique values, it may make more sense to define them in the same class.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "An Artists Collection",
+          "description": "An artist may want to represent all their art in a single class of non-fungible tokens, where each token represents a unique piece of art what shared information about the artist between art works, but unique properties between tokens in the class.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Non-fungible tokens require additional thought about how these tokens may or may not be grouped together in the same class.",
+      "artifact": null
+    },
+    "dependencies": [
+      {        
+        "description": "Base Token Definition",
+        "symbol": {
+          "id":"5f5c4e7f-8ff1-4767-b59c-799d49753226",
+          "type": "BASE",
+          "visual": "&tau",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": true
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "maps": {}
+  },
+  "tokenType": "NON_FUNGIBLE",
+  "tokenUnit": "WHOLE",
+  "representationType": "COMMON",
+  "valueType": "INTRINSIC",
+  "supply": "FIXED",
+  "name": "",
+  "symbol": "",
+  "owner": "",
+  "quantity": 0,
+  "decimals": 0,
+  "tokenProperties": {},
+  "constructorName": "",
+  "constructor": null
+}

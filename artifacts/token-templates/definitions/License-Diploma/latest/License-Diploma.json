@@ -1,0 +1,373 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "49b6535a-430d-487b-8442-cf3457836ecc",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>N</sub>{<i>s,~t,a</i>}",
+      "tooling": "tN{s,~t,a}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "License-Diploma",
+    "aliases": [
+      "License",
+      "Diploma",
+      "Certification"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A singleton is a indivisible whole token with a quantity of 1. Generally used to represent digital or physical items where there will be a single owner. A singleton implies indivisible, so the decimal value for the base token should be 0 and a total Quantity be 1, both are established upon creation. This singleton is non-transferable and attestable.",
+      "businessExample": "A educational diploma issued to a student, is not valid to transfer to someone else.",
+      "analogies": [
+        {
+          "name": "Certification",
+          "description": "A person may obtain some certification to prove that they attended and passed some set of requirements.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "License",
+          "description": "A business may obtain license from the government to prove that they are registered and recognized.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "License-Diploma.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "License-Diploma.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "6fa235c7-d9d7-4fa2-b2b3-0e8e6838b770",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "License-Diploma",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "53101d87-3c93-4d8b-ab39-1e629406d062",
+      "type": "BASE",
+      "referenceNotes": "Singleton",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "REFERENCE",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "c1189d7a-e142-4504-bf26-44c35b76c9d6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Singleton",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Code 1",
+                "platform": "DAML",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Implementation 1",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "resources": [
+              {
+                "mappingType": "RESOURCE",
+                "name": "Regulation Reference 1",
+                "description": "",
+                "resourcePath": "",
+                "maps": null
+              }
+            ],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Indivisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Code 1",
+                "platform": "DAML",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Implementation 1",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "resources": [
+              {
+                "mappingType": "RESOURCE",
+                "name": "Regulation Reference 1",
+                "description": "",
+                "resourcePath": "",
+                "maps": null
+              }
+            ],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any division, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Code 1",
+                "platform": "DAML",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Implementation 1",
+                "platform": "CHAINCODE_GO",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "resources": [
+              {
+                "mappingType": "RESOURCE",
+                "name": "Regulation Reference 1",
+                "description": "",
+                "resourcePath": "",
+                "maps": null
+              }
+            ],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "189b1589-a93a-4aa6-8d9d-0d9237ab5b42",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Attestable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "f404f43f-c922-475d-9a0c-b4a0bdca6029",
+          "name": "Attest",
+          "description": "A request to validate a rule or attestation.",
+          "request": {
+            "controlMessageName": "AttestRequest",
+            "description": "The request to Attest an attestation.",
+            "inputParameters": [
+              {
+                "name": "Attestation",
+                "valueDescription": "Value of the attestation to validate"
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AttestResponse",
+            "description": "The response from the AttestRequest.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              }
+            ]
+          }
+        },
+        {
+          "id": "c573dc98-d669-4e24-a06d-70a7c1d29078",
+          "name": "AttestByAccount",
+          "description": "A request to validate a rule or attestation.",
+          "request": {
+            "controlMessageName": "AttestByAccountRequest",
+            "description": "The request to Attest by an account id.",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "The Id of the account to validate."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AttestByAccountResponse",
+            "description": "The response from the AttestByAccountRequest, if true can include a Attestation for the caller to use in subsequent attestation checks.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              },
+              {
+                "name": "Attestation",
+                "valueDescription": "A cryptographic signature that can be validated with AttestRequest."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

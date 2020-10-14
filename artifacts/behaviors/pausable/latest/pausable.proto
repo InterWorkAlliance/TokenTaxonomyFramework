@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package pausable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Burnable.Pausable";
+option java_package = "org.iwa.ttf.behaviors.burnable.pausable";
+option java_multiple_files = true;
+
+message PauseRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message PauseResponse {
+    tokens.MessageHeader Header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}
+
+message ResumeRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message ResumeResponse {
+    tokens.MessageHeader Header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}

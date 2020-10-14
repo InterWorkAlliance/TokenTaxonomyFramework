@@ -1,0 +1,1 @@
+# Fixed Supply Whole Fungible a TTF TokenTemplate

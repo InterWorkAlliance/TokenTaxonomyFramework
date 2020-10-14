@@ -1,0 +1,120 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "2e804da0-4903-49c2-8942-9c2b0ba38156",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>F'</sub>{<i>~d,f,u,r,e</i>}",
+      "tooling": "tF'{~d,f,u,r,e}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tF'{~d,f,u,r,e}",
+    "aliases": [
+      "FabToken",
+      "Loyalty",
+      "Whole Fungible"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Unique Whole Fungible Token with Variable Supply where supply is set when the tokens are fabricated and supply can be added to new owners and removed by owners by redeeming. It is Whole by setting the Decimals property on the dividable behavior = 0.",
+      "businessExample": "Loyalty points are a common use of this type of token. Representing a loyalty point using fractional amounts like `.081231` does not make sense, so a point is just that a single whole unit. Redemption of these is easy for users to understand using whole numbers. New points can be fabricated or issued based on customer activity and points can be removed when they are redeemed. This formula supports transferable points as well.",
+      "analogies": [
+        {
+          "name": "Airline Points",
+          "description": "A customer can earn a point for each mile travelled and then redeem these points for upgrades or new tickets. Points awarded for each flight can be fabricated in a single token issue for the customer.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tF'{~d,u,r,e}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tF'{~d,u,r,e}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"2d291501-4cca-43cf-8330-e2440e58d7df",
+      "type": "BASE",
+      "visual": "&tau;<sub>F'</sub>{<i>~d</i>}",
+      "tooling": "tF'{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+      "id":"76c6ebb0-8ab8-457b-b6e3-29c38102ed22",
+      "type": "BEHAVIOR",
+      "visual": "<i>f</i>",
+      "tooling": "f",
+      "version": "1.0",
+      "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"f324a190-2f17-454a-b5b3-e1bcc50ee2d2",
+        "type": "BEHAVIOR",
+        "visual": "<i>u</i>",
+        "tooling": "u",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior":{
+        "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "visual": "<i>r</i>",
+        "tooling": "r",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+      "id":"51a62eba-0e84-433a-a3f1-9b3e7f72d928",
+      "type": "BEHAVIOR",
+      "visual": "<i>e</i>",
+      "tooling": "e",
+      "version": "1.0",
+      "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

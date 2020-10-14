@@ -1,0 +1,305 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"91cb89b6-a2ce-44ff-b3a0-f0cb3f117e56",
+      "type": "BEHAVIOR_GROUP",
+      "visual": "<i>SC</i>",
+      "tooling": "SC",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Supply Control",
+    "aliases": [
+      "Central Bank"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will provide controls to increase and decrease supply of tokens within the class.  Additionally, it will include the ability to support a role, like Minters, that will be allowed to invoke the Mintable behavior. The owner can add accounts to the role and any account that is a member of the role will be able to mint tokens in the class.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Central Bank",
+          "description": "Implementing monetary policy for this token.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Define a Minters role and apply the role to the mintable behavior.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"c1189d7a-e142-4504-bf26-44c35b76c9d6",
+        "type": "BEHAVIOR",
+        "visual": "<i>s</i>",
+        "tooling": "s",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [
+      {
+        "description": "Create a Minters Role and apply it to the Mintable behavior to provide authorization checks for invoking the behavior.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "supply-control.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "supply-control.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Mintable in SupplyControl will be bound to the Roles behavior to determine if the requesting minter is allowed to invoke the behavior.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "isExternal": false,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id":"803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Burnable is not modified from the referenced behavior.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "isExternal": false,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Roles support requires that a role or group called 'Minters' be created that allows for account to be added. These accounts will be allowed to invoke MintTo.",
+        "values": null
+      },
+      "isExternal": false,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [
+        {
+          "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+          "type": "BEHAVIOR",
+          "visual": "<i>m</i>",
+          "tooling": "m",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      ],
+      "invocations": [],
+      "influenceBindings": [
+        {
+          "influencedId": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+          "influencedInvocationId": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "00a665e3-1dda-441e-8262-5750435c153c",
+            "name": "RoleCheck",
+            "description": "Check to see if the account is in the Role called 'Minters'",
+            "request": {
+              "controlMessageName": "IsInRole",
+              "description": "Checking the 'Minters' role.",
+              "inputParameters": [
+                {
+                  "name": "AccountId",
+                  "valueDescription": "AccountId of the requestor."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "True/False",
+              "description": "Respond true if the account is in the 'Minters' role.",
+              "outputParameters": [
+                {
+                  "name": "IsInRole",
+                  "valueDescription": "True/False"
+                }
+              ]
+            }
+          },
+          "influencedInvocation": {
+            "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+            "name": "MintTo",
+            "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+            "request": {
+              "controlMessageName": "MintToRequest",
+              "description": "The request",
+              "inputParameters": [
+                {
+                  "name": "ToAccount",
+                  "valueDescription": "Account Id to mint the tokens to."
+                },
+                {
+                  "name": "Quantity",
+                  "valueDescription": "Number of new tokens to create."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "MintToResponse",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "Confirmation",
+                  "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Role",
+          "valueDescription": "A group or list an account can be a member or be in.",
+          "templateValue": "Minters",
+          "propertyInvocations": [
+            {
+              "name": "GetMinters",
+              "description": "Request the the list of member accounts in the 'Minters' role.",
+              "request": {
+                "controlMessageName": "GetMintersRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetMintersResponse",
+                "outputParameters": [
+                  {
+                    "name": "Members",
+                    "valueDescription": "Returning the list of accounts in the 'Minters' role."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+              "name": "AddRoleMember",
+              "description": "Add a member to the group or role property.",
+              "request": {
+                "controlMessageName": "AddRoleMemberRequest",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Value is always set to 'Minters'"
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be added to the 'Minters' role."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddRoleMemberResponse",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+              "name": "RemoveRoleMember",
+              "description": "Remove a member to the group or role property.",
+              "request": {
+                "controlMessageName": "RemoveRoleMemberRequest",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Always set to 'Minters'"
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveRoleMemberResponse",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+              "name": "IsInRole",
+              "description": "Check to see if an account is in the role.",
+              "request": {
+                "controlMessageName": "IsInRoleRequest",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Always be bound to 'Minters'"
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be checked."
+                  }
+                ],
+                "description": "The request may be internal only and not exposed externally."
+              },
+              "response": {
+                "controlMessageName": "IsInRoleRequestResponse",
+                "outputParameters": [
+                  {
+                    "name": "InRole",
+                    "valueDescription": "True or False."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "behaviorArtifacts": {}
+}

@@ -1,0 +1,97 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+      "type": "BEHAVIOR",
+      "visual": "<i>~d</i>",
+      "tooling": "~d",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Indivisible",
+    "aliases": [
+      "Whole",
+      "Non-Subdividable"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "An ability or restriction on the token where it cannot be divided from a single whole token into fractions. Sets the base token Decimals property to 0 which will make the token indivisible and a whole token is the smallest ownable unit of the token.",
+      "businessExample": "Indivisible is common for items where division does not make sense, like a property title, inventory item or invoice.",
+      "analogies": [
+        {
+          "name": "Non-Fractional",
+          "description": "It is not possible to own a fraction of this token.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Barrel of Oil",
+          "description": "Barrels of Oil don't make sense to divide.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "indivisible.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "indivisible.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [],
+  "properties": [
+    {
+      "name": "Decimals",
+      "valueDescription": "Set to Zero, not allowing any division, usually this is applied to the base token.",
+      "templateValue": "0",
+      "propertyInvocations": [
+        {
+          "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+          "name": "GetDecimals",
+          "description": "Should return 0",
+          "request": {
+            "controlMessageName": "GetDecimalsRequest",
+            "description": "",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "GetDecimalsResponse",
+            "description": "Return 0",
+            "outputParameters": [
+              {
+                "name": "Decimals",
+                "valueDescription": "0"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

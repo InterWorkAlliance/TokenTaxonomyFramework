@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package nontransferable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Behaviors.Transferable";
+option java_package = "org.iwa.ttf.behaviors.transferable";
+option java_multiple_files = true;
+
+message Constructor{
+    bool delegable = 1;
+}
+
+message TransferRequest {
+    tokens.MessageHeader header = 1;
+    string token_id = 2;
+    string to_account_id = 3;
+    bytes quantity = 4;
+}
+
+message TransferResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}
+
+//if Delegable present
+message TransferFromRequest {
+    tokens.MessageHeader header = 1;
+    string token_id = 2;
+    string from_account_id = 3;
+    string to_account_id = 4;
+    bytes quantity = 5;
+}
+
+//if Delegable present
+message TransferFromResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}

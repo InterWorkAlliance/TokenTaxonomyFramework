@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package supplycontrol;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.BehaviorGroups.SupplyControl";
+option java_package = "org.iwa.ttf.behaviorGroups.supplyControl";
+option java_multiple_files = true;

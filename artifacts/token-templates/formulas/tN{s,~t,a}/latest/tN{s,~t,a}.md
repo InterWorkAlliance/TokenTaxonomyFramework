@@ -1,0 +1,1 @@
+# Singleton a TTF TokenTemplate

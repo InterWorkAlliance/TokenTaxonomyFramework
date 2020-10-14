@@ -1,0 +1,142 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"ee696ca3-393a-44e3-a4a8-01a39042f1dd",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>SKU</i>",
+      "tooling": "phSKU",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "SKU",
+    "aliases": [
+      "Item Number"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/sku/sku.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a SKU property or field with a Read/Query and Set control",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Retail",
+          "description": "SKU number for the item being inventoried which will apply to all tokens in this class.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the SKU Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "sku.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "sku.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Code 1",
+          "platform": "DAML",
+          "referencePath": "",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Implementation 1",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "",
+          "maps": null
+        }
+      ],
+      "resources": [
+        {
+          "mappingType": "RESOURCE",
+          "name": "Regulation Reference 1",
+          "description": "",
+          "resourcePath": "",
+          "maps": null
+        }
+      ],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "SKU",
+      "valueDescription": "Contains the SKU for the token.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetSKU",
+          "description": "Request the value of the SKU property",
+          "request": {
+            "controlMessageName": "GetSKURequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetSKUResponse",
+            "outputParameters": [
+              {
+                "name": "SKU",
+                "valueDescription": "Returning the value of the SKU."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetSKU",
+          "description": "Set the Value of the Property, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "SetSKURequest",
+            "inputParameters": [
+              {
+                "name": "New Value of Property",
+                "valueDescription": "The data to set the property to."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetSKUResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ]
+    }
+  ]
+}

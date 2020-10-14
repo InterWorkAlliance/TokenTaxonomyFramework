@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package issuable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Behaviors.Issuable";
+option java_package = "org.iwa.ttf.behaviors.issuable";
+option java_multiple_files = true;
+
+message TransferToRequest {
+    tokens.MessageHeader header = 1;
+    bytes quantity = 2;
+    string to_account_id = 3;
+}
+
+message TransferToResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

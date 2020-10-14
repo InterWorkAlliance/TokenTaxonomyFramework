@@ -1,0 +1,100 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"a3d02076-6009-4a65-9ed4-2deffe5291e1",
+      "type": "BEHAVIOR",
+      "visual": "<i>g</i>",
+      "tooling": "g",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Delegable",
+    "aliases": [
+      "Allow"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will support the delegation of certain behaviors to another party or account to invoke them on the behalf of the owner. When applied to a token, behaviors that are Delegable will enable delegated request invocations. This is useful to provide another party to automatically be able to perform the behaviors that can be delegated without seeking permission up to a certain allowance.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Broker",
+          "description": "You may allow a broker to transfer your tokens as a part of an investment strategy. Setting an allowance can cap the total number of tokens the broker is allowed to perform delegated behaviors, when exceeded a new allowance request will need to be granted.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Applied to behaviors that are Delegable.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "delegable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "delegable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
+      "name": "Allowance",
+      "description": "A Request by a party or account to the owner of a token(s) to have the right to perform a delegated behavior on their behalf.",
+      "request": {
+        "controlMessageName": "AllowanceRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of Tokens to be allowed."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "AllowanceResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or denial be returned to the allowance requestor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
+      "name": "Approve Allowance",
+      "description": "Same control message as the AllowanceRequest.  This could allow for an AllowanceRequest to be forwarded to multiple parties needed to Approve and shield this from the requestor. When all Approvals are obtained, an AllowanceResponse could be sent.",
+      "request": {
+        "controlMessageName": "AllowanceRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of Tokens to be allowed."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "ApproveResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation response from the owner approving the an allowance request, indicating a allowance quantity the requestor has the option to invoke the Delegable behaviors on the token(s)."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

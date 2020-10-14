@@ -1,0 +1,78 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"5f5c4e7f-8ff1-4767-b59c-799d49753226",
+      "type": "BASE",
+      "visual": "&tau",
+      "tooling": "t",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Base Token",
+    "artifactDefinition": {
+      "businessDescription": "All tokens will share a simple set of common properties and provide a base set of expectations when browsing a collection of tokens on a network and also must be provided when creating a new token class. All Tokens are Constructable, a behavior that is not formally defined, but implies that every Token has an ability to create or construct a clone of itself.  This behavior is active when a token is operating as a template and not a class and can receive a request to create a clone or token class of itself.  This control is generically called a constructor.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Raw Material",
+          "description": "Tokens are like printing plates or coin molds. These plates and molds are made from a type of metal, this base token is like the metal used to make molds or plates.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "incompatibleWithSymbols": [
+      {
+        "visual": "",
+        "tooling": ""
+      }
+    ],
+    "influencedBySymbols": [
+      {
+        "description": "Whether or not the token class will be divisible will influence the decimals value of this token. If it is non-divisible, the decimals value should be 0.",
+        "symbol": {
+          "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+          "type": "BEHAVIOR",
+          "visual": "<i>~d</i>",
+          "tooling": "~d",
+          "version": "",
+          "templateValidated": false
+        },
+        "appliesTo": []
+      },
+      {
+        "description": "Whether or not the token class will be divisible will influence the decimals value of this token. If it is divisible, the decimals value should be greater than 0.",
+        "symbol": {
+          "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+          "type": "BEHAVIOR",
+          "visual": "<i>d</i>",
+          "tooling": "d",
+          "version": "",
+          "templateValidated": false
+        },
+        "appliesTo": []
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tokens.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "non-fungible.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "tokenType": "FUNGIBLE",
+  "tokenUnit": "WHOLE",
+  "representationType": "COMMON",
+  "valueType": "INTRINSIC",
+  "supply": "INFINITE"
+}

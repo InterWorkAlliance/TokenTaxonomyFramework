@@ -1,0 +1,114 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"53101d87-3c93-4d8b-ab39-1e629406d062",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>s</i>}",
+      "tooling": "tN{s}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Singleton",
+    "aliases": [
+      "Unique Art",
+      "Unique Document",
+      "Unique Asset",
+      "One of a Kind"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A restriction on the token in that there can only be 1 whole token in the class and is not dividable. This behavior is only available to non-fungible base types.  By definition, a Singleton cannot be mintable.",
+      "businessExample": "A one of a kind that cannot logically be placed in a class of other non-fungible tokens, like an anonymous piece of Art or digital recording of an event like a concert.",
+      "analogies": [
+        {
+          "name": "Art",
+          "description": "The valuable painting or other unique piece of art that may not share any property values with other art work.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Non-fungible tokens require additional thought about how these tokens may or may not be grouped together in the same class.",
+      "artifact": null
+    },
+    "dependencies": [
+      {        
+        "description": "Base Token Definition",
+        "symbol": {
+          "id":"5f5c4e7f-8ff1-4767-b59c-799d49753226",
+          "type": "BASE",
+          "visual": "&tau",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": true
+        }
+      },
+      {
+        "description": "singleton",
+        "symbol": {
+            "id":"c1189d7a-e142-4504-bf26-44c35b76c9d6",
+            "type": "BEHAVIOR",
+            "visual": "<i>s</i>",
+            "tooling": "s",
+            "version": "1.0",
+            "templateValidated": false
+        }
+      },
+      {        
+        "description": "indivisible",
+        "symbol": {
+          "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+          "type": "BEHAVIOR",
+          "visual": "<i>~d</i>",
+          "tooling": "~d",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "",
+        "templateValidated": false
+      },
+      {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "singleton.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "singleton.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "tokenType": "NON_FUNGIBLE",
+  "tokenUnit": "SINGLETON",
+  "representationType": "COMMON",
+  "valueType": "INTRINSIC",
+  "supply": "FIXED",
+  "name": "",
+  "symbol": "",
+  "owner": "",
+  "quantity": 1,
+  "decimals": 0,
+  "tokenProperties": {},
+  "constructorName": "",
+  "constructor": null
+}

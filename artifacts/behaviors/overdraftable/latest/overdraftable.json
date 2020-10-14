@@ -1,0 +1,95 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"ac172597-8759-456a-b63b-0f5804c2c8aa",
+      "type": "BEHAVIOR",
+      "visual": "<i>o</i>",
+      "tooling": "o",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Overdraftable",
+    "aliases": [
+      "Not Bounce"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Overdraftable, to grant an overdraft credit limit to a wallet owner, who can then make transfers or create holds without the required (positive) balance. Available balances of these type of tokens can therefore become negative, and they can accrue interest over time that is chargeable by the issuing institution ",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Example1",
+          "description": "",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Highly recommended that Role restrictions be applied to Spawnable invocations, and should probably be internal only able to be invoked by the token itself.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "overdraftable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "overdraftable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {},
+    "contributors": [
+      {
+        "name": "Julio Faura",
+        "organization": "Adhara"
+      },
+      {
+        "name": "Daniel Lehrner",
+        "organization": "IO Builders"
+      }
+    ]
+  },
+  "invocations": [
+    {
+      "id": "3c4b2066-ce9a-4da8-829f-d4bd9e4f4bc9",
+      "name": "Spawn",
+      "description": "This invocation can be internal or hidden and would depend on the token itself to contain the overdraft to details. A request to overdraft a the creation of a certain number of tageted tokens to an account. ",
+      "request": {
+        "controlMessageName": "SpawnToRequest",
+        "description": "The request to Attest an attestation.",
+        "inputParameters": [
+          {
+            "name": "AccountId",
+            "valueDescription": "The account to overdraft to, spawning targets and amounts should be provided in the token implementation."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "SpawnToResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or denial be returned to the overdraft requestor."
+          }
+        ],
+        "description": "The response from the AttestRequest."
+      }
+    }
+  ],
+  "properties": []
+}

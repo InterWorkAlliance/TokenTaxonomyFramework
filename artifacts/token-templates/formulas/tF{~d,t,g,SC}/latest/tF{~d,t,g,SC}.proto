@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package Loyalty;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.TokenTemplates.Loyalty";
+option java_package = "org.iwa.ttf.TokenTemplates.Loyalty";
+option java_multiple_files = true;

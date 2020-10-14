@@ -1,0 +1,449 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "bdedbd5b-996c-460c-a749-fe999d907179",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>F</sub>{<i>~d,t,c</i>}",
+      "tooling": "tF{~d,t,c}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Bond",
+    "aliases": [
+      "Fixed Security",
+      "Fixed Supply Whole Fungible"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Fixed Supply Whole Fungible where the total supply is set at creation using the Quantity property of the Base token.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be burned.",
+      "businessExample": "Fixed denomination, fungible, transferable off-chain security.",
+      "analogies": [
+        {
+          "name": "Bond",
+          "description": "Fixed denomination, fungible, transferable off-chain security.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Note that the quantity for the base token will be the only tokens created. The first implementation of this token issued 100 tokens.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "Bond.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "Bond.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Banco Santander, first end-to-end blockchain issued and settled bond.",
+          "referencePath": "https://www.santander.com/csgs/Satellite/CFWCSancomQP01/en_GB/Corporate/Press-room/2019/09/12/Santander-launches-the-first-end-to-end-blockchain-bond.html",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "John Whelan",
+        "organization": "Santander Corporate & Investment Bank"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "600f754d-1e54-4b4b-8256-761d92896ed1",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "Bond",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "b1eacdf8-35d8-454a-b1af-92eb0b6f45d4",
+      "type": "BASE",
+      "referenceNotes": "",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "REFERENCE",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": 100,
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-Subdividable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any subdivision, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Bond Code",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "somewhere",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Banco Santander Bond",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "",
+                "maps": null
+              }
+            ],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "name": "Transfer",
+          "description": "A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          }
+        },
+        {
+          "id": "516b4e2f-4a14-4c4f-a6f2-1419d4af35c6",
+          "name": "TransferFrom",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferFromRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferFromResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer from request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Compliant",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [
+        {
+          "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+          "type": "BEHAVIOR",
+          "visual": "<i>t</i>",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      ],
+      "invocations": [
+        {
+          "id": "3f591127-0508-445b-b449-4adc3d8d90e9",
+          "name": "CheckTransferAllowed",
+          "description": "Checks if the transfer request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckTransferAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckTransferAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the transfer is allowed and false means it is not."
+              }
+            ]
+          }
+        },
+        {
+          "id": "0323b374-71af-48f6-93ff-2a63366267db",
+          "name": "CheckMintAllowed",
+          "description": "Checks if the mint request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckMintAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "ToAccount",
+                "valueDescription": "Account Id to mint the tokens to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckMintAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the minting request is allowed and false means it is not."
+              }
+            ]
+          }
+        },
+        {
+          "id": "8edffc4d-d14e-4a98-8c96-338835d5534c",
+          "name": "CheckBurnAllowed",
+          "description": "Checks if the burn request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckBurnAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckMintAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the burn request is allowed and false means it is not."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [
+        {
+          "influencedId": "af119e58-6d84-4ca6-9656-75e8d312f038",
+          "influencedInvocationId": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "influenceType": "INTERCEPT",
+          "influencingInvocation": {
+            "id": "3f591127-0508-445b-b449-4adc3d8d90e9",
+            "name": "CheckTransferAllowed",
+            "description": "Check to see if the account has been whitelisted and KYC'd, by the custodian.",
+            "request": {
+              "controlMessageName": "CheckTransferAllowedRequest",
+              "description": "Checking the whitelist.",
+              "inputParameters": [
+                {
+                  "name": "From",
+                  "valueDescription": "AccountId to transfer ownership from."
+                },
+                {
+                  "name": "To",
+                  "valueDescription": "AccountId to transfer ownership to."
+                },
+                {
+                  "name": "Quantity",
+                  "valueDescription": "Number of tokens to transfer."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "CheckTransferAllowedResponse",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "Result",
+                  "valueDescription": "A boolean value whereas true means the transfer is allowed and false means it is not."
+                }
+              ]
+            }
+          },
+          "influencedInvocation": {
+            "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+            "name": "Transfer",
+            "description": "A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+            "request": {
+              "controlMessageName": "TransferRequest",
+              "description": "The request",
+              "inputParameters": [
+                {
+                  "name": "To",
+                  "valueDescription": "AccountId to transfer ownership to."
+                },
+                {
+                  "name": "Quantity",
+                  "valueDescription": "Number of tokens to transfer."
+                }
+              ]
+            },
+            "response": {
+              "controlMessageName": "TransferResponse",
+              "description": "The response",
+              "outputParameters": [
+                {
+                  "name": "Confirmation",
+                  "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

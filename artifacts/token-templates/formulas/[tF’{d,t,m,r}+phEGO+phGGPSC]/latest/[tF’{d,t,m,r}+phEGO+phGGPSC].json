@@ -1,0 +1,129 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "7983368b-9d1a-478c-85f5-688a1899b707",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "[&tau;<sub>F'</sub>{<i>d,t,m,r</i>}+&ph;EGO+&ph;GGPSC]",
+      "tooling": "[tF’{d,t,m,r}+phEGO+phGGPSC]",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "[tF’{d,t,m,r}+phEGO+phGGPSC]",
+    "aliases": [
+      "Infinite supply, Unique Fractional Fungible"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Infinite Supply Fractional Fungible.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be minted if the requesting party is in the minters role and it cannot be burned. This template contains the EGO and GGPSC property sets as well.",
+      "businessExample": "Typically used to represent an carbon emissions token.",
+      "analogies": [
+        {
+          "name": "Carbon Emissions Token",
+          "description": "A token created by a supplier of goods that generates carbon emissions.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "[tF’{d,t,m,r}+phEGO].proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "[tF’{d,t,m,r}+phEGO].md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"3e05130c-969a-4dfc-abe6-c83fad98a4ec",
+      "type": "BASE",
+      "visual": "&tau;<sub>F'</sub>{<i>d</i>}",
+      "tooling": "tF'{d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "visual": "<i>r</i>",
+        "tooling": "r",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "propertySet":{
+        "id":"3e1e9bc1-0f99-4db7-9831-1eaa6f4f45cb",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>EGO</i>",
+        "tooling": "phEGO",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "propertySet":{
+      "id":"e5b66a04-3a2e-440e-8d02-e8b7a7db9b4b",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>GGBSC</i>",
+      "tooling": "phGGBSC",
+      "version": "1.0",
+      "templateValidated": false
+    }
+  }
+  ],
+  "childTokens": []
+}

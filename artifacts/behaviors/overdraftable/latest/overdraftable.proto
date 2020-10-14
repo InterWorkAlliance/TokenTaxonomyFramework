@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package overdraftable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Overdraftable";
+option java_package = "org.iwa.ttf.behaviors.overdraftable";
+option java_multiple_files = true;
+
+message OverdraftToRequest {
+    tokens.MessageHeader header = 1;
+    string account_id = 2;
+}
+
+message OverdraftToResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}

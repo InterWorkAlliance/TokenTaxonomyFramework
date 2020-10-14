@@ -1,0 +1,148 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"79d40648-02ba-4055-b700-01dce32196ec",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>File</i>",
+      "tooling": "phFile",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "File",
+    "aliases": [
+      "Document",
+      "PDF",
+      "Digital Copy"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a file property or field with a Read/Query and Set control",
+      "businessExample": "Storing an authentic reference for a file, hash type, hash, uri path, etc. Can be used to detect file tampering when compared with the file from storage.",
+      "analogies": [
+        {
+          "name": "Cold Storage",
+          "description": "Placing a digital copy of an agreement, receipt, etc. in digital storage and store its tamper detection information and location in a token on the blockchain. ",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the File Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "file.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "file.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Code 1",
+          "platform": "DAML",
+          "referencePath": "",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Implementation 1",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "",
+          "maps": null
+        }
+      ],
+      "resources": [
+        {
+          "mappingType": "RESOURCE",
+          "name": "Regulation Reference 1",
+          "description": "",
+          "resourcePath": "",
+          "maps": null
+        }
+      ],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "File",
+      "valueDescription": "Contains the file for the token.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetFile",
+          "description": "Request the value of the File property",
+          "request": {
+            "controlMessageName": "GetFileRequest",
+            "inputParameters": [
+              {
+                "name": "File",
+                "valueDescription": "File object or variables for the property proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetFileResponse",
+            "outputParameters": [
+              {
+                "name": "File",
+                "valueDescription": "Returning the value of the File."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetFile",
+          "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "SetFileRequest",
+            "inputParameters": [
+              {
+                "name": "File",
+                "valueDescription": "The File property proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetFileResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ]
+    }
+  ]
+}

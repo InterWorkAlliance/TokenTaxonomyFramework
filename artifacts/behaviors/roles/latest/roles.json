@@ -1,0 +1,207 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+      "type": "BEHAVIOR",
+      "visual": "<i>r</i>",
+      "tooling": "r",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Roles",
+    "aliases": [
+      "Groups"
+    ],
+    "controlUri": "../../../../../../artifacts/behaviors/roles/roles.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token can have behaviors that the class will restrict invocations to a select set of parties or accounts that are members of a role or group.  This is a generic behavior that can apply to a token many times to represent many role definitions within the template. This behavior will allow you to define what role(s) to create and what behavior(s) to apply the role to in the TemplateDefinition.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Minters",
+          "description": "A role called 'Minters' for a token can have accounts in the role. The MintTo behavior invocation will be bound to the role check to ensure only account in the 'Minters' role are allowed to mint new instances in the class.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Roles has a constructor control that creates roles and applies them to certain behaviors of the token at creation of the class from the template.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "roles.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "roles.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin - Roles",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Roles.sol",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    
+    }
+  },
+  "isExternal": true,
+  "constructorType": "RoleName",
+  "constructor": null,
+  "invocations": [
+    {
+      "id": "00a665e3-1dda-441e-8262-5750435c153c",
+      "name": "RoleCheck",
+      "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+      "request": {
+        "controlMessageName": "IsInRole",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "AccountId",
+            "valueDescription": "AccountId of the requestor."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "True/False",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "IsInRole",
+            "valueDescription": "True/False"
+          }
+        ]
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "Role",
+      "valueDescription": "A group or list an account can be a member or be in.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "",
+          "name": "GetRoleMembers",
+          "description": "Request the the list of member accounts in the role.",
+          "request": {
+            "controlMessageName": "GetRoleMembersRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetRoleMembersResponse",
+            "outputParameters": [
+              {
+                "name": "Members",
+                "valueDescription": "Returning the list of accounts in the role."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+          "name": "AddRoleMember",
+          "description": "Add a member to the group or role property.",
+          "request": {
+            "controlMessageName": "AddRoleMemberRequest",
+            "inputParameters": [
+              {
+                "name": "RoleName",
+                "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+              },
+              {
+                "name": "AccountAddress",
+                "valueDescription": "Address, name or identifier of the account to be added to the role."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddRoleMemberResponse",
+            "outputParameters": [
+              {
+                "name": "Added",
+                "valueDescription": "True or False."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+          "name": "RemoveRoleMember",
+          "description": "Remove a member to the group or role property.",
+          "request": {
+            "controlMessageName": "RemoveRoleMemberRequest",
+            "inputParameters": [
+              {
+                "name": "RoleName",
+                "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+              },
+              {
+                "name": "AccountAddress",
+                "valueDescription": "Address, name or identifier of the account to be removed from the role."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "RemoveRoleMemberResponse",
+            "outputParameters": [
+              {
+                "name": "Added",
+                "valueDescription": "True or False."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+          "name": "IsInRole",
+          "description": "Check to see if an account is in the role.",
+          "request": {
+            "controlMessageName": "IsInRoleRequest",
+            "inputParameters": [
+              {
+                "name": "RoleName",
+                "valueDescription": "Name of the role you are checking membership of. Optional parameter if there is only one role."
+              },
+              {
+                "name": "AccountAddress",
+                "valueDescription": "Address, name or identifier of the account to be checked."
+              }
+            ],
+            "description": "The request may be internal only and not exposed externally."
+          },
+          "response": {
+            "controlMessageName": "IsInRoleRequestResponse",
+            "outputParameters": [
+              {
+                "name": "InRole",
+                "valueDescription": "True or False."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ]
+    }
+  ]
+}

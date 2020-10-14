@@ -1,0 +1,110 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"82b5d1c9-d457-447b-9069-59ca3d2abf04",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau<sub>N</sub><i>{~d,t,b,g}</i>",
+      "tooling": "tN{~d,t,b,g}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "tN{~d,t,b,g}",
+    "aliases": [
+      "Collectable",
+      "Fixed Series",
+      "Limited Edition"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Fixed Supply Non-Fungible where the total supply is set at creation using the Quantity property of the Base token. The tokens in this class will be of the same series, sharing those properties, but also have unique values like serial number. It is Whole by setting the Decimals property on the dividable behavior = 0. A token instance can be burned.",
+      "businessExample": "This token can be used to represent a limited edition item where only a certain quantity is issue, but each issue has a set of shared and unique properties within the class.",
+      "analogies": [
+        {
+          "name": "Collectors Item",
+          "description": "Limited edition Dungeon Master's Guide.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tN{~d,t,b,g}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tN{~d,t,b,g}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tN{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "visual": "<i>b</i>",
+        "tooling": "b",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "visual": "<i>g</i>",
+        "tooling": "g",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

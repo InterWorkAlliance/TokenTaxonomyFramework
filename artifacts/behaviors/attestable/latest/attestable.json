@@ -1,0 +1,104 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"189b1589-a93a-4aa6-8d9d-0d9237ab5b42",
+      "type": "BEHAVIOR",
+      "visual": "<i>a</i>",
+      "tooling": "a",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Attestable",
+    "aliases": [
+      "Provable"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will support a basic attestation request returning a true or false and if true it will return a cryptographic proof the requester may store for future validations. Attestable will accept a simple ownership query to validate that an account is the owner of the token or a attestation proof and validate it.",
+      "businessExample": "Certain tokens will want to prove something like ownership or validation of an issued proof from the token for applications wanting to check attestations.",
+      "analogies": [
+        {
+          "name": "Diploma",
+          "description": "Check to see if an account is the owner or holder of a diploma token. This can be done by the Account Id or a stored attestation issued by the Diploma Token.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "attestable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "attestable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "f404f43f-c922-475d-9a0c-b4a0bdca6029",
+      "name": "Attest",
+      "description": "A request to validate a rule or attestation.",
+      "request": {
+        "controlMessageName": "AttestRequest",
+        "description": "The request to Attest an attestation.",
+        "inputParameters": [
+          {
+            "name": "Attestation",
+            "valueDescription": "Value of the attestation to validate"
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "AttestResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A true or false result"
+          }
+        ],
+        "description": "The response from the AttestRequest."
+      }
+    },
+    {
+      "id": "c573dc98-d669-4e24-a06d-70a7c1d29078",
+      "name": "AttestByAccount",
+      "description": "A request to validate a rule or attestation.",
+      "request": {
+        "controlMessageName": "AttestByAccountRequest",
+        "description": "The request to Attest by an account id.",
+        "inputParameters": [
+          {
+            "name": "AccountId",
+            "valueDescription": "The Id of the account to validate."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "AttestByAccountResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A true or false result"
+          },
+          {
+            "name": "Attestation",
+            "valueDescription": "A cryptographic signature that can be validated with AttestRequest."
+          }
+        ],
+        "description": "The response from the AttestByAccountRequest, if true can include a Attestation for the caller to use in subsequent attestation checks."
+      }
+    }
+  ],
+  "properties": []
+}

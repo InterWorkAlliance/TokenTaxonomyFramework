@@ -1,0 +1,147 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"e5b66a04-3a2e-440e-8d02-e8b7a7db9b4b",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>GGBSC</i>",
+      "tooling": "phGGBSC",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Greenhouse Gas Protocol Scope & Category",
+    "aliases": [
+      "Carbon Scope & Category"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/ggbsc/ggbsc.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a Greenhouse Gas Scope and Category set for 1, 2 or 3 indicating if the emission is scoped to Direct (1), Indirect (2) or Indirect + Supply Chain (3) and within the Scope, the category, which varies in the scope.",
+      "businessExample": "When reporting GHG Emissions using the Greenhouse Gas Protocol, the emission must be categorized and placed in a scope and category.  Scope 1 emissions are directly generated from normal operations of an organization. Scope 2 are indirect emissions report and scope 3 are indirect including the supply chain of the reporting organization. Once the scope is selected, the category within the scope needs to set for the reported emission.",
+      "analogies": [
+        {
+          "name": "Scope 3, Category 9",
+          "description": "Downstream transportation and distribution.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the EGO Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "ggbsc.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "ggbsc.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "GGPSC",
+      "valueDescription": "Contains the reported emission scope and it's category from pick list, see ggbsc.proto.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetGGPSC",
+          "description": "Request the list of the GGPSC.",
+          "request": {
+            "controlMessageName": "GetGGPSCRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetGGPSCResponse",
+            "outputParameters": [
+              {
+                "name": "Scope",
+                "valueDescription": "Returning the scope."
+              },
+              {
+                "name": "Category",
+                "valueDescription": "Returning category."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetGGBSC",
+          "description": "Add a SEGO entry into the list of the Property, note if Roles should be applied to the Setter. This property should validate that the category submitted is valid for the scope.",
+          "request": {
+            "controlMessageName": "SetGGBSCRequest",
+            "inputParameters": [
+              {
+                "name": "Scope",
+                "valueDescription": "The Scope number for the emission."
+              },
+              {
+                "name":"Category",
+                "valueDescription": "The value description number from the pick list."
+              }
+
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetGGBSCResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the GGBSC of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GGBSC",
+          "valueDescription": "Contains the SetGGBSC property values.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Scope",
+              "valueDescription": "1, 2 or 3.",
+              "templateValue": ""
+            },
+            {
+              "name": "Category",
+              "valueDescription": "Picked from the category list for the scope.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+      "type": "BEHAVIOR",
+      "visual": "<i>~t</i>",
+      "tooling": "~t",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Non-transferable",
+    "aliases": [],
+    "artifactDefinition": {
+      "businessDescription": "Every token instance has an owner. The Non-transferable behavior prevents the owner of a token from changing.",
+      "businessExample": "A vote token, for a citizen in a public election would be non-transferable.",
+      "analogies": [
+        {
+          "name": "Diploma",
+          "description": "A diploma from an educational institution is not transferable to another party that can claim to have earned the diploma.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Airline Ticket",
+          "description": "Due to security restrictions at airports and airlines, tickets can only be used by the person they were issued to.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "non-transferable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "non-transferable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "isExternal": false,
+  "constructorType": "",
+  "constructor": null,
+  "invocations": [],
+  "properties": []
+}

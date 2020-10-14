@@ -1,0 +1,231 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "ce4b7adc-4741-4bf0-b03d-0af8c4c92746",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,t,s,e,b</i>}+&phi;File]",
+      "tooling": "[tN{~d,t,s,e,b}+phFile]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Document",
+    "aliases": [
+      "Document",
+      "File",
+      "Invoice",
+      "PDF"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Used to represent a document that may be a scanned or PDF printed document. It records the document hash to check for tampering, a file path to fetch the file from storage as well as the ability to be encumbered. Implements the File property-set.",
+      "businessExample": "For example: you may choose to create an invoice token from an invoice document.  You can then allow another token or contract representing a loan or proof of financing to encumber the document establishing a link between the two.",
+      "analogies": [
+        {
+          "name": "Scanned Document",
+          "description": "A scanned copy of a certificate, like a diploma or industry certification",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "Document.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "Document.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {},
+    "contributors": [
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "4c2730f5-dc5f-4949-87e3-71f3a6e6cae9",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "53101d87-3c93-4d8b-ab39-1e629406d062",
+      "type": "BASE",
+      "referenceNotes": "Singleton, non-fungible, quantity of 1 with 0 decimals",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "REFERENCE",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": 1,
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "c1189d7a-e142-4504-bf26-44c35b76c9d6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "singleton",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "indivisible",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any subdivision",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "transferable",
+        "values": null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "referenceNotes": "burnable",
+        "values":  null
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "dc8d5961-59e8-4a10-8b38-d9e99394d251",
+        "type": "BEHAVIOR",
+        "referenceNotes": "encumberable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "79d40648-02ba-4055-b700-01dce32196ec",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "file",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {}
+        }
+      },
+      "representationType": "UNIQUE",
+      "properties": []
+    }
+  ],
+  "childTokens": []
+}

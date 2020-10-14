@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package holdable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Holdable";
+option java_package = "org.iwa.ttf.behaviors.holdable";
+option java_multiple_files = true;
+
+message HoldRequest {
+    tokens.MessageHeader header = 1;
+    string operation_id = 2;
+    string to_account_id = 3;
+    string notary_account_id = 4;
+    bytes quantity = 5;
+    bytes time_to_expiration = 6;
+}
+
+message HoldResponse {
+    tokens.MessageHeader header = 1;
+    tokens.HoldConfirmation confirmation = 2;
+}
+
+//if Delegable present
+message HoldFromRequest {
+    tokens.MessageHeader header = 1;
+    string operation_id = 2;
+    string from_account_id = 3;
+    string to_account_id = 4;
+    string notary_account_id = 5;
+    bytes quantity = 6;
+    bytes time_to_expiration = 7;
+}
+
+//if Delegable present
+message HoldFromResponse {
+    tokens.MessageHeader header = 1;
+    tokens.HoldConfirmation confirmation = 2;
+}
+
+message ExecuteHoldRequest {
+    tokens.MessageHeader header = 1;
+    string operation_id = 2;
+    bytes quantity = 3;
+}
+
+message ExecuteHoldResponse {
+    tokens.MessageHeader header = 1;
+    tokens.ExecuteHoldConfirmation confirmation = 2;
+}
+
+message ReleaseHoldRequest {
+    tokens.MessageHeader header = 1;
+    string operation_id = 2;
+}
+
+message ReleaseHoldResponse {
+    tokens.MessageHeader header = 1;
+    tokens.ReleaseHoldConfirmation confirmation = 2;
+}

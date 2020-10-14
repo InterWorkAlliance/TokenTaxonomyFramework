@@ -1,0 +1,690 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "85a354d1-cc3a-4397-abc2-5a9c401c874e",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "&tau;<sub>F</sub>{<i>d,t,p,c,SC</i>}",
+      "tooling": "tF{d,t,p,c,SC}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "EThaler",
+    "aliases": [
+      "eThaler"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Token with Variable Supply Fungible where an initial supply can set at creation and then supply can be added and removed from the total based on need.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be burned or minted. Before executing transfer, burn or mint operation check if they are within the compliance regulations. Pausable for possible freezing of movement and all other operations because of discovered bugs or upgrade.",
+      "businessExample": "Enables the issuance of regulated electronic money by the central bank (mintable and burnable only by Central bank) and its practical usage in real financial applications.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "eThaler.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "eThaler.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": [
+      {
+        "name": "Vipin Bharathan",
+        "organization": "dlt.nyc"
+      },
+      {
+        "name": "Mani Pillai",
+        "organization": "SwapsHub"
+      }
+
+    ]
+  },
+  "formulaReference": {
+    "id": "1ed9e758-905b-4868-b615-ab3b2195e76a",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "eThaler",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "89ca6daf-5585-469e-abd1-19bc44e7a012",
+      "type": "BASE",
+      "referenceNotes": "",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "INFINITE",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Divisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to a number greater than Zero, allowing subdivision",
+          "templateValue": "4",
+          "propertyInvocations": [
+            {
+              "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
+              "name": "GetDecimals",
+              "description": "Return the value",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return number of decimal places",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "integer"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "name": "Transfer",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          }
+        },
+        {
+          "id": "516b4e2f-4a14-4c4f-a6f2-1419d4af35c6",
+          "name": "TransferFrom",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferFromRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferFromResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer from request."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "0fb5abae-c99e-4f34-90cf-62b6f3351b74",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Pausable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin ERC-20",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Pausable.sol",
+                "maps": null
+              },
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin ERC-751",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721Pausable.sol",
+                "maps": null
+              }
+            ],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
+          "name": "Pause",
+          "description": "A Request to pause behavior invocations that Pausable applies to.",
+          "request": {
+            "controlMessageName": "PauseRequest",
+            "description": "The request",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "PauseResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or denial be returned to the pause requestor."
+              }
+            ]
+          }
+        },
+        {
+          "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
+          "name": "Resume",
+          "description": "Resume normal operations.",
+          "request": {
+            "controlMessageName": "ResumeRequest",
+            "description": "The request",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "ResumeResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation response from the owner approving the an allowance request, indicating a allowance quantity the requestor has the option to invoke the Delegable behaviors on the token(s)."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Compliant",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "3f591127-0508-445b-b449-4adc3d8d90e9",
+          "name": "CheckTransferAllowed",
+          "description": "Checks if the transfer request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckTransferAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckTransferAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the transfer is allowed and false means it is not."
+              }
+            ]
+          }
+        },
+        {
+          "id": "0323b374-71af-48f6-93ff-2a63366267db",
+          "name": "CheckMintAllowed",
+          "description": "Checks if the mint request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckMintAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "ToAccount",
+                "valueDescription": "Account Id to mint the tokens to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckMintAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the minting request is allowed and false means it is not."
+              }
+            ]
+          }
+        },
+        {
+          "id": "8edffc4d-d14e-4a98-8c96-338835d5534c",
+          "name": "CheckBurnAllowed",
+          "description": "Checks if the burn request is allowed to be executed with the given parameters.",
+          "request": {
+            "controlMessageName": "CheckBurnAllowedRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "CheckBurnAllowedResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Result",
+                "valueDescription": "A boolean value whereas true means the burn request is allowed and false means it is not."
+              }
+            ]
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "reference": {
+        "id": "91cb89b6-a2ce-44ff-b3a0-f0cb3f117e56",
+        "type": "BEHAVIOR_GROUP",
+        "referenceNotes": "Supply Control",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "behaviorArtifacts": [
+        {
+          "reference": {
+            "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Mintable in SupplyControl will be bound to the Roles behavior to determine if the requesting minter is allowed to invoke the behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": [],
+              "maps": null
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "constructor": null,
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "803297a1-c0f9-4898-9d44-29c9d41cca97",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Burnable is not modified from the referenced behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": [],
+              "maps": null
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "constructor": null,
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Roles support requires that a role or group called 'Minters' be created that allows for account to be added. These accounts will be allowed to invoke MintTo.",
+            "values": null
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "constructor": null,
+          "appliesTo": [
+            {
+              "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "type": "BEHAVIOR",
+              "visual": "<i>m</i>",
+              "tooling": "m",
+              "version": "1.0",
+              "templateValidated": false
+            }
+          ],
+          "invocations": [],
+          "influenceBindings": [
+            {
+              "influencedId": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "influencedInvocationId": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+              "influenceType": "INTERCEPT",
+              "influencingInvocation": {
+                "id": "00a665e3-1dda-441e-8262-5750435c153c",
+                "name": "RoleCheck",
+                "description": "Check to see if the account is in the Role called 'Minters'",
+                "request": {
+                  "controlMessageName": "IsInRole",
+                  "description": "Checking the 'Minters' role.",
+                  "inputParameters": [
+                    {
+                      "name": "AccountId",
+                      "valueDescription": "AccountId of the requestor."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "True/False",
+                  "description": "Respond true if the account is in the 'Minters' role.",
+                  "outputParameters": [
+                    {
+                      "name": "IsInRole",
+                      "valueDescription": "True/False"
+                    }
+                  ]
+                }
+              },
+              "influencedInvocation": {
+                "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+                "name": "MintTo",
+                "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+                "request": {
+                  "controlMessageName": "MintToRequest",
+                  "description": "The request",
+                  "inputParameters": [
+                    {
+                      "name": "ToAccount",
+                      "valueDescription": "Account Id to mint the tokens to."
+                    },
+                    {
+                      "name": "Quantity",
+                      "valueDescription": "Number of new tokens to create."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "MintToResponse",
+                  "description": "The response",
+                  "outputParameters": [
+                    {
+                      "name": "Confirmation",
+                      "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "Role",
+              "valueDescription": "A group or list an account can be a member or be in.",
+              "templateValue": "Minters",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetMinters",
+                  "description": "Request the the list of member accounts in the 'Minters' role.",
+                  "request": {
+                    "controlMessageName": "GetMintersRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetMintersResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Members",
+                        "valueDescription": "Returning the list of accounts in the 'Minters' role."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+                  "name": "AddRoleMember",
+                  "description": "Add a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "AddRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Value is always set to 'Minters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be added to the 'Minters' role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "AddRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+                  "name": "RemoveRoleMember",
+                  "description": "Remove a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "RemoveRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always set to 'Minters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "RemoveRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+                  "name": "IsInRole",
+                  "description": "Check to see if an account is in the role.",
+                  "request": {
+                    "controlMessageName": "IsInRoleRequest",
+                    "description": "The request may be internal only and not exposed externally.",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always be bound to 'Minters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be checked."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "IsInRoleRequestResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "InRole",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  }
+                }
+              ],
+              "properties": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [],
+  "childTokens": []
+}

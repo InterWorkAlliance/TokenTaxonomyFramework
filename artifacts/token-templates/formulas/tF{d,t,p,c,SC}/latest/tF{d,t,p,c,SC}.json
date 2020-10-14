@@ -1,0 +1,112 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "1ed9e758-905b-4868-b615-ab3b2195e76a",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>F</sub>{<i>d,t,p,c,SC</i>}",
+      "tooling": "tF{d,t,p,c,SC}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tF{d,t,p,c,SC}",
+    "aliases": [
+      "eThaler"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Token with Variable Supply Fungible where an initial supply can set at creation and then supply can be added and removed from the total based on need.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be burned or minted. Before executing transfer, burn or mint operation check if they are within the compliance regulations. Pausable for possible freezing of movement and all other operations because of discovered bugs or upgrade.",
+      "businessExample": "Enables the issuance of regulated electronic money by the central bank (mintable and burnable only by Central bank) and its practical usage in real financial applications.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tF{d,t,p,c,SC}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tF{d,t,p,c,SC}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"89ca6daf-5585-469e-abd1-19bc44e7a012",
+      "type": "BASE",
+      "visual": "&tau;<sub>F</sub>{<i>d</i>}",
+      "tooling": "tF{d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {"behavior": {
+      "id":"0fb5abae-c99e-4f34-90cf-62b6f3351b74",
+      "type": "BEHAVIOR",
+      "visual": "<i>p</i>",
+      "tooling": "p",
+      "version": "1.0",
+      "templateValidated": false
+    }
+  },
+    {
+      "behavior": {
+        "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+        "type": "BEHAVIOR",
+        "visual": "<i>c</i>",
+        "tooling": "c",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "behaviorGroup":{
+        "id":"91cb89b6-a2ce-44ff-b3a0-f0cb3f117e56",
+        "type": "BEHAVIOR_GROUP",
+        "visual": "<i>SC</i>",
+        "tooling": "SC",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "propertySets": [],
+  "childTokens": []
+}

@@ -1,0 +1,152 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"f324a190-2f17-454a-b5b3-e1bcc50ee2d2",
+      "type": "BEHAVIOR",
+      "visual": "<i>u</i>",
+      "tooling": "u",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Unique-Transferable",
+    "aliases": [],
+    "artifactDefinition": {
+      "businessDescription": "The unique transferable behavior provides the owner the ability to transfer the ownership to another party or account of one or more unique tokens owned. This behavior and does not transfer the tokens themselves. Rather, new tokens are created by the transfer transaction. Because this behavior works with unique tokens, the invocation request can take multiple tokens as inputs to be transferred. The quantity of the assets being transferred to the recipients of the transaction needs to be the same quantity as the input tokens. If you do not want to transfer the entire quantity of the asset represented by the token, you can transfer a portion of the asset and the transaction will automatically make you the owner of the remaining balance. Using the example above, if only spend 50 dollars of the 100 dollar token, the transfer transaction will automatically create a new token worth 50 dollars with you as the owner. All input tokens of the transaction need to be of the same type and the tokens being transferred need to belong to the transaction initiator and are unspent.",
+      "businessExample": "For example, if you own a token that is worth 100 dollars, you can spend 50 dollars using that token. The transfer transaction will create two new tokens as output. One token worth 50 dollars will belong to you, and another token worth 50 dollars will belong to the recipient.",
+      "analogies": [],
+      "comments": "This is for unique fungible and non-fungible tokens only.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "visual": "<i>~t</i>",
+        "tooling": "~t",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id":"89ca6daf-5585-469e-abd1-19bc44e7a012",
+        "type": "BASE",
+        "visual": "&tau;<sub>F</sub>{<i>d</i>}",
+        "tooling": "tF{d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"8314a797-df3c-409b-835c-0e80af92714f",
+        "type": "BASE",
+        "visual": "&tau<sub>N</sub>{<i>d</i>}",
+        "tooling": "tN{d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"b1eacdf8-35d8-454a-b1af-92eb0b6f45d4",
+        "type": "BASE",
+        "visual": "&tau;<sub>F</sub>{<i>~d</i>}",
+        "tooling": "tF{~d}",
+        "version": "1.0",
+        "templateValidated": true
+      },
+      {
+        "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+        "type": "BASE",
+        "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+        "tooling": "tN{~d}",
+        "version": "1.0",
+        "templateValidated": true
+      }
+    ],
+    "influencedBySymbols": [
+      {
+        "description": "If Compliance is present, a CheckTransferAllowed request has to be made and verified before a Transfer request or a TransferFrom request.",
+        "symbol": {
+          "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+          "type": "BEHAVIOR",
+          "visual": "<i>c</i>",
+          "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "If issuable is present, an AcceptTokenRequest from the token issuer, in response to a RequestTokens, has to be made and verified before a Transfer request.",
+        "symbol": {
+          "id":"2068a5fb-90eb-4084-b5f4-1e74485e5c02",
+          "type": "BEHAVIOR",
+          "visual": "<i>i</i>",
+          "tooling": "i",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "uniqueTransferable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "unitqueTransferable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "FabCoin Alpha",
+          "platform": "CHAINCODE_GO",
+          "referencePath": "https://github.com/hyperledger/fabric/blob/v2.0.0-alpha/token/cmd/transfer.go",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "a1861aea-d2f3-47a9-bbfd-7c8ee3cf9070",
+      "name": "Transfer",
+      "description": "A transfer request will invoke a quantity transfer from tokens provided to the recipient as long as tokens being transferred need to belong to the transaction initiator and are unspent. Any remaining quantity will be returned as a new unspent quantity to the invoker/owner.",
+      "request": {
+        "controlMessageName": "TransferRequest",
+        "description": "The request includes an asset quantity to transfer to a recipient and a list of tokens that have quantities that equal or exceed the quantity to transfer. Any remaining balance will be deposited into a new token with the invoker as the owner.",
+        "inputParameters": [
+          {
+            "name": "TokenIds",
+            "valueDescription": "List of Token Identifiers submitted to draw the quantity to transfer from. This data type is defined at implementation."
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of tokens to transfer."
+          },
+          {
+            "name": "Recipient",
+            "valueDescription": "The Id to transfer ownership to."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "TransferResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

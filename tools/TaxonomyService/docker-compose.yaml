@@ -1,0 +1,36 @@
+version: "3.5"
+services:
+    ttf-taxonomy-service:
+        image: iwa/ttf/taxonomyservice
+        container_name: taxonomyService
+        volumes:
+            #for linux you need this
+         - ../../artifacts:/app/artifacts
+            #for windoze you need this
+        #    - ../../artifacts:c:/app/artifacts
+        environment:
+            - gRpcHost=taxonomyService
+            - gRpcPort=8086
+            - artifactPath=artifacts
+        ports:
+            - 8086:8086
+    ttf-printer:
+        image: iwa/ttf/printer
+        container_name: taxonomyPrinter
+        volumes:
+            #for linux you need this
+         - ../../artifacts:/app/artifacts
+            #for windoze you need this
+        #    - ../../artifacts:c:/app/artifacts
+        environment:
+            - taxonomyHost=taxonomyService
+            - taxonomyPort=8086
+            - printToPath=artifacts
+            - printerHost=taxonomyPrinter
+            - printerPort=8088
+        ports:
+            - 8088:8088
+        links:
+            - "ttf-taxonomy-service"
+        depends_on:
+            - "ttf-taxonomy-service"

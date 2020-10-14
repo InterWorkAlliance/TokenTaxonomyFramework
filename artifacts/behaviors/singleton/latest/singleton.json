@@ -1,0 +1,90 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"c1189d7a-e142-4504-bf26-44c35b76c9d6",
+      "type": "BEHAVIOR",
+      "visual": "<i>s</i>",
+      "tooling": "s",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Singleton",
+    "aliases": [
+      "Unique",
+      "One and Only"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A restriction on the token in that there can only be 1 whole token in the class and is not dividable. This behavior is only available to non-fungible base types.  By definition, a Singleton cannot be mintable.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Analogy 1",
+          "description": "singleton analogy 1 description",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "Singleton must be have a non-fungible base.",
+        "symbol": {
+          "id":"8314a797-df3c-409b-835c-0e80af92714f",
+          "type": "BASE",
+          "visual": "&tau<sub>N</sub>",
+          "tooling": "tN",
+          "version": "1.0",
+          "templateValidated": true
+        }
+      },
+      {
+        "description": "Singleton requires non-divisible.",
+        "symbol": {
+          "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+          "type": "BEHAVIOR",
+          "visual": "<i>~d</i>",
+          "tooling": "~d",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [
+      {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "singleton.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "singleton.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [],
+  "properties": []
+}

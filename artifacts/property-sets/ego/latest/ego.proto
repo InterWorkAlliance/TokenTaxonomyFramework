@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package ego;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.Ego";
+option java_package = "org.iwa.ttf.propertySets.ego";
+option java_multiple_files = true;
+
+//this is the data structure for the Carbon Emission Generator Object
+message EGO{
+    string org_id = 1; //Id of the organization that created the EGO
+    string ego_id = 2; //unique identifier for the object, can be a GUID/UUID or a DiD
+    string description = 3; //description of the EGO i.e. 'pallet of steel', etc.
+}
+
+//collection of EGO
+message EGOS{
+    repeated EGO ego = 1;
+}
+
+message GetEGOSRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetEGOSResponse {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message AddEGORequest {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message AddEGOResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

@@ -1,0 +1,113 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "89ff775c-27f1-494e-b31c-f3fb3a9527ac",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>N</sub>{<i>s,t</i>}",
+      "tooling": "tN{s,t}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tN{s,t}",
+    "aliases": [
+      "Singleton",
+      "One of a Kind",
+      "Original Art",
+      "CryptoKitty"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A singleton is a indivisible whole token with a quantity of 1. Generally used to represent digital or physical items where there will be a single owner. A singleton implies indivisible, so the decimal value for the base token should be 0 and a total Quantity be 1, both are established upon creation. This singleton is transferable",
+      "businessExample": "This token could be used to represent an original work of art like a painting.",
+      "analogies": [
+        {
+          "name": "Painting",
+          "description": "A token representing ownership of an original, single piece of art like a painting.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tN{s,t}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tN{s,t}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+ "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"53101d87-3c93-4d8b-ab39-1e629406d062",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>s</i>}",
+      "tooling": "tN{s}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"c1189d7a-e142-4504-bf26-44c35b76c9d6",
+        "type": "BEHAVIOR",
+        "visual": "<i>s</i>",
+        "tooling": "s",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package tokens;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "model/protos/core.proto";
+
+option csharp_namespace = "IWA.TTF.Base";
+option java_package = "org.iwa.ttf.base";
+option java_multiple_files = true;
+
+message MessageHeader {
+    string version = 1;
+    string request_id = 2;
+    google.protobuf.Any custom_message_header = 3;
+}
+
+message Token{
+    MessageHeader header = 1;
+    taxonomy.model.core.TokenTemplate token_template = 2;
+}
+
+message GetSymbolRequest {
+    MessageHeader header = 1;
+}
+
+message GetSymbolResponse {
+    MessageHeader header = 1;
+    string symbol = 2;
+}
+
+message GetNameRequest {
+    MessageHeader header = 1;
+}
+
+message GetNameResponse {
+    MessageHeader header = 1;
+    string name = 2;
+}
+
+message GetTotalSupplyRequest {
+    MessageHeader header = 1;
+}
+
+message GetTotalSupplyResponse {
+    MessageHeader header = 1;
+    bytes total = 2;
+}
+
+message GetBalanceRequest {
+    MessageHeader header = 1;
+    string account_id = 2;
+}
+
+message GetBalanceResponse {
+    MessageHeader header = 1;
+    string account_id = 2;
+    bytes balance = 3;
+}
+
+message TransactionConfirmation {
+    string transaction_id = 1;
+}

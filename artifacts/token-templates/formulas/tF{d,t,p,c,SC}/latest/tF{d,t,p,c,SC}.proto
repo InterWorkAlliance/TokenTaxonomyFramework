@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package eThaler;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.TokenTemplates.eThaler";
+option java_package = "org.iwa.ttf.TokenTemplates.eThaler";
+option java_multiple_files = true;

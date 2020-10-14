@@ -1,0 +1,1 @@
+# Emoney a TTF TokenTemplate

@@ -1,0 +1,151 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+      "type": "BEHAVIOR",
+      "visual": "<i>t</i>",
+      "tooling": "t",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Transferable",
+    "aliases": [],
+    "artifactDefinition": {
+      "businessDescription": "Every token instance has an owner. The Transferable behavior provides the owner the ability to transfer the ownership to another party or account. This behavior is often inferred by other behaviors that might exist like Redeem, Sell, etc. This behavior is Delegable. If the token definition is Delegable, TransferFrom will be available.",
+      "businessExample": "",
+      "analogies": [
+        {
+          "name": "Analogy 1",
+          "description": "transferable analogy 1 description",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "visual": "<i>~t</i>",
+        "tooling": "~t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [
+      {
+        "description": "If the token is Delegable, TransferFrom should be enabled.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>g</i>",
+          "tooling": "g",
+          "version": ""
+        }
+      },
+      {
+        "description": "If Compliance is present, a CheckTransferAllowed request has to be made and verified before a Transfer request or a TransferFrom request.",
+        "symbol": {
+          "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+          "type": "BEHAVIOR",
+          "visual": "<i>c</i>",
+          "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "If issuable is present, an AcceptTokenRequest from the token issuer, in response to a RequestTokens, has to be made and verified before a Transfer request.",
+        "symbol": {
+          "id":"2068a5fb-90eb-4084-b5f4-1e74485e5c02",
+          "type": "BEHAVIOR",
+          "visual": "<i>i</i>",
+          "tooling": "i",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "transferable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "transferable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+      "name": "Transfer",
+      "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+      "request": {
+        "controlMessageName": "TransferRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "To",
+            "valueDescription": "AccountId to transfer ownership to."
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of tokens to transfer."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "TransferResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+          }
+        ]
+      }
+    },
+    {
+      "id": "516b4e2f-4a14-4c4f-a6f2-1419d4af35c6",
+      "name": "TransferFrom",
+      "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+      "request": {
+        "controlMessageName": "TransferFromRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "From",
+            "valueDescription": "AccountId to transfer ownership from."
+          },
+          {
+            "name": "To",
+            "valueDescription": "AccountId to transfer ownership to."
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of tokens to transfer."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "TransferFromResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer from request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

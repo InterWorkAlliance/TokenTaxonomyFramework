@@ -1,0 +1,82 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"8314a797-df3c-409b-835c-0e80af92714f",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>d</i>}",
+      "tooling": "tN{d}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Fractional Non-Fungible Token",
+    "aliases": [
+      "Time Share",
+      "Limited Membership"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Every non-fungible token is unique and some will need to allow for fractional ownership. A non-fungible token is not interchangeable with other tokens of the same class as they typically have different values.  A property title is a good example of a non-fungible token where the value of different real estate titles is not equal and freely exchanging them is a bad idea. Some Non-fungible tokens will need to be represented with their own class, meaning it will share no common properties with other tokens from the same template. Other non-fungible tokens can exist within the same class and have some shared property values while also having unique property values between instances.",
+      "businessExample": "Membership, Time Share vacation property.",
+      "analogies": [
+        {
+          "name": "Time Share",
+          "description": "The physical property title is split between multiple owners who each own a percentage of the title.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Fractional Non-fungible tokens require additional thought about how these tokens may or may not be grouped together in the same class.",
+      "artifact": null
+    },
+    "dependencies": [
+      {        
+        "description": "Base Token Definition",
+        "symbol": {
+          "id":"5f5c4e7f-8ff1-4767-b59c-799d49753226",
+          "type": "BASE",
+          "visual": "&tau",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": true
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [
+      {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "fractional-non-fungible.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "fractional-non-fungible.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "tokenType": "NON_FUNGIBLE",
+  "tokenUnit": "FRACTIONAL",
+  "representationType": "COMMON",
+  "valueType": "INTRINSIC",
+  "supply": "INFINITE",
+  "name": "",
+  "symbol": "",
+  "owner": "",
+  "quantity": 0,
+  "decimals": 0,
+  "tokenProperties": {},
+  "constructorName": "",
+  "constructor": null
+}

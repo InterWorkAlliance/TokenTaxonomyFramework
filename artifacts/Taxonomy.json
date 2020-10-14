@@ -1,0 +1,15 @@
+{
+  "version": {
+    "id": "e65ad766-ede1-428c-8e03-32110bfd9b44",
+    "version": "1.0",
+    "stateHash": ""
+  },
+  "baseTokenTypes": {},
+  "behaviors": {},
+  "behaviorGroups": {},
+  "propertySets": {},
+  "templateFormulas": {},
+  "templateDefinitions": {},
+  "tokenTemplateHierarchy": null,
+  "formulaGrammar": null
+}

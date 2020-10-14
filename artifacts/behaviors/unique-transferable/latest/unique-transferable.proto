@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package uniquetransferable;
+
+import "tokens.proto";
+option csharp_namespace = "IWA.TTF.Behaviors.UniqueTransferable";
+option java_package = "org.iwa.ttf.behaviors.uniqueTransferable";
+option java_multiple_files = true;
+
+message TransferRequest {
+    tokens.MessageHeader header = 1;
+    repeated string token_id = 2;
+    string to_account_id = 3;
+    string quantity = 4;
+}
+
+message TransferResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}
+

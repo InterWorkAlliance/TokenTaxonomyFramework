@@ -1,0 +1,123 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "a46301ea-5791-4a21-aa20-e3b6aeb53343",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>F</sub>{<i>d,t,g,h,c,SC</i>}",
+      "tooling": "tF{d,t,g,h,c,SC}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tF{d,t,g,h,c,SC}",
+    "aliases": [
+      "Emoney"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Token with Variable Supply Fungible where an initial supply can set at creation and then supply can be added and removed from the total based on need.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be burned or minted. Before executing transfer, burn or mint operation check it is checked if they are within the compliance regulations. A token can be put on hold to ensure future transfer.",
+      "businessExample": "Enables the issuance of regulated electronic money and its practical usage in real financial applications.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tF{d,t,g,h,c,SC}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tF{d,t,g,h,c,SC}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"89ca6daf-5585-469e-abd1-19bc44e7a012",
+      "type": "BASE",
+      "visual": "&tau;<sub>F</sub>{<i>d</i>}",
+      "tooling": "tF{d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "visual": "<i>g</i>",
+        "tooling": "g",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"9d137226-b7b0-4d3e-9e82-4d27d4227fba",
+        "type": "BEHAVIOR",
+        "visual": "<i>h</i>",
+        "tooling": "h",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+        "type": "BEHAVIOR",
+        "visual": "<i>c</i>",
+        "tooling": "c",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "behaviorGroup":{
+        "id":"91cb89b6-a2ce-44ff-b3a0-f0cb3f117e56",
+        "type": "BEHAVIOR_GROUP",
+        "visual": "<i>SC</i>",
+        "tooling": "SC",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "propertySets": [],
+  "childTokens": []
+}

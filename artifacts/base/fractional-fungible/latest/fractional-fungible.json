@@ -1,0 +1,88 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"89ca6daf-5585-469e-abd1-19bc44e7a012",
+      "type": "BASE",
+      "visual": "&tau;<sub>F</sub>{<i>d</i>}",
+      "tooling": "tF{d}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Fractional Fungible",
+    "aliases": [
+      "Liquid",
+      "Virtual Money",
+      "Balance Money"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Fractional Fungible tokens have interchangeable value with each other, where any owned sum of them from a class has the same value as another owned sum from the same class. Similar to physical cash money, a crypto currency is an example of a fungible token that is divisible.",
+      "businessExample": "Fiat currency is the most widely understood example of a fractional fungible item. A fractional fungible is divisible, so you can 'make change'.",
+      "analogies": [
+        {
+          "name": "Physical Money or Cash",
+          "description": "Cash, or fiat money, is freely accepted between parties and can have varying denominations. Money has a face value, on a coin or bill, and can be summed together to represent higher value.  It can be divided, making change, and consolidated from many smaller denominations to larger ones and still have the same value.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "General Admission Movie Ticket",
+          "description": "Purchasing a general admission ticket to a movie only allows for you to have a seat, but the seat that you actually get depends on factors like when you arrive.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "Base Token Definition",
+        "symbol": {
+          "id":"5f5c4e7f-8ff1-4767-b59c-799d49753226",
+          "type": "BASE",
+          "visual": "&tau",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": true
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [
+      {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "fractional-fungible.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "fractional-fungible.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "tokenType": "FUNGIBLE",
+  "tokenUnit": "FRACTIONAL",
+  "representationType": "COMMON",
+  "valueType": "INTRINSIC",
+  "supply": "INFINITE",
+  "name": "",
+  "symbol": "",
+  "owner": "",
+  "quantity": 0,
+  "decimals": 0,
+  "tokenProperties": {},
+  "constructorName": "",
+  "constructor": null
+}

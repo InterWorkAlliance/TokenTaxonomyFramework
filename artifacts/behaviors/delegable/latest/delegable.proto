@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package delegable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Burnable.Delegable";
+option java_package = "org.iwa.ttf.behaviors.burnable.delegable";
+option java_multiple_files = true;
+
+message ApproveResponse {
+    tokens.MessageHeader header = 1;
+    string spender_account_id = 2;
+    bytes amount = 3;
+    tokens.TransactionConfirmation confirmations = 4;
+}
+
+message AllowanceRequest {
+    tokens.MessageHeader Header = 1;
+    string owner_account_id = 2;
+    string spender_account_id = 3;
+}
+
+message AllowanceResponse {
+    tokens.MessageHeader Header = 1;
+    string owner_account_id = 2;
+    string spender_account_id = 3;
+    bytes remaining = 4;
+}

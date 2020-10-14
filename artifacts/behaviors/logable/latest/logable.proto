@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package loggable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Logable";
+option java_package = "org.iwa.ttf.behaviors.logable";
+option java_multiple_files = true;
+
+message Entry{
+    string series_id = 1;
+    string entry_id = 2;
+    bytes entry = 3;
+}
+
+message RecordEntryRequest {
+    tokens.MessageHeader header = 1;
+    Entry entry = 2;
+}
+
+message RecordEntryResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+    string entry_id = 3;
+}
+
+message GetEntryRequest {
+    tokens.MessageHeader header = 1;
+    string entry_id = 2;
+}
+
+message GetEntryResponse {
+    tokens.MessageHeader header = 1;
+    Entry entry = 2;
+}
+
+message GetEntriesRequest {
+    tokens.MessageHeader header = 1;
+    int32 log_position_from = 2; 
+    int32 log_position_to = 3;
+}
+
+message GetEntriesResponse {
+    tokens.MessageHeader header = 1;
+    repeated Entry entries = 2;
+}
+
+message GetLastEntryRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetLastEntryResponse {
+    tokens.MessageHeader header = 1;
+    Entry entry = 2;
+}
+
+message CreateEntrySeriesRequest {
+    tokens.MessageHeader header = 1;
+    Entry entry = 2; //you can pass an entry within the request to have it recorded as the first entry in the series.
+}
+
+message CreateEntrySeriesResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+    string series_id = 3;
+    string entry_id = 4; //will be empty unless an entry was passed with the request
+}
+
+message GetEntrySeriesRequest {
+    tokens.MessageHeader header = 1;
+    string series_id = 2;
+}
+
+message GetEntrySeriesResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+    repeated Entry entries = 3;
+}

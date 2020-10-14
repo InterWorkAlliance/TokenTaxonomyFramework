@@ -1,0 +1,180 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"2068a5fb-90eb-4084-b5f4-1e74485e5c02",
+      "type": "BEHAVIOR",
+      "visual": "<i>i</i>",
+      "tooling": "i",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Issuable",
+    "aliases": [
+      "Central Party Control"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This token has a controlling a central party, the issuer, is the only one able to create/transfer/destroy tokens. Other parties can inspect (only their own) holdings, but may not transfer tokens; to do this they need to request the issuer to perform the action using a `RequestTokens` contract.",
+      "businessExample": "A private issued stock which is not listed on any exchange may require the owner's permission to sell shares issued to the seller.",
+      "analogies": [
+        {
+          "name": "Private Issue Share",
+          "description": "A private issue stock share...",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "AcceptTokenRequest delegates to transferable in the issuance process.",
+        "symbol": {
+          "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+          "type": "BEHAVIOR",
+          "visual": "<i>t</i>",
+          "tooling": "t",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles is common to implement to provide authorization checks for invoking the behavior. Highly Recommended that Role restrictions be applied to MintTo invocations.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "issuable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "issuable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Digital Asset Token Issuance",
+          "platform": "DAML",
+          "referencePath": "https://github.com/digital-asset/ex-models/blob/master/issuertoken/daml/Main.daml",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+        {
+          "mappingType": "IMPLEMENTATION",
+          "name": "Digital Asset Token Issuance",
+          "platform": "DAML",
+          "referencePath": "https://github.com/digital-asset/ex-models/tree/master/issuertoken",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "e070f88f-6fa4-4749-b417-9ffaeae7f583",
+      "name": "AuthorizeInvestor",
+      "description": "A request to issue tokens, up to the MaxTokens, to an account that can then request the issued tokens.",
+      "request": {
+        "controlMessageName": "AuthorizeInvestorRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "AuthorizedAccountId",
+            "valueDescription": "The account being authorized to request issued tokens."
+          },
+          {
+            "name": "MaxTokens",
+            "valueDescription": "Maximum quantity of tokens the authorized account can request."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "AuthorizeInvestorResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2bf89c22-4bd4-4f1b-ad21-1bba37de13b3",
+      "name": "RequestTokens",
+      "description": "A request to receive issued tokens from the Issuer in response to an authorization.",
+      "request": {
+        "controlMessageName": "RequestTokensRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of issued tokens requested."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "RequestTokensResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "RequestId",
+            "valueDescription": "A confirmation receipt in the form of a RequestId that is used by the Issuer to Accept the request, correlating the request with the authorization."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6a5a549a-89d4-495c-b0da-02d2e4f8127b",
+      "name": "AcceptTokenRequest",
+      "description": "Once an AuthorizeInvestor is processed and the investor sends a RequestToken, this issuer of the token needs to AcceptTokenRequest to invoke the transfer method on the token.",
+      "request": {
+        "controlMessageName": "AcceptTokenRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "RequestId",
+            "valueDescription": "RequestId from the TokenRequest."
+          },
+          {
+            "name": "FromAccountId",
+            "valueDescription": "Account Id the TokenRequest came from."
+          },
+          {
+            "name": "Quantity",
+            "valueDescription": "Number of new tokens to issue."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "AcceptTokenResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

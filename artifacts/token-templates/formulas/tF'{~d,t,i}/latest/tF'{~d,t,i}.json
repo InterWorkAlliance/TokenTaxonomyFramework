@@ -1,0 +1,99 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "0928315c-31b3-4d6e-8154-35f2a0659491",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>F'</sub>{<i>~d,t,i</i>}",
+      "tooling": "tF'{~d,t,i}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tF'{~d,t,i}",
+    "aliases": [
+      "Central Party Control",
+      "Token Issuance"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Whole Fungible Token with Fixed Supply, where a central party, the issuer, is the only one able to create/transfer/destroy tokens. Other parties can inspect (only their own) holdings, but may not transfer tokens; to do this they need to request the issuer to perform the action using a `RequestTokens` message. The issuer creates this token with an initial quantity that is fixed, and belong to the issuer. The issuer can then Authorize an account or investor to request tokens up to a maximum allowed amount. After an account is Authorized, it can request tokens up to the amount from the issuer, who must then Approve the request that will then delegate/invoke transferable to transfer the tokens from the issuer's account to the authorized account.",
+      "businessExample": "Provide a business example...",
+      "analogies": [
+        {
+          "name": "Shares",
+          "description": "TBA: An analogy of shares...",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tF'{~d,t,i}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tF'{~d,t,i}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"2d291501-4cca-43cf-8330-e2440e58d7df",
+      "type": "BASE",
+      "visual": "&tau;<sub>F'</sub>{<i>~d</i>}",
+      "tooling": "tF'{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"2068a5fb-90eb-4084-b5f4-1e74485e5c02",
+        "type": "BEHAVIOR",
+        "visual": "<i>i</i>",
+        "tooling": "i",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

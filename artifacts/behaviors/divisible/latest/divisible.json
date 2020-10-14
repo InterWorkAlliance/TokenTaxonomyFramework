@@ -1,0 +1,88 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+      "type": "BEHAVIOR",
+      "visual": "<i>d</i>",
+      "tooling": "d",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Divisible",
+    "aliases": [
+      "Subdividable",
+      "Dividable"
+    ],
+    "controlUri": "../../../../../../artifacts/behaviors/divisible/divisible.proto",
+    "artifactDefinition": {
+      "businessDescription": "An ability for the token to be divided from a single whole token into fractions, which are represented as decimal places. Any value greater than 0 will indicate how many fractions are possible where the smallest fraction is also the smallest ownable unit of the token.",
+      "businessExample": "Divisible is common for crypto-currencies or tokens of fiat currency.  For example, the US Dollar is divisible to 2 decimal places, where a value like .42 is possible.  Bitcoin, is divisible up to 8 decimal places.",
+      "analogies": [
+        {
+          "name": "Analogy 1",
+          "description": "divisible analogy 1 description",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "divisible.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "divisible.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [],
+  "properties": [
+    {
+      "name": "Decimals",
+      "valueDescription": "Set to a number greater than Zero, allowing subdivision",
+      "templateValue": "0",
+      "propertyInvocations": [
+        {
+          "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
+          "name": "GetDecimals",
+          "description": "Return the value",
+          "request": {
+            "controlMessageName": "GetDecimalsRequest",
+            "description": "",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "GetDecimalsResponse",
+            "description": "Return number of decimal places",
+            "outputParameters": [
+              {
+                "name": "Decimals",
+                "valueDescription": "integer"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

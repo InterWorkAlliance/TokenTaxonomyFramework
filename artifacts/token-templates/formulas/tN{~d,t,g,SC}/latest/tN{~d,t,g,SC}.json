@@ -1,0 +1,125 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"38ead4b1-1f94-4bc3-8b1f-2d0dda0c72bb",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau<sub>N</sub><i>{~d,t,g,SC}</i>",
+      "tooling": "tN{~d,t,g,SC}",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "tN{~d,t,g,SC}",
+    "aliases": [
+      "Reserved Seating",
+      "Airline Ticket"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Variable Supply Whole Non-Fungible where the total supply can vary. The tokens in this class will be of the same series, sharing those properties, but also have unique values like seat number. It is Whole by setting the Decimals property on the dividable behavior = 0. A token instance can be burned.",
+      "businessExample": "This token can be used to represent a unique item in a shared context, like a reserved seat at a concert.",
+      "analogies": [
+        {
+          "name": "Reserved Seating",
+          "description": "All tokens in the class share the venue, date and time for the event, but have a unique seat number.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tN{~d,t,g,SC}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tN{~d,t,g,SC}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin - ERC-751",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721Full.sol",
+          "maps": null
+        }
+      ],
+      "implementationReferences": [
+          {
+            "mappingType": "IMPLEMENTATION",
+            "name": "Open Zeppelin - ERC-751",
+            "referencePath": "https://docs.openzeppelin.com/contracts/2.x/api/token/erc721#ERC721Full",
+            "maps": null
+          }
+      ],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tN{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "visual": "<i>g</i>",
+        "tooling": "g",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "behaviorGroup":{
+        "id":"91cb89b6-a2ce-44ff-b3a0-f0cb3f117e56",
+        "type": "BEHAVIOR_GROUP",
+        "visual": "<i>SC</i>",
+        "tooling": "SC",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "propertySets": [],
+  "childTokens": []
+}

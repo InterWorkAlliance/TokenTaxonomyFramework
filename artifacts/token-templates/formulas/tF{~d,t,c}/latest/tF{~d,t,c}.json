@@ -1,0 +1,99 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "600f754d-1e54-4b4b-8256-761d92896ed1",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "&tau;<sub>F</sub>{<i>~d,t,c</i>}",
+      "tooling": "tF{~d,t,c}",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "tF{~d,t,c}",
+    "aliases": [
+      "Fixed Security",
+      "Fixed Supply Whole Fungible"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Fixed Supply Whole Fungible where the total supply is set at creation using the Quantity property of the Base token.  It is fractional by setting the Decimals property on the dividable behavior. A token instance can be burned.",
+      "businessExample": "Fixed denomination, fungible, transferable off-chain security.",
+      "analogies": [
+        {
+          "name": "Bond",
+          "description": "Fixed denomination, fungible, transferable off-chain security.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "tF{d,t,b}.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "tF{d,t,b}.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"b1eacdf8-35d8-454a-b1af-92eb0b6f45d4",
+      "type": "BASE",
+      "visual": "&tau;<sub>F</sub>{<i>~d</i>}",
+      "tooling": "tF{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"03dd1c48-dfdb-4ec1-86c8-69c3abac76b7",
+        "type": "BEHAVIOR",
+        "visual": "<i>c</i>",
+        "tooling": "c",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [],
+  "childTokens": []
+}

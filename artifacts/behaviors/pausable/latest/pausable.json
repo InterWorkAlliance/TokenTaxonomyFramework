@@ -1,0 +1,122 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"0fb5abae-c99e-4f34-90cf-62b6f3351b74",
+      "type": "BEHAVIOR",
+      "visual": "<i>p</i>",
+      "tooling": "p",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Pausable",
+    "aliases": [
+      "freeze",
+      "halt trading"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "Pausable is an influencing behavior that can be applied to other behaviors in the Token. Pausable applies to a token class that implements this behavior; will halt trades and free all transfers, handy if there is a bug found in the token implementation.",
+      "businessExample": "There may be a run or a crash in the market that may require the halting of trades for this token. This is like the big red button.",
+      "analogies": [
+        {
+          "name": "Bug in Code",
+          "description": "You may discover a bug in your token implementation that requires you to halt the trading until you can fix the code.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles can influence who or what role can pause and resume a token.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "pausable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "pausable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin ERC-20",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Pausable.sol",
+          "maps": null
+        },
+        {
+          "mappingType": "SOURCE_CODE",
+          "name": "Open Zeppelin ERC-751",
+          "platform": "ETHEREUM_SOLIDITY",
+          "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721Pausable.sol",
+          "maps": null
+        }
+      ],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
+      "name": "Pause",
+      "description": "A Request to pause behavior invocations that Pausable applies to.",
+      "request": {
+        "controlMessageName": "PauseRequest",
+        "description": "The request",
+        "inputParameters": []
+      },
+      "response": {
+        "controlMessageName": "PauseResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or denial be returned to the pause requestor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
+      "name": "Resume",
+      "description": "Resume normal operations.",
+      "request": {
+        "controlMessageName": "ResumeRequest",
+        "description": "The request",
+        "inputParameters": []
+      },
+      "response": {
+        "controlMessageName": "ResumeResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation response from the owner approving the an allowance request, indicating a allowance quantity the requestor has the option to invoke the Delegable behaviors on the token(s)."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

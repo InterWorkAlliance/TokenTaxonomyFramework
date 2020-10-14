@@ -1,0 +1,144 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"3e1e9bc1-0f99-4db7-9831-1eaa6f4f45cb",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>EGO</i>",
+      "tooling": "phEGO",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Carbon Emission Generator Object",
+    "aliases": [
+      "Carbon Emission Object"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/ego/ego.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a Carbon Emission Generator Object (EGO) property or field with a Read/Query and Set control. A EGO property has multiple fields that are used to identify the object that the carbon emission is attributed to. This is useful when transferring or accounting for fractional CET in Category 3 emissions for supply chains to be attributed to a specific workload or asset transferring ownership. The property can contain multiple entries for tokens that represent composite objects that contain other EGO entries.",
+      "businessExample": "Items in a supply chain generate carbon related tokens upon their creation. A supplier may create a product 'foo' that generates an emission token that the supplier will link with the 'foo' product. When the 'foo' is delivered to the buyer, the carbon emission token is transferred along with it. If the buyer of 'foo' uses it to create another product called 'bar', which also creates a carbon emission token, this token can include the EGO for 'foo' as well as its EGO to be able to account for the total carbon emissions for 'bar'.",
+      "analogies": [
+        {
+          "name": "Track and Trace",
+          "description": "Supply chain track and trace for commodities and finished goods.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the EGO Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "ego.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "ego.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "UNIQUE",
+  "properties": [
+    {
+      "name": "EGOS",
+      "valueDescription": "Contains one or more EGO composite property.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetEGOS",
+          "description": "Request the list of the EGOS.",
+          "request": {
+            "controlMessageName": "GetEGOSRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetEGOSResponse",
+            "outputParameters": [
+              {
+                "name": "EGOS",
+                "valueDescription": "Returning the list of EGOS."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "AddSEGO",
+          "description": "Add a SEGO entry into the list of the Property, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "AddSEGORequest",
+            "inputParameters": [
+              {
+                "name": "NewSEGO",
+                "valueDescription": "The SEGO data element to add to the list."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddEGOResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the EGO of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EGO",
+          "valueDescription": "Contains one EGO property, of which there can potentially be many,",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "OrgId",
+              "valueDescription": "Id or name of the organization that created the EGO.",
+              "templateValue": ""
+            },
+            {
+              "name": "EGOId",
+              "valueDescription": "Unique identifier for the object, can be a GUID/UUID or a DiD",
+              "templateValue": ""
+            },
+            {
+              "name": "Description",
+              "valueDescription": "Description of the EGO i.e. 'pallet of steel', etc.",
+              "templateValue": ""
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}

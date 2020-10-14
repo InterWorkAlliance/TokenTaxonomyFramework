@@ -1,0 +1,24 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+    add_header Set-Cookie "BACKEND_HOST=$BACKEND_HOST";
+    add_header Set-Cookie "EDITABLE=$EDITABLE";
+
+    error_log /dev/stdout info;
+    access_log /dev/stdout;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    error_page  404              /index.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}

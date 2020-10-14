@@ -1,0 +1,179 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"dc8d5961-59e8-4a10-8b38-d9e99394d251",
+      "type": "BEHAVIOR",
+      "visual": "<i>e</i>",
+      "tooling": "e",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Encumberable",
+    "aliases": [
+      "Restricted",
+      "Supervised"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will have restrictions preventing certain behaviors like transferable, burnable, etc. from working while it is encumbered. The encumbering party should make a request to encumber, the owner should be notified about the request, and accept the request, which will finalize the encumbrance and send the EncumberResponse message to the requestor.",
+      "businessExample": "For example, a property title's owner may have obtained a loan from a bank to purchase the property. The loan represents a contract between the owner of the property and the bank, this loan encumbers the property title preventing the owner from being able to sell the property, transferable, to another party until the loan is paid off. Paying off the loan will remove the encumber, which will allow transferable to be invoked.",
+      "analogies": [
+        {
+          "name": "Loan",
+          "description": "A token can represent an asset that the owner took out a loan to obtain. If so, the token will need to be encumbered by the loan contract preventing the owner from selling the asset until the loan is repaid.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "The token definition should have a Encumbered property or structure that may allow only one encumber or allow multiple.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "encumberable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "encumberable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "bdc69e47-8320-4f54-8a03-0f54c376e113",
+      "name": "EncumberRequest",
+      "description": "A Request by a party or account, perhaps a contract or another token, to encumber the token.",
+      "request": {
+        "controlMessageName": "EncumberRequest",
+        "description": "The request",
+        "inputParameters": [
+          {
+            "name": "Name of Encumber",
+            "valueDescription": "Name of the institution requesting the encumber."
+          },
+          {
+            "name": "Identifier",
+            "valueDescription": "A public key or address for the requestor."
+          },
+          {
+            "name": "Signature",
+            "valueDescription": "A digital signature or attestation, optional."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "EncumberResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation response from the token for the encumber request."
+          }
+        ]
+      }
+    },
+    {
+      "id":"efd8bb57-4904-481e-976d-8a20a33df602",
+      "name": "AcceptEncumberRequest",
+      "description": "A Request by a party or account, perhaps a contract or another token, to encumber the token.  Once accepted, the token should add a new entry into the Encumbrances property.",
+      "request": {
+        "controlMessageName": "AcceptEncumberRequest",
+        "inputParameters": [],
+        "description": "The request"
+      },
+      "response": {
+        "controlMessageName": "AcceptEncumberResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation response returned to the owner of their acceptance."
+          }
+        ]
+      }
+    },
+    {
+      "id":"4532c466-bb6d-482a-b2cc-5285ba1f8259",
+      "name": "RemoveEncumberRequest",
+      "description": "A Request by encumbrancer, perhaps a contract or another token, to remove their encumber or lien from the token.  Which should remove any restrictions from behaviors if there are no more encumbers.  Only the owner of the encumber can remove their encumber.",
+      "request": {
+        "controlMessageName": "RemoveEncumberRequest",
+        "inputParameters": [],
+        "description": "The request"
+      },
+      "response": {
+        "controlMessageName": "RemoveEncumberResponse",
+        "description": "The response",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or denial be returned to the RemoveEncumber requestor."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "Encumbrances",
+      "valueDescription": "List of Encumbered",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "9e39bf6a-74dc-4ca1-a709-5db247aaa31b",
+          "name": "GetEncumbrancesRequest",
+          "description": "The property value.",
+          "request": {
+            "controlMessageName": "GetEncumbrancesRequest",
+            "inputParameters": [],
+            "description": ""
+          },
+          "response": {
+            "controlMessageName": "GetEncumbrancesResponse",
+            "outputParameters": [
+              {
+                "name": "Encumbrances",
+                "valueDescription": "List of Encumbered"
+              }
+            ],
+            "description": "Return value"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Encumbered",
+      "valueDescription": "True or False",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "f35cdfee-d2f4-4a01-bf9b-33774b5df241",
+          "name": "GetEncumberedRequest",
+          "description": "The property value.",
+          "request": {
+            "controlMessageName": "GetEncumberedRequest",
+            "description": "",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "GetEncumberedResponse",
+            "description": "Return value",
+            "outputParameters": [
+              {
+                "name": "Encumbered",
+                "valueDescription": "True or False"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

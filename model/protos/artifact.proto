@@ -1,0 +1,375 @@
+syntax = "proto3";
+
+package taxonomy.model.artifact;
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.Taxonomy.Model.Artifact";
+option java_package = "org.iwa.ttf.taxonomy.model.artifact";
+option java_multiple_files = true;
+
+//Token Templates can contain a single token definition or a hybrid, where they are nested tokens within the template.
+enum TemplateType{
+    SINGLE_TOKEN = 0;
+    HYBRID = 1;
+}
+
+//Fungible or Non-Fungible Token Base
+enum TokenType {
+    FUNGIBLE = 0;
+    NON_FUNGIBLE = 1;
+}
+
+//Tokens and Property Sets can have either a common representation, sometimes called account or balance tokens, or unique representation, or UTXO (unspent transaction output). This distinction might seem subtle but is important when considering how tokens can be traced and if they can have isolated and unique properties. A property set with a common representation type will share the property values for all tokens in the class, where a unique representation will allow for each instance to have its own value.
+enum RepresentationType {
+    COMMON = 0; //account or balance, non-fungible are always common
+    UNIQUE = 1; //UTXO
+}
+
+//Intrinsic or Reference indicates if the token itself is a value, like a crypto currency, or if it references a value elsewhere, like a property title.
+enum ValueType {
+    INTRINSIC = 0; //pure digital
+    REFERENCE = 1; //digital representation of value elsewhere
+}
+
+//Fractional, Whole or Singleton indicates if a token can be divided into smaller fractions, usually represented as decimals, or if there can be a quantity greater than 1. For example, a 1 dollar bill can sub-divided to 2 decimal places and can be broken into four .25 cent coins, or a number of different variation of coins, and is thus Fractional. Whole means no subdivision allowed, just whole numbers quantities, and a Singleton has a quantity of 1 with no subdivision.
+enum TokenUnit{
+    FRACTIONAL = 0; //Supports subdivision
+    WHOLE = 1;  //Not divisible
+    SINGLETON = 2; //Not divisible and quantity of 1
+}
+
+//Supply indicates how many token instances, usually counted as whole instances, a token class can have during its lifetime. 
+enum Supply{
+    FIXED = 0; //A token class that is fixed may issue an initial quantity upon creation, tokens cannot be removed or added to the supply.
+    CAPPED_VARIABLE = 1; //A capped-variable supply will allow for a maximum number of tokens to exist at any given time, with quantities added and removed within the quantity cap. 
+    GATED = 2; //A gated supply is common in crypto-currencies, where tranches of tokens are issued at certain points in time or events. A gated supply indicates up front the quantities in each tranche and when the tranche is issued that will represent the total quantity for the class, like a cap.
+    INFINITE = 3;  //Infinite supply indicates that tokens in the class can be created and removed with no cap and also potentially reflect negative supply for certain business cases.
+}
+
+//Available ArtifactTypes
+enum ArtifactType{
+    BASE = 0; 
+    BEHAVIOR = 1; 
+    BEHAVIOR_GROUP = 2;
+    PROPERTY_SET = 3;
+    TEMPLATE_FORMULA = 4;
+    TEMPLATE_DEFINITION = 5;
+    TOKEN_TEMPLATE = 6;
+}
+
+//Content type for included files in the artifact's folder.
+enum ArtifactContent {
+    DEFINITION = 0; //json serialized from proto
+    CONTROL = 1; //proto source
+    UML = 2; //md or other host UML
+    OTHER = 3; //any, pptx, docx, pdf
+}
+
+//A reference or mapping type to an extension.
+enum MappingType{
+    SOURCE_CODE = 0; //Source code for the artifact.
+    IMPLEMENTATION = 1; //Finish implementation or solution of the token specification.
+    RESOURCE = 2; //To an external informational source like a regulatory framework or related issue
+}
+
+//Target Platforms at the time of launch.
+enum TargetPlatform{
+    ETHEREUM_SOLIDITY = 0;
+    CHAINCODE_GO = 1;
+    CHAINCODE_JAVA = 2;
+    CHAINCODE_NODE = 3;
+    CORDA = 4;
+    DAML = 5;
+    OTHER_PLATFORM = 6; //Instead of adding to this list, this can catch all lanugages and platforms not present at launch.
+}
+
+//Classification uses these variable settings at runtime to determine what classification a token template or specification is in. These values are pulled from the TemplateFormula and TemplateDefintion.BaseToken
+message Classification{
+    TemplateType template_type = 1;
+    TokenType token_type = 2;
+    TokenUnit token_unit = 3;
+    RepresentationType representation_type = 4;
+    ValueType value_type = 5;
+    Supply supply = 6; 
+}
+
+//Applied to each artifact
+message ArtifactSymbol{
+    string id = 1; //Unique identifier GUID/UUID - should be generated when the artifact is created. Must be unique throughout the framework.
+    ArtifactType type = 2; //Artifact Type
+    string visual = 3; //Symbol for single artifact and formula for templates
+    string tooling = 4; //Symbol for single artifact and formula for templates
+    string version = 5; //For visualization, not guaranteed to be accurate.
+    bool template_validated = 6; //For templates only
+}
+
+//Contains artifact metadata structure
+message Artifact {
+    ArtifactSymbol artifact_symbol = 1; //Contains the unique identifier for the artifact.
+    string name = 2; //This is the display and folder name for the artifact
+    repeated string aliases = 3; //List other names this artifact is know by in other industry contexts.
+    ArtifactDefinition artifact_definition = 4; //Descriptive meta data about the artifact
+    repeated SymbolDependency dependencies = 5; //Typically used for a BehaviorGroups or Behaviors that have a dependency on other artifacts.
+    repeated ArtifactSymbol incompatible_with_symbols = 6; //For behaviors that have opposites, or if the base token, behavior or property-sets with conflicts.
+    repeated SymbolInfluence influenced_by_symbols = 7; //List know influences for behaviors that are primarly influence behaviors. Like Roles or Delegable.
+    string control_uri = 8; //Optional source code uri used for codegen tools
+    repeated ArtifactFile artifact_files = 9; //Includes proto, markdown or other files located in the artifact version folder.
+    Maps maps = 10; //Can be overriden by ArtifactReferenceValues loop through the files and read them in as bytes to produce a complete artifact object model instance.
+    repeated Contributor contributors = 11; //List of contributors to the artifact.
+}
+
+//Reference or mapping metadata.
+message ArtifactReferenceValues{
+    string control_uri = 1; //can be a URL, DID, etc.
+    repeated ArtifactFile artifact_files = 2; //Collection of files in the artifact's folder that can be looped through the files and read them in as bytes to produce a complete artifact object model instance.
+    Maps maps = 3; //For optional navigation.
+}
+
+//A reference to another artifact, either TemplateBranch to TemplateBranch, or ArtifactInstance to Artifact.
+message ArtifactReference{
+    string id = 1; //This is to another Artifact's ArtifactSymbol.Id
+    ArtifactType type = 2; //ArtifactType
+    string reference_notes = 3; //Notes about the reference.
+    ArtifactReferenceValues values = 4; //Values for this reference
+}
+
+//Reference to influencing artifact
+message SymbolInfluence{
+    string description = 1; //Describe how the symbol influences this artifact, like non-divisible or delegable.
+    ArtifactSymbol symbol = 2; //The ArtifactSymbol of the influencer.
+    repeated ArtifactSymbol applies_to = 3; //List of behaviors or property-sets that are influenced by this symbol.
+}
+
+//Artifact Contributor.
+message Contributor{
+    string name = 1; //Person's name
+    string organization = 2; //Member organization
+}
+
+//An artifact may have a dependency, if listed it will be validated and included in compositions.
+message SymbolDependency{
+    string description = 1; //Describe how the symbol influences this artifact, like non-divisible or delegable.
+    ArtifactSymbol symbol = 2; //Symbol of the dependency.
+}
+
+//The definition should contain non-technical descriptions of the artifact.
+message ArtifactDefinition{
+    string business_description = 1; //A description of the business use case.
+    string business_example = 2; //Provide an existing real world example.
+    repeated ArtifactAnalogy analogies = 3; //Provide analogies to add to the understanding of the artifact.
+    string comments = 4; //Should contain contextual information, debates or nuanced information.
+    Artifact artifact = 5; //Navigation to parent
+}
+
+//An analogy outside of blockchains and tokens of this artifact.
+message ArtifactAnalogy{
+    string name = 1; //Analogy name
+    string description = 2; //Descrive scenarios, etc.
+    ArtifactDefinition artifact_definition = 3; //Navigation to parent
+}
+
+//Artifact Files are files other than the serialized json that can include protos, markdown, etc.
+message ArtifactFile{
+    ArtifactContent content = 1; //Type of content in the file.
+    string file_name = 2; //File name
+    bytes file_data = 3; //An optional byte array of the file contents.
+    Artifact artifact = 4; //Navigation to parent
+}
+
+//Maps are references for an artifact.
+message Maps{
+    repeated MapReference code_references = 1; //References to code.
+    repeated MapReference implementation_references = 2; //References to implementations or solutions.
+    repeated MapResourceReference resources = 3; //Reference to external frameworks, legal guidance, etc.
+    Artifact artifact = 4; //Navigation to parent
+}
+
+//Data for a Mapping
+message MapReference{
+    MappingType mapping_type = 1; //Mapping Type
+    string name = 2; //Name of the mapping, can include a description.
+    TargetPlatform platform = 3; //Targeted Platform
+    string reference_path = 4; //Path, URL, DiD, etc.
+    Maps maps = 5; //Navigation to parent
+}
+
+//A reference to external an resource.
+message MapResourceReference{
+    MappingType mapping_type = 1; //Type of mapping
+    string name = 2; //Name of the reference.
+    string description = 3; //Description of the reference, can be helpful if there are many references.
+    string resource_path = 4; //Path, URL, DiD, etc.
+    Maps maps = 5; //Navigation to parent
+}
+
+/**
+ * Taxonomy Service commands
+*/
+//These is a command message that is used to communicate with the Taxonomy Service to submit a newly created object to be persisted.
+message NewArtifactRequest{
+    ArtifactType type = 1; //ArtifactType contained in the artifact property.
+    google.protobuf.Any artifact = 2; //An Any Packed artifact that will be Unpacked as the ArtifactType on the Service side.
+}
+
+//Expected Response from the NewArtifactRequest
+message NewArtifactResponse{
+    ArtifactType type = 1; //What ArtifactType is contained in the ArtifactTypeObject property.
+    google.protobuf.Any artifact_type_object = 2; //Unpack this based on ArtifactType
+}
+
+//These is a command message that is used to communicate with the Taxonomy Service to submit an update to an existing object to be persisted.
+message UpdateArtifactRequest{
+    ArtifactType type = 1; //The ArtifactType packed into the ArtifactTypeObject
+    google.protobuf.Any artifact_type_object = 2;//Unpack from Any to this type.
+}
+
+//Expected Response from the UpdateArtifactRequest
+message UpdateArtifactResponse{
+    ArtifactType type = 1; //The ArtifactType packed into the ArtifactTypeObject
+    bool updated = 2; //Successfuly updated the artifact.
+    google.protobuf.Any artifact_type_object = 3; //Unpack this based on ArtifactType
+}
+
+//Command to delete an artifact.
+message DeleteArtifactRequest{
+    ArtifactSymbol artifact_symbol = 1; //Include the ArtifactSymbol.Id property value to indicate what artifact to delete.
+}
+
+//Expected response from the DeleteArtifactRequest.
+message DeleteArtifactResponse{
+    bool deleted = 1; //Successful deletion indicator.
+}
+
+//Used to query for a TemplateDefinition and to Build the TemplateSpecification
+message TokenTemplateId{
+    string definition_id = 1; //TemplateDefinition.Artifact.ArtifactSymbol.Id
+}
+
+//Generic argument for fetching an artifact by its ArtifactSymbol.Id
+message Identifier{
+    string id = 1; //Artifact Id
+}
+
+//Command to create a new TemplateDefinition from a TemplateFormula Id.
+message NewTemplateDefinition{
+    string template_formula_id = 1; //TemplateFormula Id to create the definition from.
+    string token_name = 2; //Name of the TemplateDefinition, this will be the Definition and Specification Name.
+}
+
+//Initialize a new artifact.
+message InitializeNewArtifactRequest {
+    ArtifactType artifact_type = 1; //New artifact type
+    string name = 2; //New Artifact Name
+    string symbol = 3; //Value Ignored if a TemplateFormula
+    TemplateType template_type = 4; //Value Ignored if not a TemplateFormula
+    TokenType token_type = 5; //Value Ignored if not a TemplateFormula
+    TokenUnit token_unit = 6; //Value Ignored if not a TemplateFormula
+}
+
+//Response expected from a InitializeNewArtifactRequest.
+message InitializeNewArtifactResponse {
+    ArtifactType artifact_type = 1; //ArtifactType contained in the artifact property.
+    google.protobuf.Any artifact = 2; //Unpack this as the ArtifactType indicated.
+}
+
+//Command for issuing a Commit on the local git.
+message CommitUpdatesRequest{
+    string commit_message = 1; //Message for the commit.
+}
+
+//Expected response from the commit request.
+message CommitUpdatesResponse{
+    string result = 1; //Output of the commit request.
+}
+
+//Command to create a pull request
+message IssuePullRequest{
+}
+
+//Expected response from the PullRequest
+message IssuePullResponse{
+    string response = 1; //Output of the pull request.
+}
+
+//Command to retrieve the Service configuration.
+message ConfigurationRequest{
+
+}
+
+//Expected output from the ConfigurationRequest.
+message ServiceConfiguration{
+    bool read_only = 1;
+    string git_id = 2;
+    string git_branch = 3;
+}
+
+//Query options are used to issue generic query instructions.
+message QueryOptions{
+    ArtifactType artifact_type = 1; //Query for artifact of this type.
+    int32 max_item_return = 2; //If there are many expected returns, limit return window to this number and enable paging.
+    int32 last_item_index = 3; //Set to the QuertResult.LastItemIndex from the previous QueryResult. Manually override from QueryResult FirstItemIndex + count in results array
+    bool by_classification = 4; //If true, the TemplateClassification value will apply, if false, it will search all templates.
+    Classification classification = 5; //Only if quering templates
+    bool include_hybrids = 6; //Only if quering templates
+}
+
+//Expected results from a Query
+message QueryResult{
+    ArtifactType artifact_type = 1; //ArtifactType returned.
+    int32 first_item_index = 2; //If paging through artifacts of type
+    int32 last_item_index = 3; //If paging, this is the +1 for the next page.
+    int32 total_items_in_collection = 4; //Total count in the collection if iterating through all the items on the service of the specified type.
+    google.protobuf.Any artifact_collection = 5; //Deserialize to the collection object for the ArtifactType, i.e. Base will be a Bases, Behavior will be Behaviors, etc.
+}
+
+/**
+ * Taxonomy Formula Grammar
+*/
+//Object representation of a TemplateFormula's ß.
+message FormulaGrammar{
+    SingleTokenGrammar single_token_grammar = 1; //Grammar for single token templates.
+    HybridTokenGrammar hybrid_grammar = 2; //Grammar for hybrid token templates.
+    HybridTokenWithHybridChildrenGrammar hybrid_with_hybrids_grammar = 3; //Grammar for nested hybrids.
+}
+
+//Hybrid Token Grammar
+message HybridTokenGrammar{
+    SingleTokenGrammar parent = 1; //Parent token
+    string children_start = 2; // "("
+    repeated SingleTokenGrammar child_tokens = 3; //Collection of child tokens.
+    string children_end = 4; // ")"
+}
+
+//Nested Hybrid grammar
+message HybridTokenWithHybridChildrenGrammar{
+    SingleTokenGrammar parent = 1; //Parent token
+    string hybrid_children_start = 2; // "("
+    repeated HybridTokenGrammar hybrid_child_tokens = 3; //Collection of child tokens.
+    string hybrid_children_end = 4; // ")"
+}
+
+//Outermost grouping container for the formula for a whole template either a parent or hybrid child.
+message SingleTokenGrammar{
+    string group_start = 2; // "["
+    string base_token_tooling_symbol = 3;
+    BehaviorList behaviors = 4;
+    PropertySetList property_sets = 5;
+    string group_end = 6; // "]"
+}
+
+//Grammar for behaviors
+message BehaviorList{
+    string list_start = 1; // "{"
+    repeated string behavior_tooling_symbols = 2; // lowercase letters for individual behaviors, UPPERCASE for behaviorGroup
+    string list_end = 3; // "}"
+}
+
+//Grammar for property sets
+message PropertySetList{
+    string list_start = 1; // "+"
+    repeated PropertySetListItem property_sets = 2; //model builder should put a comma between multiple sets.
+}
+
+message PropertySetListItem{
+    string property_set_symbol = 2; // starts with ph followed by Camel case name or symbol.
+}

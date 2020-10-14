@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package file;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.File";
+option java_package = "org.iwa.ttf.propertySets.file";
+option java_multiple_files = true;
+
+message File{
+    string document_hash_type = 1;
+    string document_hash = 2;
+    string storage_path = 3; 
+}
+
+message GetFileRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetFileResponse {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message SetFileRequest {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message SetFileResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

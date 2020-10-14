@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package sku;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.SKU";
+option java_package = "org.iwa.ttf.propertySets.sku";
+option java_multiple_files = true;
+
+message GetSKURequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetSKUResponse {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message SetSKURequest {
+    tokens.MessageHeader header = 1;
+    string value = 2;
+}
+
+//if Delegable present
+message SetSKUResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

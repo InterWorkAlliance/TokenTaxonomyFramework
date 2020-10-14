@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package redeemable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Redeemable";
+option java_package = "org.iwa.ttf.behaviors.redeemable";
+option java_multiple_files = true;
+
+
+message RedeemRequest {
+    tokens.MessageHeader header = 1;
+    repeated string token_id = 2;
+    string to_account_id = 3;
+    string quantity = 4; // always null, empty or to a know address with no owner.
+}
+
+message RedeemResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}

@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package ggbsc;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.GGBSC";
+option java_package = "org.iwa.ttf.propertySets.ggbsc";
+option java_multiple_files = true;
+
+enum Scope{
+    ONE = 0;
+    TWO = 1;
+    THREE = 2;
+}
+
+enum Category{
+    INDIRECT_PURCHASED_ENERGY = 0; //Scope 2
+    INDIRECT_PURCHASED_GOODS_AND_SERVICES = 1; //Scope 3
+    INDIRECT_CAPITAL_GOODS = 2; //Scope 3
+    INDIRECT_FUEL_AND_ENERGY_RELATED_ACTIVITIES = 3; //Scope 3
+    INDIRECT_UPSTREAM_TRANSPORTATION_AND_DISTRIBUTION = 4; //Scope 3
+    INDIRECT_WASTE_GENERATED_IN_OPERATIONS = 5; //Scope 3
+    INDIRECT_BUSINESS_TRAVEL = 6; //Scope 3
+    INDIRECT_EMPLOYEE_COMMUTING = 7; //Scope 3
+    INDIRECT_UPSTREAM_LEASED_ASSETS = 8; //Scope 3
+    INDIRECT_DOWNSTREAM_TRANSPORTATION_AND_DISTRIBUTION = 9; //Scope 3
+    INDIRECT_PROCESSING_OF_SOLD_PRODUCTS = 10; //Scope 3
+    INDIRECT_USE_OF_SOLD_PRODUCTS = 11; //Scope 3
+    INDIRECT_END_OF_LIFE_TREATMENT_OF_SOLD_PRODUCTS = 12; //Scope 3
+    INDIRECT_DOWNSTREAM_LEASED_ASSETS = 13; //Scope 3
+    INDIRECT_FRANCHISES = 14; //Scope 3
+    INDIRECT_INVESTMENTS = 15; //Scope 3
+    DIRECT_FACILITIES = 16; //Scope 1
+    DIRECT_VEHICLES = 17; //Scope 1
+}
+//this is the data structure for the Greenhouse Gas Protocol Scope & Category
+message GGBSC{
+    Scope scope = 1; //Scope of the emission
+    Category category = 2; //category of the emission
+}
+
+message GetGGBSCRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetGGBSCResponse {
+    tokens.MessageHeader header = 1;
+    GGBSC value = 2;
+}
+
+//if Delegable present
+message SetGGBSCRequest {
+    tokens.MessageHeader header = 1;
+    Scope scope = 2;
+    Category category = 3;
+}
+
+//if Delegable present
+message SetGGBSCResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
