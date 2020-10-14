@@ -1,8 +1,6 @@
 # Contents
 
-©2020 InterWork Alliance Inc. ("IWA").  All Rights Reserved. IWA Proprietary and Confidential. This Github repository has been set up as a collaboration site for its users and by accessing this GitHub repository or using it in any way, you are consenting to be bound by the [InterWork Alliance Terms and Conditions of Use](TERMS-OF-USE) of GitHub Repository.
-
-[View this site as a web page.](https://interwork-alliance.github.io/TokenTaxonomyFramework/)
+©2020 InterWork Alliance Inc. ("IWA").  All Rights Reserved. IWA Proprietary and Confidential. This Github repository has been set up to provide information to the public. The use of the information in this repository is subject to the terms of the agreement in the [LICENSE](LICENSE) file.
 
 ## Project Scope
 
@@ -26,9 +24,4 @@ The contents of this repo contain the Token Taxonomy Framework (TTF) comprised o
 
 Welcome to the InterWork Alliance (“IWA”).
 
-By accessing and/or using this GitHub repository, you agree to abide by the IWA Terms and Conditions of Use of GitHub Repository, respective IWA Participation Agreement or IWA Membership Agreement, and the IWA Intellectual Property Rights Policy and other IWA agreements and policies and procedures provided for your compliance upon joining the IWA and/or IWA.
-
-The InterWork Alliance and any contributors grant you a license to the IWA documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
+By accessing and/or using this GitHub repository, you agree to abide by the terms of the agreement in the [LICENSE](LICENSE) file.
