@@ -821,7 +821,7 @@ namespace IWA.TTF.Taxonomy.Controllers
 						Tooling = updateBehavior.Artifact.ArtifactSymbol.Tooling
 					});
 					existingVersion = existingBehavior.Artifact.ArtifactSymbol.Version;
-					existingBehavior.MergeFrom(updateBehavior);
+					existingBehavior = updateBehavior;
 					artifactName = updateBehavior.Artifact.Name.ToLower();
 					artifactJson = jsf.Format(existingBehavior);
 					var (outcomeB, messageB) = VersionArtifact(ModelMap.BehaviorFolder, artifactName,
@@ -848,7 +848,7 @@ namespace IWA.TTF.Taxonomy.Controllers
 						Tooling = updateBehaviorGroup.Artifact.ArtifactSymbol.Tooling
 					});
 					existingVersion = existingBehaviorGroup.Artifact.ArtifactSymbol.Version;
-					existingBehaviorGroup.MergeFrom(updateBehaviorGroup);
+					existingBehaviorGroup = updateBehaviorGroup;
 					artifactName = updateBehaviorGroup.Artifact.Name.ToLower();
 
 					artifactJson = jsf.Format(existingBehaviorGroup);
@@ -876,7 +876,7 @@ namespace IWA.TTF.Taxonomy.Controllers
 						Tooling = updatePropertySet.Artifact.ArtifactSymbol.Tooling
 					});
 					existingVersion = existingPropertySet.Artifact.ArtifactSymbol.Version;
-					existingPropertySet.MergeFrom(updatePropertySet);
+					existingPropertySet = updatePropertySet;
 					artifactName = updatePropertySet.Artifact.Name.ToLower();
 					
 					artifactJson = jsf.Format(existingPropertySet);
