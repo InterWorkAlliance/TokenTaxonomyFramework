@@ -496,21 +496,17 @@ namespace IWA.TTF.Taxonomy
 
         private static PrintResult GetPrintResult()
         {
+            _document.Close();
             var retVal = new PrintResult();
-            /*
-             * We don't need a result put in just yet.
             try
             {
-                retVal.OpenXmlDocument = _document.ToFlatOpcString();
+                retVal.OpenXmlDocument = Convert.ToBase64String(File.ReadAllBytes(_filePath));
             }
             catch(Exception e)
             {
                 _log.Error("Error getting return OpenXml return string: " + e);
                 retVal.OpenXmlDocument = "";
             }
-            _document.Close();
-            */
-            _document.Close();
             return retVal;
         }
     }
