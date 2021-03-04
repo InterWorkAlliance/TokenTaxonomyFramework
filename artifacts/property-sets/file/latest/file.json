@@ -3,8 +3,8 @@
     "artifactSymbol": {
       "id":"79d40648-02ba-4055-b700-01dce32196ec",
       "type": "PROPERTY_SET",
-      "visual": "&phi;<i>File</i>",
-      "tooling": "phFile",
+      "visual": "&phi;<i>FILE</i>",
+      "tooling": "phFILE",
       "version": "1.0",
       "templateValidated": false
     },
@@ -99,12 +99,7 @@
           "description": "Request the value of the File property",
           "request": {
             "controlMessageName": "GetFileRequest",
-            "inputParameters": [
-              {
-                "name": "File",
-                "valueDescription": "File object or variables for the property proto."
-              }
-            ],
+            "inputParameters": [],
             "description": "The request"
           },
           "response": {
@@ -144,5 +139,6 @@
         }
       ]
     }
-  ]
+  ],
+  "repeated": false
 }

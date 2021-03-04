@@ -1,0 +1,501 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"9bbcac72-ba95-4d73-ad95-d96275a4924f",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>EC</i>",
+      "tooling": "phEC",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Ecological Claim",
+    "aliases": [
+      "Climate Claim",
+      "Benefit Claim"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/ecological-claim/ecological-claim.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set includes the information about a ecological project's ecological benefit claims, when the claim is for and the data to be used to verify the claim.",
+      "businessExample": "An ecological project produces benefit claims for reporting periods that need to be verified. This claim property has a unique id, contains the date range for the claim as well as a verified link to the data to verify the claim that is usually hosted by the project developer.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "The verified link is included in this property set.",
+        "symbol": {
+          "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>VL</i>",
+          "tooling": "phVL",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The date range is included in this property set.",
+        "symbol": {
+          "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>DR</i>",
+          "tooling": "phDR",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The co-benefits property set is included in this property set.",
+        "symbol": {
+          "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>CB</i>",
+          "tooling": "phCB",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can create a Claim.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "ecological-claim.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "ecological-claim.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "EcologicalClaim",
+      "valueDescription": "Contains the values for the claim.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetEcologicalClaim",
+          "description": "Request the Ecological Project Info.",
+          "request": {
+            "controlMessageName": "GetEcologicalClaimRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetEcologicalClaimResponse",
+            "outputParameters": [
+              {
+                "name": "EcologicalClaim",
+                "valueDescription": "Returning the EcologicalClaim values - see control file ecological-claim.proto."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "SetEcologicalClaim",
+          "description": "Set the Ecological Claim",
+          "request": {
+            "controlMessageName": "SetEcologicalClaimRequest",
+            "inputParameters": [
+              {
+                "name": "EcologicalClaim",
+                "valueDescription": "Set the EcologicalClaim values - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetEcologicalClaimResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "AddEcologicalClaim",
+          "description": "Add the Ecological Claim",
+          "request": {
+            "controlMessageName": "AddEcologicalClaimRequest",
+            "inputParameters": [
+              {
+                "name": "EcologicalClaim",
+                "valueDescription": "Add the EcologicalClaim value to a repeated list - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddEcologicalClaimResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        },
+        {
+          "name": "RemoveEcologicalClaim",
+          "description": "Remove the Ecological Claim",
+          "request": {
+            "controlMessageName": "RemoveEcologicalClaimRequest",
+            "inputParameters": [
+              {
+                "name": "EcologicalClaim",
+                "valueDescription": "Remove the EcologicalClaim value from a repeated list - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "RemoveEcologicalClaimResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "EcologicalClaim",
+          "valueDescription": "Contains the values for the EcologicalClaim.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Id",
+              "valueDescription": "A globally unique id - UUID, GUID, etc.",
+              "templateValue": ""
+            },
+            {
+              "name": "EFBefore",
+              "valueDescription": "Environmental Factor before project activities - i.e. soil carbon measurement before.",
+              "templateValue": ""
+            },
+            {
+              "name": "EFAfter",
+              "valueDescription": "Environmental Factor after project activities - i.e. soil carbon measurement after.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [
+    {         
+      "reference": {
+        "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Verified Link Property Set for this Ecological Project's data.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "VerifiedLink",
+          "valueDescription": "Contains a Verified Link to the project's data.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetVerifiedLink",
+              "description": "Request the a Verified Link.",
+              "request": {
+                "controlMessageName": "GetVerifiedLinkRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "Returning the Verified Link for project."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetVerifiedLink",
+              "description": "Set the geographic area entry for the project.",
+              "request": {
+                "controlMessageName": "SetVerifiedLinkRequest",
+                "inputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "The Verified Link type to add to the project."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {         
+      "reference": {
+        "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Date Range Property Set for this Ecological Claim.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "DateRange",
+          "valueDescription": "Contains the date range.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetDateRange",
+              "description": "Request the value of the verified link property",
+              "request": {
+                "controlMessageName": "GetDateRangeRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetDateRangeResponse",
+                "outputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetDateRange",
+              "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+              "request": {
+                "controlMessageName": "SetDateRangeRequest",
+                "inputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetDateRangeResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Co-benefits for this ecological claim.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CoBenefits",
+          "valueDescription": "Contains the values for the claim.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetCoBenefits",
+              "description": "Request the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "GetCoBenefitsRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCoBenefitsResponse",
+                "outputParameters": [
+                  {
+                    "name": "CoBenefits",
+                    "valueDescription": "Returning the CoBenefits collection - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "AddCoBenefit",
+              "description": "Set the CoBenefit",
+              "request": {
+                "controlMessageName": "AddCoBenefitRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Add a CoBenefit value - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "RemoveCoBenefit",
+              "description": "Remove a CoBenefit",
+              "request": {
+                "controlMessageName": "RemoveCoRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Remove a CoBenefit value - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the remove request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "CoBenefits",
+              "valueDescription": "Contains the collection of CoBenefit attached to this claim.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "BenefitCategory",
+                  "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Description",
+                  "valueDescription": "A description of the co-benefit that is not captured via the category.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "RatingScore",
+                  "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "repeated": true
+    }
+  ],
+  "repeated": false
+}

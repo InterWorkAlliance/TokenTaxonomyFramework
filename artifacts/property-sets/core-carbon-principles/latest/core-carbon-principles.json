@@ -1,0 +1,277 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"3b67dfe4-a22d-4e45-a7b5-69a2b00ff982",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>CCP</i>",
+      "tooling": "phCCP",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Core Carbon Principles",
+    "aliases": [
+      "Ecological Asset",
+      "Climate Asset",
+      "Carbon Credit",
+      "Climate"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/core-carbon-principles/core-carbon-principles.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set includes the Core Carbon Principles as outlined in the TSVCM about carbon benefit value and the links to the verifying contract and ecological project, benefit sub-project and the claim that is the source of the asset value.",
+      "businessExample": "An ecological project produces carbon benefit claims that once verified are turned into a digital asset or token that represents the intangible value if the benefit claim, in this case a CCP Token. This can represent a widely used climate based claim, like a carbon credit or representing a reduction or a removal of carbon.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "The date range is included in this property set.",
+        "symbol": {
+          "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>DR</i>",
+          "tooling": "phDR",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can update or modify property values.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "core-carbon-principles.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "core-carbon-principles.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "CoreCarbonPrinciples",
+      "valueDescription": "Contains the values for the principles.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "24eea114-99e4-4bd8-95b8-d05d0edbe4e9",
+          "name": "GetCoreCarbonPrinciples",
+          "description": "Request the Ecological Project Info.",
+          "request": {
+            "controlMessageName": "GetCoreCarbonPrinciplesRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetCoreCarbonPrinciplesResponse",
+            "outputParameters": [
+              {
+                "name": "CoreCarbonPrinciples",
+                "valueDescription": "Returning the CoreCarbonPrinciples values - see control file ecological-claim.proto."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "c188b6b2-f4a3-4f85-a54a-eb64bc37ce96",
+          "name": "SetCoreCarbonPrinciples",
+          "description": "Set the Ecological Claim",
+          "request": {
+            "controlMessageName": "SetCoreCarbonPrinciplesRequest",
+            "inputParameters": [
+              {
+                "name": "CoreCarbonPrinciples",
+                "valueDescription": "Set the EcologicalProjectInfo values - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetCoreCarbonPrinciplesResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "CoreCarbonPrinciples",
+          "valueDescription": "Contains the values for the CoreCarbonPrinciples.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "AssetId",
+              "valueDescription": "typically the issuing verifiers master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.",
+              "templateValue": ""
+            },
+            {
+              "name": "IssuanceDate",
+              "valueDescription": "Refers to the date of issuance usually in the DD/MM/YYYY or MM/DD/YYYY.",
+              "templateValue": ""
+            },
+            {
+              "name": "GenerationType",
+              "valueDescription": "An ecological product can be a generated value based on verified historical results or ex-ante, meaning a predicted result. See the enum type in ecological-asset.proto for example.",
+              "templateValue": ""
+            },
+            {
+              "name": "VerificationStandard",
+              "valueDescription": "The verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard. See the ecological-asset.proto enum for an example.",
+              "templateValue": ""
+            },
+            {
+              "name": "Leakage",
+              "valueDescription": "A decrease in sequestration or an increase in emissions outside the boundaries of project, program activities resulting from project, and/or program implementation. Leakage may be caused by shifting of the activities of people present in the project area or by market effects whereby emission reductions are countered by emissions created by shifts in supply of and demand for the products and services affected by the project.",
+              "templateValue": ""
+            },
+            {
+              "name": "Additionality",
+              "valueDescription": " A score for the principle that a project activity is additional if the resulting emission reductions are lower than what would have happened in the absence of the activity.",
+              "templateValue": ""
+            },
+            {
+              "name": "ReferenceToBenefitProjectClaim",
+              "valueDescription": "A compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/claimId.",
+              "templateValue": ""
+            },
+            {
+              "name": "ReferenceToVerificationContractProcessedClaim",
+              "valueDescription": "A reference to the full id path for the verification contract/processedClaims/ProcessedClaimId.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [
+    {         
+      "reference": {
+        "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Date Range Property Set for the CCP's Claim.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "DateRange",
+          "valueDescription": "Contains the date range.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "e3b45dcc-f767-4c9d-a081-9b0f91eb728c",
+              "name": "GetDateRange",
+              "description": "Request the value of the date",
+              "request": {
+                "controlMessageName": "GetDateRangeRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetDateRangeResponse",
+                "outputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "269dfe9a-bf3e-4416-af54-4a49a0e408d0",
+              "name": "SetDateRange",
+              "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+              "request": {
+                "controlMessageName": "SetDateRangeRequest",
+                "inputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetDateRangeResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "influenceBindings": [],
+          "properties":[]
+        }
+      ],
+      "repeated": false
+    }
+  ],
+  "repeated": false
+}

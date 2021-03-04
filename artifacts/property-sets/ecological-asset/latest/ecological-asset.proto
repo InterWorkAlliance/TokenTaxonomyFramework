@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package ecologicalasset;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+import "co-benefit.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.EA";
+option java_package = "org.iwa.ttf.propertySets.ea";
+option java_multiple_files = true;
+
+//a ecological product can be a generated value based on verified historical results or ex-ante, meaning a predicted result.
+enum GenerationType {
+    GENERATED = 0;
+    EX_ANTI = 1;
+}
+
+//the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
+enum VerificationStandard {
+    GS_VER = 0; //Voluntary: Gold Standard Verified Emissions Reduction
+    VCS = 1; //Voluntary: Cerified Carbon Standard generates VCUs
+    VOS = 2; //Voluntary: Voluntary Offset Standard
+    CCB = 3; //Voluntary: Climate, Community and Biodiversity Standard
+    GREEN_E = 4; //Voluntary: US renewable energy
+    CDM = 5; //Compliance: Clean Development Mechanism generates CERs
+    JI = 6; //Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
+    EUA = 7; //Compliance: European Union Allowances
+    OTHER = 25;
+}
+
+message EcologicalAsset{
+    string asset_id = 1; //typically the issuing verifier's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+    timestamp vintage = 2;  //refers to the year that the emissions reduction or ecological benefit took place
+    timestamp issuance_date = 3;
+    GenerationType generation_type = 4;
+    VerificationStandard verification_standard = 5;
+    string reference_to_project_benefit_claim = 6; //a compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/ClaimId
+    string reference_to_verification_contract_processedClaim = 7; //a reference to the full id path for the verification contract/processedClaims/ProcessedClaimId
+    daterange.DateRange date_range = 8; //Dates for the MRV set used to verify the ecological benefit
+    cobenefit.CoBenefits co_benefits = 9; //list or collection of co-benefits
+}
+
+//if used as a repeated property set
+message EcologicalAssets{
+    repeated EcologicalAsset ecological_asset = 1;
+}
+
+message GetEcologicalClaimRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetEcologicalAssetResponse {
+    tokens.MessageHeader header = 1;
+    EcologicalAsset ecological_claim = 2;
+}
+
+message SetEcologicalAssetRequest {
+    tokens.MessageHeader header = 1;
+    EcologicalAsset ecological_claim = 2;
+}
+
+message SetEcologicalAssetResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+

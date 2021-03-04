@@ -35,6 +35,15 @@
     "incompatibleWithSymbols": [],
     "influencedBySymbols": [
       {
+        "description": "Roles is common to implement to provide authorization checks for invoking the behavior. Highly Recommended that Role restrictions be applied to BurnFrom invocations.",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      },
+      {
         "description": "Delegable or not, will determine if the BurnFrom Control will be available in the implementation.",
         "symbol": {
           "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
@@ -52,6 +61,17 @@
           "type": "BEHAVIOR",
           "visual": "<i>c</i>",
           "tooling": "c",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description":"If CO2 is present, an check to see if the adjustment window has expired must be made to ensure that burning or retiring is allowed.",
+        "symbol":{
+          "id":"4908afcf-236f-4c1e-9127-b0558504c93f",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>CO2</i>",
+          "tooling": "phCO2",
           "version": "1.0",
           "templateValidated": false
         }

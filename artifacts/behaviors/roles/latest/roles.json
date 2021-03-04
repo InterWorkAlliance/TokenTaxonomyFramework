@@ -21,6 +21,11 @@
           "name": "Minters",
           "description": "A role called 'Minters' for a token can have accounts in the role. The MintTo behavior invocation will be bound to the role check to ensure only account in the 'Minters' role are allowed to mint new instances in the class.",
           "artifactDefinition": null
+        },
+        {
+          "name": "Burners",
+          "description": "A role called 'Burners' for a token can have accounts in the role. The BurnFrom behavior invocation will be bound to the role check to ensure only account in the 'Burners' role are allowed to mint new instances in the class.",
+          "artifactDefinition": null
         }
       ],
       "comments": "Roles has a constructor control that creates roles and applies them to certain behaviors of the token at creation of the class from the template.",

@@ -17,8 +17,6 @@ The contents of this repo contain the Token Taxonomy Framework (TTF) comprised o
 - [Control Messages](token-control-messages.md) - base control message descriptions
 - [Taxonomy Artifact Format](taxonomy-artifact-format.md) - instructions and format rules for creating taxonomy artifacts.
 - [Artifacts](artifacts) - starting artifacts for base token types and a handful of common behaviors and a single behavior group.  These are samples/template artifacts.
-- [Tools](tools) - Taxonomy Model Service, sample client, artifact generator sample and token modeling and artifact editing tools.
-- [Complete TTF Printout](TTF-Book.pdf) - latest printed version of all the TTF Artifacts.
 
 ## Legal Notices
 

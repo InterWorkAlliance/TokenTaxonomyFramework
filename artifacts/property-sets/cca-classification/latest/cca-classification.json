@@ -1,0 +1,144 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"a60326d6-399b-4128-bd99-9279283b0380",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>CCACS</i>",
+      "tooling": "phCCACS",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Core Carbon Classification",
+    "aliases": [
+      "Carbon Credit Classification"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/cca-classification/cca-classification.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a Core Carbon Classification of either a category or either a Reduction or a Removal and a method of either Natural or Technology.  For example if the classification is for a Carbon Dioxide Removal using agricultural practices, it would be categorized as a Removal using Natural methods.",
+      "businessExample": "When creating a Core Carbon Principle token, one of the attributes will be the classification to allow buyers to differentiate between CCP tokens as well as reference contracts to bundle similar assets together into a single product.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the Classification Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "cca-classification.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "cca-classification.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "Classification",
+      "valueDescription": "Contains the values for the CCA classification as outlined in the cca-classification.proto.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "cd258398-7c11-44b7-b28c-eaee5bc5b8f0",
+          "name": "GetClassification",
+          "description": "Request the list of the Classification.",
+          "request": {
+            "controlMessageName": "GetClassificationRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetClassificationResponse",
+            "outputParameters": [
+              {
+                "name": "Category",
+                "valueDescription": "Returning the category."
+              },
+              {
+                "name": "Method",
+                "valueDescription": "Returning method."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "e4472298-014c-4d3b-ab6a-b2a9d260e398",
+          "name": "SetClassification",
+          "description": "Set the values for the property, only the Issue should be able to set this property.",
+          "request": {
+            "controlMessageName": "SetClassificationRequest",
+            "inputParameters": [
+              {
+                "name": "Category",
+                "valueDescription": "The Category - either Reduction or Removal."
+              },
+              {
+                "name":"Method",
+                "valueDescription": "The Method - either Natural or Technology."
+              }
+
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetClassificationResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the Classification of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Classification",
+          "valueDescription": "Contains the SetClassification property values.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Category",
+              "valueDescription": "Reduction or Removal",
+              "templateValue": ""
+            },
+            {
+              "name": "Method",
+              "valueDescription": "Natural or Technology",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

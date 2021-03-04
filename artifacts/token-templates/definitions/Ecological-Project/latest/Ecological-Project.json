@@ -1,0 +1,919 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "2a87c8d2-7917-4df0-b88e-9d2d1c4e6f53",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>N</sub>{<i>d,t,b</i>}+&ph;EPI+&ph;MBP<sub>r</sub>]",
+      "tooling": "[tN{d,t,b}+phEPI+phMBPr]",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Ecological-Project",
+    "aliases": [
+      "Ecological Program",
+      "Climate Project",
+      "Carbon Project"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This token can represent an Ecological Project or Program, it is a fractional non-fungible token with a quantity of 1 and divisible up to 2 decimal places, meaning it can have more than one owner, but ownership cannot be more than 100%. Each ecological project contains specific project info recorded in its Ecological Project Info property-set as well as a collection or list of Modular Benefit Projects or MBP. Each MBP specifies what type of ecological benefit claims it will be issuing as well as a collection or list of claims it can make. A MPB is meant to be contracted against by a verification contract between the project owner(s) and a verifying organization.",
+      "businessExample": "The token could represent a farm that will be issuing both GHG/Carbon and Water benefit claims based on their sustainable farming practices. The token represents the project on the network and contains detail about the Modular Benefit Projects, Carbon and Water, which is where its benefit claims are posted for verification. A verification contract is used to verify MBP claims that could result in the generation of a Carbon Credit by the verifier that would belong to the owner(s) of the project after issuance.",
+      "analogies": [
+        {
+          "name": "Farm Project",
+          "description": "A token representing ownership of an ecological project that will generate modular ecological benefit claims."
+        },
+        {
+          "name": "Solar Farm",
+          "description": "A token representing a solar farm that is replacing fossil fuel generated energy and will be issuing carbon benefit claims."
+        }
+      ],
+      "comments": "Since this token largely serves as an 'identity' for an ecological project, implementation of this token should consider traditional non-fungible token representation vs. a Distributed Identity (DiD)."
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "EcologicalProject.proto",
+        "fileData": ""
+      },
+      {
+        "content": "UML",
+        "fileName": "EcologicalProject.md",
+        "fileData": ""
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": []
+    },
+    "contributors": [
+      {
+        "name": "Debbie Reed",
+        "organization": "ESMC"
+      },
+      {
+        "name": "Cameron Prell",
+        "organization": "XPansiv"
+      },
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      },
+      {
+        "name": "Doug Miller",
+        "organization": "Energy Web Foundation"
+      },
+      {
+        "name": "Michelle Lancaster",
+        "organization": "Microsoft"
+      },
+      {
+        "name": "John Lee",
+        "organization": "Accenture"
+      },
+      {
+        "name": "Robert Greenfield",
+        "organization": "Emerging Impact Group"
+      },
+      {
+        "name": "Conor Svensson",
+        "organization": "Web3 Labs"
+      },
+      {
+        "name": "Martin Wainstein",
+        "organization": "Open Earth Foundation"
+      },
+      {
+        "name": "Meerim Ruslanova",
+        "organization": "Energy Web Foundation"
+      },
+      {
+        "name": "Ken Anderson",
+        "organization": "Hedera Hashgraph"
+      },
+      {
+        "name": "Wes Geisenberger",
+        "organization": "Hedera Hashgraph"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "703970f4-46fa-4529-a5c1-14c8dd2ee831",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "EcologicalProject"
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "8314a797-df3c-409b-835c-0e80af92714f",
+      "type": "BASE",
+      "referenceNotes": "",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": []
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "1",
+    "decimals": 2,
+    "tokenProperties": {},
+    "constructorName": "Constructor"
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Divisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to a number greater than Zero, allowing subdivision",
+          "templateValue": "2",
+          "propertyInvocations": [
+            {
+              "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
+              "name": "GetDecimals",
+              "description": "Return the value",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return number of decimal places",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "integer"
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "properties": [],
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "5d4b8f10-7857-4a2f-9b8c-d61e367a6bcc",
+          "name": "Transfer",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "516b4e2f-4a14-4c4f-a6f2-1419d4af35c6",
+          "name": "TransferFrom",
+          "description": ">A transfer request will invoke a transfer from the owner of the token to the party or account provided in the To field of the request. For fungible or dividable non-fungible tokens, this request may also include value in the Amount field of the request to transfer more than one token of the class in a single request.",
+          "request": {
+            "controlMessageName": "TransferFromRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId to transfer ownership from."
+              },
+              {
+                "name": "To",
+                "valueDescription": "AccountId to transfer ownership to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of tokens to transfer."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "TransferFromResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the owner based on the outcome of the transfer from request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Burnable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Burnable.sol"
+              }
+            ],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "f063dcaa-49f9-4c49-bf0f-2766301e1033",
+          "name": "Burn",
+          "description": "A request to burn a token instance(s) in the class by the owner of the token instance(s).  Optional Quantity field in the request.",
+          "request": {
+            "controlMessageName": "BurnRequest",
+            "description": "The request to Burn or Retire tokens.",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "The number of tokens to burn, might not apply to the implementation."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "BurnResponse",
+            "description": "The response from the request to burn.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the burn request"
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "49b53152-3360-426f-9e0a-24a0b4e7c881",
+          "name": "BurnFrom",
+          "description": "Requires Delegable. A request to burn token instance(s) in the class by a party or account that has allowance to do so.  Requires a From and Quantity fields in the request.",
+          "request": {
+            "controlMessageName": "BurnFromRequest",
+            "description": "The request to Burn or Retire tokens.",
+            "inputParameters": [
+              {
+                "name": "From",
+                "valueDescription": "AccountId from which tokens are burnt"
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "The number of tokens to burn, might not apply to the implementation."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "BurnFromResponse",
+            "description": "The response from the request to burn.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the burn from request"
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "7abf2f84-e6a4-4fe2-844b-f9a209fda611",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Ecological Project Information",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "EcologicalProjectInfo",
+          "valueDescription": "Contains the values for the properties.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetEcologicalProjectInfo",
+              "description": "Request the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "GetEcologicalProjectInfoRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetEcologicalProjectInfoResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "EcologicalProjectInfo",
+                    "valueDescription": "Returning the EcologicalProjectInfo values - see control file ecological-project-info.proto."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "SetEcologicalProjectInfo",
+              "description": "Set the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "SetEcologicalProjectInfoRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalProjectInfo",
+                    "valueDescription": "Set the EcologicalProjectInfo values - see control file ecological-project-info.proto."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetEcologicalProjectInfoResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ]
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            }
+          ],
+          "properties": [
+            {
+              "name": "EcologicalProjectInfo",
+              "valueDescription": "Contains the values for the EcologicalProjectInfo.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": [
+                {
+                  "name": "Country",
+                  "valueDescription": "Alpha 3 ISO 3166 international standard country code www.iban.com/country-codes",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "ProjectScale",
+                  "valueDescription": "Numeric or enum based on size, micro, small, medium or large.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        }
+      ],
+      "propertySets": [
+        {
+          "reference": {
+            "id": "ce1ca787-d018-4eb2-90e7-03b8876197bf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Verified Link Property Set for this Ecological Project's data.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "VerifiedLink",
+              "valueDescription": "Contains a Verified Link to the project's data.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetVerifiedLink",
+                  "description": "Request the a Verified Link.",
+                  "request": {
+                    "controlMessageName": "GetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "Returning the Verified Link for project."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "SetVerifiedLink",
+                  "description": "Set the geographic area entry for the project.",
+                  "request": {
+                    "controlMessageName": "SetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "The Verified Link type to add to the project."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "SetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "properties": [],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": false
+        }
+      ],
+      "repeated": false
+    },
+    {
+      "reference": {
+        "id": "81871dc0-6948-4cd9-8724-f96cb90ac2c8",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Modular Benefit Project",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "ModularBenefitProjects",
+          "valueDescription": "Contains a collection of Modular Benefit Project property sets.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetModularBenefitProjects",
+              "description": "Request the ModularBenefitProjects collection.",
+              "request": {
+                "controlMessageName": "GetModularBenefitProjectsRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetModularBenefitProjectsResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "GetModularBenefitProjects",
+                    "valueDescription": "Returning the collection of Modular Benefit Projects."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "SetModularBenefitProjects",
+              "description": "Set the ModularBenefitProject.",
+              "request": {
+                "controlMessageName": "SetModularBenefitProjectRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "ModularBenefitProject",
+                    "valueDescription": "The Modular Benefit Project values."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetModularBenefitProjectsResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ]
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "AddModularBenefitProject",
+              "description": "Add a Modular Benefit Project to the collection.",
+              "request": {
+                "controlMessageName": "AddModularBenefitProjectRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "ModularBenefitProject",
+                    "valueDescription": "A new Modular Benefit Project to add to the collection."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddModularBenefitProjectResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the add request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "id": "",
+              "name": "RemoveModularBenefitProject",
+              "description": "Remove a Modular Benefit Project to the collection.",
+              "request": {
+                "controlMessageName": "RemoveModularBenefitProjectRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "ModularBenefitProject",
+                    "valueDescription": "Remove a Modular Benefit Project from the collection."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveModularBenefitProjectResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the remove request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "properties": [
+            {
+              "name": "ModularBenefitProjects",
+              "valueDescription": "A collection of ModularBenefitProject.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "properties": [
+                {
+                  "name": "Id",
+                  "valueDescription": "A string of text or possibly numeric value that represents the Modular Benefit Project's unique Id.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "TargetedBenefitType",
+                  "valueDescription": "A value from a specific list (enum, number, etc) that sets the benefit type. For example, GHG, Water, etc.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "Developers",
+                  "valueDescription": "The Id or public key for the benefit developer.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": true
+                },
+                {
+                  "name": "Sponsors",
+                  "valueDescription": "The Id or public key for the benefit sponsor.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": true
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        }
+      ],
+      "propertySets": [
+        {
+          "reference": {
+            "id": "7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Geographic Location Property Set for this Modular Benefits Project.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "GeographicLocation",
+              "valueDescription": "Contains a Geographic Location, that contains a simple GPS and Areas.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetGeographicLocation",
+                  "description": "Request the a Geographic Location.",
+                  "request": {
+                    "controlMessageName": "GetGeographicLocationRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetGeographicLocationResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "GeographicLocation",
+                        "valueDescription": "Returning the GeographicLocation for project."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "SetGeographicLocation",
+                  "description": "Set the geographic area entry for the project.",
+                  "request": {
+                    "controlMessageName": "SetGeographicLocationRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "GeographicLocation",
+                        "valueDescription": "The GeographicLocation type to add to the project."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "SetGeographicLocationResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "properties": [],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": false
+        },
+        {
+          "reference": {
+            "id": "9bbcac72-ba95-4d73-ad95-d96275a4924f",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Ecological Claims - a list, collection or array of Ecological Claim.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "EcologicalClaims",
+              "valueDescription": "Contains a list, collection or array of Ecological Claim.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetEcologicalClaims",
+                  "description": "Request the a Ecological Claims collection.",
+                  "request": {
+                    "controlMessageName": "GetEcologicalClaimsRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetEcologicalClaimsResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "EcologicalClaims",
+                        "valueDescription": "Returning the Ecological Claims for project benefit."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "AddEcologicalClaim",
+                  "description": "Set the geographic area entry for the project.",
+                  "request": {
+                    "controlMessageName": "AddEcologicalClaimRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "EcologicalClaim",
+                        "valueDescription": "A EcologicalClaim to add to the collection of claims."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "AddEcologicalClaimResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "RemoveEcologicalClaim",
+                  "description": "Set the geographic area entry for the project.",
+                  "request": {
+                    "controlMessageName": "RemoveEcologicalClaimRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "EcologicalClaim",
+                        "valueDescription": "A EcologicalClaim to remove to the collection of claims."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "RemoveEcologicalClaimResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "properties": [],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": true
+        }
+      ],
+      "repeated": false
+    }
+  ],
+  "childTokens": []
+}

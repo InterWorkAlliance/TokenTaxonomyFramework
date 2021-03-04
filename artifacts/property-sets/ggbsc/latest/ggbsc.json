@@ -70,6 +70,7 @@
       "templateValue": "",
       "propertyInvocations": [
         {
+          "id": "1c0cb5c6-126d-44b3-a666-bda4e1302cd4",
           "name": "GetGGPSC",
           "description": "Request the list of the GGPSC.",
           "request": {
@@ -93,6 +94,7 @@
           }
         },
         {
+          "id": "6ffc715b-34c7-44d6-a81a-02c679f8d41f",
           "name": "SetGGBSC",
           "description": "Add a SEGO entry into the list of the Property, note if Roles should be applied to the Setter. This property should validate that the category submitted is valid for the scope.",
           "request": {
@@ -143,5 +145,6 @@
         }
       ]
     }
-  ]
+  ],
+  "repeated": false
 }

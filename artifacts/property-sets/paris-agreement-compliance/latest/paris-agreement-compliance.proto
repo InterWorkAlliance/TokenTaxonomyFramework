@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package pariscompliance;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.PAC";
+option java_package = "org.iwa.ttf.propertySets.pac";
+option java_multiple_files = true;
+
+enum CoorispondingAdjustment {
+    NONE = 0; //there is no corrisponding adjustment associated with this credit. Meaning the country of origin for the credit will not subtract the credit from their Nationally Determined Contributions (NDCs)if the credit is exported and consumed in a different country.
+    PARIS_AGREEMENT_COMPLIANT = 1; //there is verified corrisponding adjustment associated with this credit. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+    PARIS_AGREEMENT_PENDING_COMPLIANCE = 2; //there is corrisponding adjustment associated with this credit, that is pending verification. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+}
+
+message PACompliance{
+    CoorispondingAdjustment c_a = 1; //does the credit require or have a CA?
+    verifiedlink.VerifiedLink letter_of_approval = 2; //Link to the project data or materials. 
+}
+
+message GetPAComplianceRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetPAComplianceResponse {
+    tokens.MessageHeader header = 1;
+    PACompliance paris_agreement_compliance = 2;
+}
+
+message SetPAComplianceRequest {
+    tokens.MessageHeader header = 1;
+    PACompliance paris_agreement_compliance = 2;
+}
+
+message SetPAComplianceResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

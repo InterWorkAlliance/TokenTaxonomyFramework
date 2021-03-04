@@ -1,0 +1,82 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"ffaee29b-f599-4812-9914-56693ab32532",
+      "type": "BEHAVIOR",
+      "visual": "<i>v</i>",
+      "tooling": "v",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Revokable",
+    "aliases": [
+      "Central Party Control"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This token has a controlling a central party, the issuer, is able to retire/burn tokens that it has issued, regardless of owner. If this behavior is paired with the replacement property set, it can support the adjustments requirements needed for some carbon removal offset requirements.",
+      "businessExample": "A Carbon Dioxide Removal Credit that is issued for one amount that needs to be adjusted can be revoked and replaced by another token that reflects the adjusted carbon amount.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "The token should have an issuer role where only the issuer is able to revoke.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "revokable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "revokable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "dc133e8d-3be9-4aa2-8183-57a38429e8fa",
+      "name": "Revoke",
+      "description": "A request to revoke a token.",
+      "request": {
+        "controlMessageName": "RevokeRequest",
+        "description": "The request must be made by the issuer determined by a role check.",
+        "inputParameters": [
+        ]
+      },
+      "response": {
+        "controlMessageName": "RevokeResponse",
+        "description": "The response, successful if the invoker is the issuer.",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+          }
+        ]
+      }
+    }
+  ],
+  "properties": []
+}

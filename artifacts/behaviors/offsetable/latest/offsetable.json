@@ -1,0 +1,122 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"559c9f31-dd89-4012-a726-40cde5463569",
+      "type": "BEHAVIOR",
+      "visual": "<i>off</i>",
+      "tooling": "off",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Offsetable",
+    "aliases": [
+      "Apply toward",
+      "Counterbalance",
+      "Retire towards"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior is burned or retired with its value being applied to offset another balance. For example, a Carbon Credit can be used to offset a carbon emission to achieve emissions goals like net zero; a 1 mtCO2e emission can be offset by applying a 1mtCO2e credit. The process of applying a credit to lower an emission is called offsetting. This behavior extends the traditional burn or retire behavior by requiring an offset target id so that the token being offset is correlated with the appropriate emission. Once a token is offset, it can no longer be used.",
+      "analogies": [],
+      "comments": "Used in conjunction with CO2e, which allows for offsetting of emissions.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "This would allow for an owner to offset on their behalf, which would still offset the owners emissions. Delegable or not, will determine if the OffsetFrom Control will be available in the implementation.",
+        "symbol": {
+          "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+          "type": "BEHAVIOR",
+          "visual": "<i>g</i>",
+          "tooling": "g",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "offsetable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "offsetable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "2019574d-c8bf-44b6-afb7-cb6eaf74a308",
+      "name": "Offset",
+      "description": "A request to offset a token instance(s) in the class by the owner of the token instance(s), once the token is Offset, invocations of Transfer should be blocked.  Optional Quantity field in the request, if not present the percentage if the CO2/Adjustment value represented by the fractional quantity of the token instance will be offset.",
+      "request": {
+        "controlMessageName": "OffsetRequest",
+        "description": "The request to Offset tokens.",
+        "inputParameters": [
+          {
+            "name": "AppliedTo",
+            "valueDescription": "The Id of the reported emission that is being offset."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "OffsetResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the offset request"
+          }
+        ],
+        "description": "The response from the request to offset."
+      }
+    },
+    {
+      "id": "47057767-e0ee-4737-993b-698f7baab3ed",
+      "name": "OffsetFrom",
+      "description": "Requires Delegable. A request to offset a token instance in the class by a party or account that has allowance to do so. Once the token is Offset, invocations of Transfer should be blocked.  Requires a From and Quantity fields in the request.",
+      "request": {
+        "controlMessageName": "OffsetFromRequest",
+        "description": "The request to Offset tokens.",
+        "inputParameters": [
+          {
+            "name": "From",
+            "valueDescription": "AccountId from which tokens are offset."
+          },
+          {
+            "name": "AppliedTo",
+            "valueDescription": "The Id of the reported emission that is being offset."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "OffsetFromResponse",
+        "description": "The response from the request to offset from.",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the offset from request"
+          }
+        ]
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "OffsetAppliedTo",
+      "valueDescription": "Records the reported emission Id being offset, like an ESG Emissions Scorecard.",
+      "templateValue": "",
+      "properties":[]
+    }
+  ]
+}

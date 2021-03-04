@@ -1,1 +1,1 @@
-# mintable a TTF Behavior
+# issuable a TTF Behavior

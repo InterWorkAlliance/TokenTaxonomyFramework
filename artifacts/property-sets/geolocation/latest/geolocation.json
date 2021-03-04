@@ -1,0 +1,218 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>GL</i>",
+      "tooling": "phGL",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Geographic Location",
+    "aliases": [
+      "Geo-locate",
+      "Location"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/geolocation/geolocation.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have geographic data indicating the tokens or token related location. It contains a GNSS point value for simple location and a collection of Geographic Areas for more complex projects that may have multiple parcels of land involved in the same project.",
+      "businessExample": "A climate project that can generate climate benefit claims, like a carbon credit, is based of land use, i.e. forestry or agricultural practices, the project's geographic location will need to be recorded. A token should expose this property to allow for the verification of geographic uniqueness for the project to prevent the creation of a geographic parcel from being defined twice.",
+      "analogies": [
+        {
+          "name": "Great Southern Forest",
+          "description": "Big forest with lots of new trees being planted.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Not all climate project will require geographic data, or only require a simple GNSS point instead of an area defined.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the Geolocation Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "geolocation.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "geolocation.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "GNSS",
+      "valueDescription": "Contains a simple GNSS location, for an area this may be a center point or just one of the area points.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetGNSS",
+          "description": "Request the GNSS point location.",
+          "request": {
+            "controlMessageName": "GetGNSSRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetGNSSResponse",
+            "outputParameters": [
+              {
+                "name": "Longitude",
+                "valueDescription": "Returning the longitude."
+              },
+              {
+                "name": "Latitude",
+                "valueDescription": "Returning the latitude."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetGNSS",
+          "description": "Add a geographic area entry into the list of the Property, note if Roles should be applied to the Setter. This property should validate that the category submitted is valid for the scope.",
+          "request": {
+            "controlMessageName": "SetGNSSRequest",
+            "inputParameters": [
+              {
+                "name": "Longitude",
+                "valueDescription": "Returning the longitude."
+              },
+              {
+                "name": "Latitude",
+                "valueDescription": "Returning the latitude."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetGNSSResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GNSS",
+          "valueDescription": "Contains a single GNSS coordinate for simple location.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Longitude",
+              "valueDescription": "A string of text or possibly numeric value.",
+              "templateValue": ""
+            },
+            {
+              "name": "Latitude",
+              "valueDescription": "A string of text or possibly numeric value.",
+              "templateValue": ""
+            },
+            {
+              "name": "Timing",
+              "valueDescription": "A string of text or possibly numeric value.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GeographicAreas",
+      "valueDescription": "Contains the reported emission scope and it's category from pick list, see ggbsc.proto.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetGeographicAreas",
+          "description": "Request the a Geographic Area, usually stored as a GeoJSON string for an area.",
+          "request": {
+            "controlMessageName": "GetGeographicAreasRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetGeographicAreasResponse",
+            "outputParameters": [
+              {
+                "name": "GeographicAreas",
+                "valueDescription": "Returns the GeoJSON of Geographic Areas."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetGeographicArea",
+          "description": "Set the geographic area usually stored as GeoJSON, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "SetGeographicAreaRequest",
+            "inputParameters": [
+              {
+                "name": "GeographicArea",
+                "valueDescription": "A GeographicArea as GeoJSON."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetGeographicAreaResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the add request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GeographicLocations",
+          "valueDescription": "Contains the Geographic Areas as GeoJSON.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "GeographicArea",
+              "valueDescription": "A complex type described in the as GeoJSON.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

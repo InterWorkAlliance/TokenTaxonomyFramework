@@ -1,0 +1,131 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>VL</i>",
+      "tooling": "phVL",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Verified Link",
+    "aliases": [
+      "Signed Link",
+      "Attested Link"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/verified-link/verified-link.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a verified link or field with a Read/Query and Set control. The verified link can be an embedded signed URL or a traditional 3 part link with a link path (url, etc.) a signed path and a public key to verify the link path.",
+      "businessExample": "Storing an authentic reference to another object or artifact, where the link is digitally signed by it's setter and optionally may include hash values for data at the endpoint.",
+      "analogies": [
+        {
+          "name": "Signed Reference",
+          "description": "A token implementing this property set may have multiple types of related data that is stored elsewhere.  This data is accessed following the link that is digitally signed by the setter and may include proofs or hash values of the data stored for integrity checks.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the Link Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "verified-link.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "verified-link.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "VerifiedLink",
+      "valueDescription": "Contains the verified link.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetVerifiedLink",
+          "description": "Request the value of the verified link property",
+          "request": {
+            "controlMessageName": "GetVerifiedLinkRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetVerifiedLinkResponse",
+            "outputParameters": [
+              {
+                "name": "LinkText",
+                "valueDescription": "Returning the value of the text link."
+              },
+              {
+                "name": "LinkSigned",
+                "valueDescription": "Returning the value of the signed link. Usually an encoded string of text."
+              },
+              {
+                "name": "PublicKey",
+                "valueDescription": "Contains the PublicKey used to sign the link."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetVerifiedLink",
+          "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "SetVerifiedLinkRequest",
+            "inputParameters": [
+              {
+                "name": "LinkText",
+                "valueDescription": "Returning the value of the text link."
+              },
+              {
+                "name": "LinkSigned",
+                "valueDescription": "Returning the value of the signed link. Usually an encoded string of text."
+              },
+              {
+                "name": "PublicKey",
+                "valueDescription": "Contains the PublicKey used to sign the link."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetVerifiedLinkResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

@@ -1,0 +1,371 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"81871dc0-6948-4cd9-8724-f96cb90ac2c8",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>MBP</i>",
+      "tooling": "phMBP",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Modular Benefit Project",
+    "aliases": [
+      "Modular Climate Benefit",
+      "Climate Benefit Project"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/modularbenefitproject/modularbenefitproject.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will be able to have a climate project's modular benefits defined. A climate project produces one or more climate benefits that are measured and then tokenized as value, i.e a carbon offset credit. Because a climate project can have multiple climate benefits, they are often tracked and verified independently. For example a carbon removal and a water use benefit for a single project. ",
+      "businessExample": "A climate project that can generate climate benefit claims can output multiple benefits, where each benefit can be independently verified, potentially by different verifiers. So a climate project will need to be able to identify the portion of their project that will need to be verified for a type of benefit and can have multiple benefits associated with it. So a MBP will have a unique identifier, which is a sub-identifier of the climate project, a verified link to any MRV data as well a geographic location to be verified for that benefit.",
+      "analogies": [
+        {
+          "name": "Carbon Dioxide Removal Benefit Project",
+          "description": "Big forest with lots of new trees being planted.",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Water Use Benefit Project",
+          "description": "Low water or reclamation benefit.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "Not all climate project will have multiple benefits to be verified.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can add and remove benefit claims.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "modularbenefitproject.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "modularbenefitproject.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "ModularBenefitProjects",
+      "valueDescription": "Contains a collection of Modular Benefit Project property sets.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetModularBenefitProjects",
+          "description": "Request the ModularBenefitProjects collection.",
+          "request": {
+            "controlMessageName": "GetModularBenefitProjectsRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetModularBenefitProjectsResponse",
+            "outputParameters": [
+              {
+                "name": "GetModularBenefitProjects",
+                "valueDescription": "Returning the collection of Modular Benefit Projects."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "SetModularBenefitProjects",
+          "description": "Set the ModularBenefitProject.",
+          "request": {
+            "controlMessageName": "SetModularBenefitProjectRequest",
+            "inputParameters": [
+              {
+                "name": "ModularBenefitProject",
+                "valueDescription": "The Modular Benefit Project values."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetModularBenefitProjectsResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "AddModularBenefitProject",
+          "description": "Add a Modular Benefit Project to the collection.",
+          "request": {
+            "controlMessageName": "AddModularBenefitProjectRequest",
+            "inputParameters": [
+              {
+                "name": "ModularBenefitProject",
+                "valueDescription": "A new Modular Benefit Project to add to the collection."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddModularBenefitProjectResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the add request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        },
+        {
+          "name": "RemoveModularBenefitProject",
+          "description": "Remove a Modular Benefit Project to the collection.",
+          "request": {
+            "controlMessageName": "RemoveModularBenefitProjectRequest",
+            "inputParameters": [
+              {
+                "name": "ModularBenefitProject",
+                "valueDescription": "Remove a Modular Benefit Project from the collection."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "RemoveModularBenefitProjectResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the remove request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "ModularBenefitProjects",
+          "valueDescription": "A collection of ModularBenefitProject.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Id",
+              "valueDescription": "A string of text or possibly numeric value that represents the Modular Benefit Project's unique Id.",
+              "templateValue": ""
+            },
+            {
+              "name": "TargetedBenefitType",
+              "valueDescription": "A value from a specific list (enum, number, etc) that sets the benefit type. For example, GHG, Water, etc.",
+              "templateValue": ""
+            },
+            {
+              "name": "Developers",
+              "valueDescription": "The Id or public key for the benefit developer.",
+              "templateValue": "",
+              "repeated": true
+            },
+            {
+              "name": "Sponsors",
+              "valueDescription": "The Id or public key for the benefit sponsor.",
+              "templateValue": "",
+              "repeated": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [  
+    {         
+      "reference": {
+        "id":"7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Geographic Location Property Set for this Modular Benefits Project.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "GeographicLocation",
+          "valueDescription": "Contains a Geographic Location, that contains a simple GPS and Areas.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetGeographicLocation",
+              "description": "Request the a Geographic Location.",
+              "request": {
+                "controlMessageName": "GetGeographicLocationRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetGeographicLocationResponse",
+                "outputParameters": [
+                  {
+                    "name": "GeographicLocation",
+                    "valueDescription": "Returning the GeographicLocation for project."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetGeographicLocation",
+              "description": "Set the geographic area entry for the project.",
+              "request": {
+                "controlMessageName": "SetGeographicLocationRequest",
+                "inputParameters": [
+                  {
+                    "name": "GeographicLocation",
+                    "valueDescription": "The GeographicLocation type to add to the project."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetGeographicLocationResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"9bbcac72-ba95-4d73-ad95-d96275a4924f",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Ecological Claims - a list, collection or array of Ecological Claim.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "EcologicalClaims",
+          "valueDescription": "Contains a list, collection or array of Ecological Claim.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetEcologicalClaims",
+              "description": "Request the a Ecological Claims collection.",
+              "request": {
+                "controlMessageName": "GetEcologicalClaimsRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetEcologicalClaimsResponse",
+                "outputParameters": [
+                  {
+                    "name": "EcologicalClaims",
+                    "valueDescription": "Returning the Ecological Claims for project benefit."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "AddEcologicalClaim",
+              "description": "Set the geographic area entry for the project.",
+              "request": {
+                "controlMessageName": "AddEcologicalClaimRequest",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "A EcologicalClaim to add to the collection of claims."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddEcologicalClaimResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "RemoveEcologicalClaim",
+              "description": "Set the geographic area entry for the project.",
+              "request": {
+                "controlMessageName": "RemoveEcologicalClaimRequest",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "A EcologicalClaim to remove to the collection of claims."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveEcologicalClaimResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ],
+      "repeated": true
+    }
+  ],
+  "repeated": false
+}

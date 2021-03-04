@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package verifiedlink;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.VL";
+option java_package = "org.iwa.ttf.propertySets.vl";
+option java_multiple_files = true;
+
+message VerifiedLink{
+    string link_text = 1;
+    string link_signed = 2;
+    string public_key = 3; 
+}
+
+message GetVerifiedLinkRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetVerifiedLinkResponse {
+    tokens.MessageHeader header = 1;
+    VerifiedLink verified_link = 1;
+}
+
+message SetVerifiedLinkRequest {
+    tokens.MessageHeader header = 1;
+    VerifiedLink verified_link = 2;
+}
+
+message SetVerifiedLinkResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

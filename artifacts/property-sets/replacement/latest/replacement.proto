@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package replacement;
+
+import "tokens.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.Replacement";
+option java_package = "org.iwa.ttf.propertySets.replacement";
+option java_multiple_files = true;
+
+message Replacement{
+    string replaces_id = 1; //the id of the token being replaced
+    google.protobuf.TimeStamp replacement_date = 2; //date of the replacement/adjustment
+    string notes = 3; //notes on why the replacement or adjustment is needed
+}
+
+message GetReplacementRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetReplacementResponse {
+    tokens.MessageHeader header = 1;
+    Replacement replacement = 2; //replacement data
+}
+
+message SetReplacementRequest {
+    tokens.MessageHeader header = 1;
+    Replacement replacement = 2; //Replacement values
+}
+
+message SetReplacementResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

@@ -1,0 +1,164 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"41df6a71-d7d4-441c-93e9-856307606750",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>RPLC</i>",
+      "tooling": "phRPLC",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Replacement",
+    "aliases": [
+      "Adjusted Benefit"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/replacement/replacement.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set is used to indicate that this token replaces a retired ecological benefit credit to support adjustments after issuance. For example, a benefit token make be issued in a quantity of 3 and at a future date it is determined for some reason to have actually been a value of 2. To support making this adjustment, the initial benefit token of 3 should be revoked/retired and a new or existing token can be issued or used and indicated as a replacement by setting the replacement values in this property set. This property records the Id of the token being replaced, the date of replacement and a free text field to record the reason for replacement.", 
+      "businessExample": "For example, a measurement of CO2e removal through forestation can be issued with an amount, but need to be adjusted after a forest fire destroys a percentage of the forest requiring a decrease in the removal amount. The issuer of the initial token can retire, the climate accounting will need to adjust the effective emissions accordingly.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+      "description": "Requires revokable to support replacement process.",
+      "symbol": {
+        "id":"ffaee29b-f599-4812-9914-56693ab32532",
+        "type": "BEHAVIOR",
+        "visual": "<i>v</i>",
+        "tooling": "v",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "The token should have an issuer role where only the issuer is able to set the replacement values.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "replacement.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "replacement.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "Replacement",
+      "valueDescription": "Contains the Id, Date and notes about the replacement.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "176861e6-599a-48d6-ba3f-ffff9bfbfad1",
+          "name": "GetReplacement",
+          "description": "Request the Replacement Values.",
+          "request": {
+            "controlMessageName": "GetReplacementRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetReplacementResponse",
+            "outputParameters": [
+              {
+                "name": "Replacement",
+                "valueDescription": "Returning the Replacement data."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "2a90d152-699b-4b85-a0e5-5436dae4650e",
+          "name": "SetReplacement",
+          "description": "Only the issuer can set the Issued Amount and is typically done during construction not after creation. A role check for issuer is required for invocation.",
+          "request": {
+            "controlMessageName": "SetReplacementRequest",
+            "inputParameters": [
+              {
+                "name": "ReplacesId",
+                "valueDescription": "Set the Id of the token being replaced."
+              },
+              {
+                "name": "ReplacementDate",
+                "valueDescription": "Set the date of replacement."
+              },
+              {
+                "name": "ReplacementNotes",
+                "valueDescription": "Record notes about why the token is being replaced."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetReplacementResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties":[
+        {
+          "name": "Adjustment",
+          "valueDescription": "Contains the adjustment from the issuer.",
+          "templateValue": "",
+          "properties":[
+            {
+              "name": "ReplacesId",
+              "valueDescription": "Contains the id of the token it is replacing.",
+              "templateValue": "",
+              "properties":[]
+            },
+            {
+              "name": "ReplacementDate",
+              "valueDescription": "Contains the date the adjustment or replacement made by issuer.",
+              "templateValue": "",
+              "properties":[]
+            },
+            {
+              "name": "ReplacementNotes",
+              "valueDescription": "Contains notes on why the replacement or adjustment is needed.",
+              "templateValue": "",
+              "properties":[]
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    }
+  ],
+  "propertySets": [],
+  "repeated": false
+}

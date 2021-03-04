@@ -1,0 +1,213 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"7abf2f84-e6a4-4fe2-844b-f9a209fda611",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>EPI</i>",
+      "tooling": "phEPI",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Ecological Project Information",
+    "aliases": [
+      "Climate Project Info",
+      "EPI"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/ecological-project-info/ecological-project-info.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have standard information used by a Ecological Project, including a verified link to the project's data, the country in which it resides and its scale.",
+      "businessExample": "An ecological project may have many required and optional properties, this property set is where these properties can be defined.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "The verified link is included in this property set.",
+        "symbol": {
+          "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>VL</i>",
+          "tooling": "phVL",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the EPI Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "ecological-project-info.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "ecological-project-info.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "EcologicalProjectInfo",
+      "valueDescription": "Contains the values for the properties.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetEcologicalProjectInfo",
+          "description": "Request the Ecological Project Info.",
+          "request": {
+            "controlMessageName": "GetEcologicalProjectInfoRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetEcologicalProjectInfoResponse",
+            "outputParameters": [
+              {
+                "name": "EcologicalProjectInfo",
+                "valueDescription": "Returning the EcologicalProjectInfo values - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetEcologicalProjectInfo",
+          "description": "Set the Ecological Project Info.",
+          "request": {
+            "controlMessageName": "SetEcologicalProjectInfoRequest",
+            "inputParameters": [
+              {
+                "name": "EcologicalProjectInfo",
+                "valueDescription": "Set the EcologicalProjectInfo values - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetEcologicalProjectInfoResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EcologicalProjectInfo",
+          "valueDescription": "Contains the values for the EcologicalProjectInfo.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Country",
+              "valueDescription": "Alpha 3 ISO 3166 international standard country code www.iban.com/country-codes",
+              "templateValue": ""
+            },
+            {
+              "name": "ProjectScale",
+              "valueDescription": "Numeric or enum based on size, micro, small, medium or large.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]      
+    }
+  ],
+  "propertySets": [
+    {         
+      "reference": {
+        "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Verified Link Property Set for this Ecological Project's data.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "VerifiedLink",
+          "valueDescription": "Contains a Verified Link to the project's data.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetVerifiedLink",
+              "description": "Request the a Verified Link.",
+              "request": {
+                "controlMessageName": "GetVerifiedLinkRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "Returning the Verified Link for project."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetVerifiedLink",
+              "description": "Set the geographic area entry for the project.",
+              "request": {
+                "controlMessageName": "SetVerifiedLinkRequest",
+                "inputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "The Verified Link type to add to the project."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

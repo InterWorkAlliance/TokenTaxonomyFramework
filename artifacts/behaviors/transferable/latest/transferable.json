@@ -36,6 +36,15 @@
     ],
     "influencedBySymbols": [
       {
+        "description": "Roles is common to implement to provide authorization checks for invoking the behavior. Highly Recommended that Role restrictions be applied to Transfer and TransferFrom invocations in situations where the recipient has to meet certain criteria (e.g. Beneficiaries).",
+        "symbol": {
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": ""
+        }
+      },
+      {
         "description": "If the token is Delegable, TransferFrom should be enabled.",
         "symbol": {
           "type": "BEHAVIOR",
@@ -62,6 +71,17 @@
           "type": "BEHAVIOR",
           "visual": "<i>i</i>",
           "tooling": "i",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description":"If offsetable is present, an check on if the token has been offset must be made and if it has, transfer should be denied.",
+        "symbol":{
+          "id":"559c9f31-dd89-4012-a726-40cde5463569",
+          "type": "BEHAVIOR",
+          "visual": "<i>off</i>",
+          "tooling": "off",
           "version": "1.0",
           "templateValidated": false
         }

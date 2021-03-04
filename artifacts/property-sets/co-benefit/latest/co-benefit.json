@@ -1,0 +1,198 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>CB</i>",
+      "tooling": "phCB",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Co-benefit",
+    "aliases": [
+      "Benefit bi-product"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/co-benefit/co-benefit.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set includes the information about a ecological project's co-benefit claims, Some projects can achieve significant sustainable development outcomes for project participants in addition to the emission reductions. There are examples of projects where it can be argued that the sustainability co-benefits equal or exceed the impact of the emission reduction activity.",
+      "businessExample": "Reliable electricity supplies can enable new economic activities to develop (i.e. tourism, village industries), provide greater access to educational resources and improve village life.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can create set a CoBenefit.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "co-benefit.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "co-benefit.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "CoBenefit",
+      "valueDescription": "Contains the values for the claim.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "db6096c6-5fe0-47ed-90d5-6215c2a2780c",
+          "name": "GetCoBenefit",
+          "description": "Request the Ecological Project Info.",
+          "request": {
+            "controlMessageName": "GetCoBenefitRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetCoBenefitResponse",
+            "outputParameters": [
+              {
+                "name": "CoBenefit",
+                "valueDescription": "Returning the CoBenefit values - see control file co-benefit.proto."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "520efc3e-a264-46b3-9658-dba9f3012fcf",
+          "name": "SetCoBenefit",
+          "description": "Set the CoBenefit",
+          "request": {
+            "controlMessageName": "SetCoBenefitRequest",
+            "inputParameters": [
+              {
+                "name": "CoBenefit",
+                "valueDescription": "Set the CoBenefit values - see control file co-benefit.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetCoBenefitResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "eefc1d94-7d09-4e1b-843d-76b51850021a",
+          "name": "AddCoBenefit",
+          "description": "Add a co-benefit to the asset.",
+          "request": {
+            "controlMessageName": "AddCoBenefitRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "CoBenefit",
+                "valueDescription": "The CoBenefit type to add to the asset."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AddCoBenefitResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the add request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        },
+        {
+          "id": "85d15d32-2ba7-4603-978d-11cbccbba9f0",
+          "name": "RemoveCoBenefit",
+          "description": "Remove a co-benefit to the asset.",
+          "request": {
+            "controlMessageName": "RemoveCoBenefitRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "CoBenefit",
+                "valueDescription": "The CoBenefit type to remove to the asset."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "RemovedCoBenefitResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning a confirmation for the remove request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "CoBenefit",
+          "valueDescription": "Contains the values for the CoBenefit.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "BenefitCategory",
+              "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+              "templateValue": ""
+            },
+            {
+              "name": "Description",
+              "valueDescription": "A description of the co-benefit that is not captured via the category.",
+              "templateValue": ""
+            },
+            {
+              "name": "RatingScore",
+              "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [],
+  "repeated": false
+}

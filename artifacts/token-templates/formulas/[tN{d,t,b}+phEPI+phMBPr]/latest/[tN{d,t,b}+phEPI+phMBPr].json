@@ -1,0 +1,133 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "703970f4-46fa-4529-a5c1-14c8dd2ee831",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "[&tau;<sub>N</sub>{<i>d,t,b</i>}+&ph;EPI+&ph;MBP<sub>r</sub>]",
+      "tooling": "[tN{d,t,b}+phEPI+phMBPr]",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "[tN{d,t,b}+phEPI+phMBPr]",
+    "aliases": [
+      "Ecological Project"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A fractional non-fungible token with a quantity generally not greater than 1, but can be subdivided up to 2 decimal places. Generally used to represent a digital or physical item where there could be fractional ownership to represent multiple owners of a single item by percentage. It is transferable and includes ecological specific property sets for a ecological project and its modular benefit projects.",
+      "businessExample": "This token could be used to represent an ecological project that can have one or more owners.",
+      "analogies": [
+        {
+          "name": "Ecological Project",
+          "description": "A token representing ownership of an ecological project that will generate modular ecological benefit claims.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [
+      {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    ],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "[tN{d,t,b}+phEPI+phMBPr].proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "[tN{d,t,b}+phEPI+phMBPr].md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+ "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"8314a797-df3c-409b-835c-0e80af92714f",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>d</i>}",
+      "tooling": "tN{d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "visual": "<i>d</i>",
+        "tooling": "d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "visual": "<i>b</i>",
+        "tooling": "b",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "propertySet":{
+        "id":"7abf2f84-e6a4-4fe2-844b-f9a209fda611",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>EPI</i>",
+        "tooling": "phEPI",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      "repeated": false
+    },
+    {
+      "propertySet":{
+        "id":"81871dc0-6948-4cd9-8724-f96cb90ac2c8",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>MBP</i>",
+        "tooling": "phMBP",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      "repeated": true
+    }
+  ],
+  "childTokens": []
+}

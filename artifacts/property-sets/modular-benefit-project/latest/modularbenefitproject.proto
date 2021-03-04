@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package mbp;
+
+import "tokens.proto";
+import "geolocation.proto";
+import "verifiedlink.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "ecological-claim.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.MBP";
+option java_package = "org.iwa.ttf.propertySets.mbp";
+option java_multiple_files = true;
+
+enum TargetedBenefitType {
+    GHG = 0;
+    WATER = 1;
+    OTHER = 50;
+}
+
+message ModularBenefitProject {
+    string id = 1; //unique identifier that is used in reference by a verifing contract.
+    TargetedBenefitType benefit_type = 2; 
+    geolocation.GeographicLocation geographic_location = 3;
+    repeated string developers = 4;
+    repeated string sponsors = 5;
+    ecologicalclaim.EcologicalClaims ecological_claims  = 6;
+}
+
+message ModularBenefitProjects {
+    repeated ModularBenefitProject modular_benefit_project = 1;
+}
+
+message GetModularBenefitProjectsRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetModularBenefitProjectsResponse {
+    tokens.MessageHeader header = 1;
+    ModularBenefitProjects value = 2;
+}
+
+//if Delegable present
+message AddModularBenefitProjectRequest {
+    tokens.MessageHeader header = 1;
+    ModularBenefitProject modular_benefit_project = 2; 
+}
+
+//if Delegable present
+message AddModularBenefitProjectResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message RemoveModularBenefitProjectRequest{
+    ModularBenefitProject modular_benefit_project = 1;
+}
+
+message RemoveModularBenefitProjectResponse{
+    tokens.MessageHeader header = 1;
+    ModularBenefitProject modular_benefit_project = 2; 
+}

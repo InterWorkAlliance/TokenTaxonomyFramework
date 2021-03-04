@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package ecologicalclaim;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+import "co-benefit.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.EC";
+option java_package = "org.iwa.ttf.propertySets.ec";
+option java_multiple_files = true;
+
+message EcologicalClaim{
+    string id = 1;
+    verifiedlink.VerifiedLink link_to_claim_data = 2; //Link to the project data or materials
+    daterange.DateRance date_range = 3; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    string ef_before = 4; //environmental factor before project activities
+    string ef_after = 5; //environmental factor after project activities
+    cobenefit.CoBenefits co_benefits =6; //adding co-benefits to a project claim
+}
+
+//if used as a repeated property set
+message EcologicalClaims{
+    repeated EcologicalClaim ecological_claim = 1;
+}
+
+message GetEcologicalClaimRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetEcologicalClaimResponse {
+    tokens.MessageHeader header = 1;
+    EcologicalClaim ecological_claim = 2;
+}
+
+message SetEcologicalClaimRequest {
+    tokens.MessageHeader header = 1;
+    EcologicalClaim ecological_claim = 2;
+}
+
+message SetEcologicalClaimResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+//if used as a repeated property set
+message GetEcologicalClaimsRequest {
+    tokens.MessageHeader header = 1;
+}
+
+//if used as a repeated property set
+message GetEcologicalClaimsResponse {
+    tokens.MessageHeader header = 1;
+    EcologicalClaims ecological_claims = 2;
+}
+
+//if used as a repeated property set
+message AddEcologicalClaimRequest {
+    tokens.MessageHeader header = 1;
+    EcologicalClaim ecological_claim = 2;
+}
+
+//if used as a repeated property set
+message AddEcologicalClaimResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+//if used as a repeated property set
+message RemoveEcologicalClaimRequest {
+    tokens.MessageHeader header = 1;
+    EcologicalClaim ecological_claim = 2;
+}
+
+//if used as a repeated property set
+message RemoveEcologicalClaimResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

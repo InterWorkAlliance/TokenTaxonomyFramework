@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package cobenefit;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.CO";
+option java_package = "org.iwa.ttf.propertySets.co";
+option java_multiple_files = true;
+
+//totally guessing on the categories here, so consider them placeholders.
+enum BenefitCategory {
+    BIO_DIVERSITY = 0;
+    EFFICIENT_RESOURCE_USE = 1;
+    INCREASED_HUMAN_LABOR_CHOICE = 2;
+    ANTI_CHILD_LABOR = 3;
+}
+
+message CoBenefit {
+    BenefitCategory co_benefit = 1; //high-level categories
+    string description = 2; //description of the co-benefit that is not captured via the category
+    int32 rating_score = 3;  //placeholder for some kind of rating or scoring of the relative co-benefit
+}
+
+//if used as a repeated property set
+message CoBenefits {
+    repeated CoBenefit ecological_claim = 1;
+}
+
+message GetCoBenefitRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetCoBenefitResponse {
+    tokens.MessageHeader header = 1;
+    CoBenefit co_benefit = 2;
+}
+
+message SetCoBenefitRequest {
+    tokens.MessageHeader header = 1;
+    CoBenefit co_benefit = 2;
+}
+
+message SetCoBenefitResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+//if used as a repeated property set
+message GetCoBenefitsRequest {
+    tokens.MessageHeader header = 1;
+}
+
+//if used as a repeated property set
+message GetCoBenefitsResponse {
+    tokens.MessageHeader header = 1;
+    CoBenefits co_benefits = 2;
+}
+
+//if used as a repeated property set
+message AddCoBenefitRequest {
+    tokens.MessageHeader header = 1;
+    CoBenefit co_benefit = 2;
+}
+
+//if used as a repeated property set
+message AddCoBenefitResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitRequest {
+    tokens.MessageHeader header = 1;
+    CoBenefit co_benefit = 2;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

@@ -1,0 +1,172 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>DR</i>",
+      "tooling": "phDR",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Date Range",
+    "aliases": [
+      "Time Period",
+      "Start and Stop Dates"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/date-range/date-range.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a time period defined using a start and stop date and time. The Date Range includes a simple date and a granular timestamp for both the start and stop points defining the time period.",
+      "businessExample": "A token may represent value of a byproduct our output of some activity that occurred during a certain time period. In the case of ecological tokens, it can be the time period in which some benefit is measured and verified that would represent the benefit's value.",
+      "analogies": [
+        {
+          "name": "GHG/Carbon Benefit",
+          "description": "A token implementing this property set can represent the avoidance or removal or GHG/Carbon for a certain time period.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the Date Range.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "date-range.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "date-range.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "DateRange",
+      "valueDescription": "Contains the date range.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "e3b45dcc-f767-4c9d-a081-9b0f91eb728c",
+          "name": "GetDateRange",
+          "description": "Request the value of the verified link property",
+          "request": {
+            "controlMessageName": "GetDateRangeRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetDateRangeResponse",
+            "outputParameters": [
+              {
+                "name": "StartDate",
+                "valueDescription": "Returning the simple date value."
+              },
+              {
+                "name": "StartTimeStamp",
+                "valueDescription": "Returning the granular start timestamp."
+              },
+              {
+                "name": "EndDate",
+                "valueDescription": "Returning the simple date value."
+              },
+              {
+                "name": "EndTimeStamp",
+                "valueDescription": "Returning the granular start timestamp."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "269dfe9a-bf3e-4416-af54-4a49a0e408d0",
+          "name": "SetDateRange",
+          "description": "Set the Value of the Date Range Property, note if Roles should be applied to the Setter.",
+          "request": {
+            "controlMessageName": "SetDateRangeRequest",
+            "inputParameters": [
+              {
+                "name": "StartDate",
+                "valueDescription": "Set the simple date value."
+              },
+              {
+                "name": "StartTimeStamp",
+                "valueDescription": "Set the granular start timestamp."
+              },
+              {
+                "name": "EndDate",
+                "valueDescription": "Set the simple date value."
+              },
+              {
+                "name": "EndTimeStamp",
+                "valueDescription": "Set the granular start timestamp."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetDateRangeResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "DateRange",
+          "valueDescription": "Contains the values for the Date Range.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "StartDate",
+              "valueDescription": "A simple date format.",
+              "templateValue": ""
+            },
+            {
+              "name": "StartTimeStamp",
+              "valueDescription": "A granular timestamp.",
+              "templateValue": ""
+            },
+            {
+              "name": "EndDate",
+              "valueDescription": "A simple date format.",
+              "templateValue": ""
+            },
+            {
+              "name": "EndTimeStamp",
+              "valueDescription": "A granular timestamp.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

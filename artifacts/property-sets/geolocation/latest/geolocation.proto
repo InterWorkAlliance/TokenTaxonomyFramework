@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package geolocation;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.GL";
+option java_package = "org.iwa.ttf.propertySets.gl";
+option java_multiple_files = true;
+
+//this is a Global Navigation Satellite System
+message GNSS{
+    string longitude = 1; 
+    string latitude = 2; 
+    string timing = 3;
+}
+
+message GetGNSSRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetGNSSResponse {
+    tokens.MessageHeader header = 1;
+    GNSS value = 2;
+}
+
+//if Delegable present
+message SetGNSSRequest {
+    tokens.MessageHeader header = 1;
+    GNSS GNSS = 2; 
+}
+
+//if Delegable present
+message SetGSPResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message GeographicArea{
+    string geo_json = 1;
+}
+
+message GeographicLocation{
+    GNSS GNSS = 1;
+    GeographicArea geographic_areas = 2;
+}
+
+message GetGeographicLocationRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetGeographicLocationResponse {
+    tokens.MessageHeader header = 1;
+    GeographicLocation value = 2;
+}
+
+//if Delegable present
+message SetGeographicLocationRequest {
+    tokens.MessageHeader header = 1;
+    GNSS GNSS = 2; 
+}
+
+message SetGeographicLocationResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

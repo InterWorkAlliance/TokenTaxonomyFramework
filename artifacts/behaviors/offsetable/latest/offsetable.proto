@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package offsetable;
+
+import "tokens.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Offsetable";
+option java_package = "org.iwa.ttf.behaviors.offsetable";
+option java_multiple_files = true;
+
+//if a fraction of a token is to be offset, it should be split into fractions 1st, then offset the fraction that you want to apply as an offset.
+message OffsetRequest {
+    tokens.MessageHeader header = 1;
+    string offset_applied_to = 2; //id of the emission being offset. This can be the Id of the ESG Scorecard emission entry for a specific reporting period.
+}
+
+message OffsetResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+//if Delegable present
+message OffsetFromRequest {
+    tokens.MessageHeader header = 1;
+    string from_account_id = 2;
+    bytes quantity = 3;
+}
+
+//if Delegable present
+message OffsetFromResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

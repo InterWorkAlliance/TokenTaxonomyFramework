@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package mtCO2e;
+
+import "tokens.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.CO2e";
+option java_package = "org.iwa.ttf.propertySets.co2e";
+option java_multiple_files = true;
+
+message Adjustment{
+    google.protobuf.TimeStamp adjusted_date = 1; //date of the adjustment
+    string adjusted_amount = 2; //decimals or float?
+}
+
+message Adjustments{
+    Adjustment adjustment = 1;
+}
+
+//not sure if these are numeric scores and what the scale would be???
+message mtCO2e{
+    google.protobuf.TimeStamp adjustable_until = 1; //expiration date for making adjustments
+    string issued_amount = 2; //decimals or float?
+    Adjustments adjustments = 3; //collection of adjustments
+}
+
+message GetAdjustableUntilRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetAdjustableUntilResponse {
+    tokens.MessageHeader header = 1;
+    google.protobuf.TimeStamp adjustable_until = 2; //expiration date for making adjustments
+}
+
+message SetAdjustableUntilRequest {
+    tokens.MessageHeader header = 1;
+    google.protobuf.TimeStamp adjustable_until = 2; //expiration date for making adjustments
+}
+
+message SetAdjustableUntilResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message GetIssuedAmountRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetIssuedAmountResponse {
+    tokens.MessageHeader header = 1;
+    string issued_amount = 2; //decimals or float?
+}
+
+message SetIssuedAmountRequest {
+    tokens.MessageHeader header = 1;
+    string issued_amount = 2; //decimals or float?
+}
+
+message SetIssuedAmountResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message GetAdjustmentsRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetAdjustmentsResponse {
+    tokens.MessageHeader header = 1;
+    Adjustments adjustments = 2; //decimals or float?
+}
+
+message AddAdjustmentRequest {
+    tokens.MessageHeader header = 1;
+    Adjustment adjustment = 2;
+}
+
+message AddAdjustmentResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
+
+message RemoveAdjustmentRequest {
+    tokens.MessageHeader header = 1;
+    Adjustment adjustment = 2;
+}
+
+message RemoveAdjustmentResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

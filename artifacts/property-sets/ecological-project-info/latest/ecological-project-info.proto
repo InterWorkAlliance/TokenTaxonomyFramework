@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package ecologicalprojectinfo;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.EPI";
+option java_package = "org.iwa.ttf.propertySets.epi";
+option java_multiple_files = true;
+
+enum ProjectScale {
+    MICRO = 0;
+    SMALL = 1;
+    MEDIUM = 2;
+    LARGE = 3;
+}
+
+message EcologicalProjectInfo{
+    verifiedlink.VerifiedLink verified_link = 1; //Link to the project data or materials
+    string country_code = 2; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    ProjectScale project_scale = 3; //side of the project
+}
+
+message GetEcologicalProjectInfoRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetEcologicalProjectInfoResponse {
+    tokens.MessageHeader header = 1;
+    EcologicalProjectInfo ecological_project_info = 2;
+}
+
+message SetEcologicalProjectInfoRequest {
+    tokens.MessageHeader header = 1;
+    EcologicalProjectInfo ecological_project_info = 2;
+}
+
+message SetEcologicalProjectInfoResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

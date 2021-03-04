@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package daterange;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.DR";
+option java_package = "org.iwa.ttf.propertySets.dr";
+option java_multiple_files = true;
+
+message DatePoint{
+    string start_date = 1; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
+    google.protobuf.TimeStamp time_stamp = 2; //granular timestamp for precice range measurement
+}
+
+message DateRange{
+    DatePoint start_date = 1; 
+    DatePoint end_date = 2; 
+}
+
+
+message GetDateRangeRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetDateRangeResponse {
+    tokens.MessageHeader header = 1;
+    DateRange date_range = 1;
+}
+
+message SetDateRangeRequest {
+    tokens.MessageHeader header = 1;
+    DateRange date_range = 2;
+}
+
+message SetDateRangeResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}
