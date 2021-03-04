@@ -1,6 +1,6 @@
 # Contents
 
-©2020 InterWork Alliance Inc. ("IWA").  All Rights Reserved. This Github repository has been set up to provide information to the public. The use of the information in this repository is subject to the terms of the agreement in the [LICENSE](LICENSE) file.
+©2021 InterWork Alliance Inc. ("IWA").  All Rights Reserved. This Github repository has been set up to provide information to the public. The use of the information in this repository is subject to the terms of the agreement in the [LICENSE](LICENSE) file.
 
 ## Project Scope
 
