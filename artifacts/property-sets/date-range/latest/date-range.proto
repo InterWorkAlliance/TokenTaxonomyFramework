@@ -20,22 +20,16 @@ message DateRange{
     DatePoint end_date = 2; 
 }
 
-
-message GetDateRangeRequest {
-    tokens.MessageHeader header = 1;
-}
+message GetDateRangeRequest {}
 
 message GetDateRangeResponse {
-    tokens.MessageHeader header = 1;
     DateRange date_range = 1;
 }
 
 message SetDateRangeRequest {
-    tokens.MessageHeader header = 1;
-    DateRange date_range = 2;
+    DateRange date_range = 1;
 }
 
 message SetDateRangeResponse {
-    tokens.MessageHeader header = 1;
-    tokens.TransactionConfirmation transaction_confirmation = 2;
+    tokens.TransactionConfirmation transaction_confirmation = 1;
 }

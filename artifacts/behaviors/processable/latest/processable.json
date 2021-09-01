@@ -1,0 +1,121 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"a5ca8c18-57b9-4907-8bf0-a66712a212c0",
+      "type": "BEHAVIOR",
+      "visual": "<i>pc</i>",
+      "tooling": "pc",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Processable",
+    "aliases": [
+      "Verified",
+      "Processed Claim"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior is burned or retired when the processed claim token created after processing. For example, a Carbon Benefit Claim is submitted for validation and verification, once this is done the claim is processed. Once the processed claim is created, the claim token should be processed or retired by passing in the processed claim token id that resulted from the verification. This ensures that the claim cannot be validated and verified again and can no longer be used.",
+      "analogies": [],
+      "comments": "Used in conjunction with ecological benefit claims.",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "This would allow for an owner to allow another party to process on their behalf, like the standard registry.",
+        "symbol": {
+          "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+          "type": "BEHAVIOR",
+          "visual": "<i>g</i>",
+          "tooling": "g",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "processable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "processable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "invocations": [
+    {
+      "id": "2019574d-c8bf-44b6-afb7-cb6eaf74a308",
+      "name": "Process",
+      "description": "A request to process a token instance(s) in the class by the verifier of the claim to record the processedClaimId and retire or burn this instance.",
+      "request": {
+        "controlMessageName": "ProcessRequest",
+        "description": "The request to process this token.",
+        "inputParameters": [
+          {
+            "name": "ProcessedClaimId",
+            "valueDescription": "The Id of the processed claim token."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "ProcessResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the Process request"
+          }
+        ],
+        "description": "The response from the request to Process."
+      }
+    },
+    {
+      "id": "47057767-e0ee-4737-993b-698f7baab3ed",
+      "name": "ProcessFrom",
+      "description": "Requires Delegable. A request to process a token instance in the class by a party or account that has allowance to do so. Once the token is Process, invocations of Transfer should be blocked.  Requires a From and Quantity fields in the request.",
+      "request": {
+        "controlMessageName": "ProcessFromRequest",
+        "description": "The request to Process tokens.",
+        "inputParameters": [
+          {
+            "name": "From",
+            "valueDescription": "AccountId from which tokens are processed."
+          },
+          {
+            "name": "ProcessedClaimId",
+            "valueDescription": "The Id of the processed claim."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "ProcessFromResponse",
+        "description": "The response from the request to process from.",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the process from request"
+          }
+        ]
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "ProcessedClaimId",
+      "valueDescription": "Records the processed claim id that retires the benefit claim.",
+      "templateValue": "",
+      "properties":[]
+    }
+  ]
+}

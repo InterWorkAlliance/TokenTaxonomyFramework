@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package credible;
+
+import "tokens.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Credible";
+option java_package = "org.iwa.ttf.behaviors.credible";
+option java_multiple_files = true;
+
+message CreditRequest {
+    string credit_id = 1; //id of the benefit token id that is the credit that represents the verified claim.
+}
+
+message CreditResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if Delegable present
+message CreditFromRequest {
+    string from_account_id = 1;
+    string credit_id = 2; //id of the benefit token id that is the credit that represents the verified claim.
+}
+
+//if Delegable present
+message CreditFromResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}

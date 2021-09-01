@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility;
+
+import "tokens.proto";
+import "sustainability/common.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability";
+option java_package = "org.iwa.ttf.token.sustainability";
+option java_multiple_files = true;
+
+//Processed Claim token schema - not a part of certification
+message ProcessedClaim
+{
+    string id = 1;
+    string verification_contract_id = 2; //Id for the verification contract
+    string processed_id = 3; //when a claim is processed, it will be retired and record the id of the processed claim in that process
+    Result result = 4; //summary and verified links for the the claim.
+}
+
+message Result{
+    common.DateRange date_range = 1;
+    string e_f_before = 2;
+    string e_f_after = 3;
+    repeated common.CoBenefit co_benefits = 4;
+    repeated common.VerifiedLink process_data = 5;
+}
+
+//must check issuer role membership for invoker
+message MintRequest {
+    ProcessedClaim processed_claim = 1;
+}
+
+message MintResponse{
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+
+message GetProcessedClaimRequest{}
+message GetProcessedClaimResponse{
+    ProcessedClaim claim = 1;
+}
+
+//date range
+message GetDateRangeRequest {}
+
+message GetDateRangeResponse {
+    common.DateRange date_range = 1;
+}
+
+message SetDateRangeRequest {
+    common.DateRange date_range = 1;
+}
+
+message SetDateRangeResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//Co-benefits
+
+message GetCoBenefitsRequest{}
+
+message GetCoBenefitsResponse {
+    repeated common.CoBenefit co_benefits = 1;
+}
+
+//if used as a repeated property set
+message AddCoBenefitRequest {
+    common.CoBenefit co_benefit = 1;
+}
+
+//if used as a repeated property set
+message AddCoBenefitResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitRequest {
+    common.CoBenefit co_benefit = 1;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//Process Data
+
+message GetProcessDataRequest{}
+
+message GetResultResponse{
+    repeated common.VerifiedLink process_data = 1;
+}
+
+message AddProcessDataRequest{
+    common.VerifiedLink process_data = 1;
+}
+
+//Credible
+//sent by the Registry after an Ecological Benefit Token, carbon credit, is created based on this processed claim. After the benefit token is minted, the process token is credited/retired suppling the credit token Id to link the tokens together and so the processed claim can not be credited more than once.
+message CreditedRequest{
+    string credit_id = 1; //link to the Ecological Benefit token issued by the Registry based of this processed claim.
+}
+
+message CreditedResponse{
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+service ProcesssedClaims {
+    //mintable: Creating an RPC interface that accepts the request and returns, the mint requests should do a role check to ensure that the invoker is a member of the issuers group/role.
+    rpc Mint (MintRequest) returns (MintResponse) {} //requires a role check to ensure that the invoker is a member of the issuers group/role.
+    //roles: manage issuer that is initially set at mint
+    rpc GetProcessedClaim (GetProcessedClaimRequest) returns (GetProcessedClaimResponse) {}
+    rpc AddProcessingData (AddProcessDataRequest) returns (tokens.TransactionConfirmation) {}
+    rpc SetToCredited (CreditedRequest) returns (CreditedResponse) {}
+}

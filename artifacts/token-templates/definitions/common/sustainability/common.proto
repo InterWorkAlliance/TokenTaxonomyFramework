@@ -1,0 +1,151 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility.common;
+
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability.Common";
+option java_package = "org.iwa.ttf.token.sustainability.common";
+option java_multiple_files = true;
+
+
+enum TargetedBenefitType {
+    GHG = 0;
+    WATER = 1;
+    OTHER = 50;
+}
+
+enum ProjectScale {
+    MICRO = 0;
+    SMALL = 1;
+    MEDIUM = 2;
+    LARGE = 3;
+}
+
+//how the credit value was determined
+enum DeterminedValue {
+    GENERATED = 0;
+    EX_ANTE = 1;
+    EX_POST = 2;
+}
+
+enum VerificationStandard{
+    GS_VER =  0; //Voluntary: Gold Standard Verified Emissions Reduction
+    VCS =  1; //Voluntary: Cerified Carbon Standard generates VCUs
+    VOS =  2; //Voluntary: Voluntary Offset Standard
+    CCB =  3; //Voluntary: Climate
+    GREEN_E =  4; //Voluntary: US renewable energy
+    CDM =  5; //Compliance: Clean Development Mechanism generates CERs
+    JI =  6; //Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
+    EUA =  7; //Compliance: European Union Allowances
+    PENDING =  8; //Other
+}
+
+enum ClassificationCategory
+{
+    AVOIDANCE = 0;
+    REDUCTION = 1;
+    REMOVAL = 2;
+}
+
+enum ClassificationMethod
+{
+    MIXED_NATURE_TECHNOLOGY = 0;
+    NATURE = 1;
+    TECHNOLOGY = 2;
+}
+
+//How durable, measured in years, the carbon sequestration and storage is.
+enum DurabilityRating
+{
+    SHORT_TERM = 0; //10-100 years
+    MEDIUM_TERM = 1; //100-1000 years
+    LONG_TERM = 2; //1000+ years
+}
+
+enum StorageType
+{
+    MATERIALS = 0;
+    BIOLOGICAL = 1;
+    GEOLOGICAL = 2;
+}
+
+
+enum HashAlgorithmType
+{
+    SHA256 = 0;
+    SHA3 = 1;
+}
+
+message VerifiedLink{
+    string id = 1;
+    string uri = 2;
+    string description = 3;
+    string hash_proof = 4;
+    HashAlgorithmType hash_algorithm = 5;
+}
+
+//records the CRU token that is being replaced after it is revoked. I.e. forest fire or accounting adjustment requires that a credit issued needs to be revoked and replaced.
+message Adjustment{
+    string id = 1;
+    string replaces_id = 2;
+    google.protobuf.Timestamp replacement_date = 3;
+    string replacement_notes = 4;
+}
+
+//DATE RANGE
+
+message DatePoint{
+    string start_date = 1; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
+    google.protobuf.Timestamp time_stamp = 2; //granular timestamp for precice range measurement
+}
+
+message DateRange{
+    DatePoint start_date = 1; 
+    DatePoint end_date = 2; 
+}
+
+//CO-BENEFITS
+
+//Not complete
+enum BenefitCategory {
+    NO_CATEGORY = 0;
+    NO_POVERTY = 1;
+    ZERO_HUNGER = 2;
+    GOOD_HEALTH_AND_WELL_BEING = 3;
+    QUALITY_EDUCATION = 4;
+    GENDER_EQUALITY = 5;
+    CLEAN_WATER_AND_SANITATION = 6;
+    AFFORDABLE_AND_CLEAN_ENERGY = 7;
+    DECENT_WORK_AND_ECONOMIC_GROWTH = 8;
+    INDUSTRY_INNOVATION_AND_INFRASTRUCTURE = 9;
+    REDUCED_INEQUALITIES = 10;
+    SUSTAINABLE_CITIES_AND_COMMUNITIES = 11;
+    RESPONSIBLE_CONSUMPTION_AND_PRODUCTION = 12;
+    CLIMATE_ACTION = 13;
+    LIFE_BELOW_WATER = 14;
+    LIFE_ON_LAND = 15;
+    PEACE_JUSTICE_AND_STRONG_INSTITUTIONS = 16;
+    PARTNERSHIPS_FOR_THE_GOALS = 17;
+}
+
+message CoBenefit {
+    BenefitCategory co_benefit = 1; //high-level categories
+    string description = 2; //description of the co-benefit that is not captured via the category
+    int32 rating_score = 3;  //placeholder for some kind of rating or scoring of the relative co-benefit
+}
+
+//this is a Global Navigation Satellite System
+message GNSS{
+    string longitude = 1; 
+    string latitude = 2; 
+    string timing = 3;
+}
+
+message GeographicArea{
+    string geo_json = 1;
+}
+
+message GeographicLocation{
+    GNSS GNSS = 1;
+    GeographicArea geographic_area = 2;
+}

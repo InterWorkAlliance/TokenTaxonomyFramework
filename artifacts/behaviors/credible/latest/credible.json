@@ -1,0 +1,120 @@
+{
+    "artifact": {
+      "artifactSymbol": {
+        "id":"2ee6a174-331d-4dd2-b57a-4ae81b060264",
+        "type": "BEHAVIOR",
+        "visual": "<i>cr</i>",
+        "tooling": "cr",
+        "version": "1.0",
+        "templateValidated": false
+      },
+      "name": "Credible",
+      "aliases": [
+        "Verified"
+      ],
+      "artifactDefinition": {
+        "businessDescription": "A token class that implements this behavior is burned or retired with its the credit token created on its behalf being recorded. For example, a Processed Carbon Benefit Claim is created after validation and verification of an Ecological Claim and a Carbon Credit is created as a result. Once the credit is created, the Processed Claim token should be credited or retired by passing in the credit that resulted from the verification of the claim. This ensures that the processed claim cannot be validated and verified again and can no longer be used.",
+        "analogies": [],
+        "comments": "Used in conjunction with ecological benefit claims.",
+        "artifact": null
+      },
+      "dependencies": [],
+      "incompatibleWithSymbols": [],
+      "influencedBySymbols": [
+        {
+          "description": "This would allow for an owner to allow another party to credit on their behalf, like the standard registry.",
+          "symbol": {
+            "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+            "type": "BEHAVIOR",
+            "visual": "<i>g</i>",
+            "tooling": "g",
+            "version": "1.0",
+            "templateValidated": false
+          }
+        }
+      ],
+      "artifactFiles": [
+        {
+          "content": "CONTROL",
+          "fileName": "credible.proto",
+          "fileData": "",
+          "artifact": null
+        },
+        {
+          "content": "UML",
+          "fileName": "credible.md",
+          "fileData": "",
+          "artifact": null
+        }
+      ],
+      "maps": {
+        "codeReferences": [],
+        "resources": [],
+        "artifact": null
+      }
+    },
+    "invocations": [
+      {
+        "id": "2019574d-c8bf-44b6-afb7-cb6eaf74a308",
+        "name": "Credit",
+        "description": "A request to credit a token instance(s) in the class by the issuer of the credit to record the creditId and retire or burn this instance.",
+        "request": {
+          "controlMessageName": "CreditRequest",
+          "description": "The request to credit this token.",
+          "inputParameters": [
+            {
+              "name": "CreditId",
+              "valueDescription": "The Id of the credit token."
+            }
+          ]
+        },
+        "response": {
+          "controlMessageName": "CreditResponse",
+          "outputParameters": [
+            {
+              "name": "Confirmation",
+              "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the Credit request"
+            }
+          ],
+          "description": "The response from the request to Credit."
+        }
+      },
+      {
+        "id": "47057767-e0ee-4737-993b-698f7baab3ed",
+        "name": "CreditFrom",
+        "description": "Requires Delegable. A request to credit a token instance in the class by a party or account that has allowance to do so. Once the token is Credit, invocations of Transfer should be blocked.  Requires a From and Quantity fields in the request.",
+        "request": {
+          "controlMessageName": "CreditFromRequest",
+          "description": "The request to Credit tokens.",
+          "inputParameters": [
+            {
+              "name": "From",
+              "valueDescription": "AccountId from which tokens are credited."
+            },
+            {
+              "name": "AppliedTo",
+              "valueDescription": "The Id of the reported emission that is being credited."
+            }
+          ]
+        },
+        "response": {
+          "controlMessageName": "CreditFromResponse",
+          "description": "The response from the request to credit from.",
+          "outputParameters": [
+            {
+              "name": "Confirmation",
+              "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the credit from request"
+            }
+          ]
+        }
+      }
+    ],
+    "properties": [
+      {
+        "name": "CreditId",
+        "valueDescription": "Records the benefit credit Id for the claim, like an Core Carbon Principles token.",
+        "templateValue": "",
+        "properties":[]
+      }
+    ]
+  }

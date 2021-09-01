@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package processable;
+
+import "tokens.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Processable";
+option java_package = "org.iwa.ttf.behaviors.processable";
+option java_multiple_files = true;
+
+message ProcessRequest {
+    string processd_claim_id = 1; //id of the processed claim id that represents the verified claim which a credit is issued from.
+}
+
+message ProcessResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if Delegable present
+message ProcessFromRequest {
+    string from_account_id = 1;
+    string processd_claim_id = 2; //id of the processed claim id that represents the verified claim which a credit is issued from.
+}
+
+//if Delegable present
+message ProcessFromResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}

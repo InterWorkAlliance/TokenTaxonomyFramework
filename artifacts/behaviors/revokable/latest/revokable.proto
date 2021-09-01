@@ -10,10 +10,14 @@ option java_package = "org.iwa.ttf.behaviors.revokable";
 option java_multiple_files = true;
 
 message RevokeRequest {
-    tokens.MessageHeader header = 1;
+    oneof from_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 2;
+    }
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
 }
 
 message RevokeResponse {
-    tokens.MessageHeader header = 1;
-    tokens.TransactionConfirmation transaction_confirmation = 2;
+    tokens.TransactionConfirmation transaction_confirmation = 1;
 }

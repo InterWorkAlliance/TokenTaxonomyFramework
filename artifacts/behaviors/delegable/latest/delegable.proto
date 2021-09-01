@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 package delegable;
 
@@ -11,21 +11,18 @@ option java_package = "org.iwa.ttf.behaviors.burnable.delegable";
 option java_multiple_files = true;
 
 message ApproveResponse {
-    tokens.MessageHeader header = 1;
-    string spender_account_id = 2;
-    bytes amount = 3;
-    tokens.TransactionConfirmation confirmations = 4;
+    string spender_account_id = 1;
+    bytes amount = 2;
+    tokens.TransactionConfirmation confirmations = 3;
 }
 
 message AllowanceRequest {
-    tokens.MessageHeader Header = 1;
-    string owner_account_id = 2;
-    string spender_account_id = 3;
+    string owner_account_id = 1;
+    string spender_account_id = 2;
 }
 
 message AllowanceResponse {
-    tokens.MessageHeader Header = 1;
-    string owner_account_id = 2;
-    string spender_account_id = 3;
-    bytes remaining = 4;
+    string owner_account_id = 1;
+    string spender_account_id = 2;
+    bytes remaining = 3;
 }

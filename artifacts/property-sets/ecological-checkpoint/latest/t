@@ -1,0 +1,117 @@
+   cobenefit.CoBenefits co_benefits =6; //adding co-benefits to a project claim
+   
+    {         
+      "reference": {
+        "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Co-benefits for this ecological claim.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CoBenefits",
+          "valueDescription": "Contains the values for the claim.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetCoBenefits",
+              "description": "Request the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "GetCoBenefitsRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCoBenefitsResponse",
+                "outputParameters": [
+                  {
+                    "name": "CoBenefits",
+                    "valueDescription": "Returning the CoBenefits collection - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "AddCoBenefit",
+              "description": "Set the CoBenefit",
+              "request": {
+                "controlMessageName": "AddCoBenefitRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Add a CoBenefit value - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "RemoveCoBenefit",
+              "description": "Remove a CoBenefit",
+              "request": {
+                "controlMessageName": "RemoveCoRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Remove a CoBenefit value - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the remove request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "CoBenefits",
+              "valueDescription": "Contains the collection of CoBenefit attached to this claim.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "BenefitCategory",
+                  "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Description",
+                  "valueDescription": "A description of the co-benefit that is not captured via the category.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "RatingScore",
+                  "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "repeated": true
+    }

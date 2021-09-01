@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility;
+
+import "tokens.proto";
+import "sustainability/common.proto";
+import "Ecological-Claim.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability";
+option java_package = "org.iwa.ttf.token.sustainability";
+option java_multiple_files = true;
+
+message EcologicalProjectOrProgram{
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    repeated string owners = 4;
+    EcologicalProjectInfo project_information = 5;
+    ModularBenefitProjects modular_benefit_projects = 6;
+}
+
+message EcologicalProjectInfo{
+    common.VerifiedLink verified_link = 1; //Link to the project data or materials
+    string country_code = 2; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    common.ProjectScale project_scale = 3; //side of the project
+}
+
+message GetEPRequest {
+    string id = 1;
+}
+
+message GetEPResponse {
+    EcologicalProjectOrProgram ecological_project_or_program = 1;
+}
+
+message UpdateEP{
+    EcologicalProjectOrProgram ep = 1;
+}
+
+
+message SetEcologicalProjectInfoRequest {
+    EcologicalProjectInfo ecological_project_info = 1;
+}
+
+message SetEcologicalProjectInfoResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+message ModularBenefitProject {
+    string id = 1; //unique identifier that is used in reference by a verifing contract.
+    common.TargetedBenefitType benefit_type = 2; 
+    common.GeographicLocation geographic_location = 3;
+    repeated string developers = 4;
+    repeated string sponsors = 5;
+    repeated EcologicalClaim ecological_claims  = 6;
+}
+
+message ModularBenefitProjects {
+    repeated ModularBenefitProject modular_benefit_project = 1;
+}
+
+message GetModularBenefitProjectsRequest {}
+
+message GetModularBenefitProjectsResponse {
+    ModularBenefitProjects modular_benefit_projects = 1;
+}
+
+//if Delegable present
+message AddModularBenefitProjectRequest {
+    ModularBenefitProject modular_benefit_project = 1; 
+}
+
+//if Delegable present and no child claims
+message AddModularBenefitProjectResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+message UpdateModularBenefitProjectRequest{
+    ModularBenefitProject mbp = 1;
+}
+
+message RemoveModularBenefitProjectRequest{
+    ModularBenefitProject modular_benefit_project = 1;
+}
+
+message RemoveModularBenefitProjectResponse{
+    ModularBenefitProject modular_benefit_project = 1; 
+}
+
+
+service EcologicalProjects {
+    rpc GetEcologicalProjectOrProgram (GetEPRequest) returns (GetEPResponse) {}
+    rpc SetEPInfo (SetEcologicalProjectInfoRequest) returns (SetEcologicalProjectInfoResponse) {}
+    rpc AddModularBenefitProject (AddModularBenefitProjectResponse) returns (AddModularBenefitProjectResponse) {}
+    rpc UpdateModularBenefitProject (UpdateModularBenefitProjectRequest) returns (tokens.TransactionConfirmation) {}
+    rpc RemoveModularBenefitProject (RemoveModularBenefitProjectRequest) returns (RemoveModularBenefitProjectResponse) {}
+}

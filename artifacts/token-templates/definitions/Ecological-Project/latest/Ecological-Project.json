@@ -115,6 +115,14 @@
       {
         "name": "Wes Geisenberger",
         "organization": "Hedera Hashgraph"
+      },
+      {
+        "name": "Tom Herman",
+        "organization": "AirCarbon Pte Ltd"
+      },
+      {
+        "name": "Tom Baumann",
+        "organization": "Climate Check"
       }
     ]
   },
@@ -138,8 +146,8 @@
         }
       }
     },
-    "valueType": "INTRINSIC",
-    "supply": "FIXED",
+    "valueType": "REFERENCE",
+    "supply": "INFINITE",
     "name": "",
     "symbol": "",
     "owner": "",

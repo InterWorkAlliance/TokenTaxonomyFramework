@@ -1,0 +1,212 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility;
+
+import "tokens.proto";
+import "sustainability/common.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability";
+option java_package = "org.iwa.ttf.token.sustainability";
+option java_multiple_files = true;
+
+//Ecological Claim token schema - not a part of certification
+message EcologicalClaim
+{
+    string id = 1;
+    string mbp_id = 2; //modular benefit project that submits the claim
+    string processed_id = 3; //when a claim is processed, it will be retired and record the id of the processed claim in that process
+    repeated common.CoBenefit co_benefits = 4;
+    Checkpoints checkpoints = 5; //raw and reference data verified links for the the checkpoint.
+}
+
+message Checkpoint{ //add controls for checkpoints
+    string checkpoint_id = 1;
+    common.DateRange date_range = 2;
+    string e_f_before = 3;
+    string e_f_after = 4;
+    repeated common.VerifiedLink checkpoint_data = 5;
+}
+
+message Checkpoints{
+    repeated Checkpoint checkpoint = 1;
+}
+
+//must check issuer role membership for invoker
+message MintRequest {
+    EcologicalClaim ecological_claim = 1;
+}
+
+message MintResponse{
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+message GetClaimRequest{}
+message GetClaimResponse{
+    EcologicalClaim claim = 1;
+}
+
+//date range
+message GetDateRangeRequest {}
+
+message GetDateRangeResponse {
+    common.DateRange date_range = 1;
+}
+
+message SetDateRangeRequest {
+    common.DateRange date_range = 1;
+}
+
+message SetDateRangeResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//Co-benefits
+
+message GetCoBenefitsRequest{}
+
+message GetCoBenefitsResponse {
+    repeated common.CoBenefit co_benefits = 1;
+}
+
+//if used as a repeated property set
+message AddCoBenefitRequest {
+    common.CoBenefit co_benefit = 1;
+}
+
+//if used as a repeated property set
+message AddCoBenefitResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitRequest {
+    common.CoBenefit co_benefit = 1;
+}
+
+//if used as a repeated property set
+message RemoveCoBenefitResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//Checkpoints
+
+message GetCheckpointRequest{
+    string checkpoint_id = 1;
+}
+
+message GetCheckpointResponse{
+    Checkpoint checkpoint = 1;
+}
+
+message GetCheckpointsRequest{}
+message GetCheckpointsResponse{
+    Checkpoints checkpoints = 1;
+}
+
+message AddCheckpointRequest{
+    Checkpoint checkpoint = 1;
+}
+message AddCheckpointResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message EncumberRequest {
+    oneof from_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 2;
+    }
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
+}
+
+//this message is sent to the owner when requested by the invoker of the EncumberRequest
+message NotifyOwnerOfEncumberRequest{
+    string encumber_id = 1;
+    oneof from_id{
+        string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 3;
+    }
+}
+
+message NotifyOwnerOfEncumberResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message EncumberResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+//This message is set in response to the notification request
+message ApproveEncumberRequest {
+    oneof approved_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+    bytes signature = 3;
+    common.HashAlgorithmType hash_type = 4; //sha256, sha3, etc.
+}
+
+message ApproveEncumberResponse {
+    string encumber_id = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}
+
+message RemoveEncumberRequest {
+    oneof removed_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+}
+
+message RemoveEncumberResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+
+message Encumbrances{
+    repeated Encumbered encumbered = 1;
+}
+
+//this is the property that a token with this behavior should have one or a repeated list of them.
+message Encumbered{
+    google.protobuf.Timestamp timestamp = 1;
+    string encumber_id = 2;
+    oneof encumbered_by_id{
+        string d_i_d = 3; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 4;
+    }
+}
+
+message GetEncumberancesRequest{}
+message GetEncumberancesResponse{
+    Encumbrances encumberances = 1;
+}
+
+
+//sent by the VVB or Registry after a claim has been processed to record the Processed Claim Id and retire the claim so it cannot be processed again.
+message ProcessedCompleteRequest{
+    string verification_contract_id = 1; //link to the verification contract where the VVB and Registry are indicated
+    string processed_by_id = 2; //the id of the VVB that processed the claim
+    string processed_claim_id = 3; //the id of the processed claim that any credit is issued from
+}
+
+message ProcessedCompleteResponse{
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+service EcologicalClaims {
+    //processable: Creating an RPC interface that accepts a ProcessedComplete request and returns a receipt. This should only be allow to be invoked by the VVB in the verification contract.
+    rpc Processed (ProcessedCompleteRequest) returns (ProcessedCompleteResponse) {} //essentially a burn or retire.
+    //mintable: Creating an RPC interface that accepts the request and returns, the mint requests should do a role check to ensure that the invoker is a member of the issuers group/role.
+    rpc Mint (MintRequest) returns (MintResponse) {} //requires a role check to ensure that the invoker is a member of the issuers group/role.
+    //claim and checkpoints
+    rpc GetClaim (GetClaimRequest) returns (GetClaimResponse) {}
+    rpc AddCheckpoint (AddCheckpointRequest) returns (AddCheckpointResponse) {}
+    rpc GetCheckpoint (GetCheckpointRequest) returns (GetCheckpointResponse) {}
+    rpc GetCheckpoints (GetCheckpointsRequest) returns (GetCheckpointsResponse) {}
+    //encumberable: Creating an RPC interface that accepts the request, forwards the request to the owner for acceptance then will encumber and return or fail. The token is encumbered by the VVB once the processing of the claim begins.
+    rpc GetEncumbrances(GetEncumberancesRequest) returns (GetEncumberancesResponse) {} //returns all encumberances
+    rpc Encumber (EncumberRequest) returns (EncumberResponse) {} //requires an event to notify the owner with an AcceptEncumberRequest
+    rpc RemoveEncumberance (RemoveEncumberRequest) returns (RemoveEncumberResponse) {}  //invoker must be the encumberee 
+
+}

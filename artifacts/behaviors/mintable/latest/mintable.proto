@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 package mintable;
 
@@ -10,22 +10,18 @@ option java_package = "org.iwa.ttf.behaviors.mintable";
 option java_multiple_files = true;
 
 message MintRequest {
-    tokens.MessageHeader header = 1;
-    bytes quantity = 2;
+    bytes quantity = 1;
 }
 
 message MintResponse{
-    tokens.MessageHeader header = 1;
-    tokens.TransactionConfirmation transaction_confirmation = 2;
+    tokens.TransactionConfirmation transaction_confirmation = 1;
 }
 
 message MintToRequest {
-    tokens.MessageHeader header = 1;
-    bytes quantity = 2;
-    string to_account_id = 3;
+    bytes quantity = 1;
+    string to_account_id = 2;
 }
 
 message MintToResponse {
-    tokens.MessageHeader header = 1;
-    tokens.TransactionConfirmation transaction_confirmation = 2;
+    tokens.TransactionConfirmation transaction_confirmation = 1;
 }

@@ -15,7 +15,7 @@ option java_multiple_files = true;
 //a ecological product can be a generated value based on verified historical results or ex-ante, meaning a predicted result.
 enum GenerationType {
     GENERATED = 0;
-    EX_ANTI = 1;
+    EX_ANTE = 1;
     EX_POST = 2;
 }
 

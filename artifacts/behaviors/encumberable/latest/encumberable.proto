@@ -11,45 +11,55 @@ option java_package = "org.iwa.ttf.behaviors.ecumberable";
 option java_multiple_files = true;
 
 message EncumberRequest {
-    tokens.MessageHeader header = 1;
-    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+    oneof from_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 2;
+    }
     bytes signature = 3;
     string hash_type = 4; //sha256, sha3, etc.
 }
 
+//this message is sent to the owner when requested by the invoker of the EncumberRequest
 message NotifyOwnerOfEncumberRequest{
-    tokens.MessageHeader Header = 1;
     string encumber_id = 1;
-    string d_i_d = 3;
+    oneof from_id{
+        string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 3;
+    }
+}
+
+message NotifyOwnerOfEncumberResponse{
+    tokens.TransactionConfirmation confirmation = 1;
 }
 
 message EncumberResponse {
-    tokens.MessageHeader Header = 1;
-    tokens.TransactionConfirmation confirmations = 2;
+    tokens.TransactionConfirmation confirmation = 1;
 }
 
+//This message is set in response to the notification request
 message ApproveEncumberRequest {
-    tokens.MessageHeader header = 1;
-    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+    oneof approved_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
     bytes signature = 3;
-    string hash_type = 4; //sha256, sha3, etc.
+    common.HashAlgorithmType hash_type = 4; //sha256, sha3, etc.
 }
 
 message ApproveEncumberResponse {
-    tokens.MessageHeader Header = 1;
-    string encumber_id = 2;
-    tokens.TransactionConfirmation confirmations = 3;
+    string encumber_id = 1;
+    tokens.TransactionConfirmation confirmation = 2;
 }
 
 message RemoveEncumberRequest {
-    tokens.MessageHeader header = 1;
-    string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
-    bytes signature = 3;
+    oneof removed_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
 }
 
 message RemoveEncumberResponse {
-    tokens.MessageHeader Header = 1;
-    tokens.TransactionConfirmation confirmations = 2;
+    tokens.TransactionConfirmation confirmation = 1;
 }
 
 
@@ -61,7 +71,8 @@ message Encumbrances{
 message Encumbered{
     google.protobuf.timestamp timestamp = 1;
     string encumber_id = 2;
-    string d_i_d = 3;
-    bytes signature = 4;
-    string hash_type = 5;
+    oneof encumbered_by_id{
+        string d_i_d = 3; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 4;
+    }
 }

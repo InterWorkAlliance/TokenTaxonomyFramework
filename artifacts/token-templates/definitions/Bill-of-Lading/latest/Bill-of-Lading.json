@@ -76,7 +76,7 @@
   },
   "tokenBase": {
     "reference": {
-      "id": "b1eacdf8-35d8-454a-b1af-92eb0b6f45d4",
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
       "type": "BASE",
       "referenceNotes": "",
       "values": {
@@ -106,7 +106,7 @@
       "reference": {
         "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
         "type": "BEHAVIOR",
-        "referenceNotes": "Non-Subdividable",
+        "referenceNotes": "Indivisible",
         "values": {
           "controlUri": "",
           "artifactFiles": [],

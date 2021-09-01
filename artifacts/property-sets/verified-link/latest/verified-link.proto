@@ -11,9 +11,15 @@ option java_package = "org.iwa.ttf.propertySets.vl";
 option java_multiple_files = true;
 
 message VerifiedLink{
-    string link_text = 1;
-    string link_signed = 2;
-    string public_key = 3; 
+    string id = 1;
+    string uri = 2;
+    string description = 3;
+    string hash_proof = 4;
+    HashAlgorithmType hash_algorithm = 5;
+}
+
+message VerifiedLinks{
+    repeated VerifiedLink verified_links = 1;
 }
 
 message GetVerifiedLinkRequest {
