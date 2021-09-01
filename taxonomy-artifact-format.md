@@ -8,7 +8,7 @@ This file format enables tooling to navigate these artifacts and for creators to
 
 Artifacts should for a token definition, behavior or behavior group should be placed within a folder under the artifact type folder.  Within this folder there can be many files that are used to define the artifact, not all of them are required.
 
-- Artifact Definition: this is a JSON formated file that is generated from the artifactGenerator or TaxonomyService and updated manually or through the Taxonomy Service. This file holds most of the metadata as well as the descriptions, analogies and aliases.
+- Artifact Definition: this is a JSON formatted file that is generated from the artifactGenerator or TaxonomyService and updated manually or through the Taxonomy Service. This file holds most of the metadata as well as the descriptions, analogies and aliases.
 - Proto: this is a protocol buffer file that is used to describe the control messages used in an interaction with the artifact.
 - Artifact Markdown:  this is used to host UML diagrams, primarily sequence diagrams and can use a recommended markdown plugin or custom implementation based on the requirements of the artifact owners. In the examples [plantUml](http://plantuml.com) is used for for [sequence diagrams](http://plantuml.com/sequence-diagram) because it has a GitHub supported rendering capability and a Visual Studio Code [plugin](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml#markdown-integrating).  However, other options like
 [mermaid](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview) could be used.
