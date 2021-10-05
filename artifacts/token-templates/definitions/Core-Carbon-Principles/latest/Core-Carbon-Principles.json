@@ -96,6 +96,10 @@
       {
         "name": "Tom Herman",
         "organization": "AirCarbon Pte Ltd"
+      },
+      {
+        "name": "Tom Baumann",
+        "organization": "Climate Check"
       }
     ]
   },
@@ -161,7 +165,7 @@
           "propertyInvocations": [
             {
               "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
-              "name": "GetDecimals",
+              "name": "GetDecimalsRequest",
               "description": "Return the value",
               "request": {
                 "controlMessageName": "GetDecimalsRequest",
@@ -643,7 +647,7 @@
       "invocations": [
         {
           "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
-          "name": "Allowance",
+          "name": "AllowanceRequest",
           "description": "A Request by a party or account to the owner of a token(s) to have the right to perform a delegated behavior on their behalf.",
           "request": {
             "controlMessageName": "AllowanceRequest",
@@ -670,10 +674,10 @@
         },
         {
           "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
-          "name": "Approve Allowance",
+          "name": "ApproveAllowance",
           "description": "Same control message as the AllowanceRequest.  This could allow for an AllowanceRequest to be forwarded to multiple parties needed to Approve and shield this from the requestor. When all Approvals are obtained, an AllowanceResponse could be sent.",
           "request": {
-            "controlMessageName": "AllowanceRequest",
+            "controlMessageName": "ApproveRequest",
             "description": "The request",
             "inputParameters": [
               {
@@ -1181,7 +1185,7 @@
             {
               "id": "24eea114-99e4-4bd8-95b8-d05d0edbe4e9",
               "name": "GetCoreCarbonPrinciples",
-              "description": "Request the Ecological Project Info.",
+              "description": "Request the Core Carbon Principles Info.",
               "request": {
                 "controlMessageName": "GetCoreCarbonPrinciplesRequest",
                 "description": "The request",
@@ -1203,7 +1207,7 @@
             {
               "id": "c188b6b2-f4a3-4f85-a54a-eb64bc37ce96",
               "name": "SetCoreCarbonPrinciples",
-              "description": "Set the Ecological Claim",
+              "description": "Set the Core Carbon Principles",
               "request": {
                 "controlMessageName": "SetCoreCarbonPrinciplesRequest",
                 "description": "The request",

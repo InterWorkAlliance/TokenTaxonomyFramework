@@ -4,7 +4,6 @@ package tokens;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
-import "model/protos/core.proto";
 
 option csharp_namespace = "IWA.TTF.Base";
 option java_package = "org.iwa.ttf.base";
@@ -14,11 +13,6 @@ message MessageHeader {
     string version = 1;
     string request_id = 2;
     google.protobuf.Any custom_message_header = 3;
-}
-
-message Token{
-    MessageHeader header = 1;
-    taxonomy.model.core.TokenTemplate token_template = 2;
 }
 
 message GetSymbolRequest {
@@ -61,4 +55,8 @@ message GetBalanceResponse {
 
 message TransactionConfirmation {
     string transaction_id = 1;
+    bool success = 2;
+    string message = 3;
+    google.protobuf.Timestamp timestamp = 4;
 }
+

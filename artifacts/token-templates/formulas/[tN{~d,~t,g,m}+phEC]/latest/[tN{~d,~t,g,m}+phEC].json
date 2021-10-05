@@ -1,0 +1,115 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"fb68bf24-e6fb-42af-8513-9edcdc1d91eb",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,m</i>}+&phi;EC]",
+      "tooling": "[tN{~d,~t,g,m}+phEC]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "[tN{~d,~t,g,m}+phEC]",
+    "aliases": [
+      "Processed Claim",
+      "Verified Claim"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Variable Supply Whole Non-Fungible where the total supply can vary. The tokens in this class will be of the same series, sharing those properties like their Verification Contract, but also have unique values. It is Whole by setting the Decimals property on the dividable behavior = 0. A token instance can be burned.",
+      "businessExample": "This token can be used to represent a unique item in a shared context, like a processed claim in a collection of processed claims from the same Verification Contract.",
+      "analogies": [
+        {
+          "name": "Ecological Claim",
+          "description": "",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "[tN{~d,~t,g,m}+phEC].proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "[tN{~d,~t,g,m}+phEC].md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id":"3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tN{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id":"d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "visual": "<i>~t</i>",
+        "tooling": "~t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "visual": "<i>g</i>",
+        "tooling": "g",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id":"f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "propertySet": {
+        "id":"9bbcac72-ba95-4d73-ad95-d96275a4924f",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>EC</i>",
+        "tooling": "phEC",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "childTokens": []
+}

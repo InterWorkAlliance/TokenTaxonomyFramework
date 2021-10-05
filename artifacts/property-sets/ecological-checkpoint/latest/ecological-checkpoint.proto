@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package ecologicalcheckpoint;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+import "co-benefit.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.EC";
+option java_package = "org.iwa.ttf.propertySets.ec";
+option java_multiple_files = true;
+
+message EcologicalCheckpoint{
+    string id = 1;
+    verifiedlink.VerifiedLinks link_to_checkpoint_data = 2; //Link to the project data or materials
+    daterange.DateRance date_range = 3; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    string ef_before = 4; //environmental factor before project activities
+    string ef_after = 5; //environmental factor after project activities
+}
+
+//if used as a repeated property set
+message EcologicalCheckpoints{
+    repeated EcologicalCheckpoint ecological_checkpoint = 1;
+}
+
+message GetEcologicalCheckpointRequest {
+
+}
+
+message GetEcologicalCheckpointResponse {
+
+    EcologicalCheckpoint ecological_checkpoint = 1;
+}
+
+message SetEcologicalCheckpointRequest {
+
+    EcologicalCheckpoint ecological_checkpoint = 1;
+}
+
+message SetEcologicalCheckpointResponse {
+
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if used as a repeated property set
+message GetEcologicalCheckpointsRequest {
+
+}
+
+//if used as a repeated property set
+message GetEcologicalCheckpointsResponse {
+
+    EcologicalCheckpoints ecological_checkpoints = 1;
+}
+
+//if used as a repeated property set
+message AddEcologicalCheckpointRequest {
+
+    EcologicalCheckpoint ecological_checkpoint = 1;
+}
+
+//if used as a repeated property set
+message AddEcologicalCheckpointResponse {
+
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if used as a repeated property set
+message RemoveEcologicalCheckpointRequest {
+
+    EcologicalCheckpoint ecological_checkpoint = 1;
+}
+
+//if used as a repeated property set
+message RemoveEcologicalCheckpointResponse {
+
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}

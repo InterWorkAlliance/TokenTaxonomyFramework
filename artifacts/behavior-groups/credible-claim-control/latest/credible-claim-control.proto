@@ -1,0 +1,11 @@
+
+syntax = "proto3";
+
+package credibleclaimcontrol;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.BehaviorGroups.CredibleClaimControl";
+option java_package = "org.iwa.ttf.behaviorGroups.credibleClaimControl";
+option java_multiple_files = true;

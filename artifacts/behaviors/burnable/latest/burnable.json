@@ -64,17 +64,6 @@
           "version": "1.0",
           "templateValidated": false
         }
-      },
-      {
-        "description":"If CO2 is present, an check to see if the adjustment window has expired must be made to ensure that burning or retiring is allowed.",
-        "symbol":{
-          "id":"4908afcf-236f-4c1e-9127-b0558504c93f",
-          "type": "PROPERTY_SET",
-          "visual": "&phi;<i>CO2</i>",
-          "tooling": "phCO2",
-          "version": "1.0",
-          "templateValidated": false
-        }
       }
     ],
     "artifactFiles": [

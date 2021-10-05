@@ -9,13 +9,41 @@ option csharp_namespace = "IWA.TTF.Behaviors.Issuable";
 option java_package = "org.iwa.ttf.behaviors.issuable";
 option java_multiple_files = true;
 
-message TransferToRequest {
-    tokens.MessageHeader header = 1;
-    bytes quantity = 2;
-    string to_account_id = 3;
+message GetIssuerRequest{}
+message GetIssuerResponse{
+    string issuer_id = 1;
 }
 
-message TransferToResponse {
-    tokens.MessageHeader header = 1;
-    tokens.TransactionConfirmation transaction_confirmation = 2;
+message ChangeIssuerRequest{
+    oneof new_issuer_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+}
+
+message ChangeIssuerResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message GetIssuersRequest{}
+
+//returns the ids in the issuers group/role
+message GetIssuersResponse{
+    repeated string issuer_id = 1;
+}
+
+message AddIssuersRequest{
+    string issuer_id = 1;
+}
+
+message AddIssuersResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message RemoveIssuersRequest{
+    string issuer_id = 1;
+}
+
+message RemoveIssuersResponse{
+    tokens.TransactionConfirmation confirmation = 1;
 }

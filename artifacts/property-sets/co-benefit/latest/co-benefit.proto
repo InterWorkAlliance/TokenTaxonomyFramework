@@ -11,12 +11,26 @@ option csharp_namespace = "IWA.TTF.PropertySets.CO";
 option java_package = "org.iwa.ttf.propertySets.co";
 option java_multiple_files = true;
 
-//totally guessing on the categories here, so consider them placeholders.
+//Not complete
 enum BenefitCategory {
-    BIO_DIVERSITY = 0;
-    EFFICIENT_RESOURCE_USE = 1;
-    INCREASED_HUMAN_LABOR_CHOICE = 2;
-    ANTI_CHILD_LABOR = 3;
+    NO_CATEGORY = 0;
+    NO_POVERTY = 1;
+    ZERO_HUNGER = 2;
+    GOOD_HEALTH_AND_WELL_BEING = 3;
+    QUALITY_EDUCATION = 4;
+    GENDER_EQUALITY = 5;
+    CLEAN_WATER_AND_SANITATION = 6;
+    AFFORDABLE_AND_CLEAN_ENERGY = 7;
+    DECENT_WORK_AND_ECONOMIC_GROWTH = 8;
+    INDUSTRY_INNOVATION_AND_INFRASTRUCTURE = 9;
+    REDUCED_INEQUALITIES = 10;
+    SUSTAINABLE_CITIES_AND_COMMUNITIES = 11;
+    RESPONSIBLE_CONSUMPTION_AND_PRODUCTION = 12;
+    CLIMATE_ACTION = 13;
+    LIFE_BELOW_WATER = 14;
+    LIFE_ON_LAND = 15;
+    PEACE_JUSTICE_AND_STRONG_INSTITUTIONS = 16;
+    PARTNERSHIPS_FOR_THE_GOALS = 17;
 }
 
 message CoBenefit {
@@ -27,7 +41,7 @@ message CoBenefit {
 
 //if used as a repeated property set
 message CoBenefits {
-    repeated CoBenefit ecological_claim = 1;
+    repeated CoBenefit co_benefit = 1;
 }
 
 message GetCoBenefitRequest {

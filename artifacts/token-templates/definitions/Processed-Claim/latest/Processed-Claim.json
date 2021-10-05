@@ -1,0 +1,1051 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "45141be6-36b1-4a26-ade8-86a486279a26",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,CCC</i>}+&phi;EC]",
+      "tooling": "[tN{~d,~t,g,CCC}+phEC]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "Processed-Claim",
+    "aliases": [
+      "Verified Claim"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "A Processed Claim is created when a VVB processes a Ecological Claim submitted by a Ecological Project, which retires the ecological claim linking it with the processed claim.  A processed claim is used to create a Ecological Benefit Token, like a carbon credit, i.e., CCP or CRU token.  This is a Variable Supply Whole Non-Fungible where the total supply can vary. The tokens in this class will be of the same series, sharing those properties like their Verification Contract, but also have unique values. It is Whole by setting the Decimals property on the dividable behavior = 0. A token instance can be burned.",
+      "businessExample": "This token can be used to represent a unique item in a shared context, like a processed claim in a collection of processed claims from the same Verification Contract.",
+      "analogies": [
+        {
+          "name": "Verified Claim",
+          "description": "Similar to an Insurance Claim, where an adjuster validates and verifies the claim and will issue an adjusted claim, a processed claim is the result of the VVB's processing of the claim and its findings."
+        }
+      ],
+      "comments": ""
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "Processed-Claim.proto",
+        "fileData": ""
+      },
+      {
+        "content": "UML",
+        "fileName": "Processed-Claim.md",
+        "fileData": ""
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": []
+    },
+    "contributors": [
+      {
+        "name": "Debbie Reed",
+        "organization": "ESMC"
+      },
+      {
+        "name": "Cameron Prell",
+        "organization": "XPansiv"
+      },
+      {
+        "name": "Marley Gray",
+        "organization": "Microsoft"
+      },
+      {
+        "name": "Doug Miller",
+        "organization": "Energy Web Foundation"
+      },
+      {
+        "name": "Michelle Lancaster",
+        "organization": "Microsoft"
+      },
+      {
+        "name": "John Lee",
+        "organization": "Accenture"
+      },
+      {
+        "name": "Robert Greenfield",
+        "organization": "Emerging Impact Group"
+      },
+      {
+        "name": "Conor Svensson",
+        "organization": "Web3 Labs"
+      },
+      {
+        "name": "Martin Wainstein",
+        "organization": "Open Earth Foundation"
+      },
+      {
+        "name": "Meerim Ruslanova",
+        "organization": "Energy Web Foundation"
+      },
+      {
+        "name": "Ken Anderson",
+        "organization": "Hedera Hashgraph"
+      },
+      {
+        "name": "Wes Geisenberger",
+        "organization": "Hedera Hashgraph"
+      },
+      {
+        "name": "Tom Herman",
+        "organization": "AirCarbon Pte Ltd"
+      },
+      {
+        "name": "Tom Baumann",
+        "organization": "Climate Check"
+      }
+    ]
+  },
+  "formulaReference": {
+    "id": "8f140bb7-ab9b-4c86-bffd-761982d600f4",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "Processed-Claim"
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "referenceNotes": "",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": []
+        }
+      }
+    },
+    "valueType": "REFERENCE",
+    "supply": "INFINITE",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {
+      "issuer": "Should be the Verifier",
+      "creditor": "Should be the Registry that issued the benefit token, listed in the Verification Contract."
+    },
+    "constructorName": "Constructor"
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Indivisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any division, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [],
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Delegable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
+          "name": "Allowance",
+          "description": "A Request by a party or account to the owner of a token(s) to have the right to perform a delegated behavior on their behalf.",
+          "request": {
+            "controlMessageName": "AllowanceRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of Tokens to be allowed."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AllowanceResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or denial be returned to the allowance requestor."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
+          "name": "Approve Allowance",
+          "description": "Same control message as the AllowanceRequest.  This could allow for an AllowanceRequest to be forwarded to multiple parties needed to Approve and shield this from the requestor. When all Approvals are obtained, an AllowanceResponse could be sent.",
+          "request": {
+            "controlMessageName": "AllowanceRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of Tokens to be allowed."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "ApproveResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation response from the owner approving the an allowance request, indicating a allowance quantity the requestor has the option to invoke the Delegable behaviors on the token(s)."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "reference": {
+        "id": "9a2f6a02-15ff-4dc3-8a37-77980d02eebb",
+        "type": "BEHAVIOR_GROUP",
+        "referenceNotes": "Credible Claim Control",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "behaviorArtifacts": [
+        {
+          "reference": {
+            "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Mintable, in Credible Claim Control, will be bound to the Roles behavior (submitters) to determine if the requesting issuer is allowed to invoke the behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "2ee6a174-331d-4dd2-b57a-4ae81b060264",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Credible is not modified from the referenced behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Roles support requires that a role or group called 'Submitters' be created that allows for account to be added. These accounts will be allowed to invoke MintTo."
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [
+            {
+              "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "type": "BEHAVIOR",
+              "visual": "<i>m</i>",
+              "tooling": "m",
+              "version": "1.0",
+              "templateValidated": false
+            }
+          ],
+          "invocations": [],
+          "influenceBindings": [
+            {
+              "influencedId": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "influencedInvocationId": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+              "influenceType": "INTERCEPT",
+              "influencingInvocation": {
+                "id": "00a665e3-1dda-441e-8262-5750435c153c",
+                "name": "RoleCheck",
+                "description": "Check to see if the account is in the Role called 'Submitters'",
+                "request": {
+                  "controlMessageName": "IsInRole",
+                  "description": "Checking the 'Submitters' role.",
+                  "inputParameters": [
+                    {
+                      "name": "AccountId",
+                      "valueDescription": "AccountId of the requestor."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "True/False",
+                  "description": "Respond true if the account is in the 'Submitters' role.",
+                  "outputParameters": [
+                    {
+                      "name": "IsInRole",
+                      "valueDescription": "True/False"
+                    }
+                  ]
+                },
+                "notForRepetition": false,
+                "forRepetitionOnly": false
+              },
+              "influencedInvocation": {
+                "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+                "name": "MintTo",
+                "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+                "request": {
+                  "controlMessageName": "MintToRequest",
+                  "description": "The request",
+                  "inputParameters": [
+                    {
+                      "name": "ToAccount",
+                      "valueDescription": "Account Id to mint the tokens to."
+                    },
+                    {
+                      "name": "Quantity",
+                      "valueDescription": "Number of new tokens to create."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "MintToResponse",
+                  "description": "The response",
+                  "outputParameters": [
+                    {
+                      "name": "Confirmation",
+                      "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+                    }
+                  ]
+                },
+                "notForRepetition": false,
+                "forRepetitionOnly": false
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "Role",
+              "valueDescription": "A group or list an account can be a member or be in.",
+              "templateValue": "Submitters",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetSubmitters",
+                  "description": "Request the the list of member accounts in the 'Submitters' role.",
+                  "request": {
+                    "controlMessageName": "GetSubmittersRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetSubmittersResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Members",
+                        "valueDescription": "Returning the list of accounts in the 'Submitters' role."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+                  "name": "AddRoleMember",
+                  "description": "Add a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "AddRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Value is always set to 'Submitters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be added to the 'Submitters' role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "AddRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+                  "name": "RemoveRoleMember",
+                  "description": "Remove a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "RemoveRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always set to 'Submitters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "RemoveRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+                  "name": "IsInRole",
+                  "description": "Check to see if an account is in the role.",
+                  "request": {
+                    "controlMessageName": "IsInRoleRequest",
+                    "description": "The request may be internal only and not exposed externally.",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always be bound to 'Submitters'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be checked."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "IsInRoleRequestResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "InRole",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "influenceBindings": [],
+              "properties": [],
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "9bbcac72-ba95-4d73-ad95-d96275a4924f",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Ecological Claim",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "EcologicalClaim",
+          "valueDescription": "Contains the values for the claim.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetEcologicalClaim",
+              "description": "Request the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "GetEcologicalClaimRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetEcologicalClaimResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "Returning the EcologicalClaim values - see control file ecological-claim.proto."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "SetEcologicalClaim",
+              "description": "Set the Ecological Claim",
+              "request": {
+                "controlMessageName": "SetEcologicalClaimRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "Set the EcologicalClaim values - see control file ecological-project-info.proto."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetEcologicalClaimResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ]
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "AddEcologicalClaim",
+              "description": "Add the Ecological Claim",
+              "request": {
+                "controlMessageName": "AddEcologicalClaimRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "Add the EcologicalClaim value to a repeated list - see control file ecological-project-info.proto."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddEcologicalClaimResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "id": "",
+              "name": "RemoveEcologicalClaim",
+              "description": "Remove the Ecological Claim",
+              "request": {
+                "controlMessageName": "RemoveEcologicalClaimRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "EcologicalClaim",
+                    "valueDescription": "Remove the EcologicalClaim value from a repeated list - see control file ecological-project-info.proto."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveEcologicalClaimResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "EcologicalClaim",
+              "valueDescription": "Contains the values for the EcologicalClaim.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "influenceBindings": [],
+              "properties": [
+                {
+                  "name": "Id",
+                  "valueDescription": "A globally unique id - UUID, GUID, etc.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "EFBefore",
+                  "valueDescription": "Environmental Factor before project activities - i.e. soil carbon measurement before.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "EFAfter",
+                  "valueDescription": "Environmental Factor after project activities - i.e. soil carbon measurement after.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        }
+      ],
+      "propertySets": [
+        {
+          "reference": {
+            "id": "ce1ca787-d018-4eb2-90e7-03b8876197bf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Verified Link Property Set for this Ecological Project's data.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "VerifiedLink",
+              "valueDescription": "Contains a Verified Link to the project's data.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetVerifiedLink",
+                  "description": "Request the a Verified Link.",
+                  "request": {
+                    "controlMessageName": "GetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "Returning the Verified Link for project."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "SetVerifiedLink",
+                  "description": "Set the geographic area entry for the project.",
+                  "request": {
+                    "controlMessageName": "SetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "The Verified Link type to add to the project."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "SetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "influenceBindings": [],
+              "properties": [],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": true
+        },
+        {
+          "reference": {
+            "id": "d7607f63-5e29-424f-a991-3f05c8f0daf7",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Date Range Property Set for this Ecological Claim.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "DateRange",
+              "valueDescription": "Contains the date range.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetDateRange",
+                  "description": "Request the value of the verified link property",
+                  "request": {
+                    "controlMessageName": "GetDateRangeRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetDateRangeResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "StartDate",
+                        "valueDescription": "Returning the simple date value."
+                      },
+                      {
+                        "name": "StartTimeStamp",
+                        "valueDescription": "Returning the granular start timestamp."
+                      },
+                      {
+                        "name": "EndDate",
+                        "valueDescription": "Returning the simple date value."
+                      },
+                      {
+                        "name": "EndTimeStamp",
+                        "valueDescription": "Returning the granular start timestamp."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "SetDateRange",
+                  "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+                  "request": {
+                    "controlMessageName": "SetDateRangeRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "StartDate",
+                        "valueDescription": "Set the simple date value."
+                      },
+                      {
+                        "name": "StartTimeStamp",
+                        "valueDescription": "Set the granular start timestamp."
+                      },
+                      {
+                        "name": "EndDate",
+                        "valueDescription": "Set the simple date value."
+                      },
+                      {
+                        "name": "EndTimeStamp",
+                        "valueDescription": "Set the granular start timestamp."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "SetDateRangeResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning the value of the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "influenceBindings": [],
+              "properties": [],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": false
+        },
+        {
+          "reference": {
+            "id": "5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Co-benefits for this ecological claim.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "CoBenefits",
+              "valueDescription": "Contains the values for the claim.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetCoBenefits",
+                  "description": "Request the Ecological Project Info.",
+                  "request": {
+                    "controlMessageName": "GetCoBenefitsRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetCoBenefitsResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "CoBenefits",
+                        "valueDescription": "Returning the CoBenefits collection - see control file co-benefit.proto."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "AddCoBenefit",
+                  "description": "Set the CoBenefit",
+                  "request": {
+                    "controlMessageName": "AddCoBenefitRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "CoBenefit",
+                        "valueDescription": "Add a CoBenefit value - see control file co-benefit.proto."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "AddCoBenefitResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning the value of the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "RemoveCoBenefit",
+                  "description": "Remove a CoBenefit",
+                  "request": {
+                    "controlMessageName": "RemoveCoRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "CoBenefit",
+                        "valueDescription": "Remove a CoBenefit value - see control file co-benefit.proto."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "RemoveCoBenefitResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning the value of the remove request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "influenceBindings": [],
+              "properties": [
+                {
+                  "name": "CoBenefits",
+                  "valueDescription": "Contains the collection of CoBenefit attached to this claim.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [
+                    {
+                      "name": "BenefitCategory",
+                      "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+                      "templateValue": "",
+                      "propertyInvocations": [],
+                      "influenceBindings": [],
+                      "properties": [],
+                      "repeated": false
+                    },
+                    {
+                      "name": "Description",
+                      "valueDescription": "A description of the co-benefit that is not captured via the category.",
+                      "templateValue": "",
+                      "propertyInvocations": [],
+                      "influenceBindings": [],
+                      "properties": [],
+                      "repeated": false
+                    },
+                    {
+                      "name": "RatingScore",
+                      "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+                      "templateValue": "",
+                      "propertyInvocations": [],
+                      "influenceBindings": [],
+                      "properties": [],
+                      "repeated": false
+                    }
+                  ],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": true
+        }
+      ],
+      "repeated": false
+    }
+  ],
+  "childTokens": []
+}

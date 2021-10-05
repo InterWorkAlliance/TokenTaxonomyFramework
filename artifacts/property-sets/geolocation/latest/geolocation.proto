@@ -44,7 +44,7 @@ message GeographicArea{
 
 message GeographicLocation{
     GNSS GNSS = 1;
-    GeographicArea geographic_areas = 2;
+    GeographicArea geographic_area = 2;
 }
 
 message GetGeographicLocationRequest {

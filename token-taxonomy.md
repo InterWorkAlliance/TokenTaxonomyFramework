@@ -1,4 +1,4 @@
-# Token Taxonomy Framework (TTF) - January 2021
+# Token Taxonomy Framework (TTF) - June 2021
 
 The Token Taxonomy Framework bridges the gap between blockchain developers, line of business executives and legal/regulators allowing them to work together to model existing and define new business models and networks based on tokens. The blockchain space alone makes it difficult to establish common ground, but when adding tokens to the mix they find themselves speaking completely different languages. The framework’s purpose is to:
 

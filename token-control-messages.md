@@ -1,6 +1,6 @@
 # Token Control Messages
 
-The taxonomy uses [Protocol Buffers (proto3)](https://developers.google.com/protocol-buffers/) or protos to define messages as they are language and platform neutral, extensible mechanism for serializing structured data and provide native developer experiences as well as ideal for implementing messaging or RPC based interfaces.
+The taxonomy uses [Protocol Buffers (proto3)](https://developers.google.com/protocol-buffers/) or protos to define messages as they are language and platform neutral, extensible mechanism for serializing structured data and provide native developer experiences as well as ideal for implementing messaging or RPC based interfaces. These control messages are used to certify implementations of specifications.
 
 The specification's messages can be extended and compiled using any supported proto implementation, which includes most platforms and languages. However, the proto definitions can also be used as a reference by new implementations creating messages following the proto naming and typing to match the standard.
 
@@ -8,7 +8,7 @@ Using messages with expressive naming can be understood easily without serializa
 
 Transport protocols for messages are not defined in the standard, however implementing [gRpc](https://grpc.io/) for RPC or AMQP for messaging are recommended.  The transport and mapping to specific blockchain or ledger implementations will dictate how you communicate with token instances.
 
-The primary use of these definitions are for clearly defining interactions with framework artifacts using sequence and other diagram types to improve requirement definitions and an intersection between business and regulatory requirements and implementation inputs and outputs.
+The primary use of these definitions are certification testing and also to clearly define interactions with framework artifacts using sequence and other diagram types to improve requirement definitions and an intersection between business and regulatory requirements and implementation inputs and outputs.
 
 ## Request/Response
 
@@ -75,7 +75,8 @@ message TheaterTicket {
    string date_of_the_show = 2;
    TheaterSeat theater_seat = 3;
 }
-Message TheaterSeat {
+
+message TheaterSeat {
    string section = 1;
    string row = 2;
    string seat = 3;
@@ -83,13 +84,15 @@ Message TheaterSeat {
 }
 ```
 
-Some control message requests may return non-state data like transaction receipts or errors.  
+Some control message requests may return non-state data like transaction receipts or errors.
+
+Field names and types within messages should be descriptive and are most impactful in the certification as they become parameters and data types for implementation APIs. An Token Template Specification may include API requirements based on the control messages for various transports like HTTP/REST, gRPC, openAPI, etc.
 
 ## Base Schema and State Messages
 
 Base schema is expressed in messages defining the properties tokens that implement the base should implement.  The message definition is not the token implementation, but rather message payload that the token implementation state variables can be placed in when responding to a behavior or action.
 
-For example, the root of the tree is a common base token or β which has an owner Id, name, symbol, quantity and decimals property.
+For example, the root of the tree is a common base token or *t* which has an owner Id, name, symbol, quantity and decimals property.
 
 ```protobuf
 message Base {
@@ -162,3 +165,10 @@ Message headers are very useful when placed consistently in a specific position 
 ## Control Message Standards and Examples
 
 The [proto definitions located in their respective artifact folder](artifacts) are not complete or comprehensive and are a starting point in the standardization process.  The Taxonomy standard will generally apply to well understood base token types and behaviors and groups.
+
+Proto messages and gRPC interfaces for Token Template Definitions are required for the certification process and are currently being tested in 1.2 of the TTF. The Token Template Definitions folder will need to include a .proto file with the types/schema, control messages and interface as well as a reference to any common libraries used in the creation of the specification.
+
+The Sustainability use cases are being used for testing of this approach:
+
+- Establish a definition .proto file that manually copies and pastes proto definitions from artifacts like behaviors and property sets into the proto file. This currently makes it easier for the protoc compiler to generate the types and interface definitions.
+- A `build-tech-specs.sh` file that includes the instructions for the compiler to generate the types including reference paths to any common protos. This bash script creates the technical specification in the `./out` folder for evaluation by implementors of the specification.
