@@ -14,18 +14,13 @@ option csharp_namespace = "IWA.TTF.PropertySets.CNN";
 option java_package = "org.iwa.ttf.propertySets.cnn";
 option java_multiple_files = true;
 
-//Carbon sequestraion can be biological or geological.
-enum Storage{
-    BIOLOGICAL = 0;
-    GEOLOGICAL = 1;
-}
+
 //not sure if these are numeric scores and what the scale would be???
 message CoreCarbonAttributes{
     timestamp vintage = 1;  //refers to the year that the emissions reduction or ecological benefit took place //The principle that a project activity is additional if the resulting emission reductions are lower than what would have happened in the absence of the activity.
-    Storage storage = 2; //how the carbon was sequestered.
-    int32 durability = 2; //The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.
-    int32 clear_removals = 4; //Are either clearly 100% removals (afforestation-reforestation) or are ex-post verified as removal volumes according to a published MRV methodology.
-    replacement.Replacement replacement = 5; //set if this Core Carbon Principles replaces a revoked or adjusted CCP.
+    Durability durability = 2; //from the Druability property-set
+    int32 clear_removals = 3; //Are either clearly 100% removals (afforestation-reforestation) or are ex-post verified as removal volumes according to a published MRV methodology.
+    replacement.Replacement replacement = 4; //set if this Core Carbon Principles replaces a revoked or adjusted CCP.
     cobenefit.CoBenefits co_benefits = 9; //list or collection of co-benefits
     pariscompliance.PACompliance paris_agreement_compliance = 10; //set if using PA specific attributes like corrisponding adjustment
 }

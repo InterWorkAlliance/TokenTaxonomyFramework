@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package durability;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.DUR";
+option java_package = "org.iwa.ttf.propertySets.dur";
+option java_multiple_files = true;
+
+//Carbon sequestraion can be biological or geological.
+enum Storage{
+    BIOLOGICAL = 0;
+    GEOLOGICAL = 1;
+    MATERIALS = 2;
+}
+
+enum DegradationType{
+    LINEAR = 0;
+    EXPONENTIAL = 1;
+}
+
+message Degradable{
+    int32 percentage = 1; //0 = no degredation possible, 100 = all sequestered should be expected to be released
+    int32 factor = 2; //25 = .25 per year if linear or exponential starts at 25% of durability years.
+    DegradationType degradation_type = 3;
+}
+
+message Durability
+{
+    Storage storage_type = 1;
+    int32 years = 2; //The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.
+    Degradable degradable = 3;
+}
+
+message GetDurabilityRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetDurabilityResponse {
+    tokens.MessageHeader header = 1;
+    Durability durability = 2;
+}
+
+message SetDurabilityRequest {
+    tokens.MessageHeader header = 1;
+    Durability durability = 2;
+}
+
+message SetDurabilityResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

@@ -13,7 +13,7 @@
       "Carbon Credit"
     ],
     "artifactDefinition": {
-      "businessDescription": "DRAFT - This is a token based on the recommendations from the Taskforce for Scaling Voluntary Carbon Markets (TSVCM) for creating the Core Carbon Principles and extended attributes.  It is a Unique Fractional Fungible with Offsetable Supply Control with Revoke and Replacement, Core Carbon Principles and Core Carbon Attributes.  It is a token where 1 token equals 1 mtCO2e. A token instance can be minted if the requesting party is in the minters role. This template contains the Replacement, Core Carbon Principles and Core Carbon Attributes property sets as well.",
+      "businessDescription": "DRAFT - This is a token based on the recommendations from the Taskforce for Scaling Voluntary Carbon Markets (TSVCM) for creating the Core Carbon Principles and extended attributes.  It is a Unique Fractional Fungible, to 2 decimal places with Offsetable Supply Control with Revoke and Replacement, Core Carbon Principles and Core Carbon Attributes.  It is a token where 1 token equals 1 mtCO2e and can be issued in any amount. A token instance can be minted if the requesting party is in the minters role. This template contains the Replacement, Core Carbon Principles and Core Carbon Attributes property sets as well.",
       "businessExample": "Typically used to represent a token based on the TSVCM Core Carbon Principles or CCP to be a common representation of a carbon credit designated for use in voluntary markets. When accompanied with additional attributes, credits can be differentiated from their CO2e face value to include details as to reduction vs. removal, project location, durability, etc. These CCP tokens can then be bundled together based on their similar attribute values into 'reference contracts' to be traded in larger lots.",
       "analogies": [
         {
@@ -60,10 +60,6 @@
       {
         "name": "Doug Miller",
         "organization": "Energy Web Foundation"
-      },
-      {
-        "name": "Amy Luers",
-        "organization": "Microsoft"
       },
       {
         "name": "John Lee",
@@ -129,7 +125,7 @@
     "symbol": "",
     "owner": "",
     "quantity": "0",
-    "decimals": 8,
+    "decimals": 2,
     "tokenProperties": {
       "issuer": "Should be the Verifier",
       "minters": "All verifiers that are able to mint and become the issuer of an instance."
@@ -161,7 +157,7 @@
         {
           "name": "Decimals",
           "valueDescription": "Set to a number greater than Zero, allowing subdivision",
-          "templateValue": "8",
+          "templateValue": "2",
           "propertyInvocations": [
             {
               "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
@@ -1427,7 +1423,7 @@
       "reference": {
         "id": "7c116214-ba38-4f85-99b2-0a9017f8a33f",
         "type": "PROPERTY_SET",
-        "referenceNotes": "Carbon Net-Negativity Scores",
+        "referenceNotes": "Core Carbon Attributes",
         "values": {
           "controlUri": "",
           "artifactFiles": [],
@@ -1460,7 +1456,7 @@
                 "outputParameters": [
                   {
                     "name": "NetNegativityScores",
-                    "valueDescription": "Returning the NetNegativityScores values - see control file carbon-net-negativity.proto."
+                    "valueDescription": "Returning the NetNegativityScores values - see control file core-carbon-attributes.proto."
                   }
                 ]
               },
@@ -1477,7 +1473,7 @@
                 "inputParameters": [
                   {
                     "name": "NetNegativityScores",
-                    "valueDescription": "Set the NetNegativityScores values - see control file carbon-net-negativity.proto."
+                    "valueDescription": "Set the NetNegativityScores values - see control file core-carbon-attributes.proto."
                   }
                 ]
               },
@@ -1514,15 +1510,6 @@
                   "repeated": false
                 },
                 {
-                  "name": "Durability",
-                  "valueDescription": "The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "influenceBindings": [],
-                  "properties": [],
-                  "repeated": false
-                },
-                {
                   "name": "Storage",
                   "valueDescription": "Are either Biological or Geological storage of sequestered carbon.",
                   "templateValue": "",
@@ -1548,6 +1535,120 @@
         }
       ],
       "propertySets": [
+        {
+          "reference": {
+            "id":"04d8de6f-08dc-4830-8f15-756bc4a12853",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Durability properties if a removal.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": [],
+              "maps": null
+            }
+        },
+          "representationType": "COMMON",
+          "properties":[
+            {
+            "name": "Durability",
+            "valueDescription": "Contains the values of durability.",
+            "templateValue": "",
+            "propertyInvocations": [
+              {
+                "id": "589f97b4-26e6-4981-9ec1-8e02f1b61e26",
+                "name": "GetDurability",
+                "description": "Request the durability info.",
+                "request": {
+                  "controlMessageName": "GetDurabilityRequest",
+                  "inputParameters": [],
+                  "description": "The request"
+                },
+                "response": {
+                  "controlMessageName": "GetDurabilityResponse",
+                  "outputParameters": [
+                    {
+                      "name": "Durability",
+                      "valueDescription": "Returning the Durability values - see control file durability.proto."
+                    }
+                  ],
+                  "description": "The response"
+                }
+              },
+              {
+                "id": "35f4ce83-03d7-4a53-a374-bca068df3f40",
+                "name": "SetDurability",
+                "description": "Set the Durability",
+                "request": {
+                  "controlMessageName": "SetDurabilityRequest",
+                  "inputParameters": [
+                    {
+                      "name": "Durability",
+                      "valueDescription": "Set the Durability values - see control file durability.proto."
+                    }
+                  ],
+                  "description": "The request"
+                },
+                "response": {
+                  "controlMessageName": "SetDurabilityResponse",
+                  "outputParameters": [
+                    {
+                      "name": "Confirmation",
+                      "valueDescription": "Returning the value of the set request."
+                    }
+                  ],
+                  "description": "The response"
+                },
+                "notForRepetition": true,
+                "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+                "name": "Durability",
+                "valueDescription": "Contains the values for Durability.",
+                "templateValue": "",
+                "properties":
+                [
+                  {
+                    "name": "Storage",
+                    "valueDescription": "A selection from a list of storage types, ex. see the durability.proto enumeration of types.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "Years",
+                    "valueDescription": "The length in years the carbon is expected to be sequestered for.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "Degradable",
+                    "valueDescription": "If or when degradation of the sequestration can be expected.",
+                    "templateValue": "",
+                    "properties":
+                    [
+                      {
+                        "name": "Percentage",
+                        "valueDescription": "A 0 = no degradation possible, 100 = all sequestered should be expected to be released",
+                        "templateValue": ""
+                      },
+                      {
+                        "name": "Factor",
+                        "valueDescription": "The factor of 25 = .25 per year if linear or exponential starts at 25% of durability years.",
+                        "templateValue": ""
+                      },
+                      {
+                        "name": "DegradationType",
+                        "valueDescription": "A selection from a list of degradation types, ex. see the durability.proto enumeration of types.",
+                        "templateValue": ""
+                      }
+                    ]
+                  }
+                ]
+            }
+            ]
+            }
+          ],
+          "repeated": false
+        },
         {
           "reference": {
             "id": "a60326d6-399b-4128-bd99-9279283b0380",

@@ -54,14 +54,6 @@ enum ClassificationMethod
     TECHNOLOGY = 2;
 }
 
-//How durable, measured in years, the carbon sequestration and storage is.
-enum DurabilityRating
-{
-    SHORT_TERM = 0; //10-100 years
-    MEDIUM_TERM = 1; //100-1000 years
-    LONG_TERM = 2; //1000+ years
-}
-
 enum StorageType
 {
     MATERIALS = 0;

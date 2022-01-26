@@ -39,9 +39,9 @@ message CoreCarbonPrinciples{
     VerificationStandard verification_standard = 4;
     string additionality = 5; //perhaps text regarding how the claim is based on activity that is additional
     string leakage = 6; //A decrease in sequestration or an increase in emissions outside the boundaries of project, program activities resulting from project, and/or program implementation. Leakage may be caused by shifting of the activities of people present in the project area or by market effects whereby emission reductions are countered by emissions created by shifts in supply of and demand for the products and services affected by the project. This value could perhpas text regarding how the claim may handle or not required to handle leakage
-    string reference_to_project_benefit_claim = 6; //a compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/ClaimId
-    string reference_to_verification_contract_processedClaim = 7; //a reference to the full id path for the verification contract/processedClaims/ProcessedClaimId
-    daterange.DateRange date_range = 8; //Dates for the MRV set used to verify the ecological benefit
+    string reference_to_project_benefit_claim = 8; //a compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/ClaimId
+    string reference_to_verification_contract_processedClaim = 9; //a reference to the full id path for the verification contract/processedClaims/ProcessedClaimId
+    daterange.DateRange date_range = 10; //Dates for the MRV set used to verify the ecological benefit
 }
 
 message GetCoreCarbonPrinciplesRequest {

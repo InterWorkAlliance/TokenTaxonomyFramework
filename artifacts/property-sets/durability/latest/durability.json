@@ -1,0 +1,163 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"04d8de6f-08dc-4830-8f15-756bc4a12853",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>DUR</i>",
+      "tooling": "phDUR",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Durability",
+    "aliases": [
+      "Longevity",
+      "Permanence"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/durability/durability.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set includes the information about the durability or permanence of a sequestration method used to store carbon. For carbon removals, durability is a property that will have a significant impact on price. The values in this property set provides the data required to determine a carbon removals long term sequestration promises.",
+      "businessExample": "Nature based, soil, forestry, etc., carbon removals typically have a shorter term and more volatile durability, where technical solutions, DAC, etc. will typically have a longer term, stable durability.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set durability.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "durability.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "durability.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "Durability",
+      "valueDescription": "Contains the values of durability.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "589f97b4-26e6-4981-9ec1-8e02f1b61e26",
+          "name": "GetDurability",
+          "description": "Request the durability info.",
+          "request": {
+            "controlMessageName": "GetDurabilityRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetDurabilityResponse",
+            "outputParameters": [
+              {
+                "name": "Durability",
+                "valueDescription": "Returning the Durability values - see control file durability.proto."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "35f4ce83-03d7-4a53-a374-bca068df3f40",
+          "name": "SetDurability",
+          "description": "Set the Durability",
+          "request": {
+            "controlMessageName": "SetDurabilityRequest",
+            "inputParameters": [
+              {
+                "name": "Durability",
+                "valueDescription": "Set the Durability values - see control file durability.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetDurabilityResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Durability",
+          "valueDescription": "Contains the values for Durability.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Storage",
+              "valueDescription": "A selection from a list of storage types, ex. see the durability.proto enumeration of types.",
+              "templateValue": ""
+            },
+            {
+              "name": "Years",
+              "valueDescription": "The length in years the carbon is expected to be sequestered for.",
+              "templateValue": ""
+            },
+            {
+              "name": "Degradable",
+              "valueDescription": "If or when degradation of the sequestration can be expected.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "Percentage",
+                  "valueDescription": "A 0 = no degradation possible, 100 = all sequestered should be expected to be released",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Factor",
+                  "valueDescription": "The factor of 25 = .25 per year if linear or exponential starts at 25% of durability years.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "DegradationType",
+                  "valueDescription": "A selection from a list of degradation types, ex. see the durability.proto enumeration of types.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [],
+  "repeated": false
+}
