@@ -141,3 +141,11 @@ message GeographicLocation{
     GNSS GNSS = 1;
     GeographicArea geographic_area = 2;
 }
+
+//Claims are comprised of checkpoints, which contain data from sources.
+enum ClaimSourceType
+{
+    SENSOR_DEVICE = 0; //IoT, etc.
+    USER_APPLICATION = 1; //An application that uses device sensors like GPS, date/time and user authentication as evidence of source claim data.
+    REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
+}

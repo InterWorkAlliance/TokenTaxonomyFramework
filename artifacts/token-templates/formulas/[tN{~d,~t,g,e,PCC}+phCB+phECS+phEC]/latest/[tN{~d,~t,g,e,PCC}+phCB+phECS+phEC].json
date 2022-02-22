@@ -3,12 +3,12 @@
     "artifactSymbol": {
       "id":"a360ec09-b24a-4ec9-8350-05a0be2a03dd",
       "type": "TEMPLATE_FORMULA",
-      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}+&phi;EC]",
-      "tooling": "[tN{~d,~t,g,e,PCC}+phEC]",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}+&phi;CB+&phi;ECS+&phi;EC]",
+      "tooling": "[tN{~d,~t,g,e,PCC}+phCB+phECS+phEC]",
       "version": "1.0",
       "templateValidated": true
     },
-    "name": "[tN{~d,~t,g,e,PCC}+phEC]",
+    "name": "[tN{~d,~t,g,e,PCC}+phCB+phECS+phEC]",
     "aliases": [
       "Ecological Claim",
       "Benefit Claim"
@@ -117,6 +117,16 @@
         "type": "PROPERTY_SET",
         "visual": "&phi;<i>CB</i>",
         "tooling": "phCB",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "propertySet": {
+        "id":"66150c15-9fa0-42f3-8ae6-84592af312b9",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>ECS</i>",
+        "tooling": "phECS",
         "version": "1.0",
         "templateValidated": false
       }

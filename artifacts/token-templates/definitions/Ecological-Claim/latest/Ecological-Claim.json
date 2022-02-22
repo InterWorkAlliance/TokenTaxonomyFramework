@@ -3,8 +3,8 @@
     "artifactSymbol": {
       "id": "9634b723-eccb-42e6-88e5-33eeca30a97f",
       "type": "TEMPLATE_DEFINITION",
-      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}+&phi;CB+&phi;EC]",
-      "tooling": "[tN{~d,~t,g,e,PCC}+phCB+phEC]",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}+&phi;CB+&phi;ECS+&phi;EC]",
+      "tooling": "[tN{~d,~t,g,e,PCC}+phCB+phECS+phEC]",
       "version": "1.0",
       "templateValidated": true
     },
@@ -15,7 +15,7 @@
     ],
     "artifactDefinition": {
       "businessDescription": "This is a Variable Supply Whole Non-Fungible where the total supply can vary. The tokens in this class will be of the same series, sharing those properties like their Modular Benefit Project, but also have unique values. It is Whole by setting the Decimals property on the dividable behavior = 0. A token instance can be burned.",
-      "businessExample": "This token represents a claim in a collection of claims from the same Modular Benefit Project, where the claim has a collection of checkpoints that are receipts for the raw data and external reference data sources used to make the benefit claim. An Ecological Claim is built over a time period by the Modular Benefit Project's Measurement, Reporting and Verification (MRV) process, which should issue at least one Ecological Checkpoint that has the links to the raw source and reference data supporting the claim. Using checkpoints allows for a claim to build and show progress over the time period, proving the work of the MRV process periodically over the time period which increases the trust in the claim itself. Once all the checkpoints are added to the claim it can be submitted for verification, then it is then encumbered by the VVB and verified via the Verification Contract process. Once verification is complete a Processed Claim token is issued, which will then retire the Ecological Claim token recording the Processed Claim Id, linking the two tokens together.",
+      "businessExample": "This token represents a claim in a collection of claims from the same Modular Benefit Project, where the claim has a collection of checkpoints from registered sources that are receipts for the raw data and external reference data sources used to make the benefit claim. An Ecological Claim is built over a time period by the Modular Benefit Project's Measurement, Reporting and Verification (MRV) process, which should register the sources of measurement/evidence and issue at least one Ecological Checkpoint that has the links to the raw source and reference data supporting the claim. Using checkpoints allows for a claim to build and show progress over the time period, proving the work of the MRV process periodically over the time period which increases the trust in the claim itself. Once all the checkpoints are added to the claim it can be submitted for verification, then it is then encumbered by the VVB and verified via the Verification Contract process. Once verification is complete a Processed Claim token is issued, which will then retire the Ecological Claim token recording the Processed Claim Id, linking the two tokens together.",
       "analogies": [
         {
           "name": "Insurance Claim",
@@ -729,6 +729,164 @@
   "propertySets": [
     {
       "reference": {
+        "id": "66150c15-9fa0-42f3-8ae6-84592af312b9",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Ecological Claim Source",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "ClaimSource",
+          "valueDescription": "Contains the values for the checkpoint.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetClaimSource",
+              "description": "Request the Ecological Claim Source.",
+              "request": {
+                "controlMessageName": "GetClaimSourceRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetClaimSourceResponse",
+                "outputParameters": [
+                  {
+                    "name": "ClaimSource",
+                    "valueDescription": "Returning the ClaimSource values - see control file ecological-claim-source.proto."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "name": "SetClaimSource",
+              "description": "Set the Ecological Claim Source",
+              "request": {
+                "controlMessageName": "SetClaimSourceRequest",
+                "inputParameters": [
+                  {
+                    "name": "ClaimSource",
+                    "valueDescription": "Set the ClaimSource values - see control file ecological-project-info.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetClaimSourceResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "name": "AddClaimSource",
+              "description": "Add the Ecological Claim Source",
+              "request": {
+                "controlMessageName": "AddClaimSourceRequest",
+                "inputParameters": [
+                  {
+                    "name": "ClaimSource",
+                    "valueDescription": "Add the ClaimSource value to a repeated list - see control file ecological-project-info.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddClaimSourceResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "name": "RemoveClaimSource",
+              "description": "Remove the Ecological Claim Source",
+              "request": {
+                "controlMessageName": "RemoveClaimSourceRequest",
+                "inputParameters": [
+                  {
+                    "name": "ClaimSource",
+                    "valueDescription": "Remove the ClaimSource value from a repeated list - see control file ecological-project-info.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveClaimSourceResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "properties": [
+            {
+              "name": "ClaimSource",
+              "valueDescription": "Contains the values for the ClaimSource.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "Id",
+                  "valueDescription": "A globally unique id - UUID, GUID, etc.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "ClaimId",
+                  "valueDescription": "The parent ecological claim identifier that the source is registered for.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "ClaimSourceType",
+                  "valueDescription": "From the standard list of source types found in common.proto",
+                  "templateValue": ""
+                },
+                {
+                  "name": "SourceIdentifier",
+                  "valueDescription": "This can be a unique identifier for a device, a serial number, for an application/user can be the appId and UserId, for reference data it can be the URI for the reference source.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ],
+          "repeated": true
+        }
+      ],
+      "propertySets": [],
+      "repeated": false
+    },
+    {
+      "reference": {
         "id": "9bbcac72-ba95-4d73-ad95-d96275a4924f",
         "type": "PROPERTY_SET",
         "referenceNotes": "Ecological Checkpoint",
@@ -837,6 +995,24 @@
               "properties": [
                 {
                   "name": "Id",
+                  "valueDescription": "A globally unique id - UUID, GUID, etc.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "ClaimId",
+                  "valueDescription": "A globally unique id - UUID, GUID, etc.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "SourceId",
                   "valueDescription": "A globally unique id - UUID, GUID, etc.",
                   "templateValue": "",
                   "propertyInvocations": [],

@@ -9,26 +9,36 @@ option csharp_namespace = "IWA.TTF.Token.Sustainability";
 option java_package = "org.iwa.ttf.token.sustainability";
 option java_multiple_files = true;
 
-//Ecological Claim token schema - not a part of certification
 message EcologicalClaim
 {
     string id = 1;
-    string mbp_id = 2; //modular benefit project that submits the claim
-    string processed_id = 3; //when a claim is processed, it will be retired and record the id of the processed claim in that process
+    string mbp_id = 2;
+    string processed_claim_id = 3;
     repeated common.CoBenefit co_benefits = 4;
-    Checkpoints checkpoints = 5; //raw and reference data verified links for the the checkpoint.
+    repeated ClaimSource claim_sources = 5;
+    repeated EcologicalClaimCheckpoint checkpoints = 6;
 }
 
-message Checkpoint{ //add controls for checkpoints
-    string checkpoint_id = 1;
-    common.DateRange date_range = 2;
-    string e_f_before = 3;
-    string e_f_after = 4;
-    repeated common.VerifiedLink checkpoint_data = 5;
+//a claim source is registered as a valid source for claim data, either raw source data or reference.
+message ClaimSource
+{
+    string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
+    string claim_id = 2;
+    common.ClaimSourceType source_type = 3;
+    string source_identifier = 4; //this can be a unique identifier for a device, a serial number, for an application/user can be the appId and UserId, for reference data it can be the URI for the reference source
 }
 
-message Checkpoints{
-    repeated Checkpoint checkpoint = 1;
+// This is the claim checkpoint
+message EcologicalClaimCheckpoint
+{
+    // Id of the Claim CheckPoint
+    string id = 1;
+    string claim_id = 2;
+    string claim_source_id = 3;
+    string ef_before = 4; //environmental factor before activity - i.e., total emissions = 3 tCO2e
+    string ef_after = 5; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
+    ClaimCheckpointDateRange checkpoint_date_range = 6;
+    repeated common.VerifiedLink verified_links_to_claim_data = 7;
 }
 
 //must check issuer role membership for invoker

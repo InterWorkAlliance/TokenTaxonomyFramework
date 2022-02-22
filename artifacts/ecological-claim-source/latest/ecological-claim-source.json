@@ -1,0 +1,201 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"66150c15-9fa0-42f3-8ae6-84592af312b9",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>ECS</i>",
+      "tooling": "phECS",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Ecological Claim Source",
+    "aliases": [
+      "Source of Evidence",
+      "Device"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/ecological-claim-source/ecological-claim-source.proto",
+    "artifactDefinition": {
+      "businessDescription": "This property set includes the information about the source of evidence that can be included in an Ecological Claim - Checkpoint, a claim is made up of one or more ecological checkpoints that records the time frame of the data, raw source claim or reference data. The provenance of this data will need to be traceable back to a registered source. A source can be a device like IoT, an application hosted on a device like a tablet or reference data like a satellite image source.",
+      "businessExample": "A Modular Benefit Project will register the sources of data that can supply evidence for their claims using this property set. When evidence is checked in via Checkpoint, the identifier of the source along with a proof, like a digital signature, should be provided to the checkpoint ensuring evidence is not being slipped into the claim from an unregistered source.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can create a Claim Source.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "ecological-claim-source.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "ecological-claim-source.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "ClaimSource",
+      "valueDescription": "Contains the values for the checkpoint.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetClaimSource",
+          "description": "Request the Ecological Claim Source.",
+          "request": {
+            "controlMessageName": "GetClaimSourceRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetClaimSourceResponse",
+            "outputParameters": [
+              {
+                "name": "ClaimSource",
+                "valueDescription": "Returning the ClaimSource values - see control file ecological-claim-source.proto."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "SetClaimSource",
+          "description": "Set the Ecological Claim Source",
+          "request": {
+            "controlMessageName": "SetClaimSourceRequest",
+            "inputParameters": [
+              {
+                "name": "ClaimSource",
+                "valueDescription": "Set the ClaimSource values - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetClaimSourceResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "AddClaimSource",
+          "description": "Add the Ecological Claim Source",
+          "request": {
+            "controlMessageName": "AddClaimSourceRequest",
+            "inputParameters": [
+              {
+                "name": "ClaimSource",
+                "valueDescription": "Add the ClaimSource value to a repeated list - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddClaimSourceResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        },
+        {
+          "name": "RemoveClaimSource",
+          "description": "Remove the Ecological Claim Source",
+          "request": {
+            "controlMessageName": "RemoveClaimSourceRequest",
+            "inputParameters": [
+              {
+                "name": "ClaimSource",
+                "valueDescription": "Remove the ClaimSource value from a repeated list - see control file ecological-project-info.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "RemoveClaimSourceResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClaimSource",
+          "valueDescription": "Contains the values for the ClaimSource.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Id",
+              "valueDescription": "A globally unique id - UUID, GUID, etc.",
+              "templateValue": ""
+            },
+            {
+              "name": "ClaimId",
+              "valueDescription": "The parent ecological claim identifier that the source is registered for.",
+              "templateValue": ""
+            },
+            {
+              "name": "ClaimSourceType",
+              "valueDescription": "From the standard list of source types found in common.proto",
+              "templateValue": ""
+            },
+            {
+              "name": "SourceIdentifier",
+              "valueDescription": "This can be a unique identifier for a device, a serial number, for an application/user can be the appId and UserId, for reference data it can be the URI for the reference source.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [],
+  "repeated": false
+}
