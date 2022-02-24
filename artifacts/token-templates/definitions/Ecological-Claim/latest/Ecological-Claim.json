@@ -132,8 +132,11 @@
     "quantity": "0",
     "decimals": 0,
     "tokenProperties": {
-      "issuer": "Should be the Project Developer",
-      "processor": "All verifiers that are able to process this claim, required to retire this claim as processed."
+      "Id": "A unique ID like GUID/UUID or public key for the claim.",
+      "MbpId": "The unique Id of the parent modularBenefitProject",
+      "ProcessedClaimId": "The unique Id of the processed claim",
+      "Issuer": "Should be the Project Developer",
+      "Processor": "All verifiers that are able to process this claim, required to retire this claim as processed."
     },
     "constructorName": "Constructor"
   },
@@ -507,9 +510,71 @@
           "isExternal": false,
           "constructorType": "",
           "appliesTo": [],
-          "invocations": [],
+          "invocations": [
+            {
+              "id": "2019574d-c8bf-44b6-afb7-cb6eaf74a308",
+              "name": "Process",
+              "description": "A request to process a token instance(s) in the class by the verifier of the claim to record the processedClaimId and retire or burn this instance.",
+              "request": {
+                "controlMessageName": "ProcessRequest",
+                "description": "The request to process this token.",
+                "inputParameters": [
+                  {
+                    "name": "ProcessedClaimId",
+                    "valueDescription": "The Id of the processed claim token."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "ProcessResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the Process request"
+                  }
+                ],
+                "description": "The response from the request to Process."
+              }
+            },
+            {
+              "id": "47057767-e0ee-4737-993b-698f7baab3ed",
+              "name": "ProcessFrom",
+              "description": "Requires Delegable. A request to process a token instance in the class by a party or account that has allowance to do so. Once the token is Process, invocations of Transfer should be blocked.  Requires a From and Quantity fields in the request.",
+              "request": {
+                "controlMessageName": "ProcessFromRequest",
+                "description": "The request to Process tokens.",
+                "inputParameters": [
+                  {
+                    "name": "From",
+                    "valueDescription": "AccountId from which tokens are processed."
+                  },
+                  {
+                    "name": "ProcessedClaimId",
+                    "valueDescription": "The Id of the processed claim."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "ProcessFromResponse",
+                "description": "The response from the request to process from.",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the process from request"
+                  }
+                ]
+              }
+            }
+          ],
           "influenceBindings": [],
-          "properties": []
+          "properties": [
+            {
+              "name": "ProcessedClaimId",
+              "valueDescription": "Records the processed claim id that retires the benefit claim.",
+              "templateValue": "",
+              "properties":[]
+            }
+          ]
         },
         {
           "reference": {

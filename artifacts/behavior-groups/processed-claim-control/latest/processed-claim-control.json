@@ -13,15 +13,9 @@
       "Claims Management"
     ],
     "artifactDefinition": {
-      "businessDescription": "A token class that implements this behavior will provide controls to increase and decrease supply of tokens within the class.  Additionally, it will include the ability to support a role, like Submitters, that will be allowed to invoke the mintable behavior. Accounts can be added to the role and will be able to mint tokens in the class. The owner of an instance can process or delegate processing of the token which burns or retires the token, but requires the the Id of the new processed claim token to be successfully be retired. This provides correlation between the two items and prevents benefit claims from being processed more than once.",
-      "businessExample": "",
-      "analogies": [
-        {
-          "name": "Central Bank",
-          "description": "Implementing monetary policy for this token.",
-          "artifactDefinition": null
-        }
-      ],
+      "businessDescription": "A token class that implements this behavior will provide controls to increase and decrease supply of tokens within the class.  Additionally, it will include the ability to support a role, like Submitters, that will be allowed to invoke the mintable behavior. Accounts can be added to the role and will be able to mint tokens in the class. The owner of an instance can process or delegate processing of the token which burns or retires the token, but requires the the Id of the new processed claim token to be successfully be retired. This provides correlation between the two items and prevents ecological claims from being processed more than once.",
+      "businessExample": "To represent transition stages in the ecological claims process, tokens are created and passed between parties in the process. These tokens are then retired once a stage in the process is complete. For example, an Ecological Claim is submitted by a Modular Benefit Project, this claim is the encumbered by the validator for processing. Once validation of the claim is complete, a ProcessedClaim is created and the EcologicalClaim is passed the Id for the ProcessedClaim and retired. This is repeated for the ProcessedClaim, once a Credit is issued against it, the Credit Id is passed to the ProcessedClaim and it is retired.",
+      "analogies": [],
       "comments": "Define a Submitters role and apply the role to the mintable behavior.",
       "artifact": null
     },

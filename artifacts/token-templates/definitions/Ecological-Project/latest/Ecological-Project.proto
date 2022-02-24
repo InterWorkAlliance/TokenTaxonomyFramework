@@ -10,7 +10,7 @@ option csharp_namespace = "IWA.TTF.Token.Sustainability";
 option java_package = "org.iwa.ttf.token.sustainability";
 option java_multiple_files = true;
 
-message EcologicalProjectOrProgram{
+message EcologicalProject{
     string id = 1;
     string name = 2;
     string description = 3;
@@ -20,9 +20,12 @@ message EcologicalProjectOrProgram{
 }
 
 message EcologicalProjectInfo{
-    common.VerifiedLink verified_link = 1; //Link to the project data or materials
-    string country_code = 2; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    string project_id = 1;
+    string country = 2;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
     common.ProjectScale project_scale = 3; //side of the project
+    common.Region region = 4;
+    string first_year_issuance = 5;
+    common.VerifiedLink information_link = 6;
 }
 
 message GetEPRequest {
@@ -30,11 +33,11 @@ message GetEPRequest {
 }
 
 message GetEPResponse {
-    EcologicalProjectOrProgram ecological_project_or_program = 1;
+    EcologicalProject ecological_project_or_program = 1;
 }
 
 message UpdateEP{
-    EcologicalProjectOrProgram ep = 1;
+    EcologicalProject ep = 1;
 }
 
 
@@ -89,7 +92,7 @@ message RemoveModularBenefitProjectResponse{
 
 
 service EcologicalProjects {
-    rpc GetEcologicalProjectOrProgram (GetEPRequest) returns (GetEPResponse) {}
+    rpc GetEcologicalProject (GetEPRequest) returns (GetEPResponse) {}
     rpc SetEPInfo (SetEcologicalProjectInfoRequest) returns (SetEcologicalProjectInfoResponse) {}
     rpc AddModularBenefitProject (AddModularBenefitProjectResponse) returns (AddModularBenefitProjectResponse) {}
     rpc UpdateModularBenefitProject (UpdateModularBenefitProjectRequest) returns (tokens.TransactionConfirmation) {}

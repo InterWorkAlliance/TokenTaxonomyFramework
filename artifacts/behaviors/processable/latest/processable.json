@@ -14,9 +14,9 @@
       "Processed Claim"
     ],
     "artifactDefinition": {
-      "businessDescription": "A token class that implements this behavior is burned or retired when the processed claim token created after processing. For example, a Carbon Benefit Claim is submitted for validation and verification, once this is done the claim is processed. Once the processed claim is created, the claim token should be processed or retired by passing in the processed claim token id that resulted from the verification. This ensures that the claim cannot be validated and verified again and can no longer be used.",
+      "businessDescription": "A token class that implements this behavior is burned or retired when the next token is issued in a supply chain of tokens, like retiring an ecological claim once a processed claim token is created. For example, a Ecological Claim is submitted for validation and verification, once this is done the claim is processed and a processed claim is created, the ecological claim token should be processed or retired by passing in the processed claim token id that resulted from the verification. This ensures that the claim cannot be validated and verified again and can no longer be used. This process is also repeated when a credit is issued against a processed claim, where the credit id is passed to this behavior to retire the processed claim and link it to the credit that was issued.",
       "analogies": [],
-      "comments": "Used in conjunction with ecological benefit claims.",
+      "comments": "Used in conjunction with ecological claims processing.",
       "artifact": null
     },
     "dependencies": [],

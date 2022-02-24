@@ -131,6 +131,9 @@
     "quantity": "0",
     "decimals": 0,
     "tokenProperties": {
+      "ContractId": "The Id for the Verification Contract for the claims process.",
+      "ClaimId": "This Id for the source ecological claim.",
+      "Id": "A unique identifier for the processed claim, GUID/UUID or public key.",
       "issuer": "Should be the Verifier",
       "creditor": "Should be the Registry that issued the benefit token, listed in the Verification Contract."
     },
@@ -339,9 +342,71 @@
           "isExternal": false,
           "constructorType": "",
           "appliesTo": [],
-          "invocations": [],
+          "invocations": [
+            {
+              "id": "2019574d-c8bf-44b6-afb7-cb6eaf74a308",
+              "name": "Credit",
+              "description": "A request to credit a token instance(s) in the class by the issuer of the credit to record the creditId and retire or burn this instance.",
+              "request": {
+                "controlMessageName": "CreditRequest",
+                "description": "The request to credit this token.",
+                "inputParameters": [
+                  {
+                    "name": "CreditId",
+                    "valueDescription": "The Id of the credit token."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "CreditResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the Credit request"
+                  }
+                ],
+                "description": "The response from the request to Credit."
+              }
+            },
+            {
+              "id": "47057767-e0ee-4737-993b-698f7baab3ed",
+              "name": "CreditFrom",
+              "description": "Requires Delegable. A request to credit a token instance in the class by a party or account that has allowance to do so. Once the token is Credit, invocations of Transfer should be blocked.  Requires a From and Quantity fields in the request.",
+              "request": {
+                "controlMessageName": "CreditFromRequest",
+                "description": "The request to Credit tokens.",
+                "inputParameters": [
+                  {
+                    "name": "From",
+                    "valueDescription": "AccountId from which tokens are credited."
+                  },
+                  {
+                    "name": "AppliedTo",
+                    "valueDescription": "The Id of the reported emission that is being credited."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "CreditFromResponse",
+                "description": "The response from the request to credit from.",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the credit from request"
+                  }
+                ]
+              }
+            }
+          ],
           "influenceBindings": [],
-          "properties": []
+          "properties": [
+            {
+              "name": "CreditId",
+              "valueDescription": "Records the benefit credit Id for the claim, like an Core Carbon Principles token.",
+              "templateValue": "",
+              "properties":[]
+            }
+          ]
         },
         {
           "reference": {

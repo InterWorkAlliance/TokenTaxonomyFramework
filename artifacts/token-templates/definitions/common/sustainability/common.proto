@@ -68,6 +68,24 @@ enum HashAlgorithmType
     SHA3 = 1;
 }
 
+enum Region
+{
+    EARTH = 0;
+    CENTRAL_AMERICA = 1;
+    CENTRAL_ASIA = 2;
+    EAST_ASIA =3;
+    EUROPE = 4;
+    INTERNATIONAL = 5;
+    MIDDLE_EAST = 6;
+    NORTH_AFRICA = 7;
+    NORTH_AMERICA = 8;
+    OCEANIA = 9;
+    SOUTH_AMERICA = 10;
+    SOUTH_ASIA = 11;
+    SOUTH_EAST_ASIA = 12;
+    SUB_SAHARAN_AFRICA = 13;
+}
+
 message VerifiedLink{
     string id = 1;
     string uri = 2;

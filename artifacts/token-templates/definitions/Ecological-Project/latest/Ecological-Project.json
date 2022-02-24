@@ -153,7 +153,13 @@
     "owner": "",
     "quantity": "1",
     "decimals": 2,
-    "tokenProperties": {},
+    "tokenProperties": {
+      "Id": "A unique ID like GUID/UUID or public key for the claim.",
+      "Name": "A common name for the Project or Program",
+      "Description": "A project description",
+      "Issuer": "Should be the Project Developer",
+      "Processor": "All verifiers that are able to process this claim, required to retire this claim as processed."
+    },
     "constructorName": "Constructor"
   },
   "behaviors": [
@@ -471,6 +477,14 @@
               "propertyInvocations": [],
               "properties": [
                 {
+                  "name": "ProjectId",
+                  "valueDescription": "(Optional for implementation) Unique identifier like a GUID/UUID or Public Key of the parent project.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
                   "name": "Country",
                   "valueDescription": "Alpha 3 ISO 3166 international standard country code www.iban.com/country-codes",
                   "templateValue": "",
@@ -480,7 +494,23 @@
                 },
                 {
                   "name": "ProjectScale",
-                  "valueDescription": "Numeric or enum based on size, micro, small, medium or large.",
+                  "valueDescription": "See common.proto for the values for this field.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "Region",
+                  "valueDescription": "See common.proto for the values for this field.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "FirstYearIssuance",
+                  "valueDescription": "The year credits were first issued for this project or program.",
                   "templateValue": "",
                   "propertyInvocations": [],
                   "properties": [],

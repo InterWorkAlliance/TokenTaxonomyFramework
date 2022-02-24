@@ -127,8 +127,8 @@
     "quantity": "0",
     "decimals": 2,
     "tokenProperties": {
-      "issuer": "Should be the Verifier",
-      "minters": "All verifiers that are able to mint and become the issuer of an instance."
+      "issuer": "Should be the Issuing or Standard Registry",
+      "minters": "All Issuing or Standard Registry that are able to mint and become the issuer of an instance."
     },
     "constructorName": "Constructor"
   },
