@@ -14,16 +14,20 @@ message ProcessedClaim
 {
     string id = 1;
     string verification_contract_id = 2; //Id for the verification contract
-    string processed_id = 3; //when a claim is processed, it will be retired and record the id of the processed claim in that process
-    Result result = 4; //summary and verified links for the the claim.
+    string ecological_claim_id = 3; //the ID for the Ecological Claim being processed.
+    string credit_id = 4; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
+    bytes quantity = 5; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e.
+    repeated common.CoBenefit co_benefits = 6;
+    repeated CheckpointResult checkpoint_results = 7; //summary and verified links for the the claim's checkpoint verification results.
 }
 
-message Result{
-    common.DateRange date_range = 1;
-    string e_f_before = 2;
-    string e_f_after = 3;
-    repeated common.CoBenefit co_benefits = 4;
-    repeated common.VerifiedLink process_data = 5;
+//basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
+message CheckpointResult{
+    string processed_id = 1;
+    verifiedlink.VerifiedLinks link_to_verification_data = 2; //Processed data findings
+    daterange.DateRange date_range = 3; //Date range for the checkpoint
+    string ef_before = 4; //environmental factor before project activities
+    string ef_after = 5; //environmental factor after project activities
 }
 
 //must check issuer role membership for invoker

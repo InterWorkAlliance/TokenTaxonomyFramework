@@ -14,8 +14,8 @@ option java_multiple_files = true;
 
 message EcologicalCheckpoint{
     string id = 1;
-    verifiedlink.VerifiedLinks link_to_checkpoint_data = 2; //Link to the project data or materials
-    daterange.DateRance date_range = 3; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    verifiedlink.VerifiedLinks link_to_checkpoint_data = 2; //Link to the data in the checkpoint
+    daterange.DateRange date_range = 3; //Date range for the checkpoint
     string ef_before = 4; //environmental factor before project activities
     string ef_after = 5; //environmental factor after project activities
 }

@@ -14,9 +14,10 @@ message EcologicalClaim
     string id = 1;
     string mbp_id = 2;
     string processed_claim_id = 3;
-    repeated common.CoBenefit co_benefits = 4;
-    repeated ClaimSource claim_sources = 5;
-    repeated EcologicalClaimCheckpoint checkpoints = 6;
+    bytes quantity = 4; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e.
+    repeated common.CoBenefit co_benefits = 5;
+    repeated ClaimSource claim_sources = 6;
+    repeated EcologicalClaimCheckpoint checkpoints = 7;
 }
 
 //a claim source is registered as a valid source for claim data, either raw source data or reference.

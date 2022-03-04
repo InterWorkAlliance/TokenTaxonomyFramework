@@ -135,6 +135,7 @@
       "Id": "A unique ID like GUID/UUID or public key for the claim.",
       "MbpId": "The unique Id of the parent modularBenefitProject",
       "ProcessedClaimId": "The unique Id of the processed claim",
+      "Quantity": "A estimated sum of the total benefit for the completed claim.",
       "Issuer": "Should be the Project Developer",
       "Processor": "All verifiers that are able to process this claim, required to retire this claim as processed."
     },

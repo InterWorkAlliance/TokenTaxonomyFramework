@@ -51,11 +51,12 @@ message SetEcologicalProjectInfoResponse {
 
 message ModularBenefitProject {
     string id = 1; //unique identifier that is used in reference by a verifing contract.
-    common.TargetedBenefitType benefit_type = 2; 
-    common.GeographicLocation geographic_location = 3;
-    repeated string developers = 4;
-    repeated string sponsors = 5;
-    repeated EcologicalClaim ecological_claims  = 6;
+    string name = 2; //a descriptive name for the type of project, i.e. Carbon Removal based on farming practices, forestry, etc.
+    TargetedBenefitType benefit_type = 3; 
+    geolocation.GeographicLocation geographic_location = 4;
+    repeated string developers = 5;
+    repeated string sponsors = 6;
+    ecologicalclaim.EcologicalClaims ecological_claims  = 7;
 }
 
 message ModularBenefitProjects {

@@ -132,8 +132,9 @@
     "decimals": 0,
     "tokenProperties": {
       "ContractId": "The Id for the Verification Contract for the claims process.",
-      "ClaimId": "This Id for the source ecological claim.",
+      "EcologicalClaimId": "This Id for the source ecological claim.",
       "Id": "A unique identifier for the processed claim, GUID/UUID or public key.",
+      "CreditId": "The Id for the credit issued for the processed claim, passed in when retired.",
       "issuer": "Should be the Verifier",
       "creditor": "Should be the Registry that issued the benefit token, listed in the Verification Contract."
     },
@@ -628,7 +629,7 @@
       "reference": {
         "id": "9bbcac72-ba95-4d73-ad95-d96275a4924f",
         "type": "PROPERTY_SET",
-        "referenceNotes": "Ecological Claim",
+        "referenceNotes": "Checkpoint Results",
         "values": {
           "controlUri": "",
           "artifactFiles": [],
@@ -642,155 +643,135 @@
       "representationType": "COMMON",
       "properties": [
         {
-          "name": "EcologicalClaim",
-          "valueDescription": "Contains the values for the claim.",
+          "name": "Checkpoint Result",
+          "valueDescription": "Contains the results for the checkpoint verification.",
           "templateValue": "",
           "propertyInvocations": [
             {
-              "id": "",
-              "name": "GetEcologicalClaim",
+              "name": "GetEcologicalCheckpoint",
               "description": "Request the Ecological Project Info.",
               "request": {
-                "controlMessageName": "GetEcologicalClaimRequest",
-                "description": "The request",
-                "inputParameters": []
+                "controlMessageName": "GetEcologicalCheckpointRequest",
+                "inputParameters": [],
+                "description": "The request"
               },
               "response": {
-                "controlMessageName": "GetEcologicalClaimResponse",
-                "description": "The response",
+                "controlMessageName": "GetEcologicalCheckpointResponse",
                 "outputParameters": [
                   {
-                    "name": "EcologicalClaim",
-                    "valueDescription": "Returning the EcologicalClaim values - see control file ecological-claim.proto."
+                    "name": "EcologicalCheckpoint",
+                    "valueDescription": "Returning the EcologicalCheckpoint values - see control file ecological-checkpoint.proto."
                   }
-                ]
+                ],
+                "description": "The response"
               },
               "notForRepetition": false,
               "forRepetitionOnly": false
             },
             {
-              "id": "",
-              "name": "SetEcologicalClaim",
-              "description": "Set the Ecological Claim",
+              "name": "SetEcologicalCheckpoint",
+              "description": "Set the Ecological Checkpoint",
               "request": {
-                "controlMessageName": "SetEcologicalClaimRequest",
-                "description": "The request",
+                "controlMessageName": "SetEcologicalCheckpointRequest",
                 "inputParameters": [
                   {
-                    "name": "EcologicalClaim",
-                    "valueDescription": "Set the EcologicalClaim values - see control file ecological-project-info.proto."
+                    "name": "EcologicalCheckpoint",
+                    "valueDescription": "Set the EcologicalCheckpoint values - see control file ecological-project-info.proto."
                   }
-                ]
+                ],
+                "description": "The request"
               },
               "response": {
-                "controlMessageName": "SetEcologicalClaimResponse",
-                "description": "The response",
+                "controlMessageName": "SetEcologicalCheckpointResponse",
                 "outputParameters": [
                   {
                     "name": "Confirmation",
                     "valueDescription": "Returning the value of the set request."
                   }
-                ]
+                ],
+                "description": "The response"
               },
               "notForRepetition": true,
               "forRepetitionOnly": false
             },
             {
-              "id": "",
-              "name": "AddEcologicalClaim",
-              "description": "Add the Ecological Claim",
+              "name": "AddEcologicalCheckpoint",
+              "description": "Add the Ecological Checkpoint",
               "request": {
-                "controlMessageName": "AddEcologicalClaimRequest",
-                "description": "The request",
+                "controlMessageName": "AddEcologicalCheckpointRequest",
                 "inputParameters": [
                   {
-                    "name": "EcologicalClaim",
-                    "valueDescription": "Add the EcologicalClaim value to a repeated list - see control file ecological-project-info.proto."
+                    "name": "EcologicalCheckpoint",
+                    "valueDescription": "Add the EcologicalCheckpoint value to a repeated list - see control file ecological-project-info.proto."
                   }
-                ]
+                ],
+                "description": "The request"
               },
               "response": {
-                "controlMessageName": "AddEcologicalClaimResponse",
-                "description": "The response",
+                "controlMessageName": "AddEcologicalCheckpointResponse",
                 "outputParameters": [
                   {
                     "name": "Confirmation",
                     "valueDescription": "Returning the value of the set request."
                   }
-                ]
+                ],
+                "description": "The response"
               },
               "notForRepetition": false,
               "forRepetitionOnly": true
             },
             {
-              "id": "",
-              "name": "RemoveEcologicalClaim",
-              "description": "Remove the Ecological Claim",
+              "name": "RemoveEcologicalCheckpoint",
+              "description": "Remove the Ecological Checkpoint",
               "request": {
-                "controlMessageName": "RemoveEcologicalClaimRequest",
-                "description": "The request",
+                "controlMessageName": "RemoveEcologicalCheckpointRequest",
                 "inputParameters": [
                   {
-                    "name": "EcologicalClaim",
-                    "valueDescription": "Remove the EcologicalClaim value from a repeated list - see control file ecological-project-info.proto."
+                    "name": "EcologicalCheckpoint",
+                    "valueDescription": "Remove the EcologicalCheckpoint value from a repeated list - see control file ecological-project-info.proto."
                   }
-                ]
+                ],
+                "description": "The request"
               },
               "response": {
-                "controlMessageName": "RemoveEcologicalClaimResponse",
-                "description": "The response",
+                "controlMessageName": "RemoveEcologicalCheckpointResponse",
                 "outputParameters": [
                   {
                     "name": "Confirmation",
                     "valueDescription": "Returning the value of the set request."
                   }
-                ]
+                ],
+                "description": "The response"
               },
               "notForRepetition": false,
               "forRepetitionOnly": true
             }
           ],
-          "influenceBindings": [],
           "properties": [
             {
-              "name": "EcologicalClaim",
-              "valueDescription": "Contains the values for the EcologicalClaim.",
+              "name": "EcologicalCheckpoint",
+              "valueDescription": "Contains the values for the EcologicalCheckpoint.",
               "templateValue": "",
-              "propertyInvocations": [],
-              "influenceBindings": [],
-              "properties": [
+              "properties":
+              [
                 {
                   "name": "Id",
                   "valueDescription": "A globally unique id - UUID, GUID, etc.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "influenceBindings": [],
-                  "properties": [],
-                  "repeated": false
+                  "templateValue": ""
                 },
                 {
                   "name": "EFBefore",
                   "valueDescription": "Environmental Factor before project activities - i.e. soil carbon measurement before.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "influenceBindings": [],
-                  "properties": [],
-                  "repeated": false
+                  "templateValue": ""
                 },
                 {
                   "name": "EFAfter",
                   "valueDescription": "Environmental Factor after project activities - i.e. soil carbon measurement after.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "influenceBindings": [],
-                  "properties": [],
-                  "repeated": false
+                  "templateValue": ""
                 }
-              ],
-              "repeated": false
+              ]
             }
-          ],
-          "repeated": false
+          ]
         }
       ],
       "propertySets": [
@@ -798,7 +779,7 @@
           "reference": {
             "id": "ce1ca787-d018-4eb2-90e7-03b8876197bf",
             "type": "PROPERTY_SET",
-            "referenceNotes": "Verified Link Property Set for this Ecological Project's data.",
+            "referenceNotes": "Verified Link Property Set for this Checkpoint's data.",
             "values": {
               "controlUri": "",
               "artifactFiles": []
@@ -808,7 +789,7 @@
           "properties": [
             {
               "name": "VerifiedLink",
-              "valueDescription": "Contains a Verified Link to the project's data.",
+              "valueDescription": "Contains a Verified Link to this Checkpoint's data.",
               "templateValue": "",
               "propertyInvocations": [
                 {
@@ -826,7 +807,7 @@
                     "outputParameters": [
                       {
                         "name": "VerifiedLink",
-                        "valueDescription": "Returning the Verified Link for project."
+                        "valueDescription": "Returning the Verified Link for checkpoint."
                       }
                     ]
                   },
@@ -836,7 +817,7 @@
                 {
                   "id": "",
                   "name": "SetVerifiedLink",
-                  "description": "Set the geographic area entry for the project.",
+                  "description": "Set the verified link area entry for the project.",
                   "request": {
                     "controlMessageName": "SetVerifiedLinkRequest",
                     "description": "The request",

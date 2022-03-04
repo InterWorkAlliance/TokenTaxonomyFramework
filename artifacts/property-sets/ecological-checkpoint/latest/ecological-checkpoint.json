@@ -43,17 +43,6 @@
           "version": "1.0",
           "templateValidated": false
         }
-      },
-      {
-        "description": "The co-benefits property set is included in this property set.",
-        "symbol": {
-          "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
-          "type": "PROPERTY_SET",
-          "visual": "&phi;<i>CB</i>",
-          "tooling": "phCB",
-          "version": "1.0",
-          "templateValidated": false
-        }
       }
     ],
     "incompatibleWithSymbols": [],

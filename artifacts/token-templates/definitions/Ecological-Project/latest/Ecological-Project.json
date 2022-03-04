@@ -743,6 +743,11 @@
                   "repeated": false
                 },
                 {
+                  "name": "Name",
+                  "valueDescription": "A descriptive name for the type of project, i.e. Carbon Removal based on farming practices, forestry, etc.",
+                  "templateValue": ""
+                },
+                {
                   "name": "TargetedBenefitType",
                   "valueDescription": "A value from a specific list (enum, number, etc) that sets the benefit type. For example, GHG, Water, etc.",
                   "templateValue": "",
