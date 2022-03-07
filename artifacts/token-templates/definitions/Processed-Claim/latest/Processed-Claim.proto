@@ -24,7 +24,7 @@ message ProcessedClaim
 //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
 message CheckpointResult{
     string processed_id = 1;
-    verifiedlink.VerifiedLinks link_to_verification_data = 2; //Processed data findings
+    verifiedlink.VerifiedLink link_to_verification_data = 2; //Processed data findings
     daterange.DateRange date_range = 3; //Date range for the checkpoint
     string ef_before = 4; //environmental factor before project activities
     string ef_after = 5; //environmental factor after project activities

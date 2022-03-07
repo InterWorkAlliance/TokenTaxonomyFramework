@@ -28,8 +28,8 @@ message CRUToken
     repeated common.CoBenefit co_benefits = 14;
     bool retired = 15;
     string offset_applied_to_id = 16; //link to ESGScorecardReportingPeriodId
-    string verified_claim_id = 17;
-    string adjustment_id = 18; //if this CCP replaces a revoked CCP as an adjustment
+    string processed_claim_id = 17;
+    string adjustment_id = 18; //if this CRU replaces a revoked CRU as an adjustment
     string issuer_id = 19; //the account that is the issuer, recorded at mint.
 }
 
@@ -43,8 +43,7 @@ message CRUAttributes
     bool clear_removals_n20 = 5;
     bool clear_removals_cH4 = 6;
     bool corresponding_adjustment = 7;
-    common.StorageType storage_type = 8;
-    common.VerifiedLink p_a_letter_of_approval = 9;
+    common.VerifiedLink p_a_letter_of_approval = 8;
 }
 
 message ClimateLabel
