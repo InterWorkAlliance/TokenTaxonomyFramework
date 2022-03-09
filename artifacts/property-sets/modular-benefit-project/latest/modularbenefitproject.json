@@ -187,7 +187,6 @@
               "valueDescription": "A string of text or possibly numeric value that represents the Modular Benefit Project's unique Id.",
               "templateValue": ""
             },
-            ,
             {
               "name": "ProjectId",
               "valueDescription": "The Id of the parent Ecological Project",
