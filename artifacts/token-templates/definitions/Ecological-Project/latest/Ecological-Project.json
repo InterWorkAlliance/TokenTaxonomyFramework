@@ -732,15 +732,18 @@
               "name": "ModularBenefitProjects",
               "valueDescription": "A collection of ModularBenefitProject.",
               "templateValue": "",
-              "propertyInvocations": [],
-              "properties": [
+              "properties":
+              [
                 {
                   "name": "Id",
                   "valueDescription": "A string of text or possibly numeric value that represents the Modular Benefit Project's unique Id.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "properties": [],
-                  "repeated": false
+                  "templateValue": ""
+                },
+                ,
+                {
+                  "name": "ProjectId",
+                  "valueDescription": "The Id of the parent Ecological Project",
+                  "templateValue": ""
                 },
                 {
                   "name": "Name",
@@ -748,34 +751,46 @@
                   "templateValue": ""
                 },
                 {
-                  "name": "TargetedBenefitType",
-                  "valueDescription": "A value from a specific list (enum, number, etc) that sets the benefit type. For example, GHG, Water, etc.",
-                  "templateValue": "",
-                  "propertyInvocations": [],
-                  "properties": [],
-                  "repeated": false
+                  "name": "Classification Category",
+                  "valueDescription": "Classification from common.proto",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Classification Method",
+                  "valueDescription": "Method from common.proto",
+                  "templateValue": ""
+                },
+                {
+                  "name": "EcologicalBenefitType",
+                  "valueDescription": "Benefit Type from common.proto",
+                  "templateValue": ""
+                },
+                {
+                  "name": "EcologicalBenefitScope",
+                  "valueDescription": "Benefit Scope from common.proto",
+                  "templateValue": ""
+                },
+                {
+                  "name": "ArbId",
+                  "valueDescription": "California Air Resources Board Id - if applicable",
+                  "templateValue": ""
                 },
                 {
                   "name": "Developers",
                   "valueDescription": "The Id or public key for the benefit developer.",
                   "templateValue": "",
-                  "propertyInvocations": [],
-                  "properties": [],
                   "repeated": true
                 },
                 {
                   "name": "Sponsors",
                   "valueDescription": "The Id or public key for the benefit sponsor.",
                   "templateValue": "",
-                  "propertyInvocations": [],
-                  "properties": [],
                   "repeated": true
                 }
-              ],
-              "repeated": false
+              ]
             }
           ],
-          "repeated": false
+          "repeated": true
         }
       ],
       "propertySets": [

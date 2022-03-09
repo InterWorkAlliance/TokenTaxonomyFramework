@@ -117,7 +117,7 @@ message DateRange{
 //CO-BENEFITS
 
 //Not complete
-enum BenefitCategory {
+enum EcologicalBenefitCategory {
     NO_CATEGORY = 0;
     NO_POVERTY = 1;
     ZERO_HUNGER = 2;
@@ -137,6 +137,21 @@ enum BenefitCategory {
     PEACE_JUSTICE_AND_STRONG_INSTITUTIONS = 16;
     PARTNERSHIPS_FOR_THE_GOALS = 17;
 }
+
+enum EcologicalBenefitScope
+{
+    OTHER = 0;
+    AGRICULTURE = 1;
+    CARBON_CAPTURE_AND_STORAGE = 2;
+    CHEMICAL_PROCESSES = 3;
+    FORESTRY_AND_LAND_USE = 4;
+    HOUSEHOLD_AND_COMMUNITY = 5;
+    INDUSTRIAL_MANUFACTURING = 6;
+    RENEWABLE_ENERGY = 7;
+    TRANSPORTATION = 8;
+    WASTE_MANAGEMENT = 9;
+}
+
 
 message CoBenefit {
     BenefitCategory co_benefit = 1; //high-level categories

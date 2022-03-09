@@ -50,13 +50,18 @@ message SetEcologicalProjectInfoResponse {
 }
 
 message ModularBenefitProject {
-    string id = 1; //unique identifier that is used in reference by a verifing contract.
-    string name = 2; //a descriptive name for the type of project, i.e. Carbon Removal based on farming practices, forestry, etc.
-    TargetedBenefitType benefit_type = 3; 
-    geolocation.GeographicLocation geographic_location = 4;
-    repeated string developers = 5;
-    repeated string sponsors = 6;
-    ecologicalclaim.EcologicalClaims ecological_claims  = 7;
+    string id = 1;
+    string project_id = 2;
+    string name = 3; //descriptive name for the project
+    common.ClassificationCategory classification_category = 4;
+    common.ClassificationMethod classification_method = 5;
+    common.EcologicalBenefitType ecological_benefit_type = 6;
+    common.EcologicalBenefitScope ecological_benefit_scope = 7;
+    string arb_id = 8; //California Air Resources Board
+    geolocation.GeographicLocation geographic_location = 8;
+    repeated string developers = 9;
+    repeated string sponsors = 10;
+    ecologicalclaim.EcologicalClaims ecological_claims  = 11;
 }
 
 message ModularBenefitProjects {
