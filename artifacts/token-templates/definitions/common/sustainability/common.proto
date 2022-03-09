@@ -86,6 +86,49 @@ enum Region
     SUB_SAHARAN_AFRICA = 13;
 }
 
+enum DegradationType{
+    LINEAR = 0;
+    EXPONENTIAL = 1;
+}
+
+//Estimated risk of reversal or release of carbon via natural and social causes prematurely.
+enum ReversalRisk{
+    LOW = 0; //typically associated with long term storage with low natural or social risks of reversal. I.e. earthquake or revolution
+    MED = 1; //associated with mid-range risk of reversal by natural or social events. I.e. Soil tillage
+    HIGH = 2; //associated with high-risk of social or natural reversal.  I.e. forest fires
+}
+
+enum DurabilityInsuranceType{
+    BUFFER_POOL = 0; //an ecological project or insurance product can set aside credits into a pool for risk mitigation. If needed issued credits can be revoked and replaced by credits from the pool.
+    REFUND = 1; //purchase price of the credit is refunded to the buyer and the credit is revoked.
+}
+
+enum InsuranceProvider{
+    ECOLOGICAL_PROJECT = 0;
+    INSURANCE_PRODUCT = 1;
+    UNDEFINED = 2;
+}
+
+message Degradable{
+    int32 percentage = 1; //0 = no degredation possible, 100 = all sequestered should be expected to be released
+    int32 factor = 2; //25 = .25 per year if linear or exponential starts at 25% of durability years.
+    DegradationType degradation_type = 3; //does the sequestration degrade over time?
+}
+
+message ReversalMitigation{
+    ReversalRisk reversal_risk = 1;
+    DurabilityInsuranceType insurance_type = 2;
+    InsuranceProvider InsuranceProvider = 3;
+}
+
+message Durability
+{
+    StorageType storage_type = 1;
+    int32 years = 2; //The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.
+    Degradable degradable = 3;
+    ReversalMitigation reversal_mitigation = 4; //for removals, the risk of reversal needs to be defined and a mitigation strategy should be indentified
+}
+
 message VerifiedLink{
     string id = 1;
     string uri = 2;

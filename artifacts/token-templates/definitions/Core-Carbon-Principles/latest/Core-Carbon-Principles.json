@@ -1641,6 +1641,29 @@
                         "templateValue": ""
                       }
                     ]
+                  },
+                  {
+                    "name": "ReversalMitigation",
+                    "valueDescription": "For removals the risk of reversal needs to be defined and a mitigation strategy should be identified.",
+                    "templateValue": "",
+                    "properties":
+                    [
+                      {
+                        "name": "ReversalRisk",
+                        "valueDescription": "A selection from durability.proto - low, mid, high",
+                        "templateValue": ""
+                      },
+                      {
+                        "name": "DurabilityInsuranceType",
+                        "valueDescription": "A selection from durability.proto",
+                        "templateValue": ""
+                      },
+                      {
+                        "name": "InsuranceProvider",
+                        "valueDescription": "A selection from durability.proto",
+                        "templateValue": ""
+                      }
+                    ]
                   }
                 ]
             }

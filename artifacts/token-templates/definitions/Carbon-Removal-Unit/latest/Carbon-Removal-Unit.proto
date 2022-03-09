@@ -39,7 +39,7 @@ message CRUAttributes
     string ccp_id = 1;
     common.ClassificationCategory category = 2; //always removals
     common.ClassificationMethod method = 3;
-    dur.Durability durability = 4; //from the Durability property-set
+    common.Durability durability = 4; //from the Durability property-set
     bool clear_removals_n20 = 5;
     bool clear_removals_cH4 = 6;
     bool corresponding_adjustment = 7;
