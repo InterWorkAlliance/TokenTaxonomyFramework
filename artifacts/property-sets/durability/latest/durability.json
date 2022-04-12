@@ -181,6 +181,72 @@
       ]
     }
   ],
-  "propertySets": [],
+  "propertySets": [
+    {         
+      "reference": {
+        "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "OPTIONAL - Verified Link Property Set for this Durability Insurance Policy.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "VerifiedLink",
+          "valueDescription": "Contains a Verified Link to the insurance policy.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetVerifiedLink",
+              "description": "Request the a Verified Link.",
+              "request": {
+                "controlMessageName": "GetVerifiedLinkRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "Returning the Verified Link for insurance policy."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetVerifiedLink",
+              "description": "Set the link for the insurance policy.",
+              "request": {
+                "controlMessageName": "SetVerifiedLinkRequest",
+                "inputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "The Verified Link of the insurance policy."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "repeated": false
 }

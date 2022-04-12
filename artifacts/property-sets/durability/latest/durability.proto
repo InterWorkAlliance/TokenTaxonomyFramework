@@ -3,6 +3,7 @@ syntax = "proto3";
 package durability;
 
 import "tokens.proto";
+import "sustainability/common.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "verified-link.proto";
@@ -38,7 +39,9 @@ enum DurabilityInsuranceType{
 enum InsuranceProvider{
     ECOLOGICAL_PROJECT = 0;
     INSURANCE_PRODUCT = 1;
-    OTHER = 2;
+    ISSUING_REGISTRY = 2;
+    RETIRER = 3;
+    OTHER = 4;
 }
 
 message Degradable{
@@ -50,7 +53,8 @@ message Degradable{
 message ReversalMitigation{
     ReversalRisk reversal_risk = 1;
     DurabilityInsuranceType insurance_type = 2;
-    InsuranceProvider InsuranceProvider = 3;
+    InsuranceProvider insurance_provider = 3;
+    common.VerifiedLink insurance_policy_link = 4; //optional link to the insurance policy/product
 }
 
 message Durability

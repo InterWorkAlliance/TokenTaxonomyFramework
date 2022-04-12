@@ -119,6 +119,7 @@ message ReversalMitigation{
     ReversalRisk reversal_risk = 1;
     DurabilityInsuranceType insurance_type = 2;
     InsuranceProvider InsuranceProvider = 3;
+    common.VerifiedLink insurance_policy_link = 4; //optional link to the insurance policy/product
 }
 
 message Durability
