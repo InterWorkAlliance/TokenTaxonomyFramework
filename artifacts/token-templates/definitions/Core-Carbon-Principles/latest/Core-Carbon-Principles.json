@@ -581,7 +581,7 @@
       "reference": {
         "id": "ffaee29b-f599-4812-9914-56693ab32532",
         "type": "BEHAVIOR",
-        "referenceNotes": "Revokable",
+        "referenceNotes": "revocable",
         "values": {
           "controlUri": "",
           "artifactFiles": [],

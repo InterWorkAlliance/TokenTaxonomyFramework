@@ -10,7 +10,7 @@
     },
     "name": "[tF’{d,t,e,v,g,OSC}+phCCP+phCCA]",
     "aliases": [
-      "Unique Fractional Fungible with Supply Control that is offsetable, revokable and replaceable with Core Carbon Principles and Core Carbon Attributes."
+      "Unique Fractional Fungible with Supply Control that is offsetable, revocable and replaceable with Core Carbon Principles and Core Carbon Attributes."
     ],
     "artifactDefinition": {
       "businessDescription": "This is a token based on the recommendations from the Taskforce for Scaling Voluntary Carbon Markets (TSVCM) for creating the Core Carbon Principles and extended attributes.  It is a Unique Fractional Fungible with Offsetable Supply Control with Revoke and Replacement, Core Carbon Principles and Core Carbon Attributes.  It is a token where 1 token equals 1 mtCO2e. A token instance can be minted if the requesting party is in the minters role. This template contains the Replacement, Core Carbon Principles and Core Carbon Attributes property sets as well.",

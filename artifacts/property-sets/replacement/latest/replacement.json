@@ -22,7 +22,7 @@
     },
     "dependencies": [
       {
-      "description": "Requires revokable to support replacement process.",
+      "description": "Requires revocable to support replacement process.",
       "symbol": {
         "id":"ffaee29b-f599-4812-9914-56693ab32532",
         "type": "BEHAVIOR",

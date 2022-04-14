@@ -153,7 +153,7 @@ message GetEncumberancesResponse{
     Encumbrances encumberances = 1;
 }
 
-//revokable
+//revocable
 message RevokeRequest {
     oneof from_id{
         string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
@@ -313,7 +313,7 @@ service CRU {
     rpc GetEncumbrances(GetEncumberancesRequest) returns (GetEncumberancesResponse) {} //returns all encumberances
     rpc Encumber (EncumberRequest) returns (EncumberResponse) {} //requires an event to notify the owner with an AcceptEncumberRequest
     rpc RemoveEncumberance (RemoveEncumberRequest) returns (RemoveEncumberResponse) {}  //invoker must be the encumberee 
-    //revokable: Creating an RPC interface that accepts a revokation request and returns a receipt. If replaced, use the Adjustment property-set for the CCP instance that replaces this revoked token.
+    //revocable: Creating an RPC interface that accepts a revocation request and returns a receipt. If replaced, use the Adjustment property-set for the CCP instance that replaces this revoked token.
     rpc Revoke (RevokeRequest) returns (RevokeResponse) {} //essentially a burn or retire.
     //delegable: Setting allowances for transferFrom requests from delegate.
     rpc RequestAllowance(AllowanceRequest) returns (AllowanceResponse) {} //an event should notify the owner of the allowance request requiring an approval.
