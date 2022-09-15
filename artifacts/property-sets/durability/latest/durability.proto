@@ -26,9 +26,9 @@ enum DegradationType{
 
 //Estimated risk of reversal or release of carbon via natural and social causes prematurely.
 enum ReversalRisk{
-    LOW = 0; //typically associated with long term storage with low natural or social risks of reversal. I.e. earthquake or revolution
-    MEDIUM = 1; //associated with mid-range risk of reversal by natural or social events. I.e. Soil tillage
-    HIGH = 2; //associated with high-risk of social or natural reversal.  I.e. forest fires
+    ZERO = 0; //GHG reservoirs are subject to zero risk if the form of carbon storage is such that stored CO2e cannot conceivably be released into the atmosphere. This also includes activity types with no storage, and thus no risk of reversal, e.g., Enhanced weathering of minerals, mineralisation, renewable energy, other activities leading to lower demand for fossil fuel.
+    LOW = 1; //GHG reservoirs might be subject to low risk of reversal if the characteristics of storage reservoirs (e.g., the geological formation in which carbon is to be stored,in the case of carbon capture and storage) and monitoring requirements virtually eliminate risk, e.g. Carbon capture and storage in geological formations, direct air capture and storage.
+    MATERIAL = 2; //GHG reservoirs might be subject to significant reversal risks if: risks of reversal are exogenous and/or unavoidable (e.g., extreme weather events, invasive pest outbreaks, and wildfires); the GHG reservoir is subject to natural disturbance and natural fluxes in carbon inventories; reversal events may or can be expected to occur over a specified time horizon (100 years); a mitigation activity proponent could have economic interests in intentionally causing a reversal (for example cutting down a forest for timber or changing land use to agriculture), e.g. Improved forest management, afforestation/reforestation, enhanced soil organic carbon sequestration, Avoided deforestation, sequestration via harvested wood products (for example buildings)
 }
 
 enum DurabilityInsuranceType{

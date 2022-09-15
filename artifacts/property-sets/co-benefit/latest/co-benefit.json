@@ -10,7 +10,7 @@
     },
     "name": "Co-benefit",
     "aliases": [
-      "Benefit bi-product"
+      "Sustainabilty Development Goals"
     ],
     "controlUri": "../../../../../../artifacts/property-sets/co-benefit/co-benefit.proto",
     "artifactDefinition": {
@@ -24,7 +24,7 @@
     "incompatibleWithSymbols": [],
     "influencedBySymbols": [
       {
-        "description": "Roles should be used to control what accounts can create set a CoBenefit.",
+        "description": "Roles should be used to control what accounts can create or set a CoBenefit.",
         "symbol": {
           "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
           "type": "BEHAVIOR",
@@ -60,13 +60,13 @@
   "properties": [
     {
       "name": "CoBenefit",
-      "valueDescription": "Contains the values for the claim.",
+      "valueDescription": "Contains the values for the co-benefit.",
       "templateValue": "",
       "propertyInvocations": [
         {
           "id": "db6096c6-5fe0-47ed-90d5-6215c2a2780c",
           "name": "GetCoBenefit",
-          "description": "Request the Ecological Project Info.",
+          "description": "Request the Co-benefit.",
           "request": {
             "controlMessageName": "GetCoBenefitRequest",
             "inputParameters": [],

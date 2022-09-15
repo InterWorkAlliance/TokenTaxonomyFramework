@@ -157,6 +157,7 @@
       "Id": "A unique ID like GUID/UUID or public key for the claim.",
       "Name": "A common name for the Project or Program",
       "Description": "A project description",
+      "Addresses": "A list of addresses that are associated with the project",
       "Issuer": "Should be the Project Developer",
       "Processor": "All verifiers that are able to process this claim, required to retire this claim as processed."
     },
@@ -515,6 +516,14 @@
                   "propertyInvocations": [],
                   "properties": [],
                   "repeated": false
+                },
+                {
+                  "name": "RegistryId",
+                  "valueDescription": "The RegistryId, if different, this is an optional value.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "properties": [],
+                  "repeated": false
                 }
               ],
               "repeated": false
@@ -566,7 +575,7 @@
                 {
                   "id": "",
                   "name": "SetVerifiedLink",
-                  "description": "Set the geographic area entry for the project.",
+                  "description": "Set the verified link entry for the project.",
                   "request": {
                     "controlMessageName": "SetVerifiedLinkRequest",
                     "description": "The request",
@@ -593,6 +602,80 @@
               ],
               "properties": [],
               "repeated": false
+            }
+          ],
+          "propertySets": [],
+          "repeated": false
+        },
+        {
+          "reference": {
+            "id": "ce1ca787-d018-4eb2-90e7-03b8876197bf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Verified Link Property Set for this Ecological Project's media files like pictures or videos.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "representationType": "COMMON",
+          "properties": [
+            {
+              "name": "VerifiedLink",
+              "valueDescription": "Contains a Verified Link to the project's media.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetVerifiedLink",
+                  "description": "Request the a Verified Link.",
+                  "request": {
+                    "controlMessageName": "GetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "Returning the Verified Link for project."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "",
+                  "name": "SetVerifiedLink",
+                  "description": "Set the verified link for the projects media file.",
+                  "request": {
+                    "controlMessageName": "SetVerifiedLinkRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "The Verified Link type to add to the project."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "SetVerifiedLinkResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "properties": [],
+              "repeated": true
             }
           ],
           "propertySets": [],

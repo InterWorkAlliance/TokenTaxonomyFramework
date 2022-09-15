@@ -17,20 +17,64 @@
     ],
     "controlUri": "../../../../../../artifacts/property-sets/core-carbon-principles/core-carbon-principles.proto",
     "artifactDefinition": {
-      "businessDescription": "This property set includes the Core Carbon Principles as outlined in the TSVCM about carbon benefit value and the links to the verifying contract and ecological project, benefit sub-project and the claim that is the source of the asset value.",
-      "businessExample": "An ecological project produces carbon benefit claims that once verified are turned into a digital asset or token that represents the intangible value if the benefit claim, in this case a CCP Token. This can represent a widely used climate based claim, like a carbon credit or representing a reduction or a removal of carbon.",
+      "businessDescription": "This property set includes the Core Carbon Principles as outlined by the ICVCM determined by using the Integrity Council's Assessment Framework, which elaborates criteria for evaluating whether carbon credits and carbon-crediting programs reach a high-quality threshold.",
+      "businessExample": "The CCPs define a threshold standard to ensure the integrity of the voluntary carbon market (VCM). The CCPs and the Assessment Framework have been developed in open dialogue with carbon-crediting programs and other stakeholders and are drawn from several sources. These principles include: Additionality, Mitigation Activity, No double counting, program governance, a registry, 3rd party validation and verification, robust quantification and SDG impacts and safeguards, with a transition towards net-zero goals.",
       "analogies": [],
       "comments": "",
       "artifact": null
     },
     "dependencies": [
       {
-        "description": "The date range is included in this property set.",
+        "description": "The co-benefit (SDG) is included in this property set.",
         "symbol": {
-          "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+          "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
           "type": "PROPERTY_SET",
-          "visual": "&phi;<i>DR</i>",
-          "tooling": "phDR",
+          "visual": "&phi;<i>CB</i>",
+          "tooling": "phCB",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The Mitigation Activity property set is included in this property set.",
+        "symbol": {
+          "id":"a60326d6-399b-4128-bd99-9279283b0380",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>MA</i>",
+          "tooling": "phMA",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The ParisAgreementCompliant property set is included in this property set.",
+        "symbol": {
+          "id":"f0ac1971-57dc-47b3-beeb-c1b9433457a2",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>PAC</i>",
+          "tooling": "phPAC",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The Durability property set is included in this property set.",
+        "symbol": {
+          "id":"04d8de6f-08dc-4830-8f15-756bc4a12853",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>DUR</i>",
+          "tooling": "phDUR",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      },
+      {
+        "description": "The Replacement property set is included in this property set.",
+        "symbol": {
+          "id":"41df6a71-d7d4-441c-93e9-856307606750",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>RPLC</i>",
+          "tooling": "phRPLC",
           "version": "1.0",
           "templateValidated": false
         }
@@ -143,33 +187,18 @@
               "templateValue": ""
             },
             {
+              "name": "Vintage",
+              "valueDescription": "Refers to the year that the emissions reduction or ecological benefit took place //The principle that a project activity is additional if the resulting emission reductions are lower than what would have happened in the absence of the activity.",
+              "templateValue": ""
+            },
+            {
               "name": "GenerationType",
               "valueDescription": "An ecological product can be a generated value based on verified historical results or ex-ante, meaning a predicted result. See the enum type in ecological-asset.proto for example.",
               "templateValue": ""
             },
             {
-              "name": "VerificationStandard",
-              "valueDescription": "The verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard. See the ecological-asset.proto enum for an example.",
-              "templateValue": ""
-            },
-            {
-              "name": "Leakage",
-              "valueDescription": "A decrease in sequestration or an increase in emissions outside the boundaries of project, program activities resulting from project, and/or program implementation. Leakage may be caused by shifting of the activities of people present in the project area or by market effects whereby emission reductions are countered by emissions created by shifts in supply of and demand for the products and services affected by the project.",
-              "templateValue": ""
-            },
-            {
-              "name": "Additionality",
-              "valueDescription": " A score for the principle that a project activity is additional if the resulting emission reductions are lower than what would have happened in the absence of the activity.",
-              "templateValue": ""
-            },
-            {
-              "name": "ReferenceToBenefitProjectClaim",
-              "valueDescription": "A compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/claimId.",
-              "templateValue": ""
-            },
-            {
-              "name": "ReferenceToVerificationContractProcessedClaim",
-              "valueDescription": "A reference to the full id path for the verification contract/processedClaims/ProcessedClaimId.",
+              "name": "QualityStandard",
+              "valueDescription": "The quality standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard. See the ecological-asset.proto enum for an example.",
               "templateValue": ""
             }
           ]
@@ -180,9 +209,9 @@
   "propertySets": [
     {         
       "reference": {
-        "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "id":"a60326d6-399b-4128-bd99-9279283b0380",
         "type": "PROPERTY_SET",
-        "referenceNotes": "Date Range Property Set for the CCP's Claim.",
+        "referenceNotes": "Mitigation Activity the CCP is based off of.",
         "values": {
           "controlUri": "",
           "artifactFiles": [],
@@ -192,70 +221,355 @@
       "representationType": "COMMON",
       "properties": [
         {
-          "name": "DateRange",
-          "valueDescription": "Contains the date range.",
+          "name": "MitigationActivity",
+          "valueDescription": "Contains the values for the MitigationActivity as outlined in the mitigation-activity.proto.",
           "templateValue": "",
           "propertyInvocations": [
             {
-              "id": "e3b45dcc-f767-4c9d-a081-9b0f91eb728c",
-              "name": "GetDateRange",
-              "description": "Request the value of the date",
+              "id": "cd258398-7c11-44b7-b28c-eaee5bc5b8f0",
+              "name": "GetMitigationActivity",
+              "description": "Request the list of the MitigationActivity.",
               "request": {
-                "controlMessageName": "GetDateRangeRequest",
+                "controlMessageName": "GetMitigationActivityRequest",
                 "inputParameters": [],
                 "description": "The request"
               },
               "response": {
-                "controlMessageName": "GetDateRangeResponse",
+                "controlMessageName": "GetMitigationActivityResponse",
                 "outputParameters": [
                   {
-                    "name": "StartDate",
-                    "valueDescription": "Returning the simple date value."
+                    "name": "Category",
+                    "valueDescription": "Returning the category."
                   },
                   {
-                    "name": "StartTimeStamp",
-                    "valueDescription": "Returning the granular start timestamp."
-                  },
-                  {
-                    "name": "EndDate",
-                    "valueDescription": "Returning the simple date value."
-                  },
-                  {
-                    "name": "EndTimeStamp",
-                    "valueDescription": "Returning the granular start timestamp."
+                    "name": "Method",
+                    "valueDescription": "Returning method."
                   }
                 ],
                 "description": "The response"
               }
             },
             {
-              "id": "269dfe9a-bf3e-4416-af54-4a49a0e408d0",
-              "name": "SetDateRange",
-              "description": "Set the Value of the File Property, note if Roles should be applied to the Setter.",
+              "id": "e4472298-014c-4d3b-ab6a-b2a9d260e398",
+              "name": "SetMitigationActivity",
+              "description": "Set the values for the property, only the Issue should be able to set this property.",
               "request": {
-                "controlMessageName": "SetDateRangeRequest",
+                "controlMessageName": "SetMitigationActivityRequest",
                 "inputParameters": [
                   {
-                    "name": "StartDate",
-                    "valueDescription": "Set the simple date value."
+                    "name": "Category",
+                    "valueDescription": "The Category - either Reduction or Removal."
                   },
                   {
-                    "name": "StartTimeStamp",
-                    "valueDescription": "Set the granular start timestamp."
-                  },
+                    "name":"Method",
+                    "valueDescription": "The Method - either Natural or Technology."
+                  }
+    
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetMitigationActivityResponse",
+                "outputParameters": [
                   {
-                    "name": "EndDate",
-                    "valueDescription": "Set the simple date value."
-                  },
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the MitigationActivity of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "MitigationActivity",
+              "valueDescription": "Contains the SetMitigationActivity property values.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "Category",
+                  "valueDescription": "Reduction or Removal",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Method",
+                  "valueDescription": "Biological or Technological or Both",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"04d8de6f-08dc-4830-8f15-756bc4a12853",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Durability of the credit, also called permanence.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "Durability",
+          "valueDescription": "Contains the values of durability.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "589f97b4-26e6-4981-9ec1-8e02f1b61e26",
+              "name": "GetDurability",
+              "description": "Request the durability info.",
+              "request": {
+                "controlMessageName": "GetDurabilityRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetDurabilityResponse",
+                "outputParameters": [
                   {
-                    "name": "EndTimeStamp",
-                    "valueDescription": "Set the granular start timestamp."
+                    "name": "Durability",
+                    "valueDescription": "Returning the Durability values - see control file durability.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "35f4ce83-03d7-4a53-a374-bca068df3f40",
+              "name": "SetDurability",
+              "description": "Set the Durability",
+              "request": {
+                "controlMessageName": "SetDurabilityRequest",
+                "inputParameters": [
+                  {
+                    "name": "Durability",
+                    "valueDescription": "Set the Durability values - see control file durability.proto."
                   }
                 ],
                 "description": "The request"
               },
               "response": {
-                "controlMessageName": "SetDateRangeResponse",
+                "controlMessageName": "SetDurabilityResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "Durability",
+              "valueDescription": "Contains the values for Durability.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "Storage",
+                  "valueDescription": "A selection from a list of storage types, ex. see the durability.proto enumeration of types.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Years",
+                  "valueDescription": "The length in years the carbon is expected to be sequestered for.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Degradable",
+                  "valueDescription": "If or when degradation of the sequestration can be expected.",
+                  "templateValue": "",
+                  "properties":
+                  [
+                    {
+                      "name": "Percentage",
+                      "valueDescription": "A 0 = no degradation possible, 100 = all sequestered should be expected to be released",
+                      "templateValue": ""
+                    },
+                    {
+                      "name": "Factor",
+                      "valueDescription": "The factor of 25 = .25 per year if linear or exponential starts at 25% of durability years.",
+                      "templateValue": ""
+                    },
+                    {
+                      "name": "DegradationType",
+                      "valueDescription": "A selection from a list of degradation types, ex. see the durability.proto enumeration of types.",
+                      "templateValue": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "ReversalMitigation",
+                  "valueDescription": "For removals the risk of reversal needs to be defined and a mitigation strategy should be identified.",
+                  "templateValue": "",
+                  "properties":
+                  [
+                    {
+                      "name": "ReversalRisk",
+                      "valueDescription": "A selection from durability.proto - low, mid, high",
+                      "templateValue": ""
+                    },
+                    {
+                      "name": "DurabilityInsuranceType",
+                      "valueDescription": "A selection from durability.proto",
+                      "templateValue": ""
+                    },
+                    {
+                      "name": "InsuranceProvider",
+                      "valueDescription": "A selection from durability.proto",
+                      "templateValue": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "propertySets": [
+        {         
+          "reference": {
+            "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "OPTIONAL - Verified Link Property Set for this Durability Insurance Policy.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": [],
+              "maps": null
+            }
+          },
+          "representationType": "COMMON",
+          "properties":[
+            {
+              "name": "VerifiedLink",
+              "valueDescription": "Contains a Verified Link to the insurance policy.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "name": "GetVerifiedLink",
+                  "description": "Request the a Verified Link.",
+                  "request": {
+                    "controlMessageName": "GetVerifiedLinkRequest",
+                    "inputParameters": [],
+                    "description": "The request"
+                  },
+                  "response": {
+                    "controlMessageName": "GetVerifiedLinkResponse",
+                    "outputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "Returning the Verified Link for insurance policy."
+                      }
+                    ],
+                    "description": "The response"
+                  }
+                },
+                {
+                  "name": "SetVerifiedLink",
+                  "description": "Set the link for the insurance policy.",
+                  "request": {
+                    "controlMessageName": "SetVerifiedLinkRequest",
+                    "inputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "The Verified Link of the insurance policy."
+                      }
+                    ],
+                    "description": "The request"
+                  },
+                  "response": {
+                    "controlMessageName": "SetVerifiedLinkResponse",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ],
+                    "description": "The response"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"41df6a71-d7d4-441c-93e9-856307606750",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Replacement property set if the asset is a replacement for a revoked asset in the case of a reversal action.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "Replacement",
+          "valueDescription": "Contains the Id, Date and notes about the replacement.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "176861e6-599a-48d6-ba3f-ffff9bfbfad1",
+              "name": "GetReplacement",
+              "description": "Request the Replacement Values.",
+              "request": {
+                "controlMessageName": "GetReplacementRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetReplacementResponse",
+                "outputParameters": [
+                  {
+                    "name": "Replacement",
+                    "valueDescription": "Returning the Replacement data."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "2a90d152-699b-4b85-a0e5-5436dae4650e",
+              "name": "SetReplacement",
+              "description": "Only the issuer can set the Issued Amount and is typically done during construction not after creation. A role check for issuer is required for invocation.",
+              "request": {
+                "controlMessageName": "SetReplacementRequest",
+                "inputParameters": [
+                  {
+                    "name": "ReplacesId",
+                    "valueDescription": "Set the Id of the token being replaced."
+                  },
+                  {
+                    "name": "ReplacementDate",
+                    "valueDescription": "Set the date of replacement."
+                  },
+                  {
+                    "name": "ReplacementNotes",
+                    "valueDescription": "Record notes about why the token is being replaced."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetReplacementResponse",
                 "outputParameters": [
                   {
                     "name": "Confirmation",
@@ -266,10 +580,496 @@
               }
             }
           ],
-          "influenceBindings": [],
-          "properties":[]
+          "properties":[
+            {
+              "name": "Adjustment",
+              "valueDescription": "Contains the adjustment from the issuer.",
+              "templateValue": "",
+              "properties":[
+                {
+                  "name": "ReplacesId",
+                  "valueDescription": "Contains the id of the token it is replacing.",
+                  "templateValue": "",
+                  "properties":[]
+                },
+                {
+                  "name": "ReplacementDate",
+                  "valueDescription": "Contains the date the adjustment or replacement made by issuer.",
+                  "templateValue": "",
+                  "properties":[]
+                },
+                {
+                  "name": "ReplacementNotes",
+                  "valueDescription": "Contains notes on why the replacement or adjustment is needed.",
+                  "templateValue": "",
+                  "properties":[]
+                }
+              ]
+            }
+          ],
+          "repeated": false
         }
       ],
+      "propertySets": [],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"f0ac1971-57dc-47b3-beeb-c1b9433457a2",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Paris Agreement Compliance property set.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "PACompliance",
+          "valueDescription": "Contains the values for the properties.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "13025cef-e870-438d-8396-b52feaffa2c6",
+              "name": "GetPACompliance",
+              "description": "Request the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "GetPAComplianceRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetPAComplianceResponse",
+                "outputParameters": [
+                  {
+                    "name": "PACompliance",
+                    "valueDescription": "Returning the PACompliance values - see control file paris-agreement-compliance.proto."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "144677f5-f6e8-4cba-af68-62c12f1cd606",
+              "name": "SetPACompliance",
+              "description": "Set the Ecological Project Info.",
+              "request": {
+                "controlMessageName": "SetPAComplianceRequest",
+                "inputParameters": [
+                  {
+                    "name": "PACompliance",
+                    "valueDescription": "Set the PACompliance values - see control file paris-agreement-compliance.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetPAComplianceResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            }
+          ],
+          "properties": [
+            {
+              "name": "CA",
+              "valueDescription": "Contains the value for the Corresponding Adjustment.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "CorrespondingAdjustment",
+                  "valueDescription": "Either - None, ParisAgreementCompliant or ParisAgreementPendingCompliance",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]      
+        }
+      ],
+      "propertySets": [
+        {         
+          "reference": {
+            "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+            "type": "PROPERTY_SET",
+            "referenceNotes": "Verified Link Property Set for an optional Letter of Approval.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": [],
+              "maps": null
+            }
+          },
+          "representationType": "COMMON",
+          "properties":[
+            {
+              "name": "LetterOfApproval",
+              "valueDescription": "Contains a Verified Link to the Letter Of Approval.",
+              "templateValue": "",
+              "propertyInvocations": [
+                {
+                  "id": "1df45470-2e7d-4ee3-9da8-eefe203e19fd",
+                  "name": "GetLetterOfApproval",
+                  "description": "Request the a Verified Link.",
+                  "request": {
+                    "controlMessageName": "GetLetterOfApprovalRequest",
+                    "inputParameters": [],
+                    "description": "The request"
+                  },
+                  "response": {
+                    "controlMessageName": "GetLetterOfApprovalResponse",
+                    "outputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "Returning the Verified Link for project."
+                      }
+                    ],
+                    "description": "The response"
+                  }
+                },
+                {
+                  "id": "292e8054-642e-4233-8d8a-cefd2d6fe67d",
+                  "name": "SetLetterOfApproval",
+                  "description": "Set the letter of approval for the project.",
+                  "request": {
+                    "controlMessageName": "SetLetterOfApprovalRequest",
+                    "inputParameters": [
+                      {
+                        "name": "VerifiedLink",
+                        "valueDescription": "The Verified Link type to add to the project."
+                      }
+                    ],
+                    "description": "The request"
+                  },
+                  "response": {
+                    "controlMessageName": "SetLetterOfApprovalResponse",
+                    "outputParameters": [
+                      {
+                        "name": "Confirmation",
+                        "valueDescription": "Returning a confirmation for the set request."
+                      }
+                    ],
+                    "description": "The response"
+                  }
+                }
+              ],
+              "properties": []
+            }
+          ]
+        }
+      ],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Co-benefits property set to indicate which SDGs are covered by the CCP.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CoBenefit",
+          "valueDescription": "Contains the values for the co-benefit.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "db6096c6-5fe0-47ed-90d5-6215c2a2780c",
+              "name": "GetCoBenefit",
+              "description": "Request the Co-benefit.",
+              "request": {
+                "controlMessageName": "GetCoBenefitRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Returning the CoBenefit values - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "520efc3e-a264-46b3-9658-dba9f3012fcf",
+              "name": "SetCoBenefit",
+              "description": "Set the CoBenefit",
+              "request": {
+                "controlMessageName": "SetCoBenefitRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Set the CoBenefit values - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "eefc1d94-7d09-4e1b-843d-76b51850021a",
+              "name": "AddCoBenefit",
+              "description": "Add a co-benefit to the asset.",
+              "request": {
+                "controlMessageName": "AddCoBenefitRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "The CoBenefit type to add to the asset."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddCoBenefitResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the add request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "id": "85d15d32-2ba7-4603-978d-11cbccbba9f0",
+              "name": "RemoveCoBenefit",
+              "description": "Remove a co-benefit to the asset.",
+              "request": {
+                "controlMessageName": "RemoveCoBenefitRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "The CoBenefit type to remove to the asset."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemovedCoBenefitResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the remove request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "CoBenefit",
+              "valueDescription": "Contains the values for the CoBenefit.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "BenefitCategory",
+                  "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Description",
+                  "valueDescription": "A description of the co-benefit that is not captured via the category.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "RatingScore",
+                  "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "propertySets": [],
+      "repeated": false
+    },
+    {         
+      "reference": {
+        "id":"5a8c69f6-f3c5-4bc8-82d0-d3fbf90b59c7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Co-benefits property set for the adaptation of the token's co-benefits consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CoBenefit",
+          "valueDescription": "Contains the values for the co-benefit.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "db6096c6-5fe0-47ed-90d5-6215c2a2780c",
+              "name": "GetCoBenefit",
+              "description": "Request the Co-benefit.",
+              "request": {
+                "controlMessageName": "GetCoBenefitRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Returning the CoBenefit values - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "id": "520efc3e-a264-46b3-9658-dba9f3012fcf",
+              "name": "SetCoBenefit",
+              "description": "Set the CoBenefit",
+              "request": {
+                "controlMessageName": "SetCoBenefitRequest",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "Set the CoBenefit values - see control file co-benefit.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetCoBenefitResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "eefc1d94-7d09-4e1b-843d-76b51850021a",
+              "name": "AddCoBenefit",
+              "description": "Add a co-benefit to the asset.",
+              "request": {
+                "controlMessageName": "AddCoBenefitRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "The CoBenefit type to add to the asset."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddCoBenefitResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the add request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "id": "85d15d32-2ba7-4603-978d-11cbccbba9f0",
+              "name": "RemoveCoBenefit",
+              "description": "Remove a co-benefit to the asset.",
+              "request": {
+                "controlMessageName": "RemoveCoBenefitRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "CoBenefit",
+                    "valueDescription": "The CoBenefit type to remove to the asset."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemovedCoBenefitResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the remove request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "CoBenefit",
+              "valueDescription": "Contains the values for the CoBenefit.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "BenefitCategory",
+                  "valueDescription": "A selection from a list of categories, ex. see the co-benefit.proto enumeration of BenefitCategories.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "Description",
+                  "valueDescription": "A description of the co-benefit that is not captured via the category.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "RatingScore",
+                  "valueDescription": "A placeholder for some kind of rating or scoring of the relative co-benefit.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "propertySets": [],
       "repeated": false
     }
   ],

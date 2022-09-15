@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mitigationactivity;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.MA";
+option java_package = "org.iwa.ttf.propertySets.MA";
+option java_multiple_files = true;
+
+enum Category{
+    REDUCTION = 0; //indicates that the activity claim is for a reduction of GHG emissions.
+    REMOVAL = 1; //indicates that the activity claim is for a removal of GHG emissions.
+}
+
+enum Method{
+    BIOLOGICAL = 0; //The activity claim uses biological or natural methods.
+    TECHNOLOGICAL = 1; //The activity claim uses technology.
+    BOTH_BIOLOGICAL_AND_TECHNOLOGICAL = 2; //The activity claim uses both biological and technology methods, some activities, such as biomass energy carbon capture and storage (BECCS), may involve biological and technological elements.
+}
+//this is the data structure for the Core Carbon Principal attribute Mitigation Activity.
+message MitigationActivity{
+    Category category = 1; //Category of the migtigation activity.
+    Method method = 2; //Method of the mitigation activity.
+}
+
+message GetMitigationActivityRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetMitigationActivityResponse {
+    tokens.MessageHeader header = 1;
+    MitigationActivity value = 2;
+}
+
+message SetMitigationActivityRequest {
+    tokens.MessageHeader header = 1;
+    MitigationActivity value = 2;
+}
+
+message SetMitigationActivityResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+}

@@ -14,9 +14,10 @@ message EcologicalProject{
     string id = 1;
     string name = 2;
     string description = 3;
-    repeated string owners = 4;
-    EcologicalProjectInfo project_information = 5;
-    ModularBenefitProjects modular_benefit_projects = 6;
+    repeated common.Address addresses = 4;
+    repeated string owners = 5;
+    EcologicalProjectInfo project_information = 6;
+    ModularBenefitProjects modular_benefit_projects = 7;
 }
 
 message EcologicalProjectInfo{
@@ -26,6 +27,8 @@ message EcologicalProjectInfo{
     common.Region region = 4;
     string first_year_issuance = 5;
     common.VerifiedLink information_link = 6;
+    repeated verifiedlink.VerifiedLink media_links = 7; //Links to media
+    string registry_id = 8; //OPTIONAL Registry ID if different
 }
 
 message GetEPRequest {

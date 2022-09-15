@@ -21,14 +21,8 @@ enum ProjectScale {
     LARGE = 3;
 }
 
-//how the credit value was determined
-enum DeterminedValue {
-    GENERATED = 0;
-    EX_ANTE = 1;
-    EX_POST = 2;
-}
 
-enum VerificationStandard{
+enum QualityStandard{
     GS_VER =  0; //Voluntary: Gold Standard Verified Emissions Reduction
     VCS =  1; //Voluntary: Cerified Carbon Standard generates VCUs
     VOS =  2; //Voluntary: Voluntary Offset Standard
@@ -93,9 +87,9 @@ enum DegradationType{
 
 //Estimated risk of reversal or release of carbon via natural and social causes prematurely.
 enum ReversalRisk{
-    LOW = 0; //typically associated with long term storage with low natural or social risks of reversal. I.e. earthquake or revolution
-    MED = 1; //associated with mid-range risk of reversal by natural or social events. I.e. Soil tillage
-    HIGH = 2; //associated with high-risk of social or natural reversal.  I.e. forest fires
+    ZERO = 0; //GHG reservoirs are subject to zero risk if the form of carbon storage is such that stored CO2e cannot conceivably be released into the atmosphere. This also includes activity types with no storage, and thus no risk of reversal, e.g., Enhanced weathering of minerals, mineralisation, renewable energy, other activities leading to lower demand for fossil fuel.
+    LOW = 1; //GHG reservoirs might be subject to low risk of reversal if the characteristics of storage reservoirs (e.g., the geological formation in which carbon is to be stored,in the case of carbon capture and storage) and monitoring requirements virtually eliminate risk, e.g. Carbon capture and storage in geological formations, direct air capture and storage.
+    MATERIAL = 2; //GHG reservoirs might be subject to significant reversal risks if: risks of reversal are exogenous and/or unavoidable (e.g., extreme weather events, invasive pest outbreaks, and wildfires); the GHG reservoir is subject to natural disturbance and natural fluxes in carbon inventories; reversal events may or can be expected to occur over a specified time horizon (100 years); a mitigation activity proponent could have economic interests in intentionally causing a reversal (for example cutting down a forest for timber or changing land use to agriculture), e.g. Improved forest management, afforestation/reforestation, enhanced soil organic carbon sequestration, Avoided deforestation, sequestration via harvested wood products (for example buildings)
 }
 
 enum DurabilityInsuranceType{
@@ -197,6 +191,14 @@ enum EcologicalBenefitScope
 }
 
 
+message ClimateLabel
+{
+    string id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+
 message CoBenefit {
     BenefitCategory co_benefit = 1; //high-level categories
     string description = 2; //description of the co-benefit that is not captured via the category
@@ -225,4 +227,61 @@ enum ClaimSourceType
     SENSOR_DEVICE = 0; //IoT, etc.
     USER_APPLICATION = 1; //An application that uses device sensors like GPS, date/time and user authentication as evidence of source claim data.
     REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
+}
+
+enum AddressType
+{
+    POSTAL = 0;
+    PHYSICAL = 1;
+    LEGAL = 2;
+}
+
+message Address{
+    AddressType address_type = 1;
+    string street = 2;
+    string city = 3;
+    string state = 4;
+    string zip = 5;
+    string country = 6;
+}
+
+//COPIED FOR CODE GEN from Core Carbon Principles v1.0.0 Property set
+//how the credit value was determined
+enum GenerationType {
+    GENERATED = 0;
+    EX_ANTE = 1;
+    EX_POST = 2;
+}
+
+message CoreCarbonPrinciples{
+    string asset_id = 1; //typically the issuing verifier's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+    google.protobuf.TimeStamp issuance_date = 2; //the date the token was issued.
+    string vintage = 3;  //refers to the year that the emissions reduction or ecological benefit took place //The principle that a project activity is additional if the resulting emission reductions are lower than what would have happened in the absence of the activity.
+    GenerationType generation_type = 4; //typically generated or ex-ante
+    QualityStandard verification_standard = 5; //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
+    mitigationactivity.MitigationActivity mitigation_activity = 6; //the mitigation activity that is used to generate the ecological benefit token.
+    durability.Durability durability = 7; //this is the recommendation to replace permanence for CCPs as it includes the risk profile and not simply a boolean.
+    replacement.Replacement replacement = 8; //set if this Core Carbon Principles replaces a revoked or adjusted CCP.
+    pariscompliance.PACompliance paris_agreement_compliance = 9; //set if using PA specific attributes like corresponding adjustment
+    cobenefit.Cobenefits quantified_sdg_impacts = 10; //the quantified impacts of the token.
+    cobenefit.Cobenefits adaptation_co_benefits = 11; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
+}
+
+message GetCoreCarbonPrinciplesRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetCoreCarbonPrinciplesResponse {
+    tokens.MessageHeader header = 1;
+    CoreCarbonPrinciples ecological_claim = 2;
+}
+
+message SetCoreCarbonPrinciplesRequest {
+    tokens.MessageHeader header = 1;
+    CoreCarbonPrinciples ecological_claim = 2;
+}
+
+message SetCoreCarbonPrinciplesResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
 }

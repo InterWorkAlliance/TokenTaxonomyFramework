@@ -1,0 +1,144 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"a60326d6-399b-4128-bd99-9279283b0380",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>MA</i>",
+      "tooling": "phMA",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Mitigation Activity",
+    "aliases": [
+      "Core Carbon Principles Mitigation"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/mitigation-activity/mitigation-activity.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this property set will have a Mitigation Activity of either a category or either a Reduction or a Removal and a method of either Natural or Technology.  For example if the MitigationActivity is for a Carbon Dioxide Removal using agricultural practices, it would be categorized as a Removal using Natural methods.",
+      "businessExample": "When creating a Core Carbon Principle token, one of the attributes will be the MitigationActivity to allow buyers to differentiate between CCP tokens as well as reference contracts to bundle similar assets together into a single product.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the MitigationActivity Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "mitigation-activity.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "mitigation-activity.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "MitigationActivity",
+      "valueDescription": "Contains the values for the MitigationActivity as outlined in the mitigation-activity.proto.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "id": "cd258398-7c11-44b7-b28c-eaee5bc5b8f0",
+          "name": "GetMitigationActivity",
+          "description": "Request the list of the MitigationActivity.",
+          "request": {
+            "controlMessageName": "GetMitigationActivityRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetMitigationActivityResponse",
+            "outputParameters": [
+              {
+                "name": "Category",
+                "valueDescription": "Returning the category."
+              },
+              {
+                "name": "Method",
+                "valueDescription": "Returning method."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "id": "e4472298-014c-4d3b-ab6a-b2a9d260e398",
+          "name": "SetMitigationActivity",
+          "description": "Set the values for the property, only the Issue should be able to set this property.",
+          "request": {
+            "controlMessageName": "SetMitigationActivityRequest",
+            "inputParameters": [
+              {
+                "name": "Category",
+                "valueDescription": "The Category - either Reduction or Removal."
+              },
+              {
+                "name":"Method",
+                "valueDescription": "The Method - either Natural or Technology."
+              }
+
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetMitigationActivityResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the MitigationActivity of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MitigationActivity",
+          "valueDescription": "Contains the SetMitigationActivity property values.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "Category",
+              "valueDescription": "Reduction or Removal",
+              "templateValue": ""
+            },
+            {
+              "name": "Method",
+              "valueDescription": "Biological or Technological or Both",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

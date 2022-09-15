@@ -5,14 +5,16 @@ package corecarbonprinciples;
 import "tokens.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
-import "verified-link.proto";
 import "co-benefit.proto";
+import "mitigation-activity.proto";
+import "pariscompliance.proto";
+import "durability.proto";
 
 option csharp_namespace = "IWA.TTF.PropertySets.CCP";
 option java_package = "org.iwa.ttf.propertySets.ccp";
 option java_multiple_files = true;
 
-//a ecological product can be a generated value based on verified historical results or ex-ante, meaning a predicted result.
+//a ecological product can be a generated value based on current results or ex-ante, meaning a predicted result, or ex-post which is based on historical results.
 enum GenerationType {
     GENERATED = 0;
     EX_ANTE = 1;
@@ -20,7 +22,7 @@ enum GenerationType {
 }
 
 //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
-enum VerificationStandard {
+enum QualityStandard {
     GS_VER = 0; //Voluntary: Gold Standard Verified Emissions Reduction
     VCS = 1; //Voluntary: Cerified Carbon Standard generates VCUs
     VOS = 2; //Voluntary: Voluntary Offset Standard
@@ -33,15 +35,17 @@ enum VerificationStandard {
 }
 
 message CoreCarbonPrinciples{
-    string asset_id = 1; //typically the issuing verifier's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
-    timestamp issuance_date = 2;
-    GenerationType generation_type = 3;
-    VerificationStandard verification_standard = 4;
-    string additionality = 5; //perhaps text regarding how the claim is based on activity that is additional
-    string leakage = 6; //A decrease in sequestration or an increase in emissions outside the boundaries of project, program activities resulting from project, and/or program implementation. Leakage may be caused by shifting of the activities of people present in the project area or by market effects whereby emission reductions are countered by emissions created by shifts in supply of and demand for the products and services affected by the project. This value could perhpas text regarding how the claim may handle or not required to handle leakage
-    string reference_to_project_benefit_claim = 8; //a compound reference to the full id path for the benefit claim data: projectId/modularBenefitProjectId/ClaimId
-    string reference_to_verification_contract_processedClaim = 9; //a reference to the full id path for the verification contract/processedClaims/ProcessedClaimId
-    daterange.DateRange date_range = 10; //Dates for the MRV set used to verify the ecological benefit
+    string asset_id = 1; //typically the issuing registry's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+    google.protobuf.TimeStamp issuance_date = 2; //the date the token was issued.
+    string vintage = 3;  //refers to the year that the emissions reduction or removal took place or will take place.
+    GenerationType generation_type = 4; //typically generated or ex-ante
+    QualityStandard verification_standard = 5; //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
+    mitigationactivity.MitigationActivity mitigation_activity = 6; //the mitigation activity that is used to generate the ecological benefit token.
+    durability.Durability durability = 7; //this is the recommendation that replaces permanence for CCPs as it includes the risk profile and not simply a boolean.
+    replacement.Replacement replacement = 8; //set if this Core Carbon Principles replaces a revoked or adjusted CCP.
+    pariscompliance.PACompliance paris_agreement_compliance = 9; //set if using PA specific attributes like corresponding adjustment
+    cobenefit.Cobenefits quantified_sdg_impacts = 10; //the quantified impacts of the token.
+    cobenefit.Cobenefits adaptation_co_benefits = 11; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
 }
 
 message GetCoreCarbonPrinciplesRequest {

@@ -1,0 +1,308 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility;
+
+import "tokens.proto";
+import "sustainability/common.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability";
+option java_package = "org.iwa.ttf.token.sustainability";
+option java_multiple_files = true;
+
+//Carbon Removal Unit schema - not a part of the certification
+message CRUToken
+{
+    string id = 1;
+    bytes quantity = 2; //fractional to represent upto 8 decimal places, use a bytestring for the quantity.
+    string owner_id = 3;                
+    string listing_agent_id = 4; //AuthorizedId
+    common.CoreCarbonPrinciples core_carbon_principals = 5; 
+    repeated common.ClimateLabel climate_labels = 6;
+    bool retired = 7;
+    string offset_applied_to_id = 8; //link to ESGScorecardReportingPeriodId
+    string processed_claim_id = 9;
+    string issuer_id = 10; //the account that is the issuer, recorded at mint.
+}
+
+//CERTIFICATION BELOW HERE
+
+//Check for encumberances, if encumbered the request should attempt to remove the encumberance with the id and signature of the invoker or fail.
+message TransferRequest {
+    string token_id = 1;
+    string to_account_id = 2;
+    bytes quantity = 3;
+}
+
+message TransferResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+//Check for encumberances, if encumbered the request should attempt to remove the encumberance with the id and signature of the invoker or fail.
+message TransferFromRequest {
+    string token_id = 1;
+    string from_account_id = 2;
+    string to_account_id = 3;
+    bytes quantity = 4;
+}
+
+//if Delegable present
+message TransferFromResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+//Encumberable
+
+message EncumberRequest {
+    oneof from_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 2;
+    }
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
+}
+
+//this message is sent to the owner when requested by the invoker of the EncumberRequest
+message NotifyOwnerOfEncumberRequest{
+    string encumber_id = 1;
+    oneof from_id{
+        string d_i_d = 2; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 3;
+    }
+}
+
+message NotifyOwnerOfEncumberResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message EncumberResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+//This message is set in response to the notification request
+message ApproveEncumberRequest {
+    oneof approved_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+    bytes signature = 3;
+    common.HashAlgorithmType hash_type = 4; //sha256, sha3, etc.
+}
+
+message ApproveEncumberResponse {
+    string encumber_id = 1;
+    tokens.TransactionConfirmation confirmation = 2;
+}
+
+message RemoveEncumberRequest {
+    oneof removed_by_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+}
+
+message RemoveEncumberResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+
+message Encumbrances{
+    repeated Encumbered encumbered = 1;
+}
+
+//this is the property that a token with this behavior should have one or a repeated list of them.
+message Encumbered{
+    google.protobuf.Timestamp timestamp = 1;
+    string encumber_id = 2;
+    oneof encumbered_by_id{
+        string d_i_d = 3; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 4;
+    }
+}
+
+message GetEncumberancesRequest{}
+message GetEncumberancesResponse{
+    Encumbrances encumberances = 1;
+}
+
+//revocable
+message RevokeRequest {
+    oneof from_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string from_account_id = 2;
+    }
+    bytes signature = 3;
+    string hash_type = 4; //sha256, sha3, etc.
+    string revocation_desciption = 5; //reason for revoking this token.
+}
+
+message RevokeResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+message GetIssuerRequest{}
+message GetIssuerResponse{
+    string issuer_id = 1;
+}
+
+message ChangeIssuerRequest{
+    oneof new_issuer_id{
+        string d_i_d = 1; //https://w3c-ccg.github.io/did-spec/
+        string account_id = 2;
+    }
+}
+
+message ChangeIssuerResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message GetIssuersRequest{}
+
+//returns the ids in the issuers group/role
+message GetIssuersResponse{
+    repeated string issuer_id = 1;
+}
+
+message AddIssuerRequest{
+    string issuer_id = 1;
+}
+
+message AddIssuerResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+message RemoveIssuerRequest{
+    string issuer_id = 1;
+}
+
+message RemoveIssuerResponse{
+    tokens.TransactionConfirmation confirmation = 1;
+}
+
+
+//delegable
+message ApproveResponse {
+    string spender_account_id = 1;
+    bytes amount = 2;
+    tokens.TransactionConfirmation confirmations = 3;
+}
+
+message AllowanceRequest {
+    string owner_account_id = 1;
+    string spender_account_id = 2;
+}
+
+message AllowanceResponse {
+    string owner_account_id = 1;
+    string spender_account_id = 2;
+    bytes remaining = 3;
+}
+
+//must check issuers role membership for invoker
+message MintRequest {
+    bytes quantity = 1;
+}
+
+message MintResponse{
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//must check issuers role membership for invoker
+message MintToRequest {
+    bytes quantity = 1;
+    string to_account_id = 2;
+}
+
+message MintToResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if a fraction of a token is to be offset, it should be split into fractions 1st, then offset the fraction that you want to apply as an offset.
+message OffsetRequest {
+    bytes quantity = 1; 
+    string offset_applied_to = 2; //id of the emission being offset. This can be the Id of the ESG Scorecard emission entry for a specific reporting period.
+}
+
+message OffsetResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//if Delegable present
+message OffsetFromRequest {
+    string from_account_id = 1;
+    string offset_applied_to = 2; //id of the emission being offset. This can be the Id of the ESG Scorecard emission entry for a specific reporting period.
+    bytes quantity = 3;
+}
+
+//if Delegable present
+message OffsetFromResponse {
+    tokens.TransactionConfirmation transaction_confirmation = 1;
+}
+
+//Get all public property values for the token
+message GetCoreCarbonPrinciplesRequest{}
+
+message GetCoreCarbonPrinciplesResponse{
+    CRUToken core_carbon_principles = 1;
+}
+
+//Replacement requires that the token being replaced being revoked. Once revoked, the replacement value for the new CCP should record the revoked CCP.
+message Replacement{
+    string replaces_id = 1; //the id of the token being replaced - the one revoked.
+    google.protobuf.Timestamp replacement_date = 2; //date of the replacement/adjustment
+    string notes = 3; //notes on why the replacement or adjustment is needed
+}
+
+message GetReplacementRequest {}
+
+message GetReplacementResponse {
+    Replacement replacement = 1; //replacement data
+}
+
+
+message SetReplacementRequest {
+    Replacement replacement = 1; //replacement data
+}
+
+message SetReplacementResponse {
+    tokens.TransactionConfirmation confirmation = 1;
+}   
+
+message GetDecimalsRequest {
+}
+
+message GetDecimalsResponse {
+    int32 decimal_places = 1; //supported decimal places
+}
+
+service CRU {
+    //divisible: Creating an RPC interface that accepts the request and returns the response
+    rpc GetDecimals (GetDecimalsRequest) returns (GetDecimalsResponse) {} 
+    //tranferable: Creating an RPC interface that accepts the request and returns the response
+    rpc Transfer (TransferRequest) returns (TransferResponse) {} //requires and encumberance check
+    rpc TransferFrom (TransferFromRequest) returns (TransferFromResponse) {}  //requires and encumberance check
+    //encumberable: Creating an RPC interface that accepts the request, forwards the request to the owner for acceptance then will encumber and return or fail.
+    rpc GetEncumbrances(GetEncumberancesRequest) returns (GetEncumberancesResponse) {} //returns all encumberances
+    rpc Encumber (EncumberRequest) returns (EncumberResponse) {} //requires an event to notify the owner with an AcceptEncumberRequest
+    rpc RemoveEncumberance (RemoveEncumberRequest) returns (RemoveEncumberResponse) {}  //invoker must be the encumberee 
+    //revocable: Creating an RPC interface that accepts a revocation request and returns a receipt. If replaced, use the Adjustment property-set for the CCP instance that replaces this revoked token.
+    rpc Revoke (RevokeRequest) returns (RevokeResponse) {} //essentially a burn or retire.
+    //delegable: Setting allowances for transferFrom requests from delegate.
+    rpc RequestAllowance(AllowanceRequest) returns (AllowanceResponse) {} //an event should notify the owner of the allowance request requiring an approval.
+    rpc ApproveAllowance(ApproveResponse) returns (tokens.TransactionConfirmation) {} //RequestAllowance will trigger an ApproveResponse that should trigger the return of the AllowanceResponse.
+    //offsetable: Setting up offset request and response
+    rpc Offset(OffsetRequest) returns (OffsetResponse) {} //essentially a burn or retire will recording the reporting period being offset.
+    rpc OffsetFrom(OffsetFromRequest) returns (OffsetFromResponse) {} //if offset delegation is allowed in the implementation.
+    //mintable: Creating an RPC interface that accepts the request and returns, the mint requests should do a role check to ensure that the invoker is a member of the issuers group/role.
+    rpc Mint (MintRequest) returns (MintResponse) {} //requires a role check to ensure that the invoker is a member of the issuers group/role.
+    rpc MintTo(MintToRequest) returns (MintToResponse) {} //requires a role check to ensure that the invoker is a member of the issuers group/role.
+    //roles: manage issuer that is initially set at mint
+    rpc GetIssuer (GetIssuerRequest) returns (GetIssuerResponse) {}
+    rpc ChangeIssuer (ChangeIssuerRequest) returns (ChangeIssuerResponse) {} //only the issuer, that is set a mint, can change the issuer. Might need to occur if there is a merger or an issuer is shutting down operations and handing over to another issuer.
+    //roles: manage issuers group/role members
+    rpc GetIssuers (GetIssuersRequest) returns (GetIssuersResponse) {} //view who is in the issuers role.
+    rpc AddIssuer (AddIssuerRequest) returns (AddIssuerResponse) {} //only an issuer, can add another issuer.
+    rpc RemoveIssuer (RemoveIssuerRequest) returns (RemoveIssuerResponse) {} //only the issuer, can remove an issuer.
+    //replacement property-set to support adjustments to credits
+    rpc GetReplacement (GetReplacementRequest) returns (GetReplacementResponse) {} //replacement info will only be present if this instance is adjusting a revoked token.
+    rpc SetReplacement (SetReplacementRequest) returns (SetReplacementResponse) {}
+}

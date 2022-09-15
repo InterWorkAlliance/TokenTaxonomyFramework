@@ -19,9 +19,14 @@ enum ProjectScale {
 }
 
 message EcologicalProjectInfo{
-    verifiedlink.VerifiedLink verified_link = 1; //Link to the project data or materials
-    string country_code = 2; //Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
-    ProjectScale project_scale = 3; //side of the project
+    string project_id = 1;
+    string country = 2;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    common.ProjectScale project_scale = 3; //side of the project
+    common.Region region = 4;
+    string first_year_issuance = 5;
+    common.VerifiedLink information_link = 6;
+    repeated verifiedlink.VerifiedLink media_links = 7; //Links to media
+    string registry_id = 8; //OPTIONAL Registry ID if different
 }
 
 message GetEcologicalProjectInfoRequest {
