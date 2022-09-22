@@ -5,6 +5,7 @@ package iwa.ttf.token.sustainbility;
 import "tokens.proto";
 import "sustainability/common.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
 option csharp_namespace = "IWA.TTF.Token.Sustainability";
 option java_package = "org.iwa.ttf.token.sustainability";
 option java_multiple_files = true;
@@ -19,6 +20,7 @@ message ProcessedClaim
     bytes quantity = 5; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e.
     repeated common.CoBenefit co_benefits = 6;
     repeated CheckpointResult checkpoint_results = 7; //summary and verified links for the the claim's checkpoint verification results.
+    google.protobuf.Any proposed_asset = 8; //Since a processed claim is generic, it can contain the proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
 }
 
 //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.

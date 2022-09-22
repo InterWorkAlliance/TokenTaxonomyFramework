@@ -134,6 +134,7 @@
       "ContractId": "The Id for the Verification Contract for the claims process.",
       "EcologicalClaimId": "This Id for the source ecological claim.",
       "Id": "A unique identifier for the processed claim, GUID/UUID or public key.",
+      "ProposedAsset": "A propoperty that can hold any type of proposed asset or credit that the verifier recommends to the issuer. This allows the ProcessedClaim to work for all types of assets as a source."
       "CreditId": "The Id for the credit issued for the processed claim, passed in when retired.",
       "issuer": "Should be the Verifier",
       "creditor": "Should be the Registry that issued the benefit token, listed in the Verification Contract."
