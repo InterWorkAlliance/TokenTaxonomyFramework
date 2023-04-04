@@ -14,7 +14,7 @@ The overview document is written using Microsoft Word or Google Docs and the tec
 
 ## NEW - DMRV Technical Specification
 
-*link here*
+View the [DMRV Technical Specification](https://interwork-alliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html) here.
 
 ## DMRV Token Schemas
 
