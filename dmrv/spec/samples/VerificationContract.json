@@ -1,0 +1,98 @@
+{
+  "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+  "name": "Verification Contract for Forest Plot 3341",
+  "description": "Verification Contract for Forest Plot 3341, with issuer Verra and verifier SustainCERT",
+  "signatories": [
+    {
+      "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
+      "name": "Verra",
+      "description": "Verra is the world’s leading provider of carbon market solutions. We help companies, governments, and communities to measure, manage, and value their carbon emissions and investments in climate solutions. Our solutions are used by more than 1,000 companies and governments in 70 countries to manage more than 1.5 billion metric tons of carbon emissions. Verra is a global nonprofit organization with offices in the United States, Europe, and Asia.",
+      "signatoryRole": "IssuingRegistry",
+      "signature": "fx324jkasdf883429f2lMMm8asxdz980"
+    },
+    {
+      "id": "58827053-14ab-441d-8699-7108de68e687",
+      "name": "SustainCERT",
+      "description": "SustainCERT is an organization...",
+      "signatoryRole": "ValidationAndVerificationBody",
+      "signature": "epx324jkasdf883429f2lMMm8asxdz9ZW0"
+    },
+    {
+      "id": "9431e6b8-9601-460b-b0e3-c3da409da3de",
+      "name": "Eco-Earth Forest Growth",
+      "description": "Eco-Earth Forest Growth is a forest management firm that...",
+      "signatoryRole": "ProjectOwner",
+      "signature": "wuQ8924jkasdXced8348872sxdz87Gw10"
+    }
+  ],
+  "qualityStandard": {
+    "name": "VM0007 REDD+ Methodology Framework (REDD+MF)",
+    "description": "The REDD+ Methodology Framework (REDD+MF) is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements. The REDD+MF is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements.",
+    "standard": "VCS",
+    "version": "1.6",
+    "coBenefits": [
+      {
+        "coBenefit_": "ClimateAction",
+        "description": "Climate Action",
+        "ratingScore": 7
+      },
+      {
+        "coBenefit_": "LifeOnLand",
+        "description": "Life on Land",
+        "ratingScore": 4
+      }
+    ],
+    "standardLink": {
+      "id": "be062a19-133c-4626-aa2d-bcca2c510ab2",
+      "uri": "https://verra.org/methodologies/vm0007-redd-methodology-framework-redd-mf-v1-6/",
+      "description": "Link to the REDD+ Methodology Framework",
+      "hashProof": "1234567890abc12fasdfw43asdfasdf342",
+      "hashAlgorithm": "Sha256"
+    }
+  },
+  "mrvRequirements": {
+    "measurementSpecification": "Iso14064",
+    "specificationLink": {
+      "id": "efc93244-030d-48b8-95a5-9204c45dd679",
+      "uri": "https://www.iso.org/standard/70964.pdf",
+      "description": "Link to the ISO 14064-3:2018 standard",
+      "hashProof": "GX1234567890abc12fasdfw43asdfasdf342",
+      "hashAlgorithm": "Sha256"
+    },
+    "precision": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "claimPeriod": "Annual"
+  },
+  "agreementDate": {
+    "year": 2018,
+    "month": "January",
+    "day": 7
+  },
+  "estimatedAnnualCredits": "15,000",
+  "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+  "processedClaimIds": [
+    "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"
+  ],
+  "audits": {
+    "auditSchedule": "Quinquennial",
+    "lastAuditDate": {
+      "year": 2019,
+      "month": "January",
+      "day": 7
+    },
+    "auditReports": [
+      {
+        "id": "424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f",
+        "uri": "https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216",
+        "description": "Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216",
+        "hashProof": "0xzxWW-1234567890abcdefasdf",
+        "hashAlgorithm": "Sha256"
+      }
+    ]
+  },
+  "modularBenefitProject": null,
+  "processedClaims": []
+}

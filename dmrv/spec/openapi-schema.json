@@ -1,0 +1,2034 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DmrvApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Dmrv/getLineage": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getCru": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRU"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getEcologicalProject": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalProject"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalProject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalProject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getEcologicalClaim": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalClaim"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalClaim"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EcologicalClaim"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getModularBenefitProject": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModularBenefitProject"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModularBenefitProject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModularBenefitProject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getProcessedClaim": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessedClaim"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessedClaim"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessedClaim"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getVerificationContract": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationContract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Dmrv/getSpanDataPackage": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpanDataPackage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpanDataPackage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpanDataPackage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "properties": {
+          "addressType": {
+            "$ref": "#/components/schemas/AddressType"
+          },
+          "addressLines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddressType": {
+        "enum": [
+          "Postal",
+          "Physical",
+          "Legal"
+        ],
+        "type": "string"
+      },
+      "Any": {
+        "type": "object",
+        "properties": {
+          "typeUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuditSchedule": {
+        "enum": [
+          "Annual",
+          "Biannual",
+          "Biennial",
+          "Triennial",
+          "Quadrennial",
+          "Quinquennial"
+        ],
+        "type": "string"
+      },
+      "Audits": {
+        "type": "object",
+        "properties": {
+          "auditSchedule": {
+            "$ref": "#/components/schemas/AuditSchedule"
+          },
+          "lastAuditDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "auditReports": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifiedLink"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CRU": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "ownerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "listingAgentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "coreCarbonPrincipals": {
+            "$ref": "#/components/schemas/CoreCarbonPrinciples"
+          },
+          "climateLabels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClimateLabel"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "referencedCredit": {
+            "$ref": "#/components/schemas/ReferencedCredit"
+          },
+          "offsetAppliedToId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaim": {
+            "$ref": "#/components/schemas/ProcessedClaim"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarbonCategory": {
+        "enum": [
+          "Reduction",
+          "Removal"
+        ],
+        "type": "string"
+      },
+      "CheckpointResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkpointId": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkToVerificationData": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "efBefore": {
+            "type": "string",
+            "nullable": true
+          },
+          "efAfter": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClaimPeriod": {
+        "enum": [
+          "Daily",
+          "Weekly",
+          "Monthly",
+          "Quarterly",
+          "Semiannual",
+          "Annual",
+          "Biennial"
+        ],
+        "type": "string"
+      },
+      "ClaimSource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "mbpId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceType": {
+            "$ref": "#/components/schemas/ClaimSourceType"
+          },
+          "sourceIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClaimSourceType": {
+        "enum": [
+          "SensorDevice",
+          "UserApplication",
+          "Reference"
+        ],
+        "type": "string"
+      },
+      "ClassificationCategory": {
+        "enum": [
+          "CarbonAvoidance",
+          "CarbonReduction",
+          "CarbonRemoval",
+          "Water",
+          "Undefined"
+        ],
+        "type": "string"
+      },
+      "ClimateLabel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoBenefit": {
+        "type": "object",
+        "properties": {
+          "coBenefit_": {
+            "$ref": "#/components/schemas/EcologicalBenefitCategory"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratingScore": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoreCarbonPrinciples": {
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuanceDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "vintage": {
+            "type": "string",
+            "nullable": true
+          },
+          "generationType": {
+            "$ref": "#/components/schemas/GenerationType"
+          },
+          "verificationStandard": {
+            "$ref": "#/components/schemas/Standard"
+          },
+          "mitigationActivity": {
+            "$ref": "#/components/schemas/MitigationActivity"
+          },
+          "durability": {
+            "$ref": "#/components/schemas/Durability"
+          },
+          "replacement": {
+            "$ref": "#/components/schemas/Replacement"
+          },
+          "parisAgreementCompliance": {
+            "$ref": "#/components/schemas/PACompliance"
+          },
+          "quantifiedSdgImpacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "adaptationCoBenefits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CorrespondingAdjustment": {
+        "enum": [
+          "None",
+          "ParisAgreementCompliant",
+          "ParisAgreementPendingCompliance"
+        ],
+        "type": "string"
+      },
+      "DataExtension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Date": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "$ref": "#/components/schemas/Month"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DatePoint": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "timeStamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateRange": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "$ref": "#/components/schemas/DatePoint"
+          },
+          "endDate": {
+            "$ref": "#/components/schemas/DatePoint"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Degradable": {
+        "type": "object",
+        "properties": {
+          "percentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "factor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "degradationType": {
+            "$ref": "#/components/schemas/DegradationType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DegradationType": {
+        "enum": [
+          "NotApplicable",
+          "Linear",
+          "Exponential"
+        ],
+        "type": "string"
+      },
+      "Durability": {
+        "type": "object",
+        "properties": {
+          "storageType": {
+            "$ref": "#/components/schemas/Storage"
+          },
+          "years": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "degradable": {
+            "$ref": "#/components/schemas/Degradable"
+          },
+          "reversalMitigation": {
+            "$ref": "#/components/schemas/ReversalMitigation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DurabilityInsuranceType": {
+        "enum": [
+          "BufferPool",
+          "Refund"
+        ],
+        "type": "string"
+      },
+      "EcologicalBenefitCategory": {
+        "enum": [
+          "NoCategory",
+          "NoPoverty",
+          "ZeroHunger",
+          "GoodHealthAndWellBeing",
+          "QualityEducation",
+          "GenderEquality",
+          "CleanWaterAndSanitation",
+          "AffordableAndCleanEnergy",
+          "DecentWorkAndEconomicGrowth",
+          "IndustryInnovationAndInfrastructure",
+          "ReducedInequalities",
+          "SustainableCitiesAndCommunities",
+          "ResponsibleConsumptionAndProduction",
+          "ClimateAction",
+          "LifeBelowWater",
+          "LifeOnLand",
+          "PeaceJusticeAndStrongInstitutions",
+          "PartnershipsForTheGoals"
+        ],
+        "type": "string"
+      },
+      "EcologicalClaim": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "mbpId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "quantity": {
+            "type": "string",
+            "nullable": true
+          },
+          "coBenefits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "checkpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EcologicalClaimCheckpoint"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "modularBenefitProject": {
+            "$ref": "#/components/schemas/ModularBenefitProject"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EcologicalClaimCheckpoint": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "efBefore": {
+            "type": "string",
+            "nullable": true
+          },
+          "efAfter": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkpointDateRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "verifiedLinkToCheckpointData": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "spanDataPackage": {
+            "$ref": "#/components/schemas/SpanDataPackage"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EcologicalProject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "projectInformation": {
+            "$ref": "#/components/schemas/EcologicalProjectInfo"
+          },
+          "modularBenefitProjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModularBenefitProject"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EcologicalProjectInfo": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/GeographicCountry"
+          },
+          "projectScale": {
+            "$ref": "#/components/schemas/ProjectScale"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Region"
+          },
+          "informationLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "mediaLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifiedLink"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "File": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/FileType"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceAttestation": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileType": {
+        "enum": [
+          "DataBinary",
+          "DataCsv",
+          "DataJson",
+          "DataXml",
+          "DataOther"
+        ],
+        "type": "string"
+      },
+      "GNSS": {
+        "type": "object",
+        "properties": {
+          "longitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "timing": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerationType": {
+        "enum": [
+          "Generated",
+          "ExAnte",
+          "ExPost"
+        ],
+        "type": "string"
+      },
+      "GeographicArea": {
+        "type": "object",
+        "properties": {
+          "geoJsonOrKml": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GeographicCountry": {
+        "enum": [
+          "Unknown",
+          "AF",
+          "AX",
+          "AL",
+          "DZ",
+          "AS",
+          "AD",
+          "AO",
+          "AI",
+          "AQ",
+          "AG",
+          "AR",
+          "AM",
+          "AW",
+          "AU",
+          "AT",
+          "AZ",
+          "BS",
+          "BH",
+          "BD",
+          "BB",
+          "BY",
+          "BE",
+          "BZ",
+          "BJ",
+          "BM",
+          "BT",
+          "BO",
+          "BQ",
+          "BA",
+          "BW",
+          "BV",
+          "BR",
+          "IO",
+          "BN",
+          "BG",
+          "BF",
+          "BI",
+          "CV",
+          "KH",
+          "CM",
+          "CA",
+          "KY",
+          "CF",
+          "TD",
+          "CL",
+          "CN",
+          "CX",
+          "CC",
+          "CO",
+          "KM",
+          "CG",
+          "CD",
+          "CK",
+          "CR",
+          "CI",
+          "HR",
+          "CU",
+          "CW",
+          "CY",
+          "CZ",
+          "DK",
+          "DJ",
+          "DM",
+          "DO",
+          "EC",
+          "EG",
+          "SV",
+          "GQ",
+          "ER",
+          "EE",
+          "ET",
+          "FK",
+          "FO",
+          "FJ",
+          "FI",
+          "FR",
+          "GF",
+          "PF",
+          "TF",
+          "GA",
+          "GM",
+          "GE",
+          "DE",
+          "GH",
+          "GI",
+          "GR",
+          "GL",
+          "GD",
+          "GP",
+          "GU",
+          "GT",
+          "GG",
+          "GN",
+          "GW",
+          "GY",
+          "HT",
+          "HM",
+          "VA",
+          "HN",
+          "HK",
+          "HU",
+          "IS",
+          "IN",
+          "ID",
+          "IR",
+          "IQ",
+          "IE",
+          "IM",
+          "IL",
+          "IT",
+          "JM",
+          "JP",
+          "JE",
+          "JO",
+          "KZ",
+          "KE",
+          "KI",
+          "KP",
+          "KR",
+          "KW",
+          "KG",
+          "LA",
+          "LV",
+          "LB",
+          "LS",
+          "LR",
+          "LY",
+          "LI",
+          "LT",
+          "LU",
+          "MO",
+          "MK",
+          "MG",
+          "MW",
+          "MY",
+          "MV",
+          "ML",
+          "MT",
+          "MH",
+          "MQ",
+          "MR",
+          "MU",
+          "YT",
+          "MX",
+          "FM",
+          "MD",
+          "MC",
+          "MN",
+          "ME",
+          "MS",
+          "MA",
+          "MZ",
+          "MM",
+          "NA",
+          "NR",
+          "NP",
+          "NL",
+          "NC",
+          "NZ",
+          "NI",
+          "NE",
+          "NG",
+          "NU",
+          "NF",
+          "MP",
+          "NO",
+          "OM",
+          "PK",
+          "PW",
+          "PS",
+          "PA",
+          "PG",
+          "PY",
+          "PE",
+          "PH",
+          "PN",
+          "PL",
+          "PT",
+          "PR",
+          "QA",
+          "RE",
+          "RO",
+          "RU",
+          "RW",
+          "BL",
+          "SH",
+          "KN",
+          "LC",
+          "MF",
+          "PM",
+          "VC",
+          "WS",
+          "SM",
+          "ST",
+          "SA",
+          "SN",
+          "RS",
+          "SC",
+          "SL",
+          "SG",
+          "SX",
+          "SK",
+          "SI",
+          "SB",
+          "SO",
+          "ZA",
+          "GS",
+          "SS",
+          "ES",
+          "LK",
+          "SD",
+          "SR",
+          "SJ",
+          "SZ",
+          "SE",
+          "CH",
+          "SY",
+          "TW",
+          "TJ",
+          "TZ",
+          "TH",
+          "TL",
+          "TG",
+          "TK",
+          "TO",
+          "TT",
+          "TN",
+          "TR",
+          "TM",
+          "TC",
+          "TV",
+          "UG",
+          "UA",
+          "AE",
+          "GB",
+          "US",
+          "UM",
+          "UY",
+          "UZ",
+          "VU",
+          "VE",
+          "VN",
+          "VG",
+          "VI",
+          "WF",
+          "EH",
+          "YE",
+          "ZM",
+          "ZW"
+        ],
+        "type": "string"
+      },
+      "GeographicLocation": {
+        "type": "object",
+        "properties": {
+          "gnss": {
+            "$ref": "#/components/schemas/GNSS"
+          },
+          "geographicArea": {
+            "$ref": "#/components/schemas/GeographicArea"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HashAlgorithm": {
+        "enum": [
+          "Sha256",
+          "Sha3"
+        ],
+        "type": "string"
+      },
+      "InsurancePolicyOwner": {
+        "enum": [
+          "EcologicalProject",
+          "IssuingRegistry",
+          "Retirer",
+          "Custodian"
+        ],
+        "type": "string"
+      },
+      "MRVRequirements": {
+        "type": "object",
+        "properties": {
+          "measurementSpecification": {
+            "$ref": "#/components/schemas/MeasurementSpecification"
+          },
+          "specificationLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "precision": {
+            "$ref": "#/components/schemas/PrecisionMix"
+          },
+          "claimPeriod": {
+            "$ref": "#/components/schemas/ClaimPeriod"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Manifest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "mbpId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "$ref": "#/components/schemas/DatePoint"
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MeasurementSpecification": {
+        "enum": [
+          "Iso14064",
+          "Iso140641",
+          "Iso140642"
+        ],
+        "type": "string"
+      },
+      "Method": {
+        "enum": [
+          "Natural",
+          "Technological",
+          "BothNaturalAndTechnological"
+        ],
+        "type": "string"
+      },
+      "MitigationActivity": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/CarbonCategory"
+          },
+          "method": {
+            "$ref": "#/components/schemas/Method"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModularBenefitProject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "projectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "classificationCategory": {
+            "$ref": "#/components/schemas/ClassificationCategory"
+          },
+          "classificationMethod": {
+            "$ref": "#/components/schemas/Method"
+          },
+          "ecologicalBenefitCategory": {
+            "$ref": "#/components/schemas/EcologicalBenefitCategory"
+          },
+          "projectScope": {
+            "$ref": "#/components/schemas/ProjectScope"
+          },
+          "projectType": {
+            "$ref": "#/components/schemas/ProjectType"
+          },
+          "arbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "geographicLocation": {
+            "$ref": "#/components/schemas/GeographicLocation"
+          },
+          "firstYearIssuance": {
+            "type": "string",
+            "nullable": true
+          },
+          "registryProjectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "developers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "sponsors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "claimSources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimSource"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "ecologicalClaims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EcologicalClaim"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "validations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Validation"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "ecologicalProject": {
+            "$ref": "#/components/schemas/EcologicalProject"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Month": {
+        "enum": [
+          "NoMonth",
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        "type": "string"
+      },
+      "MrvExtension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PACompliance": {
+        "type": "object",
+        "properties": {
+          "ca": {
+            "$ref": "#/components/schemas/CorrespondingAdjustment"
+          },
+          "letterOfApproval": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrecisionMix": {
+        "type": "object",
+        "properties": {
+          "low": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "medium": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "high": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessedClaim": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "verificationContractId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ecologicalClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditId": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "quantity": {
+            "type": "string",
+            "nullable": true
+          },
+          "coBenefits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "checkpointResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CheckpointResult"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "proposedAsset": {
+            "$ref": "#/components/schemas/Any"
+          },
+          "verificationContract": {
+            "$ref": "#/components/schemas/VerificationContract"
+          },
+          "ecologicalClaim": {
+            "$ref": "#/components/schemas/EcologicalClaim"
+          },
+          "asset": {
+            "$ref": "#/components/schemas/Any"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectScale": {
+        "enum": [
+          "Micro",
+          "Small",
+          "Medium",
+          "Large"
+        ],
+        "type": "string"
+      },
+      "ProjectScope": {
+        "enum": [
+          "Other",
+          "Agriculture",
+          "CarbonCaptureAndStorage",
+          "ChemicalProcesses",
+          "ForestryAndLandUse",
+          "HouseholdAndCommunity",
+          "IndustrialManufacturing",
+          "RenewableEnergy",
+          "Transportation",
+          "WasteManagement"
+        ],
+        "type": "string"
+      },
+      "ProjectType": {
+        "enum": [
+          "AdvancedRefriderants",
+          "AfforestationReforestation",
+          "AluminumSmeltersEmissionReductions",
+          "AvoidedForestConversion",
+          "AvoidedGrasslandConversion",
+          "Bycycles",
+          "Biodigesters",
+          "Biomass",
+          "BrickManufacturingEmissionReductions",
+          "BundledCompostProductionAndSoilApplication",
+          "BundledEnergyEfficiency",
+          "CarbonCaptureAndEnhancedOilRecovery",
+          "CarbonCaptureInCement",
+          "CarbonCaptureInPlastic",
+          "CleanWater",
+          "CommunityBoreholes",
+          "CompostAdditionToRangelandSoil",
+          "Composting",
+          "Cookstoves",
+          "ElectricVehiclesAndCharging",
+          "EnergyEfficiency",
+          "FeedAdditives",
+          "FleetEfficiency",
+          "FuelSwitching",
+          "FuelTransport",
+          "Geothermal",
+          "GridExpansionAndMiniGrids",
+          "HfcRefrigerantReclamation",
+          "HfcReplacementInFoamProduction",
+          "Hfc23Destruction",
+          "Hydropower",
+          "ImprovedForestManagement",
+          "ImprovedIrrigationManagement",
+          "LandfillMethane",
+          "LeakDetectionAndRepairInGasSystems",
+          "Lighting",
+          "ManureMethaneDigester",
+          "MassTransit",
+          "MethaneRecoveryInWastewater",
+          "MineMethaneCapture",
+          "Mineralization",
+          "N20DestructionInAdipicAcidProduction",
+          "N20DestructionInNitricAcidProduction",
+          "NaturalGasElectricityGeneration",
+          "NitrogenManagement",
+          "OilRecycling",
+          "OzoneDepletingSubstancesRecoveryAndDestruction",
+          "PneumaticRetrofit",
+          "PropyleneOxideProduction",
+          "ReBundled",
+          "ReddPlus",
+          "RefrigerantLeakDetection",
+          "RiceEmissionReductions",
+          "Sf6Replacement",
+          "Shipping",
+          "SolarCentralized",
+          "SolarDistributed",
+          "SolarLighting",
+          "SolarWaterHeaters",
+          "SolidWasteSeparation",
+          "SustainableAgriculture",
+          "SustainableGrasslandManagement",
+          "TruckStopElectrification",
+          "UniversityCampusEmissionReductions",
+          "WasteDiversion",
+          "WasteGasRecovery",
+          "WasteHeatRecovery",
+          "WasteIncineration",
+          "WasteRecycling",
+          "Weatherization",
+          "WetlandRestoration",
+          "Wind"
+        ],
+        "type": "string"
+      },
+      "QualityStandard": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "standard": {
+            "$ref": "#/components/schemas/Standard"
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "coBenefits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "standardLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReferencedCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Region": {
+        "enum": [
+          "Global",
+          "CentralAmerica",
+          "CentralAsia",
+          "EastAsia",
+          "Europe",
+          "International",
+          "MiddleEast",
+          "NorthAfrica",
+          "NorthAmerica",
+          "Oceania",
+          "SouthAmerica",
+          "SouthAsia",
+          "SouthEastAsia",
+          "SubSaharanAfrica"
+        ],
+        "type": "string"
+      },
+      "Replacement": {
+        "type": "object",
+        "properties": {
+          "replacesId": {
+            "type": "string",
+            "nullable": true
+          },
+          "replacementDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReversalMitigation": {
+        "type": "object",
+        "properties": {
+          "reversalRisk": {
+            "$ref": "#/components/schemas/ReversalRisk"
+          },
+          "insuranceType": {
+            "$ref": "#/components/schemas/DurabilityInsuranceType"
+          },
+          "insurancePolicyOwner": {
+            "$ref": "#/components/schemas/InsurancePolicyOwner"
+          },
+          "insurancePolicyLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReversalRisk": {
+        "enum": [
+          "Zero",
+          "Low",
+          "Material"
+        ],
+        "type": "string"
+      },
+      "Signatory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "signatoryRole": {
+            "$ref": "#/components/schemas/SignatoryRole"
+          },
+          "signature": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignatoryRole": {
+        "enum": [
+          "IssuingRegistry",
+          "ValidationAndVerificationBody",
+          "ProjectOwner",
+          "VerificationPlatformProvider"
+        ],
+        "type": "string"
+      },
+      "SpanDataPackage": {
+        "type": "object",
+        "properties": {
+          "manifest": {
+            "$ref": "#/components/schemas/Manifest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Standard": {
+        "enum": [
+          "GSVer",
+          "VCS",
+          "VOS",
+          "CCB",
+          "GreenE",
+          "CDM",
+          "JI",
+          "EUA",
+          "Pending"
+        ],
+        "type": "string"
+      },
+      "Status": {
+        "enum": [
+          "Active",
+          "Inactive",
+          "Revoked",
+          "Retired"
+        ],
+        "type": "string"
+      },
+      "Storage": {
+        "enum": [
+          "Biological",
+          "Geological",
+          "Materials"
+        ],
+        "type": "string"
+      },
+      "Timestamp": {
+        "type": "object",
+        "properties": {
+          "seconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nanos": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Unit": {
+        "enum": [
+          "TonneCo2E",
+          "TonneCo2",
+          "TonneCh4",
+          "TonneN2O",
+          "TonneS",
+          "TonneNox",
+          "TonneSox",
+          "TonnePm10",
+          "TonnePm25",
+          "TonneVoc",
+          "TonneNh3",
+          "TonnePfc",
+          "TonneSf6",
+          "TonneHfc",
+          "TonneCfc",
+          "TonneHfc23",
+          "TonneHfc32",
+          "TonneHfc125",
+          "TonneHfc134A",
+          "TonneHfc143A",
+          "TonneHfc227Ea",
+          "TonneHfc245Fa",
+          "TonneHfc365Mfc",
+          "TonneHfc4310Mee",
+          "TonneC2F6",
+          "TonneC3F8",
+          "TonneC4F10",
+          "TonneC5F12",
+          "TonneC6F14",
+          "TonneC7F16",
+          "TonneC8F18",
+          "TonneC10F18",
+          "TonneC12F18",
+          "TonneC14F18",
+          "TonneC16F18",
+          "TonneC18F18",
+          "TonneC20F18",
+          "TonneC22F18",
+          "TonneC24F18",
+          "TonneC26F18",
+          "TonneC28F18",
+          "TonneC30F18",
+          "TonneC32F18",
+          "TonneC34F18",
+          "Liter",
+          "Kilogram",
+          "CubicMeter",
+          "KilowattHour",
+          "Megajuole",
+          "Kilometer",
+          "SquareMeter",
+          "Tonne"
+        ],
+        "type": "string"
+      },
+      "Validation": {
+        "type": "object",
+        "properties": {
+          "validationDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "validatingParty": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationExpirationDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "validationSteps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationStep"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationStep": {
+        "type": "object",
+        "properties": {
+          "validationStepName": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationStepDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationStepStatus": {
+            "$ref": "#/components/schemas/ValidationStepStatus"
+          },
+          "validationStepDocumentLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationStepStatus": {
+        "enum": [
+          "NotStarted",
+          "InProgress",
+          "Completed"
+        ],
+        "type": "string"
+      },
+      "VerificationContract": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "signatories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Signatory"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "qualityStandard": {
+            "$ref": "#/components/schemas/QualityStandard"
+          },
+          "mrvRequirements": {
+            "$ref": "#/components/schemas/MRVRequirements"
+          },
+          "agreementDate": {
+            "$ref": "#/components/schemas/Date"
+          },
+          "estimatedAnnualCredits": {
+            "type": "string",
+            "nullable": true
+          },
+          "mbpId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "audits": {
+            "$ref": "#/components/schemas/Audits"
+          },
+          "modularBenefitProject": {
+            "$ref": "#/components/schemas/ModularBenefitProject"
+          },
+          "processedClaims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcessedClaim"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerifiedLink": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "hashProof": {
+            "type": "string",
+            "nullable": true
+          },
+          "hashAlgorithm": {
+            "$ref": "#/components/schemas/HashAlgorithm"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

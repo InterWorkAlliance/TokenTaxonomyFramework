@@ -1,0 +1,305 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility;
+import "sustainability/common.proto";
+import "google/protobuf/any.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability";
+option java_package = "org.iwa.ttf.token.sustainability";
+option java_multiple_files = true;
+
+message EcologicalProject{
+    string id = 1; //unique id for the project
+    string name = 2; //name of the project
+    string description = 3; //description of the project
+    repeated common.Address addresses = 4; //list of addresses associated with the project
+    repeated string owners = 5; //list of owners of the project
+    message EcologicalProjectInfo{
+        string project_id = 1; //project id, optional if nested.
+        common.GeographicCountry country = 2;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+        common.ProjectScale project_scale = 3; //size of the project, small, medium, large
+        common.Region region = 4; //region of the project
+        common.VerifiedLink information_link = 5; //Link to information about the project
+        repeated common.VerifiedLink media_links = 6; //Links to media that can be used for promotional materials about the project
+    }
+    EcologicalProjectInfo project_information = 6; //nested project information    
+    repeated ModularBenefitProject modular_benefit_projects = 7; //list of modular benefit projects
+}
+
+message ModularBenefitProject {
+    string id = 1; //unique identifier for the modular benefit project
+    string project_id = 2; //identifier for the parent ecological project
+    string name = 3; //descriptive name for the project
+    common.ClassificationCategory classification_category = 4; //classification category for the project
+    common.Method classification_method = 5; //classification method for the project
+    common.EcologicalBenefitCategory ecological_benefit_category = 6; //ecological benefit category for the project
+    common.ProjectScope project_scope = 7; //scope of the project
+    common.ProjectType project_type = 8; //type of the project
+    string arb_id = 9; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
+    common.GeographicLocation geographic_location = 10; //geographic location of the project
+    string first_year_issuance = 11; //first year of issuance, historical if an established project
+    string registry_project_id = 12; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to MBP and assign unique identifiers to projects.
+    repeated string developers = 13; //list of developers of the project
+    repeated string sponsors = 14; //list of sponsors of the project, i.e., financial backers
+    repeated ClaimSource claim_sources = 15; //a list of claim sources that can be used for claims from this Modular Benefit Project.
+    repeated EcologicalClaim ecological_claims  = 16; //list of ecological claims for the project
+    //DRAFT
+    message ValidationStep{
+        string validation_step_name = 1; //name of the validation step as defined by the validation method
+        string validation_step_description = 2; //description of the validation step
+        enum ValidationStepStatus{
+            NOT_STARTED = 0;
+            IN_PROGRESS = 1;
+            COMPLETED = 2;
+        }
+        ValidationStepStatus validation_step_status = 3; //status of the validation step, e.g., completed, in progress, not started, etc.
+        common.VerifiedLink validation_step_document_link = 4; //link to the document that contains the details of the validation step and output
+    }
+    //DRAFT
+    message Validation{
+        common.Date validation_date = 1; //date of the validation
+        string validating_party = 2; //name or Id of the party that performed the validation
+        string validation_method = 3; //name of the validation method used
+        common.Date validation_expiration_date = 4; //expiration date of the validation
+        repeated ValidationStep validation_steps = 5; //collection of validation steps
+    }
+    repeated Validation validations = 17; //in DRAFT, a collection of Validation workflow steps for a project
+    EcologicalProject ecological_project = 18; //optional, for object navigation, the parent ecological project
+}
+
+message ClaimSource
+    {
+        string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
+        string mbp_id = 2; //the id of the modular benefit project that the claim source is associated withd.
+        string name = 3; //the name of the device.
+        string description = 4; //a description of the device, like the location, etc.
+        enum ClaimSourceType
+        {
+            SENSOR_DEVICE = 0; //IoT, meter, etc.
+            USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
+            REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
+        }
+        ClaimSourceType source_type = 5; //the type of source that is providing the claim data.
+        string source_identifier = 6; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
+    }
+
+message EcologicalClaimCheckpoint
+{
+    string id = 1; //unique id for the checkpoint
+    string claim_id = 2; //the id of the claim that the checkpoint is associated with.
+    repeated string claim_source_ids = 3; //list of claim source ids that are associated with the checkpoint.
+    string ef_before = 4; //environmental factor before activity - i.e., total emissions = 3 tCO2e
+    string ef_after = 5; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
+    common.DateRange checkpoint_date_range = 6; //the date range that the checkpoint covers.
+    common.VerifiedLink verified_link_to_checkpoint_data = 7; //a link to the claim span data package that is associated with the checkpoint.
+    SpanDataPackage span_data_package = 8; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+}
+
+message EcologicalClaim
+{
+    string id = 1; //unique id for the claim
+    string mbp_id = 2; //the id of the MBP that the claim is associated with
+    string processed_claim_id = 3; //once processing starts and the processed claim is created, this is the id of the processed claim paired with this claim.
+    common.Unit unit = 4; //unit of measure for the quantity
+    string quantity = 5; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
+    repeated common.CoBenefit co_benefits = 6; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
+    //a claim source is registered as a valid source for claim data, either raw source data or reference.
+    repeated EcologicalClaimCheckpoint checkpoints = 7; //a list of checkpoints that are associated with the claim.
+    ModularBenefitProject modular_benefit_project = 8; //optional, for object navigation, the parent Modular Benefit Project
+}
+
+
+//Processed Claim token schema - not a part of certification
+message ProcessedClaim
+{
+    string id = 1; //the id for the processed claim
+    string verification_contract_id = 2; //Id for the verification contract
+    string ecological_claim_id = 3; //the ID for the Ecological Claim being processed.
+    string credit_id = 4; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
+    common.Unit unit = 5; //unit of measure for the quantity
+    string quantity = 6; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
+    repeated common.CoBenefit co_benefits = 7; //list of co-benefits for the claim
+    //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
+    message CheckpointResult{
+        string id = 1; //the id for the processed checkpoint
+        string checkpoint_id = 2; //The unique identifier for the corresponding EcologicalClaimCheckpoint being processed.
+        common.VerifiedLink link_to_verification_data = 3; //Processed data findings
+        common.DateRange date_range = 4; //Date range for the checkpoints processed
+        string ef_before = 5; //verified environmental factor before project activities 
+        string ef_after = 6; //verified environmental factor after project activities 
+    }
+    repeated CheckpointResult checkpoint_results = 8; //summary and verified links for the the claim's checkpoint verification results.
+    google.protobuf.Any proposed_asset = 9; //Since a processed claim is generic, it can contain the proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
+    VerificationContract verification_contract = 10; //optional, for object navigation - the verification contract used to verify the claim
+    EcologicalClaim ecological_claim = 11; //optional, for object navigation - the ecological claim being processed
+    google.protobuf.Any asset = 12; //optional, for object navigation, the asset that is issued for the processed claim.
+}
+
+message Degradable{
+    int32 percentage = 1; //0 = no degredation possible, 100 = all sequestered should be expected to be released
+    int32 factor = 2; //25 = .25 per year if linear or exponential starts at 25% of durability years.
+    common.DegradationType degradation_type = 3; //does the sequestration degrade over time?
+}
+message ReversalMitigation{
+    common.ReversalRisk reversal_risk = 1;
+    common.DurabilityInsuranceType insurance_type = 2;
+    common.InsurancePolicyOwner insurance_policy_owner = 3;
+    common.VerifiedLink insurance_policy_link = 4; //optional link to the insurance policy/product
+}
+
+message Durability
+{
+    common.Storage storage_type = 1;
+    int32 years = 2; //The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.
+    Degradable degradable = 3;
+    ReversalMitigation reversal_mitigation = 4; //for removals, the risk of reversal needs to be defined and a mitigation strategy should be identified
+}
+
+message Replacement{
+    string replaces_id = 1; //the id of the token being replaced
+    common.Date replacement_date = 2; //date of the replacement/adjustment
+    string notes = 3; //notes on why the replacement or adjustment is needed
+}
+
+message CRU
+{
+    string id = 1; //unique id for the token
+    string quantity = 2; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
+    common.Unit unit = 3; //unit of measure for the quantity
+    string owner_id = 4; //the unique id of the owner of the token         
+    string listing_agent_id = 5; //AuthorizedId
+    message CoreCarbonPrinciples{ 
+        string asset_id = 1; //typically the issuing registry's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+        common.Date issuance_date = 2; //the date the token was issued.
+        string vintage = 3;  //refers to the year that the emissions reduction or removal took place or will take place.
+        common.GenerationType generation_type = 4; //typically generated or ex-ante
+        common.Standard verification_standard = 5; //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
+        common.MitigationActivity mitigation_activity = 6; //the mitigation activity that is used to generate the ecological benefit token.
+        Durability durability = 7; //this is the recommendation that replaces permanence for CCPs as it includes the risk profile and not simply a boolean.
+        Replacement replacement = 8; //set if this credit replaces a revoked or adjusted credit.
+        common.PACompliance paris_agreement_compliance = 9; //set if using PA specific attributes like corresponding adjustment
+        repeated common.CoBenefit quantified_sdg_impacts = 10; //the quantified impacts of the token.
+        repeated common.CoBenefit adaptation_co_benefits = 11; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
+    }
+    CoreCarbonPrinciples core_carbon_principals = 6; //these are aligned with the ICVCM Core Carbon Principles
+    repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
+    common.Status status = 8; //the status of the token
+    message ReferencedCredit{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+        string id = 1; //the id of the referenced credit, this can be a serial number or a master id
+    }
+    ReferencedCredit referenced_credit = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+    string offset_applied_to_id = 10; //link to ESGScorecardReportingPeriodId
+    string processed_claim_id = 11; //link to the processed claim id
+    string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
+    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token
+}
+
+//Until there is a contract definition, we can define the required propoerties that a verification contract between a Modular Benefit Project, Verifier and Issuing Registry should have.
+message VerificationContract{
+    string id = 1; //unique identifier
+    string name = 2; //name of the contract
+    string description = 3; //description of the contract
+    message Signatory{
+        string id = 1; //unique identifier
+        string name = 2; //name of the signatory
+        string description = 3; //description of the signatory
+        enum SignatoryRole{
+            ISSUING_REGISTRY = 0;
+            VALIDATION_AND_VERIFICATION_BODY = 1;
+            PROJECT_OWNER = 2;
+            VERIFICATION_PLATFORM_PROVIDER = 3;
+        }
+        SignatoryRole signatory_role = 4; //role of the signatory
+        string signature = 5; //signature of the signatory
+    }
+    repeated Signatory signatories = 4; //list of signatories to the contract, by id
+    message QualityStandard{
+        string name = 1; //name of the standard
+        string description = 2; //description of the standard
+        common.Standard standard = 3; //accredited standard that is used to verify the project
+        string version = 4; //version of the standard
+        repeated common.CoBenefit co_benefits = 5; //list of co-benefits that are captured by the standard
+        common.VerifiedLink standard_link = 6; //url to the standard
+    }
+    message MRVRequirements{
+        common.MeasurementSpecification measurement_specification = 1; //measurement specification that is used to verify the project
+        common.VerifiedLink specification_link = 2; //url to the measurement specification
+        message PrecisionMix{
+            int32 low = 1; //percentage of estimated or factored precision, 10 = 10%
+            int32 medium = 2; //percentage of indirect high quality precision, 20 = 20%
+            int32 high = 3; //percentage of direct highly accurate measurements, typically from sensors, 50 = 50%
+        }
+        PrecisionMix precision = 3; //mix  precision by percentage of the measurement specification, the sum of all the mixes must be 100 for 100%.
+        enum ClaimPeriod{
+            DAILY = 0; //daily claims
+            WEEKLY = 1; //weekly claims
+            MONTHLY = 2; //monthly claims
+            QUARTERLY = 3; //quarterly claims
+            SEMIANNUAL = 4; //semiannual claims
+            ANNUAL = 5; //annual claims
+            BIENNIAL = 6; //biennial claims
+        }
+        ClaimPeriod claim_period = 4; //period of claims
+    }
+    QualityStandard quality_standard = 5; //standard that is used to verify the project
+    MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements
+    common.Date agreement_date = 7; //start date of the contract
+    string estimated_annual_credits = 8; //estimated annual credits that will be issued under the contract
+    string mbp_id = 9; //id of the modular benefit project that is being verified
+    repeated string processed_claim_ids = 10; //list of claim ids that have been processed under the contract
+    message Audits{
+        enum AuditSchedule{            
+            ANNUAL = 0; //annual audits
+            BIANNUAL = 1; //biannual audits
+            BIENNIAL = 2; //biennial audits
+            TRIENNIAL = 3; //triennial audits
+            QUADRENNIAL = 4; //quadrennial audits
+            QUINQUENNIAL = 5; //quinquennial audits
+        }
+        AuditSchedule audit_schedule = 1; //schedule of audits
+        common.Date last_audit_date = 2; //date of the last audit
+        repeated common.VerifiedLink audit_reports = 3; //list of audit reports
+    }
+    Audits audits = 11; //list of audits that have been performed under the contract
+    ModularBenefitProject modular_benefit_project = 12; //optional, for object navigation, the modular benefit project that is being verified
+    repeated ProcessedClaim processed_claims = 13; //optional, for object navigation, the processed claims that have been processed under the contract
+}
+
+//Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
+message SpanDataPackage{
+    message DataExtension{
+        string name = 1; //name of the data extension
+        string value = 2; //value of the data extension
+    }
+    message Manifest{
+        string id = 1; //unique identifier
+        string version = 2; //version of the SDP specification
+        string mbp_id = 3; //id of the modular benefit project
+        string claimId = 4; //id of the claim
+        common.DatePoint created = 5; //date the SDP was created
+        message MrvExtension{
+            string name = 1; //name of the extension
+            string version = 2; //version of the extension
+            string description = 3; //description of the extension
+            repeated DataExtension data_extensions = 4; //list of data extensions
+            }
+        repeated MrvExtension mrv_extensions = 6; //list of MRV extensions
+        message File{
+            string name = 1; //name of the file
+            enum FileType
+            {
+                DATA_BINARY = 0; //binary data file
+                DATA_CSV = 1; //csv data file
+                DATA_JSON = 2; //json data file
+                DATA_XML = 3; //xml data file
+                DATA_OTHER = 4; //other data file
+            }
+            FileType type = 2; //type of the file
+            string description = 3; //descrtheiption of the file
+            string claim_source_id = 4; //the claim source id, registered with the MBP, for the file
+            string claim_source_attestation = 5; //claim source attestation or signature for the file
+            repeated DataExtension data_extensions = 6; //data extensions for the file
+        }
+        repeated File files = 7; //list of files in the SDP
+    }
+    Manifest manifest = 1; //manifest of the SDP
+}
