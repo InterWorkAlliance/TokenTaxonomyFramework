@@ -1,0 +1,51 @@
+{
+  "manifest": {
+    "id": "bd199e99-14e0-4440-af99-03b78096a24b",
+    "version": "1",
+    "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+    "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+    "created": {
+      "date": {
+        "year": 2021,
+        "month": "February",
+        "day": 18
+      },
+      "timeStamp": {
+        "seconds": 1680279253,
+        "nanos": 808855000
+      }
+    },
+    "mrvExtensions": [
+      {
+        "name": "VM0007 REDD+ Methodology Framework Extension",
+        "version": "1.6",
+        "description": "Methodology specific data attributes being tracked.",
+        "dataExtensions": [
+          {
+            "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+            "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+          },
+          {
+            "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+            "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+          }
+        ]
+      }
+    ],
+    "files": [
+      {
+        "name": "Data from sensor",
+        "type": "DataBinary",
+        "description": "Primary source data from sensor.",
+        "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+        "claimSourceAttestation": "digital_signature",
+        "dataExtensions": [
+          {
+            "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+            "value": "3.8123"
+          }
+        ]
+      }
+    ]
+  }
+}

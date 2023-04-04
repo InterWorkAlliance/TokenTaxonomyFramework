@@ -1,0 +1,43 @@
+{
+  "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+  "verificationContractId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+  "ecologicalClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+  "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
+  "unit": "TonneCo2E",
+  "quantity": "1.41",
+  "coBenefits": [
+    {
+      "coBenefit_": "CleanWaterAndSanitation",
+      "description": "",
+      "ratingScore": 0
+    },
+    {
+      "coBenefit_": "ReducedInequalities",
+      "description": "",
+      "ratingScore": 0
+    }
+  ],
+  "checkpointResults": [
+    {
+      "id": "5eda007d-e136-4b21-8c27-9374447c0212",
+      "checkpointId": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+      "linkToVerificationData": {
+        "id": "d11fb465-77bb-4190-aa0a-d7e5553d2bf1",
+        "uri": "https://sustaincert.com/verification/189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+        "description": "Results for verification checkpoint 189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+        "hashProof": "0x1234567890abcdef",
+        "hashAlgorithm": "Sha256"
+      },
+      "dateRange": {
+        "startDate": null,
+        "endDate": null
+      },
+      "efBefore": "",
+      "efAfter": ""
+    }
+  ],
+  "proposedAsset": null,
+  "verificationContract": null,
+  "ecologicalClaim": null,
+  "asset": null
+}

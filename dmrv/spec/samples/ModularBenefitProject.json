@@ -1,0 +1,82 @@
+{
+  "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+  "projectId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+  "name": "Forest Plot 3341",
+  "classificationCategory": "CarbonRemoval",
+  "classificationMethod": "Natural",
+  "ecologicalBenefitCategory": "ClimateAction",
+  "projectScope": "CarbonCaptureAndStorage",
+  "projectType": "CarbonCaptureAndEnhancedOilRecovery",
+  "arbId": "",
+  "geographicLocation": {
+    "gnss": {
+      "longitude": "54.72598° W",
+      "latitude": "2.43252° S",
+      "timing": ""
+    },
+    "geographicArea": {
+      "geoJsonOrKml": "{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"
+    }
+  },
+  "firstYearIssuance": "2017",
+  "registryProjectId": "vef-1321-99da-1",
+  "developers": [
+    "developer"
+  ],
+  "sponsors": [
+    "sponsor"
+  ],
+  "claimSources": [
+    {
+      "id": "147e7105-2333-4f5f-847c-6c984e5220dd",
+      "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+      "name": "Soil Sensor Device",
+      "description": "Located in forest area e2",
+      "sourceType": "SensorDevice",
+      "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
+    }
+  ],
+  "ecologicalClaims": [
+    {
+      "id": "",
+      "mbpId": "",
+      "processedClaimId": "",
+      "unit": "TonneCo2E",
+      "quantity": "",
+      "coBenefits": [],
+      "checkpoints": [],
+      "modularBenefitProject": null
+    }
+  ],
+  "validations": [
+    {
+      "validationDate": {
+        "year": 2017,
+        "month": "January",
+        "day": 7
+      },
+      "validatingParty": "Contoso Ventures",
+      "validationMethod": "ISO 14064-3:2018",
+      "validationExpirationDate": {
+        "year": 2027,
+        "month": "March",
+        "day": 12
+      },
+      "validationSteps": [
+        {
+          "validationStepName": "Project Plan",
+          "validationStepDescription": "Detailed project plan for the management of forest carbon sequestration",
+          "validationStepStatus": "Completed",
+          "validationStepDocumentLink": {
+            "id": "456bf8d1-f090-47b1-b7c0-b539441e557e",
+            "uri": "https://sustaincert.com/forestcarbonsequestration/projectplan.pdf",
+            "description": "Project Plan",
+            "hashProof": "0x32wasfd1234567890abcdef",
+            "hashAlgorithm": "Sha256"
+          }
+        }
+      ]
+    }
+  ],
+  "ecologicalProject": null
+}

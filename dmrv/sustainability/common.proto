@@ -1,0 +1,660 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainbility.common;
+
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability.Common";
+option java_package = "org.iwa.ttf.token.sustainability.common";
+option java_multiple_files = true;
+
+enum AddressType
+{
+    POSTAL = 0; //default
+    PHYSICAL = 1; //physical address
+    LEGAL = 2; //legal address
+}
+
+message Date{
+    int32 year = 1; //4 digit year
+    Month month = 2; //Month enum
+    int32 day = 3; //day of the month
+}
+
+message DatePoint{
+    Date date = 1; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
+    google.protobuf.Timestamp time_stamp = 2; //granular timestamp for precice range measurement
+}
+message DateRange{
+    DatePoint start_date = 1; //start date of the range
+    DatePoint end_date = 2; //end date of the range
+}
+
+enum Month{
+    NO_MONTH = 0;
+    JANUARY = 1;
+    FEBRUARY = 2;
+    MARCH = 3;
+    APRIL = 4;
+    MAY = 5;
+    JUNE = 6;
+    JULY = 7;
+    AUGUST = 8;
+    SEPTEMBER = 9;
+    OCTOBER = 10;
+    NOVEMBER = 11;
+    DECEMBER = 12;
+}
+
+message Address{
+    AddressType address_type = 1; //postal, physical, legal
+    repeated string address_lines = 2; //street address, P.O. box, company name, c/o
+    string city = 3; //city, town, village
+    string state = 4; //state, province, region
+    string zip = 5; //zip code, postal code
+    string country = 6; //country
+}
+
+enum ProjectScale {
+    MICRO = 0; //less than 1000 tCO2e
+    SMALL = 1; //1000 - 10000 tCO2e
+    MEDIUM = 2; //10000 - 100000 tCO2e
+    LARGE = 3; //100000 - 1000000 tCO2e
+}
+
+enum Region
+{
+    GLOBAL = 0;
+    CENTRAL_AMERICA = 1;
+    CENTRAL_ASIA = 2;
+    EAST_ASIA =3;
+    EUROPE = 4;
+    INTERNATIONAL = 5;
+    MIDDLE_EAST = 6;
+    NORTH_AFRICA = 7;
+    NORTH_AMERICA = 8;
+    OCEANIA = 9;
+    SOUTH_AMERICA = 10;
+    SOUTH_ASIA = 11;
+    SOUTH_EAST_ASIA = 12;
+    SUB_SAHARAN_AFRICA = 13;
+}
+
+enum HashAlgorithm
+{
+    SHA256 = 0; //default
+    SHA3 = 1; //SHA3-256
+}
+
+message VerifiedLink{
+    string id = 1; //unique identifier for the link
+    string uri = 2; //uniform resource identifier for the data
+    string description = 3; //description of the link or data
+    string hash_proof = 4; //hash of the data in the link
+    HashAlgorithm hash_algorithm = 5; //default SHA256
+}
+
+enum ClassificationCategory{
+    CARBON_AVOIDANCE = 0; //default
+    CARBON_REDUCTION = 1; //carbon reduction
+    CARBON_REMOVAL = 2; //carbon removal
+    WATER = 3; //water
+    UNDEFINED = 50; //undefined
+}
+
+//not complete based on UN SDGs
+enum EcologicalBenefitCategory {
+    NO_CATEGORY = 0;
+    NO_POVERTY = 1;
+    ZERO_HUNGER = 2;
+    GOOD_HEALTH_AND_WELL_BEING = 3;
+    QUALITY_EDUCATION = 4;
+    GENDER_EQUALITY = 5;
+    CLEAN_WATER_AND_SANITATION = 6;
+    AFFORDABLE_AND_CLEAN_ENERGY = 7;
+    DECENT_WORK_AND_ECONOMIC_GROWTH = 8;
+    INDUSTRY_INNOVATION_AND_INFRASTRUCTURE = 9;
+    REDUCED_INEQUALITIES = 10;
+    SUSTAINABLE_CITIES_AND_COMMUNITIES = 11;
+    RESPONSIBLE_CONSUMPTION_AND_PRODUCTION = 12;
+    CLIMATE_ACTION = 13;
+    LIFE_BELOW_WATER = 14;
+    LIFE_ON_LAND = 15;
+    PEACE_JUSTICE_AND_STRONG_INSTITUTIONS = 16;
+    PARTNERSHIPS_FOR_THE_GOALS = 17;
+}
+
+enum ProjectScope
+{
+    OTHER = 0;
+    AGRICULTURE = 1;
+    CARBON_CAPTURE_AND_STORAGE = 2;
+    CHEMICAL_PROCESSES = 3;
+    FORESTRY_AND_LAND_USE = 4;
+    HOUSEHOLD_AND_COMMUNITY = 5;
+    INDUSTRIAL_MANUFACTURING = 6;
+    RENEWABLE_ENERGY = 7;
+    TRANSPORTATION = 8;
+    WASTE_MANAGEMENT = 9;
+}
+
+enum ProjectType{
+    ADVANCED_REFRIDERANTS = 0;
+    AFFORESTATION_REFORESTATION = 1;
+    ALUMINUM_SMELTERS_EMISSION_REDUCTIONS = 2;
+    AVOIDED_FOREST_CONVERSION = 3;
+    AVOIDED_GRASSLAND_CONVERSION = 4;
+    BYCYCLES = 5;
+    BIODIGESTERS = 6;
+    BIOMASS = 7;
+    BRICK_MANUFACTURING_EMISSION_REDUCTIONS = 8;
+    BUNDLED_COMPOST_PRODUCTION_AND_SOIL_APPLICATION = 9;
+    BUNDLED_ENERGY_EFFICIENCY = 10;
+    CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY = 11;
+    CARBON_CAPTURE_IN_CEMENT = 12;
+    CARBON_CAPTURE_IN_PLASTIC = 13;
+    CLEAN_WATER = 14;
+    COMMUNITY_BOREHOLES = 15;
+    COMPOST_ADDITION_TO_RANGELAND_SOIL = 16;
+    COMPOSTING = 17;
+    COOKSTOVES = 18;
+    ELECTRIC_VEHICLES_AND_CHARGING = 19;
+    ENERGY_EFFICIENCY = 20;
+    FEED_ADDITIVES = 21;
+    FLEET_EFFICIENCY = 22;
+    FUEL_SWITCHING = 23;
+    FUEL_TRANSPORT = 24;
+    GEOTHERMAL = 25;
+    GRID_EXPANSION_AND_MINI_GRIDS = 26;
+    HFC_REFRIGERANT_RECLAMATION = 27;
+    HFC_REPLACEMENT_IN_FOAM_PRODUCTION = 28;
+    HFC23_DESTRUCTION = 29;
+    HYDROPOWER = 30;
+    IMPROVED_FOREST_MANAGEMENT = 31;
+    IMPROVED_IRRIGATION_MANAGEMENT = 32;
+    LANDFILL_METHANE = 33;
+    LEAK_DETECTION_AND_REPAIR_IN_GAS_SYSTEMS = 34;
+    LIGHTING = 35;
+    MANURE_METHANE_DIGESTER = 36;
+    MASS_TRANSIT = 37;
+    METHANE_RECOVERY_IN_WASTEWATER = 38;
+    MINE_METHANE_CAPTURE = 39;
+    MINERALIZATION = 40;
+    N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION = 41;
+    N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION = 42;
+    NATURAL_GAS_ELECTRICITY_GENERATION = 43;
+    NITROGEN_MANAGEMENT = 44;
+    OIL_RECYCLING = 45;
+    OZONE_DEPLETING_SUBSTANCES_RECOVERY_AND_DESTRUCTION = 46;
+    PNEUMATIC_RETROFIT = 47;
+    PROPYLENE_OXIDE_PRODUCTION = 48;
+    RE_BUNDLED = 49;
+    REDD_PLUS = 50;
+    REFRIGERANT_LEAK_DETECTION = 51;
+    RICE_EMISSION_REDUCTIONS = 52;
+    SF6_REPLACEMENT = 53;
+    SHIPPING = 54;
+    SOLAR_CENTRALIZED = 55;
+    SOLAR_DISTRIBUTED = 56;
+    SOLAR_LIGHTING = 57;
+    SOLAR_WATER_HEATERS = 58;
+    SOLID_WASTE_SEPARATION = 59;
+    SUSTAINABLE_AGRICULTURE = 60;
+    SUSTAINABLE_GRASSLAND_MANAGEMENT = 61;
+    TRUCK_STOP_ELECTRIFICATION = 62;
+    UNIVERSITY_CAMPUS_EMISSION_REDUCTIONS = 63;
+    WASTE_DIVERSION = 64;
+    WASTE_GAS_RECOVERY = 65;
+    WASTE_HEAT_RECOVERY = 66;
+    WASTE_INCINERATION = 67;
+    WASTE_RECYCLING = 68;
+    WEATHERIZATION = 69;
+    WETLAND_RESTORATION = 70;
+    WIND = 71;
+}
+
+message GNSS{
+    string longitude = 1; //longitude
+    string latitude = 2; //latitude
+    string timing = 3; //timing
+}
+message GeographicArea{
+    string geo_json_or_kml = 1; //geojson or kml
+}
+message GeographicLocation{
+    GNSS GNSS = 1; //GNSS coordinates
+    GeographicArea geographic_area = 2; //geojson or kml
+}
+
+message CoBenefit {
+    EcologicalBenefitCategory co_benefit = 1; //high-level categories
+    string description = 2; //description of the co-benefit that is not captured via the category
+    int32 rating_score = 3;  //placeholder for some kind of rating or scoring of the relative co-benefit
+}
+
+enum MeasurementSpecification{
+    ISO_14064 = 0; //The activity claim is based on the ISO 14064 standard.
+    ISO_14064_1 = 1; //The activity claim is based on the ISO 14064-1 standard.
+    ISO_14064_2 = 2; //The activity claim is based on the ISO 14064-2 standard.
+}
+
+enum CarbonCategory{
+    REDUCTION = 0; //indicates that the activity claim is for a reduction of GHG emissions.
+    REMOVAL = 1; //indicates that the activity claim is for a removal of GHG emissions.
+}
+
+enum Method{
+    NATURAL = 0; //The activity claim uses natural or natural methods.
+    TECHNOLOGICAL = 1; //The activity claim uses technology.
+    BOTH_NATURAL_AND_TECHNOLOGICAL = 2; //The activity claim uses both natural and technology methods, some activities, such as biomass energy carbon capture and storage (BECCS), may involve natural and technological elements.
+}
+
+//this is the data structure for the Core Carbon Principal attribute Mitigation Activity.
+message MitigationActivity{
+    CarbonCategory category = 1; //Category of the migtigation activity.
+    Method method = 2; //Method of the mitigation activity.
+}
+
+//Carbon sequestraion can be biological or geological.
+enum Storage{
+    BIOLOGICAL = 0; //The activity claim is for biological carbon sequestration.
+    GEOLOGICAL = 1; //The activity claim is for geological carbon sequestration.
+    MATERIALS = 2; //The activity claim is for materials carbon sequestration.
+}
+
+enum DegradationType{
+    NOT_APPLICABLE = 0; //The activity claim is not applicable to degradation.
+    LINEAR = 1; //The activity claim is linear degradation.
+    EXPONENTIAL = 2; //The activity claim is exponential degradation.
+}
+
+//Estimated risk of reversal or release of carbon via natural and social causes prematurely.
+enum ReversalRisk{
+    ZERO = 0; //GHG reservoirs are subject to zero risk if the form of carbon storage is such that stored CO2e cannot conceivably be released into the atmosphere. This also includes activity types with no storage, and thus no risk of reversal, e.g., Enhanced weathering of minerals, mineralisation, renewable energy, other activities leading to lower demand for fossil fuel.
+    LOW = 1; //GHG reservoirs might be subject to low risk of reversal if the characteristics of storage reservoirs (e.g., the geological formation in which carbon is to be stored,in the case of carbon capture and storage) and monitoring requirements virtually eliminate risk, e.g. Carbon capture and storage in geological formations, direct air capture and storage.
+    MATERIAL = 2; //GHG reservoirs might be subject to significant reversal risks if: risks of reversal are exogenous and/or unavoidable (e.g., extreme weather events, invasive pest outbreaks, and wildfires); the GHG reservoir is subject to natural disturbance and natural fluxes in carbon inventories; reversal events may or can be expected to occur over a specified time horizon (100 years); a mitigation activity proponent could have economic interests in intentionally causing a reversal (for example cutting down a forest for timber or changing land use to agriculture), e.g. Improved forest management, afforestation/reforestation, enhanced soil organic carbon sequestration, Avoided deforestation, sequestration via harvested wood products (for example buildings)
+}
+
+enum DurabilityInsuranceType{
+    BUFFER_POOL = 0; //an ecological project or insurance product can set aside credits into a pool for risk mitigation. If needed issued credits can be revoked and replaced by credits from the pool.
+    REFUND = 1; //purchase price of the credit is refunded to the buyer and the credit is revoked.
+}
+
+enum InsurancePolicyOwner{
+    ECOLOGICAL_PROJECT = 0; //the ecological project is the owner of the insurance policy.
+    ISSUING_REGISTRY = 1; //the issuing registry is the owner of the insurance policy.
+    RETIRER = 2; //the retirer is the owner of the insurance policy.
+    CUSTODIAN = 3; //the custodian is the owner of the insurance policy.
+}
+
+enum Unit{
+    TONNE_CO2E = 0;
+    TONNE_CO2 = 1;
+    TONNE_CH4 = 2;
+    TONNE_N2O = 3;
+    TONNE_S = 4;
+    TONNE_NOX = 5;
+    TONNE_SOX = 6;
+    TONNE_PM10 = 7;
+    TONNE_PM2_5 = 8;
+    TONNE_VOC = 9;
+    TONNE_NH3 = 10;
+    TONNE_PFC = 11;
+    TONNE_SF6 = 12;
+    TONNE_HFC = 13;
+    TONNE_CFC = 14;
+    TONNE_HFC23 = 15;
+    TONNE_HFC32 = 16;
+    TONNE_HFC125 = 17;
+    TONNE_HFC134a = 18;
+    TONNE_HFC143a = 19;
+    TONNE_HFC227ea = 20;
+    TONNE_HFC245fa = 21;
+    TONNE_HFC365mfc = 22;
+    TONNE_HFC4310mee = 23;
+    TONNE_C2F6 = 24;
+    TONNE_C3F8 = 25;
+    TONNE_C4F10 = 26;
+    TONNE_C5F12 = 27;
+    TONNE_C6F14 = 28;
+    TONNE_C7F16 = 29;
+    TONNE_C8F18 = 30;
+    TONNE_C10F18 = 31;
+    TONNE_C12F18 = 32;
+    TONNE_C14F18 = 33;
+    TONNE_C16F18 = 34;
+    TONNE_C18F18 = 35;
+    TONNE_C20F18 = 36;
+    TONNE_C22F18 = 37;
+    TONNE_C24F18 = 38;
+    TONNE_C26F18 = 39;
+    TONNE_C28F18 = 40;
+    TONNE_C30F18 = 41;
+    TONNE_C32F18 = 42;
+    TONNE_C34F18 = 43;
+    LITER = 100;
+    KILOGRAM = 101;
+    CUBIC_METER = 102;
+    KILOWATT_HOUR = 103;
+    MEGAJUOLE = 104;
+    KILOMETER = 105;
+    SQUARE_METER = 106;
+    TONNE = 107;
+}
+
+enum Status{
+    ACTIVE = 0; //the credit is active and can be used for compliance or voluntary purposes
+    INACTIVE = 1; //the credit is inactive and can not be used for compliance or voluntary purposes
+    REVOKED = 2; //the credit has been revoked and can not be used for compliance or voluntary purposes
+    RETIRED = 3; //the credit has been retired and can not be used for compliance or voluntary purposes
+}
+
+//how the credit value was determined
+enum GenerationType {
+    GENERATED = 0; //the credit was generated by evidence collected and verified by the project; verifier and registry
+    EX_ANTE = 1; //the credit represents forcasted emissions reductions
+    EX_POST = 2; //the credit represents historical emissions reductions
+}
+
+enum Standard{
+    G_S_VER =  0; //Voluntary: Gold Standard Verified Emissions Reduction
+    V_C_S =  1; //Voluntary: Cerified Carbon Standard generates VCUs
+    V_O_S =  2; //Voluntary: Voluntary Offset Standard
+    C_C_B =  3; //Voluntary: Climate
+    GREEN_E =  4; //Voluntary: US renewable energy
+    C_D_M =  5; //Compliance: Clean Development Mechanism generates CERs
+    J_I =  6; //Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
+    E_U_A =  7; //Compliance: European Union Allowances
+    PENDING =  8; //Other
+}
+
+enum CorrespondingAdjustment {
+    NONE = 0; //there is no Corresponding adjustment associated with this credit. Meaning the country of origin for the credit will not subtract the credit from their Nationally Determined Contributions (NDCs)if the credit is exported and consumed in a different country.
+    PARIS_AGREEMENT_COMPLIANT = 1; //there is verified Corresponding adjustment associated with this credit. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+    PARIS_AGREEMENT_PENDING_COMPLIANCE = 2; //there is corresponding adjustment associated with this credit; that is pending verification. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+}
+
+message PACompliance{
+    CorrespondingAdjustment c_a = 1; //does the credit require or have a CA?
+    VerifiedLink letter_of_approval = 2; //Link to the letter of approval for the CA. 
+}
+
+message ClimateLabel
+{
+    string id = 1; //unique identifier for the label
+    string name = 2; //name of the label
+    string description = 3; //description of the label
+}
+
+//ISO 3166-1 alpha-2 country codes
+enum GeographicCountry{
+    UNKNOWN = 0; //unknown country
+    A_F = 1; //"Afghanistan" 
+    A_X = 2; //"Åland Islands" 
+    A_L = 3; //"Albania" 
+    D_Z = 4; //"Algeria" 
+    A_S = 5; //"American Samoa" 
+    A_D = 6; //"Andorra" 
+    A_O = 7; //"Angola" 
+    A_I = 8; //"Anguilla" 
+    A_Q = 9; //"Antarctica" 
+    A_G = 10; //"Antigua and Barbuda" 
+    A_R = 11; //"Argentina" 
+    A_M = 12; //"Armenia" 
+    A_W = 13; //"Aruba" 
+    A_U = 14; //"Australia" 
+    A_T = 15; //"Austria" 
+    A_Z = 16; //"Azerbaijan" 
+    B_S = 17; //"Bahamas" 
+    B_H = 18; //"Bahrain" 
+    B_D = 19; //"Bangladesh" 
+    B_B = 20; //"Barbados" 
+    B_Y = 21; //"Belarus" 
+    B_E = 22; //"Belgium" 
+    B_Z = 23; //"Belize" 
+    B_J = 24; //"Benin" 
+    B_M = 25; //"Bermuda" 
+    B_T = 26; //"Bhutan" 
+    B_O = 27; //"Bolivia (Plurinational State of)" 
+    B_Q = 28; //"Bonaire; Sint Eustatius and Saba" 
+    B_A = 29; //"Bosnia and Herzegovina" 
+    B_W = 30; //"Botswana" 
+    B_V = 31; //"Bouvet Island" 
+    B_R = 32; //"Brazil" 
+    I_O = 33; //"British Indian Ocean Territory" 
+    B_N = 34; //"Brunei Darussalam" 
+    B_G = 35; //"Bulgaria" 
+    B_F = 36; //"Burkina Faso" 
+    B_I = 37; //"Burundi" 
+    C_V = 38; //"Cabo Verde" 
+    K_H = 39; //"Cambodia" 
+    C_M = 40; //"Cameroon" 
+    C_A = 41; //"Canada" 
+    K_Y = 42; //"Cayman Islands" 
+    C_F = 43; //"Central African Republic" 
+    T_D = 44; //"Chad" 
+    C_L = 45; //"Chile" 
+    C_N = 46; //"China" 
+    C_X = 47; //"Christmas Island" 
+    C_C = 48; //"Cocos (Keeling) Islands" 
+    C_O = 49; //"Colombia" 
+    K_M = 50; //"Comoros" 
+    C_G = 51; //"Congo" 
+    C_D = 52; //"Congo (Democratic Republic of the)" 
+    C_K = 53; //"Cook Islands" 
+    C_R = 54; //"Costa Rica" 
+    C_I = 55; //"Côte d'Ivoire" 
+    H_R = 56; //"Croatia" 
+    C_U = 57; //"Cuba" 
+    C_W = 58; //"Curaçao" 
+    C_Y = 59; //"Cyprus" 
+    C_Z = 60; //"Czechia" 
+    D_K = 61; //"Denmark" 
+    D_J = 62; //"Djibouti" 
+    D_M = 63; //"Dominica" 
+    D_O = 64; //"Dominican Republic" 
+    E_C = 65; //"Ecuador" 
+    E_G = 66; //"Egypt" 
+    S_V = 67; //"El Salvador" 
+    G_Q = 68; //"Equatorial Guinea" 
+    E_R = 69; //"Eritrea" 
+    E_E = 70; //"Estonia" 
+    E_T = 71; //"Ethiopia" 
+    F_K = 72; //"Falkland Islands (Malvinas)" 
+    F_O = 73; //"Faroe Islands" 
+    F_J = 74; //"Fiji" 
+    F_I = 75; //"Finland" 
+    F_R = 76; //"France" 
+    G_F = 77; //"French Guiana" 
+    P_F = 78; //"French Polynesia" 
+    T_F = 79; //"French Southern Territories" 
+    G_A = 80; //"Gabon" 
+    G_M = 81; //"Gambia" 
+    G_E = 82; //"Georgia" 
+    D_E = 83; //"Germany" 
+    G_H = 84; //"Ghana" 
+    G_I = 85; //"Gibraltar" 
+    G_R = 86; //"Greece" 
+    G_L = 87; //"Greenland" 
+    G_D = 88; //"Grenada" 
+    G_P = 89; //"Guadeloupe" 
+    G_U = 90; //"Guam" 
+    G_T = 91; //"Guatemala" 
+    G_G = 92; //"Guernsey" 
+    G_N = 93; //"Guinea" 
+    G_W = 94; //"Guinea-Bissau" 
+    G_Y = 95; //"Guyana" 
+    H_T = 96; //"Haiti" 
+    H_M = 97; //"Heard Island and McDonald Islands" 
+    V_A = 98; //"Holy See" 
+    H_N = 99; //"Honduras" 
+    H_K = 100; //"Hong Kong" 
+    H_U = 101; //"Hungary" 
+    I_S = 102; //"Iceland" 
+    I_N = 103; //"India" 
+    I_D = 104; //"Indonesia" 
+    I_R = 105; //"Iran (Islamic Republic of)" 
+    I_Q = 106; //"Iraq" 
+    I_E = 107; //"Ireland" 
+    I_M = 108; //"Isle of Man" 
+    I_L = 109; //"Israel" 
+    I_T = 110; //"Italy" 
+    J_M = 111; //"Jamaica" 
+    J_P = 112; //"Japan" 
+    J_E = 113; //"Jersey" 
+    J_O = 114; //"Jordan" 
+    K_Z = 115; //"Kazakhstan" 
+    K_E = 116; //"Kenya" 
+    K_I = 117; //"Kiribati" 
+    K_P = 118; //"Korea (Democratic People's Republic of)" 
+    K_R = 119; //"Korea (Republic of)" 
+    K_W = 120; //"Kuwait" 
+    K_G = 121; //"Kyrgyzstan" 
+    L_A = 122; //"Lao People's Democratic Republic" 
+    L_V = 123; //"Latvia" 
+    L_B = 124; //"Lebanon" 
+    L_S = 125; //"Lesotho" 
+    L_R = 126; //"Liberia" 
+    L_Y = 127; //"Libya" 
+    L_I = 128; //"Liechtenstein" 
+    L_T = 129; //"Lithuania" 
+    L_U = 130; //"Luxembourg" 
+    M_O = 131; //"Macao" 
+    M_K = 132; //"Macedonia (the former Yugoslav Republic of)" 
+    M_G = 133; //"Madagascar" 
+    M_W = 134; //"Malawi" 
+    M_Y = 135; //"Malaysia" 
+    M_V = 136; //"Maldives" 
+    M_L = 137; //"Mali" 
+    M_T = 138; //"Malta" 
+    M_H = 139; //"Marshall Islands" 
+    M_Q = 140; //"Martinique" 
+    M_R = 141; //"Mauritania" 
+    M_U = 142; //"Mauritius" 
+    Y_T = 143; //"Mayotte" 
+    M_X = 144; //"Mexico" 
+    F_M = 145; //"Micronesia (Federated States of)" 
+    M_D = 146; //"Moldova (Republic of)" 
+    M_C = 147; //"Monaco" 
+    M_N = 148; //"Mongolia" 
+    M_E = 149; //"Montenegro" 
+    M_S = 150; //"Montserrat" 
+    M_A = 151; //"Morocco" 
+    M_Z = 152; //"Mozambique" 
+    M_M = 153; //"Myanmar" 
+    N_A = 154; //"Namibia" 
+    N_R = 155; //"Nauru" 
+    N_P = 156; //"Nepal" 
+    N_L = 157; //"Netherlands" 
+    N_C = 158; //"New Caledonia" 
+    N_Z = 159; //"New Zealand" 
+    N_I = 160; //"Nicaragua" 
+    N_E = 161; //"Niger" 
+    N_G = 162; //"Nigeria" 
+    N_U = 163; //"Niue" 
+    N_F = 164; //"Norfolk Island" 
+    M_P = 165; //"Northern Mariana Islands" 
+    N_O = 166; //"Norway" 
+    O_M = 167; //"Oman" 
+    P_K = 168; //"Pakistan" 
+    P_W = 169; //"Palau" 
+    P_S = 170; //"Palestine; State of" 
+    P_A = 171; //"Panama" 
+    P_G = 172; //"Papua New Guinea" 
+    P_Y = 173; //"Paraguay" 
+    P_E = 174; //"Peru" 
+    P_H = 175; //"Philippines" 
+    P_N = 176; //"Pitcairn" 
+    P_L = 177; //"Poland" 
+    P_T = 178; //"Portugal" 
+    P_R = 179; //"Puerto Rico" 
+    Q_A = 180; //"Qatar" 
+    R_E = 181; //"Réunion" 
+    R_O = 182; //"Romania" 
+    R_U = 183; //"Russian Federation" 
+    R_W = 184; //"Rwanda" 
+    B_L = 185; //"Saint Barthélemy" 
+    S_H = 186; //"Saint Helena; Ascension and Tristan da Cunha" 
+    K_N = 187; //"Saint Kitts and Nevis" 
+    L_C = 188; //"Saint Lucia" 
+    M_F = 189; //"Saint Martin (French part)" 
+    P_M = 190; //"Saint Pierre and Miquelon" 
+    V_C = 191; //"Saint Vincent and the Grenadines" 
+    W_S = 192; //"Samoa" 
+    S_M = 193; //"San Marino" 
+    S_T = 194; //"Sao Tome and Principe" 
+    S_A = 195; //"Saudi Arabia" 
+    S_N = 196; //"Senegal" 
+    R_S = 197; //"Serbia" 
+    S_C = 198; //"Seychelles" 
+    S_L = 199; //"Sierra Leone" 
+    S_G = 200; //"Singapore"
+    S_X = 201; //"Sint Maarten (Dutch part)" 
+    S_K = 202; //"Slovakia" 
+    S_I = 203; //"Slovenia" 
+    S_B = 204; //"Solomon Islands" 
+    S_O = 205; //"Somalia" 
+    Z_A = 206; //"South Africa" 
+    G_S = 207; //"South Georgia and the South Sandwich Islands" 
+    S_S = 208; //"South Sudan" 
+    E_S = 209; //"Spain" 
+    L_K = 210; //"Sri Lanka" 
+    S_D = 211; //"Sudan" 
+    S_R = 212; //"Suriname" 
+    S_J = 213; //"Svalbard and Jan Mayen" 
+    S_Z = 214; //"Swaziland" 
+    S_E = 215; //"Sweden" 
+    C_H = 216; //"Switzerland" 
+    S_Y = 217; //"Syrian Arab Republic" 
+    T_W = 218; //"Taiwan; Province of China[a]" 
+    T_J = 219; //"Tajikistan" 
+    T_Z = 220; //"Tanzania; United Republic of" 
+    T_H = 221; //"Thailand" 
+    T_L = 222; //"Timor-Leste" 
+    T_G = 223; //"Togo" 
+    T_K = 224; //"Tokelau" 
+    T_O = 225; //"Tonga" 
+    T_T = 226; //"Trinidad and Tobago" 
+    T_N = 227; //"Tunisia" 
+    T_R = 228; //"Turkey" 
+    T_M = 229; //"Turkmenistan" 
+    T_C = 230; //"Turks and Caicos Islands" 
+    T_V = 231; //"Tuvalu" 
+    U_G = 232; //"Uganda" 
+    U_A = 233; //"Ukraine" 
+    A_E = 234; //"United Arab Emirates" 
+    G_B = 235; //"United Kingdom of Great Britain and Northern Ireland" 
+    U_S = 236; //"United States of America" 
+    U_M = 237; //"United States Minor Outlying Islands" 
+    U_Y = 238; //"Uruguay" 
+    U_Z = 239; //"Uzbekistan" 
+    V_U = 240; //"Vanuatu" 
+    V_E = 241; //"Venezuela (Bolivarian Republic of)" 
+    V_N = 242; //"Viet Nam" 
+    V_G = 243; //"Virgin Islands (British)" 
+    V_I = 244; //"Virgin Islands (U.S.)" 
+    W_F = 245; //"Wallis and Futuna" 
+    E_H = 246; //"Western Sahara" 
+    Y_E = 247; //"Yemen" 
+    Z_M = 248; //"Zambia" 
+    Z_W = 249; //"Zimbabwe" 
+}
+
+//Attestations can take the form of traditional PKI/JWT or Verified Credentials
+enum AttestationType{
+    RS256 = 0; //JSON Web Token
+    VC = 1; //Verified Credentials
+}
+
+// The type of attestation requested, supports two types: JWT, along with a ciphertype and Verified Credentials.
+enum ProofType{
+    JWT = 0; //JSON Web Token
+    DIP = 1; //Data Integrity Proofs
+}
+
+// Attestation needs further definition
+message Attestation{
+    AttestationType type = 1; //The type of attestation 
+    ProofType proof_type = 2; //The type of proof 
+    string attestor = 3; //The id or address of the attestor
+    bytes proof = 4; //The proof of attestation
+}

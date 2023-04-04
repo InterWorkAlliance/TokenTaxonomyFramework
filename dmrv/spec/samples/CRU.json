@@ -1,0 +1,83 @@
+{
+  "id": "bef817d3-e178-402c-93bd-b20aab360e71",
+  "quantity": "1.41",
+  "unit": "TonneCo2E",
+  "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
+  "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
+  "coreCarbonPrincipals": {
+    "assetId": "snei219123-998sdfl-sad21-1-1.41",
+    "issuanceDate": {
+      "year": 2019,
+      "month": "January",
+      "day": 4
+    },
+    "vintage": "2018",
+    "generationType": "Generated",
+    "verificationStandard": "VCS",
+    "mitigationActivity": {
+      "category": "Removal",
+      "method": "Technological"
+    },
+    "durability": {
+      "storageType": "Biological",
+      "years": 100,
+      "degradable": {
+        "percentage": 10,
+        "factor": 5,
+        "degradationType": "Linear"
+      },
+      "reversalMitigation": {
+        "reversalRisk": "Material",
+        "insuranceType": "BufferPool",
+        "insurancePolicyOwner": "EcologicalProject",
+        "insurancePolicyLink": {
+          "id": "a08f99d1-99cc-4ff7-804d-d7fab7be0c90",
+          "uri": "https://verra.com/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
+          "description": "Link to the Reversal Mitigation Insurance Policy",
+          "hashProof": "98uuisdE12A0213az2133ASdfsdf",
+          "hashAlgorithm": "Sha256"
+        }
+      }
+    },
+    "replacement": null,
+    "parisAgreementCompliance": {
+      "ca": "ParisAgreementCompliant",
+      "letterOfApproval": {
+        "id": "492be7eb-0d9a-499b-9a95-e8ed8d7e4c9f",
+        "uri": "https://span.com/492be7eb-0d9a-499b-9a95-e8ed8d7e4c9f.pdf",
+        "description": "Letter of Approval for Paris Agreement Compliance",
+        "hashProof": "uuisdE12A0213az2133ASdfsdf",
+        "hashAlgorithm": "Sha256"
+      }
+    },
+    "quantifiedSdgImpacts": [
+      {
+        "coBenefit_": "AffordableAndCleanEnergy",
+        "description": "",
+        "ratingScore": 0
+      }
+    ],
+    "adaptationCoBenefits": [
+      {
+        "coBenefit_": "IndustryInnovationAndInfrastructure",
+        "description": "",
+        "ratingScore": 0
+      }
+    ]
+  },
+  "climateLabels": [
+    {
+      "id": "92252fdf-5c2d-4dc9-9a39-af6362a6b122",
+      "name": "Climate Neutral",
+      "description": "Climate Neutral - environmentally friendly, climate positive"
+    }
+  ],
+  "status": "Active",
+  "referencedCredit": {
+    "id": ""
+  },
+  "offsetAppliedToId": "",
+  "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+  "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
+  "processedClaim": null
+}
