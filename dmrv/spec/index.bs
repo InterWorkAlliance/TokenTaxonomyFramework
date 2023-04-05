@@ -199,42 +199,6 @@ An EcologicalProject has the following properties:
         <td>M
         <td>The non-empty set of [=Id=]. Each of the values in the set is supposed to uniquely identify each owner of the project.
       <tr>
-        <td><dfn>projectInformation</dfn> : [=ProjectInformation=]
-        <td>Object
-        <td>M
-        <td>A set of attributes that classify the project [=ProjectInformation=]. See [[#dt-project-information]] for details.
-      <tr>
-        <td><dfn>modularBenefitProjects</dfn> : [=ModularBenefitProject=][]
-        <td>Array
-        <td>M
-        <td>A collection of modularBenefitProjects that belong to this ecological project.
-  </table>
-  <figcaption>Properties of data type EcologicalProject</figcaption>
-
-</figure>
-
-## Data Type: <dfn>ProjectInformation</dfn> ## {#dt-project-information}
-
-`ProjectInformation` is a data type that contains ecological project metadata that helps classify
-and establish characteristics of the individual or organization that owns the ecological project.
-
-### Properties ### {#dt-project-information-properties}
-
-<figure id="pi-properties-table" dfn-type="element-attr" dfn-for="ProjectInformation">
-  <table class="data">
-    <thead>
-      <tr>
-        <th>Property
-        <th>Type
-        <th>Req
-        <th>Specification
-    <tbody>
-      <tr>
-        <td><dfn>projectId</dfn> : [=Id=]
-        <td>String
-        <td>M
-        <td>The parent ecological project identifier, See [[#dt-id]] for details.
-      <tr>
         <td><dfn>country</dfn> : [=ISO3166CC=]
         <td>String
         <td>M
@@ -245,7 +209,7 @@ and establish characteristics of the individual or organization that owns the ec
         <td><dfn>projectScale</dfn> : {{ProjectScale}}
         <td>String
         <td>M
-        <td>String representation be:
+        <td>String representation of scale, see [[#dt-project-scale]] for details.
               MICRO = less than 1000 tCO2e
               SMALL = 1000 - 10000 tCO2e
               MEDIUM = 10000 - 100000 tCO2e
@@ -265,9 +229,14 @@ and establish characteristics of the individual or organization that owns the ec
         <td>Array
         <td>O
         <td>An array of optional media links. See[[#dt-verified-link]]
-     
+      <tr>
+        <td><dfn>modularBenefitProjects</dfn> : [=ModularBenefitProject=][]
+        <td>Array
+        <td>M
+        <td>A collection of modularBenefitProjects that belong to this ecological project.
   </table>
-  <figcaption>Properties of data type ProjectInformation</figcaption>
+  <figcaption>Properties of data type EcologicalProject</figcaption>
+
 </figure>
 
 ## Data Type <dfn>Address</dfn> ## {#dt-address}

@@ -818,27 +818,6 @@
             "nullable": true,
             "readOnly": true
           },
-          "projectInformation": {
-            "$ref": "#/components/schemas/EcologicalProjectInfo"
-          },
-          "modularBenefitProjects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ModularBenefitProject"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EcologicalProjectInfo": {
-        "type": "object",
-        "properties": {
-          "projectId": {
-            "type": "string",
-            "nullable": true
-          },
           "country": {
             "$ref": "#/components/schemas/GeographicCountry"
           },
@@ -855,6 +834,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VerifiedLink"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "modularBenefitProjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModularBenefitProject"
             },
             "nullable": true,
             "readOnly": true

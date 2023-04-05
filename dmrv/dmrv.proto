@@ -13,16 +13,12 @@ message EcologicalProject{
     string description = 3; //description of the project
     repeated common.Address addresses = 4; //list of addresses associated with the project
     repeated string owners = 5; //list of owners of the project
-    message EcologicalProjectInfo{
-        string project_id = 1; //project id, optional if nested.
-        common.GeographicCountry country = 2;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
-        common.ProjectScale project_scale = 3; //size of the project, small, medium, large
-        common.Region region = 4; //region of the project
-        common.VerifiedLink information_link = 5; //Link to information about the project
-        repeated common.VerifiedLink media_links = 6; //Links to media that can be used for promotional materials about the project
-    }
-    EcologicalProjectInfo project_information = 6; //nested project information    
-    repeated ModularBenefitProject modular_benefit_projects = 7; //list of modular benefit projects
+    common.GeographicCountry country = 6;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    common.ProjectScale project_scale = 7; //size of the project, small, medium, large
+    common.Region region = 8; //region of the project
+    common.VerifiedLink information_link = 9; //Link to information about the project
+    repeated common.VerifiedLink media_links = 10; //Links to media that can be used for promotional materials about the project
+    repeated ModularBenefitProject modular_benefit_projects = 11; //list of modular benefit projects
 }
 
 message ModularBenefitProject {

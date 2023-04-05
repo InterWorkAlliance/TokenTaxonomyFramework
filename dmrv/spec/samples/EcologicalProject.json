@@ -17,28 +17,25 @@
   "owners": [
     "owner"
   ],
-  "projectInformation": {
-    "projectId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
-    "country": "BR",
-    "projectScale": "Medium",
-    "region": "SouthAmerica",
-    "informationLink": {
-      "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
-      "uri": "https://www.ecoearth.com/forest-growth.html",
-      "description": "Project Website",
+  "country": "BR",
+  "projectScale": "Medium",
+  "region": "SouthAmerica",
+  "informationLink": {
+    "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
+    "uri": "https://www.ecoearth.com/forest-growth.html",
+    "description": "Project Website",
+    "hashProof": "n/a",
+    "hashAlgorithm": "Sha256"
+  },
+  "mediaLinks": [
+    {
+      "id": "987c9c95-09bf-4ad5-8331-50be9805a9af",
+      "uri": "https://www.ecoearth.com/forest-growth-video.mp4",
+      "description": "Project Video",
       "hashProof": "n/a",
       "hashAlgorithm": "Sha256"
-    },
-    "mediaLinks": [
-      {
-        "id": "987c9c95-09bf-4ad5-8331-50be9805a9af",
-        "uri": "https://www.ecoearth.com/forest-growth-video.mp4",
-        "description": "Project Video",
-        "hashProof": "n/a",
-        "hashAlgorithm": "Sha256"
-      }
-    ]
-  },
+    }
+  ],
   "modularBenefitProjects": [
     {
       "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
