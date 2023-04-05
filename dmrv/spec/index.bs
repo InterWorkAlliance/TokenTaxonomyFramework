@@ -1,5 +1,5 @@
 <pre class='metadata'>
-Title: DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification 
+Title: DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5 
 Shortname: DMRV data-schema v2.5
 Level: 1
 Status: LD
