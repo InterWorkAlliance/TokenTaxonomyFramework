@@ -32,6 +32,20 @@ THe technical specifications within this document are the result of consent proc
 The scope of this document is to reach consensus on a tokenized orgination process that describes the behaviors, common data model, schema or data dictionary and encoding standard of the process for the IWA Digital Measurement, Reporting 
 and Verification (DMRV) taskforce to represent the data entities involved in the origination process for the resulting digital assets.
 
+## Regarding the Token Taxonomy Framework ## {#ttf}
+
+The Token Taxonomy Framework (TTF) is the IWA's primary tool to define an open specification for a token. While it does a good job of defining a single token, it does not provide a good
+environment for defining a set of tokens that are related to each other and are involved in a larger process. This artifact will not replace the tokens defined in the TTF, but the tokens and their 
+data models defined in this artifact will be used to define the tokens in the TTF.
+
+Token definitions will be titled as *Token & Data Type* to make it clear that the token is defined in the context of the data model.
+All other data types are considered Property Sets in the TTF.
+
+Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.
+
+Additionally, a single contract that governs the process of origination, Verification Contract, see [[#dt-verification-contract]], is defined in this artifact. This contract is used to establish the parties
+and their roles in the origination process.
+
 ## Intended Audience ## {#audience}
 
 This technical specification is for
@@ -139,19 +153,6 @@ The license can be found in [[#license]].
 
     The encoding of a CRU in the data model is specified in [[#dt-cru]]
 
-# Regarding the Token Taxonomy Framework # {#ttf}
-
-The Token Taxonomy Framework (TTF) is the IWA's primary tool to define an open specification for a token. While it does a good job of defining a single token, it does not provide a good
-environment for defining a set of tokens that are related to each other and are involved in a larger process. This artifact will not replace the tokens defined in the TTF, but the tokens and their 
-data models defined in this artifact will be used to define the tokens in the TTF.
-
-Token definitions will be titled as *Token & Data Type* to make it clear that the token is defined in the context of the data model.
-All other data types are considered Property Sets in the TTF.
-
-Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.
-
-Additionally, a single contract that governs the process of origination, Verification Contract, see [[#dt-verification-contract]], is defined in this artifact. This contract is used to establish the parties
-and their roles in the origination process.
 
 # Tokens and their Data Model # {#data-model}
 
@@ -187,7 +188,7 @@ The EcologicalProject has a Non-Fungilble base that has the following behaviors:
 2. <dfn>Divisible</dfn> (d): The EcologicalProject can be divided into multiple EcologicalProject tokens, up to 2 decimal places.
 3. <dfn>Burnable</dfn> (b): The EcologicalProject can be burned, retired or permanently deactivated.
 
-It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,b</i>}]
+TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,b</i>}]
 
 ### Properties ### {#dt-ecological-project-properties}
 
@@ -600,7 +601,7 @@ The EcologicalClaim has a Non-Fungilble base that has the following behaviors:
     - <dfn>Roles</dfn> (r): The EcologicalClaim can have roles assigned to it, i.e., the VVB, Verifier, etc. that has the ability to burn or retire the claim after processing has completed.
     - Burnable (b): The EcologicalClaim can be burned, i.e., retired, by the VVB or Verifier.
 
-It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}]
+TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}]
 
 ### Properties ### {#dt-ecological-claim-properties}
 
@@ -947,7 +948,7 @@ It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>
         - Roles (r): The ProcessedClaim can have roles assigned to it, i.e., the Issuing Registry. that has the ability to burn or retire the claim after a credit has been issued.
         - Burnable (b): The ProcessedClaim can be burned, i.e., retired, by the VVB or Verifier.
 
-    It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,CCC</i>}]
+    TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,CCC</i>}]
 
     ### Properties ### {#dt-processed-claim-properties}
 
@@ -1169,7 +1170,7 @@ It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>
         - Roles (r): The CRU has a role for the issuer to be able to mint/issue and approve retirements.
         - Burnable (b): The CRU can be burned or retired by the owner, or by delegation, but requires approval by the issuer and optionaly can include other metadata like reporting period and jurisdiction.
 
-    It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,e,v,g,</i>}]
+    TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,e,v,g,</i>}]
 
   ### Properties ### {#dt-cru-properties}
 
