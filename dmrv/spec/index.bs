@@ -15,7 +15,8 @@ Boilerplate: omit copyright, omit conformance
 
 This document is the working specification for the IWA Digital MRV taskforce and is a work in progress.
 
-The aim of this document is to define a common data model, schema or data dictionary for the IWA Digital Measurement, Reporting and Verification (DMRV) taskforce.
+The aim of this document is to define the set of tokens, their behaviors and a common data model, schema or data dictionary across all of them
+for the IWA Digital Measurement, Reporting and Verification (DMRV) taskforce.
 
 Advisement:
   This specification is a work in progress and is subject to change. It is not a final or otherwise published version.
@@ -28,7 +29,7 @@ THe technical specifications within this document are the result of consent proc
 
 ## Scope ## {#scope}
 
-The scope of this document is to reach consensus on a common data model, schema or data dictionary and encoding standard for the IWA Digital Measurement, Reporting 
+The scope of this document is to reach consensus on a tokenized orgination process that describes the behaviors, common data model, schema or data dictionary and encoding standard of the process for the IWA Digital Measurement, Reporting 
 and Verification (DMRV) taskforce to represent the data entities involved in the origination process for the resulting digital assets.
 
 ## Intended Audience ## {#audience}
@@ -52,7 +53,8 @@ This document and the specifications are aimed at the **origination phase** of t
 
 ## Disclaimer ## {#disclaimer}
 
-While IWA encourages the implementation of the technical specifications by all entities for interoperability, those organiazations and individuals who contributed to the development of this document assume responsibility for any consequences or damages resulting directly or indirectly from the use of this document.
+While IWA encourages the implementation of the technical specifications by all entities for interoperability, those organiazations and individuals who contributed to the development of this 
+document assume responsibility for any consequences or damages resulting directly or indirectly from the use of this document.
 
 ## License ## {#selectionlicense}
 
@@ -137,28 +139,55 @@ The license can be found in [[#license]].
 
     The encoding of a CRU in the data model is specified in [[#dt-cru]]
 
+# Regarding the Token Taxonomy Framework # {#ttf}
 
-# Data Model # {#data-model}
+The Token Taxonomy Framework (TTF) is the IWA's primary tool to define an open specification for a token. While it does a good job of defining a single token, it does not provide a good
+environment for defining a set of tokens that are related to each other and are involved in a larger process. This artifact will not replace the tokens defined in the TTF, but the tokens and their 
+data models defined in this artifact will be used to define the tokens in the TTF.
 
-This section specifies the data model for the entities involved in the origination process to conform with this specification.
+Token definitions will be titled as *Token & Data Type* to make it clear that the token is defined in the context of the data model.
+All other data types are considered Property Sets in the TTF.
+
+Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.
+
+Additionally, a single contract that governs the process of origination, Verification Contract, see [[#dt-verification-contract]], is defined in this artifact. This contract is used to establish the parties
+and their roles in the origination process.
+
+# Tokens and their Data Model # {#data-model}
+
+This section specifies the tokens and their data model for the entities involved in the origination process to conform with this specification. 
 
 The data model consists of the following major data types:
 
 1. [=EcologicalProject=]: contains information identifying an individual or organization that will host one or more Modular Benefit Project(s).
-2. [=ModularBenefitProject=]: contains information identifying a project that will host one or more Ecological Claim(s).
+2. [=ModularBenefitProject=]: is parented by an EcologicalProject that can have multiple MBPs and contains information identifying a project that will host one or more Ecological Claim(s).
 3. [=EcologicalClaim=]: contains information identifying a claim that will host one or more Checkpoint(s).
 4. [=SpanDataPackage=]: contains information identifying a span data package that will host one or more Checkpoint(s).
 5. [=ProcessedClaim=]: contains information identifying a processed claim that will host one or more Checkpoint Result(s).
 6. [=VerificationContract=]: contains information identifying a verification contract that will host one or more Checkpoint Result(s).
 7. [=CRU=]: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.
 
-Some data types, like the SpanDataPackage, support extensible metadata. This means that the data type can be extended to support additional data types that are specific to the quality standard being followed. For example, the SpanDataPackage data type can be extended to support the data types required by the Carbon Removal Protocol (CRP) or the Carbon Reduction Protocol (CRP).
+Some data types, like the SpanDataPackage, support extensible metadata. This means that the data type can be extended to support additional data types that are specific to the quality standard being followed. For example, the SpanDataPackage data type can be extended to support the data types required 
+by specific methodologies or quality standards.
 
-## Data Type: <dfn>EcologicalProject</dfn> ## {#dt-ecological-project}
+Not all data types defined in this artifact are tokens, but are a <dfn>Property-Set</dfn> which are a collection of
+properties grouped together that can be used or composed into other property-sets or be present in many token definitions.
+
+## Token & Data Type: <dfn>EcologicalProject</dfn> ## {#dt-ecological-project}
 
 `EcologicalProject` is a data type which represents the individual or organization that will host one or more ModularBenefitProject(s). 
 
 This data type is used to represent a one to many relationship that can occur when an ecological project wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.
+
+### Base Token and Behaviors ### {#dt-ecological-project-base-token-behaviors}
+
+The EcologicalProject has a Non-Fungilble base that has the following behaviors:
+
+1. <dfn>Transferable</dfn> (t): The EcologicalProject can be transferred from one party to another.
+2. <dfn>Divisible</dfn> (d): The EcologicalProject can be divided into multiple EcologicalProject tokens, up to 2 decimal places.
+3. <dfn>Burnable</dfn> (b): The EcologicalProject can be burned, retired or permanently deactivated.
+
+It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,b</i>}]
 
 ### Properties ### {#dt-ecological-project-properties}
 
@@ -292,6 +321,8 @@ An address is a collection of address lines, city, state, postal code and countr
 
 A ModularBenefitProject represents the actual project work that will generate benefits. 
 It is bound to to Quality Standard and is where claims are issued from.
+
+<div class="issue">Should be a token?</div>
 
 ### Scope of a ModularBenefitProject ### {#dt-modular-benefit-project-scope}
 
@@ -490,10 +521,13 @@ each step can generate its own artifact like a Project Design Document.
     </table>
     <figcaption>Properties of data type ValidationStep</figcaption>
 </figure>
+
 ## Data Type: <dfn>ClaimSource</dfn> ## {#dt-claim-source}
 
 A ClaimSource is a registered source of evidence data to support a claim. A claim source can be a device like
 a sensor or meter, an application that collects user data or reference data like satellite imagery.
+
+<div class="issue">Should be a token?</div>
 
 ### Properties ### {#dt-ecological-claim-source-properties}
 
@@ -545,12 +579,28 @@ a sensor or meter, an application that collects user data or reference data like
   <figcaption>Properties of data type EcologicalClaim</figcaption>
 </figure>
 
-## Data Type: <dfn>EcologicalClaim</dfn> ## {#dt-ecological-claim}
+## Token & Data Type: <dfn>EcologicalClaim</dfn> ## {#dt-ecological-claim}
 
 An EcologicalClaim represents the actual project work that will generate benefits through out the claim period
 that is agreed to by the developer, VVB and Registry. EcologicalClaims are created by a ModularBenefitProject
 and contains metadata about the claim period as well as a collection of checkpoints that are used to submitted
 project evidence that is verified by the VVB or verification platform.
+
+### Base Token and Behaviors ### {#dt-ecological-claim-base-token-behaviors}
+
+The EcologicalClaim has a Non-Fungilble base that has the following behaviors:
+
+1. <dfn>Indivisible</dfn> (~d): The EcologicalClaim is indivisible, meaning it cannot be divided into multiple EcologicalClaim tokens.
+2. <dfn>Non-transferable</dfn> (~t): The EcologicalClaim is non-transferable, meaning it cannot be transferred to another parent Ecological Project/MBP.
+3. <dfn>Delegable</dfn> (g): The EcologicalClaim can have certain behaviors delegated to another party.
+4. <dfn>encumberable</dfn> (e): The EcologicalClaim can be encumbered by a third party, typically the verification platform or VVB.
+5. <dfn>ProcessedClaimControl</dfn> (PCC): The EcologicalClaim also has this <dfn>Behavior-Group</dfn> with a set of behaviors a bundled and 
+    configured to control the processing of the EcologicalClaim.
+    - <dfn>Mintable</dfn> (m): The EcologicalClaim can be minted, i.e., created, by the parent ModularBenefitProject.
+    - <dfn>Roles</dfn> (r): The EcologicalClaim can have roles assigned to it, i.e., the VVB, Verifier, etc. that has the ability to burn or retire the claim after processing has completed.
+    - Burnable (b): The EcologicalClaim can be burned, i.e., retired, by the VVB or Verifier.
+
+It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}]
 
 ### Properties ### {#dt-ecological-claim-properties}
 
@@ -613,6 +663,8 @@ project evidence that is verified by the VVB or verification platform.
   to the VVB or verification platform. This enables the development of continous verification of the project
   and the ability to provide feedback to the developer on the status of the project and the evidence submitted
   before the end of the claim period.
+
+  <div class="issue">Should be a token?</div>
 
   ### Properties ### {#dt-ecological-claim-checkpoint-properties}
 
@@ -876,11 +928,26 @@ project evidence that is verified by the VVB or verification platform.
       <figcaption>Properties of data type DataExtension</figcaption>
       </figure>
 
-    ## Data Type: <dfn>ProcessedClaim</dfn> ## {#dt-processed-claim}
+    ## Token & Data Type: <dfn>ProcessedClaim</dfn> ## {#dt-processed-claim}
 
     The verification platform or VVB creates a ProcessedClaim at the beginning of verification to track the verification process
     and support continous verification. A ProcessedClaim is paired with an EcologicalClaim and also contains
     a collection of CheckpointResults where results for each checkpoint verified are recorded.
+
+    ### Base Token and Behaviors ### {#dt-processed-claim-base-token}
+
+    The ProcessedClaim has a Non-Fungible base with the following behaviors:
+
+    1. Indivisible (~d): The ProcessedClaim is indivisible, meaning it cannot be divided into multiple EcologicalClaim tokens.
+    2. Non-transferable (~t): The ProcessedClaim is non-transferable, meaning it cannot be transferred to another parent Ecological Project/MBP.
+    3. Delegable (g): The ProcessedClaim can have certain behaviors delegated to another party.
+    4. <dfn>CredibleClaimControl</dfn> (PCC): The ProcessedClaim also has this Behavior-Group with a set of behaviors a bundled and 
+        configured to control the processing of the EcologicalClaim.
+        - Mintable (m): The ProcessedClaim can be minted, i.e., created, by the parent ModularBenefitProject.
+        - Roles (r): The ProcessedClaim can have roles assigned to it, i.e., the Issuing Registry. that has the ability to burn or retire the claim after a credit has been issued.
+        - Burnable (b): The ProcessedClaim can be burned, i.e., retired, by the VVB or Verifier.
+
+    It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,CCC</i>}]
 
     ### Properties ### {#dt-processed-claim-properties}
 
@@ -950,6 +1017,8 @@ project evidence that is verified by the VVB or verification platform.
     The CheckpointResult enables continous verification of the project and the ability to provide feedback to the developer
     during the verification process.
 
+    <div class="issue">Should be a token?</div>
+
     ### Properties ### {#dt-checkpoint-results-properties}
 
     <figure id="checkpoint-result-properties-table" dfn-type="element-attr" dfn-for="CheckpointResult">
@@ -995,7 +1064,7 @@ project evidence that is verified by the VVB or verification platform.
     <figcaption>Properties of data type CheckpointResult</figcaption>
     </figure>
 
-  ## Data Type: <dfn>VerificationContract</dfn> ## {#dt-verification-contract}
+  ## Contract & Data Type: <dfn>VerificationContract</dfn> ## {#dt-verification-contract}
   
   A VerificationContract is a contract between a developer, verifier and registry that defines the 
   terms of the verification process. Shared properties of all the data entities in the validation and verification
@@ -1074,7 +1143,7 @@ project evidence that is verified by the VVB or verification platform.
     <figcaption>Properties of data type VerificationContract</figcaption>
     </figure>
 
-  ## Data Type: <dfn>CRU</dfn> ## {#dt-cru}
+  ## Token & Data Type: <dfn>CRU</dfn> ## {#dt-cru}
 
   The Carbon Removal or Reduction Unit, is a digital asset or token that services as a credit
   representing a quantity of CO2e. This is a non-financial, un-regulated, intangible digital asset that behavies
@@ -1085,6 +1154,22 @@ project evidence that is verified by the VVB or verification platform.
 
   Other types of credits can be created, and reuse all of the other data entities for the generic
   validation and verification process.
+
+  ### Base Token and Behaviors ### {#dt-cru-base-token}
+
+    The CRU has a Non-Fungible base with the following behaviors:
+
+    1. Divisible (d): The CRU can be divided into multiple CRU tokens, up to 4 decimal places.
+    2. Transferable (t): The CRU can be transferred from one party to another.
+    3. Encumberable (e): The CRU can be encumbered by a third party, typically by a listing agent for distribution.
+    4. <dfn>Revokable</dfn> (v): The CRU can be revoked by the issuer, typically if the credit is found to be invalid, i.e., a carbon reversal event.
+    5. Delegable (g): The CRU can be delegated to a third party, typically by a listing agent in distribution scenarios.
+    6. <dfn>Offsetable Supply Control</dfn> (OSC): The CRU has a Behavior-Group for offseting and supply control with the following behaviors:
+        - Mintable (m): The CRU can be minted by the issuer.
+        - Roles (r): The CRU has a role for the issuer to be able to mint/issue and approve retirements.
+        - Burnable (b): The CRU can be burned or retired by the owner, or by delegation, but requires approval by the issuer and optionaly can include other metadata like reporting period and jurisdiction.
+
+    It's TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,e,v,g,</i>}]
 
   ### Properties ### {#dt-cru-properties}
 
