@@ -844,7 +844,7 @@ TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}]
             <td>String
             <td>O
             <td>The source attestation or signature for the file. 
-              <div class="issue" data-number="3">Replace with Attestation object?</div>
+              <div class="issue">Replace with Attestation object?</div>
           <tr>
             <td>dataExtensions : [=DataExtension=]
             <td>Array of DataExtension
@@ -1712,7 +1712,7 @@ Details about a credit's Paris Agreement Compliance.
           <td>String
           <td>M
           <td>The digital signature of the signatory.
-          <div class="issue" data-number="2">Should be replaced with attestation?</div>
+          <div class="issue">Should be replaced with attestation?</div>
       </table>
     <figcaption>Properties of data type Signatory</figcaption>
     </figure>
