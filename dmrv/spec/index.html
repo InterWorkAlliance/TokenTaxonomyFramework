@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="0177318b8fa67aab965d19a8485be9f23e4b3893" name="document-revision">
+  <meta content="a60d13991c3d55262919a39be721175e57a731db" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -3636,6 +3636,11 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
+      <tr>
+       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-attatchedassetid"><code>attatchedAssetId</code><a class="self-link" href="#element-attrdef-cru-attatchedassetid"></a></dfn>s : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
+       <td>Array of String 
+       <td>O 
+       <td>The ids for any other assets that are attatched or bundled with this asset, like one issued to another ModularBenefitProject, i.e., a co-benefit with its own lifecycle/claims process and methodology. 
     </table>
     <figcaption>Properties of data type CRU</figcaption>
    </figure>
@@ -3652,7 +3657,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
@@ -3831,7 +3836,9 @@ configured to control the processing of the EcologicalClaim.</p>
        <td><dfn data-dfn-for="Co-Benefit" data-dfn-type="element-attr" data-export id="element-attrdef-co-benefit-rating"><code>rating</code><a class="self-link" href="#element-attrdef-co-benefit-rating"></a></dfn> : 
        <td>Number 
        <td>M 
-       <td>A rating of the co-benefit. 
+       <td>
+        A rating of the co-benefit. 
+        <div class="issue" id="issue-b30a0b29">Rationalize this and sync with CAD Trust’s ratings data type.</div>
     </table>
     <figcaption>Properties of data type Co-Benefit</figcaption>
    </figure>
@@ -4030,7 +4037,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
@@ -6790,6 +6797,7 @@ public licenses.</p>
     </ul>
    <li><a href="#dom-month-april">April</a><span>, in § 3.58</span>
    <li><a href="#element-attrdef-modularbenefitproject-arbid">arbId</a><span>, in § 3.3.2</span>
+   <li><a href="#element-attrdef-cru-attatchedassetid">attatchedAssetId</a><span>, in § 3.17.2</span>
    <li>
     Audits
     <ul>
@@ -7278,6 +7286,7 @@ public licenses.</p>
    <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd②" title="Jump to section">↵</a></div>
    <div class="issue">Replace with Attestation object? <a class="issue-return" href="#issue-7f0ee729" title="Jump to section">↵</a></div>
    <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd③" title="Jump to section">↵</a></div>
+   <div class="issue">Rationalize this and sync with CAD Trust’s ratings data type. <a class="issue-return" href="#issue-b30a0b29" title="Jump to section">↵</a></div>
    <div class="issue">Should be replaced with attestation? <a class="issue-return" href="#issue-8ffa6309" title="Jump to section">↵</a></div>
   </div>
   <aside aria-labelledby="infopaneltitle-for-ecologicalproject" class="dfn-panel" data-for="ecologicalproject" id="infopanel-for-ecologicalproject">
@@ -7724,9 +7733,9 @@ public licenses.</p>
     <li><a href="#ref-for-id①②">3.10.1. Properties</a> <a href="#ref-for-id①③">(2)</a> <a href="#ref-for-id①④">(3)</a>
     <li><a href="#ref-for-id①⑤">3.11.1. Properties</a>
     <li><a href="#ref-for-id①⑥">3.16.1. Properties</a> <a href="#ref-for-id①⑦">(2)</a>
-    <li><a href="#ref-for-id①⑧">3.17.2. Properties</a> <a href="#ref-for-id①⑨">(2)</a> <a href="#ref-for-id②⓪">(3)</a> <a href="#ref-for-id②①">(4)</a> <a href="#ref-for-id②②">(5)</a>
-    <li><a href="#ref-for-id②③">3.18.1. Properties</a>
-    <li><a href="#ref-for-id②④">3.29.1. Properties</a>
+    <li><a href="#ref-for-id①⑧">3.17.2. Properties</a> <a href="#ref-for-id①⑨">(2)</a> <a href="#ref-for-id②⓪">(3)</a> <a href="#ref-for-id②①">(4)</a> <a href="#ref-for-id②②">(5)</a> <a href="#ref-for-id②③">(6)</a>
+    <li><a href="#ref-for-id②④">3.18.1. Properties</a>
+    <li><a href="#ref-for-id②⑤">3.29.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-iso3166cc" class="dfn-panel" data-for="iso3166cc" id="infopanel-for-iso3166cc">
