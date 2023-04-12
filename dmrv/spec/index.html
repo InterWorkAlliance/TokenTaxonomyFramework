@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="a60d13991c3d55262919a39be721175e57a731db" name="document-revision">
+  <meta content="df19939df7853f15be5487a2d3f96ae5d233d6a4" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-06">6 April 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-12">12 April 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -3109,6 +3109,13 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
+       <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid"><code>projctDeveloperId</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid"></a></dfn> : 
+       <td>String 
+       <td>M 
+       <td>The Id of the project developer that is submitting the checkpoint, must be a developer registered in the <a data-link-type="dfn" href="#modularbenefitproject" id="ref-for-modularbenefitproject②">ModularBenefitProject</a>. 
+              This is used when multiple identities may submit a checkpoint for a claim, for example one party may submit evidence of carbon capture and
+              another may submit evidence of sequestration to support a carbon removal claim. See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
+      <tr>
        <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-efbefore"><code>efBefore</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-efbefore"></a></dfn> : 
        <td>String 
        <td>O 
@@ -3191,7 +3198,12 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
        <td>String 
        <td>M 
-       <td>The Ecological Claim that the SDP is sourced from, the MBP is contained within the Claim Checkpoint. 
+       <td>The Ecological Claim that the SDP is sourced from.  See, <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
+      <tr>
+       <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
+       <td>String 
+       <td>M 
+       <td>The Project Developer that submitted the SDP, See, <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
        <td>created : <a data-link-type="dfn" href="#datepoint" id="ref-for-datepoint">DatePoint</a> 
        <td>DatePoint 
@@ -3238,7 +3250,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A description of the contents of the file. 
       <tr>
-       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
+       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the claim source registered with the ModularBenefitProject that the file is sourced from. 
@@ -3514,12 +3526,12 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
       <tr>
-       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
+       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the corresponding MBP. See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-processedclaimids"><code>processedClaimIds</code><a class="self-link" href="#element-attrdef-verificationcontract-processedclaimids"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
+       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-processedclaimids"><code>processedClaimIds</code><a class="self-link" href="#element-attrdef-verificationcontract-processedclaimids"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
        <td>Array of Strings 
        <td>M 
        <td>The unique identifiers for the corresponding ProcessedClaims. See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
@@ -3575,7 +3587,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the CRU, See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
@@ -3590,7 +3602,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.67 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the CRU, See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
@@ -3622,22 +3634,22 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.27 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
+       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the ESGScorecardReportingPeriodId if supported.  See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-attatchedassetid"><code>attatchedAssetId</code><a class="self-link" href="#element-attrdef-cru-attatchedassetid"></a></dfn>s : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
+       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-attatchedassetid"><code>attatchedAssetId</code><a class="self-link" href="#element-attrdef-cru-attatchedassetid"></a></dfn>s : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
        <td>Array of String 
        <td>O 
        <td>The ids for any other assets that are attatched or bundled with this asset, like one issued to another ModularBenefitProject, i.e., a co-benefit with its own lifecycle/claims process and methodology. 
@@ -3657,7 +3669,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
@@ -4037,7 +4049,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.70 Data Type: Id</a> for details. 
@@ -5239,8 +5251,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-4d370226">
-    <a class="self-link" href="#example-4d370226"></a> CRU Full Lineage: 
+   <div class="example" id="example-17982522">
+    <a class="self-link" href="#example-17982522"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5322,6 +5334,9 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
+  <c- f>"attatchedAssetIds"</c-><c- p>:</c-> <c- p>[</c->
+    <c- u>""</c->
+  <c- p>],</c->
   <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
     <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
@@ -5484,6 +5499,7 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"claimSourceIds"</c-><c- p>:</c-> <c- p>[</c->
             <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c->
           <c- p>],</c->
+          <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
           <c- f>"efBefore"</c-><c- p>:</c-> <c- u>"0"</c-><c- p>,</c->
           <c- f>"efAfter"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
           <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
@@ -5494,8 +5510,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713805</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>590663000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303772</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>258675000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5505,8 +5521,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713805</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>973314000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303772</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>409382000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5523,6 +5539,7 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
               <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
               <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+              <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
@@ -5530,8 +5547,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713805</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979145000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303772</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>411743000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5593,7 +5610,7 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2017"</c-><c- p>,</c->
         <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
         <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
-          <c- u>"developer"</c->
+          <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
         <c- p>],</c->
         <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
           <c- u>"sponsor"</c->
@@ -5693,11 +5710,12 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
-  <c- p>}</c->
+  <c- p>},</c->
+  <c- f>"attatchedAssets"</c-><c- p>:</c-> <c- p>[]</c->
 <c- p>}</c-></pre>
    </div>
-   <div class="example" id="example-455db2e3">
-    <a class="self-link" href="#example-455db2e3"></a> Ecological Project: 
+   <div class="example" id="example-eb9f6873">
+    <a class="self-link" href="#example-eb9f6873"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -5760,7 +5778,7 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2017"</c-><c- p>,</c->
       <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
       <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
-        <c- u>"developer"</c->
+        <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
       <c- p>],</c->
       <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
         <c- u>"sponsor"</c->
@@ -5822,8 +5840,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- p>]</c->
 <c- p>}</c-></pre>
    </div>
-   <div class="example" id="example-b154188d">
-    <a class="self-link" href="#example-b154188d"></a> Modular Benefit Project: 
+   <div class="example" id="example-9a168bfe">
+    <a class="self-link" href="#example-9a168bfe"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -5847,7 +5865,7 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2017"</c-><c- p>,</c->
   <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
   <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
-    <c- u>"developer"</c->
+    <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
   <c- p>],</c->
   <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
     <c- u>"sponsor"</c->
@@ -5905,11 +5923,10 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"ecologicalProject"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
-   <div class="example" id="example-6087497e">
-    <a class="self-link" href="#example-6087497e"></a> Ecological Claim: 
+   <div class="example" id="example-23a5dfdf">
+    <a class="self-link" href="#example-23a5dfdf"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -5935,6 +5952,7 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"claimSourceIds"</c-><c- p>:</c-> <c- p>[</c->
         <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c->
       <c- p>],</c->
+      <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
       <c- f>"efBefore"</c-><c- p>:</c-> <c- u>"0"</c-><c- p>,</c->
       <c- f>"efAfter"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
       <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
@@ -5945,8 +5963,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713919</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>963878000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843312000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5956,8 +5974,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713919</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>963899000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843327000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -5974,6 +5992,7 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
           <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
           <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+          <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
           <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
@@ -5981,8 +6000,8 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680713919</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>963940000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843344000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6024,14 +6043,15 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- kc>null</c->
 <c- p>}</c-></pre>
    </div>
-   <div class="example" id="example-45b87943">
-    <a class="self-link" href="#example-45b87943"></a> Span Data Package: 
+   <div class="example" id="example-f8bb0a59">
+    <a class="self-link" href="#example-f8bb0a59"></a> Span Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
     <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
     <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
     <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+    <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
     <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
@@ -6039,8 +6059,8 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1680714019</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>246433000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303941</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>214290000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6226,8 +6246,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
 <c- p>}</c-></pre>
    </div>
-   <div class="example" id="example-53631678">
-    <a class="self-link" href="#example-53631678"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-b92be113">
+    <a class="self-link" href="#example-b92be113"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6309,7 +6329,11 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
-  <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c->
+  <c- f>"attatchedAssetIds"</c-><c- p>:</c-> <c- p>[</c->
+    <c- u>""</c->
+  <c- p>],</c->
+  <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+  <c- f>"attatchedAssets"</c-><c- p>:</c-> <c- p>[]</c->
 <c- p>}</c-></pre>
    </div>
    <h2 class="heading settled" id="license"><span class="content">Appendix A: License</span><a class="self-link" href="#license"></a></h2>
@@ -7096,6 +7120,7 @@ public licenses.</p>
    <li><a href="#processedclaimcontrol">ProcessedClaimControl</a><span>, in § 3.7.1</span>
    <li><a href="#element-attrdef-ecologicalclaim-processedclaimid">processedClaimId</a><span>, in § 3.7.2</span>
    <li><a href="#element-attrdef-verificationcontract-processedclaimids">processedClaimIds</a><span>, in § 3.16.1</span>
+   <li><a href="#element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid">projctDeveloperId</a><span>, in § 3.8.1</span>
    <li><a href="#element-attrdef-modularbenefitproject-projectid">projectid</a><span>, in § 3.3.2</span>
    <li><a href="#dom-signatoryrole-project_owner">PROJECT_OWNER</a><span>, in § 3.46</span>
    <li><a href="#enumdef-projectscale">ProjectScale</a><span>, in § 3.55</span>
@@ -7306,6 +7331,7 @@ public licenses.</p>
    <ul>
     <li><a href="#ref-for-modularbenefitproject">3. Tokens and their Data Model</a>
     <li><a href="#ref-for-modularbenefitproject①">3.1.2. Properties</a>
+    <li><a href="#ref-for-modularbenefitproject②">3.8.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-validation" class="dfn-panel" data-for="validation" id="infopanel-for-validation">
@@ -7730,12 +7756,12 @@ public licenses.</p>
     <li><a href="#ref-for-id③">3.3.2. Properties</a> <a href="#ref-for-id④">(2)</a> <a href="#ref-for-id⑤">(3)</a> <a href="#ref-for-id⑥">(4)</a>
     <li><a href="#ref-for-id⑦">3.6.1. Properties</a> <a href="#ref-for-id⑧">(2)</a>
     <li><a href="#ref-for-id⑨">3.7.2. Properties</a> <a href="#ref-for-id①⓪">(2)</a> <a href="#ref-for-id①①">(3)</a>
-    <li><a href="#ref-for-id①②">3.10.1. Properties</a> <a href="#ref-for-id①③">(2)</a> <a href="#ref-for-id①④">(3)</a>
-    <li><a href="#ref-for-id①⑤">3.11.1. Properties</a>
-    <li><a href="#ref-for-id①⑥">3.16.1. Properties</a> <a href="#ref-for-id①⑦">(2)</a>
-    <li><a href="#ref-for-id①⑧">3.17.2. Properties</a> <a href="#ref-for-id①⑨">(2)</a> <a href="#ref-for-id②⓪">(3)</a> <a href="#ref-for-id②①">(4)</a> <a href="#ref-for-id②②">(5)</a> <a href="#ref-for-id②③">(6)</a>
-    <li><a href="#ref-for-id②④">3.18.1. Properties</a>
-    <li><a href="#ref-for-id②⑤">3.29.1. Properties</a>
+    <li><a href="#ref-for-id①②">3.10.1. Properties</a> <a href="#ref-for-id①③">(2)</a> <a href="#ref-for-id①④">(3)</a> <a href="#ref-for-id①⑤">(4)</a>
+    <li><a href="#ref-for-id①⑥">3.11.1. Properties</a>
+    <li><a href="#ref-for-id①⑦">3.16.1. Properties</a> <a href="#ref-for-id①⑧">(2)</a>
+    <li><a href="#ref-for-id①⑨">3.17.2. Properties</a> <a href="#ref-for-id②⓪">(2)</a> <a href="#ref-for-id②①">(3)</a> <a href="#ref-for-id②②">(4)</a> <a href="#ref-for-id②③">(5)</a> <a href="#ref-for-id②④">(6)</a>
+    <li><a href="#ref-for-id②⑤">3.18.1. Properties</a>
+    <li><a href="#ref-for-id②⑥">3.29.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-iso3166cc" class="dfn-panel" data-for="iso3166cc" id="infopanel-for-iso3166cc">

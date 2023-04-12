@@ -83,11 +83,12 @@ message EcologicalClaimCheckpoint
     string id = 1; //unique id for the checkpoint
     string claim_id = 2; //the id of the claim that the checkpoint is associated with.
     repeated string claim_source_ids = 3; //list of claim source ids that are associated with the checkpoint.
-    string ef_before = 4; //environmental factor before activity - i.e., total emissions = 3 tCO2e
-    string ef_after = 5; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
-    common.DateRange checkpoint_date_range = 6; //the date range that the checkpoint covers.
-    common.VerifiedLink verified_link_to_checkpoint_data = 7; //a link to the claim span data package that is associated with the checkpoint.
-    SpanDataPackage span_data_package = 8; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+    string project_developer_id = 4; //the id of the project developer that is submitting the checkpoint, must be a developer of the project.
+    string ef_before = 5; //environmental factor before activity - i.e., total emissions = 3 tCO2e
+    string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
+    common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers.
+    common.VerifiedLink verified_link_to_checkpoint_data = 8; //a link to the claim span data package that is associated with the checkpoint.
+    SpanDataPackage span_data_package = 9; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
 }
 
 message EcologicalClaim
@@ -186,7 +187,9 @@ message CRU
     string offset_applied_to_id = 10; //link to ESGScorecardReportingPeriodId
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
-    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token
+    repeated string attatched_asset_ids = 13; //optional, if any other assets from modular benefit projects are attached or bundled with this asset, like a co-benefit that has it's own lifecycle/linage, it's id should be listed.
+    ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
+    repeated google.protobuf.Any attatched_assets = 15; //optional, for object navigation - the asset that is attached to the token, like a co-benefit that has it's own lifecycle/linage.
 }
 
 //Until there is a contract definition, we can define the required propoerties that a verification contract between a Modular Benefit Project, Verifier and Issuing Registry should have.
@@ -271,14 +274,15 @@ message SpanDataPackage{
         string version = 2; //version of the SDP specification
         string mbp_id = 3; //id of the modular benefit project
         string claimId = 4; //id of the claim
-        common.DatePoint created = 5; //date the SDP was created
+        string project_developer_id = 5; //id of the project developer submitting the SDP
+        common.DatePoint created = 6; //date the SDP was created
         message MrvExtension{
             string name = 1; //name of the extension
             string version = 2; //version of the extension
             string description = 3; //description of the extension
             repeated DataExtension data_extensions = 4; //list of data extensions
             }
-        repeated MrvExtension mrv_extensions = 6; //list of MRV extensions
+        repeated MrvExtension mrv_extensions = 7; //list of MRV extensions
         message File{
             string name = 1; //name of the file
             enum FileType
@@ -295,7 +299,7 @@ message SpanDataPackage{
             string claim_source_attestation = 5; //claim source attestation or signature for the file
             repeated DataExtension data_extensions = 6; //data extensions for the file
         }
-        repeated File files = 7; //list of files in the SDP
+        repeated File files = 8; //list of files in the SDP
     }
     Manifest manifest = 1; //manifest of the SDP
 }

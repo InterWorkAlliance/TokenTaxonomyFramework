@@ -23,6 +23,7 @@
       "claimSourceIds": [
         "147e7105-2333-4f5f-847c-6c984e5220dd"
       ],
+      "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
       "efBefore": "0",
       "efAfter": "1.41",
       "checkpointDateRange": {
@@ -33,8 +34,8 @@
             "day": 1
           },
           "timeStamp": {
-            "seconds": 1680713919,
-            "nanos": 963878000
+            "seconds": 1681303820,
+            "nanos": 843312000
           }
         },
         "endDate": {
@@ -44,8 +45,8 @@
             "day": 1
           },
           "timeStamp": {
-            "seconds": 1680713919,
-            "nanos": 963899000
+            "seconds": 1681303820,
+            "nanos": 843327000
           }
         }
       },
@@ -62,6 +63,7 @@
           "version": "1",
           "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
           "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+          "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
           "created": {
             "date": {
               "year": 2021,
@@ -69,8 +71,8 @@
               "day": 18
             },
             "timeStamp": {
-              "seconds": 1680713919,
-              "nanos": 963940000
+              "seconds": 1681303820,
+              "nanos": 843344000
             }
           },
           "mrvExtensions": [

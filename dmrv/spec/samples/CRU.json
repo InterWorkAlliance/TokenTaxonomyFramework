@@ -79,5 +79,9 @@
   "offsetAppliedToId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
-  "processedClaim": null
+  "attatchedAssetIds": [
+    ""
+  ],
+  "processedClaim": null,
+  "attatchedAssets": []
 }

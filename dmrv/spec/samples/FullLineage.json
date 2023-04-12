@@ -79,6 +79,9 @@
   "offsetAppliedToId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
+  "attatchedAssetIds": [
+    ""
+  ],
   "processedClaim": {
     "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
     "verificationContractId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
@@ -241,6 +244,7 @@
           "claimSourceIds": [
             "147e7105-2333-4f5f-847c-6c984e5220dd"
           ],
+          "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
           "efBefore": "0",
           "efAfter": "1.41",
           "checkpointDateRange": {
@@ -251,8 +255,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1680713805,
-                "nanos": 590663000
+                "seconds": 1681303772,
+                "nanos": 258675000
               }
             },
             "endDate": {
@@ -262,8 +266,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1680713805,
-                "nanos": 973314000
+                "seconds": 1681303772,
+                "nanos": 409382000
               }
             }
           },
@@ -280,6 +284,7 @@
               "version": "1",
               "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
               "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+              "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
                   "year": 2021,
@@ -287,8 +292,8 @@
                   "day": 18
                 },
                 "timeStamp": {
-                  "seconds": 1680713805,
-                  "nanos": 979145000
+                  "seconds": 1681303772,
+                  "nanos": 411743000
                 }
               },
               "mrvExtensions": [
@@ -350,7 +355,7 @@
         "firstYearIssuance": "2017",
         "registryProjectId": "vef-1321-99da-1",
         "developers": [
-          "developer"
+          "9c6e926f-9603-45de-9933-8af01ac45f31"
         ],
         "sponsors": [
           "sponsor"
@@ -450,5 +455,6 @@
       }
     },
     "asset": null
-  }
+  },
+  "attatchedAssets": []
 }
