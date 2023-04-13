@@ -18,7 +18,6 @@
     "owner"
   ],
   "country": "BR",
-  "projectScale": "Medium",
   "region": "SouthAmerica",
   "informationLink": {
     "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
@@ -43,9 +42,10 @@
       "name": "Forest Plot 3341",
       "classificationCategory": "CarbonRemoval",
       "classificationMethod": "Natural",
-      "ecologicalBenefitCategory": "ClimateAction",
+      "benefitCategory": "ClimateAction",
       "projectScope": "CarbonCaptureAndStorage",
       "projectType": "CarbonCaptureAndEnhancedOilRecovery",
+      "projectScale": "Medium",
       "arbId": "",
       "geographicLocation": {
         "gnss": {

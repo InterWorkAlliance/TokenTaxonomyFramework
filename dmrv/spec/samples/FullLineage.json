@@ -255,8 +255,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681303772,
-                "nanos": 258675000
+                "seconds": 1681418479,
+                "nanos": 82843000
               }
             },
             "endDate": {
@@ -266,8 +266,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681303772,
-                "nanos": 409382000
+                "seconds": 1681418479,
+                "nanos": 160913000
               }
             }
           },
@@ -292,8 +292,8 @@
                   "day": 18
                 },
                 "timeStamp": {
-                  "seconds": 1681303772,
-                  "nanos": 411743000
+                  "seconds": 1681418479,
+                  "nanos": 162632000
                 }
               },
               "mrvExtensions": [
@@ -338,9 +338,10 @@
         "name": "Forest Plot 3341",
         "classificationCategory": "CarbonRemoval",
         "classificationMethod": "Natural",
-        "ecologicalBenefitCategory": "ClimateAction",
+        "benefitCategory": "ClimateAction",
         "projectScope": "CarbonCaptureAndStorage",
         "projectType": "CarbonCaptureAndEnhancedOilRecovery",
+        "projectScale": "Medium",
         "arbId": "",
         "geographicLocation": {
           "gnss": {
@@ -432,7 +433,6 @@
             "owner"
           ],
           "country": "BR",
-          "projectScale": "Medium",
           "region": "SouthAmerica",
           "informationLink": {
             "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",

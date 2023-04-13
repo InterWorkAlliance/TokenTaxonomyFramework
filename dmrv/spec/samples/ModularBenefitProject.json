@@ -4,9 +4,10 @@
   "name": "Forest Plot 3341",
   "classificationCategory": "CarbonRemoval",
   "classificationMethod": "Natural",
-  "ecologicalBenefitCategory": "ClimateAction",
+  "benefitCategory": "ClimateAction",
   "projectScope": "CarbonCaptureAndStorage",
   "projectType": "CarbonCaptureAndEnhancedOilRecovery",
+  "projectScale": "Medium",
   "arbId": "",
   "geographicLocation": {
     "gnss": {

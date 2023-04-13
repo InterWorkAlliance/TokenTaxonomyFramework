@@ -14,11 +14,10 @@ message EcologicalProject{
     repeated common.Address addresses = 4; //list of addresses associated with the project
     repeated string owners = 5; //list of owners of the project
     common.GeographicCountry country = 6;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
-    common.ProjectScale project_scale = 7; //size of the project, small, medium, large
-    common.Region region = 8; //region of the project
-    common.VerifiedLink information_link = 9; //Link to information about the project
-    repeated common.VerifiedLink media_links = 10; //Links to media that can be used for promotional materials about the project
-    repeated ModularBenefitProject modular_benefit_projects = 11; //list of modular benefit projects
+    common.Region region = 7; //region of the project
+    common.VerifiedLink information_link = 8; //Link to information about the project
+    repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the project
+    repeated ModularBenefitProject modular_benefit_projects = 10; //list of modular benefit projects
 }
 
 message ModularBenefitProject {
@@ -27,17 +26,18 @@ message ModularBenefitProject {
     string name = 3; //descriptive name for the project
     common.ClassificationCategory classification_category = 4; //classification category for the project
     common.Method classification_method = 5; //classification method for the project
-    common.EcologicalBenefitCategory ecological_benefit_category = 6; //ecological benefit category for the project
+    common.BenefitCategory benefit_category = 6; //ecological benefit category for the project
     common.ProjectScope project_scope = 7; //scope of the project
     common.ProjectType project_type = 8; //type of the project
-    string arb_id = 9; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
-    common.GeographicLocation geographic_location = 10; //geographic location of the project
-    string first_year_issuance = 11; //first year of issuance, historical if an established project
-    string registry_project_id = 12; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to MBP and assign unique identifiers to projects.
-    repeated string developers = 13; //list of developers of the project
-    repeated string sponsors = 14; //list of sponsors of the project, i.e., financial backers
-    repeated ClaimSource claim_sources = 15; //a list of claim sources that can be used for claims from this Modular Benefit Project.
-    repeated EcologicalClaim ecological_claims  = 16; //list of ecological claims for the project
+    common.ProjectScale project_scale = 9; //size of the project, small, medium, large
+    string arb_id = 10; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
+    common.GeographicLocation geographic_location = 11; //geographic location of the project
+    string first_year_issuance = 12; //first year of issuance, historical if an established project
+    string registry_project_id = 13; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to MBP and assign unique identifiers to projects.
+    repeated string developers = 14; //list of developers of the project
+    repeated string sponsors = 15; //list of sponsors of the project, i.e., financial backers
+    repeated ClaimSource claim_sources = 16; //a list of claim sources that can be used for claims from this Modular Benefit Project.
+    repeated EcologicalClaim ecological_claims  = 17; //list of ecological claims for the project
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -58,8 +58,8 @@ message ModularBenefitProject {
         common.Date validation_expiration_date = 4; //expiration date of the validation
         repeated ValidationStep validation_steps = 5; //collection of validation steps
     }
-    repeated Validation validations = 17; //in DRAFT, a collection of Validation workflow steps for a project
-    EcologicalProject ecological_project = 18; //optional, for object navigation, the parent ecological project
+    repeated Validation validations = 18; //in DRAFT, a collection of Validation workflow steps for a project
+    EcologicalProject ecological_project = 19; //optional, for object navigation, the parent ecological project
 }
 
 message ClaimSource
