@@ -330,6 +330,29 @@
         },
         "additionalProperties": false
       },
+      "BenefitCategory": {
+        "enum": [
+          "NoCategory",
+          "NoPoverty",
+          "ZeroHunger",
+          "GoodHealthAndWellBeing",
+          "QualityEducation",
+          "GenderEquality",
+          "CleanWaterAndSanitation",
+          "AffordableAndCleanEnergy",
+          "DecentWorkAndEconomicGrowth",
+          "IndustryInnovationAndInfrastructure",
+          "ReducedInequalities",
+          "SustainableCitiesAndCommunities",
+          "ResponsibleConsumptionAndProduction",
+          "ClimateAction",
+          "LifeBelowWater",
+          "LifeOnLand",
+          "PeaceJusticeAndStrongInstitutions",
+          "PartnershipsForTheGoals"
+        ],
+        "type": "string"
+      },
       "CRU": {
         "type": "object",
         "properties": {
@@ -519,7 +542,7 @@
         "type": "object",
         "properties": {
           "coBenefit_": {
-            "$ref": "#/components/schemas/EcologicalBenefitCategory"
+            "$ref": "#/components/schemas/BenefitCategory"
           },
           "description": {
             "type": "string",
@@ -697,29 +720,6 @@
         ],
         "type": "string"
       },
-      "EcologicalBenefitCategory": {
-        "enum": [
-          "NoCategory",
-          "NoPoverty",
-          "ZeroHunger",
-          "GoodHealthAndWellBeing",
-          "QualityEducation",
-          "GenderEquality",
-          "CleanWaterAndSanitation",
-          "AffordableAndCleanEnergy",
-          "DecentWorkAndEconomicGrowth",
-          "IndustryInnovationAndInfrastructure",
-          "ReducedInequalities",
-          "SustainableCitiesAndCommunities",
-          "ResponsibleConsumptionAndProduction",
-          "ClimateAction",
-          "LifeBelowWater",
-          "LifeOnLand",
-          "PeaceJusticeAndStrongInstitutions",
-          "PartnershipsForTheGoals"
-        ],
-        "type": "string"
-      },
       "EcologicalClaim": {
         "type": "object",
         "properties": {
@@ -840,9 +840,6 @@
           },
           "country": {
             "$ref": "#/components/schemas/GeographicCountry"
-          },
-          "projectScale": {
-            "$ref": "#/components/schemas/ProjectScale"
           },
           "region": {
             "$ref": "#/components/schemas/Region"
@@ -1343,14 +1340,17 @@
           "classificationMethod": {
             "$ref": "#/components/schemas/Method"
           },
-          "ecologicalBenefitCategory": {
-            "$ref": "#/components/schemas/EcologicalBenefitCategory"
+          "benefitCategory": {
+            "$ref": "#/components/schemas/BenefitCategory"
           },
           "projectScope": {
             "$ref": "#/components/schemas/ProjectScope"
           },
           "projectType": {
             "$ref": "#/components/schemas/ProjectType"
+          },
+          "projectScale": {
+            "$ref": "#/components/schemas/ProjectScale"
           },
           "arbId": {
             "type": "string",
