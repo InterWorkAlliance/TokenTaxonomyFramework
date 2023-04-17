@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="7bdf6e184b39797f959a78f03af2f29279547137" name="document-revision">
+  <meta content="ac57387d572a3b4994ef7132fdfbcd95658e1ccf" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-13">13 April 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-17">17 April 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2485,6 +2485,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <ol class="toc">
       <li><a href="#changelog-2.5.1-20230412"><span class="secno"></span> <span class="content">Version 2.5.1-20230412 (April 12, 2023)</span></a>
       <li><a href="#changelog-2.5.0-20230413"><span class="secno"></span> <span class="content">Version 2.5.0-20230413 (April 13, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230417"><span class="secno"></span> <span class="content">Version 2.4.0-20230417 (April 17, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2997,10 +2998,10 @@ a sensor or meter, an application that collects user data or reference data like
        <td>M 
        <td>String representing the source type can include sensor, meter, application, reference, etc.  See <a href="#dt-claim-source-type">§ 3.51 Data Type: ClaimSourceType</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-quantity"><code>quantity</code><a class="self-link" href="#element-attrdef-claimsource-quantity"></a></dfn> : 
-       <td>Decimal 
+       <td><dfn data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-unitofmeasure"><code>unitOfMeasure</code><a class="self-link" href="#element-attrdef-claimsource-unitofmeasure"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit">Unit</a></code> 
+       <td>String 
        <td>M 
-       <td>The estimated benefit quantity. 
+       <td>The string representation for unit of measure, see <a href="#dt-unit">§ 3.68 Data Type: Unit</a> for details. 
       <tr>
        <td><dfn data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-sourceidentifier"><code>sourceIdentifier</code><a class="self-link" href="#element-attrdef-claimsource-sourceidentifier"></a></dfn> : 
        <td>string 
@@ -3065,7 +3066,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>The unique identifier for the corrisponding processed claim that the verification platform uses to track the verification process and results of a claim. See <a href="#dt-id">§ 3.71 Data Type: Id</a> for details.
             The value can be null until a processed claim is created. 
       <tr>
-       <td><dfn data-dfn-for="EcologicalClaim" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaim-unit"><code>unit</code><a class="self-link" href="#element-attrdef-ecologicalclaim-unit"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit">Unit</a></code> 
+       <td><dfn data-dfn-for="EcologicalClaim" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaim-unit"><code>unit</code><a class="self-link" href="#element-attrdef-ecologicalclaim-unit"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit①">Unit</a></code> 
        <td>String 
        <td>M 
        <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.68 Data Type: Unit</a> for further information. 
@@ -3405,7 +3406,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>The unique identifier for the credit, once issued, associated with the ProcessedClaim, See <a href="#dt-id">§ 3.71 Data Type: Id</a> for details. 
       <tr>
-       <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit①">Unit</a></code> 
+       <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit②">Unit</a></code> 
        <td>String 
        <td>M 
        <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.68 Data Type: Unit</a> for further information. 
@@ -3610,7 +3611,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A quantity that is fractional to represent up to 8 decimal places, use a string or decimal for the quantity. 
       <tr>
-       <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit②">Unit</a></code> 
+       <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit③">Unit</a></code> 
        <td>String 
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.68 Data Type: Unit</a> for details. 
@@ -5225,7 +5226,7 @@ This list will be expanded to include other categories, like biodiversity, in th
      <p>for tonne of N2O</p>
    </dl>
    <h4 class="heading settled" data-level="3.68.1" id="dt-unit-json"><span class="secno">3.68.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-unit-json"></a></h4>
-   <p>The value of each <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit③">Unit</a></code> MUST be encoded as a JSON String.</p>
+   <p>The value of each <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit④">Unit</a></code> MUST be encoded as a JSON String.</p>
    <h3 class="heading settled" data-level="3.69" id="dt-decimal"><span class="secno">3.69. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="decimal">Decimal</dfn></span><a class="self-link" href="#dt-decimal"></a></h3>
    <p>A dotted-decimal number.</p>
    <p>Example values:</p>
@@ -5266,8 +5267,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-77fbaa41">
-    <a class="self-link" href="#example-77fbaa41"></a> CRU Full Lineage: 
+   <div class="example" id="example-cf30796c">
+    <a class="self-link" href="#example-cf30796c"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5525,8 +5526,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681418479</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>82843000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741407</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>993104000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5536,8 +5537,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681418479</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>160913000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741408</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>98365000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5562,8 +5563,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681418479</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>162632000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741408</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>100531000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5638,6 +5639,7 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
             <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
             <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+            <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
           <c- p>}</c->
         <c- p>],</c->
@@ -5730,8 +5732,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
-   <div class="example" id="example-4723bded">
-    <a class="self-link" href="#example-4723bded"></a> Ecological Project: 
+   <div class="example" id="example-e78c865e">
+    <a class="self-link" href="#example-e78c865e"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -5806,6 +5808,7 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
           <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+          <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
           <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
         <c- p>}</c->
       <c- p>],</c->
@@ -5857,8 +5860,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-fde2e0ea">
-    <a class="self-link" href="#example-fde2e0ea"></a> Modular Benefit Project: 
+   <div class="example" id="example-f6c271f9">
+    <a class="self-link" href="#example-f6c271f9"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -5895,6 +5898,7 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
       <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
       <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+      <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
       <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
     <c- p>}</c->
   <c- p>],</c->
@@ -5944,8 +5948,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-ecological-claim"><span class="secno">4.4. </span><span class="content">Example Ecological Claim</span><a class="self-link" href="#example-ecological-claim"></a></h3>
-   <div class="example" id="example-23a5dfdf">
-    <a class="self-link" href="#example-23a5dfdf"></a> Ecological Claim: 
+   <div class="example" id="example-bf789595">
+    <a class="self-link" href="#example-bf789595"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -5982,8 +5986,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843312000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107181000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5993,8 +5997,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843327000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107206000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -6019,8 +6023,8 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303820</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>843344000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107233000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6060,7 +6064,8 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
    </div>
    <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
    <div class="example" id="example-f8bb0a59">
@@ -6708,6 +6713,11 @@ public licenses.</p>
     <li data-md>
      <p>Moved ProjectScale from EcologicalProject to ModularBenefitProject, see <a href="#dt-ecological-project">§ 3.2 Token &amp; Data Type: EcologicalProject</a> and <a href="#dt-modular-benefit-project">§ 3.4 Data Type: ModularBenefitProject</a> for details.</p>
    </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230417"><span class="content">Version 2.4.0-20230417 (April 17, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230417"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Changed (=ClaimSource=) property <code>quality</code> to <code>unitOfMeasure</code>, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+   </ul>
   </main>
 <script>
 (function() {
@@ -7177,7 +7187,6 @@ public licenses.</p>
    <li><a href="#quality-standard">Quality Standard</a><span>, in § 2</span>
    <li><a href="#qualitystandard">QualityStandard</a><span>, in § 3.35</span>
    <li><a href="#element-attrdef-verificationcontract-qualitystandard">qualityStandard</a><span>, in § 3.17.1</span>
-   <li><a href="#element-attrdef-claimsource-quantity">quantity</a><span>, in § 3.7.1</span>
    <li><a href="#dom-claimperiod-quarterly">QUARTERLY</a><span>, in § 3.55</span>
    <li><a href="#dom-auditschedule-quinquennial">QUINQUENNIAL</a><span>, in § 3.60</span>
    <li><a href="#element-attrdef-co-benefit-rating">rating</a><span>, in § 3.23.1</span>
@@ -7266,6 +7275,7 @@ public licenses.</p>
    <li><a href="#dom-classificationcategory-undefined">UNDEFINED</a><span>, in § 3.48</span>
    <li><a href="#enumdef-unit">Unit</a><span>, in § 3.68</span>
    <li><a href="#element-attrdef-ecologicalclaim-unit">unit</a><span>, in § 3.8.2</span>
+   <li><a href="#element-attrdef-claimsource-unitofmeasure">unitOfMeasure</a><span>, in § 3.7.1</span>
    <li><a href="#dom-projecttype-university_campus_emission_reductions">UNIVERSITY_CAMPUS_EMISSION_REDUCTIONS</a><span>, in § 3.63</span>
    <li><a href="#element-attrdef-co-benefit-un-sdg">un-sdg</a><span>, in § 3.23.1</span>
    <li><a href="#enumdef-un-sdgs">UN-SDGs</a><span>, in § 3.61</span>
@@ -7771,10 +7781,11 @@ public licenses.</p>
   <aside aria-labelledby="infopaneltitle-for-enumdef-unit" class="dfn-panel" data-for="enumdef-unit" id="infopanel-for-enumdef-unit">
    <span id="infopaneltitle-for-enumdef-unit" style="display:none">Info about the 'Unit' definition.</span><b><a href="#enumdef-unit">#enumdef-unit</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-enumdef-unit">3.8.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit①">3.15.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit②">3.18.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit③">3.68.1. JSON Representation</a>
+    <li><a href="#ref-for-enumdef-unit">3.7.1. Properties</a>
+    <li><a href="#ref-for-enumdef-unit①">3.8.2. Properties</a>
+    <li><a href="#ref-for-enumdef-unit②">3.15.2. Properties</a>
+    <li><a href="#ref-for-enumdef-unit③">3.18.2. Properties</a>
+    <li><a href="#ref-for-enumdef-unit④">3.68.1. JSON Representation</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-decimal" class="dfn-panel" data-for="decimal" id="infopanel-for-decimal">

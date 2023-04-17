@@ -255,8 +255,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681418479,
-                "nanos": 82843000
+                "seconds": 1681741407,
+                "nanos": 993104000
               }
             },
             "endDate": {
@@ -266,8 +266,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681418479,
-                "nanos": 160913000
+                "seconds": 1681741408,
+                "nanos": 98365000
               }
             }
           },
@@ -292,8 +292,8 @@
                   "day": 18
                 },
                 "timeStamp": {
-                  "seconds": 1681418479,
-                  "nanos": 162632000
+                  "seconds": 1681741408,
+                  "nanos": 100531000
                 }
               },
               "mrvExtensions": [
@@ -368,6 +368,7 @@
             "name": "Soil Sensor Device",
             "description": "Located in forest area e2",
             "sourceType": "SensorDevice",
+            "unitOfMeasure": "TonneCo2E",
             "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
           }
         ],

@@ -72,6 +72,7 @@
           "name": "Soil Sensor Device",
           "description": "Located in forest area e2",
           "sourceType": "SensorDevice",
+          "unitOfMeasure": "TonneCo2E",
           "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
         }
       ],
