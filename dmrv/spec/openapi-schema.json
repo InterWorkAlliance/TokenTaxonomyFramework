@@ -495,6 +495,9 @@
           "sourceType": {
             "$ref": "#/components/schemas/ClaimSourceType"
           },
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/Unit"
+          },
           "sourceIdentifier": {
             "type": "string",
             "nullable": true
