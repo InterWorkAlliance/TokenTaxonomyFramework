@@ -158,6 +158,7 @@ message Replacement{
     string notes = 3; //notes on why the replacement or adjustment is needed
 }
 
+//The Carbon Removal or Reduction Unit (CRU) token is a token that represents a claim of a carbon removal or reduction.  It is a generic token that can be used for any type of carbon removal or reduction claim.  It is not a part of the certification process, but is used to represent the claim of a carbon removal or reduction.
 message CRU
 {
     string id = 1; //unique id for the token
@@ -185,12 +186,38 @@ message CRU
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
     ReferencedCredit referenced_credit = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string offset_applied_to_id = 10; //link to ESGScorecardReportingPeriodId
+    string offset_applied_to_id = 10; //optional link to external reporting system for the reporting period that the offset was applied to.
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
     repeated string attatched_asset_ids = 13; //optional, if any other assets from modular benefit projects are attached or bundled with this asset, like a co-benefit that has it's own lifecycle/linage, it's id should be listed.
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
     repeated google.protobuf.Any attatched_assets = 15; //optional, for object navigation - the asset that is attached to the token, like a co-benefit that has it's own lifecycle/linage.
+}
+
+message REC
+{
+    string id = 1; //unique id for the token
+    enum REC_Type{
+        I_REC = 0; //International REC
+        US_REC = 1; //United States REC
+        US_S_REC = 2; //United States Solar REC
+        RECS = 3; //EU RECs
+    }
+    REC_Type rec_type = 2; //the type of REC
+    string quantity = 3; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
+    common.Unit unit = 4; //unit of measure for the quantity
+    string owner_id = 5; //the unique id of the owner of the token         
+    string listing_agent_id = 6; //AuthorizedId
+    repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
+    common.Status status = 8; //the status of the token
+    message ReferencedRec{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+        string id = 1; //the id of the referenced credit, this can be a serial number or a master id
+    }
+    ReferencedRec referenced_rec = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+    string offset_applied_to_id = 10; //optional link to external reporting system for the reporting period that the offset was applied to.
+    string processed_claim_id = 11; //link to the processed claim id
+    string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
+    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token
 }
 
 //Until there is a contract definition, we can define the required propoerties that a verification contract between a Modular Benefit Project, Verifier and Issuing Registry should have.

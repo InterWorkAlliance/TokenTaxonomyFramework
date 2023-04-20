@@ -236,6 +236,35 @@
           }
         }
       }
+    },
+    "/Dmrv/getRec": {
+      "get": {
+        "tags": [
+          "Dmrv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/REC"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/REC"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/REC"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1680,7 +1709,83 @@
         },
         "additionalProperties": false
       },
+      "REC": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "recType": {
+            "$ref": "#/components/schemas/REC_Type"
+          },
+          "quantity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "ownerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "listingAgentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "climateLabels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClimateLabel"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "referencedRec": {
+            "$ref": "#/components/schemas/ReferencedRec"
+          },
+          "offsetAppliedToId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaim": {
+            "$ref": "#/components/schemas/ProcessedClaim"
+          }
+        },
+        "additionalProperties": false
+      },
+      "REC_Type": {
+        "enum": [
+          "IRec",
+          "UsRec",
+          "UsSRec",
+          "Recs"
+        ],
+        "type": "string"
+      },
       "ReferencedCredit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReferencedRec": {
         "type": "object",
         "properties": {
           "id": {
@@ -1889,7 +1994,8 @@
           "Liter",
           "Kilogram",
           "CubicMeter",
-          "KilowattHour",
+          "Kilowatt",
+          "Megawatt",
           "Megajuole",
           "Kilometer",
           "SquareMeter",

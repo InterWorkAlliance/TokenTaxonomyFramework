@@ -102,7 +102,7 @@ enum ClassificationCategory{
 }
 
 //not complete based on UN SDGs
-enum EcologicalBenefitCategory {
+enum BenefitCategory {
     NO_CATEGORY = 0;
     NO_POVERTY = 1;
     ZERO_HUNGER = 2;
@@ -226,7 +226,7 @@ message GeographicLocation{
 }
 
 message CoBenefit {
-    EcologicalBenefitCategory co_benefit = 1; //high-level categories
+    BenefitCategory co_benefit = 1; //high-level categories
     string description = 2; //description of the co-benefit that is not captured via the category
     int32 rating_score = 3;  //placeholder for some kind of rating or scoring of the relative co-benefit
 }
@@ -334,11 +334,12 @@ enum Unit{
     LITER = 100;
     KILOGRAM = 101;
     CUBIC_METER = 102;
-    KILOWATT_HOUR = 103;
-    MEGAJUOLE = 104;
-    KILOMETER = 105;
-    SQUARE_METER = 106;
-    TONNE = 107;
+    KILOWATT = 103;
+    MEGAWATT = 104;
+    MEGAJUOLE = 105;
+    KILOMETER = 106;
+    SQUARE_METER = 107;
+    TONNE = 108;
 }
 
 enum Status{

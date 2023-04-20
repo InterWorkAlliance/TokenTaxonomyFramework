@@ -1,0 +1,23 @@
+{
+    "id": "16e029bb-8258-4721-b3ab-3d4493425151",
+    "recType": "IRec",
+    "quantity": "1.3121",
+    "unit": "Megawatt",
+    "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
+    "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
+    "climateLabels": [
+      {
+        "id": "91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c",
+        "name": "Climate Neutral",
+        "description": "Climate Neutral - environmentally friendly, climate positive"
+      }
+    ],
+    "status": "Active",
+    "referencedRec": {
+      "id": ""
+    },
+    "offsetAppliedToId": "",
+    "processedClaimId": "45a85f6e-472d-46cf-87b6-73d3a34b4020",
+    "issuerId": "c2862fe4-c97d-4494-afd0-b6c8d7efccd9",
+    "processedClaim": null
+  }
