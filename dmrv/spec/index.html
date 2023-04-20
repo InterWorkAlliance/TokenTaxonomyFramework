@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="1323fcbb0dad5091ee92220a87af3df5a31417c9" name="document-revision">
+  <meta content="3dda8d5ddc0e6306ef2386759115cc48d5b9f9f8" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2769,7 +2769,6 @@ the highlights of properties within the data types and does not include the full
    <h3 class="heading settled" data-level="3.4" id="dt-modular-benefit-project"><span class="secno">3.4. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="modularbenefitproject">ModularBenefitProject</dfn></span><a class="self-link" href="#dt-modular-benefit-project"></a></h3>
    <p>A ModularBenefitProject represents the actual project work that will generate benefits.
 It is bound to to Quality Standard and is where claims are issued from.</p>
-   <div class="issue" id="issue-52c68efd"><a class="self-link" href="#issue-52c68efd"></a>Should be a token?</div>
    <h4 class="heading settled" data-level="3.4.1" id="dt-modular-benefit-project-scope"><span class="secno">3.4.1. </span><span class="content">Scope of a ModularBenefitProject</span><a class="self-link" href="#dt-modular-benefit-project-scope"></a></h4>
    <p>Each ModularBenefitProject is scoped:</p>
    <ol>
@@ -2977,7 +2976,6 @@ each step can generate its own artifact like a Project Design Document.</p>
    <h3 class="heading settled" data-level="3.7" id="dt-claim-source"><span class="secno">3.7. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="claimsource">ClaimSource</dfn></span><a class="self-link" href="#dt-claim-source"></a></h3>
    <p>A ClaimSource is a registered source of evidence data to support a claim. A claim source can be a device like
 a sensor or meter, an application that collects user data or reference data like satellite imagery.</p>
-   <div class="issue" id="issue-52c68efd①"><a class="self-link" href="#issue-52c68efd①"></a>Should be a token?</div>
    <h4 class="heading settled" data-level="3.7.1" id="dt-ecological-claim-source-properties"><span class="secno">3.7.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-ecological-claim-source-properties"></a></h4>
    <figure id="claim-source-properties-table">
     <table class="data">
@@ -3112,7 +3110,7 @@ configured to control the processing of the EcologicalClaim.</p>
   to the VVB or verification platform. This enables the development of continous verification of the project
   and the ability to provide feedback to the developer on the status of the project and the evidence submitted
   before the end of the claim period.</p>
-   <div class="issue" id="issue-52c68efd②"><a class="self-link" href="#issue-52c68efd②"></a>Should be a token?</div>
+   <div class="issue" id="issue-52c68efd"><a class="self-link" href="#issue-52c68efd"></a>Should be a token?</div>
    <h4 class="heading settled" data-level="3.9.1" id="dt-ecological-claim-checkpoint-properties"><span class="secno">3.9.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-ecological-claim-checkpoint-properties"></a></h4>
    <figure id="ecological-claim-checkpoint-properties-table">
     <table class="data">
@@ -3455,7 +3453,6 @@ configured to control the processing of the EcologicalClaim.</p>
    <p>A CheckpointResult is summary and verified links to verification results for the corresponding EcologicalClaimCheckpoint.
     The CheckpointResult enables continous verification of the project and the ability to provide feedback to the developer
     during the verification process.</p>
-   <div class="issue" id="issue-52c68efd③"><a class="self-link" href="#issue-52c68efd③"></a>Should be a token?</div>
    <h4 class="heading settled" data-level="3.16.1" id="dt-checkpoint-results-properties"><span class="secno">3.16.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-checkpoint-results-properties"></a></h4>
    <figure id="checkpoint-result-properties-table">
     <table class="data">
@@ -3575,7 +3572,7 @@ configured to control the processing of the EcologicalClaim.</p>
    </figure>
    <h3 class="heading settled" data-level="3.18" id="dt-cru"><span class="secno">3.18. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cru">CRU</dfn></span><a class="self-link" href="#dt-cru"></a></h3>
    <p>The Carbon Removal or Reduction Unit, is a digital asset or token that services as a credit
-  representing a quantity of CO2e. This is a non-financial, un-regulated, intangible digital asset that behavies
+  represents 1 metric tonne of CO2e. This is a non-financial, un-regulated, intangible digital asset that behavies
   like a commodity and is ready for distribution.</p>
    <p>This is one example of a specific type of token or credit that can represent the ecological or
   environmental benefits that can be traded and retired to net down effective emissions for the beneficiary.</p>
@@ -3678,13 +3675,6 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
-      <tr>
-       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-attatchedassetid"><code>attatchedAssetId</code><a class="self-link" href="#element-attrdef-cru-attatchedassetid"></a></dfn>s : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
-       <td>Array of String 
-       <td>O 
-       <td>
-        The ids for any other assets that are attatched or bundled with this asset, like one issued to another ModularBenefitProject, i.e., a co-benefit with its own lifecycle/claims process and methodology. 
-        <div class="issue" id="issue-158529e6">Do we want/need this? Shouldn’t an base asset like this be bundled in a separate financial contract, not directly at this level.</div>
     </table>
     <figcaption>Properties of data type CRU</figcaption>
    </figure>
@@ -3701,7 +3691,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
@@ -3868,21 +3858,14 @@ configured to control the processing of the EcologicalClaim.</p>
      <tbody>
       <tr>
        <td><dfn data-dfn-for="Co-Benefit" data-dfn-type="element-attr" data-export id="element-attrdef-co-benefit-un-sdg"><code>un-sdg</code><a class="self-link" href="#element-attrdef-co-benefit-un-sdg"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-un-sdgs" id="ref-for-enumdef-un-sdgs②">UN-SDGs</a></code> 
-       <td>UN-SDGs 
+       <td>String 
        <td>M 
-       <td>The UN SDG that the co-benefit applies to. See <a href="#dt-un-sdgs">§ 3.63 Data Type: UN-SDGs</a> for details. 
+       <td>The string representation of a UN SDG that the co-benefit applies to. See <a href="#dt-un-sdgs">§ 3.63 Data Type: UN-SDGs</a> for details. 
       <tr>
        <td><dfn data-dfn-for="Co-Benefit" data-dfn-type="element-attr" data-export id="element-attrdef-co-benefit-description"><code>description</code><a class="self-link" href="#element-attrdef-co-benefit-description"></a></dfn> : <a data-link-type="dfn" href="https://w3c.github.io/manifest-app-info/#dfn-description" id="ref-for-dfn-description">Description</a> 
        <td>String 
        <td>M 
-       <td>A description of how the co-benefit applies to the UN SDG. 
-      <tr>
-       <td><dfn data-dfn-for="Co-Benefit" data-dfn-type="element-attr" data-export id="element-attrdef-co-benefit-rating"><code>rating</code><a class="self-link" href="#element-attrdef-co-benefit-rating"></a></dfn> : 
-       <td>Number 
-       <td>M 
-       <td>
-        A rating of the co-benefit. 
-        <div class="issue" id="issue-b30a0b29">Rationalize this and sync with CAD Trust’s ratings data type.</div>
+       <td>A description of how the co-benefit applies to the project or activity. 
     </table>
     <figcaption>Properties of data type Co-Benefit</figcaption>
    </figure>
@@ -3997,7 +3980,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the REC, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4017,7 +4000,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.70 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the REC, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4044,17 +4027,17 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.29 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
+       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to external reporting system for the reporting period that the offset was applied to.  See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4196,7 +4179,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③①">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -5415,8 +5398,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-cf30796c">
-    <a class="self-link" href="#example-cf30796c"></a> CRU Full Lineage: 
+   <div class="example" id="example-7781a8f2">
+    <a class="self-link" href="#example-7781a8f2"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5472,15 +5455,13 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"quantifiedSdgImpacts"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"AffordableAndCleanEnergy"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"adaptationCoBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"IndustryInnovationAndInfrastructure"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
       <c- p>}</c->
     <c- p>]</c->
   <c- p>},</c->
@@ -5498,9 +5479,6 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
-  <c- f>"attatchedAssetIds"</c-><c- p>:</c-> <c- p>[</c->
-    <c- u>""</c->
-  <c- p>],</c->
   <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
     <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
@@ -5511,13 +5489,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
       <c- p>},</c->
       <c- p>{</c->
         <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
@@ -5575,13 +5551,11 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action"</c-><c- p>,</c->
-            <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>7</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action"</c->
           <c- p>},</c->
           <c- p>{</c->
             <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Life on Land"</c-><c- p>,</c->
-            <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>4</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Life on Land"</c->
           <c- p>}</c->
         <c- p>],</c->
         <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
@@ -5647,13 +5621,11 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c-><c- p>,</c->
-          <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>4</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
         <c- p>},</c->
         <c- p>{</c->
           <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c-><c- p>,</c->
-          <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>5</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c->
         <c- p>}</c->
       <c- p>],</c->
       <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[</c->
@@ -5674,8 +5646,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741407</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>993104000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014501</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>805608000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5685,8 +5657,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741408</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>98365000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014502</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>680846000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5711,8 +5683,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741408</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>100531000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014502</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>685045000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5875,8 +5847,7 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
-  <c- p>},</c->
-  <c- f>"attatchedAssets"</c-><c- p>:</c-> <c- p>[]</c->
+  <c- p>}</c->
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
@@ -6899,6 +6870,12 @@ public licenses.</p>
      <p>Added <a data-link-type="dfn" href="#rec" id="ref-for-rec②">REC</a> token as another example of an ecological asset, see <a href="#dt-rec">§ 3.26 Token &amp; Data Type: REC</a> for details.</p>
     <li data-md>
      <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-rectype" id="ref-for-enumdef-rectype①">RecType</a></code>, see <a href="#dt-rec-type">§ 3.50 Data Type: RecType</a> for details.</p>
+    <li data-md>
+     <p>Removed <code>attachedAssetIds</code> from the CRU objects, as a base asset it should not be made a parent or basket asset containing other assets. Base assets like the <a data-link-type="dfn" href="#cru" id="ref-for-cru②">CRU</a> and <a data-link-type="dfn" href="#rec" id="ref-for-rec③">REC</a> should be combined or composed into a separate basket asset or contract for distribution, see <a href="#dt-cru">§ 3.18 Token &amp; Data Type: CRU</a> for details.</p>
+    <li data-md>
+     <p>Removed <code>rating</code> from <a data-link-type="dfn" href="#co-benefit" id="ref-for-co-benefit④">Co-benefit</a> as we didn’t have a clear signal at to what this would be used for, see <a href="#dt-co-benefit">§ 3.23 Data Type: Co-Benefit</a> for details.</p>
+    <li data-md>
+     <p>Changed the definition of the CRU to represent 1 metric tonne of CO2e.</p>
    </ul>
   </main>
 <script>
@@ -7053,7 +7030,6 @@ public licenses.</p>
     </ul>
    <li><a href="#dom-month-april">April</a><span>, in § 3.61</span>
    <li><a href="#element-attrdef-modularbenefitproject-arbid">arbId</a><span>, in § 3.4.2</span>
-   <li><a href="#element-attrdef-cru-attatchedassetid">attatchedAssetId</a><span>, in § 3.18.2</span>
    <li>
     Audits
     <ul>
@@ -7379,7 +7355,6 @@ public licenses.</p>
    <li><a href="#element-attrdef-verificationcontract-qualitystandard">qualityStandard</a><span>, in § 3.17.1</span>
    <li><a href="#dom-claimperiod-quarterly">QUARTERLY</a><span>, in § 3.57</span>
    <li><a href="#dom-auditschedule-quinquennial">QUINQUENNIAL</a><span>, in § 3.62</span>
-   <li><a href="#element-attrdef-co-benefit-rating">rating</a><span>, in § 3.23.1</span>
    <li><a href="#dom-projecttype-re_bundled">RE_BUNDLED</a><span>, in § 3.65</span>
    <li><a href="#rec">REC</a><span>, in § 3.26</span>
    <li><a href="#enumdef-rectype">RecType</a><span>, in § 3.50</span>
@@ -7559,12 +7534,7 @@ public licenses.</p>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
    <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd" title="Jump to section">↵</a></div>
-   <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd①" title="Jump to section">↵</a></div>
-   <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd②" title="Jump to section">↵</a></div>
    <div class="issue">Replace with Attestation object? <a class="issue-return" href="#issue-7f0ee729" title="Jump to section">↵</a></div>
-   <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd③" title="Jump to section">↵</a></div>
-   <div class="issue">Do we want/need this? Shouldn’t an base asset like this be bundled in a separate financial contract, not directly at this level. <a class="issue-return" href="#issue-158529e6" title="Jump to section">↵</a></div>
-   <div class="issue">Rationalize this and sync with CAD Trust’s ratings data type. <a class="issue-return" href="#issue-b30a0b29" title="Jump to section">↵</a></div>
    <div class="issue">Should be replaced with attestation? <a class="issue-return" href="#issue-8ffa6309" title="Jump to section">↵</a></div>
    <div class="issue">REC Types need to be completed <a class="issue-return" href="#issue-df439a85" title="Jump to section">↵</a></div>
   </div>
@@ -7668,6 +7638,7 @@ public licenses.</p>
    <span id="infopaneltitle-for-cru" style="display:none">Info about the 'CRU' definition.</span><b><a href="#cru">#cru</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cru">3. Tokens and their Data Model</a> <a href="#ref-for-cru①">(2)</a>
+    <li><a href="#ref-for-cru②">Version 2.5.1-20230420 (April 20, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-corecarbonprinciples" class="dfn-panel" data-for="corecarbonprinciples" id="infopanel-for-corecarbonprinciples">
@@ -7702,6 +7673,7 @@ public licenses.</p>
     <li><a href="#ref-for-co-benefit①">3.15.2. Properties</a>
     <li><a href="#ref-for-co-benefit②">3.19.1. Properties</a>
     <li><a href="#ref-for-co-benefit③">3.36.1. Properties</a>
+    <li><a href="#ref-for-co-benefit④">Version 2.5.1-20230420 (April 20, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-reversalmitigation" class="dfn-panel" data-for="reversalmitigation" id="infopanel-for-reversalmitigation">
@@ -7721,7 +7693,7 @@ public licenses.</p>
    <span id="infopaneltitle-for-rec" style="display:none">Info about the 'REC' definition.</span><b><a href="#rec">#rec</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-rec">3. Tokens and their Data Model</a> <a href="#ref-for-rec①">(2)</a>
-    <li><a href="#ref-for-rec②">Version 2.5.1-20230420 (April 20, 2023)</a>
+    <li><a href="#ref-for-rec②">Version 2.5.1-20230420 (April 20, 2023)</a> <a href="#ref-for-rec③">(2)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-climatelabel" class="dfn-panel" data-for="climatelabel" id="infopanel-for-climatelabel">
@@ -8034,10 +8006,10 @@ public licenses.</p>
     <li><a href="#ref-for-id①②">3.11.1. Properties</a> <a href="#ref-for-id①③">(2)</a> <a href="#ref-for-id①④">(3)</a> <a href="#ref-for-id①⑤">(4)</a>
     <li><a href="#ref-for-id①⑥">3.12.1. Properties</a>
     <li><a href="#ref-for-id①⑦">3.17.1. Properties</a> <a href="#ref-for-id①⑧">(2)</a>
-    <li><a href="#ref-for-id①⑨">3.18.2. Properties</a> <a href="#ref-for-id②⓪">(2)</a> <a href="#ref-for-id②①">(3)</a> <a href="#ref-for-id②②">(4)</a> <a href="#ref-for-id②③">(5)</a> <a href="#ref-for-id②④">(6)</a>
-    <li><a href="#ref-for-id②⑤">3.19.1. Properties</a>
-    <li><a href="#ref-for-id②⑥">3.26.2. Properties</a> <a href="#ref-for-id②⑦">(2)</a> <a href="#ref-for-id②⑧">(3)</a> <a href="#ref-for-id②⑨">(4)</a> <a href="#ref-for-id③⓪">(5)</a>
-    <li><a href="#ref-for-id③①">3.31.1. Properties</a>
+    <li><a href="#ref-for-id①⑨">3.18.2. Properties</a> <a href="#ref-for-id②⓪">(2)</a> <a href="#ref-for-id②①">(3)</a> <a href="#ref-for-id②②">(4)</a> <a href="#ref-for-id②③">(5)</a>
+    <li><a href="#ref-for-id②④">3.19.1. Properties</a>
+    <li><a href="#ref-for-id②⑤">3.26.2. Properties</a> <a href="#ref-for-id②⑥">(2)</a> <a href="#ref-for-id②⑦">(3)</a> <a href="#ref-for-id②⑧">(4)</a> <a href="#ref-for-id②⑨">(5)</a>
+    <li><a href="#ref-for-id③⓪">3.31.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-iso3166cc" class="dfn-panel" data-for="iso3166cc" id="infopanel-for-iso3166cc">

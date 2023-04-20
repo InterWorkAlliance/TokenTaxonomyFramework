@@ -433,24 +433,8 @@
             "type": "string",
             "nullable": true
           },
-          "attatchedAssetIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
           "processedClaim": {
             "$ref": "#/components/schemas/ProcessedClaim"
-          },
-          "attatchedAssets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Any"
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -573,16 +557,12 @@
       "CoBenefit": {
         "type": "object",
         "properties": {
-          "coBenefit_": {
+          "unSdg": {
             "$ref": "#/components/schemas/BenefitCategory"
           },
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "ratingScore": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

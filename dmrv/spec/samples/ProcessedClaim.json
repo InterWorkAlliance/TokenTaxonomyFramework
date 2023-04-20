@@ -7,14 +7,12 @@
   "quantity": "1.41",
   "coBenefits": [
     {
-      "coBenefit_": "CleanWaterAndSanitation",
-      "description": "",
-      "ratingScore": 0
+      "unSdg": "CleanWaterAndSanitation",
+      "description": "The project was found to significantly contribute towards the communities clean water program."
     },
     {
-      "coBenefit_": "ReducedInequalities",
-      "description": "",
-      "ratingScore": 0
+      "unSdg": "ReducedInequalities",
+      "description": "By training and employing locals, this project is reducing inequalities in the country."
     }
   ],
   "checkpointResults": [

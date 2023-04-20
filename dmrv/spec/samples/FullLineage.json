@@ -52,16 +52,14 @@
     },
     "quantifiedSdgImpacts": [
       {
-        "coBenefit_": "AffordableAndCleanEnergy",
-        "description": "",
-        "ratingScore": 0
+        "unSdg": "AffordableAndCleanEnergy",
+        "description": "This project provides affordable clean energy to the surrounding community."
       }
     ],
     "adaptationCoBenefits": [
       {
-        "coBenefit_": "IndustryInnovationAndInfrastructure",
-        "description": "",
-        "ratingScore": 0
+        "unSdg": "IndustryInnovationAndInfrastructure",
+        "description": "The project is contributing to the expansion of renewable infrastructure."
       }
     ]
   },
@@ -79,9 +77,6 @@
   "offsetAppliedToId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
-  "attatchedAssetIds": [
-    ""
-  ],
   "processedClaim": {
     "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
     "verificationContractId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
@@ -91,14 +86,12 @@
     "quantity": "1.41",
     "coBenefits": [
       {
-        "coBenefit_": "CleanWaterAndSanitation",
-        "description": "",
-        "ratingScore": 0
+        "unSdg": "CleanWaterAndSanitation",
+        "description": "The project was found to significantly contribute towards the communities clean water program."
       },
       {
-        "coBenefit_": "ReducedInequalities",
-        "description": "",
-        "ratingScore": 0
+        "unSdg": "ReducedInequalities",
+        "description": "By training and employing locals, this project is reducing inequalities in the country."
       }
     ],
     "checkpointResults": [
@@ -155,14 +148,12 @@
         "version": "1.6",
         "coBenefits": [
           {
-            "coBenefit_": "ClimateAction",
-            "description": "Climate Action",
-            "ratingScore": 7
+            "unSdg": "ClimateAction",
+            "description": "Climate Action, by removing carbon from the atmosphere."
           },
           {
-            "coBenefit_": "LifeOnLand",
-            "description": "Life on Land",
-            "ratingScore": 4
+            "unSdg": "LifeOnLand",
+            "description": "Improving Life on Land, the use of the projects land to provide..."
           }
         ],
         "standardLink": {
@@ -227,14 +218,12 @@
       "quantity": "1.41",
       "coBenefits": [
         {
-          "coBenefit_": "ClimateAction",
-          "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance.",
-          "ratingScore": 4
+          "unSdg": "ClimateAction",
+          "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance."
         },
         {
-          "coBenefit_": "CleanWaterAndSanitation",
-          "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access.",
-          "ratingScore": 5
+          "unSdg": "CleanWaterAndSanitation",
+          "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."
         }
       ],
       "checkpoints": [
@@ -255,8 +244,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681741407,
-                "nanos": 993104000
+                "seconds": 1682015100,
+                "nanos": 390091000
               }
             },
             "endDate": {
@@ -266,8 +255,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1681741408,
-                "nanos": 98365000
+                "seconds": 1682015100,
+                "nanos": 522954000
               }
             }
           },
@@ -292,8 +281,8 @@
                   "day": 18
                 },
                 "timeStamp": {
-                  "seconds": 1681741408,
-                  "nanos": 100531000
+                  "seconds": 1682015100,
+                  "nanos": 525486000
                 }
               },
               "mrvExtensions": [
@@ -456,6 +445,5 @@
       }
     },
     "asset": null
-  },
-  "attatchedAssets": []
+  }
 }

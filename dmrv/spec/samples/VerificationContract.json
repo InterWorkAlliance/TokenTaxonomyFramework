@@ -32,14 +32,12 @@
     "version": "1.6",
     "coBenefits": [
       {
-        "coBenefit_": "ClimateAction",
-        "description": "Climate Action",
-        "ratingScore": 7
+        "unSdg": "ClimateAction",
+        "description": "Climate Action, by removing carbon from the atmosphere."
       },
       {
-        "coBenefit_": "LifeOnLand",
-        "description": "Life on Land",
-        "ratingScore": 4
+        "unSdg": "LifeOnLand",
+        "description": "Improving Life on Land, the use of the projects land to provide..."
       }
     ],
     "standardLink": {

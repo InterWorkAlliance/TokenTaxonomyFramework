@@ -189,9 +189,7 @@ message CRU
     string offset_applied_to_id = 10; //optional link to external reporting system for the reporting period that the offset was applied to.
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
-    repeated string attatched_asset_ids = 13; //optional, if any other assets from modular benefit projects are attached or bundled with this asset, like a co-benefit that has it's own lifecycle/linage, it's id should be listed.
-    ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
-    repeated google.protobuf.Any attatched_assets = 15; //optional, for object navigation - the asset that is attached to the token, like a co-benefit that has it's own lifecycle/linage.
+    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token.
 }
 
 message REC

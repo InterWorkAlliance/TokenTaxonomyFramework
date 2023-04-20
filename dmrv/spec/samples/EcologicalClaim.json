@@ -6,14 +6,12 @@
   "quantity": "1.41",
   "coBenefits": [
     {
-      "coBenefit_": "ClimateAction",
-      "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance.",
-      "ratingScore": 4
+      "unSdg": "ClimateAction",
+      "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance."
     },
     {
-      "coBenefit_": "CleanWaterAndSanitation",
-      "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access.",
-      "ratingScore": 5
+      "unSdg": "CleanWaterAndSanitation",
+      "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."
     }
   ],
   "checkpoints": [
@@ -34,8 +32,8 @@
             "day": 1
           },
           "timeStamp": {
-            "seconds": 1681741451,
-            "nanos": 107181000
+            "seconds": 1682015215,
+            "nanos": 979242000
           }
         },
         "endDate": {
@@ -45,8 +43,8 @@
             "day": 1
           },
           "timeStamp": {
-            "seconds": 1681741451,
-            "nanos": 107206000
+            "seconds": 1682015215,
+            "nanos": 979252000
           }
         }
       },
@@ -71,8 +69,8 @@
               "day": 18
             },
             "timeStamp": {
-              "seconds": 1681741451,
-              "nanos": 107233000
+              "seconds": 1682015215,
+              "nanos": 979270000
             }
           },
           "mrvExtensions": [
