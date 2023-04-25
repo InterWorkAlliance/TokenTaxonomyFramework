@@ -53,7 +53,7 @@ message ModularBenefitProject {
     //DRAFT
     message Validation{
         common.Date validation_date = 1; //date of the validation
-        string validating_party = 2; //name or Id of the party that performed the validation
+        string validating_party_id = 2; //name or Id of the party that performed the validation
         string validation_method = 3; //name of the validation method used
         common.Date validation_expiration_date = 4; //expiration date of the validation
         repeated ValidationStep validation_steps = 5; //collection of validation steps

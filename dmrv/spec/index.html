@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="3dda8d5ddc0e6306ef2386759115cc48d5b9f9f8" name="document-revision">
+  <meta content="0afbfe50d158a5b5c5d4c6c45e82dff1083197e2" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-20">20 April 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-24">24 April 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2499,6 +2499,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.5.0-20230413"><span class="secno"></span> <span class="content">Version 2.5.1-20230413 (April 13, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230417"><span class="secno"></span> <span class="content">Version 2.5.1-20230417 (April 17, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230420"><span class="secno"></span> <span class="content">Version 2.5.1-20230420 (April 20, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230425"><span class="secno"></span> <span class="content">Version 2.5.1-20230425 (April 25, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2915,15 +2916,15 @@ Project Design Documents (PDD), etc.</p>
        <td>M 
        <td>The date of the validation. See <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validatingparty"><code>validatingParty</code><a class="self-link" href="#element-attrdef-validation-validatingparty"></a></dfn> : 
+       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validatingpartyid"><code>validatingPartyId</code><a class="self-link" href="#element-attrdef-validation-validatingpartyid"></a></dfn> : 
        <td>String 
        <td>M 
-       <td>The latitude of the location. 
+       <td>The Id of the validating party, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
        <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationmethod"><code>validationMethod</code><a class="self-link" href="#element-attrdef-validation-validationmethod"></a></dfn> : 
        <td>String 
        <td>M 
-       <td>The validation method used for the project. 
+       <td>The validation method used for the project, can include a version identifier. 
       <tr>
        <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationexpirationdate"><code>validationExpirationDate</code><a class="self-link" href="#element-attrdef-validation-validationexpirationdate"></a></dfn> : 
        <td>Date 
@@ -3000,7 +3001,7 @@ a sensor or meter, an application that collects user data or reference data like
        <td>name : 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent ModularBenefitProject, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
+       <td>A name for the source. 
       <tr>
        <td>description : 
        <td>String 
@@ -3137,7 +3138,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid"><code>projctDeveloperId</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid"></a></dfn> : 
+       <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-projectdeveloperid"><code>projectDeveloperId</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-projectdeveloperid"></a></dfn> : 
        <td>String 
        <td>M 
        <td>The Id of the project developer that is submitting the checkpoint, must be a developer registered in the <a data-link-type="dfn" href="#modularbenefitproject" id="ref-for-modularbenefitproject②">ModularBenefitProject</a>. 
@@ -3444,7 +3445,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>Object 
        <td>M 
        <td>Since a processed claim is generic, it can contain the proposed asset type with values to the 
-                issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.
+                issuing registry to use as a consideration. For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.
                 This allows the processed claim to be used as the source for any type of asset or credit. 
     </table>
     <figcaption>Properties of data type ProcessedClaim</figcaption>
@@ -5398,8 +5399,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-7781a8f2">
-    <a class="self-link" href="#example-7781a8f2"></a> CRU Full Lineage: 
+   <div class="example" id="example-81c56685">
+    <a class="self-link" href="#example-81c56685"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5454,14 +5455,14 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>},</c->
     <c- f>"quantifiedSdgImpacts"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"AffordableAndCleanEnergy"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"AffordableAndCleanEnergy"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"This project provides affordable clean energy to the surrounding community."</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"adaptationCoBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"IndustryInnovationAndInfrastructure"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"IndustryInnovationAndInfrastructure"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"The project is contributing to the expansion of renewable infrastructure."</c->
       <c- p>}</c->
     <c- p>]</c->
   <c- p>},</c->
@@ -5488,12 +5489,12 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
     <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"The project was found to significantly contribute towards the communities clean water program."</c->
       <c- p>},</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"By training and employing locals, this project is reducing inequalities in the country."</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
@@ -5550,12 +5551,12 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
         <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action"</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action, by removing carbon from the atmosphere."</c->
           <c- p>},</c->
           <c- p>{</c->
-            <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Life on Land"</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Improving Life on Land, the use of the projects land to provide..."</c->
           <c- p>}</c->
         <c- p>],</c->
         <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
@@ -5620,11 +5621,11 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
       <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
         <c- p>},</c->
         <c- p>{</c->
-          <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c->
         <c- p>}</c->
       <c- p>],</c->
@@ -5646,8 +5647,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014501</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>805608000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>390091000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5657,8 +5658,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014502</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>680846000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>522954000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5683,8 +5684,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682014502</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>685045000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>525486000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5848,7 +5849,8 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>},</c->
     <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
   <c- p>}</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
    <div class="example" id="example-e78c865e">
@@ -6067,8 +6069,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-ecological-claim"><span class="secno">4.4. </span><span class="content">Example Ecological Claim</span><a class="self-link" href="#example-ecological-claim"></a></h3>
-   <div class="example" id="example-bf789595">
-    <a class="self-link" href="#example-bf789595"></a> Ecological Claim: 
+   <div class="example" id="example-b421259a">
+    <a class="self-link" href="#example-b421259a"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6077,14 +6079,12 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
   <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c-><c- p>,</c->
-      <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>4</c->
+      <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
     <c- p>},</c->
     <c- p>{</c->
-      <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c-><c- p>,</c->
-      <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>5</c->
+      <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c->
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[</c->
@@ -6105,8 +6105,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107181000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979242000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -6116,8 +6116,8 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107206000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979252000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -6142,8 +6142,8 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681741451</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>107233000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979270000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6183,12 +6183,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
-   <div class="example" id="example-f8bb0a59">
-    <a class="self-link" href="#example-f8bb0a59"></a> Span Data Package: 
+   <div class="example" id="example-253d3185">
+    <a class="self-link" href="#example-253d3185"></a> Span Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
@@ -6203,8 +6202,8 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1681303941</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>214290000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015323</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>146250000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6243,8 +6242,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.6" id="example-processed-claim"><span class="secno">4.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
-   <div class="example" id="example-f56547c7">
-    <a class="self-link" href="#example-f56547c7"></a> Processed Claim: 
+   <div class="example" id="example-b5f525c6">
+    <a class="self-link" href="#example-b5f525c6"></a> Processed Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
@@ -6254,14 +6253,12 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
   <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+      <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"The project was found to significantly contribute towards the communities clean water program."</c->
     <c- p>},</c->
     <c- p>{</c->
-      <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+      <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"By training and employing locals, this project is reducing inequalities in the country."</c->
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
@@ -6287,12 +6284,11 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"verificationContract"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"ecologicalClaim"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.7" id="example-verification-contract"><span class="secno">4.7. </span><span class="content">Example Verfication Contract</span><a class="self-link" href="#example-verification-contract"></a></h3>
-   <div class="example" id="example-537205dc">
-    <a class="self-link" href="#example-537205dc"></a> Verification Contract: 
+   <div class="example" id="example-b1441b73">
+    <a class="self-link" href="#example-b1441b73"></a> Verification Contract: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Forest Plot 3341"</c-><c- p>,</c->
@@ -6327,14 +6323,12 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
     <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action"</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>7</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action, by removing carbon from the atmosphere."</c->
       <c- p>},</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Life on Land"</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>4</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Improving Life on Land, the use of the projects land to provide..."</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
@@ -6393,8 +6387,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-   <div class="example" id="example-b92be113">
-    <a class="self-link" href="#example-b92be113"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-fb2be3a1">
+    <a class="self-link" href="#example-fb2be3a1"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6449,16 +6443,14 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>},</c->
     <c- f>"quantifiedSdgImpacts"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"AffordableAndCleanEnergy"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"AffordableAndCleanEnergy"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"This project provides affordable clean energy to the surrounding community."</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"adaptationCoBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"coBenefit_"</c-><c- p>:</c-> <c- u>"IndustryInnovationAndInfrastructure"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"ratingScore"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"IndustryInnovationAndInfrastructure"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"The project is contributing to the expansion of renewable infrastructure."</c->
       <c- p>}</c->
     <c- p>]</c->
   <c- p>},</c->
@@ -6476,11 +6468,7 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
-  <c- f>"attatchedAssetIds"</c-><c- p>:</c-> <c- p>[</c->
-    <c- u>""</c->
-  <c- p>],</c->
-  <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-  <c- f>"attatchedAssets"</c-><c- p>:</c-> <c- p>[]</c->
+  <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c->
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.9" id="example-rec"><span class="secno">4.9. </span><span class="content">Example Renewable Energy Credit</span><a class="self-link" href="#example-rec"></a></h3>
@@ -6876,6 +6864,17 @@ public licenses.</p>
      <p>Removed <code>rating</code> from <a data-link-type="dfn" href="#co-benefit" id="ref-for-co-benefit④">Co-benefit</a> as we didn’t have a clear signal at to what this would be used for, see <a href="#dt-co-benefit">§ 3.23 Data Type: Co-Benefit</a> for details.</p>
     <li data-md>
      <p>Changed the definition of the CRU to represent 1 metric tonne of CO2e.</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230425"><span class="content">Version 2.5.1-20230425 (April 25, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230425"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Changed <code>validatingParty</code> to <code>validatingPartyId</code> for the <a data-link-type="dfn" href="#validation" id="ref-for-validation①">Validation</a> type, see <a href="#dt-validation">§ 3.5 Data Type: Validation</a> for details.</p>
+    <li data-md>
+     <p>Fixed description of <a data-link-type="dfn" href="#validation" id="ref-for-validation②">Validation</a> type’s <code>validationPartyId</code> property, see <a href="#dt-validation">§ 3.5 Data Type: Validation</a> for details.</p>
+    <li data-md>
+     <p>Fixed the description of the <code>name</code> property of the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource②">ClaimSource</a> type, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+    <li data-md>
+     <p>Fixed the spelling of <code>projectDeveloperId</code> in the <a data-link-type="dfn" href="#ecologicalclaimcheckpoint" id="ref-for-ecologicalclaimcheckpoint①">EcologicalClaimCheckpoint</a> type, see <a href="#dt-ecological-claim-checkpoint">§ 3.9 Data Type: EcologicalClaimCheckpoint</a> for details.</p>
    </ul>
   </main>
 <script>
@@ -7336,7 +7335,7 @@ public licenses.</p>
    <li><a href="#processedclaimcontrol">ProcessedClaimControl</a><span>, in § 3.8.1</span>
    <li><a href="#element-attrdef-ecologicalclaim-processedclaimid">processedClaimId</a><span>, in § 3.8.2</span>
    <li><a href="#element-attrdef-verificationcontract-processedclaimids">processedClaimIds</a><span>, in § 3.17.1</span>
-   <li><a href="#element-attrdef-ecologicalclaimcheckpoint-projctdeveloperid">projctDeveloperId</a><span>, in § 3.9.1</span>
+   <li><a href="#element-attrdef-ecologicalclaimcheckpoint-projectdeveloperid">projectDeveloperId</a><span>, in § 3.9.1</span>
    <li><a href="#element-attrdef-modularbenefitproject-projectid">projectid</a><span>, in § 3.4.2</span>
    <li><a href="#dom-signatoryrole-project_owner">PROJECT_OWNER</a><span>, in § 3.48</span>
    <li><a href="#enumdef-projectscale">ProjectScale</a><span>, in § 3.58</span>
@@ -7458,7 +7457,7 @@ public licenses.</p>
    <li><a href="#enumdef-un-sdgs">UN-SDGs</a><span>, in § 3.63</span>
    <li><a href="#element-attrdef-verifiedlink-uri">uri</a><span>, in § 3.28.1</span>
    <li><a href="#dom-claimsourcetype-user_application">USER_APPLICATION</a><span>, in § 3.53</span>
-   <li><a href="#element-attrdef-validation-validatingparty">validatingParty</a><span>, in § 3.5.1</span>
+   <li><a href="#element-attrdef-validation-validatingpartyid">validatingPartyId</a><span>, in § 3.5.1</span>
    <li><a href="#validation">Validation</a><span>, in § 3.5</span>
    <li><a href="#dom-signatoryrole-validation_and_verification_body">VALIDATION_AND_VERIFICATION_BODY</a><span>, in § 3.48</span>
    <li><a href="#element-attrdef-validation-validationdate">validationDate</a><span>, in § 3.5.1</span>
@@ -7562,6 +7561,7 @@ public licenses.</p>
    <span id="infopaneltitle-for-validation" style="display:none">Info about the 'Validation' definition.</span><b><a href="#validation">#validation</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-validation">3.4.2. Properties</a>
+    <li><a href="#ref-for-validation①">Version 2.5.1-20230425 (April 25, 2023)</a> <a href="#ref-for-validation②">(2)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-claimsource" class="dfn-panel" data-for="claimsource" id="infopanel-for-claimsource">
@@ -7569,6 +7569,7 @@ public licenses.</p>
    <ul>
     <li><a href="#ref-for-claimsource">3.4.2. Properties</a>
     <li><a href="#ref-for-claimsource①">Version 2.5.1-20230417 (April 17, 2023)</a>
+    <li><a href="#ref-for-claimsource②">Version 2.5.1-20230425 (April 25, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-ecologicalclaim" class="dfn-panel" data-for="ecologicalclaim" id="infopanel-for-ecologicalclaim">
@@ -7582,6 +7583,7 @@ public licenses.</p>
    <span id="infopaneltitle-for-ecologicalclaimcheckpoint" style="display:none">Info about the 'EcologicalClaimCheckpoint' definition.</span><b><a href="#ecologicalclaimcheckpoint">#ecologicalclaimcheckpoint</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-ecologicalclaimcheckpoint">3.8.2. Properties</a>
+    <li><a href="#ref-for-ecologicalclaimcheckpoint①">Version 2.5.1-20230425 (April 25, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-spandatapackage" class="dfn-panel" data-for="spandatapackage" id="infopanel-for-spandatapackage">

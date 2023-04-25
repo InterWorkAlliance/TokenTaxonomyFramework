@@ -244,8 +244,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1682015100,
-                "nanos": 390091000
+                "seconds": 1682425709,
+                "nanos": 939683000
               }
             },
             "endDate": {
@@ -255,8 +255,8 @@
                 "day": 1
               },
               "timeStamp": {
-                "seconds": 1682015100,
-                "nanos": 522954000
+                "seconds": 1682425710,
+                "nanos": 17510000
               }
             }
           },
@@ -281,8 +281,8 @@
                   "day": 18
                 },
                 "timeStamp": {
-                  "seconds": 1682015100,
-                  "nanos": 525486000
+                  "seconds": 1682425710,
+                  "nanos": 18807000
                 }
               },
               "mrvExtensions": [
@@ -380,7 +380,7 @@
               "month": "January",
               "day": 7
             },
-            "validatingParty": "Contoso Ventures",
+            "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "year": 2027,

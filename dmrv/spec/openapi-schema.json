@@ -1989,7 +1989,7 @@
           "validationDate": {
             "$ref": "#/components/schemas/Date"
           },
-          "validatingParty": {
+          "validatingPartyId": {
             "type": "string",
             "nullable": true
           },

@@ -95,7 +95,7 @@
             "month": "January",
             "day": 7
           },
-          "validatingParty": "Contoso Ventures",
+          "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
           "validationExpirationDate": {
             "year": 2027,
