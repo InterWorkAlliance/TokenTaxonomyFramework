@@ -68,15 +68,16 @@ message ClaimSource
         string mbp_id = 2; //the id of the modular benefit project that the claim source is associated withd.
         string name = 3; //the name of the device.
         string description = 4; //a description of the device, like the location, etc.
+        common.GNSS location = 5; //the location of the device, using GNSS with Decimal Degrees.
         enum ClaimSourceType
         {
             SENSOR_DEVICE = 0; //IoT, meter, etc.
             USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
             REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
         }
-        ClaimSourceType source_type = 5; //the type of source that is providing the claim data.
-        common.Unit unit_of_measure = 6; //the unit of measure for the claim data.
-        string source_identifier = 7; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
+        ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
+        common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
+        string source_identifier = 8; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
     }
 
 message EcologicalClaimCheckpoint
@@ -202,20 +203,21 @@ message REC
         RECS = 3; //EU RECs
     }
     REC_Type rec_type = 2; //the type of REC
-    string quantity = 3; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
-    common.Unit unit = 4; //unit of measure for the quantity
-    string owner_id = 5; //the unique id of the owner of the token         
-    string listing_agent_id = 6; //AuthorizedId
-    repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
-    common.Status status = 8; //the status of the token
+    string valid_jurisdiction = 3; //optional jurisdiction where of the REC can be redeemed, i.e. US-Texas, multiples separated by a comma.
+    string quantity = 4; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity, typically in MWh.
+    common.Unit unit = 5; //unit of measure for the quantity
+    string owner_id = 6; //the unique id of the owner of the token         
+    string listing_agent_id = 7; //AuthorizedId
+    repeated common.ClimateLabel climate_labels = 8; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
+    common.Status status = 9; //the status of the token
     message ReferencedRec{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
-    ReferencedRec referenced_rec = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string offset_applied_to_id = 10; //optional link to external reporting system for the reporting period that the offset was applied to.
-    string processed_claim_id = 11; //link to the processed claim id
-    string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
-    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token
+    ReferencedRec referenced_rec = 10; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+    string offset_applied_to_id = 11; //optional link to external reporting system for the reporting period that the offset was applied to.
+    string processed_claim_id = 12; //link to the processed claim id
+    string issuer_id = 13; //the account that is the issuer, recorded at issue/mint.
+    ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
 }
 
 //Until there is a contract definition, we can define the required propoerties that a verification contract between a Modular Benefit Project, Verifier and Issuing Registry should have.

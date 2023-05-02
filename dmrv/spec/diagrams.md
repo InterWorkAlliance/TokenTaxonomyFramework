@@ -2,6 +2,8 @@
 
 These are data type *highlights* and do not include all type properties, just the main ones.
 
+Example assets, CRU and REC, are included in the diagrams to show how they are linked to their origination lineage.
+
 ```mermaid
 erDiagram
     %%entities
@@ -116,10 +118,23 @@ erDiagram
         guid listingAgentId "ref to distribution agent-marketplace-xchg locking asset"
     }
 
+    REC {
+        guid id PK "unique id"
+        string ProcessedClaimId "ref ProcessedClaim"
+        guid issuerId "ref Issuing Registry"
+        decimal quantity "MWh"
+        ClimateLabels labels "optional labels"
+        Status status "active, retired, revoked, etc."
+        guid ownerId  "ref Account of Owner"
+        guid listingAgentId "ref to distribution agent-marketplace-xchg locking asset"
+    }
+
+    REC ||--|| ProcessedClaim : linked-to
     CRU ||--|| ProcessedClaim : linked-to
     ProcessedClaim ||--|| VerificationContract : linked-to
     ProcessedClaim ||--|| IssuingRegistry : approved-by
     CRU ||--|| IssuingRegistry : issued-by
+    REC ||--|| IssuingRegistry : issued-by
     EcologicalClaimCheckpoint ||--|| ProjectDeveloper : submits
 
 ```

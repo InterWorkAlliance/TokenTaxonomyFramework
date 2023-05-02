@@ -505,6 +505,9 @@
             "type": "string",
             "nullable": true
           },
+          "location": {
+            "$ref": "#/components/schemas/GNSS"
+          },
           "sourceType": {
             "$ref": "#/components/schemas/ClaimSourceType"
           },
@@ -929,10 +932,6 @@
             "nullable": true
           },
           "latitude": {
-            "type": "string",
-            "nullable": true
-          },
-          "timing": {
             "type": "string",
             "nullable": true
           }
@@ -1699,6 +1698,10 @@
           "recType": {
             "$ref": "#/components/schemas/REC_Type"
           },
+          "validJurisdiction": {
+            "type": "string",
+            "nullable": true
+          },
           "quantity": {
             "type": "string",
             "nullable": true
@@ -1979,7 +1982,8 @@
           "Megajuole",
           "Kilometer",
           "SquareMeter",
-          "Tonne"
+          "Tonne",
+          "MwH"
         ],
         "type": "string"
       },

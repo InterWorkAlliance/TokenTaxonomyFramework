@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="0afbfe50d158a5b5c5d4c6c45e82dff1083197e2" name="document-revision">
+  <meta content="8d07e9ea5f6b0c84e9aca1266e88d7b9fe40fa19" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-04-24">24 April 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-05-02">2 May 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2160,9 +2160,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-manifest-properties"><span class="secno">3.11.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-file"><span class="secno">3.12</span> <span class="content">Data Type: <span>File</span></span></a>
+       <a href="#dt-sdp-file"><span class="secno">3.12</span> <span class="content">Data Type: <span>SDP-File</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-file-properties"><span class="secno">3.12.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-sdp-file-properties"><span class="secno">3.12.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-mrv-extension"><span class="secno">3.13</span> <span class="content">Data Type: <span>MrvExtension</span></span></a>
@@ -2333,9 +2333,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-insurance-policy-owner-json"><span class="secno">3.45.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-file-type"><span class="secno">3.46</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
+       <a href="#dt-sdp-file-type"><span class="secno">3.46</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
        <ol class="toc">
-        <li><a href="#dt-file-type-json"><span class="secno">3.46.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-sdp-file-type-json"><span class="secno">3.46.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
        <a href="#dt-hash-algorithm"><span class="secno">3.47</span> <span class="content">Data Type: <span><code>HashAlgorithm</code></span></span></a>
@@ -2500,6 +2500,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.4.0-20230417"><span class="secno"></span> <span class="content">Version 2.5.1-20230417 (April 17, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230420"><span class="secno"></span> <span class="content">Version 2.5.1-20230420 (April 20, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230425"><span class="secno"></span> <span class="content">Version 2.5.1-20230425 (April 25, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230502"><span class="secno"></span> <span class="content">Version 2.5.1-20230502 (May 2, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2642,7 +2643,7 @@ properties grouped together that can be used or composed into other property-set
    <h3 class="heading settled" data-level="3.1" id="data-model-highlevel"><span class="secno">3.1. </span><span class="content">Highlevel Data Model</span><a class="self-link" href="#data-model-highlevel"></a></h3>
    <p>The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
 the highlights of properties within the data types and does not include the full list of properties for each data type.</p>
-   <p><img alt="…" height="1341" src="dmrv-diagram-04132023.png" srcset="dmrv-diagram-04132023.png 2x" width="1384"></p>
+   <p><img alt="…" height="1333" src="dmrv-diagram-20230502.png" srcset="dmrv-diagram-20230502.png 2x" width="1379"></p>
    <h3 class="heading settled" data-level="3.2" id="dt-ecological-project"><span class="secno">3.2. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="ecologicalproject">EcologicalProject</dfn></span><a class="self-link" href="#dt-ecological-project"></a></h3>
    <p><code>EcologicalProject</code> is a data type which represents the individual or organization that will host one or more ModularBenefitProject(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an ecological project wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -2740,7 +2741,7 @@ the highlights of properties within the data types and does not include the full
        <td>M 
        <td>The type of the address. See <a href="#dt-address-type">§ 3.60 Data Type: AddressType</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Address" data-dfn-type="element-attr" data-export id="element-attrdef-address-addresslines"><code>addressLines</code><a class="self-link" href="#element-attrdef-address-addresslines"></a></dfn> : 
+       <td><dfn data-dfn-for="Address" data-dfn-type="element-attr" data-export id="element-attrdef-address-addresslines"><code>addressLines</code><a class="self-link" href="#element-attrdef-address-addresslines"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string">String</a> 
        <td>Array 
        <td>M 
        <td>A collection of address lines. 
@@ -2926,19 +2927,19 @@ Project Design Documents (PDD), etc.</p>
        <td>M 
        <td>The validation method used for the project, can include a version identifier. 
       <tr>
-       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationexpirationdate"><code>validationExpirationDate</code><a class="self-link" href="#element-attrdef-validation-validationexpirationdate"></a></dfn> : 
+       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationexpirationdate"><code>validationExpirationDate</code><a class="self-link" href="#element-attrdef-validation-validationexpirationdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date①">Date</a> 
        <td>Date 
        <td>M 
        <td>The date of the validation expires. See <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationsteps"><code>validationSteps</code><a class="self-link" href="#element-attrdef-validation-validationsteps"></a></dfn> : 
+       <td><dfn data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationsteps"><code>validationSteps</code><a class="self-link" href="#element-attrdef-validation-validationsteps"></a></dfn> : <a data-link-type="dfn" href="#validationstep" id="ref-for-validationstep">ValidationStep</a> 
        <td>Array 
        <td>M 
        <td>A collection of Validation Steps. See <a href="#dt-validation-step">§ 3.6 Data Type: ValidationStep</a> for details. 
     </table>
     <figcaption>Properties of data type Validation</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.6" id="dt-validation-step"><span class="secno">3.6. </span><span class="content">Data Type: <dfn data-dfn-type="dfn" data-noexport id="validationstep">ValidationStep<a class="self-link" href="#validationstep"></a></dfn></span><a class="self-link" href="#dt-validation-step"></a></h3>
+   <h3 class="heading settled" data-level="3.6" id="dt-validation-step"><span class="secno">3.6. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="validationstep">ValidationStep</dfn></span><a class="self-link" href="#dt-validation-step"></a></h3>
    <p>A validation step is a single step in the validation process, a validation process can be composed of multiple steps
 each step can generate its own artifact like a Project Design Document.</p>
    <h4 class="heading settled" data-level="3.6.1" id="dt-validation-step-properties"><span class="secno">3.6.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-validation-step-properties"></a></h4>
@@ -3006,7 +3007,12 @@ a sensor or meter, an application that collects user data or reference data like
        <td>description : 
        <td>String 
        <td>M 
-       <td>Description of the source and other details like the type of data collected, the frequency of collection, etc. 
+       <td>Description of the source and other details like the type of data collected, the frequency of collection, GPS/Location, etc. 
+      <tr>
+       <td>location : <a data-link-type="dfn" href="#gnss" id="ref-for-gnss">GNSS</a> 
+       <td>Object 
+       <td>M 
+       <td>GNSS, i.e., GPS coordinates, for the source. See <a href="#dt-gnss">§ 3.34 Data Type: GNSS</a> for details. 
       <tr>
        <td><dfn data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-sourcetype"><code>sourceType</code><a class="self-link" href="#element-attrdef-claimsource-sourcetype"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-claimsourcetype" id="ref-for-enumdef-claimsourcetype">ClaimSourceType</a></code> 
        <td>String 
@@ -3088,13 +3094,13 @@ configured to control the processing of the EcologicalClaim.</p>
       <tr>
        <td>quantity : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal">Decimal</a> 
        <td>Decimal 
-       <td>M 
-       <td>The estimated benefit quantity. 
+       <td>O 
+       <td>Optional, the estimated benefit quantity. 
       <tr>
        <td><dfn data-dfn-for="EcologicalClaim" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaim-co-benefits"><code>co-benefits</code><a class="self-link" href="#element-attrdef-ecologicalclaim-co-benefits"></a></dfn> : <a data-link-type="dfn" href="#co-benefit" id="ref-for-co-benefit">Co-benefit</a> 
        <td>Object 
-       <td>M 
-       <td>A collection of co-benefits associated with the EcologicalClaim. See <a href="#dt-co-benefit">§ 3.23 Data Type: Co-Benefit</a> for details. 
+       <td>O 
+       <td>Optional list of co-benefits associated with the EcologicalClaim. See <a href="#dt-co-benefit">§ 3.23 Data Type: Co-Benefit</a> for details. 
       <tr>
        <td><dfn data-dfn-for="EcologicalClaim" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaim-checkpoints"><code>checkpoints</code><a class="self-link" href="#element-attrdef-ecologicalclaim-checkpoints"></a></dfn> : <a data-link-type="dfn" href="#ecologicalclaimcheckpoint" id="ref-for-ecologicalclaimcheckpoint">EcologicalClaimCheckpoint</a> 
        <td>Object 
@@ -3111,7 +3117,6 @@ configured to control the processing of the EcologicalClaim.</p>
   to the VVB or verification platform. This enables the development of continous verification of the project
   and the ability to provide feedback to the developer on the status of the project and the evidence submitted
   before the end of the claim period.</p>
-   <div class="issue" id="issue-52c68efd"><a class="self-link" href="#issue-52c68efd"></a>Should be a token?</div>
    <h4 class="heading settled" data-level="3.9.1" id="dt-ecological-claim-checkpoint-properties"><span class="secno">3.9.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-ecological-claim-checkpoint-properties"></a></h4>
    <figure id="ecological-claim-checkpoint-properties-table">
     <table class="data">
@@ -3133,8 +3138,8 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The unique identifier for the parent EcologicalClaim, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-claimsourceids"><code>claimSourceIds</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-claimsourceids"></a></dfn> : 
-       <td>Array of Strings 
+       <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-claimsourceids"><code>claimSourceIds</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-claimsourceids"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①②">Id</a> 
+       <td>Array 
        <td>M 
        <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
@@ -3167,8 +3172,8 @@ configured to control the processing of the EcologicalClaim.</p>
       <tr>
        <td><dfn data-dfn-for="EcologicalClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-ecologicalclaimcheckpoint-spandatapackage"><code>spanDataPackage</code><a class="self-link" href="#element-attrdef-ecologicalclaimcheckpoint-spandatapackage"></a></dfn> : <a data-link-type="dfn" href="#spandatapackage" id="ref-for-spandatapackage①">SpanDataPackage</a> 
        <td>String 
-       <td>M 
-       <td>The span data package for the checkpoint, this could be the string contents of the manifest.json in the Span Data Package root. See <a href="#dt-span-data-package">§ 3.10 Data Type: SpanDataPackage</a> for details. 
+       <td>O 
+       <td>Optional, collect and store the span data package for the checkpoint, this could be the string contents of the manifest.json in the Span Data Package root. See <a href="#dt-span-data-package">§ 3.10 Data Type: SpanDataPackage</a> for details. 
     </table>
     <figcaption>Properties of data type EcologicalClaimCheckpoint</figcaption>
    </figure>
@@ -3209,7 +3214,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①②">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①③">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the Span Data Package, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3217,19 +3222,19 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>version: 
        <td>String 
        <td>M 
-       <td>The versions of the Span Data Package specification 
+       <td>The versions of the Span Data Package specification, default is 1.0.0. 
       <tr>
-       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①③">Id</a> 
+       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
        <td>String 
        <td>M 
        <td>The Modular Benefit Project that the SDP is sourced from. 
       <tr>
-       <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
+       <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
        <td>String 
        <td>M 
        <td>The Ecological Claim that the SDP is sourced from.  See, <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
+       <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
        <td>String 
        <td>M 
        <td>The Project Developer that submitted the SDP, See, <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3240,21 +3245,21 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>The DatePoint that the Span Data Package was created. See <a href="#dt-date-point">§ 3.40 Data Type: DatePoint</a> for details. 
       <tr>
        <td><dfn data-dfn-for="Manifest" data-dfn-type="element-attr" data-export id="element-attrdef-manifest-mrvextensions"><code>mrvExtensions</code><a class="self-link" href="#element-attrdef-manifest-mrvextensions"></a></dfn> : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MRVExtension</a> 
-       <td>Array of MrvExtension 
+       <td>Array 
        <td>O 
        <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the MBP is bound to. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
       <tr>
-       <td>files : <a data-link-type="dfn" href="#file" id="ref-for-file">File</a> 
-       <td>Array of Files 
+       <td>files : <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file">SDP-File</a> 
+       <td>Array 
        <td>M 
-       <td>The files that are in the Span Data Package, see <a href="#dt-file">§ 3.12 Data Type: File</a> for details. 
+       <td>The files that are in the Span Data Package, see <a href="#dt-sdp-file">§ 3.12 Data Type: SDP-File</a> for details. 
     </table>
     <figcaption>Properties of data type Manifest</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.12" id="dt-file"><span class="secno">3.12. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="file">File</dfn></span><a class="self-link" href="#dt-file"></a></h3>
-   <p>A file is a set of metadata about an evidence file contained within the Span Data Package.</p>
-   <h4 class="heading settled" data-level="3.12.1" id="dt-file-properties"><span class="secno">3.12.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-file-properties"></a></h4>
-   <figure id="file-properties-table">
+   <h3 class="heading settled" data-level="3.12" id="dt-sdp-file"><span class="secno">3.12. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sdp-file">SDP-File</dfn></span><a class="self-link" href="#dt-sdp-file"></a></h3>
+   <p>A SDP-file is a set of metadata about an evidence file contained within the Span Data Package.</p>
+   <h4 class="heading settled" data-level="3.12.1" id="dt-sdp-file-properties"><span class="secno">3.12.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-sdp-file-properties"></a></h4>
+   <figure id="sdp-file-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3272,17 +3277,17 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>type : 
        <td>String 
        <td>M 
-       <td>The string representation of the file type, see <a href="#dt-file-type">§ 3.46 Data Type: FileType</a> for details. 
+       <td>The string representation of the file type, see <a href="#dt-sdp-file-type">§ 3.46 Data Type: FileType</a> for details. 
       <tr>
        <td>description : 
        <td>String 
        <td>M 
        <td>A description of the contents of the file. 
       <tr>
-       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
+       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
        <td>String 
        <td>M 
-       <td>The id for the claim source registered with the ModularBenefitProject that the file is sourced from. 
+       <td>The id for the claim source registered with the <a data-link-type="dfn" href="#modularbenefitproject" id="ref-for-modularbenefitproject③">ModularBenefitProject</a> that the file is sourced from. 
       <tr>
        <td>claimSourceAttestation : 
        <td>String 
@@ -3292,7 +3297,7 @@ configured to control the processing of the EcologicalClaim.</p>
         <div class="issue" id="issue-7f0ee729">Replace with Attestation object?</div>
       <tr>
        <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension">DataExtension</a> 
-       <td>Array of DataExtension 
+       <td>Array 
        <td>O 
        <td>A collection of optional DataExtensions, Name/Value pairs. See <a href="#dt-data-extension">§ 3.14 Data Type: DataExtension</a> for details. 
     </table>
@@ -3320,7 +3325,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>version: 
        <td>String 
        <td>M 
-       <td>The versions of the MRV Extension specification 
+       <td>The versions of the MRV Extension specification, default is 1.0.0. 
       <tr>
        <td>description : 
        <td>String 
@@ -3328,14 +3333,9 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification platform describing the purpose of the extension. 
       <tr>
        <td>data_extensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension①">DataExtension</a> 
-       <td>Array of DataExtension 
+       <td>Array 
        <td>M 
        <td>A collection of DataExtensions 
-      <tr>
-       <td>data : 
-       <td>Object 
-       <td>M 
-       <td>The data for the MRV Extension, this is an extensible JSON object that is defined by the verifier or verification platform. 
     </table>
     <figcaption>Properties of data type MrvExtension</figcaption>
    </figure>
@@ -3360,7 +3360,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>value: 
        <td>String 
        <td>M 
-       <td>The value of the Data Extension, this is a string value for the extension. 
+       <td>The value of the Data Extension, this is a string value for the extension. This could contain a JSON object or array. 
     </table>
     <figcaption>Properties of data type DataExtension</figcaption>
    </figure>
@@ -3530,7 +3530,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>A description of the Verification Contract and where special instructions are provided. 
       <tr>
        <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-signatories"><code>signatories</code><a class="self-link" href="#element-attrdef-verificationcontract-signatories"></a></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
-       <td>Array of Signatory 
+       <td>Array 
        <td>M 
        <td>A collection of signatories, the MBP owner, Issuing Registry, VVB and Verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.31 Data Type: Signatory</a> for details. 
       <tr>
@@ -3544,7 +3544,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The MRV requirements being used for the verification. See <a href="#dt-mrv-requirements">§ 3.37 Data Type MRVRequirements</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-agreementdate"><code>agreementDate</code><a class="self-link" href="#element-attrdef-verificationcontract-agreementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date①">Date</a> 
+       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-agreementdate"><code>agreementDate</code><a class="self-link" href="#element-attrdef-verificationcontract-agreementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date②">Date</a> 
        <td>Date 
        <td>M 
        <td>The date the agreement was signed. See <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
@@ -3554,13 +3554,13 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
       <tr>
-       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
+       <td>mbpId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the corresponding MBP. See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-processedclaimids"><code>processedClaimIds</code><a class="self-link" href="#element-attrdef-verificationcontract-processedclaimids"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
-       <td>Array of Strings 
+       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-processedclaimids"><code>processedClaimIds</code><a class="self-link" href="#element-attrdef-verificationcontract-processedclaimids"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
+       <td>Array 
        <td>M 
        <td>The unique identifiers for the corresponding ProcessedClaims. See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
@@ -3615,7 +3615,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the CRU, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3630,7 +3630,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.70 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the CRU, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3647,7 +3647,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>The CoreCarbonPrinciples for this CRU, see <a href="#dt-core-carbon-principles">§ 3.19 Data Type: CoreCarbonPrinciples</a> for details. 
       <tr>
        <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-climatelabels"><code>climateLabels</code><a class="self-link" href="#element-attrdef-cru-climatelabels"></a></dfn> : <a data-link-type="dfn" href="#climatelabel" id="ref-for-climatelabel">ClimateLabel</a> 
-       <td>Array of ClimateLabel 
+       <td>Array 
        <td>O 
        <td>A collection of optional climate labels, see <a href="#dt-climate-label">§ 3.27 Data Type: ClimateLabel</a> for details. 
       <tr>
@@ -3662,17 +3662,17 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.29 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
+       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the ESGScorecardReportingPeriodId if supported.  See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3692,12 +3692,12 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
       <tr>
-       <td>issuanceDate : <a data-link-type="dfn" href="#date" id="ref-for-date②">Date</a> 
+       <td>issuanceDate : <a data-link-type="dfn" href="#date" id="ref-for-date③">Date</a> 
        <td>Date 
        <td>M 
        <td>The date of credit issuance, see <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
@@ -3738,12 +3738,12 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>The PACompliance properties for the credit, see <a href="#dt-pa-compliance">§ 3.25 Data Type: PACompliance</a> for details. 
       <tr>
        <td>quantifiedSDGImpacts : <a data-link-type="dfn" href="#co-benefit" id="ref-for-co-benefit②">Co-benefit</a> 
-       <td>Array of Co-benefit 
+       <td>Array 
        <td>O 
        <td>An array of optional quantified impact cobenefits, see <a href="#dt-un-sdgs">§ 3.63 Data Type: UN-SDGs</a> for details. 
       <tr>
        <td>adaptionCoBenefits : <code class="idl"><a data-link-type="idl" href="#enumdef-un-sdgs" id="ref-for-enumdef-un-sdgs①">UN-SDGs</a></code> 
-       <td>Array of Co-benefit 
+       <td>Array 
        <td>O 
        <td>An array of adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement, see <a href="#dt-un-sdgs">§ 3.63 Data Type: UN-SDGs</a> for details. 
     </table>
@@ -3833,7 +3833,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The Id of the revoked credit being replaced. 
       <tr>
-       <td><dfn data-dfn-for="Replacement" data-dfn-type="element-attr" data-export id="element-attrdef-replacement-replacementdate"><code>replacementDate</code><a class="self-link" href="#element-attrdef-replacement-replacementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date③">Date</a> 
+       <td><dfn data-dfn-for="Replacement" data-dfn-type="element-attr" data-export id="element-attrdef-replacement-replacementdate"><code>replacementDate</code><a class="self-link" href="#element-attrdef-replacement-replacementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date④">Date</a> 
        <td>Object 
        <td>M 
        <td>The date of the replacement. 
@@ -3981,7 +3981,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the REC, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -3990,6 +3990,11 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>String 
        <td>M 
        <td>The string representation of the REC type, see <a href="#dt-rec-type">§ 3.50 Data Type: RecType</a> for details. 
+      <tr>
+       <td>validJurisdiction : <code class="idl"><a data-link-type="idl" href="https://tc39.es/ecma262/multipage/text-processing.html#sec-string-objects" id="ref-for-sec-string-objects">String</a></code> 
+       <td>String 
+       <td>O 
+       <td>Optional jurisdiction where of the REC can be redeemed, i.e. US-Texas, multiples separated by a comma. 
       <tr>
        <td>quantity : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal②">Decimal</a> 
        <td>Decimal 
@@ -4001,7 +4006,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.70 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the REC, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4013,7 +4018,7 @@ configured to control the processing of the EcologicalClaim.</p>
               REC to other parties on their system of record. 
       <tr>
        <td><dfn data-dfn-for="REC" data-dfn-type="element-attr" data-export id="element-attrdef-rec-climatelabels"><code>climateLabels</code><a class="self-link" href="#element-attrdef-rec-climatelabels"></a></dfn> : <a data-link-type="dfn" href="#climatelabel" id="ref-for-climatelabel①">ClimateLabel</a> 
-       <td>Array of ClimateLabel 
+       <td>Array 
        <td>O 
        <td>A collection of optional climate labels, see <a href="#dt-climate-label">§ 3.27 Data Type: ClimateLabel</a> for details. 
       <tr>
@@ -4028,17 +4033,17 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.29 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
+       <td>offsetAppliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to external reporting system for the reporting period that the offset was applied to.  See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4159,8 +4164,8 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>Date of the last audit, See <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
       <tr>
-       <td>auditReports : 
-       <td>Array of VerifiedLinks 
+       <td>auditReports : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑦">VerifiedLink</a> 
+       <td>Array 
        <td>M 
        <td>A collection of VerifiedLinks to audit reports for the verification contract, see <a href="#dt-verified-link">§ 3.28 Data Type: VerifiedLink</a> . 
     </table>
@@ -4180,7 +4185,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③①">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.73 Data Type: Id</a> for details. 
@@ -4248,7 +4253,7 @@ and or a geographic area, like a land project using a polygon.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-gnss"><code>gnss</code><a class="self-link" href="#element-attrdef-geographiclocation-gnss"></a></dfn> : <a data-link-type="dfn" href="#gnss" id="ref-for-gnss">GNSS</a> 
+       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-gnss"><code>gnss</code><a class="self-link" href="#element-attrdef-geographiclocation-gnss"></a></dfn> : <a data-link-type="dfn" href="#gnss" id="ref-for-gnss①">GNSS</a> 
        <td>Object 
        <td>O 
        <td>The GNSS or GPS of a location. See <a href="#dt-gnss">§ 3.34 Data Type: GNSS</a> for details. 
@@ -4281,17 +4286,12 @@ and or a geographic area, like a land project using a polygon.</p>
        <td><dfn data-dfn-for="GNSS" data-dfn-type="element-attr" data-export id="element-attrdef-gnss-latitude"><code>latitude</code><a class="self-link" href="#element-attrdef-gnss-latitude"></a></dfn> : 
        <td>Decimal 
        <td>M 
-       <td>The latitude of the location. 
+       <td>The latitude of the location using Decimal Degrees. 
       <tr>
        <td><dfn data-dfn-for="GNSS" data-dfn-type="element-attr" data-export id="element-attrdef-gnss-longitude"><code>longitude</code><a class="self-link" href="#element-attrdef-gnss-longitude"></a></dfn> : 
        <td>Decimal 
        <td>M 
-       <td>The longitude of the location. 
-      <tr>
-       <td><dfn data-dfn-for="GNSS" data-dfn-type="element-attr" data-export id="element-attrdef-gnss-timing"><code>timing</code><a class="self-link" href="#element-attrdef-gnss-timing"></a></dfn> : 
-       <td>Decimal 
-       <td>O 
-       <td>The timing if used. 
+       <td>The longitude of the location using Decimal Degrees. 
     </table>
     <figcaption>Properties of data type GNSS</figcaption>
    </figure>
@@ -4358,7 +4358,7 @@ and or a geographic area, like a land project using a polygon.</p>
        <td>O 
        <td>The co-benefits of the quality standard. See <a href="#dt-co-benefit">§ 3.23 Data Type: Co-Benefit</a> for details. 
       <tr>
-       <td>standardLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑦">VerifiedLink</a> 
+       <td>standardLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑧">VerifiedLink</a> 
        <td>Object 
        <td>M 
        <td>The VerifiedLink to the standard. See <a href="#dt-verified-link">§ 3.28 Data Type: VerifiedLink</a> for details. 
@@ -4384,7 +4384,7 @@ the specification.</p>
        <td>M 
        <td>A string representation of the measurement specification, see <a href="#dt-measurement-specification">§ 3.66 Data Type: MeasurementSpecification</a> for details. 
       <tr>
-       <td>specificationLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑧">VerifiedLink</a> 
+       <td>specificationLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑨">VerifiedLink</a> 
        <td>Object 
        <td>M 
        <td>The VerifiedLink to the specification. See <a href="#dt-verified-link">§ 3.28 Data Type: VerifiedLink</a> for details. 
@@ -4469,7 +4469,7 @@ the specification.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td><dfn data-dfn-for="DatePoint" data-dfn-type="element-attr" data-export id="element-attrdef-datepoint-date"><code>date</code><a class="self-link" href="#element-attrdef-datepoint-date"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date④">Date</a> 
+       <td><dfn data-dfn-for="DatePoint" data-dfn-type="element-attr" data-export id="element-attrdef-datepoint-date"><code>date</code><a class="self-link" href="#element-attrdef-datepoint-date"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date⑤">Date</a> 
        <td>Date 
        <td>M 
        <td>The date of the point. See <a href="#dt-date">§ 3.41 Data Type: Date</a> for details. 
@@ -4571,7 +4571,7 @@ the specification.</p>
    </dl>
    <h4 class="heading settled" data-level="3.45.1" id="dt-insurance-policy-owner-json"><span class="secno">3.45.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-insurance-policy-owner-json"></a></h4>
    <p>Each InsurancePolicyOwner MUST be encoded as a JSON String.</p>
-   <h3 class="heading settled" data-level="3.46" id="dt-file-type"><span class="secno">3.46. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-file-type"></a></h3>
+   <h3 class="heading settled" data-level="3.46" id="dt-sdp-file-type"><span class="secno">3.46. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-sdp-file-type"></a></h3>
    <p>The file type indicates what data is contained within the file.</p>
    <dl>
     <dt data-md><dfn class="idl-code" data-dfn-for="FileType" data-dfn-type="enum-value" data-export id="dom-filetype-data_binary"><code>DATA_BINARY</code><a class="self-link" href="#dom-filetype-data_binary"></a></dfn>
@@ -4590,7 +4590,7 @@ the specification.</p>
     <dd data-md>
      <p>The file contains other data.</p>
    </dl>
-   <h4 class="heading settled" data-level="3.46.1" id="dt-file-type-json"><span class="secno">3.46.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-file-type-json"></a></h4>
+   <h4 class="heading settled" data-level="3.46.1" id="dt-sdp-file-type-json"><span class="secno">3.46.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-sdp-file-type-json"></a></h4>
    <p>Each FileType MUST be encoded as a JSON String.</p>
    <h3 class="heading settled" data-level="3.47" id="dt-hash-algorithm"><span class="secno">3.47. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-hashalgorithm"><code>HashAlgorithm</code></dfn></span><a class="self-link" href="#dt-hash-algorithm"></a></h3>
    <p>The HashAlgorithm is a string enumeration that defines the cryptographic hash algorithm used to generate the hash of an external data element.</p>
@@ -5378,7 +5378,7 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h3 class="heading settled" data-level="3.72" id="dt-string"><span class="secno">3.72. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="string">String</dfn></span><a class="self-link" href="#dt-string"></a></h3>
    <p>A regular UTF-8 String.</p>
    <h4 class="heading settled" data-level="3.72.1" id="dt-string-json"><span class="secno">3.72.1. </span><span class="content">JSON Data Representation</span><a class="self-link" href="#dt-string-json"></a></h4>
-   <p>Each <a data-link-type="dfn" href="#string" id="ref-for-string">String</a> MUST be encoded as a JSON String.</p>
+   <p>Each <a data-link-type="dfn" href="#string" id="ref-for-string①">String</a> MUST be encoded as a JSON String.</p>
    <h3 class="heading settled" data-level="3.73" id="dt-id"><span class="secno">3.73. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="id">Id</dfn></span><a class="self-link" href="#dt-id"></a></h3>
    <p>A Id MUST either be a UUID v4 as specified in <a data-link-type="biblio" href="#biblio-rfc4122" title="A Universally Unique IDentifier (UUID) URN Namespace">[RFC4122]</a>.</p>
    <p>or a unique key that can be represented as a string.</p>
@@ -5399,8 +5399,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-81c56685">
-    <a class="self-link" href="#example-81c56685"></a> CRU Full Lineage: 
+   <div class="example" id="example-ae5dda38">
+    <a class="self-link" href="#example-ae5dda38"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5647,8 +5647,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>390091000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>846545000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -5658,8 +5658,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>522954000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>932534000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5684,8 +5684,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015100</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>525486000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>933984000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5737,9 +5737,8 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
         <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"gnss"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"longitude"</c-><c- p>:</c-> <c- u>"54.72598° W"</c-><c- p>,</c->
-            <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.43252° S"</c-><c- p>,</c->
-            <c- f>"timing"</c-><c- p>:</c-> <c- u>""</c->
+            <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+            <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
           <c- p>},</c->
           <c- f>"geographicArea"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c->
@@ -5759,6 +5758,10 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
             <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
             <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
+            <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+              <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
+            <c- p>},</c->
             <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
             <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
@@ -5783,7 +5786,7 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
               <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
             <c- p>},</c->
-            <c- f>"validatingParty"</c-><c- p>:</c-> <c- u>"Contoso Ventures"</c-><c- p>,</c->
+            <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
@@ -5849,12 +5852,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>},</c->
     <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
   <c- p>}</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
-   <div class="example" id="example-e78c865e">
-    <a class="self-link" href="#example-e78c865e"></a> Ecological Project: 
+   <div class="example" id="example-92d6c6e7">
+    <a class="self-link" href="#example-92d6c6e7"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -5906,9 +5908,8 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"gnss"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"longitude"</c-><c- p>:</c-> <c- u>"54.72598° W"</c-><c- p>,</c->
-          <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.43252° S"</c-><c- p>,</c->
-          <c- f>"timing"</c-><c- p>:</c-> <c- u>""</c->
+          <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+          <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
         <c- p>},</c->
         <c- f>"geographicArea"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c->
@@ -5928,6 +5929,10 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
+          <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+            <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
+          <c- p>},</c->
           <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
           <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
           <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
@@ -5952,7 +5957,7 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
             <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
           <c- p>},</c->
-          <c- f>"validatingParty"</c-><c- p>:</c-> <c- u>"Contoso Ventures"</c-><c- p>,</c->
+          <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
           <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
@@ -5978,11 +5983,12 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"ecologicalProject"</c-><c- p>:</c-> <c- kc>null</c->
     <c- p>}</c->
   <c- p>]</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-f6c271f9">
-    <a class="self-link" href="#example-f6c271f9"></a> Modular Benefit Project: 
+   <div class="example" id="example-ee6fdad9">
+    <a class="self-link" href="#example-ee6fdad9"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -5996,9 +6002,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"gnss"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"longitude"</c-><c- p>:</c-> <c- u>"54.72598° W"</c-><c- p>,</c->
-      <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.43252° S"</c-><c- p>,</c->
-      <c- f>"timing"</c-><c- p>:</c-> <c- u>""</c->
+      <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+      <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
     <c- p>},</c->
     <c- f>"geographicArea"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c->
@@ -6018,6 +6023,10 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
       <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
       <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
+      <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+        <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c->
+      <c- p>},</c->
       <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
       <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
       <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
@@ -6042,7 +6051,7 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
         <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
       <c- p>},</c->
-      <c- f>"validatingParty"</c-><c- p>:</c-> <c- u>"Contoso Ventures"</c-><c- p>,</c->
+      <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
       <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
@@ -6472,31 +6481,32 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.9" id="example-rec"><span class="secno">4.9. </span><span class="content">Example Renewable Energy Credit</span><a class="self-link" href="#example-rec"></a></h3>
-   <div class="example" id="example-c2f5afe4">
-    <a class="self-link" href="#example-c2f5afe4"></a> Renewable Energy Credit: 
+   <div class="example" id="example-5a67b759">
+    <a class="self-link" href="#example-5a67b759"></a> Renewable Energy Credit: 
 <pre class="include-code highlight"><c- p>{</c->
-    <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
-    <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
-    <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
-    <c- f>"unit"</c-><c- p>:</c-> <c- u>"Megawatt"</c-><c- p>,</c->
-    <c- f>"ownerId"</c-><c- p>:</c-> <c- u>"396a2870-851e-4c93-bd97-e330c0d2d3c1"</c-><c- p>,</c->
-    <c- f>"listingAgentId"</c-><c- p>:</c-> <c- u>"ac497050-23eb-4fac-b9e5-1ec9039b2d34"</c-><c- p>,</c->
-    <c- f>"climateLabels"</c-><c- p>:</c-> <c- p>[</c->
-      <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c"</c-><c- p>,</c->
-        <c- f>"name"</c-><c- p>:</c-> <c- u>"Climate Neutral"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Neutral - environmentally friendly, climate positive"</c->
-      <c- p>}</c->
-    <c- p>],</c->
-    <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-    <c- f>"referencedRec"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
-    <c- p>},</c->
-    <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"45a85f6e-472d-46cf-87b6-73d3a34b4020"</c-><c- p>,</c->
-    <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
-    <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c->
-  <c- p>}</c-></pre>
+  <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
+  <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
+  <c- f>"validJurisdiction"</c-><c- p>:</c-> <c- u>"US"</c-><c- p>,</c->
+  <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+  <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
+  <c- f>"ownerId"</c-><c- p>:</c-> <c- u>"396a2870-851e-4c93-bd97-e330c0d2d3c1"</c-><c- p>,</c->
+  <c- f>"listingAgentId"</c-><c- p>:</c-> <c- u>"ac497050-23eb-4fac-b9e5-1ec9039b2d34"</c-><c- p>,</c->
+  <c- f>"climateLabels"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Climate Neutral"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Neutral - environmentally friendly, climate positive"</c->
+    <c- p>}</c->
+  <c- p>],</c->
+  <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
+  <c- f>"referencedRec"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
+  <c- p>},</c->
+  <c- f>"offsetAppliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+  <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"45a85f6e-472d-46cf-87b6-73d3a34b4020"</c-><c- p>,</c->
+  <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
+  <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c->
+<c- p>}</c-></pre>
    </div>
    <h2 class="heading settled" id="license"><span class="content">Appendix A: License</span><a class="self-link" href="#license"></a></h2>
    <p>﻿Attribution 4.0 International</p>
@@ -6876,6 +6886,23 @@ public licenses.</p>
     <li data-md>
      <p>Fixed the spelling of <code>projectDeveloperId</code> in the <a data-link-type="dfn" href="#ecologicalclaimcheckpoint" id="ref-for-ecologicalclaimcheckpoint①">EcologicalClaimCheckpoint</a> type, see <a href="#dt-ecological-claim-checkpoint">§ 3.9 Data Type: EcologicalClaimCheckpoint</a> for details.</p>
    </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230502"><span class="content">Version 2.5.1-20230502 (May 2, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230502"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Removed <code>timing</code> from the <a data-link-type="dfn" href="#gnss" id="ref-for-gnss②">GNSS</a> type, see <a href="#dt-gnss">§ 3.34 Data Type: GNSS</a> for details.</p>
+    <li data-md>
+     <p>Added <code>location</code> to the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> type, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+    <li data-md>
+     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MRVExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
+    <li data-md>
+     <p>Cleaned syntax and formatting of the specification, i.e. removed redundant array type names.</p>
+    <li data-md>
+     <p>Renamed <code>File</code> to <code>SDP-File</code> in the <a data-link-type="dfn" href="#spandatapackage" id="ref-for-spandatapackage②">SpanDataPackage</a> type, to prevent name collisions, see <a href="#dt-span-data-package">§ 3.10 Data Type: SpanDataPackage</a> for details.</p>
+    <li data-md>
+     <p>Added <code>validJurisdiction</code> to the <a data-link-type="dfn" href="#rec" id="ref-for-rec④">REC</a> type, see <a href="#dt-rec">§ 3.26 Token &amp; Data Type: REC</a> for details.</p>
+    <li data-md>
+     <p>Updated diagram to include the <a data-link-type="dfn" href="#rec" id="ref-for-rec⑤">REC</a> type, see <a href="#dt-rec">§ 3.26 Token &amp; Data Type: REC</a> for details.</p>
+   </ul>
   </main>
 <script>
 (function() {
@@ -7182,7 +7209,6 @@ public licenses.</p>
    <li><a href="#dom-generationtype-ex_post">EX_POST</a><span>, in § 3.51</span>
    <li><a href="#dom-month-february">February</a><span>, in § 3.61</span>
    <li><a href="#dom-projecttype-feed_additives">FEED_ADDITIVES</a><span>, in § 3.65</span>
-   <li><a href="#file">File</a><span>, in § 3.12</span>
    <li><a href="#enumdef-filetype">FileType</a><span>, in § 3.46</span>
    <li><a href="#element-attrdef-modularbenefitproject-firstyearissuance">firstYearIssuance</a><span>, in § 3.4.2</span>
    <li><a href="#dom-projecttype-fleet_efficiency">FLEET_EFFICIENCY</a><span>, in § 3.65</span>
@@ -7389,6 +7415,7 @@ public licenses.</p>
    <li><a href="#dom-status-revoked">REVOKED</a><span>, in § 3.67</span>
    <li><a href="#dom-projecttype-rice_emission_reductions">RICE_EMISSION_REDUCTIONS</a><span>, in § 3.65</span>
    <li><a href="#roles">Roles</a><span>, in § 3.8.1</span>
+   <li><a href="#sdp-file">SDP-File</a><span>, in § 3.12</span>
    <li><a href="#sdp-manifest">SDP Manifest</a><span>, in § 2</span>
    <li><a href="#dom-claimperiod-semiannual">SEMIANNUAL</a><span>, in § 3.57</span>
    <li><a href="#dom-claimsourcetype-sensor_device">SENSOR_DEVICE</a><span>, in § 3.53</span>
@@ -7438,7 +7465,6 @@ public licenses.</p>
    <li><a href="#dom-projecttype-sustainable_grassland_management">SUSTAINABLE_GRASSLAND_MANAGEMENT</a><span>, in § 3.65</span>
    <li><a href="#dom-method-technological">TECHNOLOGICAL</a><span>, in § 3.54</span>
    <li><a href="#element-attrdef-datepoint-timestamp">timestamp</a><span>, in § 3.40.1</span>
-   <li><a href="#element-attrdef-gnss-timing">timing</a><span>, in § 3.34.1</span>
    <li><a href="#dom-unit-ton-kilometer">ton kilometer</a><span>, in § 3.70</span>
    <li><a href="#dom-unit-tonne_ch4">TONNE_CH4</a><span>, in § 3.70</span>
    <li><a href="#dom-unit-tonne_co2">TONNE_CO2</a><span>, in § 3.70</span>
@@ -7495,6 +7521,12 @@ public licenses.</p>
    <li><a href="#dom-reversalrisk-zero">ZERO</a><span>, in § 3.43</span>
    <li><a href="#dom-un-sdgs-zero_hunger">ZERO_HUNGER</a><span>, in § 3.63</span>
   </ul>
+  <aside aria-labelledby="infopaneltitle-for-9fa1a2e2ec0f5902f7a41f5e64dc4790" class="dfn-panel" data-for="9fa1a2e2ec0f5902f7a41f5e64dc4790" id="infopanel-for-9fa1a2e2ec0f5902f7a41f5e64dc4790">
+   <span id="infopaneltitle-for-9fa1a2e2ec0f5902f7a41f5e64dc4790" style="display:none">Info about the 'String' external reference.</span><a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-string-objects">https://tc39.es/ecma262/multipage/text-processing.html#sec-string-objects</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-sec-string-objects">3.26.2. Properties</a>
+   </ul>
+  </aside>
   <aside aria-labelledby="infopaneltitle-for-7403669e5324fc91e9c8f405bfcef5eb" class="dfn-panel" data-for="7403669e5324fc91e9c8f405bfcef5eb" id="infopanel-for-7403669e5324fc91e9c8f405bfcef5eb">
    <span id="infopaneltitle-for-7403669e5324fc91e9c8f405bfcef5eb" style="display:none">Info about the 'description' external reference.</span><a href="https://w3c.github.io/manifest-app-info/#dfn-description">https://w3c.github.io/manifest-app-info/#dfn-description</a><b>Referenced in:</b>
    <ul>
@@ -7510,6 +7542,11 @@ public licenses.</p>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
+    <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="9fa1a2e2ec0f5902f7a41f5e64dc4790">String</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[MANIFEST-APP-INFO]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="7403669e5324fc91e9c8f405bfcef5eb">description</span>
@@ -7523,6 +7560,8 @@ public licenses.</p>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-ecmascript">[ECMASCRIPT]
+   <dd><a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
    <dt id="biblio-manifest-app-info">[MANIFEST-APP-INFO]
    <dd>Aaron Gustafson. <a href="https://w3c.github.io/manifest-app-info/"><cite>Web App Manifest - Application Information</cite></a>. URL: <a href="https://w3c.github.io/manifest-app-info/">https://w3c.github.io/manifest-app-info/</a>
    <dt id="biblio-reporting-1">[REPORTING-1]
@@ -7532,7 +7571,6 @@ public licenses.</p>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue">Should be a token? <a class="issue-return" href="#issue-52c68efd" title="Jump to section">↵</a></div>
    <div class="issue">Replace with Attestation object? <a class="issue-return" href="#issue-7f0ee729" title="Jump to section">↵</a></div>
    <div class="issue">Should be replaced with attestation? <a class="issue-return" href="#issue-8ffa6309" title="Jump to section">↵</a></div>
    <div class="issue">REC Types need to be completed <a class="issue-return" href="#issue-df439a85" title="Jump to section">↵</a></div>
@@ -7555,6 +7593,7 @@ public licenses.</p>
     <li><a href="#ref-for-modularbenefitproject">3. Tokens and their Data Model</a>
     <li><a href="#ref-for-modularbenefitproject①">3.2.2. Properties</a>
     <li><a href="#ref-for-modularbenefitproject②">3.9.1. Properties</a>
+    <li><a href="#ref-for-modularbenefitproject③">3.12.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-validation" class="dfn-panel" data-for="validation" id="infopanel-for-validation">
@@ -7564,12 +7603,19 @@ public licenses.</p>
     <li><a href="#ref-for-validation①">Version 2.5.1-20230425 (April 25, 2023)</a> <a href="#ref-for-validation②">(2)</a>
    </ul>
   </aside>
+  <aside aria-labelledby="infopaneltitle-for-validationstep" class="dfn-panel" data-for="validationstep" id="infopanel-for-validationstep">
+   <span id="infopaneltitle-for-validationstep" style="display:none">Info about the 'ValidationStep' definition.</span><b><a href="#validationstep">#validationstep</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-validationstep">3.5.1. Properties</a>
+   </ul>
+  </aside>
   <aside aria-labelledby="infopaneltitle-for-claimsource" class="dfn-panel" data-for="claimsource" id="infopanel-for-claimsource">
    <span id="infopaneltitle-for-claimsource" style="display:none">Info about the 'ClaimSource' definition.</span><b><a href="#claimsource">#claimsource</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-claimsource">3.4.2. Properties</a>
     <li><a href="#ref-for-claimsource①">Version 2.5.1-20230417 (April 17, 2023)</a>
     <li><a href="#ref-for-claimsource②">Version 2.5.1-20230425 (April 25, 2023)</a>
+    <li><a href="#ref-for-claimsource③">Version 2.5.1-20230502 (May 2, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-ecologicalclaim" class="dfn-panel" data-for="ecologicalclaim" id="infopanel-for-ecologicalclaim">
@@ -7591,6 +7637,7 @@ public licenses.</p>
    <ul>
     <li><a href="#ref-for-spandatapackage">3. Tokens and their Data Model</a>
     <li><a href="#ref-for-spandatapackage①">3.9.1. Properties</a>
+    <li><a href="#ref-for-spandatapackage②">Version 2.5.1-20230502 (May 2, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-manifest" class="dfn-panel" data-for="manifest" id="infopanel-for-manifest">
@@ -7599,16 +7646,17 @@ public licenses.</p>
     <li><a href="#ref-for-manifest">3.10.1. Properties</a>
    </ul>
   </aside>
-  <aside aria-labelledby="infopaneltitle-for-file" class="dfn-panel" data-for="file" id="infopanel-for-file">
-   <span id="infopaneltitle-for-file" style="display:none">Info about the 'File' definition.</span><b><a href="#file">#file</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-sdp-file" class="dfn-panel" data-for="sdp-file" id="infopanel-for-sdp-file">
+   <span id="infopaneltitle-for-sdp-file" style="display:none">Info about the 'SDP-File' definition.</span><b><a href="#sdp-file">#sdp-file</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-file">3.11.1. Properties</a>
+    <li><a href="#ref-for-sdp-file">3.11.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-mrvextension" class="dfn-panel" data-for="mrvextension" id="infopanel-for-mrvextension">
    <span id="infopaneltitle-for-mrvextension" style="display:none">Info about the 'MrvExtension' definition.</span><b><a href="#mrvextension">#mrvextension</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-mrvextension">3.11.1. Properties</a>
+    <li><a href="#ref-for-mrvextension①">Version 2.5.1-20230502 (May 2, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-dataextension" class="dfn-panel" data-for="dataextension" id="infopanel-for-dataextension">
@@ -7696,6 +7744,7 @@ public licenses.</p>
    <ul>
     <li><a href="#ref-for-rec">3. Tokens and their Data Model</a> <a href="#ref-for-rec①">(2)</a>
     <li><a href="#ref-for-rec②">Version 2.5.1-20230420 (April 20, 2023)</a> <a href="#ref-for-rec③">(2)</a>
+    <li><a href="#ref-for-rec④">Version 2.5.1-20230502 (May 2, 2023)</a> <a href="#ref-for-rec⑤">(2)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-climatelabel" class="dfn-panel" data-for="climatelabel" id="infopanel-for-climatelabel">
@@ -7714,8 +7763,9 @@ public licenses.</p>
     <li><a href="#ref-for-verifiedlink④">3.16.1. Properties</a>
     <li><a href="#ref-for-verifiedlink⑤">3.24.1. Properties</a>
     <li><a href="#ref-for-verifiedlink⑥">3.25.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑦">3.36.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑧">3.37.1. Properties</a>
+    <li><a href="#ref-for-verifiedlink⑦">3.30.1. Properties</a>
+    <li><a href="#ref-for-verifiedlink⑧">3.36.1. Properties</a>
+    <li><a href="#ref-for-verifiedlink⑨">3.37.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-referencedcredit" class="dfn-panel" data-for="referencedcredit" id="infopanel-for-referencedcredit">
@@ -7752,7 +7802,9 @@ public licenses.</p>
   <aside aria-labelledby="infopaneltitle-for-gnss" class="dfn-panel" data-for="gnss" id="infopanel-for-gnss">
    <span id="infopaneltitle-for-gnss" style="display:none">Info about the 'GNSS' definition.</span><b><a href="#gnss">#gnss</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-gnss">3.33.1. Properties</a>
+    <li><a href="#ref-for-gnss">3.7.1. Properties</a>
+    <li><a href="#ref-for-gnss①">3.33.1. Properties</a>
+    <li><a href="#ref-for-gnss②">Version 2.5.1-20230502 (May 2, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-geographicarea" class="dfn-panel" data-for="geographicarea" id="infopanel-for-geographicarea">
@@ -7798,11 +7850,11 @@ public licenses.</p>
   <aside aria-labelledby="infopaneltitle-for-date" class="dfn-panel" data-for="date" id="infopanel-for-date">
    <span id="infopaneltitle-for-date" style="display:none">Info about the 'Date' definition.</span><b><a href="#date">#date</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-date">3.5.1. Properties</a>
-    <li><a href="#ref-for-date①">3.17.1. Properties</a>
-    <li><a href="#ref-for-date②">3.19.1. Properties</a>
-    <li><a href="#ref-for-date③">3.22.1. Properties</a>
-    <li><a href="#ref-for-date④">3.40.1. Properties</a>
+    <li><a href="#ref-for-date">3.5.1. Properties</a> <a href="#ref-for-date①">(2)</a>
+    <li><a href="#ref-for-date②">3.17.1. Properties</a>
+    <li><a href="#ref-for-date③">3.19.1. Properties</a>
+    <li><a href="#ref-for-date④">3.22.1. Properties</a>
+    <li><a href="#ref-for-date⑤">3.40.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-enumdef-degradationtype" class="dfn-panel" data-for="enumdef-degradationtype" id="infopanel-for-enumdef-degradationtype">
@@ -7995,7 +8047,8 @@ public licenses.</p>
   <aside aria-labelledby="infopaneltitle-for-string" class="dfn-panel" data-for="string" id="infopanel-for-string">
    <span id="infopaneltitle-for-string" style="display:none">Info about the 'String' definition.</span><b><a href="#string">#string</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-string">3.72.1. JSON Data Representation</a>
+    <li><a href="#ref-for-string">3.3.1. Properties</a>
+    <li><a href="#ref-for-string①">3.72.1. JSON Data Representation</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-id" class="dfn-panel" data-for="id" id="infopanel-for-id">
@@ -8005,13 +8058,14 @@ public licenses.</p>
     <li><a href="#ref-for-id③">3.4.2. Properties</a> <a href="#ref-for-id④">(2)</a> <a href="#ref-for-id⑤">(3)</a> <a href="#ref-for-id⑥">(4)</a>
     <li><a href="#ref-for-id⑦">3.7.1. Properties</a> <a href="#ref-for-id⑧">(2)</a>
     <li><a href="#ref-for-id⑨">3.8.2. Properties</a> <a href="#ref-for-id①⓪">(2)</a> <a href="#ref-for-id①①">(3)</a>
-    <li><a href="#ref-for-id①②">3.11.1. Properties</a> <a href="#ref-for-id①③">(2)</a> <a href="#ref-for-id①④">(3)</a> <a href="#ref-for-id①⑤">(4)</a>
-    <li><a href="#ref-for-id①⑥">3.12.1. Properties</a>
-    <li><a href="#ref-for-id①⑦">3.17.1. Properties</a> <a href="#ref-for-id①⑧">(2)</a>
-    <li><a href="#ref-for-id①⑨">3.18.2. Properties</a> <a href="#ref-for-id②⓪">(2)</a> <a href="#ref-for-id②①">(3)</a> <a href="#ref-for-id②②">(4)</a> <a href="#ref-for-id②③">(5)</a>
-    <li><a href="#ref-for-id②④">3.19.1. Properties</a>
-    <li><a href="#ref-for-id②⑤">3.26.2. Properties</a> <a href="#ref-for-id②⑥">(2)</a> <a href="#ref-for-id②⑦">(3)</a> <a href="#ref-for-id②⑧">(4)</a> <a href="#ref-for-id②⑨">(5)</a>
-    <li><a href="#ref-for-id③⓪">3.31.1. Properties</a>
+    <li><a href="#ref-for-id①②">3.9.1. Properties</a>
+    <li><a href="#ref-for-id①③">3.11.1. Properties</a> <a href="#ref-for-id①④">(2)</a> <a href="#ref-for-id①⑤">(3)</a> <a href="#ref-for-id①⑥">(4)</a>
+    <li><a href="#ref-for-id①⑦">3.12.1. Properties</a>
+    <li><a href="#ref-for-id①⑧">3.17.1. Properties</a> <a href="#ref-for-id①⑨">(2)</a>
+    <li><a href="#ref-for-id②⓪">3.18.2. Properties</a> <a href="#ref-for-id②①">(2)</a> <a href="#ref-for-id②②">(3)</a> <a href="#ref-for-id②③">(4)</a> <a href="#ref-for-id②④">(5)</a>
+    <li><a href="#ref-for-id②⑤">3.19.1. Properties</a>
+    <li><a href="#ref-for-id②⑥">3.26.2. Properties</a> <a href="#ref-for-id②⑦">(2)</a> <a href="#ref-for-id②⑧">(3)</a> <a href="#ref-for-id②⑨">(4)</a> <a href="#ref-for-id③⓪">(5)</a>
+    <li><a href="#ref-for-id③①">3.31.1. Properties</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-iso3166cc" class="dfn-panel" data-for="iso3166cc" id="infopanel-for-iso3166cc">
