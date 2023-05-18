@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="2ddbc0f8896deae382200c2b905b254cce5a72e9" name="document-revision">
+  <meta content="e2f3b128ce86ba86cd7d61a632f5125d6c60d273" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -5486,8 +5486,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-ae5dda38">
-    <a class="self-link" href="#example-ae5dda38"></a> CRU Full Lineage: 
+   <div class="example" id="example-fd6dab91">
+    <a class="self-link" href="#example-fd6dab91"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5497,9 +5497,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"coreCarbonPrincipals"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-      <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-      <c- f>"day"</c-><c- p>:</c-> <c- mi>4</c->
+      <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -5671,9 +5670,8 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c->
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"year"</c-><c- p>:</c-> <c- mi>2018</c-><c- p>,</c->
-        <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-        <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -5683,9 +5681,8 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
         <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-          <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-          <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+          <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -5729,24 +5726,22 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"year"</c-><c- p>:</c-> <c- mi>2018</c-><c- p>,</c->
-                <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-                <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>846545000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417554</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>815435000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-                <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-                <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>932534000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417554</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>922740000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -5766,13 +5761,12 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
-                  <c- f>"month"</c-><c- p>:</c-> <c- u>"February"</c-><c- p>,</c->
-                  <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683055689</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>933984000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417554</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>924465000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -5792,7 +5786,7 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- p>]</c->
                 <c- p>}</c->
               <c- p>],</c->
-              <c- f>"files"</c-><c- p>:</c-> <c- p>[</c->
+              <c- f>"sdpFiles"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
                   <c- f>"name"</c-><c- p>:</c-> <c- u>"Data from sensor"</c-><c- p>,</c->
                   <c- f>"type"</c-><c- p>:</c-> <c- u>"DataBinary"</c-><c- p>,</c->
@@ -5869,16 +5863,14 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"year"</c-><c- p>:</c-> <c- mi>2017</c-><c- p>,</c->
-              <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-              <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+              <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
-              <c- f>"month"</c-><c- p>:</c-> <c- u>"March"</c-><c- p>,</c->
-              <c- f>"day"</c-><c- p>:</c-> <c- mi>12</c->
+              <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -5942,8 +5934,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
-   <div class="example" id="example-92d6c6e7">
-    <a class="self-link" href="#example-92d6c6e7"></a> Ecological Project: 
+   <div class="example" id="example-e5532574">
+    <a class="self-link" href="#example-e5532574"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -6040,16 +6032,14 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"year"</c-><c- p>:</c-> <c- mi>2017</c-><c- p>,</c->
-            <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-            <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
           <c- p>},</c->
           <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
           <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
-            <c- f>"month"</c-><c- p>:</c-> <c- u>"March"</c-><c- p>,</c->
-            <c- f>"day"</c-><c- p>:</c-> <c- mi>12</c->
+            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
           <c- p>},</c->
           <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -6070,12 +6060,11 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"ecologicalProject"</c-><c- p>:</c-> <c- kc>null</c->
     <c- p>}</c->
   <c- p>]</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-ee6fdad9">
-    <a class="self-link" href="#example-ee6fdad9"></a> Modular Benefit Project: 
+   <div class="example" id="example-a21a6bb6">
+    <a class="self-link" href="#example-a21a6bb6"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -6134,16 +6123,14 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
       <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"year"</c-><c- p>:</c-> <c- mi>2017</c-><c- p>,</c->
-        <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-        <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
       <c- p>},</c->
       <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
       <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"year"</c-><c- p>:</c-> <c- mi>2027</c-><c- p>,</c->
-        <c- f>"month"</c-><c- p>:</c-> <c- u>"March"</c-><c- p>,</c->
-        <c- f>"day"</c-><c- p>:</c-> <c- mi>12</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
       <c- p>},</c->
       <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
@@ -6165,8 +6152,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-ecological-claim"><span class="secno">4.4. </span><span class="content">Example Ecological Claim</span><a class="self-link" href="#example-ecological-claim"></a></h3>
-   <div class="example" id="example-b421259a">
-    <a class="self-link" href="#example-b421259a"></a> Ecological Claim: 
+   <div class="example" id="example-5d0afdf5">
+    <a class="self-link" href="#example-5d0afdf5"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6196,24 +6183,22 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"year"</c-><c- p>:</c-> <c- mi>2018</c-><c- p>,</c->
-            <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-            <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
+            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979242000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417721</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>3398000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-            <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-            <c- f>"day"</c-><c- p>:</c-> <c- mi>1</c->
+            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979252000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417721</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>3421000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -6233,13 +6218,12 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
           <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
-              <c- f>"month"</c-><c- p>:</c-> <c- u>"February"</c-><c- p>,</c->
-              <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
+              <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1682015215</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>979270000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417721</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>3489000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6259,7 +6243,7 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- p>]</c->
             <c- p>}</c->
           <c- p>],</c->
-          <c- f>"files"</c-><c- p>:</c-> <c- p>[</c->
+          <c- f>"sdpFiles"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Data from sensor"</c-><c- p>,</c->
               <c- f>"type"</c-><c- p>:</c-> <c- u>"DataBinary"</c-><c- p>,</c->
@@ -6282,8 +6266,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
-   <div class="example" id="example-3dbfff16">
-    <a class="self-link" href="#example-3dbfff16"></a> Span Data Package: 
+   <div class="example" id="example-5cadd6ae">
+    <a class="self-link" href="#example-5cadd6ae"></a> Span Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
@@ -6293,13 +6277,12 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
     <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"year"</c-><c- p>:</c-> <c- mi>2021</c-><c- p>,</c->
-        <c- f>"month"</c-><c- p>:</c-> <c- u>"February"</c-><c- p>,</c->
-        <c- f>"day"</c-><c- p>:</c-> <c- mi>18</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1683566096</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>790167000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1684417817</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>877407000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6383,8 +6366,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.7" id="example-verification-contract"><span class="secno">4.7. </span><span class="content">Example Verfication Contract</span><a class="self-link" href="#example-verification-contract"></a></h3>
-   <div class="example" id="example-b1441b73">
-    <a class="self-link" href="#example-b1441b73"></a> Verification Contract: 
+   <div class="example" id="example-4c2ea453">
+    <a class="self-link" href="#example-4c2ea453"></a> Verification Contract: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Forest Plot 3341"</c-><c- p>,</c->
@@ -6452,9 +6435,8 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c->
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
-    <c- f>"year"</c-><c- p>:</c-> <c- mi>2018</c-><c- p>,</c->
-    <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-    <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+    <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6464,9 +6446,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
     <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-      <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-      <c- f>"day"</c-><c- p>:</c-> <c- mi>7</c->
+      <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
@@ -6483,8 +6464,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-   <div class="example" id="example-fb2be3a1">
-    <a class="self-link" href="#example-fb2be3a1"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-dd909862">
+    <a class="self-link" href="#example-dd909862"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6494,9 +6475,8 @@ This list will be expanded to include other categories, like biodiversity, in th
   <c- f>"coreCarbonPrincipals"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"year"</c-><c- p>:</c-> <c- mi>2019</c-><c- p>,</c->
-      <c- f>"month"</c-><c- p>:</c-> <c- u>"January"</c-><c- p>,</c->
-      <c- f>"day"</c-><c- p>:</c-> <c- mi>4</c->
+      <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
