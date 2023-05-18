@@ -311,7 +311,7 @@ message SpanDataPackage{
             repeated DataExtension data_extensions = 4; //list of data extensions
             }
         repeated MrvExtension mrv_extensions = 7; //list of MRV extensions
-        message File{
+        message SDPFile{
             string name = 1; //name of the file
             enum FileType
             {
@@ -319,15 +319,16 @@ message SpanDataPackage{
                 DATA_CSV = 1; //csv data file
                 DATA_JSON = 2; //json data file
                 DATA_XML = 3; //xml data file
-                DATA_OTHER = 4; //other data file
+                DATA_PDF = 4; //pdf data file
+                DATA_OTHER = 5; //other data file
             }
             FileType type = 2; //type of the file
-            string description = 3; //descrtheiption of the file
+            string description = 3; //description of the file
             string claim_source_id = 4; //the claim source id, registered with the MBP, for the file
             string claim_source_attestation = 5; //claim source attestation or signature for the file
             repeated DataExtension data_extensions = 6; //data extensions for the file
         }
-        repeated File files = 8; //list of files in the SDP
+        repeated SDPFile sdp_files = 8; //list of files in the SDP
     }
     Manifest manifest = 1; //manifest of the SDP
 }

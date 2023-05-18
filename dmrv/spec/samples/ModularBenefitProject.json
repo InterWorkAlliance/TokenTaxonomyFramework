@@ -56,16 +56,14 @@
   "validations": [
     {
       "validationDate": {
-        "year": 2017,
-        "month": "January",
-        "day": 7
+        "dateTime": null,
+        "dateString": "5/18/2023"
       },
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
       "validationExpirationDate": {
-        "year": 2027,
-        "month": "March",
-        "day": 12
+        "dateTime": null,
+        "dateString": "5/18/2023"
       },
       "validationSteps": [
         {

@@ -65,9 +65,8 @@
     "claimPeriod": "Annual"
   },
   "agreementDate": {
-    "year": 2018,
-    "month": "January",
-    "day": 7
+    "dateTime": null,
+    "dateString": "5/18/2023"
   },
   "estimatedAnnualCredits": "15,000",
   "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -77,9 +76,8 @@
   "audits": {
     "auditSchedule": "Quinquennial",
     "lastAuditDate": {
-      "year": 2019,
-      "month": "January",
-      "day": 7
+      "dateTime": null,
+      "dateString": "5/18/2023"
     },
     "auditReports": [
       {

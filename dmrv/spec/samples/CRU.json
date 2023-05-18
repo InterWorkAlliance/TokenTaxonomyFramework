@@ -7,9 +7,8 @@
   "coreCarbonPrincipals": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
-      "year": 2019,
-      "month": "January",
-      "day": 4
+      "dateTime": null,
+      "dateString": "5/18/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",

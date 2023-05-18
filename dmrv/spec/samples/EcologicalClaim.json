@@ -27,24 +27,22 @@
       "checkpointDateRange": {
         "startDate": {
           "date": {
-            "year": 2018,
-            "month": "January",
-            "day": 1
+            "dateTime": null,
+            "dateString": "5/18/2023"
           },
           "timeStamp": {
-            "seconds": 1682015215,
-            "nanos": 979242000
+            "seconds": 1684417721,
+            "nanos": 3398000
           }
         },
         "endDate": {
           "date": {
-            "year": 2019,
-            "month": "January",
-            "day": 1
+            "dateTime": null,
+            "dateString": "5/18/2023"
           },
           "timeStamp": {
-            "seconds": 1682015215,
-            "nanos": 979252000
+            "seconds": 1684417721,
+            "nanos": 3421000
           }
         }
       },
@@ -64,13 +62,12 @@
           "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
           "created": {
             "date": {
-              "year": 2021,
-              "month": "February",
-              "day": 18
+              "dateTime": null,
+              "dateString": "5/18/2023"
             },
             "timeStamp": {
-              "seconds": 1682015215,
-              "nanos": 979270000
+              "seconds": 1684417721,
+              "nanos": 3489000
             }
           },
           "mrvExtensions": [
@@ -90,7 +87,7 @@
               ]
             }
           ],
-          "files": [
+          "sdpFiles": [
             {
               "name": "Data from sensor",
               "type": "DataBinary",

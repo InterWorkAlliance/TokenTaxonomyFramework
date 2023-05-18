@@ -7,13 +7,12 @@
     "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
     "created": {
       "date": {
-        "year": 2021,
-        "month": "February",
-        "day": 18
+        "dateTime": null,
+        "dateString": "5/18/2023"
       },
       "timeStamp": {
-        "seconds": 1682015323,
-        "nanos": 146250000
+        "seconds": 1684417817,
+        "nanos": 877407000
       }
     },
     "mrvExtensions": [
@@ -33,7 +32,7 @@
         ]
       }
     ],
-    "files": [
+    "sdpFiles": [
       {
         "name": "Data from sensor",
         "type": "DataBinary",

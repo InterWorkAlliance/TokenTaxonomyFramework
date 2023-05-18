@@ -7,9 +7,8 @@
   "coreCarbonPrincipals": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
-      "year": 2019,
-      "month": "January",
-      "day": 4
+      "dateTime": null,
+      "dateString": "5/18/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -181,9 +180,8 @@
         "claimPeriod": "Annual"
       },
       "agreementDate": {
-        "year": 2018,
-        "month": "January",
-        "day": 7
+        "dateTime": null,
+        "dateString": "5/18/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -193,9 +191,8 @@
       "audits": {
         "auditSchedule": "Quinquennial",
         "lastAuditDate": {
-          "year": 2019,
-          "month": "January",
-          "day": 7
+          "dateTime": null,
+          "dateString": "5/18/2023"
         },
         "auditReports": [
           {
@@ -239,24 +236,22 @@
           "checkpointDateRange": {
             "startDate": {
               "date": {
-                "year": 2018,
-                "month": "January",
-                "day": 1
+                "dateTime": null,
+                "dateString": "5/18/2023"
               },
               "timeStamp": {
-                "seconds": 1683055689,
-                "nanos": 846545000
+                "seconds": 1684417554,
+                "nanos": 815435000
               }
             },
             "endDate": {
               "date": {
-                "year": 2019,
-                "month": "January",
-                "day": 1
+                "dateTime": null,
+                "dateString": "5/18/2023"
               },
               "timeStamp": {
-                "seconds": 1683055689,
-                "nanos": 932534000
+                "seconds": 1684417554,
+                "nanos": 922740000
               }
             }
           },
@@ -276,13 +271,12 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "year": 2021,
-                  "month": "February",
-                  "day": 18
+                  "dateTime": null,
+                  "dateString": "5/18/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1683055689,
-                  "nanos": 933984000
+                  "seconds": 1684417554,
+                  "nanos": 924465000
                 }
               },
               "mrvExtensions": [
@@ -302,7 +296,7 @@
                   ]
                 }
               ],
-              "files": [
+              "sdpFiles": [
                 {
                   "name": "Data from sensor",
                   "type": "DataBinary",
@@ -379,16 +373,14 @@
         "validations": [
           {
             "validationDate": {
-              "year": 2017,
-              "month": "January",
-              "day": 7
+              "dateTime": null,
+              "dateString": "5/18/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
-              "year": 2027,
-              "month": "March",
-              "day": 12
+              "dateTime": null,
+              "dateString": "5/18/2023"
             },
             "validationSteps": [
               {
