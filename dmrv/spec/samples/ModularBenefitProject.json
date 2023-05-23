@@ -38,7 +38,13 @@
       },
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
-      "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
+      "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
+      "dataExtensions": [
+        {
+          "name": "Sample extension",
+          "value": "value"
+        }
+      ]
     }
   ],
   "ecologicalClaims": [
@@ -57,13 +63,13 @@
     {
       "validationDate": {
         "dateTime": null,
-        "dateString": "5/18/2023"
+        "dateString": "5/23/2023"
       },
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
       "validationExpirationDate": {
         "dateTime": null,
-        "dateString": "5/18/2023"
+        "dateString": "5/23/2023"
       },
       "validationSteps": [
         {

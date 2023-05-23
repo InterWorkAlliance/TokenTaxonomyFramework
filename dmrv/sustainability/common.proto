@@ -15,9 +15,8 @@ enum AddressType
 }
 
 message Date{
-    int32 year = 1; //4 digit year
-    Month month = 2; //Month enum
-    int32 day = 3; //day of the month
+    google.protobuf.Timestamp date_time = 1; //less granular timestamp for date only
+    string date_string = 2; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
 }
 
 message DatePoint{
@@ -77,6 +76,7 @@ enum Region
     SOUTH_ASIA = 11;
     SOUTH_EAST_ASIA = 12;
     SUB_SAHARAN_AFRICA = 13;
+    EAST_AFRICA = 14;
 }
 
 enum HashAlgorithm
@@ -212,10 +212,10 @@ enum ProjectType{
     WIND = 71;
 }
 
+//GNSS - Global Navigation Satellite System, uses GPS, GLONASS, Galileo, BeiDou, etc. 
 message GNSS{
-    string longitude = 1; //longitude
-    string latitude = 2; //latitude
-    string timing = 3; //timing
+    string longitude = 1; //longitude in Decimal Degrees (DD)
+    string latitude = 2; //latitude in Decimal Degrees (DD)
 }
 message GeographicArea{
     string geo_json_or_kml = 1; //geojson or kml
@@ -226,9 +226,8 @@ message GeographicLocation{
 }
 
 message CoBenefit {
-    BenefitCategory co_benefit = 1; //high-level categories
-    string description = 2; //description of the co-benefit that is not captured via the category
-    int32 rating_score = 3;  //placeholder for some kind of rating or scoring of the relative co-benefit
+    BenefitCategory un_sdg = 1; //high-level categories that map to the UN Sustainable Development Goals.
+    string description = 2; //description of the co-benefit and how it applies to the project or activity.
 }
 
 enum MeasurementSpecification{
@@ -340,6 +339,7 @@ enum Unit{
     KILOMETER = 106;
     SQUARE_METER = 107;
     TONNE = 108;
+    MW_H = 109;
 }
 
 enum Status{
@@ -659,3 +659,43 @@ message Attestation{
     string attestor = 3; //The id or address of the attestor
     bytes proof = 4; //The proof of attestation
 }
+
+//A digital signature that can support both JWT and VC
+message Signature{
+    SignatureType type = 1; //The type of signature
+    bytes signature = 2; //The signature
+}
+
+enum SignatureType{
+    J_W_T = 0; //JSON Web Token
+    VERIFIED_CREDENTIAL = 1; //Verified Credentials
+}
+
+message Credential{
+    string id = 1; //The id of the credential
+    string type = 2; //The type of credential
+    string issuer = 3; //The issuer of the credential
+    string subject = 4; //The subject of the credential
+    repeated string claims = 5; //The claims of the credential
+    repeated string proof = 6; //The proof of the credential
+}
+
+message VerifiedPresentation{
+    string id = 1; //The id of the presentation
+    SignatureType type = 2; //The type of presentation
+    string holder = 3; //The holder of the presentation
+    repeated Credential credentials = 4; //The credentials of the presentation
+    Signature proof = 5; //The proof of the presentation
+}
+
+message DataExtension{
+    string name = 1; //name of the data extension
+    string value = 2; //value of the data extension
+}
+
+message MrvExtension{
+    string name = 1; //name of the extension
+    string version = 2; //version of the extension
+    string description = 3; //description of the extension
+    repeated DataExtension data_extensions = 4; //list of data extensions
+    }

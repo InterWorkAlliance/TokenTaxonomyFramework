@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="bcdcd2e73baf811f61ddf4903db1ed5f31c2047d" name="document-revision">
+  <meta content="6d1c562d337d9369c9369152d4dc2410187c9536" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-05-18">18 May 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-05-23">23 May 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2160,7 +2160,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-manifest-properties"><span class="secno">3.11.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-sdp-file"><span class="secno">3.12</span> <span class="content">Data Type: <span>SDP-File</span></span></a>
+       <a href="#dt-sdp-file"><span class="secno">3.12</span> <span class="content">Data Type: <span>Sdp-File</span></span></a>
        <ol class="toc">
         <li><a href="#dt-sdp-file-properties"><span class="secno">3.12.1</span> <span class="content">Properties</span></a>
        </ol>
@@ -2513,6 +2513,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.4.0-20230502"><span class="secno"></span> <span class="content">Version 2.5.1-20230502 (May 2, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230503"><span class="secno"></span> <span class="content">Version 2.5.1-20230503 (May 3, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230518"><span class="secno"></span> <span class="content">Version 2.5.1-20230518 (May 18, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230523"><span class="secno"></span> <span class="content">Version 2.5.1-20230523 (May 23, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -3040,6 +3041,11 @@ a sensor or meter, an application that collects user data or reference data like
        <td>string 
        <td>M 
        <td>this can be the unique identifier for the device, like a serial number, public key, etc. 
+      <tr>
+       <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension">DataExtension</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of optional DataExtensions, Name/Value pairs, for optional configuration, etc. See <a href="#dt-data-extension">§ 3.14 Data Type: DataExtension</a> for details. 
     </table>
     <figcaption>Properties of data type EcologicalClaim</figcaption>
    </figure>
@@ -3256,22 +3262,22 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The DatePoint that the Span Data Package was created. See <a href="#dt-date-point">§ 3.43 Data Type: DatePoint</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Manifest" data-dfn-type="element-attr" data-export id="element-attrdef-manifest-mrvextensions"><code>mrvExtensions</code><a class="self-link" href="#element-attrdef-manifest-mrvextensions"></a></dfn> : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MRVExtension</a> 
+       <td><dfn data-dfn-for="Manifest" data-dfn-type="element-attr" data-export id="element-attrdef-manifest-mrvextensions"><code>mrvExtensions</code><a class="self-link" href="#element-attrdef-manifest-mrvextensions"></a></dfn> : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the MBP is bound to. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
       <tr>
-       <td>files : <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file">SDP-File</a> 
+       <td>files : <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file">Sdp-File</a> 
        <td>Array 
        <td>M 
-       <td>The files that are in the Span Data Package, see <a href="#dt-sdp-file">§ 3.12 Data Type: SDP-File</a> for details. 
+       <td>The files that are in the Span Data Package, see <a href="#dt-sdp-file">§ 3.12 Data Type: Sdp-File</a> for details. 
     </table>
     <figcaption>Properties of data type Manifest</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.12" id="dt-sdp-file"><span class="secno">3.12. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sdp-file">SDP-File</dfn></span><a class="self-link" href="#dt-sdp-file"></a></h3>
-   <p>A SDP-file is a set of metadata about an evidence file contained within the Span Data Package.</p>
+   <h3 class="heading settled" data-level="3.12" id="dt-sdp-file"><span class="secno">3.12. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sdp-file">Sdp-File</dfn></span><a class="self-link" href="#dt-sdp-file"></a></h3>
+   <p>A Sdp-File is a set of metadata about an evidence file contained within the Span Data Package.</p>
    <h4 class="heading settled" data-level="3.12.1" id="dt-sdp-file-properties"><span class="secno">3.12.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-sdp-file-properties"></a></h4>
-   <figure id="sdp-file-properties-table">
+   <figure id="Sdp-File-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3306,7 +3312,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>The source attestation or signature for the file. See <a href="#dt-signature">§ 3.32 Data Type: Signature</a> for details. 
       <tr>
-       <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension">DataExtension</a> 
+       <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension①">DataExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of optional DataExtensions, Name/Value pairs. See <a href="#dt-data-extension">§ 3.14 Data Type: DataExtension</a> for details. 
@@ -3342,7 +3348,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification platform describing the purpose of the extension. 
       <tr>
-       <td>data_extensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension①">DataExtension</a> 
+       <td>data_extensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension②">DataExtension</a> 
        <td>Array 
        <td>M 
        <td>A collection of DataExtensions 
@@ -6063,8 +6069,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-a21a6bb6">
-    <a class="self-link" href="#example-a21a6bb6"></a> Modular Benefit Project: 
+   <div class="example" id="example-0a98e684">
+    <a class="self-link" href="#example-0a98e684"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -6105,7 +6111,13 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- p>},</c->
       <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
       <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
-      <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c->
+      <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
+      <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Sample extension"</c-><c- p>,</c->
+          <c- f>"value"</c-><c- p>:</c-> <c- u>"value"</c->
+        <c- p>}</c->
+      <c- p>]</c->
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"ecologicalClaims"</c-><c- p>:</c-> <c- p>[</c->
@@ -6124,13 +6136,13 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>{</c->
       <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/23/2023"</c->
       <c- p>},</c->
       <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
       <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/23/2023"</c->
       <c- p>},</c->
       <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
@@ -6963,11 +6975,11 @@ public licenses.</p>
     <li data-md>
      <p>Added <code>location</code> to the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> type, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
     <li data-md>
-     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MRVExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
+     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Cleaned syntax and formatting of the specification, i.e. removed redundant array type names.</p>
     <li data-md>
-     <p>Renamed <code>File</code> to <code>SDP-File</code> in the <a data-link-type="dfn" href="#spandatapackage" id="ref-for-spandatapackage②">SpanDataPackage</a> type, to prevent name collisions, see <a href="#dt-span-data-package">§ 3.10 Data Type: SpanDataPackage</a> for details.</p>
+     <p>Renamed <code>File</code> to <code>Sdp-File</code> in the <a data-link-type="dfn" href="#spandatapackage" id="ref-for-spandatapackage②">SpanDataPackage</a> type, to prevent name collisions, see <a href="#dt-span-data-package">§ 3.10 Data Type: SpanDataPackage</a> for details.</p>
     <li data-md>
      <p>Added <code>validJurisdiction</code> to the <a data-link-type="dfn" href="#rec" id="ref-for-rec④">REC</a> type, see <a href="#dt-rec">§ 3.26 Token &amp; Data Type: REC</a> for details.</p>
     <li data-md>
@@ -6990,6 +7002,13 @@ public licenses.</p>
      <p>Updated <a data-link-type="dfn" href="#date" id="ref-for-date⑥">Date</a> type to include <code>UTC date</code> property and <code>date string</code> for simple date representation, see <a href="#dt-date">§ 3.44 Data Type: Date</a> for details.</p>
     <li data-md>
      <p>Removed Data Type Month from the specification as no longer needed with simplified date and time representations.</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230523"><span class="content">Version 2.5.1-20230523 (May 23, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230523"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Updated <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource④">ClaimSource</a> to include <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension③">DataExtension</a> type for optional source configuration or other metadata, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+    <li data-md>
+     <p>Fixed <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file①">Sdp-File</a> syntax to match the specification, see <a href="#dt-sdp-file">§ 3.12 Data Type: Sdp-File</a> for details.</p>
    </ul>
   </main>
 <script>
@@ -7500,7 +7519,7 @@ public licenses.</p>
    <li><a href="#dom-status-revoked">REVOKED</a><span>, in § 3.69</span>
    <li><a href="#dom-projecttype-rice_emission_reductions">RICE_EMISSION_REDUCTIONS</a><span>, in § 3.67</span>
    <li><a href="#roles">Roles</a><span>, in § 3.8.1</span>
-   <li><a href="#sdp-file">SDP-File</a><span>, in § 3.12</span>
+   <li><a href="#sdp-file">Sdp-File</a><span>, in § 3.12</span>
    <li><a href="#sdp-manifest">SDP Manifest</a><span>, in § 2</span>
    <li><a href="#dom-claimperiod-semiannual">SEMIANNUAL</a><span>, in § 3.60</span>
    <li><a href="#dom-claimsourcetype-sensor_device">SENSOR_DEVICE</a><span>, in § 3.56</span>
@@ -7707,6 +7726,7 @@ public licenses.</p>
     <li><a href="#ref-for-claimsource①">Version 2.5.1-20230417 (April 17, 2023)</a>
     <li><a href="#ref-for-claimsource②">Version 2.5.1-20230425 (April 25, 2023)</a>
     <li><a href="#ref-for-claimsource③">Version 2.5.1-20230502 (May 2, 2023)</a>
+    <li><a href="#ref-for-claimsource④">Version 2.5.1-20230523 (May 23, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-ecologicalclaim" class="dfn-panel" data-for="ecologicalclaim" id="infopanel-for-ecologicalclaim">
@@ -7739,9 +7759,10 @@ public licenses.</p>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-sdp-file" class="dfn-panel" data-for="sdp-file" id="infopanel-for-sdp-file">
-   <span id="infopaneltitle-for-sdp-file" style="display:none">Info about the 'SDP-File' definition.</span><b><a href="#sdp-file">#sdp-file</a></b><b>Referenced in:</b>
+   <span id="infopaneltitle-for-sdp-file" style="display:none">Info about the 'Sdp-File' definition.</span><b><a href="#sdp-file">#sdp-file</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-sdp-file">3.11.1. Properties</a>
+    <li><a href="#ref-for-sdp-file①">Version 2.5.1-20230523 (May 23, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-mrvextension" class="dfn-panel" data-for="mrvextension" id="infopanel-for-mrvextension">
@@ -7754,8 +7775,10 @@ public licenses.</p>
   <aside aria-labelledby="infopaneltitle-for-dataextension" class="dfn-panel" data-for="dataextension" id="infopanel-for-dataextension">
    <span id="infopaneltitle-for-dataextension" style="display:none">Info about the 'DataExtension' definition.</span><b><a href="#dataextension">#dataextension</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dataextension">3.12.1. Properties</a>
-    <li><a href="#ref-for-dataextension①">3.13.1. Properties</a>
+    <li><a href="#ref-for-dataextension">3.7.1. Properties</a>
+    <li><a href="#ref-for-dataextension①">3.12.1. Properties</a>
+    <li><a href="#ref-for-dataextension②">3.13.1. Properties</a>
+    <li><a href="#ref-for-dataextension③">Version 2.5.1-20230523 (May 23, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-processedclaim" class="dfn-panel" data-for="processedclaim" id="infopanel-for-processedclaim">
