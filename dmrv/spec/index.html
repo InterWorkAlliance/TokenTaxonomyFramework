@@ -1489,7 +1489,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
   <link href="https://github.com/InterWorkAlliance/TTF/dmrv/spec" rel="canonical">
-  <meta content="6d1c562d337d9369c9369152d4dc2410187c9536" name="document-revision">
+  <meta content="ca77abf56daedc4b53c42881ea50e6ca153da48c" name="document-revision">
 <style>/* style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2066,7 +2066,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-05-23">23 May 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-06-01">1 June 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2514,6 +2514,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.4.0-20230503"><span class="secno"></span> <span class="content">Version 2.5.1-20230503 (May 3, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230518"><span class="secno"></span> <span class="content">Version 2.5.1-20230518 (May 18, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230523"><span class="secno"></span> <span class="content">Version 2.5.1-20230523 (May 23, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230601"><span class="secno"></span> <span class="content">Version 2.5.1-20230601 (June 1, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -5449,6 +5450,9 @@ This list will be expanded to include other categories, like biodiversity, in th
     <dt data-md><dfn class="idl-code" data-dfn-for="Unit" data-dfn-type="enum-value" data-export id="dom-unit-tonne_n2o"><code>TONNE_N2O</code><a class="self-link" href="#dom-unit-tonne_n2o"></a></dfn>
     <dd data-md>
      <p>for tonne of N2O</p>
+    <dt data-md><dfn class="idl-code" data-dfn-for="Unit" data-dfn-type="enum-value" data-export id="dom-unit-mwh"><code>MwH</code><a class="self-link" href="#dom-unit-mwh"></a></dfn>
+    <dd data-md>
+     <p>for megawatt hour</p>
    </dl>
    <h4 class="heading settled" data-level="3.72.1" id="dt-unit-json"><span class="secno">3.72.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-unit-json"></a></h4>
    <p>The value of each <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit⑤">Unit</a></code> MUST be encoded as a JSON String.</p>
@@ -7010,6 +7014,11 @@ public licenses.</p>
     <li data-md>
      <p>Fixed <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file①">Sdp-File</a> syntax to match the specification, see <a href="#dt-sdp-file">§ 3.12 Data Type: Sdp-File</a> for details.</p>
    </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230601"><span class="content">Version 2.5.1-20230601 (June 1, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230601"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Added <code>MwH</code> to <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit⑥">Unit</a></code> enumeration, see <a href="#dt-unit">§ 3.72 Data Type: Unit</a> for details.</p>
+   </ul>
   </main>
 <script>
 (function() {
@@ -7419,6 +7428,7 @@ public licenses.</p>
    <li><a href="#element-attrdef-manifest-mrvextensions">mrvExtensions</a><span>, in § 3.11.1</span>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 3.40</span>
    <li><a href="#element-attrdef-verificationcontract-mrvrequirements">mrvRequirements</a><span>, in § 3.17.1</span>
+   <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.72</span>
    <li><a href="#dom-projecttype-n20_destruction_in_adipic_acid_production">N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</a><span>, in § 3.67</span>
    <li><a href="#dom-projecttype-n20_destruction_in_nitric_acid_production">N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</a><span>, in § 3.67</span>
    <li>
@@ -8165,6 +8175,7 @@ public licenses.</p>
     <li><a href="#ref-for-enumdef-unit③">3.18.2. Properties</a>
     <li><a href="#ref-for-enumdef-unit④">3.26.2. Properties</a>
     <li><a href="#ref-for-enumdef-unit⑤">3.72.1. JSON Representation</a>
+    <li><a href="#ref-for-enumdef-unit⑥">Version 2.5.1-20230601 (June 1, 2023)</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-decimal" class="dfn-panel" data-for="decimal" id="infopanel-for-decimal">

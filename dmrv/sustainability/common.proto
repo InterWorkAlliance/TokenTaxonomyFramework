@@ -340,6 +340,7 @@ enum Unit{
     SQUARE_METER = 107;
     TONNE = 108;
     MW_H = 109;
+    KW_H = 110;
 }
 
 enum Status{

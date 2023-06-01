@@ -517,6 +517,14 @@
           "sourceIdentifier": {
             "type": "string",
             "nullable": true
+          },
+          "dataExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -646,16 +654,12 @@
       "Date": {
         "type": "object",
         "properties": {
-          "year": {
-            "type": "integer",
-            "format": "int32"
+          "dateTime": {
+            "$ref": "#/components/schemas/Timestamp"
           },
-          "month": {
-            "$ref": "#/components/schemas/Month"
-          },
-          "day": {
-            "type": "integer",
-            "format": "int32"
+          "dateString": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -881,45 +885,13 @@
         },
         "additionalProperties": false
       },
-      "File": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "$ref": "#/components/schemas/FileType"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimSourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimSourceAttestation": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FileType": {
         "enum": [
           "DataBinary",
           "DataCsv",
           "DataJson",
           "DataXml",
+          "DataPdf",
           "DataOther"
         ],
         "type": "string"
@@ -1291,10 +1263,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "files": {
+          "sdpFiles": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/File"
+              "$ref": "#/components/schemas/SdpFile"
             },
             "nullable": true,
             "readOnly": true
@@ -1423,24 +1395,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "Month": {
-        "enum": [
-          "NoMonth",
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-        ],
-        "type": "string"
       },
       "MrvExtension": {
         "type": "object",
@@ -1793,7 +1747,8 @@
           "SouthAmerica",
           "SouthAsia",
           "SouthEastAsia",
-          "SubSaharanAfrica"
+          "SubSaharanAfrica",
+          "EastAfrica"
         ],
         "type": "string"
       },
@@ -1839,6 +1794,39 @@
           "Material"
         ],
         "type": "string"
+      },
+      "SdpFile": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/FileType"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceAttestation": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "Signatory": {
         "type": "object",
@@ -1983,7 +1971,8 @@
           "Kilometer",
           "SquareMeter",
           "Tonne",
-          "MwH"
+          "MwH",
+          "KwH"
         ],
         "type": "string"
       },
