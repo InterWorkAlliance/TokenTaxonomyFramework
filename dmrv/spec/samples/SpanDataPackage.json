@@ -8,14 +8,14 @@
     "created": {
       "date": {
         "dateTime": {
-          "seconds": 1684435004,
-          "nanos": 366546000
+          "seconds": 1686151099,
+          "nanos": 109895000
         },
-        "dateString": "5/18/2023"
+        "dateString": "6/7/2023"
       },
       "timeStamp": {
-        "seconds": 1684435004,
-        "nanos": 372227000
+        "seconds": 1686151099,
+        "nanos": 109915000
       }
     },
     "mrvExtensions": [
@@ -23,14 +23,17 @@
         "name": "VM0007 REDD+ Methodology Framework Extension",
         "version": "1.6",
         "description": "Methodology specific data attributes being tracked.",
+        "documentationUrl": "",
         "dataExtensions": [
           {
             "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-            "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+            "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+            "data": []
           },
           {
             "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-            "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+            "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
+            "data": []
           }
         ]
       }
@@ -45,7 +48,8 @@
         "dataExtensions": [
           {
             "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-            "value": "3.8123"
+            "value": "3.8123",
+            "data": []
           }
         ]
       }

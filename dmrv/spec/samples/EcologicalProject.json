@@ -76,7 +76,14 @@
           },
           "sourceType": "SensorDevice",
           "unitOfMeasure": "TonneCo2E",
-          "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
+          "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
+          "dataExtensions": [
+            {
+              "name": "Sample extension",
+              "value": "value",
+              "data": []
+            }
+          ]
         }
       ],
       "ecologicalClaims": [
@@ -88,20 +95,48 @@
           "quantity": "",
           "coBenefits": [],
           "checkpoints": [],
+          "mrvExtensions": [],
           "modularBenefitProject": null
+        }
+      ],
+      "mrvExtensions": [
+        {
+          "name": "VM0026 Sustainable Grassland Management Framework Extension",
+          "version": "1.1",
+          "description": "Sectorial Scope 14",
+          "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+          "dataExtensions": [
+            {
+              "name": "Baseline Scenario",
+              "value": "Most plausible baseline scenario",
+              "data": [
+                {
+                  "name": "Barrier analysis",
+                  "value": "Barrier analysis for alternative land use",
+                  "data": [
+                    {
+                      "name": "Alternative land use: Cattle ranching",
+                      "value": "Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.",
+                      "data": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "validations": [
         {
           "validationDate": {
             "dateTime": null,
-            "dateString": "5/18/2023"
+            "dateString": "6/7/2023"
           },
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
           "validationExpirationDate": {
             "dateTime": null,
-            "dateString": "5/18/2023"
+            "dateString": "6/7/2023"
           },
           "validationSteps": [
             {

@@ -470,6 +470,14 @@
           "efAfter": {
             "type": "string",
             "nullable": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -647,6 +655,14 @@
           "value": {
             "type": "string",
             "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -777,6 +793,14 @@
             "nullable": true,
             "readOnly": true
           },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
           "modularBenefitProject": {
             "$ref": "#/components/schemas/ModularBenefitProject"
           }
@@ -819,6 +843,14 @@
           },
           "verifiedLinkToCheckpointData": {
             "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           },
           "spanDataPackage": {
             "$ref": "#/components/schemas/SpanDataPackage"
@@ -1382,6 +1414,14 @@
             "nullable": true,
             "readOnly": true
           },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
           "validations": {
             "type": "array",
             "items": {
@@ -1408,6 +1448,10 @@
             "nullable": true
           },
           "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentationUrl": {
             "type": "string",
             "nullable": true
           },
@@ -1482,6 +1526,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
             },
             "nullable": true,
             "readOnly": true

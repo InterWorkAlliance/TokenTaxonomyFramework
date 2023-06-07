@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "5/18/2023"
+      "dateString": "6/7/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -93,6 +93,32 @@
         "description": "By training and employing locals, this project is reducing inequalities in the country."
       }
     ],
+    "mrvExtensions": [
+      {
+        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+        "version": "1.0",
+        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+        "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+        "dataExtensions": [
+          {
+            "name": "mCO2,i,d",
+            "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
+            "data": [
+              {
+                "name": "CO2",
+                "value": "2",
+                "data": []
+              },
+              {
+                "name": "y",
+                "value": "2",
+                "data": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "checkpointResults": [
       {
         "id": "5eda007d-e136-4b21-8c27-9374447c0212",
@@ -109,7 +135,16 @@
           "endDate": null
         },
         "efBefore": "",
-        "efAfter": ""
+        "efAfter": "",
+        "mrvExtensions": [
+          {
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentationUrl": "",
+            "dataExtensions": []
+          }
+        ]
       }
     ],
     "proposedAsset": null,
@@ -181,7 +216,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "5/18/2023"
+        "dateString": "6/7/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -192,7 +227,7 @@
         "auditSchedule": "Quinquennial",
         "lastAuditDate": {
           "dateTime": null,
-          "dateString": "5/18/2023"
+          "dateString": "6/7/2023"
         },
         "auditReports": [
           {
@@ -237,21 +272,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "5/18/2023"
+                "dateString": "6/7/2023"
               },
               "timeStamp": {
-                "seconds": 1684417554,
-                "nanos": 815435000
+                "seconds": 1686152123,
+                "nanos": 620424000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "5/18/2023"
+                "dateString": "6/7/2023"
               },
               "timeStamp": {
-                "seconds": 1684417554,
-                "nanos": 922740000
+                "seconds": 1686152123,
+                "nanos": 690514000
               }
             }
           },
@@ -271,12 +306,15 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": null,
-                  "dateString": "5/18/2023"
+                  "dateTime": {
+                    "seconds": 1686152123,
+                    "nanos": 692023000
+                  },
+                  "dateString": "6/7/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1684417554,
-                  "nanos": 924465000
+                  "seconds": 1686152123,
+                  "nanos": 692153000
                 }
               },
               "mrvExtensions": [
@@ -284,14 +322,17 @@
                   "name": "VM0007 REDD+ Methodology Framework Extension",
                   "version": "1.6",
                   "description": "Methodology specific data attributes being tracked.",
+                  "documentationUrl": "",
                   "dataExtensions": [
                     {
                       "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                      "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+                      "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+                      "data": []
                     },
                     {
                       "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                      "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+                      "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
+                      "data": []
                     }
                   ]
                 }
@@ -306,13 +347,45 @@
                   "dataExtensions": [
                     {
                       "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                      "value": "3.8123"
+                      "value": "3.8123",
+                      "data": []
                     }
                   ]
                 }
               ]
             }
           }
+        }
+      ],
+      "mrvExtensions": [
+        {
+          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+          "version": "1.0",
+          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+          "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+          "dataExtensions": [
+            {
+              "name": "MGy,i,d",
+              "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
+              "data": [
+                {
+                  "name": "i",
+                  "value": "limestone",
+                  "data": []
+                },
+                {
+                  "name": "d",
+                  "value": "0.5-1.0 mm",
+                  "data": []
+                },
+                {
+                  "name": "y",
+                  "value": "1",
+                  "data": []
+                }
+              ]
+            }
+          ]
         }
       ],
       "modularBenefitProject": {
@@ -355,7 +428,14 @@
             },
             "sourceType": "SensorDevice",
             "unitOfMeasure": "TonneCo2E",
-            "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"
+            "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
+            "dataExtensions": [
+              {
+                "name": "Sample extension",
+                "value": "value",
+                "data": []
+              }
+            ]
           }
         ],
         "ecologicalClaims": [
@@ -367,20 +447,48 @@
             "quantity": "",
             "coBenefits": [],
             "checkpoints": [],
+            "mrvExtensions": [],
             "modularBenefitProject": null
+          }
+        ],
+        "mrvExtensions": [
+          {
+            "name": "VM0026 Sustainable Grassland Management Framework Extension",
+            "version": "1.1",
+            "description": "Sectorial Scope 14",
+            "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+            "dataExtensions": [
+              {
+                "name": "Baseline Scenario",
+                "value": "Most plausible baseline scenario",
+                "data": [
+                  {
+                    "name": "Barrier analysis",
+                    "value": "Barrier analysis for alternative land use",
+                    "data": [
+                      {
+                        "name": "Alternative land use: Cattle ranching",
+                        "value": "Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.",
+                        "data": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ],
         "validations": [
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "5/18/2023"
+              "dateString": "6/7/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "5/18/2023"
+              "dateString": "6/7/2023"
             },
             "validationSteps": [
               {

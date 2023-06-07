@@ -15,6 +15,32 @@
       "description": "By training and employing locals, this project is reducing inequalities in the country."
     }
   ],
+  "mrvExtensions": [
+    {
+      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+      "version": "1.0",
+      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+      "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+      "dataExtensions": [
+        {
+          "name": "mCO2,i,d",
+          "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
+          "data": [
+            {
+              "name": "CO2",
+              "value": "2",
+              "data": []
+            },
+            {
+              "name": "y",
+              "value": "2",
+              "data": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "checkpointResults": [
     {
       "id": "5eda007d-e136-4b21-8c27-9374447c0212",
@@ -31,7 +57,16 @@
         "endDate": null
       },
       "efBefore": "",
-      "efAfter": ""
+      "efAfter": "",
+      "mrvExtensions": [
+        {
+          "name": "",
+          "version": "",
+          "description": "",
+          "documentationUrl": "",
+          "dataExtensions": []
+        }
+      ]
     }
   ],
   "proposedAsset": null,

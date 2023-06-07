@@ -38,6 +38,7 @@ message ModularBenefitProject {
     repeated string sponsors = 15; //list of sponsors of the project, i.e., financial backers
     repeated ClaimSource claim_sources = 16; //a list of claim sources that can be used for claims from this Modular Benefit Project.
     repeated EcologicalClaim ecological_claims  = 17; //list of ecological claims for the project
+    repeated common.MrvExtension mrv_extensions = 18; //list of MRV extensions for the project
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -58,8 +59,8 @@ message ModularBenefitProject {
         common.Date validation_expiration_date = 4; //expiration date of the validation
         repeated ValidationStep validation_steps = 5; //collection of validation steps
     }
-    repeated Validation validations = 18; //in DRAFT, a collection of Validation workflow steps for a project
-    EcologicalProject ecological_project = 19; //optional, for object navigation, the parent ecological project
+    repeated Validation validations = 19; //in DRAFT, a collection of Validation workflow steps for a project
+    EcologicalProject ecological_project = 20; //optional, for object navigation, the parent ecological project
 }
 
 message ClaimSource
@@ -91,7 +92,8 @@ message EcologicalClaimCheckpoint
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
     common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers.
     common.VerifiedLink verified_link_to_checkpoint_data = 8; //a link to the claim span data package that is associated with the checkpoint.
-    SpanDataPackage span_data_package = 9; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+    repeated common.MrvExtension mrv_extensions = 9; //list of MRV extensions for the checkpoint
+    SpanDataPackage span_data_package = 10; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
 }
 
 message EcologicalClaim
@@ -104,7 +106,8 @@ message EcologicalClaim
     repeated common.CoBenefit co_benefits = 6; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
     //a claim source is registered as a valid source for claim data, either raw source data or reference.
     repeated EcologicalClaimCheckpoint checkpoints = 7; //a list of checkpoints that are associated with the claim.
-    ModularBenefitProject modular_benefit_project = 8; //optional, for object navigation, the parent Modular Benefit Project
+    repeated common.MrvExtension mrv_extensions = 8; //a list of MRV extensions that are associated with the claim.
+    ModularBenefitProject modular_benefit_project = 9; //optional, for object navigation, the parent Modular Benefit Project
 }
 
 
@@ -118,6 +121,7 @@ message ProcessedClaim
     common.Unit unit = 5; //unit of measure for the quantity
     string quantity = 6; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
     repeated common.CoBenefit co_benefits = 7; //list of co-benefits for the claim
+    repeated common.MrvExtension mrv_extensions = 8; //a list of MRV extensions that are associated with the claim.
     //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
     message CheckpointResult{
         string id = 1; //the id for the processed checkpoint
@@ -125,13 +129,14 @@ message ProcessedClaim
         common.VerifiedLink link_to_verification_data = 3; //Processed data findings
         common.DateRange date_range = 4; //Date range for the checkpoints processed
         string ef_before = 5; //verified environmental factor before project activities 
-        string ef_after = 6; //verified environmental factor after project activities 
+        string ef_after = 6; //verified environmental factor after project activities
+        repeated common.MrvExtension mrv_extensions = 7; //a list of MRV extensions that are associated with the claim.
     }
-    repeated CheckpointResult checkpoint_results = 8; //summary and verified links for the the claim's checkpoint verification results.
-    google.protobuf.Any proposed_asset = 9; //Since a processed claim is generic, it can contain the proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
-    VerificationContract verification_contract = 10; //optional, for object navigation - the verification contract used to verify the claim
-    EcologicalClaim ecological_claim = 11; //optional, for object navigation - the ecological claim being processed
-    google.protobuf.Any asset = 12; //optional, for object navigation, the asset that is issued for the processed claim.
+    repeated CheckpointResult checkpoint_results = 9; //summary and verified links for the the claim's checkpoint verification results.
+    google.protobuf.Any proposed_asset = 10; //Since a processed claim is generic, it can contain the proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
+    VerificationContract verification_contract = 11; //optional, for object navigation - the verification contract used to verify the claim
+    EcologicalClaim ecological_claim = 12; //optional, for object navigation - the ecological claim being processed
+    google.protobuf.Any asset = 13; //optional, for object navigation, the asset that is issued for the processed claim.
 }
 
 message Degradable{

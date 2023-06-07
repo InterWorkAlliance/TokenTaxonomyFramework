@@ -692,11 +692,13 @@ message VerifiedPresentation{
 message DataExtension{
     string name = 1; //name of the data extension
     string value = 2; //value of the data extension
+    repeated DataExtension data = 3; //data extension for nesting
 }
 
 message MrvExtension{
     string name = 1; //name of the extension
     string version = 2; //version of the extension
     string description = 3; //description of the extension
-    repeated DataExtension data_extensions = 4; //list of data extensions
-    }
+    string documentation_url = 4; //optional documentation url of the extension
+    repeated DataExtension data_extensions = 5; //list of data extensions
+}
