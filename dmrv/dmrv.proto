@@ -242,7 +242,7 @@ message VerificationContract{
             VERIFICATION_PLATFORM_PROVIDER = 3;
         }
         SignatoryRole signatory_role = 4; //role of the signatory
-        string signature = 5; //signature of the signatory
+        common.DigitalSignature signature = 5; //digital signature of the signatory
     }
     repeated Signatory signatories = 4; //list of signatories to the contract, by id
     message QualityStandard{

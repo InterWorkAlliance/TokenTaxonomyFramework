@@ -645,6 +645,72 @@
         ],
         "type": "string"
       },
+      "Credential": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CredentialType"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "issuer": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuanceDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "credentialSubject": {
+            "$ref": "#/components/schemas/CredentialSubject"
+          },
+          "proof": {
+            "$ref": "#/components/schemas/Proof"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CredentialSubject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "property": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CredentialType": {
+        "enum": [
+          "VerifiableCredential",
+          "VerifiablePresentation",
+          "IdentityCredential"
+        ],
+        "type": "string"
+      },
       "DataExtension": {
         "type": "object",
         "properties": {
@@ -728,6 +794,25 @@
           "Exponential"
         ],
         "type": "string"
+      },
+      "DigitalSignature": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SignatureType"
+          },
+          "jws": {
+            "type": "string",
+            "nullable": true
+          },
+          "vc": {
+            "$ref": "#/components/schemas/Credential"
+          },
+          "signatureCase": {
+            "$ref": "#/components/schemas/SignatureOneofCase"
+          }
+        },
+        "additionalProperties": false
       },
       "Durability": {
         "type": "object",
@@ -1658,7 +1743,53 @@
           "WasteRecycling",
           "Weatherization",
           "WetlandRestoration",
-          "Wind"
+          "Wind",
+          "Biochar",
+          "CarbonatedMaterials",
+          "CarbonCaptureInGeologicalStorage",
+          "EnhancedRockWathering",
+          "TerrestrialStorageOfBiomass"
+        ],
+        "type": "string"
+      },
+      "Proof": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ProofType"
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "proofPurpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "verificationMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "challenge": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "jws": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProofType": {
+        "enum": [
+          "Jwt",
+          "Dip",
+          "ClZkp"
         ],
         "type": "string"
       },
@@ -1899,8 +2030,7 @@
             "$ref": "#/components/schemas/SignatoryRole"
           },
           "signature": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/DigitalSignature"
           }
         },
         "additionalProperties": false
@@ -1911,6 +2041,21 @@
           "ValidationAndVerificationBody",
           "ProjectOwner",
           "VerificationPlatformProvider"
+        ],
+        "type": "string"
+      },
+      "SignatureOneofCase": {
+        "enum": [
+          "None",
+          "Jws",
+          "Vc"
+        ],
+        "type": "string"
+      },
+      "SignatureType": {
+        "enum": [
+          "JWS",
+          "VerifiedCredential"
         ],
         "type": "string"
       },

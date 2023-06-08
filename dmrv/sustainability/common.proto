@@ -210,6 +210,11 @@ enum ProjectType{
     WEATHERIZATION = 69;
     WETLAND_RESTORATION = 70;
     WIND = 71;
+    BIOCHAR = 72;
+    CARBONATED_MATERIALS = 73;
+    CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE = 74;
+    ENHANCED_ROCK_WATHERING = 75;
+    TERRESTRIAL_STORAGE_OF_BIOMASS = 76;
 }
 
 //GNSS - Global Navigation Satellite System, uses GPS, GLONASS, Galileo, BeiDou, etc. 
@@ -651,6 +656,19 @@ enum AttestationType{
 enum ProofType{
     JWT = 0; //JSON Web Token
     DIP = 1; //Data Integrity Proofs
+    CL_ZKP = 2; //Camenisch-Lysyanskaya Zero-Knowledge Proofs
+}
+
+enum CredentialType{
+    VERIFIABLE_CREDENTIAL = 0; //Verifiable Credentials
+    VERIFIABLE_PRESENTATION = 1; //Verifiable Presentations
+    IDENTITY_CREDENTIAL = 2; //Identity Credentials
+
+}
+
+enum SignatureType{
+    J_W_S = 0; //JSON Web Signature
+    VERIFIED_CREDENTIAL = 1; //Verified Credentials
 }
 
 // Attestation needs further definition
@@ -658,35 +676,48 @@ message Attestation{
     AttestationType type = 1; //The type of attestation 
     ProofType proof_type = 2; //The type of proof 
     string attestor = 3; //The id or address of the attestor
-    bytes proof = 4; //The proof of attestation
+    DigitalSignature signature = 4; //The signature of attestation
 }
 
 //A digital signature that can support both JWT and VC
-message Signature{
+message DigitalSignature{
     SignatureType type = 1; //The type of signature
-    bytes signature = 2; //The signature
+    oneof signature{
+        string jws = 2; //The json serialized signature
+        Credential vc = 3; //The Verified Credential
+    }
 }
 
-enum SignatureType{
-    J_W_T = 0; //JSON Web Token
-    VERIFIED_CREDENTIAL = 1; //Verified Credentials
+message Proof{
+    ProofType type = 1; //The type of proof
+    string created = 2; //The creation date of the proof
+    string proofPurpose = 3; //The purpose of the proof
+    string verificationMethod = 4; //The verification method of the proof
+    string challenge = 5; //Optional for Presentations for replay attacks, the challenge of the proof
+    string domain = 6; //Optional for Presentations for replay attacks, the domain of the proof
+    string jws = 7; //The JSON Web Signature of the proof
 }
 
 message Credential{
-    string id = 1; //The id of the credential
-    string type = 2; //The type of credential
-    string issuer = 3; //The issuer of the credential
-    string subject = 4; //The subject of the credential
-    repeated string claims = 5; //The claims of the credential
-    repeated string proof = 6; //The proof of the credential
+    repeated string context = 1; //The context of the credential
+    string id = 2; //The id of the credential
+    repeated CredentialType type = 3; //The type of credential
+    string issuer = 4; //The issuer of the credential
+    string issuanceDate = 5; //The issuance date of the credential
+    message CredentialSubject{
+        string id = 1; //The id of the subject
+        repeated string property = 2; //The claims of the subject
+    }
+    CredentialSubject credentialSubject = 6; //The subject of the credential
+    Proof proof = 7; //The proof of the credential
 }
 
-message VerifiedPresentation{
+message VerifiablePresentation{
     string id = 1; //The id of the presentation
     SignatureType type = 2; //The type of presentation
     string holder = 3; //The holder of the presentation
     repeated Credential credentials = 4; //The credentials of the presentation
-    Signature proof = 5; //The proof of the presentation
+    Proof proof = 5; //The proof of the presentation
 }
 
 message DataExtension{

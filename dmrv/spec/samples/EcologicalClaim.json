@@ -28,21 +28,21 @@
         "startDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/7/2023"
+            "dateString": "6/8/2023"
           },
           "timeStamp": {
-            "seconds": 1686151030,
-            "nanos": 602339000
+            "seconds": 1686239527,
+            "nanos": 264125000
           }
         },
         "endDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/7/2023"
+            "dateString": "6/8/2023"
           },
           "timeStamp": {
-            "seconds": 1686151030,
-            "nanos": 602353000
+            "seconds": 1686239527,
+            "nanos": 264139000
           }
         }
       },
@@ -53,6 +53,7 @@
         "hashProof": "asdflkdfs889fj3l437098asdfi",
         "hashAlgorithm": "Sha256"
       },
+      "mrvExtensions": [],
       "spanDataPackage": {
         "manifest": {
           "id": "bd199e99-14e0-4440-af99-03b78096a24b",
@@ -63,14 +64,14 @@
           "created": {
             "date": {
               "dateTime": {
-                "seconds": 1686151030,
-                "nanos": 602370000
+                "seconds": 1686239527,
+                "nanos": 264156000
               },
-              "dateString": "6/7/2023"
+              "dateString": "6/8/2023"
             },
             "timeStamp": {
-              "seconds": 1686151030,
-              "nanos": 602371000
+              "seconds": 1686239527,
+              "nanos": 264157000
             }
           },
           "mrvExtensions": [

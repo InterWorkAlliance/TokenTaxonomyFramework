@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "6/7/2023"
+      "dateString": "6/8/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -158,21 +158,36 @@
           "name": "Verra",
           "description": "Verra is the world’s leading provider of carbon market solutions. We help companies, governments, and communities to measure, manage, and value their carbon emissions and investments in climate solutions. Our solutions are used by more than 1,000 companies and governments in 70 countries to manage more than 1.5 billion metric tons of carbon emissions. Verra is a global nonprofit organization with offices in the United States, Europe, and Asia.",
           "signatoryRole": "IssuingRegistry",
-          "signature": "fx324jkasdf883429f2lMMm8asxdz980"
+          "signature": {
+            "type": "JWS",
+            "jws": "epx324jkasdf883429f2lMMm8asxdz9ZW0",
+            "vc": null,
+            "signatureCase": "Jws"
+          }
         },
         {
           "id": "58827053-14ab-441d-8699-7108de68e687",
           "name": "SustainCERT",
           "description": "SustainCERT is an organization...",
           "signatoryRole": "ValidationAndVerificationBody",
-          "signature": "epx324jkasdf883429f2lMMm8asxdz9ZW0"
+          "signature": {
+            "type": "JWS",
+            "jws": "789908sa32980231ll132fsd89asdfa123",
+            "vc": null,
+            "signatureCase": "Jws"
+          }
         },
         {
           "id": "9431e6b8-9601-460b-b0e3-c3da409da3de",
           "name": "Eco-Earth Forest Growth",
           "description": "Eco-Earth Forest Growth is a forest management firm that...",
           "signatoryRole": "ProjectOwner",
-          "signature": "wuQ8924jkasdXced8348872sxdz87Gw10"
+          "signature": {
+            "type": "JWS",
+            "jws": "1234567890asdfasdfas",
+            "vc": null,
+            "signatureCase": "Jws"
+          }
         }
       ],
       "qualityStandard": {
@@ -216,7 +231,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "6/7/2023"
+        "dateString": "6/8/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -227,7 +242,7 @@
         "auditSchedule": "Quinquennial",
         "lastAuditDate": {
           "dateTime": null,
-          "dateString": "6/7/2023"
+          "dateString": "6/8/2023"
         },
         "auditReports": [
           {
@@ -272,21 +287,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/7/2023"
+                "dateString": "6/8/2023"
               },
               "timeStamp": {
-                "seconds": 1686152123,
-                "nanos": 620424000
+                "seconds": 1686239395,
+                "nanos": 484033000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/7/2023"
+                "dateString": "6/8/2023"
               },
               "timeStamp": {
-                "seconds": 1686152123,
-                "nanos": 690514000
+                "seconds": 1686239395,
+                "nanos": 560013000
               }
             }
           },
@@ -297,6 +312,7 @@
             "hashProof": "asdflkdfs889fj3l437098asdfi",
             "hashAlgorithm": "Sha256"
           },
+          "mrvExtensions": [],
           "spanDataPackage": {
             "manifest": {
               "id": "bd199e99-14e0-4440-af99-03b78096a24b",
@@ -307,14 +323,14 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1686152123,
-                    "nanos": 692023000
+                    "seconds": 1686239395,
+                    "nanos": 561508000
                   },
-                  "dateString": "6/7/2023"
+                  "dateString": "6/8/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1686152123,
-                  "nanos": 692153000
+                  "seconds": 1686239395,
+                  "nanos": 561639000
                 }
               },
               "mrvExtensions": [
@@ -482,13 +498,13 @@
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "6/7/2023"
+              "dateString": "6/8/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "6/7/2023"
+              "dateString": "6/8/2023"
             },
             "validationSteps": [
               {
