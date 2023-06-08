@@ -1238,14 +1238,15 @@ Possible extra rowspan handling
 			grid-column: 2;
 			width: auto;
 			margin-right: 1rem;
+			border-bottom: 3px solid transparent;
+			margin-bottom: -3px;
 		}
 		#toc .content:hover,
 		#toc .content:focus {
 			background: rgba(75%, 75%, 75%, .25);
 			background: var(--a-hover-bg);
-			border-bottom: 3px solid #054572;
-			border-bottom: 3px solid var(--toclink-underline);
-			margin-bottom: -3px;
+			border-bottom-color: #054572;
+			border-bottom-color: var(--toclink-underline);
 		}
 		#toc li li li .content {
 			margin-left: 1rem;
@@ -1487,10 +1488,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 739efad8e, updated Thu Mar 23 07:02:40 2023 -0700" name="generator">
+  <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="89e8bef074f2dfecedbb76e5ee7af949c9f2df8f" name="document-revision">
-<style>/* style-autolinks */
+  <meta content="0a2ddff543691dffa92d3f88feb0e787cb53cf81" name="document-revision">
+<style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
     font-size: inherit;
@@ -1551,8 +1552,16 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
 </style>
-<style>/* style-colors */
+<style>/* Boilerplate: style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
@@ -1661,216 +1670,6 @@ pre .property::before, pre .property::after {
 
     --editedrec-bg: darkorange;
 }
-</style>
-<style>/* style-counters */
-body {
-    counter-reset: example figure issue;
-}
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}
-</style>
-<style>/* style-dfn-panel */
-:root {
-    --dfnpanel-bg: #ddd;
-    --dfnpanel-text: var(--text);
-}
-.dfn-panel {
-    position: absolute;
-    z-index: 35;
-    width: 20em;
-    min-width: min-content;
-    max-width: 300px;
-    height: auto;
-    max-height: 500px;
-    overflow: auto;
-    padding: 0.5em 0.75em;
-    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: var(--dfnpanel-bg);
-    color: var(--dfnpanel-text);
-    border: outset 0.2em;
-    white-space: normal; /* in case it's moved into a pre */
-}
-.dfn-panel:not(.on) { display: none; }
-.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-.dfn-panel > b { display: block; }
-.dfn-panel a { color: var(--dfnpanel-text); }
-.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-.dfn-panel > b + b { margin-top: 0.25em; }
-.dfn-panel ul { padding: 0; }
-.dfn-panel li { list-style: inside; }
-.dfn-panel.activated {
-    display: inline-block;
-    position: fixed;
-    left: .5em;
-    bottom: 2em;
-    margin: 0 auto;
-    max-width: calc(100vw - 1.5em - .4em - .5em);
-    max-height: 30vh;
-}
-
-.dfn-paneled { cursor: pointer; }
-</style>
-<style>/* style-issues */
-a[href].issue-return {
-    float: right;
-    float: inline-end;
-    color: var(--issueheading-text);
-    font-weight: bold;
-    text-decoration: none;
-}
-</style>
-<style>/* style-md-lists */
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}
-</style>
-<style>/* style-selflinks */
-
-:root {
-    --selflink-text: white;
-    --selflink-bg: gray;
-    --selflink-hover-text: black;
-}
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-.example > a.self-link,
-.note > a.self-link,
-.issue > a.self-link {
-    /* These blocks are overflow:auto, so positioning outside
-       doesn't work. */
-    left: auto;
-    right: 0;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: var(--selflink-bg);
-    color: var(--selflink-text);
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: var(--selflink-hover-text);
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }
-</style>
-<style>/* style-syntax-highlighting */
-
-code.highlight { padding: .1em; border-radius: .3em; }
-pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-
-.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
-c-[a] { color: #990055 } /* Keyword.Declaration */
-c-[b] { color: #990055 } /* Keyword.Type */
-c-[c] { color: #708090 } /* Comment */
-c-[d] { color: #708090 } /* Comment.Multiline */
-c-[e] { color: #0077aa } /* Name.Attribute */
-c-[f] { color: #669900 } /* Name.Tag */
-c-[g] { color: #222222 } /* Name.Variable */
-c-[k] { color: #990055 } /* Keyword */
-c-[l] { color: #000000 } /* Literal */
-c-[m] { color: #000000 } /* Literal.Number */
-c-[n] { color: #0077aa } /* Name */
-c-[o] { color: #999999 } /* Operator */
-c-[p] { color: #999999 } /* Punctuation */
-c-[s] { color: #a67f59 } /* Literal.String */
-c-[t] { color: #a67f59 } /* Literal.String.Single */
-c-[u] { color: #a67f59 } /* Literal.String.Double */
-c-[cp] { color: #708090 } /* Comment.Preproc */
-c-[c1] { color: #708090 } /* Comment.Single */
-c-[cs] { color: #708090 } /* Comment.Special */
-c-[kc] { color: #990055 } /* Keyword.Constant */
-c-[kn] { color: #990055 } /* Keyword.Namespace */
-c-[kp] { color: #990055 } /* Keyword.Pseudo */
-c-[kr] { color: #990055 } /* Keyword.Reserved */
-c-[ld] { color: #000000 } /* Literal.Date */
-c-[nc] { color: #0077aa } /* Name.Class */
-c-[no] { color: #0077aa } /* Name.Constant */
-c-[nd] { color: #0077aa } /* Name.Decorator */
-c-[ni] { color: #0077aa } /* Name.Entity */
-c-[ne] { color: #0077aa } /* Name.Exception */
-c-[nf] { color: #0077aa } /* Name.Function */
-c-[nl] { color: #0077aa } /* Name.Label */
-c-[nn] { color: #0077aa } /* Name.Namespace */
-c-[py] { color: #0077aa } /* Name.Property */
-c-[ow] { color: #999999 } /* Operator.Word */
-c-[mb] { color: #000000 } /* Literal.Number.Bin */
-c-[mf] { color: #000000 } /* Literal.Number.Float */
-c-[mh] { color: #000000 } /* Literal.Number.Hex */
-c-[mi] { color: #000000 } /* Literal.Number.Integer */
-c-[mo] { color: #000000 } /* Literal.Number.Oct */
-c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
-c-[sc] { color: #a67f59 } /* Literal.String.Char */
-c-[sd] { color: #a67f59 } /* Literal.String.Doc */
-c-[se] { color: #a67f59 } /* Literal.String.Escape */
-c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
-c-[si] { color: #a67f59 } /* Literal.String.Interpol */
-c-[sx] { color: #a67f59 } /* Literal.String.Other */
-c-[sr] { color: #a67f59 } /* Literal.String.Regex */
-c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
-c-[vc] { color: #0077aa } /* Name.Variable.Class */
-c-[vg] { color: #0077aa } /* Name.Variable.Global */
-c-[vi] { color: #0077aa } /* Name.Variable.Instance */
-c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-</style>
-<style>/* style-darkmode */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -1983,21 +1782,280 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        which is quite common in practice... */
     img { background: white; }
 }
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --selflink-text: black;
-        --selflink-bg: silver;
-        --selflink-hover-text: white;
-    }
+</style>
+<style>/* Boilerplate: style-counters */
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
 }
 
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
 @media (prefers-color-scheme: dark) {
     :root {
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
     }
 }
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-issues */
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+<style>/* Boilerplate: style-md-lists */
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}
+</style>
+<style>/* Boilerplate: style-selflinks */
+
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: var(--selflink-hover-text);
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }
+</style>
+<style>/* Boilerplate: style-syntax-highlighting */
+
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+
+.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
+c-[a] { color: #990055 } /* Keyword.Declaration */
+c-[b] { color: #990055 } /* Keyword.Type */
+c-[c] { color: #708090 } /* Comment */
+c-[d] { color: #708090 } /* Comment.Multiline */
+c-[e] { color: #0077aa } /* Name.Attribute */
+c-[f] { color: #669900 } /* Name.Tag */
+c-[g] { color: #222222 } /* Name.Variable */
+c-[k] { color: #990055 } /* Keyword */
+c-[l] { color: #000000 } /* Literal */
+c-[m] { color: #000000 } /* Literal.Number */
+c-[n] { color: #0077aa } /* Name */
+c-[o] { color: #999999 } /* Operator */
+c-[p] { color: #999999 } /* Punctuation */
+c-[s] { color: #a67f59 } /* Literal.String */
+c-[t] { color: #a67f59 } /* Literal.String.Single */
+c-[u] { color: #a67f59 } /* Literal.String.Double */
+c-[cp] { color: #708090 } /* Comment.Preproc */
+c-[c1] { color: #708090 } /* Comment.Single */
+c-[cs] { color: #708090 } /* Comment.Special */
+c-[kc] { color: #990055 } /* Keyword.Constant */
+c-[kn] { color: #990055 } /* Keyword.Namespace */
+c-[kp] { color: #990055 } /* Keyword.Pseudo */
+c-[kr] { color: #990055 } /* Keyword.Reserved */
+c-[ld] { color: #000000 } /* Literal.Date */
+c-[nc] { color: #0077aa } /* Name.Class */
+c-[no] { color: #0077aa } /* Name.Constant */
+c-[nd] { color: #0077aa } /* Name.Decorator */
+c-[ni] { color: #0077aa } /* Name.Entity */
+c-[ne] { color: #0077aa } /* Name.Exception */
+c-[nf] { color: #0077aa } /* Name.Function */
+c-[nl] { color: #0077aa } /* Name.Label */
+c-[nn] { color: #0077aa } /* Name.Namespace */
+c-[py] { color: #0077aa } /* Name.Property */
+c-[ow] { color: #999999 } /* Operator.Word */
+c-[mb] { color: #000000 } /* Literal.Number.Bin */
+c-[mf] { color: #000000 } /* Literal.Number.Float */
+c-[mh] { color: #000000 } /* Literal.Number.Hex */
+c-[mi] { color: #000000 } /* Literal.Number.Integer */
+c-[mo] { color: #000000 } /* Literal.Number.Oct */
+c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
+c-[sc] { color: #a67f59 } /* Literal.String.Char */
+c-[sd] { color: #a67f59 } /* Literal.String.Doc */
+c-[se] { color: #a67f59 } /* Literal.String.Escape */
+c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
+c-[si] { color: #a67f59 } /* Literal.String.Interpol */
+c-[sx] { color: #a67f59 } /* Literal.String.Other */
+c-[sr] { color: #a67f59 } /* Literal.String.Regex */
+c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
+c-[vc] { color: #0077aa } /* Name.Variable.Class */
+c-[vg] { color: #0077aa } /* Name.Variable.Global */
+c-[vi] { color: #0077aa } /* Name.Variable.Instance */
+c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
+
 
 @media (prefers-color-scheme: dark) {
     .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
@@ -2072,11 +2130,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dt>This version:
      <dd><a class="u-url" href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html">https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html</a>
      <dt>Issue Tracking:
-     <dd><a href="https://github.com/InterWorkAlliance/TTF/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://microsoft.com">Marley Gray (Microsoft)</a> <a class="u-email email" href="mailto:marleyg@microsoft.com">marleyg@microsoft.com</a>
-     <dd class="editor p-author h-card vcard"><span class="p-name fn"></span>
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://gbbc.org">Jackson Ross (GBBC)</a> <a class="u-email email" href="mailto:jackson.ross@gbbcouncil.org">jackson.ross@gbbcouncil.org</a>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -2575,7 +2632,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 for the IWA Digital Measurement, Reporting and Verification (DMRV) taskforce.</p>
    <p><strong class="advisement"> This specification is a work in progress and is subject to change. It is not a final or otherwise published version.</strong></p>
    <h3 class="heading settled" data-level="1.1" id="doc-status"><span class="secno">1.1. </span><span class="content">Status of this Document</span><a class="self-link" href="#doc-status"></a></h3>
-   <p>Comments regarding the document are welcome, please file issues directly on <a href="https://github.com/InterWorkAlliance/TTF/blob/dmrv-tf/dmrv/spec/index.bs">GitHub</a>.</p>
+   <p>Comments regarding the document are welcome, for IWA members, please file issues directly on <a href="https://github.com/InterWorkAlliance/TTF/blob/dmrv-tf/dmrv/spec/index.bs">GitHub</a>.</p>
+   <p>Feedback from non-members is welcome via email to <a href="mailto:jackson.ross@gbbcouncil.org">Jackson Ross</a></p>
    <p>The technical specifications within this document are the result of consent processses by GBBC/IWA members and other external sources.</p>
    <h3 class="heading settled" data-level="1.2" id="scope"><span class="secno">1.2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h3>
    <p>The scope of this document is to reach consensus on a tokenized orgination process that describes the behaviors, common data model, schema or data dictionary and encoding standard of the process for the IWA Digital Measurement, Reporting
@@ -8238,29 +8296,17 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
    <li><a href="#dom-reversalrisk-zero">ZERO</a><span>, in § 3.49</span>
    <li><a href="#dom-un-sdgs-zero_hunger">ZERO_HUNGER</a><span>, in § 3.72</span>
   </ul>
-  <aside aria-labelledby="infopaneltitle-for-7403669e5324fc91e9c8f405bfcef5eb" class="dfn-panel" data-for="7403669e5324fc91e9c8f405bfcef5eb" id="infopanel-for-7403669e5324fc91e9c8f405bfcef5eb">
-   <span id="infopaneltitle-for-7403669e5324fc91e9c8f405bfcef5eb" style="display:none">Info about the 'description' external reference.</span><a href="https://w3c.github.io/manifest-app-info/#dfn-description">https://w3c.github.io/manifest-app-info/#dfn-description</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dfn-description">3.23.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-b38bce90ba35111f04fcf3c17a45e514" class="dfn-panel" data-for="b38bce90ba35111f04fcf3c17a45e514" id="infopanel-for-b38bce90ba35111f04fcf3c17a45e514">
-   <span id="infopaneltitle-for-b38bce90ba35111f04fcf3c17a45e514" style="display:none">Info about the 'timestamp' external reference.</span><a href="https://w3c.github.io/reporting/#report-timestamp">https://w3c.github.io/reporting/#report-timestamp</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-report-timestamp">3.46.1. Properties</a>
-   </ul>
-  </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[MANIFEST-APP-INFO]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="7403669e5324fc91e9c8f405bfcef5eb">description</span>
+     <li><span class="dfn-paneled" id="e446119d">description</span>
     </ul>
    <li>
     <a data-link-type="biblio">[REPORTING-1]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="b38bce90ba35111f04fcf3c17a45e514">timestamp</span>
+     <li><span class="dfn-paneled" id="d6a0fdbb">timestamp</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -8277,618 +8323,68 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
   <div style="counter-reset:issue">
    <div class="issue">REC Types need to be completed <a class="issue-return" href="#issue-df439a85" title="Jump to section">↵</a></div>
   </div>
-  <aside aria-labelledby="infopaneltitle-for-ecologicalproject" class="dfn-panel" data-for="ecologicalproject" id="infopanel-for-ecologicalproject">
-   <span id="infopaneltitle-for-ecologicalproject" style="display:none">Info about the 'EcologicalProject' definition.</span><b><a href="#ecologicalproject">#ecologicalproject</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-ecologicalproject">3. Tokens and their Data Model</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-address" class="dfn-panel" data-for="address" id="infopanel-for-address">
-   <span id="infopaneltitle-for-address" style="display:none">Info about the 'Address' definition.</span><b><a href="#address">#address</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-address">3.2.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-modularbenefitproject" class="dfn-panel" data-for="modularbenefitproject" id="infopanel-for-modularbenefitproject">
-   <span id="infopaneltitle-for-modularbenefitproject" style="display:none">Info about the 'ModularBenefitProject' definition.</span><b><a href="#modularbenefitproject">#modularbenefitproject</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-modularbenefitproject">3. Tokens and their Data Model</a>
-    <li><a href="#ref-for-modularbenefitproject①">3.2.2. Properties</a>
-    <li><a href="#ref-for-modularbenefitproject②">3.9.1. Properties</a>
-    <li><a href="#ref-for-modularbenefitproject③">3.12.1. Properties</a>
-    <li><a href="#ref-for-modularbenefitproject④">3.13. Data Type: MrvExtension</a>
-    <li><a href="#ref-for-modularbenefitproject⑤">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-validation" class="dfn-panel" data-for="validation" id="infopanel-for-validation">
-   <span id="infopaneltitle-for-validation" style="display:none">Info about the 'Validation' definition.</span><b><a href="#validation">#validation</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-validation">3.4.2. Properties</a>
-    <li><a href="#ref-for-validation①">Version 2.5.1-20230425 (April 25, 2023)</a> <a href="#ref-for-validation②">(2)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-validationstep" class="dfn-panel" data-for="validationstep" id="infopanel-for-validationstep">
-   <span id="infopaneltitle-for-validationstep" style="display:none">Info about the 'ValidationStep' definition.</span><b><a href="#validationstep">#validationstep</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-validationstep">3.5.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-claimsource" class="dfn-panel" data-for="claimsource" id="infopanel-for-claimsource">
-   <span id="infopaneltitle-for-claimsource" style="display:none">Info about the 'ClaimSource' definition.</span><b><a href="#claimsource">#claimsource</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-claimsource">3.4.2. Properties</a>
-    <li><a href="#ref-for-claimsource①">Version 2.5.1-20230417 (April 17, 2023)</a>
-    <li><a href="#ref-for-claimsource②">Version 2.5.1-20230425 (April 25, 2023)</a>
-    <li><a href="#ref-for-claimsource③">Version 2.5.1-20230502 (May 2, 2023)</a>
-    <li><a href="#ref-for-claimsource④">Version 2.5.1-20230523 (May 23, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-ecologicalclaim" class="dfn-panel" data-for="ecologicalclaim" id="infopanel-for-ecologicalclaim">
-   <span id="infopaneltitle-for-ecologicalclaim" style="display:none">Info about the 'EcologicalClaim' definition.</span><b><a href="#ecologicalclaim">#ecologicalclaim</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-ecologicalclaim">3. Tokens and their Data Model</a>
-    <li><a href="#ref-for-ecologicalclaim①">3.4.2. Properties</a>
-    <li><a href="#ref-for-ecologicalclaim②">3.13. Data Type: MrvExtension</a>
-    <li><a href="#ref-for-ecologicalclaim③">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-ecologicalclaimcheckpoint" class="dfn-panel" data-for="ecologicalclaimcheckpoint" id="infopanel-for-ecologicalclaimcheckpoint">
-   <span id="infopaneltitle-for-ecologicalclaimcheckpoint" style="display:none">Info about the 'EcologicalClaimCheckpoint' definition.</span><b><a href="#ecologicalclaimcheckpoint">#ecologicalclaimcheckpoint</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-ecologicalclaimcheckpoint">3.8.2. Properties</a>
-    <li><a href="#ref-for-ecologicalclaimcheckpoint①">Version 2.5.1-20230425 (April 25, 2023)</a>
-    <li><a href="#ref-for-ecologicalclaimcheckpoint②">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-spandatapackage" class="dfn-panel" data-for="spandatapackage" id="infopanel-for-spandatapackage">
-   <span id="infopaneltitle-for-spandatapackage" style="display:none">Info about the 'SpanDataPackage' definition.</span><b><a href="#spandatapackage">#spandatapackage</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-spandatapackage">3. Tokens and their Data Model</a>
-    <li><a href="#ref-for-spandatapackage①">3.9.1. Properties</a>
-    <li><a href="#ref-for-spandatapackage②">Version 2.5.1-20230502 (May 2, 2023)</a>
-    <li><a href="#ref-for-spandatapackage③">Version 2.5.1-20230518 (May 18, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-manifest" class="dfn-panel" data-for="manifest" id="infopanel-for-manifest">
-   <span id="infopaneltitle-for-manifest" style="display:none">Info about the 'Manifest' definition.</span><b><a href="#manifest">#manifest</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-manifest">3.10.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-sdp-file" class="dfn-panel" data-for="sdp-file" id="infopanel-for-sdp-file">
-   <span id="infopaneltitle-for-sdp-file" style="display:none">Info about the 'Sdp-File' definition.</span><b><a href="#sdp-file">#sdp-file</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-sdp-file">3.11.1. Properties</a>
-    <li><a href="#ref-for-sdp-file①">Version 2.5.1-20230523 (May 23, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-mrvextension" class="dfn-panel" data-for="mrvextension" id="infopanel-for-mrvextension">
-   <span id="infopaneltitle-for-mrvextension" style="display:none">Info about the 'MrvExtension' definition.</span><b><a href="#mrvextension">#mrvextension</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-mrvextension">3.4.2. Properties</a>
-    <li><a href="#ref-for-mrvextension①">3.8.2. Properties</a>
-    <li><a href="#ref-for-mrvextension②">3.9.1. Properties</a>
-    <li><a href="#ref-for-mrvextension③">3.11.1. Properties</a>
-    <li><a href="#ref-for-mrvextension④">3.15.2. Properties</a>
-    <li><a href="#ref-for-mrvextension⑤">3.16.1. Properties</a>
-    <li><a href="#ref-for-mrvextension⑥">Version 2.5.1-20230502 (May 2, 2023)</a>
-    <li><a href="#ref-for-mrvextension⑦">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-dataextension" class="dfn-panel" data-for="dataextension" id="infopanel-for-dataextension">
-   <span id="infopaneltitle-for-dataextension" style="display:none">Info about the 'DataExtension' definition.</span><b><a href="#dataextension">#dataextension</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dataextension">3.7.1. Properties</a>
-    <li><a href="#ref-for-dataextension①">3.12.1. Properties</a>
-    <li><a href="#ref-for-dataextension②">3.13.1. Properties</a>
-    <li><a href="#ref-for-dataextension③">3.14.1. Properties</a>
-    <li><a href="#ref-for-dataextension④">Version 2.5.1-20230523 (May 23, 2023)</a>
-    <li><a href="#ref-for-dataextension⑤">Version 2.5.1-20230607 (June 7, 2023)</a> <a href="#ref-for-dataextension⑥">(2)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-processedclaim" class="dfn-panel" data-for="processedclaim" id="infopanel-for-processedclaim">
-   <span id="infopaneltitle-for-processedclaim" style="display:none">Info about the 'ProcessedClaim' definition.</span><b><a href="#processedclaim">#processedclaim</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-processedclaim">3. Tokens and their Data Model</a>
-    <li><a href="#ref-for-processedclaim①">3.13. Data Type: MrvExtension</a>
-    <li><a href="#ref-for-processedclaim②">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-checkpointresult" class="dfn-panel" data-for="checkpointresult" id="infopanel-for-checkpointresult">
-   <span id="infopaneltitle-for-checkpointresult" style="display:none">Info about the 'CheckpointResult' definition.</span><b><a href="#checkpointresult">#checkpointresult</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-checkpointresult">3.15.2. Properties</a>
-    <li><a href="#ref-for-checkpointresult①">Version 2.5.1-20230607 (June 7, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-verificationcontract" class="dfn-panel" data-for="verificationcontract" id="infopanel-for-verificationcontract">
-   <span id="infopaneltitle-for-verificationcontract" style="display:none">Info about the 'VerificationContract' definition.</span><b><a href="#verificationcontract">#verificationcontract</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-verificationcontract">3. Tokens and their Data Model</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-cru" class="dfn-panel" data-for="cru" id="infopanel-for-cru">
-   <span id="infopaneltitle-for-cru" style="display:none">Info about the 'CRU' definition.</span><b><a href="#cru">#cru</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-cru">3. Tokens and their Data Model</a> <a href="#ref-for-cru①">(2)</a>
-    <li><a href="#ref-for-cru②">Version 2.5.1-20230420 (April 20, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-corecarbonprinciples" class="dfn-panel" data-for="corecarbonprinciples" id="infopanel-for-corecarbonprinciples">
-   <span id="infopaneltitle-for-corecarbonprinciples" style="display:none">Info about the 'CoreCarbonPrinciples' definition.</span><b><a href="#corecarbonprinciples">#corecarbonprinciples</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-corecarbonprinciples">3.18.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-durability" class="dfn-panel" data-for="durability" id="infopanel-for-durability">
-   <span id="infopaneltitle-for-durability" style="display:none">Info about the 'Durability' definition.</span><b><a href="#durability">#durability</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-durability">3.19.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-degradable" class="dfn-panel" data-for="degradable" id="infopanel-for-degradable">
-   <span id="infopaneltitle-for-degradable" style="display:none">Info about the 'Degradable' definition.</span><b><a href="#degradable">#degradable</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-degradable">3.20.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-replacement" class="dfn-panel" data-for="replacement" id="infopanel-for-replacement">
-   <span id="infopaneltitle-for-replacement" style="display:none">Info about the 'Replacement' definition.</span><b><a href="#replacement">#replacement</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-replacement">3.19.1. Properties</a>
-    <li><a href="#ref-for-replacement①">3.22.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-co-benefit" class="dfn-panel" data-for="co-benefit" id="infopanel-for-co-benefit">
-   <span id="infopaneltitle-for-co-benefit" style="display:none">Info about the 'Co-Benefit' definition.</span><b><a href="#co-benefit">#co-benefit</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-co-benefit">3.8.2. Properties</a>
-    <li><a href="#ref-for-co-benefit①">3.15.2. Properties</a>
-    <li><a href="#ref-for-co-benefit②">3.19.1. Properties</a>
-    <li><a href="#ref-for-co-benefit③">3.42.1. Properties</a>
-    <li><a href="#ref-for-co-benefit④">Version 2.5.1-20230420 (April 20, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-reversalmitigation" class="dfn-panel" data-for="reversalmitigation" id="infopanel-for-reversalmitigation">
-   <span id="infopaneltitle-for-reversalmitigation" style="display:none">Info about the 'ReversalMitigation' definition.</span><b><a href="#reversalmitigation">#reversalmitigation</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-reversalmitigation">3.20.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-pacompliance" class="dfn-panel" data-for="pacompliance" id="infopanel-for-pacompliance">
-   <span id="infopaneltitle-for-pacompliance" style="display:none">Info about the 'PACompliance' definition.</span><b><a href="#pacompliance">#pacompliance</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-pacompliance">3.19.1. Properties</a>
-    <li><a href="#ref-for-pacompliance①">3.25.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-rec" class="dfn-panel" data-for="rec" id="infopanel-for-rec">
-   <span id="infopaneltitle-for-rec" style="display:none">Info about the 'REC' definition.</span><b><a href="#rec">#rec</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-rec">3. Tokens and their Data Model</a> <a href="#ref-for-rec①">(2)</a>
-    <li><a href="#ref-for-rec②">Version 2.5.1-20230420 (April 20, 2023)</a> <a href="#ref-for-rec③">(2)</a>
-    <li><a href="#ref-for-rec④">Version 2.5.1-20230502 (May 2, 2023)</a> <a href="#ref-for-rec⑤">(2)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-climatelabel" class="dfn-panel" data-for="climatelabel" id="infopanel-for-climatelabel">
-   <span id="infopaneltitle-for-climatelabel" style="display:none">Info about the 'ClimateLabel' definition.</span><b><a href="#climatelabel">#climatelabel</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-climatelabel">3.18.2. Properties</a>
-    <li><a href="#ref-for-climatelabel①">3.26.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-verifiedlink" class="dfn-panel" data-for="verifiedlink" id="infopanel-for-verifiedlink">
-   <span id="infopaneltitle-for-verifiedlink" style="display:none">Info about the 'VerifiedLink' definition.</span><b><a href="#verifiedlink">#verifiedlink</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-verifiedlink">3.2.2. Properties</a> <a href="#ref-for-verifiedlink①">(2)</a>
-    <li><a href="#ref-for-verifiedlink②">3.6.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink③">3.9.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink④">3.16.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑤">3.24.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑥">3.25.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑦">3.30.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑧">3.42.1. Properties</a>
-    <li><a href="#ref-for-verifiedlink⑨">3.43.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-referencedcredit" class="dfn-panel" data-for="referencedcredit" id="infopanel-for-referencedcredit">
-   <span id="infopaneltitle-for-referencedcredit" style="display:none">Info about the 'ReferencedCredit' definition.</span><b><a href="#referencedcredit">#referencedcredit</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-referencedcredit">3.18.2. Properties</a>
-    <li><a href="#ref-for-referencedcredit①">3.26.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-audits" class="dfn-panel" data-for="audits" id="infopanel-for-audits">
-   <span id="infopaneltitle-for-audits" style="display:none">Info about the 'Audits' definition.</span><b><a href="#audits">#audits</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-audits">3.17.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-signatory" class="dfn-panel" data-for="signatory" id="infopanel-for-signatory">
-   <span id="infopaneltitle-for-signatory" style="display:none">Info about the 'Signatory' definition.</span><b><a href="#signatory">#signatory</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-signatory">3.17.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-digitalsignature" class="dfn-panel" data-for="digitalsignature" id="infopanel-for-digitalsignature">
-   <span id="infopaneltitle-for-digitalsignature" style="display:none">Info about the 'DigitalSignature' definition.</span><b><a href="#digitalsignature">#digitalsignature</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-digitalsignature">3.12.1. Properties</a>
-    <li><a href="#ref-for-digitalsignature①">3.31.1. Properties</a>
-    <li><a href="#ref-for-digitalsignature②">3.37.1. Properties</a>
-    <li><a href="#ref-for-digitalsignature③">Version 2.5.1-20230503 (May 3, 2023)</a>
-    <li><a href="#ref-for-digitalsignature④">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-credential" class="dfn-panel" data-for="credential" id="infopanel-for-credential">
-   <span id="infopaneltitle-for-credential" style="display:none">Info about the 'Credential' definition.</span><b><a href="#credential">#credential</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-credential">3.32.1. Properties</a>
-    <li><a href="#ref-for-credential①">3.36.1. Properties</a>
-    <li><a href="#ref-for-credential②">Version 2.5.1-20230503 (May 3, 2023)</a>
-    <li><a href="#ref-for-credential③">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-credentialsubject" class="dfn-panel" data-for="credentialsubject" id="infopanel-for-credentialsubject">
-   <span id="infopaneltitle-for-credentialsubject" style="display:none">Info about the 'CredentialSubject' definition.</span><b><a href="#credentialsubject">#credentialsubject</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-credentialsubject">3.33.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-proof" class="dfn-panel" data-for="proof" id="infopanel-for-proof">
-   <span id="infopaneltitle-for-proof" style="display:none">Info about the 'Proof' definition.</span><b><a href="#proof">#proof</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-proof">3.33.1. Properties</a>
-    <li><a href="#ref-for-proof①">3.36.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-verifiablepresentation" class="dfn-panel" data-for="verifiablepresentation" id="infopanel-for-verifiablepresentation">
-   <span id="infopaneltitle-for-verifiablepresentation" style="display:none">Info about the 'VerifiablePresentation' definition.</span><b><a href="#verifiablepresentation">#verifiablepresentation</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-verifiablepresentation">Version 2.5.1-20230503 (May 3, 2023)</a>
-    <li><a href="#ref-for-verifiablepresentation①">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-mitigationactivity" class="dfn-panel" data-for="mitigationactivity" id="infopanel-for-mitigationactivity">
-   <span id="infopaneltitle-for-mitigationactivity" style="display:none">Info about the 'MitigationActivity' definition.</span><b><a href="#mitigationactivity">#mitigationactivity</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-mitigationactivity">3.19.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-geographiclocation" class="dfn-panel" data-for="geographiclocation" id="infopanel-for-geographiclocation">
-   <span id="infopaneltitle-for-geographiclocation" style="display:none">Info about the 'GeographicLocation' definition.</span><b><a href="#geographiclocation">#geographiclocation</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-geographiclocation">3.4.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-gnss" class="dfn-panel" data-for="gnss" id="infopanel-for-gnss">
-   <span id="infopaneltitle-for-gnss" style="display:none">Info about the 'GNSS' definition.</span><b><a href="#gnss">#gnss</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gnss">3.7.1. Properties</a>
-    <li><a href="#ref-for-gnss①">3.39.1. Properties</a>
-    <li><a href="#ref-for-gnss②">Version 2.5.1-20230502 (May 2, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-geographicarea" class="dfn-panel" data-for="geographicarea" id="infopanel-for-geographicarea">
-   <span id="infopaneltitle-for-geographicarea" style="display:none">Info about the 'GeographicArea' definition.</span><b><a href="#geographicarea">#geographicarea</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-geographicarea">3.39.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-qualitystandard" class="dfn-panel" data-for="qualitystandard" id="infopanel-for-qualitystandard">
-   <span id="infopaneltitle-for-qualitystandard" style="display:none">Info about the 'QualityStandard' definition.</span><b><a href="#qualitystandard">#qualitystandard</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-qualitystandard">3.17.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-mrvrequirements" class="dfn-panel" data-for="mrvrequirements" id="infopanel-for-mrvrequirements">
-   <span id="infopaneltitle-for-mrvrequirements" style="display:none">Info about the 'MRVRequirements' definition.</span><b><a href="#mrvrequirements">#mrvrequirements</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-mrvrequirements">3.17.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-precisionmix" class="dfn-panel" data-for="precisionmix" id="infopanel-for-precisionmix">
-   <span id="infopaneltitle-for-precisionmix" style="display:none">Info about the 'PrecisionMix' definition.</span><b><a href="#precisionmix">#precisionmix</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-precisionmix">3.43.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-daterange" class="dfn-panel" data-for="daterange" id="infopanel-for-daterange">
-   <span id="infopaneltitle-for-daterange" style="display:none">Info about the 'DateRange' definition.</span><b><a href="#daterange">#daterange</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-daterange">3.9.1. Properties</a>
-    <li><a href="#ref-for-daterange①">3.16.1. Properties</a>
-    <li><a href="#ref-for-daterange②">3.45.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-datepoint" class="dfn-panel" data-for="datepoint" id="infopanel-for-datepoint">
-   <span id="infopaneltitle-for-datepoint" style="display:none">Info about the 'DatePoint' definition.</span><b><a href="#datepoint">#datepoint</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-datepoint">3.11.1. Properties</a>
-    <li><a href="#ref-for-datepoint①">3.45.1. Properties</a> <a href="#ref-for-datepoint②">(2)</a>
-    <li><a href="#ref-for-datepoint③">3.46.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-date" class="dfn-panel" data-for="date" id="infopanel-for-date">
-   <span id="infopaneltitle-for-date" style="display:none">Info about the 'Date' definition.</span><b><a href="#date">#date</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-date">3.5.1. Properties</a> <a href="#ref-for-date①">(2)</a>
-    <li><a href="#ref-for-date②">3.17.1. Properties</a>
-    <li><a href="#ref-for-date③">3.19.1. Properties</a>
-    <li><a href="#ref-for-date④">3.22.1. Properties</a>
-    <li><a href="#ref-for-date⑤">3.30.1. Properties</a>
-    <li><a href="#ref-for-date⑥">3.33.1. Properties</a>
-    <li><a href="#ref-for-date⑦">3.35.1. Properties</a>
-    <li><a href="#ref-for-date⑧">3.46.1. Properties</a>
-    <li><a href="#ref-for-date⑨">Version 2.5.1-20230518 (May 18, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-degradationtype" class="dfn-panel" data-for="enumdef-degradationtype" id="infopanel-for-enumdef-degradationtype">
-   <span id="infopaneltitle-for-enumdef-degradationtype" style="display:none">Info about the 'DegradationType' definition.</span><b><a href="#enumdef-degradationtype">#enumdef-degradationtype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-degradationtype">3.21.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-reversalrisk" class="dfn-panel" data-for="enumdef-reversalrisk" id="infopanel-for-enumdef-reversalrisk">
-   <span id="infopaneltitle-for-enumdef-reversalrisk" style="display:none">Info about the 'ReversalRisk' definition.</span><b><a href="#enumdef-reversalrisk">#enumdef-reversalrisk</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-reversalrisk">3.24.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-durabilityinsurancetype" class="dfn-panel" data-for="enumdef-durabilityinsurancetype" id="infopanel-for-enumdef-durabilityinsurancetype">
-   <span id="infopaneltitle-for-enumdef-durabilityinsurancetype" style="display:none">Info about the 'DurabilityInsuranceType' definition.</span><b><a href="#enumdef-durabilityinsurancetype">#enumdef-durabilityinsurancetype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-durabilityinsurancetype">3.24.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-insurancepolicyowner" class="dfn-panel" data-for="enumdef-insurancepolicyowner" id="infopanel-for-enumdef-insurancepolicyowner">
-   <span id="infopaneltitle-for-enumdef-insurancepolicyowner" style="display:none">Info about the 'InsurancePolicyOwner' definition.</span><b><a href="#enumdef-insurancepolicyowner">#enumdef-insurancepolicyowner</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-insurancepolicyowner">3.24.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-hashalgorithm" class="dfn-panel" data-for="enumdef-hashalgorithm" id="infopanel-for-enumdef-hashalgorithm">
-   <span id="infopaneltitle-for-enumdef-hashalgorithm" style="display:none">Info about the 'HashAlgorithm' definition.</span><b><a href="#enumdef-hashalgorithm">#enumdef-hashalgorithm</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-hashalgorithm">3.28.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-attestationtype" class="dfn-panel" data-for="enumdef-attestationtype" id="infopanel-for-enumdef-attestationtype">
-   <span id="infopaneltitle-for-enumdef-attestationtype" style="display:none">Info about the 'AttestationType' definition.</span><b><a href="#enumdef-attestationtype">#enumdef-attestationtype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-attestationtype">3.37.1. Properties</a>
-    <li><a href="#ref-for-enumdef-attestationtype①">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-prooftype" class="dfn-panel" data-for="enumdef-prooftype" id="infopanel-for-enumdef-prooftype">
-   <span id="infopaneltitle-for-enumdef-prooftype" style="display:none">Info about the 'ProofType' definition.</span><b><a href="#enumdef-prooftype">#enumdef-prooftype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-prooftype">3.35.1. Properties</a>
-    <li><a href="#ref-for-enumdef-prooftype①">3.37.1. Properties</a>
-    <li><a href="#ref-for-enumdef-prooftype②">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-credentialtype" class="dfn-panel" data-for="enumdef-credentialtype" id="infopanel-for-enumdef-credentialtype">
-   <span id="infopaneltitle-for-enumdef-credentialtype" style="display:none">Info about the 'CredentialType' definition.</span><b><a href="#enumdef-credentialtype">#enumdef-credentialtype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-credentialtype">3.33.1. Properties</a>
-    <li><a href="#ref-for-enumdef-credentialtype①">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-signaturetype" class="dfn-panel" data-for="enumdef-signaturetype" id="infopanel-for-enumdef-signaturetype">
-   <span id="infopaneltitle-for-enumdef-signaturetype" style="display:none">Info about the 'SignatureType' definition.</span><b><a href="#enumdef-signaturetype">#enumdef-signaturetype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-signaturetype">3.32.1. Properties</a>
-    <li><a href="#ref-for-enumdef-signaturetype①">3.36.1. Properties</a>
-    <li><a href="#ref-for-enumdef-signaturetype②">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-signatoryrole" class="dfn-panel" data-for="enumdef-signatoryrole" id="infopanel-for-enumdef-signatoryrole">
-   <span id="infopaneltitle-for-enumdef-signatoryrole" style="display:none">Info about the 'SignatoryRole' definition.</span><b><a href="#enumdef-signatoryrole">#enumdef-signatoryrole</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-signatoryrole">3.31.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-classificationcategory" class="dfn-panel" data-for="enumdef-classificationcategory" id="infopanel-for-enumdef-classificationcategory">
-   <span id="infopaneltitle-for-enumdef-classificationcategory" style="display:none">Info about the 'ClassificationCategory' definition.</span><b><a href="#enumdef-classificationcategory">#enumdef-classificationcategory</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-classificationcategory">3.4.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-rectype" class="dfn-panel" data-for="enumdef-rectype" id="infopanel-for-enumdef-rectype">
-   <span id="infopaneltitle-for-enumdef-rectype" style="display:none">Info about the 'RecType' definition.</span><b><a href="#enumdef-rectype">#enumdef-rectype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-rectype">3.26.2. Properties</a>
-    <li><a href="#ref-for-enumdef-rectype①">Version 2.5.1-20230420 (April 20, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-generationtype" class="dfn-panel" data-for="enumdef-generationtype" id="infopanel-for-enumdef-generationtype">
-   <span id="infopaneltitle-for-enumdef-generationtype" style="display:none">Info about the 'GenerationType' definition.</span><b><a href="#enumdef-generationtype">#enumdef-generationtype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-generationtype">3.19.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-carboncategory" class="dfn-panel" data-for="enumdef-carboncategory" id="infopanel-for-enumdef-carboncategory">
-   <span id="infopaneltitle-for-enumdef-carboncategory" style="display:none">Info about the 'CarbonCategory' definition.</span><b><a href="#enumdef-carboncategory">#enumdef-carboncategory</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-carboncategory">3.38.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-claimsourcetype" class="dfn-panel" data-for="enumdef-claimsourcetype" id="infopanel-for-enumdef-claimsourcetype">
-   <span id="infopaneltitle-for-enumdef-claimsourcetype" style="display:none">Info about the 'ClaimSourceType' definition.</span><b><a href="#enumdef-claimsourcetype">#enumdef-claimsourcetype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-claimsourcetype">3.7.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-method" class="dfn-panel" data-for="enumdef-method" id="infopanel-for-enumdef-method">
-   <span id="infopaneltitle-for-enumdef-method" style="display:none">Info about the 'Method' definition.</span><b><a href="#enumdef-method">#enumdef-method</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-method">3.4.2. Properties</a>
-    <li><a href="#ref-for-enumdef-method①">3.38.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-storage" class="dfn-panel" data-for="enumdef-storage" id="infopanel-for-enumdef-storage">
-   <span id="infopaneltitle-for-enumdef-storage" style="display:none">Info about the 'Storage' definition.</span><b><a href="#enumdef-storage">#enumdef-storage</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-storage">3.20.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-region" class="dfn-panel" data-for="enumdef-region" id="infopanel-for-enumdef-region">
-   <span id="infopaneltitle-for-enumdef-region" style="display:none">Info about the 'Region' definition.</span><b><a href="#enumdef-region">#enumdef-region</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-region">3.2.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-claimperiod" class="dfn-panel" data-for="enumdef-claimperiod" id="infopanel-for-enumdef-claimperiod">
-   <span id="infopaneltitle-for-enumdef-claimperiod" style="display:none">Info about the 'ClaimPeriod' definition.</span><b><a href="#enumdef-claimperiod">#enumdef-claimperiod</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-claimperiod">3.43.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-projectscale" class="dfn-panel" data-for="enumdef-projectscale" id="infopanel-for-enumdef-projectscale">
-   <span id="infopaneltitle-for-enumdef-projectscale" style="display:none">Info about the 'ProjectScale' definition.</span><b><a href="#enumdef-projectscale">#enumdef-projectscale</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-projectscale">3.4.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-validationstepstatus" class="dfn-panel" data-for="enumdef-validationstepstatus" id="infopanel-for-enumdef-validationstepstatus">
-   <span id="infopaneltitle-for-enumdef-validationstepstatus" style="display:none">Info about the 'ValidationStepStatus' definition.</span><b><a href="#enumdef-validationstepstatus">#enumdef-validationstepstatus</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-validationstepstatus">3.6.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-addresstype" class="dfn-panel" data-for="enumdef-addresstype" id="infopanel-for-enumdef-addresstype">
-   <span id="infopaneltitle-for-enumdef-addresstype" style="display:none">Info about the 'AddressType' definition.</span><b><a href="#enumdef-addresstype">#enumdef-addresstype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-addresstype">3.3.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-auditschedule" class="dfn-panel" data-for="enumdef-auditschedule" id="infopanel-for-enumdef-auditschedule">
-   <span id="infopaneltitle-for-enumdef-auditschedule" style="display:none">Info about the 'AuditSchedule' definition.</span><b><a href="#enumdef-auditschedule">#enumdef-auditschedule</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-auditschedule">3.30.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-un-sdgs" class="dfn-panel" data-for="enumdef-un-sdgs" id="infopanel-for-enumdef-un-sdgs">
-   <span id="infopaneltitle-for-enumdef-un-sdgs" style="display:none">Info about the 'UN-SDGs' definition.</span><b><a href="#enumdef-un-sdgs">#enumdef-un-sdgs</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-un-sdgs">3.4.2. Properties</a>
-    <li><a href="#ref-for-enumdef-un-sdgs①">3.19.1. Properties</a>
-    <li><a href="#ref-for-enumdef-un-sdgs②">3.23.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-projectscope" class="dfn-panel" data-for="enumdef-projectscope" id="infopanel-for-enumdef-projectscope">
-   <span id="infopaneltitle-for-enumdef-projectscope" style="display:none">Info about the 'ProjectScope' definition.</span><b><a href="#enumdef-projectscope">#enumdef-projectscope</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-projectscope">3.4.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-projecttype" class="dfn-panel" data-for="enumdef-projecttype" id="infopanel-for-enumdef-projecttype">
-   <span id="infopaneltitle-for-enumdef-projecttype" style="display:none">Info about the 'ProjectType' definition.</span><b><a href="#enumdef-projecttype">#enumdef-projecttype</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-projecttype">3.4.2. Properties</a>
-    <li><a href="#ref-for-enumdef-projecttype①">Version 2.5.1-20230608 (June 8, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-measurementspecification" class="dfn-panel" data-for="enumdef-measurementspecification" id="infopanel-for-enumdef-measurementspecification">
-   <span id="infopaneltitle-for-enumdef-measurementspecification" style="display:none">Info about the 'MeasurementSpecification' definition.</span><b><a href="#enumdef-measurementspecification">#enumdef-measurementspecification</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-measurementspecification">3.43.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-status" class="dfn-panel" data-for="enumdef-status" id="infopanel-for-enumdef-status">
-   <span id="infopaneltitle-for-enumdef-status" style="display:none">Info about the 'Status' definition.</span><b><a href="#enumdef-status">#enumdef-status</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-status">3.18.2. Properties</a>
-    <li><a href="#ref-for-enumdef-status①">3.26.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-standard" class="dfn-panel" data-for="enumdef-standard" id="infopanel-for-enumdef-standard">
-   <span id="infopaneltitle-for-enumdef-standard" style="display:none">Info about the 'Standard' definition.</span><b><a href="#enumdef-standard">#enumdef-standard</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-standard">3.19.1. Properties</a>
-    <li><a href="#ref-for-enumdef-standard①">3.42.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-correspondingadjustment" class="dfn-panel" data-for="enumdef-correspondingadjustment" id="infopanel-for-enumdef-correspondingadjustment">
-   <span id="infopaneltitle-for-enumdef-correspondingadjustment" style="display:none">Info about the 'CorrespondingAdjustment' definition.</span><b><a href="#enumdef-correspondingadjustment">#enumdef-correspondingadjustment</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-correspondingadjustment">3.25.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-enumdef-unit" class="dfn-panel" data-for="enumdef-unit" id="infopanel-for-enumdef-unit">
-   <span id="infopaneltitle-for-enumdef-unit" style="display:none">Info about the 'Unit' definition.</span><b><a href="#enumdef-unit">#enumdef-unit</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-enumdef-unit">3.7.1. Properties</a>
-    <li><a href="#ref-for-enumdef-unit①">3.8.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit②">3.15.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit③">3.18.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit④">3.26.2. Properties</a>
-    <li><a href="#ref-for-enumdef-unit⑤">3.79.1. JSON Representation</a>
-    <li><a href="#ref-for-enumdef-unit⑥">Version 2.5.1-20230601 (June 1, 2023)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-decimal" class="dfn-panel" data-for="decimal" id="infopanel-for-decimal">
-   <span id="infopaneltitle-for-decimal" style="display:none">Info about the 'Decimal' definition.</span><b><a href="#decimal">#decimal</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-decimal">3.8.2. Properties</a>
-    <li><a href="#ref-for-decimal①">3.18.2. Properties</a>
-    <li><a href="#ref-for-decimal②">3.26.2. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-string" class="dfn-panel" data-for="string" id="infopanel-for-string">
-   <span id="infopaneltitle-for-string" style="display:none">Info about the 'String' definition.</span><b><a href="#string">#string</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-string">3.3.1. Properties</a>
-    <li><a href="#ref-for-string①">3.26.2. Properties</a>
-    <li><a href="#ref-for-string②">3.32.1. Properties</a>
-    <li><a href="#ref-for-string③">3.33.1. Properties</a> <a href="#ref-for-string④">(2)</a> <a href="#ref-for-string⑤">(3)</a>
-    <li><a href="#ref-for-string⑥">3.34.1. Properties</a> <a href="#ref-for-string⑦">(2)</a>
-    <li><a href="#ref-for-string⑧">3.35.1. Properties</a> <a href="#ref-for-string⑨">(2)</a> <a href="#ref-for-string①⓪">(3)</a> <a href="#ref-for-string①①">(4)</a> <a href="#ref-for-string①②">(5)</a>
-    <li><a href="#ref-for-string①③">3.36.1. Properties</a> <a href="#ref-for-string①④">(2)</a>
-    <li><a href="#ref-for-string①⑤">3.37.1. Properties</a>
-    <li><a href="#ref-for-string①⑥">3.81.1. JSON Data Representation</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-id" class="dfn-panel" data-for="id" id="infopanel-for-id">
-   <span id="infopaneltitle-for-id" style="display:none">Info about the 'Id' definition.</span><b><a href="#id">#id</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-id">3.2.2. Properties</a> <a href="#ref-for-id①">(2)</a> <a href="#ref-for-id②">(3)</a>
-    <li><a href="#ref-for-id③">3.4.2. Properties</a> <a href="#ref-for-id④">(2)</a> <a href="#ref-for-id⑤">(3)</a> <a href="#ref-for-id⑥">(4)</a>
-    <li><a href="#ref-for-id⑦">3.7.1. Properties</a> <a href="#ref-for-id⑧">(2)</a>
-    <li><a href="#ref-for-id⑨">3.8.2. Properties</a> <a href="#ref-for-id①⓪">(2)</a> <a href="#ref-for-id①①">(3)</a>
-    <li><a href="#ref-for-id①②">3.9.1. Properties</a>
-    <li><a href="#ref-for-id①③">3.11.1. Properties</a> <a href="#ref-for-id①④">(2)</a> <a href="#ref-for-id①⑤">(3)</a> <a href="#ref-for-id①⑥">(4)</a>
-    <li><a href="#ref-for-id①⑦">3.12.1. Properties</a>
-    <li><a href="#ref-for-id①⑧">3.17.1. Properties</a> <a href="#ref-for-id①⑨">(2)</a>
-    <li><a href="#ref-for-id②⓪">3.18.2. Properties</a> <a href="#ref-for-id②①">(2)</a> <a href="#ref-for-id②②">(3)</a> <a href="#ref-for-id②③">(4)</a> <a href="#ref-for-id②④">(5)</a>
-    <li><a href="#ref-for-id②⑤">3.19.1. Properties</a>
-    <li><a href="#ref-for-id②⑥">3.26.2. Properties</a> <a href="#ref-for-id②⑦">(2)</a> <a href="#ref-for-id②⑧">(3)</a> <a href="#ref-for-id②⑨">(4)</a> <a href="#ref-for-id③⓪">(5)</a>
-    <li><a href="#ref-for-id③①">3.31.1. Properties</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-iso3166cc" class="dfn-panel" data-for="iso3166cc" id="infopanel-for-iso3166cc">
-   <span id="infopaneltitle-for-iso3166cc" style="display:none">Info about the 'ISO3166CC' definition.</span><b><a href="#iso3166cc">#iso3166cc</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-iso3166cc">3.2.2. Properties</a>
-    <li><a href="#ref-for-iso3166cc①">3.83.1. JSON Representation</a>
-   </ul>
-  </aside>
-<script>/* script-dfn-panel */
+<script>/* Boilerplate: script-dfn-panel */
 "use strict";
 {
-    function queryAll(sel) {
-        return [].slice.call(document.querySelectorAll(sel));
+    const dfnsJson = window.dfnsJson || {};
+
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
     }
 
-    // Add popup behavior to all dfns to show the corresponding dfn-panel.
-    var dfns = document.querySelectorAll('.dfn-paneled');
-    for (let dfn of dfns) { insertDfnPopupAction(dfn); }
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
+            }
+        }
+    }
 
-    document.body.addEventListener("click", (e) => {
-        // If not handled already, just hide all dfn panels.
-        hideAllDfnPanels();
-    });
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
 
     function hideAllDfnPanels() {
         // Turn off any currently "on" or "activated" panels.
@@ -8938,49 +8434,479 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
         }
     }
 
-    function insertDfnPopupAction(dfn) {
+    function insertDfnPopupAction(dfn, dfnPanel) {
         // Find dfn panel
-        const dfnPanel = document.querySelector(`.dfn-panel[data-for='${dfn.id}']`);
-        if (dfnPanel) {
-            const panelWrapper = document.createElement('span');
-            panelWrapper.appendChild(dfnPanel);
-            panelWrapper.style.position = "relative";
-            panelWrapper.style.height = "0px";
-            dfn.insertAdjacentElement("afterend", panelWrapper);
-            dfn.setAttribute('role', 'button');
-            dfn.setAttribute('aria-expanded', 'false')
-            dfn.tabIndex = 0;
-            dfn.classList.add('has-dfn-panel');
-            dfn.addEventListener('click', (event) => {
-                showDfnPanel(dfnPanel, dfn);
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
                 event.stopPropagation();
-            });
-            dfn.addEventListener('keypress', (event) => {
-                const kc = event.keyCode;
-                // 32->Space, 13->Enter
-                if(kc == 32 || kc == 13) {
-                    toggleDfnPanel(dfnPanel, dfn);
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
-            });
+                event.preventDefault();
+            }
+        });
 
-            dfnPanel.addEventListener('click', (event) => {
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
                 pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
                 event.stopPropagation();
-            });
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+    const dfnsJson = window.dfnsJson || {};
 
-            dfnPanel.addEventListener('keydown', (event) => {
-                if(event.keyCode == 27) { // Escape key
-                    hideDfnPanel(dfnPanel, dfn);
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
-            })
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
+    }
 
-        } else {
-            console.log("Couldn't find .dfn-panel[data-for='" + dfn.id + "']");
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
+            }
         }
     }
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
+
+    function hideAllDfnPanels() {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
+    }
+
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn, dfnPanel) {
+        // Find dfn panel
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        });
+
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
+                pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel-json */
+window.dfnpanelData = {};
+window.dfnpanelData['e446119d'] = {"dfnID": "e446119d", "url": "https://w3c.github.io/manifest-app-info/#dfn-description", "dfnText": "description", "refSections": [{"refs": [{"id": "ref-for-dfn-description"}], "title": "3.23.1. Properties"}], "external": true};
+window.dfnpanelData['d6a0fdbb'] = {"dfnID": "d6a0fdbb", "url": "https://w3c.github.io/reporting/#report-timestamp", "dfnText": "timestamp", "refSections": [{"refs": [{"id": "ref-for-report-timestamp"}], "title": "3.46.1. Properties"}], "external": true};
+window.dfnpanelData['ecologicalproject'] = {"dfnID": "ecologicalproject", "url": "#ecologicalproject", "dfnText": "EcologicalProject", "refSections": [{"refs": [{"id": "ref-for-ecologicalproject"}], "title": "3. Tokens and their Data Model"}], "external": false};
+window.dfnpanelData['address'] = {"dfnID": "address", "url": "#address", "dfnText": "Address", "refSections": [{"refs": [{"id": "ref-for-address"}], "title": "3.2.2. Properties"}], "external": false};
+window.dfnpanelData['modularbenefitproject'] = {"dfnID": "modularbenefitproject", "url": "#modularbenefitproject", "dfnText": "ModularBenefitProject", "refSections": [{"refs": [{"id": "ref-for-modularbenefitproject"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2460"}], "title": "3.2.2. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2461"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2462"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2463"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2464"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['validation'] = {"dfnID": "validation", "url": "#validation", "dfnText": "Validation", "refSections": [{"refs": [{"id": "ref-for-validation"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-validation\u2460"}, {"id": "ref-for-validation\u2461"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}], "external": false};
+window.dfnpanelData['validationstep'] = {"dfnID": "validationstep", "url": "#validationstep", "dfnText": "ValidationStep", "refSections": [{"refs": [{"id": "ref-for-validationstep"}], "title": "3.5.1. Properties"}], "external": false};
+window.dfnpanelData['claimsource'] = {"dfnID": "claimsource", "url": "#claimsource", "dfnText": "ClaimSource", "refSections": [{"refs": [{"id": "ref-for-claimsource"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-claimsource\u2460"}], "title": "Version 2.5.1-20230417 (April 17, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2461"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2462"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2463"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}], "external": false};
+window.dfnpanelData['ecologicalclaim'] = {"dfnID": "ecologicalclaim", "url": "#ecologicalclaim", "dfnText": "EcologicalClaim", "refSections": [{"refs": [{"id": "ref-for-ecologicalclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2460"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2461"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2462"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['ecologicalclaimcheckpoint'] = {"dfnID": "ecologicalclaimcheckpoint", "url": "#ecologicalclaimcheckpoint", "dfnText": "EcologicalClaimCheckpoint", "refSections": [{"refs": [{"id": "ref-for-ecologicalclaimcheckpoint"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-ecologicalclaimcheckpoint\u2460"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}, {"refs": [{"id": "ref-for-ecologicalclaimcheckpoint\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['spandatapackage'] = {"dfnID": "spandatapackage", "url": "#spandatapackage", "dfnText": "SpanDataPackage", "refSections": [{"refs": [{"id": "ref-for-spandatapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-spandatapackage\u2460"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-spandatapackage\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-spandatapackage\u2462"}], "title": "Version 2.5.1-20230518 (May 18, 2023)"}], "external": false};
+window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.10.1. Properties"}], "external": false};
+window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfnText": "Sdp-File", "refSections": [{"refs": [{"id": "ref-for-sdp-file"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-sdp-file\u2460"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}], "external": false};
+window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2462"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}, {"id": "ref-for-dataextension\u2465"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['verificationcontract'] = {"dfnID": "verificationcontract", "url": "#verificationcontract", "dfnText": "VerificationContract", "refSections": [{"refs": [{"id": "ref-for-verificationcontract"}], "title": "3. Tokens and their Data Model"}], "external": false};
+window.dfnpanelData['cru'] = {"dfnID": "cru", "url": "#cru", "dfnText": "CRU", "refSections": [{"refs": [{"id": "ref-for-cru"}, {"id": "ref-for-cru\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-cru\u2461"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}], "external": false};
+window.dfnpanelData['corecarbonprinciples'] = {"dfnID": "corecarbonprinciples", "url": "#corecarbonprinciples", "dfnText": "CoreCarbonPrinciples", "refSections": [{"refs": [{"id": "ref-for-corecarbonprinciples"}], "title": "3.18.2. Properties"}], "external": false};
+window.dfnpanelData['durability'] = {"dfnID": "durability", "url": "#durability", "dfnText": "Durability", "refSections": [{"refs": [{"id": "ref-for-durability"}], "title": "3.19.1. Properties"}], "external": false};
+window.dfnpanelData['degradable'] = {"dfnID": "degradable", "url": "#degradable", "dfnText": "Degradable", "refSections": [{"refs": [{"id": "ref-for-degradable"}], "title": "3.20.1. Properties"}], "external": false};
+window.dfnpanelData['replacement'] = {"dfnID": "replacement", "url": "#replacement", "dfnText": "Replacement", "refSections": [{"refs": [{"id": "ref-for-replacement"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-replacement\u2460"}], "title": "3.22.1. Properties"}], "external": false};
+window.dfnpanelData['co-benefit'] = {"dfnID": "co-benefit", "url": "#co-benefit", "dfnText": "Co-Benefit", "refSections": [{"refs": [{"id": "ref-for-co-benefit"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-co-benefit\u2460"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-co-benefit\u2461"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-co-benefit\u2462"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-co-benefit\u2463"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}], "external": false};
+window.dfnpanelData['reversalmitigation'] = {"dfnID": "reversalmitigation", "url": "#reversalmitigation", "dfnText": "ReversalMitigation", "refSections": [{"refs": [{"id": "ref-for-reversalmitigation"}], "title": "3.20.1. Properties"}], "external": false};
+window.dfnpanelData['pacompliance'] = {"dfnID": "pacompliance", "url": "#pacompliance", "dfnText": "PACompliance", "refSections": [{"refs": [{"id": "ref-for-pacompliance"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-pacompliance\u2460"}], "title": "3.25.1. Properties"}], "external": false};
+window.dfnpanelData['rec'] = {"dfnID": "rec", "url": "#rec", "dfnText": "REC", "refSections": [{"refs": [{"id": "ref-for-rec"}, {"id": "ref-for-rec\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-rec\u2461"}, {"id": "ref-for-rec\u2462"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}, {"refs": [{"id": "ref-for-rec\u2463"}, {"id": "ref-for-rec\u2464"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}], "external": false};
+window.dfnpanelData['climatelabel'] = {"dfnID": "climatelabel", "url": "#climatelabel", "dfnText": "ClimateLabel", "refSections": [{"refs": [{"id": "ref-for-climatelabel"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-climatelabel\u2460"}], "title": "3.26.2. Properties"}], "external": false};
+window.dfnpanelData['verifiedlink'] = {"dfnID": "verifiedlink", "url": "#verifiedlink", "dfnText": "VerifiedLink", "refSections": [{"refs": [{"id": "ref-for-verifiedlink"}, {"id": "ref-for-verifiedlink\u2460"}], "title": "3.2.2. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2461"}], "title": "3.6.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2462"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2463"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2464"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2465"}], "title": "3.25.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2466"}], "title": "3.30.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2467"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2468"}], "title": "3.43.1. Properties"}], "external": false};
+window.dfnpanelData['referencedcredit'] = {"dfnID": "referencedcredit", "url": "#referencedcredit", "dfnText": "ReferencedCredit", "refSections": [{"refs": [{"id": "ref-for-referencedcredit"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-referencedcredit\u2460"}], "title": "3.26.2. Properties"}], "external": false};
+window.dfnpanelData['audits'] = {"dfnID": "audits", "url": "#audits", "dfnText": "Audits", "refSections": [{"refs": [{"id": "ref-for-audits"}], "title": "3.17.1. Properties"}], "external": false};
+window.dfnpanelData['signatory'] = {"dfnID": "signatory", "url": "#signatory", "dfnText": "Signatory", "refSections": [{"refs": [{"id": "ref-for-signatory"}], "title": "3.17.1. Properties"}], "external": false};
+window.dfnpanelData['digitalsignature'] = {"dfnID": "digitalsignature", "url": "#digitalsignature", "dfnText": "DigitalSignature", "refSections": [{"refs": [{"id": "ref-for-digitalsignature"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-digitalsignature\u2460"}], "title": "3.31.1. Properties"}, {"refs": [{"id": "ref-for-digitalsignature\u2461"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-digitalsignature\u2462"}], "title": "Version 2.5.1-20230503 (May 3, 2023)"}, {"refs": [{"id": "ref-for-digitalsignature\u2463"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['credential'] = {"dfnID": "credential", "url": "#credential", "dfnText": "Credential", "refSections": [{"refs": [{"id": "ref-for-credential"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-credential\u2460"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-credential\u2461"}], "title": "Version 2.5.1-20230503 (May 3, 2023)"}, {"refs": [{"id": "ref-for-credential\u2462"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['credentialsubject'] = {"dfnID": "credentialsubject", "url": "#credentialsubject", "dfnText": "CredentialSubject", "refSections": [{"refs": [{"id": "ref-for-credentialsubject"}], "title": "3.33.1. Properties"}], "external": false};
+window.dfnpanelData['proof'] = {"dfnID": "proof", "url": "#proof", "dfnText": "Proof", "refSections": [{"refs": [{"id": "ref-for-proof"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-proof\u2460"}], "title": "3.36.1. Properties"}], "external": false};
+window.dfnpanelData['verifiablepresentation'] = {"dfnID": "verifiablepresentation", "url": "#verifiablepresentation", "dfnText": "VerifiablePresentation", "refSections": [{"refs": [{"id": "ref-for-verifiablepresentation"}], "title": "Version 2.5.1-20230503 (May 3, 2023)"}, {"refs": [{"id": "ref-for-verifiablepresentation\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['mitigationactivity'] = {"dfnID": "mitigationactivity", "url": "#mitigationactivity", "dfnText": "MitigationActivity", "refSections": [{"refs": [{"id": "ref-for-mitigationactivity"}], "title": "3.19.1. Properties"}], "external": false};
+window.dfnpanelData['geographiclocation'] = {"dfnID": "geographiclocation", "url": "#geographiclocation", "dfnText": "GeographicLocation", "refSections": [{"refs": [{"id": "ref-for-geographiclocation"}], "title": "3.4.2. Properties"}], "external": false};
+window.dfnpanelData['gnss'] = {"dfnID": "gnss", "url": "#gnss", "dfnText": "GNSS", "refSections": [{"refs": [{"id": "ref-for-gnss"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-gnss\u2460"}], "title": "3.39.1. Properties"}, {"refs": [{"id": "ref-for-gnss\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}], "external": false};
+window.dfnpanelData['geographicarea'] = {"dfnID": "geographicarea", "url": "#geographicarea", "dfnText": "GeographicArea", "refSections": [{"refs": [{"id": "ref-for-geographicarea"}], "title": "3.39.1. Properties"}], "external": false};
+window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.17.1. Properties"}], "external": false};
+window.dfnpanelData['mrvrequirements'] = {"dfnID": "mrvrequirements", "url": "#mrvrequirements", "dfnText": "MRVRequirements", "refSections": [{"refs": [{"id": "ref-for-mrvrequirements"}], "title": "3.17.1. Properties"}], "external": false};
+window.dfnpanelData['precisionmix'] = {"dfnID": "precisionmix", "url": "#precisionmix", "dfnText": "PrecisionMix", "refSections": [{"refs": [{"id": "ref-for-precisionmix"}], "title": "3.43.1. Properties"}], "external": false};
+window.dfnpanelData['daterange'] = {"dfnID": "daterange", "url": "#daterange", "dfnText": "DateRange", "refSections": [{"refs": [{"id": "ref-for-daterange"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2461"}], "title": "3.45.1. Properties"}], "external": false};
+window.dfnpanelData['datepoint'] = {"dfnID": "datepoint", "url": "#datepoint", "dfnText": "DatePoint", "refSections": [{"refs": [{"id": "ref-for-datepoint"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-datepoint\u2460"}, {"id": "ref-for-datepoint\u2461"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-datepoint\u2462"}], "title": "3.46.1. Properties"}], "external": false};
+window.dfnpanelData['date'] = {"dfnID": "date", "url": "#date", "dfnText": "Date", "refSections": [{"refs": [{"id": "ref-for-date"}, {"id": "ref-for-date\u2460"}], "title": "3.5.1. Properties"}, {"refs": [{"id": "ref-for-date\u2461"}], "title": "3.17.1. Properties"}, {"refs": [{"id": "ref-for-date\u2462"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-date\u2463"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-date\u2464"}], "title": "3.30.1. Properties"}, {"refs": [{"id": "ref-for-date\u2465"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-date\u2466"}], "title": "3.35.1. Properties"}, {"refs": [{"id": "ref-for-date\u2467"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-date\u2468"}], "title": "Version 2.5.1-20230518 (May 18, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-degradationtype'] = {"dfnID": "enumdef-degradationtype", "url": "#enumdef-degradationtype", "dfnText": "DegradationType", "refSections": [{"refs": [{"id": "ref-for-enumdef-degradationtype"}], "title": "3.21.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-reversalrisk'] = {"dfnID": "enumdef-reversalrisk", "url": "#enumdef-reversalrisk", "dfnText": "ReversalRisk", "refSections": [{"refs": [{"id": "ref-for-enumdef-reversalrisk"}], "title": "3.24.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-durabilityinsurancetype'] = {"dfnID": "enumdef-durabilityinsurancetype", "url": "#enumdef-durabilityinsurancetype", "dfnText": "DurabilityInsuranceType", "refSections": [{"refs": [{"id": "ref-for-enumdef-durabilityinsurancetype"}], "title": "3.24.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-insurancepolicyowner'] = {"dfnID": "enumdef-insurancepolicyowner", "url": "#enumdef-insurancepolicyowner", "dfnText": "InsurancePolicyOwner", "refSections": [{"refs": [{"id": "ref-for-enumdef-insurancepolicyowner"}], "title": "3.24.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-hashalgorithm'] = {"dfnID": "enumdef-hashalgorithm", "url": "#enumdef-hashalgorithm", "dfnText": "HashAlgorithm", "refSections": [{"refs": [{"id": "ref-for-enumdef-hashalgorithm"}], "title": "3.28.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-attestationtype'] = {"dfnID": "enumdef-attestationtype", "url": "#enumdef-attestationtype", "dfnText": "AttestationType", "refSections": [{"refs": [{"id": "ref-for-enumdef-attestationtype"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-attestationtype\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-prooftype'] = {"dfnID": "enumdef-prooftype", "url": "#enumdef-prooftype", "dfnText": "ProofType", "refSections": [{"refs": [{"id": "ref-for-enumdef-prooftype"}], "title": "3.35.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-prooftype\u2460"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-prooftype\u2461"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-credentialtype'] = {"dfnID": "enumdef-credentialtype", "url": "#enumdef-credentialtype", "dfnText": "CredentialType", "refSections": [{"refs": [{"id": "ref-for-enumdef-credentialtype"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-credentialtype\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-signaturetype'] = {"dfnID": "enumdef-signaturetype", "url": "#enumdef-signaturetype", "dfnText": "SignatureType", "refSections": [{"refs": [{"id": "ref-for-enumdef-signaturetype"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-signaturetype\u2460"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-signaturetype\u2461"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-signatoryrole'] = {"dfnID": "enumdef-signatoryrole", "url": "#enumdef-signatoryrole", "dfnText": "SignatoryRole", "refSections": [{"refs": [{"id": "ref-for-enumdef-signatoryrole"}], "title": "3.31.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-classificationcategory'] = {"dfnID": "enumdef-classificationcategory", "url": "#enumdef-classificationcategory", "dfnText": "ClassificationCategory", "refSections": [{"refs": [{"id": "ref-for-enumdef-classificationcategory"}], "title": "3.4.2. Properties"}], "external": false};
+window.dfnpanelData['enumdef-rectype'] = {"dfnID": "enumdef-rectype", "url": "#enumdef-rectype", "dfnText": "RecType", "refSections": [{"refs": [{"id": "ref-for-enumdef-rectype"}], "title": "3.26.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-rectype\u2460"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-generationtype'] = {"dfnID": "enumdef-generationtype", "url": "#enumdef-generationtype", "dfnText": "GenerationType", "refSections": [{"refs": [{"id": "ref-for-enumdef-generationtype"}], "title": "3.19.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-carboncategory'] = {"dfnID": "enumdef-carboncategory", "url": "#enumdef-carboncategory", "dfnText": "CarbonCategory", "refSections": [{"refs": [{"id": "ref-for-enumdef-carboncategory"}], "title": "3.38.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-claimsourcetype'] = {"dfnID": "enumdef-claimsourcetype", "url": "#enumdef-claimsourcetype", "dfnText": "ClaimSourceType", "refSections": [{"refs": [{"id": "ref-for-enumdef-claimsourcetype"}], "title": "3.7.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-method'] = {"dfnID": "enumdef-method", "url": "#enumdef-method", "dfnText": "Method", "refSections": [{"refs": [{"id": "ref-for-enumdef-method"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-method\u2460"}], "title": "3.38.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-storage'] = {"dfnID": "enumdef-storage", "url": "#enumdef-storage", "dfnText": "Storage", "refSections": [{"refs": [{"id": "ref-for-enumdef-storage"}], "title": "3.20.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-region'] = {"dfnID": "enumdef-region", "url": "#enumdef-region", "dfnText": "Region", "refSections": [{"refs": [{"id": "ref-for-enumdef-region"}], "title": "3.2.2. Properties"}], "external": false};
+window.dfnpanelData['enumdef-claimperiod'] = {"dfnID": "enumdef-claimperiod", "url": "#enumdef-claimperiod", "dfnText": "ClaimPeriod", "refSections": [{"refs": [{"id": "ref-for-enumdef-claimperiod"}], "title": "3.43.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-projectscale'] = {"dfnID": "enumdef-projectscale", "url": "#enumdef-projectscale", "dfnText": "ProjectScale", "refSections": [{"refs": [{"id": "ref-for-enumdef-projectscale"}], "title": "3.4.2. Properties"}], "external": false};
+window.dfnpanelData['enumdef-validationstepstatus'] = {"dfnID": "enumdef-validationstepstatus", "url": "#enumdef-validationstepstatus", "dfnText": "ValidationStepStatus", "refSections": [{"refs": [{"id": "ref-for-enumdef-validationstepstatus"}], "title": "3.6.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-addresstype'] = {"dfnID": "enumdef-addresstype", "url": "#enumdef-addresstype", "dfnText": "AddressType", "refSections": [{"refs": [{"id": "ref-for-enumdef-addresstype"}], "title": "3.3.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-auditschedule'] = {"dfnID": "enumdef-auditschedule", "url": "#enumdef-auditschedule", "dfnText": "AuditSchedule", "refSections": [{"refs": [{"id": "ref-for-enumdef-auditschedule"}], "title": "3.30.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-un-sdgs'] = {"dfnID": "enumdef-un-sdgs", "url": "#enumdef-un-sdgs", "dfnText": "UN-SDGs", "refSections": [{"refs": [{"id": "ref-for-enumdef-un-sdgs"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-un-sdgs\u2460"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-un-sdgs\u2461"}], "title": "3.23.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-projectscope'] = {"dfnID": "enumdef-projectscope", "url": "#enumdef-projectscope", "dfnText": "ProjectScope", "refSections": [{"refs": [{"id": "ref-for-enumdef-projectscope"}], "title": "3.4.2. Properties"}], "external": false};
+window.dfnpanelData['enumdef-projecttype'] = {"dfnID": "enumdef-projecttype", "url": "#enumdef-projecttype", "dfnText": "ProjectType", "refSections": [{"refs": [{"id": "ref-for-enumdef-projecttype"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-projecttype\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-measurementspecification'] = {"dfnID": "enumdef-measurementspecification", "url": "#enumdef-measurementspecification", "dfnText": "MeasurementSpecification", "refSections": [{"refs": [{"id": "ref-for-enumdef-measurementspecification"}], "title": "3.43.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-status'] = {"dfnID": "enumdef-status", "url": "#enumdef-status", "dfnText": "Status", "refSections": [{"refs": [{"id": "ref-for-enumdef-status"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-status\u2460"}], "title": "3.26.2. Properties"}], "external": false};
+window.dfnpanelData['enumdef-standard'] = {"dfnID": "enumdef-standard", "url": "#enumdef-standard", "dfnText": "Standard", "refSections": [{"refs": [{"id": "ref-for-enumdef-standard"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-standard\u2460"}], "title": "3.42.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-correspondingadjustment'] = {"dfnID": "enumdef-correspondingadjustment", "url": "#enumdef-correspondingadjustment", "dfnText": "CorrespondingAdjustment", "refSections": [{"refs": [{"id": "ref-for-enumdef-correspondingadjustment"}], "title": "3.25.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-unit'] = {"dfnID": "enumdef-unit", "url": "#enumdef-unit", "dfnText": "Unit", "refSections": [{"refs": [{"id": "ref-for-enumdef-unit"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2460"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2461"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2462"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2463"}], "title": "3.26.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2464"}], "title": "3.79.1. JSON Representation"}, {"refs": [{"id": "ref-for-enumdef-unit\u2465"}], "title": "Version 2.5.1-20230601 (June 1, 2023)"}], "external": false};
+window.dfnpanelData['decimal'] = {"dfnID": "decimal", "url": "#decimal", "dfnText": "Decimal", "refSections": [{"refs": [{"id": "ref-for-decimal"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2460"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2461"}], "title": "3.26.2. Properties"}], "external": false};
+window.dfnpanelData['string'] = {"dfnID": "string", "url": "#string", "dfnText": "String", "refSections": [{"refs": [{"id": "ref-for-string"}], "title": "3.3.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460"}], "title": "3.26.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462"}, {"id": "ref-for-string\u2463"}, {"id": "ref-for-string\u2464"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-string\u2465"}, {"id": "ref-for-string\u2466"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-string\u2467"}, {"id": "ref-for-string\u2468"}, {"id": "ref-for-string\u2460\u24ea"}, {"id": "ref-for-string\u2460\u2460"}, {"id": "ref-for-string\u2460\u2461"}], "title": "3.35.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2462"}, {"id": "ref-for-string\u2460\u2463"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2464"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2465"}], "title": "3.81.1. JSON Data Representation"}], "external": false};
+window.dfnpanelData['id'] = {"dfnID": "id", "url": "#id", "dfnText": "Id", "refSections": [{"refs": [{"id": "ref-for-id"}, {"id": "ref-for-id\u2460"}, {"id": "ref-for-id\u2461"}], "title": "3.2.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462"}, {"id": "ref-for-id\u2463"}, {"id": "ref-for-id\u2464"}, {"id": "ref-for-id\u2465"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-id\u2466"}, {"id": "ref-for-id\u2467"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-id\u2468"}, {"id": "ref-for-id\u2460\u24ea"}, {"id": "ref-for-id\u2460\u2460"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2461"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2462"}, {"id": "ref-for-id\u2460\u2463"}, {"id": "ref-for-id\u2460\u2464"}, {"id": "ref-for-id\u2460\u2465"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2466"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2467"}, {"id": "ref-for-id\u2460\u2468"}], "title": "3.17.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u24ea"}, {"id": "ref-for-id\u2461\u2460"}, {"id": "ref-for-id\u2461\u2461"}, {"id": "ref-for-id\u2461\u2462"}, {"id": "ref-for-id\u2461\u2463"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2464"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2465"}, {"id": "ref-for-id\u2461\u2466"}, {"id": "ref-for-id\u2461\u2467"}, {"id": "ref-for-id\u2461\u2468"}, {"id": "ref-for-id\u2462\u24ea"}], "title": "3.26.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2460"}], "title": "3.31.1. Properties"}], "external": false};
+window.dfnpanelData['iso3166cc'] = {"dfnID": "iso3166cc", "url": "#iso3166cc", "dfnText": "ISO3166CC", "refSections": [{"refs": [{"id": "ref-for-iso3166cc"}], "title": "3.2.2. Properties"}, {"refs": [{"id": "ref-for-iso3166cc\u2460"}], "title": "3.83.1. JSON Representation"}], "external": false};
+</script>
+<script>/* Boilerplate: script-dom-helper */
+function query(sel) { return document.querySelector(sel); }
+
+function queryAll(sel) { return [...document.querySelectorAll(sel)]; }
+
+function iter(obj) {
+	if(!obj) return [];
+	var it = obj[Symbol.iterator];
+	if(it) return it;
+	return Object.entries(obj);
+}
+
+function mk(tagname, attrs, ...children) {
+	const el = document.createElement(tagname);
+	for(const [k,v] of iter(attrs)) {
+		if(k.slice(0,3) == "_on") {
+			const eventName = k.slice(3);
+			el.addEventListener(eventName, v);
+		} else if(k[0] == "_") {
+			// property, not attribute
+			el[k.slice(1)] = v;
+		} else {
+			if(v === false || v == null) {
+        continue;
+      } else if(v === true) {
+        el.setAttribute(k, "");
+        continue;
+      } else {
+  			el.setAttribute(k, v);
+      }
+		}
+	}
+	append(el, children);
+	return el;
+}
+
+/* Create shortcuts for every known HTML element */
+[
+  "a",
+  "abbr",
+  "acronym",
+  "address",
+  "applet",
+  "area",
+  "article",
+  "aside",
+  "audio",
+  "b",
+  "base",
+  "basefont",
+  "bdo",
+  "big",
+  "blockquote",
+  "body",
+  "br",
+  "button",
+  "canvas",
+  "caption",
+  "center",
+  "cite",
+  "code",
+  "col",
+  "colgroup",
+  "datalist",
+  "dd",
+  "del",
+  "details",
+  "dfn",
+  "dialog",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "embed",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "font",
+  "footer",
+  "form",
+  "frame",
+  "frameset",
+  "head",
+  "header",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "hr",
+  "html",
+  "i",
+  "iframe",
+  "img",
+  "input",
+  "ins",
+  "kbd",
+  "label",
+  "legend",
+  "li",
+  "link",
+  "main",
+  "map",
+  "mark",
+  "meta",
+  "meter",
+  "nav",
+  "nobr",
+  "noscript",
+  "object",
+  "ol",
+  "optgroup",
+  "option",
+  "output",
+  "p",
+  "param",
+  "pre",
+  "progress",
+  "q",
+  "s",
+  "samp",
+  "script",
+  "section",
+  "select",
+  "small",
+  "source",
+  "span",
+  "strike",
+  "strong",
+  "style",
+  "sub",
+  "summary",
+  "sup",
+  "table",
+  "tbody",
+  "td",
+  "template",
+  "textarea",
+  "tfoot",
+  "th",
+  "thead",
+  "time",
+  "title",
+  "tr",
+  "u",
+  "ul",
+  "var",
+  "video",
+  "wbr",
+  "xmp",
+].forEach(tagname=>{
+	mk[tagname] = (...args) => mk(tagname, ...args);
+});
+
+function* nodesFromChildList(children) {
+	for(const child of children.flat(Infinity)) {
+		if(child instanceof Node) {
+			yield child;
+		} else {
+			yield new Text(child);
+		}
+	}
+}
+function append(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		if(el instanceof Node) el.appendChild(child);
+		else el.push(child);
+	}
+	return el;
+}
+
+function insertAfter(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		el.parentNode.insertBefore(child, el.nextSibling);
+	}
+	return el;
+}
+
+function clearContents(el) {
+	el.innerHTML = "";
+	return el;
+}
+
+function parseHTML(markup) {
+	if(markup.toLowerCase().trim().indexOf('<!doctype') === 0) {
+		const doc = document.implementation.createHTMLDocument("");
+		doc.documentElement.innerHTML = markup;
+		return doc;
+	} else {
+		const el = mk.template({});
+		el.innerHTML = markup;
+		return el.content;
+	}
 }
 </script>
