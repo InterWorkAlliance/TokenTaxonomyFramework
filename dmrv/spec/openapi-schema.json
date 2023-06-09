@@ -526,10 +526,10 @@
             "type": "string",
             "nullable": true
           },
-          "dataExtensions": {
+          "mrvExtensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DataExtension"
+              "$ref": "#/components/schemas/MrvExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -2000,10 +2000,10 @@
             "type": "string",
             "nullable": true
           },
-          "dataExtensions": {
+          "mrvExtensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DataExtension"
+              "$ref": "#/components/schemas/MrvExtension"
             },
             "nullable": true,
             "readOnly": true

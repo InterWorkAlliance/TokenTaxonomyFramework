@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="88d2560cd9466058a3d1b2793f67feff3146aba2" name="document-revision">
+  <meta content="fe9f4476f24564815620c3c77b9bafc79f72877c" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -3145,10 +3145,10 @@ a sensor or meter, an application that collects user data or reference data like
        <td>M 
        <td>this can be the unique identifier for the device, like a serial number, public key, etc. 
       <tr>
-       <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension">DataExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional DataExtensions, Name/Value pairs, for optional configuration, etc. See <a href="#dt-data-extension">§ 3.14 Data Type: DataExtension</a> for details. 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
     </table>
     <figcaption>Properties of data type EcologicalClaim</figcaption>
    </figure>
@@ -3228,7 +3228,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A collection of checkpoints for the EcologicalClaim. See <a href="#dt-ecological-claim-checkpoint">§ 3.9 Data Type: EcologicalClaimCheckpoint</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension②">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of MRV extensions for the claim. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
@@ -3296,7 +3296,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A VerifiedLink that contain the evidence, in a span data package submitted by the MBP. See <a href="#dt-verified-link">§ 3.28 Data Type: VerifiedLink</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension②">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension③">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of MRV extensions for the checkpoint. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
@@ -3375,7 +3375,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The DatePoint that the Span Data Package was created. See <a href="#dt-date-point">§ 3.46 Data Type: DatePoint</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Manifest" data-dfn-type="element-attr" data-export id="element-attrdef-manifest-mrvextensions"><code>mrvExtensions</code><a class="self-link" href="#element-attrdef-manifest-mrvextensions"></a></dfn> : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension③">MrvExtension</a> 
+       <td><dfn data-dfn-for="Manifest" data-dfn-type="element-attr" data-export id="element-attrdef-manifest-mrvextensions"><code>mrvExtensions</code><a class="self-link" href="#element-attrdef-manifest-mrvextensions"></a></dfn> : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension④">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the MBP is bound to. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
@@ -3425,10 +3425,10 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>The source attestation or signature for the file. See <a href="#dt-digital-signature">§ 3.32 Data Type: DigitalSignature</a> for details. 
       <tr>
-       <td>dataExtensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension①">DataExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional DataExtensions, Name/Value pairs. See <a href="#dt-data-extension">§ 3.14 Data Type: DataExtension</a> for details. 
+       <td>A collection of optional MrvExtensions. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
     </table>
     <figcaption>Properties of data type File</figcaption>
    </figure>
@@ -3467,7 +3467,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>A link to the documentation for the MRV Extension. 
       <tr>
-       <td>data_extensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension②">DataExtension</a> 
+       <td>data_extensions : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension">DataExtension</a> 
        <td>Array 
        <td>M 
        <td>A collection of DataExtensions 
@@ -3497,7 +3497,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>The value of the Data Extension, this is a string value for the extension. This could contain a JSON object or array. 
       <tr>
-       <td>Data : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension③">DataExtension</a> 
+       <td>Data : <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension①">DataExtension</a> 
        <td>Array 
        <td>O 
        <td>Optional array of DataExtensions, this is a collection of DataExtensions that are nested within the DataExtension. 
@@ -3581,7 +3581,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A collection of checkpoint results for the ProcessedClaim. See <a href="#dt-checkpoint-result">§ 3.16 Data Type: CheckpointResult</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension④">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑥">MrvExtension</a> 
        <td>Object 
        <td>O 
        <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
@@ -3640,7 +3640,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>O 
        <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑦">MrvExtension</a> 
        <td>Object 
        <td>O 
        <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details. 
@@ -5818,8 +5818,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-4a29f115">
-    <a class="self-link" href="#example-4a29f115"></a> CRU Full Lineage: 
+   <div class="example" id="example-561142d4">
+    <a class="self-link" href="#example-561142d4"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6112,8 +6112,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>854060000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332867</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>549418000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
@@ -6122,8 +6122,8 @@ This list will be expanded to include other categories, like biodiversity, in th
                 <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>915055000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332867</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>632985000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6145,14 +6145,14 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>916606000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332867</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>634796000</c->
                   <c- p>},</c->
                   <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>916747000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332867</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>634954000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6182,11 +6182,29 @@ This list will be expanded to include other categories, like biodiversity, in th
                   <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
                   <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
                   <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
-                  <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                     <c- p>{</c->
-                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡"</c-><c- p>,</c->
-                      <c- f>"value"</c-><c- p>:</c-> <c- u>"3.8123"</c-><c- p>,</c->
-                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
+                      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+                      <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
+                      <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
+                      <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                        <c- p>{</c->
+                          <c- f>"name"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
+                          <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
+                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                        <c- p>},</c->
+                        <c- p>{</c->
+                          <c- f>"name"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
+                          <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
+                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                        <c- p>},</c->
+                        <c- p>{</c->
+                          <c- f>"name"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
+                          <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                        <c- p>}</c->
+                      <c- p>]</c->
                     <c- p>}</c->
                   <c- p>]</c->
                 <c- p>}</c->
@@ -6267,11 +6285,30 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
             <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
-            <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+            <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"name"</c-><c- p>:</c-> <c- u>"Sample extension"</c-><c- p>,</c->
-                <c- f>"value"</c-><c- p>:</c-> <c- u>"value"</c-><c- p>,</c->
-                <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor"</c-><c- p>,</c->
+                <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+                <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values for the carbonated concrete device."</c-><c- p>,</c->
+                <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
+                <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- p>{</c->
+                    <c- f>"name"</c-><c- p>:</c-> <c- u>"Device ID"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"1234567890"</c-><c- p>,</c->
+                    <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                      <c- p>{</c->
+                        <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Offset"</c-><c- p>,</c->
+                        <c- f>"value"</c-><c- p>:</c-> <c- u>".0028"</c-><c- p>,</c->
+                        <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                      <c- p>},</c->
+                      <c- p>{</c->
+                        <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Slope"</c-><c- p>,</c->
+                        <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                        <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                      <c- p>}</c->
+                    <c- p>]</c->
+                  <c- p>}</c->
+                <c- p>]</c->
               <c- p>}</c->
             <c- p>]</c->
           <c- p>}</c->
@@ -6390,8 +6427,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
-   <div class="example" id="example-d6747888">
-    <a class="self-link" href="#example-d6747888"></a> Ecological Project: 
+   <div class="example" id="example-05d6d39c">
+    <a class="self-link" href="#example-05d6d39c"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -6471,11 +6508,30 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
           <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
           <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
-          <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"name"</c-><c- p>:</c-> <c- u>"Sample extension"</c-><c- p>,</c->
-              <c- f>"value"</c-><c- p>:</c-> <c- u>"value"</c-><c- p>,</c->
-              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values for the carbonated concrete device."</c-><c- p>,</c->
+              <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
+              <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Device ID"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>"1234567890"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Offset"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>".0028"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>},</c->
+                    <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Slope"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>}</c->
+                  <c- p>]</c->
+                <c- p>}</c->
+              <c- p>]</c->
             <c- p>}</c->
           <c- p>]</c->
         <c- p>}</c->
@@ -6524,13 +6580,13 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- p>{</c->
           <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/7/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
           <c- p>},</c->
           <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
           <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/7/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
           <c- p>},</c->
           <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -6554,8 +6610,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-6b2b6ec9">
-    <a class="self-link" href="#example-6b2b6ec9"></a> Modular Benefit Project: 
+   <div class="example" id="example-6c99caa6">
+    <a class="self-link" href="#example-6c99caa6"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -6597,11 +6653,30 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
       <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
       <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
-      <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+      <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"name"</c-><c- p>:</c-> <c- u>"Sample extension"</c-><c- p>,</c->
-          <c- f>"value"</c-><c- p>:</c-> <c- u>"value"</c-><c- p>,</c->
-          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values for the carbonated concrete device."</c-><c- p>,</c->
+          <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
+          <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"Device ID"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- u>"1234567890"</c-><c- p>,</c->
+              <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Offset"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>".0028"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                <c- p>},</c->
+                <c- p>{</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibration Slope"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>]</c->
         <c- p>}</c->
       <c- p>]</c->
     <c- p>}</c->
@@ -6650,13 +6725,13 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>{</c->
       <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/7/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
       <c- p>},</c->
       <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
       <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/7/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
       <c- p>},</c->
       <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
@@ -6675,12 +6750,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"ecologicalProject"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-ecological-claim"><span class="secno">4.4. </span><span class="content">Example Ecological Claim</span><a class="self-link" href="#example-ecological-claim"></a></h3>
-   <div class="example" id="example-b82e0b5e">
-    <a class="self-link" href="#example-b82e0b5e"></a> Ecological Claim: 
+   <div class="example" id="example-1c92cc8c">
+    <a class="self-link" href="#example-1c92cc8c"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6711,21 +6785,21 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239527</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>264125000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332970</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>876347000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239527</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>264139000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332970</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>876366000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -6747,14 +6821,14 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239527</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>264156000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332970</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>876404000</c->
               <c- p>},</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239527</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>264157000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686332970</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>876405000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6784,11 +6858,29 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
               <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
               <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
-              <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡"</c-><c- p>,</c->
-                  <c- f>"value"</c-><c- p>:</c-> <c- u>"3.8123"</c-><c- p>,</c->
-                  <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
+                  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+                  <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
+                  <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
+                  <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>},</c->
+                    <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>},</c->
+                    <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>}</c->
+                  <c- p>]</c->
                 <c- p>}</c->
               <c- p>]</c->
             <c- p>}</c->
@@ -6832,8 +6924,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
-   <div class="example" id="example-de5e62b8">
-    <a class="self-link" href="#example-de5e62b8"></a> Span Data Package: 
+   <div class="example" id="example-af060d04">
+    <a class="self-link" href="#example-af060d04"></a> Span Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
@@ -6844,14 +6936,14 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686151099</c-><c- p>,</c->
-          <c- f>"nanos"</c-><c- p>:</c-> <c- mi>109895000</c->
+          <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686333047</c-><c- p>,</c->
+          <c- f>"nanos"</c-><c- p>:</c-> <c- mi>391005000</c->
         <c- p>},</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/7/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686151099</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>109915000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686333047</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>391026000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6881,18 +6973,35 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
         <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
         <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
-        <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"name"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡"</c-><c- p>,</c->
-            <c- f>"value"</c-><c- p>:</c-> <c- u>"3.8123"</c-><c- p>,</c->
-            <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
+            <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
+            <c- f>"documentationUrl"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
+            <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+              <c- p>{</c->
+                <c- f>"name"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
+                <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+              <c- p>},</c->
+              <c- p>{</c->
+                <c- f>"name"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
+                <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+              <c- p>},</c->
+              <c- p>{</c->
+                <c- f>"name"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+              <c- p>}</c->
+            <c- p>]</c->
           <c- p>}</c->
         <c- p>]</c->
       <c- p>}</c->
     <c- p>]</c->
   <c- p>}</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.6" id="example-processed-claim"><span class="secno">4.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
    <div class="example" id="example-0f7b4ab9">
@@ -7584,7 +7693,7 @@ public licenses.</p>
     <li data-md>
      <p>Added <code>location</code> to the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> type, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
     <li data-md>
-     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑥">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
+     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑧">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Cleaned syntax and formatting of the specification, i.e. removed redundant array type names.</p>
     <li data-md>
@@ -7615,7 +7724,7 @@ public licenses.</p>
    <h3 class="heading settled" id="changelog-2.4.0-20230523"><span class="content">Version 2.5.1-20230523 (May 23, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230523"></a></h3>
    <ul>
     <li data-md>
-     <p>Updated <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource④">ClaimSource</a> to include <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension④">DataExtension</a> type for optional source configuration or other metadata, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+     <p>Updated <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource④">ClaimSource</a> to include <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension②">DataExtension</a> type for optional source configuration or other metadata, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
     <li data-md>
      <p>Fixed <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file①">Sdp-File</a> syntax to match the specification, see <a href="#dt-sdp-file">§ 3.12 Data Type: Sdp-File</a> for details.</p>
    </ul>
@@ -7632,10 +7741,10 @@ public licenses.</p>
    <h3 class="heading settled" id="changelog-2.4.0-20230607"><span class="content">Version 2.5.1-20230607 (June 7, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230607"></a></h3>
    <ul>
     <li data-md>
-     <p>Added <code>mrvExtensions</code> an array of <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑦">MrvExtension</a> to the <a data-link-type="dfn" href="#modularbenefitproject" id="ref-for-modularbenefitproject⑤">ModularBenefitProject</a>, <a data-link-type="dfn" href="#ecologicalclaim" id="ref-for-ecologicalclaim③">EcologicalClaim</a>, <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a>, <a data-link-type="dfn" href="#ecologicalclaimcheckpoint" id="ref-for-ecologicalclaimcheckpoint②">EcologicalClaimCheckpoint</a>,
+     <p>Added <code>mrvExtensions</code> an array of <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑨">MrvExtension</a> to the <a data-link-type="dfn" href="#modularbenefitproject" id="ref-for-modularbenefitproject⑤">ModularBenefitProject</a>, <a data-link-type="dfn" href="#ecologicalclaim" id="ref-for-ecologicalclaim③">EcologicalClaim</a>, <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a>, <a data-link-type="dfn" href="#ecologicalclaimcheckpoint" id="ref-for-ecologicalclaimcheckpoint②">EcologicalClaimCheckpoint</a>,
 and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
-     <p>Added <code>Data</code> an array of optional nested <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension⑤">DataExtension</a> to the <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension⑥">DataExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
+     <p>Added <code>Data</code> an array of optional nested <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension③">DataExtension</a> to the <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension④">DataExtension</a> type, see <a href="#dt-mrv-extension">§ 3.13 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -7665,6 +7774,10 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
    <ul>
     <li data-md>
      <p>Updated <code class="idl"><a data-link-type="idl" href="#enumdef-standard" id="ref-for-enumdef-standard②">Standard</a></code> type to include the Puro standard, see <a href="#dt-standard">§ 3.77 Data Type: Standard</a> for details.</p>
+    <li data-md>
+     <p>Upate the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource⑤">ClaimSource</a> type, changed <code>dataExtensions</code> to <code>mrvExtensions</code> to include the same support for MRV Extensions as the other types, see <a href="#dt-claim-source">§ 3.7 Data Type: ClaimSource</a> for details.</p>
+    <li data-md>
+     <p>Update the <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file②">SDP-File</a> type, changed <code>dataExtensions</code> to <code>mrvExtensions</code> to include the same support for MRV Extensions as the other types, see <a href="#dt-sdp-file">§ 3.12 Data Type: Sdp-File</a> for details.</p>
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -8650,14 +8763,14 @@ window.dfnpanelData['address'] = {"dfnID": "address", "url": "#address", "dfnTex
 window.dfnpanelData['modularbenefitproject'] = {"dfnID": "modularbenefitproject", "url": "#modularbenefitproject", "dfnText": "ModularBenefitProject", "refSections": [{"refs": [{"id": "ref-for-modularbenefitproject"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2460"}], "title": "3.2.2. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2461"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2462"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2463"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-modularbenefitproject\u2464"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['validation'] = {"dfnID": "validation", "url": "#validation", "dfnText": "Validation", "refSections": [{"refs": [{"id": "ref-for-validation"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-validation\u2460"}, {"id": "ref-for-validation\u2461"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}], "external": false};
 window.dfnpanelData['validationstep'] = {"dfnID": "validationstep", "url": "#validationstep", "dfnText": "ValidationStep", "refSections": [{"refs": [{"id": "ref-for-validationstep"}], "title": "3.5.1. Properties"}], "external": false};
-window.dfnpanelData['claimsource'] = {"dfnID": "claimsource", "url": "#claimsource", "dfnText": "ClaimSource", "refSections": [{"refs": [{"id": "ref-for-claimsource"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-claimsource\u2460"}], "title": "Version 2.5.1-20230417 (April 17, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2461"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2462"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2463"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}], "external": false};
+window.dfnpanelData['claimsource'] = {"dfnID": "claimsource", "url": "#claimsource", "dfnText": "ClaimSource", "refSections": [{"refs": [{"id": "ref-for-claimsource"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-claimsource\u2460"}], "title": "Version 2.5.1-20230417 (April 17, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2461"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2462"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2463"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-claimsource\u2464"}], "title": "Version 2.5.1-20230609 (June 9, 2023)"}], "external": false};
 window.dfnpanelData['ecologicalclaim'] = {"dfnID": "ecologicalclaim", "url": "#ecologicalclaim", "dfnText": "EcologicalClaim", "refSections": [{"refs": [{"id": "ref-for-ecologicalclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2460"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2461"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-ecologicalclaim\u2462"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['ecologicalclaimcheckpoint'] = {"dfnID": "ecologicalclaimcheckpoint", "url": "#ecologicalclaimcheckpoint", "dfnText": "EcologicalClaimCheckpoint", "refSections": [{"refs": [{"id": "ref-for-ecologicalclaimcheckpoint"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-ecologicalclaimcheckpoint\u2460"}], "title": "Version 2.5.1-20230425 (April 25, 2023)"}, {"refs": [{"id": "ref-for-ecologicalclaimcheckpoint\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['spandatapackage'] = {"dfnID": "spandatapackage", "url": "#spandatapackage", "dfnText": "SpanDataPackage", "refSections": [{"refs": [{"id": "ref-for-spandatapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-spandatapackage\u2460"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-spandatapackage\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-spandatapackage\u2462"}], "title": "Version 2.5.1-20230518 (May 18, 2023)"}], "external": false};
 window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.10.1. Properties"}], "external": false};
-window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfnText": "Sdp-File", "refSections": [{"refs": [{"id": "ref-for-sdp-file"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-sdp-file\u2460"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}], "external": false};
-window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
-window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2462"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}, {"id": "ref-for-dataextension\u2465"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfnText": "Sdp-File", "refSections": [{"refs": [{"id": "ref-for-sdp-file"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-sdp-file\u2460"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-sdp-file\u2461"}], "title": "Version 2.5.1-20230609 (June 9, 2023)"}], "external": false};
+window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.9.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.11.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
+window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2462"}, {"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.13. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['verificationcontract'] = {"dfnID": "verificationcontract", "url": "#verificationcontract", "dfnText": "VerificationContract", "refSections": [{"refs": [{"id": "ref-for-verificationcontract"}], "title": "3. Tokens and their Data Model"}], "external": false};

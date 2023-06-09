@@ -290,8 +290,8 @@
                 "dateString": "6/9/2023"
               },
               "timeStamp": {
-                "seconds": 1686317219,
-                "nanos": 854060000
+                "seconds": 1686332867,
+                "nanos": 549418000
               }
             },
             "endDate": {
@@ -300,8 +300,8 @@
                 "dateString": "6/9/2023"
               },
               "timeStamp": {
-                "seconds": 1686317219,
-                "nanos": 915055000
+                "seconds": 1686332867,
+                "nanos": 632985000
               }
             }
           },
@@ -323,14 +323,14 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1686317219,
-                    "nanos": 916606000
+                    "seconds": 1686332867,
+                    "nanos": 634796000
                   },
                   "dateString": "6/9/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1686317219,
-                  "nanos": 916747000
+                  "seconds": 1686332867,
+                  "nanos": 634954000
                 }
               },
               "mrvExtensions": [
@@ -360,11 +360,29 @@
                   "description": "Primary source data from sensor.",
                   "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
                   "claimSourceAttestation": "digital_signature",
-                  "dataExtensions": [
+                  "mrvExtensions": [
                     {
-                      "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                      "value": "3.8123",
-                      "data": []
+                      "name": "Carbonated Concrete Device Sensor Evidence File",
+                      "version": "1.0",
+                      "description": "Sensor data values required for evidence data.",
+                      "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                      "dataExtensions": [
+                        {
+                          "name": "Starting Temperature Sensor Reading",
+                          "value": "31.2c",
+                          "data": []
+                        },
+                        {
+                          "name": "End Temperature Sensor Reading",
+                          "value": "50.7c",
+                          "data": []
+                        },
+                        {
+                          "name": "Dust Sensor Reading",
+                          "value": "1.0002",
+                          "data": []
+                        }
+                      ]
                     }
                   ]
                 }
@@ -445,11 +463,30 @@
             "sourceType": "SensorDevice",
             "unitOfMeasure": "TonneCo2E",
             "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-            "dataExtensions": [
+            "mrvExtensions": [
               {
-                "name": "Sample extension",
-                "value": "value",
-                "data": []
+                "name": "Carbonated Concrete Device Sensor",
+                "version": "1.0",
+                "description": "Sensor data values for the carbonated concrete device.",
+                "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+                "dataExtensions": [
+                  {
+                    "name": "Device ID",
+                    "value": "1234567890",
+                    "data": [
+                      {
+                        "name": "Calibration Offset",
+                        "value": ".0028",
+                        "data": []
+                      },
+                      {
+                        "name": "Calibration Slope",
+                        "value": "1.0002",
+                        "data": []
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }

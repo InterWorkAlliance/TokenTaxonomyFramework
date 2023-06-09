@@ -39,11 +39,30 @@
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-      "dataExtensions": [
+      "mrvExtensions": [
         {
-          "name": "Sample extension",
-          "value": "value",
-          "data": []
+          "name": "Carbonated Concrete Device Sensor",
+          "version": "1.0",
+          "description": "Sensor data values for the carbonated concrete device.",
+          "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+          "dataExtensions": [
+            {
+              "name": "Device ID",
+              "value": "1234567890",
+              "data": [
+                {
+                  "name": "Calibration Offset",
+                  "value": ".0028",
+                  "data": []
+                },
+                {
+                  "name": "Calibration Slope",
+                  "value": "1.0002",
+                  "data": []
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -92,13 +111,13 @@
     {
       "validationDate": {
         "dateTime": null,
-        "dateString": "6/7/2023"
+        "dateString": "6/9/2023"
       },
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
       "validationExpirationDate": {
         "dateTime": null,
-        "dateString": "6/7/2023"
+        "dateString": "6/9/2023"
       },
       "validationSteps": [
         {
