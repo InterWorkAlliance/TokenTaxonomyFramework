@@ -213,7 +213,7 @@ enum ProjectType{
     BIOCHAR = 72;
     CARBONATED_MATERIALS = 73;
     CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE = 74;
-    ENHANCED_ROCK_WATHERING = 75;
+    ENHANCED_ROCK_WEATHERING = 75;
     TERRESTRIAL_STORAGE_OF_BIOMASS = 76;
 }
 
@@ -371,7 +371,8 @@ enum Standard{
     C_D_M =  5; //Compliance: Clean Development Mechanism generates CERs
     J_I =  6; //Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
     E_U_A =  7; //Compliance: European Union Allowances
-    PENDING =  8; //Other
+    PURO = 8; //Voluntary: Puro Standard verified durable carbon removal
+    PENDING =  100; //Other
 }
 
 enum CorrespondingAdjustment {

@@ -1747,7 +1747,7 @@
           "Biochar",
           "CarbonatedMaterials",
           "CarbonCaptureInGeologicalStorage",
-          "EnhancedRockWathering",
+          "EnhancedRockWeathering",
           "TerrestrialStorageOfBiomass"
         ],
         "type": "string"
@@ -2078,6 +2078,7 @@
           "CDM",
           "JI",
           "EUA",
+          "Puro",
           "Pending"
         ],
         "type": "string"

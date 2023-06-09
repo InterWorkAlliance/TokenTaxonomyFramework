@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="0a2ddff543691dffa92d3f88feb0e787cb53cf81" name="document-revision">
+  <meta content="88d2560cd9466058a3d1b2793f67feff3146aba2" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2.5</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-06-08">8 June 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-06-09">9 June 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2610,6 +2610,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.4.0-20230605"><span class="secno"></span> <span class="content">Version 2.5.1-20230605 (June 5, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230607"><span class="secno"></span> <span class="content">Version 2.5.1-20230607 (June 7, 2023)</span></a>
       <li><a href="#changelog-2.4.0-20230608"><span class="secno"></span> <span class="content">Version 2.5.1-20230608 (June 8, 2023)</span></a>
+      <li><a href="#changelog-2.4.0-20230609"><span class="secno"></span> <span class="content">Version 2.5.1-20230609 (June 9, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -5639,9 +5640,9 @@ This list will be expanded to include other categories, like biodiversity, in th
     <dt data-md><dfn class="idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-carbon_capture_in_geological_storage"><code>CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE</code><a class="self-link" href="#dom-projecttype-carbon_capture_in_geological_storage"></a></dfn>
     <dd data-md>
      <p>for Carbon Capture in Geological Storage</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-enhanced_rock_wathering"><code>ENHANCED_ROCK_WATHERING</code><a class="self-link" href="#dom-projecttype-enhanced_rock_wathering"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-enhanced_rock_weathering"><code>ENHANCED_ROCK_WEATHERING</code><a class="self-link" href="#dom-projecttype-enhanced_rock_weathering"></a></dfn>
     <dd data-md>
-     <p>for Enhanced Rock Wathering</p>
+     <p>for Enhanced Rock Weathering</p>
     <dt data-md><dfn class="idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-terrestrial_storage_of_biomass"><code>TERRESTRIAL_STORAGE_OF_BIOMASS</code><a class="self-link" href="#dom-projecttype-terrestrial_storage_of_biomass"></a></dfn>
     <dd data-md>
      <p>for Terrestrial Storage of Biomass</p>
@@ -5708,6 +5709,9 @@ This list will be expanded to include other categories, like biodiversity, in th
     <dt data-md><dfn class="idl-code" data-dfn-for="Standard" data-dfn-type="enum-value" data-export id="dom-standard-eua"><code>EUA</code><a class="self-link" href="#dom-standard-eua"></a></dfn>
     <dd data-md>
      <p>for Compliance: European Union Allowances</p>
+    <dt data-md><dfn class="idl-code" data-dfn-for="Standard" data-dfn-type="enum-value" data-export id="dom-standard-puro"><code>PURO</code><a class="self-link" href="#dom-standard-puro"></a></dfn>
+    <dd data-md>
+     <p>for Puro Standard verified durable carbon removal</p>
     <dt data-md><dfn class="idl-code" data-dfn-for="Standard" data-dfn-type="enum-value" data-export id="dom-standard-pending"><code>PENDING</code><a class="self-link" href="#dom-standard-pending"></a></dfn>
     <dd data-md>
      <p>for Other or in Development</p>
@@ -5814,8 +5818,8 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-9583b58e">
-    <a class="self-link" href="#example-9583b58e"></a> CRU Full Lineage: 
+   <div class="example" id="example-4a29f115">
+    <a class="self-link" href="#example-4a29f115"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5826,11 +5830,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
-    <c- f>"verificationStandard"</c-><c- p>:</c-> <c- u>"VCS"</c-><c- p>,</c->
+    <c- f>"verificationStandard"</c-><c- p>:</c-> <c- u>"Puro"</c-><c- p>,</c->
     <c- f>"mitigationActivity"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"category"</c-><c- p>:</c-> <c- u>"Removal"</c-><c- p>,</c->
       <c- f>"method"</c-><c- p>:</c-> <c- u>"Technological"</c->
@@ -5849,7 +5853,7 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"insurancePolicyOwner"</c-><c- p>:</c-> <c- u>"EcologicalProject"</c-><c- p>,</c->
         <c- f>"insurancePolicyLink"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"a08f99d1-99cc-4ff7-804d-d7fab7be0c90"</c-><c- p>,</c->
-          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://verra.com/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Reversal Mitigation Insurance Policy"</c-><c- p>,</c->
           <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"98uuisdE12A0213az2133ASdfsdf"</c-><c- p>,</c->
           <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
@@ -5968,13 +5972,13 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
     <c- f>"verificationContract"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Forest Plot 3341"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Forest Plot 3341, with issuer Verra and verifier SustainCERT"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
       <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
-          <c- f>"name"</c-><c- p>:</c-> <c- u>"Verra"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Verra is the world’s leading provider of carbon market solutions. We help companies, governments, and communities to measure, manage, and value their carbon emissions and investments in climate solutions. Our solutions are used by more than 1,000 companies and governments in 70 countries to manage more than 1.5 billion metric tons of carbon emissions. Verra is a global nonprofit organization with offices in the United States, Europe, and Asia."</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Puro.earth"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Puro.earth is the world's leading platform for engineered carbon removal. Our mission is to mobilize the economy to reward carbon net negative emissions."</c-><c- p>,</c->
           <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"IssuingRegistry"</c-><c- p>,</c->
           <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
@@ -6009,10 +6013,10 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- p>}</c->
       <c- p>],</c->
       <c- f>"qualityStandard"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"name"</c-><c- p>:</c-> <c- u>"VM0007 REDD+ Methodology Framework (REDD+MF)"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"The REDD+ Methodology Framework (REDD+MF) is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements. The REDD+MF is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements."</c-><c- p>,</c->
-        <c- f>"standard"</c-><c- p>:</c-> <c- u>"VCS"</c-><c- p>,</c->
-        <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Puro - Carbonated Building Materials"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits."</c-><c- p>,</c->
+        <c- f>"standard"</c-><c- p>:</c-> <c- u>"Puro"</c-><c- p>,</c->
+        <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
         <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
@@ -6025,8 +6029,8 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- p>],</c->
         <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"be062a19-133c-4626-aa2d-bcca2c510ab2"</c-><c- p>,</c->
-          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://verra.org/methodologies/vm0007-redd-methodology-framework-redd-mf-v1-6/"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the REDD+ Methodology Framework"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://puro.earth/carbon-removal-methods/carbonated-building-materials"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Carbonated Building Materials"</c-><c- p>,</c->
           <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
           <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
         <c- p>}</c->
@@ -6049,7 +6053,7 @@ This list will be expanded to include other categories, like biodiversity, in th
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6060,7 +6064,7 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
         <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6105,21 +6109,21 @@ This list will be expanded to include other categories, like biodiversity, in th
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239395</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>484033000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>854060000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239395</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>560013000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>915055000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6141,14 +6145,14 @@ This list will be expanded to include other categories, like biodiversity, in th
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239395</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>561508000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>916606000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686239395</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>561639000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1686317219</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>916747000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6316,13 +6320,13 @@ This list will be expanded to include other categories, like biodiversity, in th
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/8/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -7084,8 +7088,8 @@ This list will be expanded to include other categories, like biodiversity, in th
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-   <div class="example" id="example-dd909862">
-    <a class="self-link" href="#example-dd909862"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-766dfb31">
+    <a class="self-link" href="#example-766dfb31"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -7096,11 +7100,11 @@ This list will be expanded to include other categories, like biodiversity, in th
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"5/18/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"6/9/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
-    <c- f>"verificationStandard"</c-><c- p>:</c-> <c- u>"VCS"</c-><c- p>,</c->
+    <c- f>"verificationStandard"</c-><c- p>:</c-> <c- u>"Puro"</c-><c- p>,</c->
     <c- f>"mitigationActivity"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"category"</c-><c- p>:</c-> <c- u>"Removal"</c-><c- p>,</c->
       <c- f>"method"</c-><c- p>:</c-> <c- u>"Technological"</c->
@@ -7119,7 +7123,7 @@ This list will be expanded to include other categories, like biodiversity, in th
         <c- f>"insurancePolicyOwner"</c-><c- p>:</c-> <c- u>"EcologicalProject"</c-><c- p>,</c->
         <c- f>"insurancePolicyLink"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"a08f99d1-99cc-4ff7-804d-d7fab7be0c90"</c-><c- p>,</c->
-          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://verra.com/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Reversal Mitigation Insurance Policy"</c-><c- p>,</c->
           <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"98uuisdE12A0213az2133ASdfsdf"</c-><c- p>,</c->
           <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
@@ -7652,8 +7656,15 @@ and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresul
     <li data-md>
      <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-prooftype" id="ref-for-enumdef-prooftype②">ProofType</a></code> enumeration, see <a href="#dt-proof-type">§ 3.55 Data Type: ProofType</a> for details.</p>
     <li data-md>
-     <p>Updated <code class="idl"><a data-link-type="idl" href="#enumdef-projecttype" id="ref-for-enumdef-projecttype①">ProjectType</a></code> enumeration, adding Biochar, Carbonated_Materials, Carbon_Capture_in_Geological_Storage, Enhanced_Rock_Wathering, and
+     <p>Updated <code class="idl"><a data-link-type="idl" href="#enumdef-projecttype" id="ref-for-enumdef-projecttype①">ProjectType</a></code> enumeration, adding Biochar, Carbonated_Materials, Carbon_Capture_in_Geological_Storage, Enhanced_Rock_Weathering, and
 Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Type: ProjectType</a> for details.</p>
+    <li data-md>
+     <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.4.0-20230609"><span class="content">Version 2.5.1-20230609 (June 9, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230609"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Updated <code class="idl"><a data-link-type="idl" href="#enumdef-standard" id="ref-for-enumdef-standard②">Standard</a></code> type to include the Puro standard, see <a href="#dt-standard">§ 3.77 Data Type: Standard</a> for details.</p>
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -7967,7 +7978,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
    <li><a href="#encumberable">encumberable</a><span>, in § 3.8.1</span>
    <li><a href="#element-attrdef-daterange-end">end</a><span>, in § 3.45.1</span>
    <li><a href="#dom-projecttype-energy_efficiency">ENERGY_EFFICIENCY</a><span>, in § 3.74</span>
-   <li><a href="#dom-projecttype-enhanced_rock_wathering">ENHANCED_ROCK_WATHERING</a><span>, in § 3.74</span>
+   <li><a href="#dom-projecttype-enhanced_rock_weathering">ENHANCED_ROCK_WEATHERING</a><span>, in § 3.74</span>
    <li><a href="#element-attrdef-verificationcontract-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 3.17.1</span>
    <li><a href="#dom-standard-eua">EUA</a><span>, in § 3.77</span>
    <li><a href="#dom-region-europe">EUROPE</a><span>, in § 3.66</span>
@@ -8142,6 +8153,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.74 Data Typ
    <li><a href="#property-set">Property-Set</a><span>, in § 3</span>
    <li><a href="#element-attrdef-processedclaim-proposedasset">proposedAsset</a><span>, in § 3.15.2</span>
    <li><a href="#dom-projecttype-propylene_oxide_production">PROPYLENE_OXIDE_PRODUCTION</a><span>, in § 3.74</span>
+   <li><a href="#dom-standard-puro">PURO</a><span>, in § 3.77</span>
    <li><a href="#dom-auditschedule-quadrennial">QUADRENNIAL</a><span>, in § 3.71</span>
    <li><a href="#dom-un-sdgs-quality_education">QUALITY_EDUCATION</a><span>, in § 3.72</span>
    <li><a href="#quality-standard">Quality Standard</a><span>, in § 2</span>
@@ -8706,7 +8718,7 @@ window.dfnpanelData['enumdef-projectscope'] = {"dfnID": "enumdef-projectscope", 
 window.dfnpanelData['enumdef-projecttype'] = {"dfnID": "enumdef-projecttype", "url": "#enumdef-projecttype", "dfnText": "ProjectType", "refSections": [{"refs": [{"id": "ref-for-enumdef-projecttype"}], "title": "3.4.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-projecttype\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
 window.dfnpanelData['enumdef-measurementspecification'] = {"dfnID": "enumdef-measurementspecification", "url": "#enumdef-measurementspecification", "dfnText": "MeasurementSpecification", "refSections": [{"refs": [{"id": "ref-for-enumdef-measurementspecification"}], "title": "3.43.1. Properties"}], "external": false};
 window.dfnpanelData['enumdef-status'] = {"dfnID": "enumdef-status", "url": "#enumdef-status", "dfnText": "Status", "refSections": [{"refs": [{"id": "ref-for-enumdef-status"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-status\u2460"}], "title": "3.26.2. Properties"}], "external": false};
-window.dfnpanelData['enumdef-standard'] = {"dfnID": "enumdef-standard", "url": "#enumdef-standard", "dfnText": "Standard", "refSections": [{"refs": [{"id": "ref-for-enumdef-standard"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-standard\u2460"}], "title": "3.42.1. Properties"}], "external": false};
+window.dfnpanelData['enumdef-standard'] = {"dfnID": "enumdef-standard", "url": "#enumdef-standard", "dfnText": "Standard", "refSections": [{"refs": [{"id": "ref-for-enumdef-standard"}], "title": "3.19.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-standard\u2460"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-standard\u2461"}], "title": "Version 2.5.1-20230609 (June 9, 2023)"}], "external": false};
 window.dfnpanelData['enumdef-correspondingadjustment'] = {"dfnID": "enumdef-correspondingadjustment", "url": "#enumdef-correspondingadjustment", "dfnText": "CorrespondingAdjustment", "refSections": [{"refs": [{"id": "ref-for-enumdef-correspondingadjustment"}], "title": "3.25.1. Properties"}], "external": false};
 window.dfnpanelData['enumdef-unit'] = {"dfnID": "enumdef-unit", "url": "#enumdef-unit", "dfnText": "Unit", "refSections": [{"refs": [{"id": "ref-for-enumdef-unit"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2460"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2461"}], "title": "3.15.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2462"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2463"}], "title": "3.26.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2464"}], "title": "3.79.1. JSON Representation"}, {"refs": [{"id": "ref-for-enumdef-unit\u2465"}], "title": "Version 2.5.1-20230601 (June 1, 2023)"}], "external": false};
 window.dfnpanelData['decimal'] = {"dfnID": "decimal", "url": "#decimal", "dfnText": "Decimal", "refSections": [{"refs": [{"id": "ref-for-decimal"}], "title": "3.8.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2460"}], "title": "3.18.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2461"}], "title": "3.26.2. Properties"}], "external": false};

@@ -8,11 +8,11 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "5/18/2023"
+      "dateString": "6/9/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
-    "verificationStandard": "VCS",
+    "verificationStandard": "Puro",
     "mitigationActivity": {
       "category": "Removal",
       "method": "Technological"
@@ -31,7 +31,7 @@
         "insurancePolicyOwner": "EcologicalProject",
         "insurancePolicyLink": {
           "id": "a08f99d1-99cc-4ff7-804d-d7fab7be0c90",
-          "uri": "https://verra.com/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
+          "uri": "https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
           "description": "Link to the Reversal Mitigation Insurance Policy",
           "hashProof": "98uuisdE12A0213az2133ASdfsdf",
           "hashAlgorithm": "Sha256"

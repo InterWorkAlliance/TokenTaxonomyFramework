@@ -8,11 +8,11 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "6/8/2023"
+      "dateString": "6/9/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
-    "verificationStandard": "VCS",
+    "verificationStandard": "Puro",
     "mitigationActivity": {
       "category": "Removal",
       "method": "Technological"
@@ -31,7 +31,7 @@
         "insurancePolicyOwner": "EcologicalProject",
         "insurancePolicyLink": {
           "id": "a08f99d1-99cc-4ff7-804d-d7fab7be0c90",
-          "uri": "https://verra.com/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
+          "uri": "https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
           "description": "Link to the Reversal Mitigation Insurance Policy",
           "hashProof": "98uuisdE12A0213az2133ASdfsdf",
           "hashAlgorithm": "Sha256"
@@ -150,13 +150,13 @@
     "proposedAsset": null,
     "verificationContract": {
       "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-      "name": "Verification Contract for Forest Plot 3341",
-      "description": "Verification Contract for Forest Plot 3341, with issuer Verra and verifier SustainCERT",
+      "name": "Verification Contract for Concrete Plant 3341",
+      "description": "Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
       "signatories": [
         {
           "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
-          "name": "Verra",
-          "description": "Verra is the world’s leading provider of carbon market solutions. We help companies, governments, and communities to measure, manage, and value their carbon emissions and investments in climate solutions. Our solutions are used by more than 1,000 companies and governments in 70 countries to manage more than 1.5 billion metric tons of carbon emissions. Verra is a global nonprofit organization with offices in the United States, Europe, and Asia.",
+          "name": "Puro.earth",
+          "description": "Puro.earth is the world's leading platform for engineered carbon removal. Our mission is to mobilize the economy to reward carbon net negative emissions.",
           "signatoryRole": "IssuingRegistry",
           "signature": {
             "type": "JWS",
@@ -191,10 +191,10 @@
         }
       ],
       "qualityStandard": {
-        "name": "VM0007 REDD+ Methodology Framework (REDD+MF)",
-        "description": "The REDD+ Methodology Framework (REDD+MF) is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements. The REDD+MF is a tool for developing and implementing REDD+ projects and programmes. It is a comprehensive, flexible and transparent methodology that can be used to develop and implement REDD+ projects and programmes in a manner that is consistent with the UNFCCC and the Cancun Agreements.",
-        "standard": "VCS",
-        "version": "1.6",
+        "name": "Puro - Carbonated Building Materials",
+        "description": "Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits.",
+        "standard": "Puro",
+        "version": "1.0",
         "coBenefits": [
           {
             "unSdg": "ClimateAction",
@@ -207,8 +207,8 @@
         ],
         "standardLink": {
           "id": "be062a19-133c-4626-aa2d-bcca2c510ab2",
-          "uri": "https://verra.org/methodologies/vm0007-redd-methodology-framework-redd-mf-v1-6/",
-          "description": "Link to the REDD+ Methodology Framework",
+          "uri": "https://puro.earth/carbon-removal-methods/carbonated-building-materials",
+          "description": "Link to the Carbonated Building Materials",
           "hashProof": "1234567890abc12fasdfw43asdfasdf342",
           "hashAlgorithm": "Sha256"
         }
@@ -231,7 +231,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "6/8/2023"
+        "dateString": "6/9/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -242,7 +242,7 @@
         "auditSchedule": "Quinquennial",
         "lastAuditDate": {
           "dateTime": null,
-          "dateString": "6/8/2023"
+          "dateString": "6/9/2023"
         },
         "auditReports": [
           {
@@ -287,21 +287,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/8/2023"
+                "dateString": "6/9/2023"
               },
               "timeStamp": {
-                "seconds": 1686239395,
-                "nanos": 484033000
+                "seconds": 1686317219,
+                "nanos": 854060000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/8/2023"
+                "dateString": "6/9/2023"
               },
               "timeStamp": {
-                "seconds": 1686239395,
-                "nanos": 560013000
+                "seconds": 1686317219,
+                "nanos": 915055000
               }
             }
           },
@@ -323,14 +323,14 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1686239395,
-                    "nanos": 561508000
+                    "seconds": 1686317219,
+                    "nanos": 916606000
                   },
-                  "dateString": "6/8/2023"
+                  "dateString": "6/9/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1686239395,
-                  "nanos": 561639000
+                  "seconds": 1686317219,
+                  "nanos": 916747000
                 }
               },
               "mrvExtensions": [
@@ -498,13 +498,13 @@
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "6/8/2023"
+              "dateString": "6/9/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "6/8/2023"
+              "dateString": "6/9/2023"
             },
             "validationSteps": [
               {
