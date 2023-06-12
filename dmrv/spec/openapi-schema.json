@@ -714,7 +714,7 @@
       "DataExtension": {
         "type": "object",
         "properties": {
-          "name": {
+          "key": {
             "type": "string",
             "nullable": true
           },
@@ -1524,6 +1524,9 @@
       "MrvExtension": {
         "type": "object",
         "properties": {
+          "mrvExtensionType": {
+            "$ref": "#/components/schemas/MrvExtensionType"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -1550,6 +1553,20 @@
           }
         },
         "additionalProperties": false
+      },
+      "MrvExtensionType": {
+        "enum": [
+          "UnknownMrvExtension",
+          "MbpMrvExtension",
+          "MbpClaimSourceMrvExtension",
+          "ClaimMrvExtension",
+          "CheckpointMrvExtension",
+          "SdpManifestMrvExtension",
+          "SdpFileMrvExtension",
+          "CheckpointResultMrvExtension",
+          "ProcessedClaimMrvExtension"
+        ],
+        "type": "string"
       },
       "PACompliance": {
         "type": "object",

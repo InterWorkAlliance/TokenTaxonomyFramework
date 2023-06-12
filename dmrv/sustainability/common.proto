@@ -721,16 +721,29 @@ message VerifiablePresentation{
     Proof proof = 5; //The proof of the presentation
 }
 
+enum MrvExtensionType{
+    UNKNOWN_MRV_EXTENSION = 0; //Unknown extension
+    MBP_MRV_EXTENSION = 1; //MBP extension
+    MBP_CLAIM_SOURCE_MRV_EXTENSION = 2; //MBP Claim Source extension
+    CLAIM_MRV_EXTENSION = 3; //Claim extension
+    CHECKPOINT_MRV_EXTENSION = 4; //Checkpoint extension
+    SDP_MANIFEST_MRV_EXTENSION = 5; //SDP Manifest extension
+    SDP_FILE_MRV_EXTENSION = 6; //SDP File extension
+    CHECKPOINT_RESULT_MRV_EXTENSION = 7; //Checkpoint Result extension
+    PROCESSED_CLAIM_MRV_EXTENSION = 8; //Processed Checkpoint extension
+}
+
 message DataExtension{
-    string name = 1; //name of the data extension
+    string key = 1; //name of the data extension
     string value = 2; //value of the data extension
     repeated DataExtension data = 3; //data extension for nesting
 }
 
 message MrvExtension{
-    string name = 1; //name of the extension
-    string version = 2; //version of the extension
-    string description = 3; //description of the extension
-    string documentation_url = 4; //optional documentation url of the extension
-    repeated DataExtension data_extensions = 5; //list of data extensions
+    MrvExtensionType mrv_extension_type = 1; //type of the extension
+    string name = 2; //name of the extension
+    string version = 3; //version of the extension
+    string description = 4; //description of the extension
+    string documentation_url = 5; //optional documentation url of the extension
+    repeated DataExtension data_extensions = 6; //list of data extensions
 }

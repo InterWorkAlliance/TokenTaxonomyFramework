@@ -41,22 +41,23 @@
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "mrvExtensions": [
         {
+          "mrvExtensionType": "MbpClaimSourceMrvExtension",
           "name": "Carbonated Concrete Device Sensor",
           "version": "1.0",
           "description": "Sensor data values for the carbonated concrete device.",
           "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
           "dataExtensions": [
             {
-              "name": "Device ID",
+              "key": "Device ID",
               "value": "1234567890",
               "data": [
                 {
-                  "name": "Calibration Offset",
+                  "key": "Calibration Offset",
                   "value": ".0028",
                   "data": []
                 },
                 {
-                  "name": "Calibration Slope",
+                  "key": "Calibration Slope",
                   "value": "1.0002",
                   "data": []
                 }
@@ -82,21 +83,22 @@
   ],
   "mrvExtensions": [
     {
+      "mrvExtensionType": "MbpMrvExtension",
       "name": "VM0026 Sustainable Grassland Management Framework Extension",
       "version": "1.1",
       "description": "Sectorial Scope 14",
       "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
       "dataExtensions": [
         {
-          "name": "Baseline Scenario",
+          "key": "Baseline Scenario",
           "value": "Most plausible baseline scenario",
           "data": [
             {
-              "name": "Barrier analysis",
+              "key": "Barrier analysis",
               "value": "Barrier analysis for alternative land use",
               "data": [
                 {
-                  "name": "Alternative land use: Cattle ranching",
+                  "key": "Alternative land use: Cattle ranching",
                   "value": "Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.",
                   "data": []
                 }
@@ -111,13 +113,13 @@
     {
       "validationDate": {
         "dateTime": null,
-        "dateString": "6/9/2023"
+        "dateString": "6/12/2023"
       },
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
       "validationExpirationDate": {
         "dateTime": null,
-        "dateString": "6/9/2023"
+        "dateString": "6/12/2023"
       },
       "validationSteps": [
         {

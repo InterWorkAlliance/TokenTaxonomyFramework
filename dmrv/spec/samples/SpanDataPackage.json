@@ -8,30 +8,31 @@
     "created": {
       "date": {
         "dateTime": {
-          "seconds": 1686333047,
-          "nanos": 391005000
+          "seconds": 1686581366,
+          "nanos": 8477000
         },
-        "dateString": "6/9/2023"
+        "dateString": "6/12/2023"
       },
       "timeStamp": {
-        "seconds": 1686333047,
-        "nanos": 391026000
+        "seconds": 1686581366,
+        "nanos": 8496000
       }
     },
     "mrvExtensions": [
       {
+        "mrvExtensionType": "SdpManifestMrvExtension",
         "name": "VM0007 REDD+ Methodology Framework Extension",
         "version": "1.6",
         "description": "Methodology specific data attributes being tracked.",
         "documentationUrl": "",
         "dataExtensions": [
           {
-            "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+            "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
             "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
             "data": []
           },
           {
-            "name": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+            "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
             "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
             "data": []
           }
@@ -47,23 +48,24 @@
         "claimSourceAttestation": "digital_signature",
         "mrvExtensions": [
           {
+            "mrvExtensionType": "SdpFileMrvExtension",
             "name": "Carbonated Concrete Device Sensor Evidence File",
             "version": "1.0",
             "description": "Sensor data values required for evidence data.",
             "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
             "dataExtensions": [
               {
-                "name": "Starting Temperature Sensor Reading",
+                "key": "Starting Temperature Sensor Reading",
                 "value": "31.2c",
                 "data": []
               },
               {
-                "name": "End Temperature Sensor Reading",
+                "key": "End Temperature Sensor Reading",
                 "value": "50.7c",
                 "data": []
               },
               {
-                "name": "Dust Sensor Reading",
+                "key": "Dust Sensor Reading",
                 "value": "1.0002",
                 "data": []
               }

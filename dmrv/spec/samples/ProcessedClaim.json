@@ -17,22 +17,23 @@
   ],
   "mrvExtensions": [
     {
+      "mrvExtensionType": "ProcessedClaimMrvExtension",
       "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
       "version": "1.0",
       "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
       "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
       "dataExtensions": [
         {
-          "name": "mCO2,i,d",
+          "key": "mCO2,i,d",
           "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
           "data": [
             {
-              "name": "CO2",
+              "key": "CO2",
               "value": "2",
               "data": []
             },
             {
-              "name": "y",
+              "key": "y",
               "value": "2",
               "data": []
             }
@@ -60,6 +61,7 @@
       "efAfter": "",
       "mrvExtensions": [
         {
+          "mrvExtensionType": "UnknownMrvExtension",
           "name": "",
           "version": "",
           "description": "",
