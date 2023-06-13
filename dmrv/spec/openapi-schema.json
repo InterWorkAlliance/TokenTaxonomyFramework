@@ -1041,6 +1041,9 @@
           "geoJsonOrKml": {
             "type": "string",
             "nullable": true
+          },
+          "geographicLocationFile": {
+            "$ref": "#/components/schemas/VerifiedLink"
           }
         },
         "additionalProperties": false

@@ -224,6 +224,7 @@ message GNSS{
 }
 message GeographicArea{
     string geo_json_or_kml = 1; //geojson or kml
+    VerifiedLink geographic_location_file = 2; //link to a file containing geojson, kml or other geographic area data
 }
 message GeographicLocation{
     GNSS GNSS = 1; //GNSS coordinates
