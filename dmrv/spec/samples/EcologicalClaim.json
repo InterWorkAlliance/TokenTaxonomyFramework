@@ -28,21 +28,21 @@
         "startDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/12/2023"
+            "dateString": "6/21/2023"
           },
           "timeStamp": {
-            "seconds": 1686576643,
-            "nanos": 429128000
+            "seconds": 1687377738,
+            "nanos": 117191000
           }
         },
         "endDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/12/2023"
+            "dateString": "6/21/2023"
           },
           "timeStamp": {
-            "seconds": 1686576643,
-            "nanos": 429149000
+            "seconds": 1687377738,
+            "nanos": 117214000
           }
         }
       },
@@ -64,18 +64,19 @@
           "created": {
             "date": {
               "dateTime": {
-                "seconds": 1686576643,
-                "nanos": 429209000
+                "seconds": 1687377738,
+                "nanos": 117244000
               },
-              "dateString": "6/12/2023"
+              "dateString": "6/21/2023"
             },
             "timeStamp": {
-              "seconds": 1686576643,
-              "nanos": 429211000
+              "seconds": 1687377738,
+              "nanos": 117246000
             }
           },
           "mrvExtensions": [
             {
+              "mrvExtensionType": "SdpManifestMrvExtension",
               "name": "VM0007 REDD+ Methodology Framework Extension",
               "version": "1.6",
               "description": "Methodology specific data attributes being tracked.",
@@ -103,6 +104,7 @@
               "claimSourceAttestation": "digital_signature",
               "mrvExtensions": [
                 {
+                  "mrvExtensionType": "SdpFileMrvExtension",
                   "name": "Carbonated Concrete Device Sensor Evidence File",
                   "version": "1.0",
                   "description": "Sensor data values required for evidence data.",
@@ -134,6 +136,7 @@
   ],
   "mrvExtensions": [
     {
+      "mrvExtensionType": "ClaimMrvExtension",
       "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
       "version": "1.0",
       "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",

@@ -44,6 +44,10 @@
     "name": "Puro - Carbonated Building Materials",
     "description": "Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits.",
     "standard": "Puro",
+    "methodologyAndTools": [
+      "VcsVm0026",
+      "VcsVm0009"
+    ],
     "version": "1.0",
     "coBenefits": [
       {
@@ -81,18 +85,15 @@
   },
   "agreementDate": {
     "dateTime": null,
-    "dateString": "6/12/2023"
+    "dateString": "6/21/2023"
   },
   "estimatedAnnualCredits": "15,000",
   "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-  "processedClaimIds": [
-    "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"
-  ],
+  "auditSchedule": "Quinquennial",
   "audits": {
-    "auditSchedule": "Quinquennial",
-    "lastAuditDate": {
+    "auditDate": {
       "dateTime": null,
-      "dateString": "6/12/2023"
+      "dateString": "6/21/2023"
     },
     "auditReports": [
       {

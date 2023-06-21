@@ -13,7 +13,7 @@ message EcologicalProject{
     string description = 3; //description of the project
     repeated common.Address addresses = 4; //list of addresses associated with the project
     repeated string owners = 5; //list of owners of the project
-    common.GeographicCountry country = 6;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    common.Country country = 6;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
     common.Region region = 7; //region of the project
     common.VerifiedLink information_link = 8; //Link to information about the project
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the project
@@ -64,23 +64,23 @@ message ModularBenefitProject {
 }
 
 message ClaimSource
+{
+    string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
+    string mbp_id = 2; //the id of the modular benefit project that the claim source is associated withd.
+    string name = 3; //the name of the device.
+    string description = 4; //a description of the device, like the location, etc.
+    common.GeographicLocation location = 5; //the location of the device, using GNSS with Decimal Degrees.
+    enum ClaimSourceType
     {
-        string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
-        string mbp_id = 2; //the id of the modular benefit project that the claim source is associated withd.
-        string name = 3; //the name of the device.
-        string description = 4; //a description of the device, like the location, etc.
-        common.GNSS location = 5; //the location of the device, using GNSS with Decimal Degrees.
-        enum ClaimSourceType
-        {
-            SENSOR_DEVICE = 0; //IoT, meter, etc.
-            USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
-            REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
-        }
-        ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
-        common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
-        string source_identifier = 8; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
-        repeated common.MrvExtension mrv_extensions = 9; //an optional list of MRV extensions that can be used for source configuration or other metadata.
+        SENSOR_DEVICE = 0; //IoT, meter, etc.
+        USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
+        REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
     }
+    ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
+    common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
+    string source_identifier = 8; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
+    repeated common.MrvExtension mrv_extensions = 9; //an optional list of MRV extensions that can be used for source configuration or other metadata.
+}
 
 message EcologicalClaimCheckpoint
 {
@@ -188,7 +188,7 @@ message CRU
     }
     CoreCarbonPrinciples core_carbon_principals = 6; //these are aligned with the ICVCM Core Carbon Principles
     repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
-    common.Status status = 8; //the status of the token
+    common.CreditStatus status = 8; //the status of the token
     message ReferencedCredit{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
@@ -215,7 +215,7 @@ message REC
     string owner_id = 6; //the unique id of the owner of the token         
     string listing_agent_id = 7; //AuthorizedId
     repeated common.ClimateLabel climate_labels = 8; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
-    common.Status status = 9; //the status of the token
+    common.CreditStatus status = 9; //the status of the token
     message ReferencedRec{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
@@ -249,9 +249,10 @@ message VerificationContract{
         string name = 1; //name of the standard
         string description = 2; //description of the standard
         common.Standard standard = 3; //accredited standard that is used to verify the project
-        string version = 4; //version of the standard
-        repeated common.CoBenefit co_benefits = 5; //list of co-benefits that are captured by the standard
-        common.VerifiedLink standard_link = 6; //url to the standard
+        repeated common.MethodologyAndTool methodology_and_tools = 4; //list of methodologies and tools that are used to verify the project
+        string version = 5; //version of the standard
+        repeated common.CoBenefit co_benefits = 6; //list of co-benefits that are captured by the standard
+        common.VerifiedLink standard_link = 7; //url to the standard
     }
     message MRVRequirements{
         common.MeasurementSpecification measurement_specification = 1; //measurement specification that is used to verify the project
@@ -278,20 +279,11 @@ message VerificationContract{
     common.Date agreement_date = 7; //start date of the contract
     string estimated_annual_credits = 8; //estimated annual credits that will be issued under the contract
     string mbp_id = 9; //id of the modular benefit project that is being verified
-    repeated string processed_claim_ids = 10; //list of claim ids that have been processed under the contract
     message Audits{
-        enum AuditSchedule{            
-            ANNUAL = 0; //annual audits
-            BIANNUAL = 1; //biannual audits
-            BIENNIAL = 2; //biennial audits
-            TRIENNIAL = 3; //triennial audits
-            QUADRENNIAL = 4; //quadrennial audits
-            QUINQUENNIAL = 5; //quinquennial audits
-        }
-        AuditSchedule audit_schedule = 1; //schedule of audits
-        common.Date last_audit_date = 2; //date of the last audit
+        common.Date audit_date = 2; //date of the audit
         repeated common.VerifiedLink audit_reports = 3; //list of audit reports
     }
+    common.AuditSchedule audit_schedule = 10; //schedule of audits
     Audits audits = 11; //list of audits that have been performed under the contract
     ModularBenefitProject modular_benefit_project = 12; //optional, for object navigation, the modular benefit project that is being verified
     repeated ProcessedClaim processed_claims = 13; //optional, for object navigation, the processed claims that have been processed under the contract
