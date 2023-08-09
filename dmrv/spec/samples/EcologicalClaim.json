@@ -28,21 +28,21 @@
         "startDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/21/2023"
+            "dateString": "8/9/2023"
           },
           "timeStamp": {
-            "seconds": 1687377738,
-            "nanos": 117191000
+            "seconds": 1691616309,
+            "nanos": 368221000
           }
         },
         "endDate": {
           "date": {
             "dateTime": null,
-            "dateString": "6/21/2023"
+            "dateString": "8/9/2023"
           },
           "timeStamp": {
-            "seconds": 1687377738,
-            "nanos": 117214000
+            "seconds": 1691616309,
+            "nanos": 368231000
           }
         }
       },
@@ -64,35 +64,39 @@
           "created": {
             "date": {
               "dateTime": {
-                "seconds": 1687377738,
-                "nanos": 117244000
+                "seconds": 1691616309,
+                "nanos": 368247000
               },
-              "dateString": "6/21/2023"
+              "dateString": "8/9/2023"
             },
             "timeStamp": {
-              "seconds": 1687377738,
-              "nanos": 117246000
+              "seconds": 1691616309,
+              "nanos": 368247000
             }
           },
           "mrvExtensions": [
             {
               "mrvExtensionType": "SdpManifestMrvExtension",
-              "name": "VM0007 REDD+ Methodology Framework Extension",
-              "version": "1.6",
-              "description": "Methodology specific data attributes being tracked.",
-              "documentationUrl": "",
-              "dataExtensions": [
-                {
-                  "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                  "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
-                  "data": []
-                },
-                {
-                  "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                  "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
-                  "data": []
-                }
-              ]
+              "typedExtension": null,
+              "untypedExtension": {
+                "name": "VM0007 REDD+ Methodology Framework Extension",
+                "version": "1.6",
+                "description": "Methodology specific data attributes being tracked.",
+                "documentation": "",
+                "dataExtensions": [
+                  {
+                    "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                    "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+                    "data": []
+                  },
+                  {
+                    "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                    "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
+                    "data": []
+                  }
+                ]
+              },
+              "extensionCase": "UntypedExtension"
             }
           ],
           "sdpFiles": [
@@ -105,27 +109,31 @@
               "mrvExtensions": [
                 {
                   "mrvExtensionType": "SdpFileMrvExtension",
-                  "name": "Carbonated Concrete Device Sensor Evidence File",
-                  "version": "1.0",
-                  "description": "Sensor data values required for evidence data.",
-                  "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                  "dataExtensions": [
-                    {
-                      "key": "Starting Temperature Sensor Reading",
-                      "value": "31.2c",
-                      "data": []
-                    },
-                    {
-                      "key": "End Temperature Sensor Reading",
-                      "value": "50.7c",
-                      "data": []
-                    },
-                    {
-                      "key": "Dust Sensor Reading",
-                      "value": "1.0002",
-                      "data": []
-                    }
-                  ]
+                  "typedExtension": null,
+                  "untypedExtension": {
+                    "name": "Carbonated Concrete Device Sensor Evidence File",
+                    "version": "1.0",
+                    "description": "Sensor data values required for evidence data.",
+                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                    "dataExtensions": [
+                      {
+                        "key": "Starting Temperature Sensor Reading",
+                        "value": "31.2c",
+                        "data": []
+                      },
+                      {
+                        "key": "End Temperature Sensor Reading",
+                        "value": "50.7c",
+                        "data": []
+                      },
+                      {
+                        "key": "Dust Sensor Reading",
+                        "value": "1.0002",
+                        "data": []
+                      }
+                    ]
+                  },
+                  "extensionCase": "UntypedExtension"
                 }
               ]
             }
@@ -137,33 +145,37 @@
   "mrvExtensions": [
     {
       "mrvExtensionType": "ClaimMrvExtension",
-      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-      "version": "1.0",
-      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-      "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-      "dataExtensions": [
-        {
-          "key": "MGy,i,d",
-          "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
-          "data": [
-            {
-              "key": "i",
-              "value": "limestone",
-              "data": []
-            },
-            {
-              "key": "d",
-              "value": "0.5-1.0 mm",
-              "data": []
-            },
-            {
-              "key": "y",
-              "value": "1",
-              "data": []
-            }
-          ]
-        }
-      ]
+      "typedExtension": null,
+      "untypedExtension": {
+        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+        "version": "1.0",
+        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+        "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+        "dataExtensions": [
+          {
+            "key": "MGy,i,d",
+            "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
+            "data": [
+              {
+                "key": "i",
+                "value": "limestone",
+                "data": []
+              },
+              {
+                "key": "d",
+                "value": "0.5-1.0 mm",
+                "data": []
+              },
+              {
+                "key": "y",
+                "value": "1",
+                "data": []
+              }
+            ]
+          }
+        ]
+      },
+      "extensionCase": "UntypedExtension"
     }
   ],
   "modularBenefitProject": null

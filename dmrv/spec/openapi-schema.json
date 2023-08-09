@@ -418,7 +418,7 @@
           "referencedCredit": {
             "$ref": "#/components/schemas/ReferencedCredit"
           },
-          "offsetAppliedToId": {
+          "appliedToId": {
             "type": "string",
             "nullable": true
           },
@@ -1263,6 +1263,14 @@
         },
         "additionalProperties": false
       },
+      "ExtensionOneofCase": {
+        "enum": [
+          "None",
+          "TypedExtension",
+          "UntypedExtension"
+        ],
+        "type": "string"
+      },
       "FileType": {
         "enum": [
           "DataBinary",
@@ -1907,29 +1915,14 @@
           "mrvExtensionType": {
             "$ref": "#/components/schemas/MrvExtensionType"
           },
-          "name": {
-            "type": "string",
-            "nullable": true
+          "typedExtension": {
+            "$ref": "#/components/schemas/TypedExtension"
           },
-          "version": {
-            "type": "string",
-            "nullable": true
+          "untypedExtension": {
+            "$ref": "#/components/schemas/UntypedExtension"
           },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentationUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataExtension"
-            },
-            "nullable": true,
-            "readOnly": true
+          "extensionCase": {
+            "$ref": "#/components/schemas/ExtensionOneofCase"
           }
         },
         "additionalProperties": false
@@ -2273,7 +2266,7 @@
           "referencedRec": {
             "$ref": "#/components/schemas/ReferencedRec"
           },
-          "offsetAppliedToId": {
+          "appliedToId": {
             "type": "string",
             "nullable": true
           },
@@ -2510,6 +2503,24 @@
         },
         "additionalProperties": false
       },
+      "TypedExtension": {
+        "type": "object",
+        "properties": {
+          "dataSchema": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Unit": {
         "enum": [
           "TonneCo2E",
@@ -2569,6 +2580,36 @@
           "KwH"
         ],
         "type": "string"
+      },
+      "UntypedExtension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "Validation": {
         "type": "object",

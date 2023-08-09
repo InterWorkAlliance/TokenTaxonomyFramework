@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "6/21/2023"
+      "dateString": "8/9/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -73,7 +73,7 @@
   "referencedCredit": {
     "id": ""
   },
-  "offsetAppliedToId": "",
+  "appliedToId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
   "processedClaim": {
@@ -96,28 +96,32 @@
     "mrvExtensions": [
       {
         "mrvExtensionType": "ProcessedClaimMrvExtension",
-        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-        "version": "1.0",
-        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-        "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-        "dataExtensions": [
-          {
-            "key": "mCO2,i,d",
-            "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
-            "data": [
-              {
-                "key": "CO2",
-                "value": "2",
-                "data": []
-              },
-              {
-                "key": "y",
-                "value": "2",
-                "data": []
-              }
-            ]
-          }
-        ]
+        "typedExtension": null,
+        "untypedExtension": {
+          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+          "version": "1.0",
+          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+          "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+          "dataExtensions": [
+            {
+              "key": "mCO2,i,d",
+              "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
+              "data": [
+                {
+                  "key": "CO2",
+                  "value": "2",
+                  "data": []
+                },
+                {
+                  "key": "y",
+                  "value": "2",
+                  "data": []
+                }
+              ]
+            }
+          ]
+        },
+        "extensionCase": "UntypedExtension"
       }
     ],
     "checkpointResults": [
@@ -140,11 +144,9 @@
         "mrvExtensions": [
           {
             "mrvExtensionType": "UnknownMrvExtension",
-            "name": "",
-            "version": "",
-            "description": "",
-            "documentationUrl": "",
-            "dataExtensions": []
+            "typedExtension": null,
+            "untypedExtension": null,
+            "extensionCase": "None"
           }
         ]
       }
@@ -196,6 +198,10 @@
         "name": "Puro - Carbonated Building Materials",
         "description": "Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits.",
         "standard": "Puro",
+        "methodologyAndTools": [
+          "VcsVm0026",
+          "VcsVm0009"
+        ],
         "version": "1.0",
         "coBenefits": [
           {
@@ -233,7 +239,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "6/21/2023"
+        "dateString": "8/9/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -241,7 +247,7 @@
       "audits": {
         "auditDate": {
           "dateTime": null,
-          "dateString": "6/21/2023"
+          "dateString": "8/9/2023"
         },
         "auditReports": [
           {
@@ -286,21 +292,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/21/2023"
+                "dateString": "8/9/2023"
               },
               "timeStamp": {
-                "seconds": 1687377575,
-                "nanos": 62663000
+                "seconds": 1691616169,
+                "nanos": 171137000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "6/21/2023"
+                "dateString": "8/9/2023"
               },
               "timeStamp": {
-                "seconds": 1687377575,
-                "nanos": 129026000
+                "seconds": 1691616169,
+                "nanos": 234906000
               }
             }
           },
@@ -322,35 +328,39 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1687377575,
-                    "nanos": 130535000
+                    "seconds": 1691616169,
+                    "nanos": 236570000
                   },
-                  "dateString": "6/21/2023"
+                  "dateString": "8/9/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1687377575,
-                  "nanos": 130665000
+                  "seconds": 1691616169,
+                  "nanos": 236716000
                 }
               },
               "mrvExtensions": [
                 {
                   "mrvExtensionType": "SdpManifestMrvExtension",
-                  "name": "VM0007 REDD+ Methodology Framework Extension",
-                  "version": "1.6",
-                  "description": "Methodology specific data attributes being tracked.",
-                  "documentationUrl": "",
-                  "dataExtensions": [
-                    {
-                      "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                      "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
-                      "data": []
-                    },
-                    {
-                      "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                      "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
-                      "data": []
-                    }
-                  ]
+                  "typedExtension": null,
+                  "untypedExtension": {
+                    "name": "VM0007 REDD+ Methodology Framework Extension",
+                    "version": "1.6",
+                    "description": "Methodology specific data attributes being tracked.",
+                    "documentation": "",
+                    "dataExtensions": [
+                      {
+                        "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                        "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+                        "data": []
+                      },
+                      {
+                        "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                        "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
+                        "data": []
+                      }
+                    ]
+                  },
+                  "extensionCase": "UntypedExtension"
                 }
               ],
               "sdpFiles": [
@@ -363,27 +373,31 @@
                   "mrvExtensions": [
                     {
                       "mrvExtensionType": "SdpFileMrvExtension",
-                      "name": "Carbonated Concrete Device Sensor Evidence File",
-                      "version": "1.0",
-                      "description": "Sensor data values required for evidence data.",
-                      "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                      "dataExtensions": [
-                        {
-                          "key": "Starting Temperature Sensor Reading",
-                          "value": "31.2c",
-                          "data": []
-                        },
-                        {
-                          "key": "End Temperature Sensor Reading",
-                          "value": "50.7c",
-                          "data": []
-                        },
-                        {
-                          "key": "Dust Sensor Reading",
-                          "value": "1.0002",
-                          "data": []
-                        }
-                      ]
+                      "typedExtension": null,
+                      "untypedExtension": {
+                        "name": "Carbonated Concrete Device Sensor Evidence File",
+                        "version": "1.0",
+                        "description": "Sensor data values required for evidence data.",
+                        "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                        "dataExtensions": [
+                          {
+                            "key": "Starting Temperature Sensor Reading",
+                            "value": "31.2c",
+                            "data": []
+                          },
+                          {
+                            "key": "End Temperature Sensor Reading",
+                            "value": "50.7c",
+                            "data": []
+                          },
+                          {
+                            "key": "Dust Sensor Reading",
+                            "value": "1.0002",
+                            "data": []
+                          }
+                        ]
+                      },
+                      "extensionCase": "UntypedExtension"
                     }
                   ]
                 }
@@ -395,33 +409,37 @@
       "mrvExtensions": [
         {
           "mrvExtensionType": "ClaimMrvExtension",
-          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-          "version": "1.0",
-          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-          "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-          "dataExtensions": [
-            {
-              "key": "MGy,i,d",
-              "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
-              "data": [
-                {
-                  "key": "i",
-                  "value": "limestone",
-                  "data": []
-                },
-                {
-                  "key": "d",
-                  "value": "0.5-1.0 mm",
-                  "data": []
-                },
-                {
-                  "key": "y",
-                  "value": "1",
-                  "data": []
-                }
-              ]
-            }
-          ]
+          "typedExtension": null,
+          "untypedExtension": {
+            "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+            "version": "1.0",
+            "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+            "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+            "dataExtensions": [
+              {
+                "key": "MGy,i,d",
+                "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
+                "data": [
+                  {
+                    "key": "i",
+                    "value": "limestone",
+                    "data": []
+                  },
+                  {
+                    "key": "d",
+                    "value": "0.5-1.0 mm",
+                    "data": []
+                  },
+                  {
+                    "key": "y",
+                    "value": "1",
+                    "data": []
+                  }
+                ]
+              }
+            ]
+          },
+          "extensionCase": "UntypedExtension"
         }
       ],
       "modularBenefitProject": {
@@ -467,28 +485,13 @@
             "mrvExtensions": [
               {
                 "mrvExtensionType": "MbpClaimSourceMrvExtension",
-                "name": "Carbonated Concrete Device Sensor",
-                "version": "1.0",
-                "description": "Sensor data values for the carbonated concrete device.",
-                "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-                "dataExtensions": [
-                  {
-                    "key": "Device ID",
-                    "value": "1234567890",
-                    "data": [
-                      {
-                        "key": "Calibration Offset",
-                        "value": ".0028",
-                        "data": []
-                      },
-                      {
-                        "key": "Calibration Slope",
-                        "value": "1.0002",
-                        "data": []
-                      }
-                    ]
-                  }
-                ]
+                "typedExtension": {
+                  "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+                  "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+                  "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+                },
+                "untypedExtension": null,
+                "extensionCase": "TypedExtension"
               }
             ]
           }
@@ -509,42 +512,26 @@
         "mrvExtensions": [
           {
             "mrvExtensionType": "MbpMrvExtension",
-            "name": "VM0026 Sustainable Grassland Management Framework Extension",
-            "version": "1.1",
-            "description": "Sectorial Scope 14",
-            "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-            "dataExtensions": [
-              {
-                "key": "Baseline Scenario",
-                "value": "Most plausible baseline scenario",
-                "data": [
-                  {
-                    "key": "Barrier analysis",
-                    "value": "Barrier analysis for alternative land use",
-                    "data": [
-                      {
-                        "key": "Alternative land use: Cattle ranching",
-                        "value": "Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.",
-                        "data": []
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            "typedExtension": {
+              "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+              "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
+              "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+            },
+            "untypedExtension": null,
+            "extensionCase": "TypedExtension"
           }
         ],
         "validations": [
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "6/21/2023"
+              "dateString": "8/9/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "6/21/2023"
+              "dateString": "8/9/2023"
             },
             "validationSteps": [
               {

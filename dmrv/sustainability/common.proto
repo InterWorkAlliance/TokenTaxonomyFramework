@@ -730,11 +730,26 @@ message DataExtension{
 //The MrvExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
 message MrvExtension{
     MrvExtensionType mrv_extension_type = 1; //type of the extension
-    string name = 2; //name of the extension
-    string version = 3; //version of the extension
-    string description = 4; //description of the extension
-    string documentation_url = 5; //optional documentation url of the extension
-    repeated DataExtension data_extensions = 6; //list of data extensions
+    oneof extension{
+        TypedExtension typed_extension = 2; //a typed extension
+        UntypedExtension untyped_extension = 3; //an untyped extension
+    }
+}
+
+//An extension that has a Json Schema
+message TypedExtension{
+    string dataSchema = 1; //the URI/URL to the Json Schema for the extension
+    string documentation = 2; //optional documentation url of the extension
+    string data = 3; //the data of the extension, must be valid against the Json Schema
+}
+
+//A schemaless extension that supports key/value pairs
+message UntypedExtension{
+    string name = 1; //name of the extension
+    string version = 2; //version of the extension
+    string description = 3; //description of the extension
+    string documentation = 4; //optional documentation url of the extension
+    repeated DataExtension data_extensions = 5; //list of data extensions
 }
 
 enum MethodologyAndTool{

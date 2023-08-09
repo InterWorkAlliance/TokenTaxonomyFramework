@@ -193,7 +193,7 @@ message CRU
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
     ReferencedCredit referenced_credit = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string offset_applied_to_id = 10; //optional link to external reporting system for the reporting period that the offset was applied to.
+    string applied_to_id = 10; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
     ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token.
@@ -220,7 +220,7 @@ message REC
         string id = 1; //the id of the referenced credit, this can be a serial number or a master id
     }
     ReferencedRec referenced_rec = 10; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string offset_applied_to_id = 11; //optional link to external reporting system for the reporting period that the offset was applied to.
+    string applied_to_id = 11; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
     string processed_claim_id = 12; //link to the processed claim id
     string issuer_id = 13; //the account that is the issuer, recorded at issue/mint.
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token

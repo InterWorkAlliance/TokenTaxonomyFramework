@@ -79,28 +79,13 @@
           "mrvExtensions": [
             {
               "mrvExtensionType": "MbpClaimSourceMrvExtension",
-              "name": "Carbonated Concrete Device Sensor",
-              "version": "1.0",
-              "description": "Sensor data values for the carbonated concrete device.",
-              "documentationUrl": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-              "dataExtensions": [
-                {
-                  "key": "Device ID",
-                  "value": "1234567890",
-                  "data": [
-                    {
-                      "key": "Calibration Offset",
-                      "value": ".0028",
-                      "data": []
-                    },
-                    {
-                      "key": "Calibration Slope",
-                      "value": "1.0002",
-                      "data": []
-                    }
-                  ]
-                }
-              ]
+              "typedExtension": {
+                "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+                "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+                "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+              },
+              "untypedExtension": null,
+              "extensionCase": "TypedExtension"
             }
           ]
         }
@@ -121,42 +106,26 @@
       "mrvExtensions": [
         {
           "mrvExtensionType": "MbpMrvExtension",
-          "name": "VM0026 Sustainable Grassland Management Framework Extension",
-          "version": "1.1",
-          "description": "Sectorial Scope 14",
-          "documentationUrl": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-          "dataExtensions": [
-            {
-              "key": "Baseline Scenario",
-              "value": "Most plausible baseline scenario",
-              "data": [
-                {
-                  "key": "Barrier analysis",
-                  "value": "Barrier analysis for alternative land use",
-                  "data": [
-                    {
-                      "key": "Alternative land use: Cattle ranching",
-                      "value": "Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.",
-                      "data": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "typedExtension": {
+            "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+            "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
+            "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+          },
+          "untypedExtension": null,
+          "extensionCase": "TypedExtension"
         }
       ],
       "validations": [
         {
           "validationDate": {
             "dateTime": null,
-            "dateString": "6/21/2023"
+            "dateString": "8/9/2023"
           },
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
           "validationExpirationDate": {
             "dateTime": null,
-            "dateString": "6/21/2023"
+            "dateString": "8/9/2023"
           },
           "validationSteps": [
             {
