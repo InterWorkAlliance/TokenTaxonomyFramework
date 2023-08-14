@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="9a6cb8ccec95e961c7c515a2c331cdbbe072fb07" name="document-revision">
+  <meta content="642e3b7b72a0fb97f8b580fa9e290a84836acbd9" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-08-09">9 August 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-08-14">14 August 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2605,6 +2605,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#example-verification-contract"><span class="secno">4.7</span> <span class="content">Example Verfication Contract</span></a>
       <li><a href="#example-cru"><span class="secno">4.8</span> <span class="content">Example Carbon Reduction or Removal Unit</span></a>
       <li><a href="#example-rec"><span class="secno">4.9</span> <span class="content">Example Renewable Energy Credit</span></a>
+      <li><a href="#example-rec-full-lineage"><span class="secno">4.10</span> <span class="content">Example Renewable Energy Credit Full Lineage</span></a>
      </ol>
     <li><a href="#license"><span class="secno"></span> <span class="content">Appendix A: License</span></a>
     <li>
@@ -2629,6 +2630,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.0.0-20230621"><span class="secno"></span> <span class="content">Version 2.0.1-20230621 (June 21, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230712"><span class="secno"></span> <span class="content">Version 2.0.1-20230712 (July 12, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230809"><span class="secno"></span> <span class="content">Version 2.0.1-20230809 (August 9, 2023)</span></a>
+      <li><a href="#changelog-2.0.0-20230814"><span class="secno"></span> <span class="content">Version 2.0.1-20230814 (August 14, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -7385,6 +7387,549 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"processedClaim"</c-><c- p>:</c-> <c- kc>null</c->
 <c- p>}</c-></pre>
    </div>
+   <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
+   <div class="example" id="example-acebb01b">
+    <a class="self-link" href="#example-acebb01b"></a> Renewable Energy Credit Full Lineage: 
+<pre class="include-code highlight"><c- p>{</c->
+    <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
+    <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
+    <c- f>"validJurisdiction"</c-><c- p>:</c-> <c- u>"US"</c-><c- p>,</c->
+    <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+    <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
+    <c- f>"ownerId"</c-><c- p>:</c-> <c- u>"396a2870-851e-4c93-bd97-e330c0d2d3c1"</c-><c- p>,</c->
+    <c- f>"listingAgentId"</c-><c- p>:</c-> <c- u>"ac497050-23eb-4fac-b9e5-1ec9039b2d34"</c-><c- p>,</c->
+    <c- f>"climateLabels"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Climate Neutral"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Neutral - environmentally friendly, climate positive"</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
+    <c- f>"referencedRec"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
+    <c- p>},</c->
+    <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+    <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+    <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
+    <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+      <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+      <c- f>"ecologicalClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+      <c- f>"creditId"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
+      <c- f>"unit"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
+      <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
+      <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"The project was found to significantly contribute towards the communities clean water program."</c->
+        <c- p>},</c->
+        <c- p>{</c->
+          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"By training and employing locals, this project is reducing inequalities in the country."</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+          <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+          <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
+            <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/"</c-><c- p>,</c->
+            <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+              <c- p>{</c->
+                <c- f>"key"</c-><c- p>:</c-> <c- u>"mCO2,i,d"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of CO2 which was fed to the reactor system in within the monitoring period y"</c-><c- p>,</c->
+                <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- p>{</c->
+                    <c- f>"key"</c-><c- p>:</c-> <c- u>"CO2"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                    <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                  <c- p>},</c->
+                  <c- p>{</c->
+                    <c- f>"key"</c-><c- p>:</c-> <c- u>"y"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                    <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                  <c- p>}</c->
+                <c- p>]</c->
+              <c- p>}</c->
+            <c- p>]</c->
+          <c- p>},</c->
+          <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"5eda007d-e136-4b21-8c27-9374447c0212"</c-><c- p>,</c->
+          <c- f>"checkpointId"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+          <c- f>"linkToVerificationData"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"d11fb465-77bb-4190-aa0a-d7e5553d2bf1"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/verification/189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Results for verification checkpoint 189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x1234567890abcdef"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>},</c->
+          <c- f>"dateRange"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"startDate"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"endDate"</c-><c- p>:</c-> <c- kc>null</c->
+          <c- p>},</c->
+          <c- f>"efBefore"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+          <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
+              <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
+            <c- p>}</c->
+          <c- p>]</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+      <c- f>"verificationContract"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
+        <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Puro.earth"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Puro.earth is the world's leading platform for engineered carbon removal. Our mission is to mobilize the economy to reward carbon net negative emissions."</c-><c- p>,</c->
+            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"IssuingRegistry"</c-><c- p>,</c->
+            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+              <c- f>"jws"</c-><c- p>:</c-> <c- u>"epx324jkasdf883429f2lMMm8asxdz9ZW0"</c-><c- p>,</c->
+              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+            <c- p>}</c->
+          <c- p>},</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"58827053-14ab-441d-8699-7108de68e687"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"SustainCERT"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"SustainCERT is an organization..."</c-><c- p>,</c->
+            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ValidationAndVerificationBody"</c-><c- p>,</c->
+            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+              <c- f>"jws"</c-><c- p>:</c-> <c- u>"789908sa32980231ll132fsd89asdfa123"</c-><c- p>,</c->
+              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+            <c- p>}</c->
+          <c- p>},</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"9431e6b8-9601-460b-b0e3-c3da409da3de"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth is a forest management firm that..."</c-><c- p>,</c->
+            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ProjectOwner"</c-><c- p>,</c->
+            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+              <c- f>"jws"</c-><c- p>:</c-> <c- u>"1234567890asdfasdfas"</c-><c- p>,</c->
+              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+            <c- p>}</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"qualityStandard"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Puro - Carbonated Building Materials"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits."</c-><c- p>,</c->
+          <c- f>"standard"</c-><c- p>:</c-> <c- u>"Puro"</c-><c- p>,</c->
+          <c- f>"methodologyAndTools"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"VcsVm0026"</c-><c- p>,</c->
+            <c- u>"VcsVm0009"</c->
+          <c- p>],</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+          <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action, by removing carbon from the atmosphere."</c->
+            <c- p>},</c->
+            <c- p>{</c->
+              <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Improving Life on Land, the use of the projects land to provide..."</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"be062a19-133c-4626-aa2d-bcca2c510ab2"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://puro.earth/carbon-removal-methods/carbonated-building-materials"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Carbonated Building Materials"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>}</c->
+        <c- p>},</c->
+        <c- f>"mrvRequirements"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"measurementSpecification"</c-><c- p>:</c-> <c- u>"Iso14064"</c-><c- p>,</c->
+          <c- f>"specificationLink"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"efc93244-030d-48b8-95a5-9204c45dd679"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.iso.org/standard/70964.pdf"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the ISO 14064-3:2018 standard"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"GX1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>},</c->
+          <c- f>"precision"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"low"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+            <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+            <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
+          <c- p>},</c->
+          <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c->
+        <c- p>},</c->
+        <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+        <c- p>},</c->
+        <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
+        <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+        <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
+        <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+          <c- p>},</c->
+          <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
+              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
+              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+            <c- p>}</c->
+          <c- p>]</c->
+        <c- p>},</c->
+        <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
+      <c- p>},</c->
+      <c- f>"ecologicalClaim"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+        <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+        <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"unit"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
+        <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
+        <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
+          <c- p>},</c->
+          <c- p>{</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"CleanWaterAndSanitation"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+            <c- f>"claimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+            <c- f>"claimSourceIds"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c->
+            <c- p>],</c->
+            <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
+            <c- f>"efBefore"</c-><c- p>:</c-> <c- u>"0"</c-><c- p>,</c->
+            <c- f>"efAfter"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
+            <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- p>},</c->
+                <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>171137000</c->
+                <c- p>}</c->
+              <c- p>},</c->
+              <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- p>},</c->
+                <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>234906000</c->
+                <c- p>}</c->
+              <c- p>}</c->
+            <c- p>},</c->
+            <c- f>"verifiedLinkToCheckpointData"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
+              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Span Data Package"</c-><c- p>,</c->
+              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"asdflkdfs889fj3l437098asdfi"</c-><c- p>,</c->
+              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+            <c- p>},</c->
+            <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
+            <c- f>"spanDataPackage"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
+                <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+                <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+                <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+                <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
+                <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
+                      <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
+                      <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236570000</c->
+                    <c- p>},</c->
+                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                  <c- p>},</c->
+                  <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236716000</c->
+                  <c- p>}</c->
+                <c- p>},</c->
+                <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- p>{</c->
+                    <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
+                    <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                    <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                      <c- f>"name"</c-><c- p>:</c-> <c- u>"VM0007 REDD+ Methodology Framework Extension"</c-><c- p>,</c->
+                      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
+                      <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology specific data attributes being tracked."</c-><c- p>,</c->
+                      <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+                      <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                        <c- p>{</c->
+                          <c- f>"key"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡"</c-><c- p>,</c->
+                          <c- f>"value"</c-><c- p>:</c-> <c- u>"Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"</c-><c- p>,</c->
+                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                        <c- p>},</c->
+                        <c- p>{</c->
+                          <c- f>"key"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡"</c-><c- p>,</c->
+                          <c- f>"value"</c-><c- p>:</c-> <c- u>"Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"</c-><c- p>,</c->
+                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                        <c- p>}</c->
+                      <c- p>]</c->
+                    <c- p>},</c->
+                    <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+                  <c- p>}</c->
+                <c- p>],</c->
+                <c- f>"sdpFiles"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- p>{</c->
+                    <c- f>"name"</c-><c- p>:</c-> <c- u>"Data from sensor"</c-><c- p>,</c->
+                    <c- f>"type"</c-><c- p>:</c-> <c- u>"DataBinary"</c-><c- p>,</c->
+                    <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
+                    <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
+                    <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
+                    <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                      <c- p>{</c->
+                        <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
+                        <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                        <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                          <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
+                          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+                          <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
+                          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
+                          <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                            <c- p>{</c->
+                              <c- f>"key"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
+                              <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
+                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                            <c- p>},</c->
+                            <c- p>{</c->
+                              <c- f>"key"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
+                              <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
+                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                            <c- p>},</c->
+                            <c- p>{</c->
+                              <c- f>"key"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
+                              <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                            <c- p>}</c->
+                          <c- p>]</c->
+                        <c- p>},</c->
+                        <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+                      <c- p>}</c->
+                    <c- p>]</c->
+                  <c- p>}</c->
+                <c- p>]</c->
+              <c- p>}</c->
+            <c- p>}</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
+            <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/"</c-><c- p>,</c->
+              <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"key"</c-><c- p>:</c-> <c- u>"MGy,i,d"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y."</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- p>{</c->
+                      <c- f>"key"</c-><c- p>:</c-> <c- u>"i"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"limestone"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>},</c->
+                    <c- p>{</c->
+                      <c- f>"key"</c-><c- p>:</c-> <c- u>"d"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"0.5-1.0 mm"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>},</c->
+                    <c- p>{</c->
+                      <c- f>"key"</c-><c- p>:</c-> <c- u>"y"</c-><c- p>,</c->
+                      <c- f>"value"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                    <c- p>}</c->
+                  <c- p>]</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>},</c->
+            <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+          <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Forest Plot 3341"</c-><c- p>,</c->
+          <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"CarbonRemoval"</c-><c- p>,</c->
+          <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Natural"</c-><c- p>,</c->
+          <c- f>"benefitCategory"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+          <c- f>"projectScope"</c-><c- p>:</c-> <c- u>"CarbonCaptureAndStorage"</c-><c- p>,</c->
+          <c- f>"projectType"</c-><c- p>:</c-> <c- u>"CarbonCaptureAndEnhancedOilRecovery"</c-><c- p>,</c->
+          <c- f>"projectScale"</c-><c- p>:</c-> <c- u>"Medium"</c-><c- p>,</c->
+          <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+          <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+            <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
+            <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c-><c- p>,</c->
+            <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
+          <c- p>},</c->
+          <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2017"</c-><c- p>,</c->
+          <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
+          <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
+          <c- p>],</c->
+          <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"sponsor"</c->
+          <c- p>],</c->
+          <c- f>"claimSources"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
+              <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Sensor Device"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in forest area e2"</c-><c- p>,</c->
+              <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+                <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
+                <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+                <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
+              <c- p>},</c->
+              <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+              <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
+              <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
+              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
+                  <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
+                    <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
+                    <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"</c->
+                  <c- p>},</c->
+                  <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                  <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"ecologicalClaims"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+              <c- f>"mbpId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+              <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+              <c- f>"unit"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
+              <c- f>"quantity"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+              <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[],</c->
+              <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[],</c->
+              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
+              <c- f>"modularBenefitProject"</c-><c- p>:</c-> <c- kc>null</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
+              <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json"</c-><c- p>,</c->
+                <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/"</c-><c- p>,</c->
+                <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"</c->
+              <c- p>},</c->
+              <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+              <c- p>},</c->
+              <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
+              <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
+              <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+              <c- p>},</c->
+              <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
+                  <c- f>"validationStepDescription"</c-><c- p>:</c-> <c- u>"Detailed project plan for the management of forest carbon sequestration"</c-><c- p>,</c->
+                  <c- f>"validationStepStatus"</c-><c- p>:</c-> <c- u>"Completed"</c-><c- p>,</c->
+                  <c- f>"validationStepDocumentLink"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"id"</c-><c- p>:</c-> <c- u>"456bf8d1-f090-47b1-b7c0-b539441e557e"</c-><c- p>,</c->
+                    <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/forestcarbonsequestration/projectplan.pdf"</c-><c- p>,</c->
+                    <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
+                    <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x32wasfd1234567890abcdef"</c-><c- p>,</c->
+                    <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+                  <c- p>}</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"ecologicalProject"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"The Eco-Earth Forest Growth project is a reforestation project that aims to restore degraded land in the Amazon rainforest."</c-><c- p>,</c->
+            <c- f>"addresses"</c-><c- p>:</c-> <c- p>[</c->
+              <c- p>{</c->
+                <c- f>"addressType"</c-><c- p>:</c-> <c- u>"Legal"</c-><c- p>,</c->
+                <c- f>"addressLines"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- u>"123 ABC St."</c->
+                <c- p>],</c->
+                <c- f>"city"</c-><c- p>:</c-> <c- u>"Santarém"</c-><c- p>,</c->
+                <c- f>"state"</c-><c- p>:</c-> <c- u>"PA"</c-><c- p>,</c->
+                <c- f>"zip"</c-><c- p>:</c-> <c- u>"234123"</c-><c- p>,</c->
+                <c- f>"country"</c-><c- p>:</c-> <c- u>"Brazil"</c->
+              <c- p>}</c->
+            <c- p>],</c->
+            <c- f>"owners"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"owner"</c->
+            <c- p>],</c->
+            <c- f>"country"</c-><c- p>:</c-> <c- u>"BR"</c-><c- p>,</c->
+            <c- f>"region"</c-><c- p>:</c-> <c- u>"SouthAmerica"</c-><c- p>,</c->
+            <c- f>"informationLink"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"7edef2c7-ff0e-41fc-b5e7-dda5aa65e850"</c-><c- p>,</c->
+              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/forest-growth.html"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Website"</c-><c- p>,</c->
+              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"n/a"</c-><c- p>,</c->
+              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+            <c- p>},</c->
+            <c- f>"mediaLinks"</c-><c- p>:</c-> <c- p>[</c->
+              <c- p>{</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"987c9c95-09bf-4ad5-8331-50be9805a9af"</c-><c- p>,</c->
+                <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/forest-growth-video.mp4"</c-><c- p>,</c->
+                <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Video"</c-><c- p>,</c->
+                <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"n/a"</c-><c- p>,</c->
+                <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+              <c- p>}</c->
+            <c- p>],</c->
+            <c- f>"modularBenefitProjects"</c-><c- p>:</c-> <c- p>[]</c->
+          <c- p>}</c->
+        <c- p>}</c->
+      <c- p>},</c->
+      <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
+    <c- p>}</c->
+  <c- p>}</c-></pre>
+   </div>
    <h2 class="heading settled" id="license"><span class="content">Appendix A: License</span><a class="self-link" href="#license"></a></h2>
    <p>﻿Attribution 4.0 International</p>
     ======================================================================= 
@@ -7918,6 +8463,11 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
      <p>Added <a data-link-type="dfn" href="#extensiondocumentation" id="ref-for-extensiondocumentation">ExtensionDocumentation</a> type, see <a href="#extension-documentation">§ 3.19 Extension Documentation: ExtensionDocumentation</a> for details.</p>
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.0.0-20230814"><span class="content">Version 2.0.1-20230814 (August 14, 2023)</span><a class="self-link" href="#changelog-2.0.0-20230814"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Added <code>REC-FullLineage</code> sample, see <a href="#example-rec-full-lineage">§ 4.10 Example Renewable Energy Credit Full Lineage</a> for details.</p>
    </ul>
   </main>
 <script>
