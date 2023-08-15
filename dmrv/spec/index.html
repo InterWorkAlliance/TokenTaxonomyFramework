@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="9bd2d384e455cbd71af9c6786a7a9c6ffbafdcf3" name="document-revision">
+  <meta content="c6a3a2ffa1bc85da5180c14c87f2ea371a325ced" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2777,7 +2777,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1333" src="dmrv-diagram-20230502.png" srcset="dmrv-diagram-20230502.png 2x" width="1379"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2426" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8367"></p>
+   <p><img alt="…" height="1437" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="7500"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-ecological-project"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="ecologicalproject">EcologicalProject</dfn></span><a class="self-link" href="#dt-ecological-project"></a></h3>
    <p><code>EcologicalProject</code> is a data type which represents the individual or organization that will host one or more ModularBenefitProject(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an ecological project wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -3559,7 +3559,7 @@ configured to control the processing of the EcologicalClaim.</p>
     <figcaption>Properties of data type DataExtension</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.17" id="dt-typed-extension"><span class="secno">3.17. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="typedextension">TypedExtension</dfn></span><a class="self-link" href="#dt-typed-extension"></a></h3>
-   <p>A typed extension is a Json schema based extension that can be used to store data that is defined by the specification.</p>
+   <p>A typed extension is a Json schema based extension that can be used to store data that is defined by a different specification, <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> or industry.</p>
    <h4 class="heading settled" data-level="3.17.1" id="dt-typed-extension-properties"><span class="secno">3.17.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-typed-extension-properties"></a></h4>
    <figure id="typed-extension-properties-table">
     <table class="data">
@@ -3792,7 +3792,7 @@ configured to control the processing of the EcologicalClaim.</p>
        <td>M 
        <td>A collection of signatories, the MBP owner, Issuing Registry, VVB and Verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.36 Data Type: Signatory</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationcontract-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> 
+       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationcontract-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> 
        <td>Object 
        <td>M 
        <td>The quality standard being used for the verification. See <a href="#dt-quality-standard">§ 3.45 Data Type QualityStandard</a> for details. 
@@ -8438,7 +8438,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
     <li data-md>
      <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationcontract" id="ref-for-verificationcontract③">VerificationContract</a> type, see <a href="#dt-verification-contract">§ 3.22 Contract &amp; Data Type: VerificationContract</a> for details.</p>
     <li data-md>
-     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.82 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.45 Data Type QualityStandard</a> for details.</p>
+     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.82 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard②">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.45 Data Type QualityStandard</a> for details.</p>
     <li data-md>
      <p>Update samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -9509,7 +9509,7 @@ window.dfnpanelData['proof'] = {"dfnID": "proof", "url": "#proof", "dfnText": "P
 window.dfnpanelData['verifiablepresentation'] = {"dfnID": "verifiablepresentation", "url": "#verifiablepresentation", "dfnText": "VerifiablePresentation", "refSections": [{"refs": [{"id": "ref-for-verifiablepresentation"}], "title": "Version 2.5.1-20230503 (May 3, 2023)"}, {"refs": [{"id": "ref-for-verifiablepresentation\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
 window.dfnpanelData['mitigationactivity'] = {"dfnID": "mitigationactivity", "url": "#mitigationactivity", "dfnText": "MitigationActivity", "refSections": [{"refs": [{"id": "ref-for-mitigationactivity"}], "title": "3.24.1. Properties"}], "external": false};
 window.dfnpanelData['geographiclocation'] = {"dfnID": "geographiclocation", "url": "#geographiclocation", "dfnText": "GeographicLocation", "refSections": [{"refs": [{"id": "ref-for-geographiclocation"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-geographiclocation\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-geographiclocation\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-geographiclocation\u2462"}], "title": "Version 2.0.1-20230613 (June 13, 2023)"}, {"refs": [{"id": "ref-for-geographiclocation\u2463"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
-window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-qualitystandard\u2460"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
+window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.17. Data Type: TypedExtension"}, {"refs": [{"id": "ref-for-qualitystandard\u2460"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-qualitystandard\u2461"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
 window.dfnpanelData['mrvrequirements'] = {"dfnID": "mrvrequirements", "url": "#mrvrequirements", "dfnText": "MRVRequirements", "refSections": [{"refs": [{"id": "ref-for-mrvrequirements"}], "title": "3.22.1. Properties"}], "external": false};
 window.dfnpanelData['precisionmix'] = {"dfnID": "precisionmix", "url": "#precisionmix", "dfnText": "PrecisionMix", "refSections": [{"refs": [{"id": "ref-for-precisionmix"}], "title": "3.46.1. Properties"}], "external": false};
 window.dfnpanelData['daterange'] = {"dfnID": "daterange", "url": "#daterange", "dfnText": "DateRange", "refSections": [{"refs": [{"id": "ref-for-daterange"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2460"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2461"}], "title": "3.48.1. Properties"}], "external": false};
