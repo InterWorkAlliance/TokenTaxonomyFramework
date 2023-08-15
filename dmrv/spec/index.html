@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="642e3b7b72a0fb97f8b580fa9e290a84836acbd9" name="document-revision">
+  <meta content="9bd2d384e455cbd71af9c6786a7a9c6ffbafdcf3" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-08-14">14 August 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-08-15">15 August 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2423,7 +2423,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-insurance-policy-owner-json"><span class="secno">3.54.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-mrv-extension-type"><span class="secno">3.55</span> <span class="content">Data Type: <span><code>MrvExtensionType</code></span></span></a>
+       <a href="#dt-mrv-extension-type"><span class="secno">3.55</span> <span class="content">Data Type: <span><code>MrvExtensionContext</code></span></span></a>
        <ol class="toc">
         <li><a href="#dt-mrv-extension-type-json"><span class="secno">3.55.1</span> <span class="content">JSON Representation</span></a>
        </ol>
@@ -2630,7 +2630,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.0.0-20230621"><span class="secno"></span> <span class="content">Version 2.0.1-20230621 (June 21, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230712"><span class="secno"></span> <span class="content">Version 2.0.1-20230712 (July 12, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230809"><span class="secno"></span> <span class="content">Version 2.0.1-20230809 (August 9, 2023)</span></a>
-      <li><a href="#changelog-2.0.0-20230814"><span class="secno"></span> <span class="content">Version 2.0.1-20230814 (August 14, 2023)</span></a>
+      <li><a href="#changelog-2.0.0-20230815"><span class="secno"></span> <span class="content">Version 2.0.1-20230815 (August 15, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -3471,10 +3471,10 @@ configured to control the processing of the EcologicalClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>mrvExtensionType : <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensiontype" id="ref-for-enumdef-mrvextensiontype">MrvExtensionType</a></code> 
+       <td>mrvExtensionContext : <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext">MrvExtensionContext</a></code> 
        <td>String 
        <td>M 
-       <td>The type of extension and which entity it applies to, See <a href="#dt-mrv-extension-type">§ 3.55 Data Type: MrvExtensionType</a> for details. 
+       <td>The type of extension and which entity it applies to, See <a href="#dt-mrv-extension-type">§ 3.55 Data Type: MrvExtensionContext</a> for details. 
       <tr>
        <td>untypedExtension : <a data-link-type="dfn" href="#untypedextension" id="ref-for-untypedextension">UntypedExtension</a> 
        <td>Object 
@@ -5026,40 +5026,40 @@ the specification.</p>
    </dl>
    <h4 class="heading settled" data-level="3.54.1" id="dt-insurance-policy-owner-json"><span class="secno">3.54.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-insurance-policy-owner-json"></a></h4>
    <p>Each InsurancePolicyOwner MUST be encoded as a JSON String.</p>
-   <h3 class="heading settled" data-level="3.55" id="dt-mrv-extension-type"><span class="secno">3.55. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-mrvextensiontype"><code>MrvExtensionType</code></dfn></span><a class="self-link" href="#dt-mrv-extension-type"></a></h3>
+   <h3 class="heading settled" data-level="3.55" id="dt-mrv-extension-type"><span class="secno">3.55. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-mrvextensioncontext"><code>MrvExtensionContext</code></dfn></span><a class="self-link" href="#dt-mrv-extension-type"></a></h3>
    <p>An MRV Extension can be context specific and attach to the appropriate data type. Because there can be many MRV Extensions defined for a Quality Standard and be applied to different data types,
    the MRV Extension Type is used to identify the data type to which the MRV Extension applies.</p>
    <dl>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-unknown_mrv_extension"><code>UNKNOWN_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-unknown_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-unknown_mrv_extension"><code>UNKNOWN_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-unknown_mrv_extension"></a></dfn>
     <dd data-md>
      <p>Unknown extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-mbp_mrv_extension"><code>MBP_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-mbp_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-mbp_mrv_extension"><code>MBP_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-mbp_mrv_extension"></a></dfn>
     <dd data-md>
      <p>MBP extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-mbp_claim_source_mrv_extension"><code>MBP_CLAIM_SOURCE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-mbp_claim_source_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-mbp_claim_source_mrv_extension"><code>MBP_CLAIM_SOURCE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-mbp_claim_source_mrv_extension"></a></dfn>
     <dd data-md>
      <p>MBP Claim Source extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-claim_mrv_extension"><code>CLAIM_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-claim_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-claim_mrv_extension"><code>CLAIM_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-claim_mrv_extension"></a></dfn>
     <dd data-md>
      <p>Claim extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-checkpoint_mrv_extension"><code>CHECKPOINT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-checkpoint_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-checkpoint_mrv_extension"><code>CHECKPOINT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-checkpoint_mrv_extension"></a></dfn>
     <dd data-md>
      <p>Checkpoint extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-sdp_manifest_mrv_extension"><code>SDP_MANIFEST_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-sdp_manifest_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-sdp_manifest_mrv_extension"><code>SDP_MANIFEST_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-sdp_manifest_mrv_extension"></a></dfn>
     <dd data-md>
      <p>SDP Manifest extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-sdp_file_mrv_extension"><code>SDP_FILE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-sdp_file_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-sdp_file_mrv_extension"><code>SDP_FILE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-sdp_file_mrv_extension"></a></dfn>
     <dd data-md>
      <p>SDP File extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-checkpoint_result_mrv_extension"><code>CHECKPOINT_RESULT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-checkpoint_result_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-checkpoint_result_mrv_extension"><code>CHECKPOINT_RESULT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-checkpoint_result_mrv_extension"></a></dfn>
     <dd data-md>
      <p>Checkpoint Result extension</p>
-    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionType" data-dfn-type="enum-value" data-export id="dom-mrvextensiontype-processed_checkpoint_mrv_extension"><code>PROCESSED_CHECKPOINT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensiontype-processed_checkpoint_mrv_extension"></a></dfn>
+    <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-processed_checkpoint_mrv_extension"><code>PROCESSED_CHECKPOINT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-processed_checkpoint_mrv_extension"></a></dfn>
     <dd data-md>
      <p>Processed Checkpoint extension</p>
    </dl>
    <h4 class="heading settled" data-level="3.55.1" id="dt-mrv-extension-type-json"><span class="secno">3.55.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-mrv-extension-type-json"></a></h4>
-   <p>Each MrvExtensionType MUST be encoded as a JSON String.</p>
+   <p>Each MrvExtensionContext MUST be encoded as a JSON String.</p>
    <h3 class="heading settled" data-level="3.56" id="dt-sdp-file-type"><span class="secno">3.56. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-sdp-file-type"></a></h3>
    <p>The file type indicates what data is contained within the file.</p>
    <dl>
@@ -5937,8 +5937,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-c3c0f909">
-    <a class="self-link" href="#example-c3c0f909"></a> CRU Full Lineage: 
+   <div class="example" id="example-5f9a5f24">
+    <a class="self-link" href="#example-5f9a5f24"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -5949,7 +5949,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6036,7 +6036,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>],</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+        <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
         <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -6084,7 +6084,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
         <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
+            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
             <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
@@ -6180,7 +6180,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6188,7 +6188,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6233,21 +6233,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>171137000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>39644000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>234906000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>98136000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6269,19 +6269,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236570000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>99502000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236716000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>99613000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
+                  <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
                   <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"name"</c-><c- p>:</c-> <c- u>"VM0007 REDD+ Methodology Framework Extension"</c-><c- p>,</c->
@@ -6313,7 +6313,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                   <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                   <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                     <c- p>{</c->
-                      <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
+                      <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
                       <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                       <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                         <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
@@ -6349,7 +6349,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -6425,7 +6425,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
             <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
+                <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
                 <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
                   <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
@@ -6452,7 +6452,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>],</c->
         <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
+            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
             <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json"</c-><c- p>,</c->
               <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/"</c-><c- p>,</c->
@@ -6466,13 +6466,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -6536,8 +6536,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-ecological-project"><span class="secno">4.2. </span><span class="content">Example Ecological Project</span><a class="self-link" href="#example-ecological-project"></a></h3>
-   <div class="example" id="example-50c78b84">
-    <a class="self-link" href="#example-50c78b84"></a> Ecological Project: 
+   <div class="example" id="example-8fd7ea55">
+    <a class="self-link" href="#example-8fd7ea55"></a> Ecological Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -6618,7 +6618,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
+              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
               <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
                 <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
@@ -6645,7 +6645,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json"</c-><c- p>,</c->
             <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/"</c-><c- p>,</c->
@@ -6659,13 +6659,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>{</c->
           <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
           <c- p>},</c->
           <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
           <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
           <c- p>},</c->
           <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -6689,8 +6689,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-modular-benefit-project"><span class="secno">4.3. </span><span class="content">Example Modular Benefit Project</span><a class="self-link" href="#example-modular-benefit-project"></a></h3>
-   <div class="example" id="example-6a7c98c0">
-    <a class="self-link" href="#example-6a7c98c0"></a> Modular Benefit Project: 
+   <div class="example" id="example-ef85b969">
+    <a class="self-link" href="#example-ef85b969"></a> Modular Benefit Project: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"projectId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -6733,7 +6733,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
             <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
@@ -6760,7 +6760,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
+      <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
       <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json"</c-><c- p>,</c->
         <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/"</c-><c- p>,</c->
@@ -6774,13 +6774,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>{</c->
       <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
       <c- p>},</c->
       <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
       <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
       <c- p>},</c->
       <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
@@ -6802,8 +6802,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-ecological-claim"><span class="secno">4.4. </span><span class="content">Example Ecological Claim</span><a class="self-link" href="#example-ecological-claim"></a></h3>
-   <div class="example" id="example-ec880160">
-    <a class="self-link" href="#example-ec880160"></a> Ecological Claim: 
+   <div class="example" id="example-93e46a2d">
+    <a class="self-link" href="#example-93e46a2d"></a> Ecological Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6834,21 +6834,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616309</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>368221000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125519</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>900606000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616309</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>368231000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125519</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>900628000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -6870,19 +6870,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616309</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>368247000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125519</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>900665000</c->
               <c- p>},</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616309</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>368247000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125519</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>900667000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
+              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
               <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"name"</c-><c- p>:</c-> <c- u>"VM0007 REDD+ Methodology Framework Extension"</c-><c- p>,</c->
@@ -6914,7 +6914,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
+                  <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
                   <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
@@ -6950,7 +6950,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
+      <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
       <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
       <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -7078,8 +7078,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.6" id="example-processed-claim"><span class="secno">4.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
-   <div class="example" id="example-39ce369a">
-    <a class="self-link" href="#example-39ce369a"></a> Processed Claim: 
+   <div class="example" id="example-358444d7">
+    <a class="self-link" href="#example-358444d7"></a> Processed Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
@@ -7099,7 +7099,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+      <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
       <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
       <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -7147,7 +7147,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
@@ -7388,8 +7388,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-acebb01b">
-    <a class="self-link" href="#example-acebb01b"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-08d45278">
+    <a class="self-link" href="#example-08d45278"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
     <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7431,7 +7431,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -7479,7 +7479,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
+              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
               <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
@@ -7575,7 +7575,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>},</c->
         <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
         <c- p>},</c->
         <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
         <c- f>"mbpId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -7583,7 +7583,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
           <c- p>},</c->
           <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -7628,21 +7628,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>171137000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>39644000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>234906000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>98136000</c->
                 <c- p>}</c->
               <c- p>}</c->
             <c- p>},</c->
@@ -7664,19 +7664,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                      <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                      <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236570000</c->
+                      <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                      <c- f>"nanos"</c-><c- p>:</c-> <c- mi>99502000</c->
                     <c- p>},</c->
-                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
                   <c- p>},</c->
                   <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1691616169</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236716000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692125398</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>99613000</c->
                   <c- p>}</c->
                 <c- p>},</c->
                 <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
+                    <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
                     <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                     <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                       <c- f>"name"</c-><c- p>:</c-> <c- u>"VM0007 REDD+ Methodology Framework Extension"</c-><c- p>,</c->
@@ -7708,7 +7708,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                     <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                       <c- p>{</c->
-                        <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
+                        <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
                         <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                         <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
                           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbonated Concrete Device Sensor Evidence File"</c-><c- p>,</c->
@@ -7744,7 +7744,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>],</c->
         <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
+            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
             <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate"</c-><c- p>,</c->
@@ -7820,7 +7820,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
+                  <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpClaimSourceMrvExtension"</c-><c- p>,</c->
                   <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
                     <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
@@ -7847,7 +7847,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"mrvExtensionType"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
+              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"MbpMrvExtension"</c-><c- p>,</c->
               <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json"</c-><c- p>,</c->
                 <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/"</c-><c- p>,</c->
@@ -7861,13 +7861,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- p>{</c->
               <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
               <c- p>},</c->
               <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
               <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
               <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/15/2023"</c->
               <c- p>},</c->
               <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
@@ -8406,9 +8406,9 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <h3 class="heading settled" id="changelog-2.4.0-20230612"><span class="content">Version 2.5.1-20230612 (June 12, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230612"></a></h3>
    <ul>
     <li data-md>
-     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensiontype" id="ref-for-enumdef-mrvextensiontype①">MrvExtensionType</a></code> enumeration, see <a href="#dt-mrv-extension-type">§ 3.55 Data Type: MrvExtensionType</a> for details.</p>
+     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext①">MrvExtensionContext</a></code> enumeration, see <a href="#dt-mrv-extension-type">§ 3.55 Data Type: MrvExtensionContext</a> for details.</p>
     <li data-md>
-     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①⓪">MrvExtension</a> type, added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensiontype" id="ref-for-enumdef-mrvextensiontype②">MrvExtensionType</a></code>, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
+     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①⓪">MrvExtension</a> type, added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext②">MrvExtensionContext</a></code>, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Updated <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension⑤">DataExtension</a> type, changed <code>name</code> to <code>key</code>, see <a href="#dt-data-extension">§ 3.16 Data Type: DataExtension</a> for details.</p>
     <li data-md>
@@ -8464,10 +8464,14 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
-   <h3 class="heading settled" id="changelog-2.0.0-20230814"><span class="content">Version 2.0.1-20230814 (August 14, 2023)</span><a class="self-link" href="#changelog-2.0.0-20230814"></a></h3>
+   <h3 class="heading settled" id="changelog-2.0.0-20230815"><span class="content">Version 2.0.1-20230815 (August 15, 2023)</span><a class="self-link" href="#changelog-2.0.0-20230815"></a></h3>
    <ul>
     <li data-md>
      <p>Added <code>REC-FullLineage</code> sample, see <a href="#example-rec-full-lineage">§ 4.10 Example Renewable Energy Credit Full Lineage</a> for details.</p>
+    <li data-md>
+     <p>Renamed <code>MrvExtensionType</code> to <code>MrvExtensionContext</code> in the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①②">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
+    <li data-md>
+     <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
   </main>
 <script>
@@ -8676,16 +8680,16 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#dom-region-central_america">CENTRAL_AMERICA</a><span>, in § 3.70</span>
    <li><a href="#dom-region-central_asia">CENTRAL_ASIA</a><span>, in § 3.70</span>
    <li><a href="#element-attrdef-ecologicalclaimcheckpoint-checkpointdaterange">checkpointDateRange</a><span>, in § 3.10.1</span>
-   <li><a href="#dom-mrvextensiontype-checkpoint_mrv_extension">CHECKPOINT_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-checkpoint_mrv_extension">CHECKPOINT_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#checkpoint-result">Checkpoint Result</a><span>, in § 2</span>
    <li><a href="#checkpointresult">CheckpointResult</a><span>, in § 3.21</span>
-   <li><a href="#dom-mrvextensiontype-checkpoint_result_mrv_extension">CHECKPOINT_RESULT_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-checkpoint_result_mrv_extension">CHECKPOINT_RESULT_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#element-attrdef-processedclaim-checkpointresults">checkpointResults</a><span>, in § 3.20.2</span>
    <li><a href="#element-attrdef-ecologicalclaim-checkpoints">checkpoints</a><span>, in § 3.9.2</span>
    <li><a href="#dom-projectscope-chemical_processes">CHEMICAL_PROCESSES</a><span>, in § 3.77</span>
    <li><a href="#element-attrdef-address-city">city</a><span>, in § 3.4.1</span>
    <li><a href="#element-attrdef-ecologicalclaimcheckpoint-claimid">claimId</a><span>, in § 3.10.1</span>
-   <li><a href="#dom-mrvextensiontype-claim_mrv_extension">CLAIM_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-claim_mrv_extension">CLAIM_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#enumdef-claimperiod">ClaimPeriod</a><span>, in § 3.71</span>
    <li><a href="#claimsource">ClaimSource</a><span>, in § 3.8</span>
    <li><a href="#element-attrdef-ecologicalclaimcheckpoint-claimsourceids">claimSourceIds</a><span>, in § 3.10.1</span>
@@ -8871,9 +8875,9 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#dom-projecttype-mass_transit">MASS_TRANSIT</a><span>, in § 3.78</span>
    <li><a href="#dom-reversalrisk-material">MATERIAL</a><span>, in § 3.52</span>
    <li><a href="#dom-storage-materials">MATERIALS</a><span>, in § 3.69</span>
-   <li><a href="#dom-mrvextensiontype-mbp_claim_source_mrv_extension">MBP_CLAIM_SOURCE_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-mbp_claim_source_mrv_extension">MBP_CLAIM_SOURCE_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#element-attrdef-claimsource-mbpid">mbpId</a><span>, in § 3.8.1</span>
-   <li><a href="#dom-mrvextensiontype-mbp_mrv_extension">MBP_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-mbp_mrv_extension">MBP_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#enumdef-measurementspecification">MeasurementSpecification</a><span>, in § 3.79</span>
    <li><a href="#element-attrdef-ecologicalproject-medialinks">mediaLinks</a><span>, in § 3.3.2</span>
    <li><a href="#dom-projectscale-medium">MEDIUM</a><span>, in § 3.72</span>
@@ -8895,13 +8899,13 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#element-attrdef-ecologicalproject-modularbenefitprojects">modularBenefitProjects</a><span>, in § 3.3.2</span>
    <li><a href="#dom-claimperiod-monthly">MONTHLY</a><span>, in § 3.71</span>
    <li><a href="#mrvextension">MrvExtension</a><span>, in § 3.14</span>
+   <li><a href="#enumdef-mrvextensioncontext">MrvExtensionContext</a><span>, in § 3.55</span>
    <li>
     mrvExtensions
     <ul>
      <li><a href="#element-attrdef-manifest-mrvextensions">element-attr for Manifest</a><span>, in § 3.12.1</span>
      <li><a href="#element-attrdef-modularbenefitproject-mrvextensions">element-attr for ModularBenefitProject</a><span>, in § 3.5.2</span>
     </ul>
-   <li><a href="#enumdef-mrvextensiontype">MrvExtensionType</a><span>, in § 3.55</span>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 3.46</span>
    <li><a href="#element-attrdef-verificationcontract-mrvrequirements">mrvRequirements</a><span>, in § 3.22.1</span>
    <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.84</span>
@@ -8943,7 +8947,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#dom-projecttype-pneumatic_retrofit">PNEUMATIC_RETROFIT</a><span>, in § 3.78</span>
    <li><a href="#element-attrdef-address-postalcode">postalCode</a><span>, in § 3.4.1</span>
    <li><a href="#precisionmix">PrecisionMix</a><span>, in § 3.47</span>
-   <li><a href="#dom-mrvextensiontype-processed_checkpoint_mrv_extension">PROCESSED_CHECKPOINT_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-processed_checkpoint_mrv_extension">PROCESSED_CHECKPOINT_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#processed-claim">Processed Claim</a><span>, in § 2</span>
    <li><a href="#processedclaim">ProcessedClaim</a><span>, in § 3.20</span>
    <li><a href="#processedclaimcontrol">ProcessedClaimControl</a><span>, in § 3.9.1</span>
@@ -9007,9 +9011,9 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#roles">Roles</a><span>, in § 3.9.1</span>
    <li><a href="#dom-attestationtype-rs256">RS256</a><span>, in § 3.58</span>
    <li><a href="#sdp-file">Sdp-File</a><span>, in § 3.13</span>
-   <li><a href="#dom-mrvextensiontype-sdp_file_mrv_extension">SDP_FILE_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-sdp_file_mrv_extension">SDP_FILE_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#sdp-manifest">SDP Manifest</a><span>, in § 2</span>
-   <li><a href="#dom-mrvextensiontype-sdp_manifest_mrv_extension">SDP_MANIFEST_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-sdp_manifest_mrv_extension">SDP_MANIFEST_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#dom-claimperiod-semiannual">SEMIANNUAL</a><span>, in § 3.71</span>
    <li><a href="#dom-claimsourcetype-sensor_device">SENSOR_DEVICE</a><span>, in § 3.67</span>
    <li><a href="#dom-projecttype-sf6_replacement">SF6_REPLACEMENT</a><span>, in § 3.78</span>
@@ -9074,7 +9078,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.78 Data Typ
    <li><a href="#element-attrdef-ecologicalclaim-unit">unit</a><span>, in § 3.9.2</span>
    <li><a href="#element-attrdef-claimsource-unitofmeasure">unitOfMeasure</a><span>, in § 3.8.1</span>
    <li><a href="#dom-projecttype-university_campus_emission_reductions">UNIVERSITY_CAMPUS_EMISSION_REDUCTIONS</a><span>, in § 3.78</span>
-   <li><a href="#dom-mrvextensiontype-unknown_mrv_extension">UNKNOWN_MRV_EXTENSION</a><span>, in § 3.55</span>
+   <li><a href="#dom-mrvextensioncontext-unknown_mrv_extension">UNKNOWN_MRV_EXTENSION</a><span>, in § 3.55</span>
    <li><a href="#dom-validationstepstatus-unknown_validation_step_status">UNKNOWN_VALIDATION_STEP_STATUS</a><span>, in § 3.73</span>
    <li><a href="#element-attrdef-co-benefit-un-sdg">un-sdg</a><span>, in § 3.28.1</span>
    <li><a href="#enumdef-un-sdgs">UN-SDGs</a><span>, in § 3.76</span>
@@ -9475,7 +9479,7 @@ window.dfnpanelData['ecologicalclaimcheckpoint'] = {"dfnID": "ecologicalclaimche
 window.dfnpanelData['spandatapackage'] = {"dfnID": "spandatapackage", "url": "#spandatapackage", "dfnText": "SpanDataPackage", "refSections": [{"refs": [{"id": "ref-for-spandatapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-spandatapackage\u2460"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-spandatapackage\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-spandatapackage\u2462"}], "title": "Version 2.5.1-20230518 (May 18, 2023)"}], "external": false};
 window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.11.1. Properties"}], "external": false};
 window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfnText": "Sdp-File", "refSections": [{"refs": [{"id": "ref-for-sdp-file"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-sdp-file\u2460"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-sdp-file\u2461"}], "title": "Version 2.5.1-20230609 (June 9, 2023)"}], "external": false};
-window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
+window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2461"}], "title": "Version 2.0.1-20230815 (August 15, 2023)"}], "external": false};
 window.dfnpanelData['untypedextension'] = {"dfnID": "untypedextension", "url": "#untypedextension", "dfnText": "UntypedExtension", "refSections": [{"refs": [{"id": "ref-for-untypedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-untypedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2462"}, {"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
 window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
@@ -9515,7 +9519,7 @@ window.dfnpanelData['enumdef-degradationtype'] = {"dfnID": "enumdef-degradationt
 window.dfnpanelData['enumdef-reversalrisk'] = {"dfnID": "enumdef-reversalrisk", "url": "#enumdef-reversalrisk", "dfnText": "ReversalRisk", "refSections": [{"refs": [{"id": "ref-for-enumdef-reversalrisk"}], "title": "3.29.1. Properties"}], "external": false};
 window.dfnpanelData['enumdef-durabilityinsurancetype'] = {"dfnID": "enumdef-durabilityinsurancetype", "url": "#enumdef-durabilityinsurancetype", "dfnText": "DurabilityInsuranceType", "refSections": [{"refs": [{"id": "ref-for-enumdef-durabilityinsurancetype"}], "title": "3.29.1. Properties"}], "external": false};
 window.dfnpanelData['enumdef-insurancepolicyowner'] = {"dfnID": "enumdef-insurancepolicyowner", "url": "#enumdef-insurancepolicyowner", "dfnText": "InsurancePolicyOwner", "refSections": [{"refs": [{"id": "ref-for-enumdef-insurancepolicyowner"}], "title": "3.29.1. Properties"}], "external": false};
-window.dfnpanelData['enumdef-mrvextensiontype'] = {"dfnID": "enumdef-mrvextensiontype", "url": "#enumdef-mrvextensiontype", "dfnText": "MrvExtensionType", "refSections": [{"refs": [{"id": "ref-for-enumdef-mrvextensiontype"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-mrvextensiontype\u2460"}, {"id": "ref-for-enumdef-mrvextensiontype\u2461"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
+window.dfnpanelData['enumdef-mrvextensioncontext'] = {"dfnID": "enumdef-mrvextensioncontext", "url": "#enumdef-mrvextensioncontext", "dfnText": "MrvExtensionContext", "refSections": [{"refs": [{"id": "ref-for-enumdef-mrvextensioncontext"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-mrvextensioncontext\u2460"}, {"id": "ref-for-enumdef-mrvextensioncontext\u2461"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
 window.dfnpanelData['enumdef-hashalgorithm'] = {"dfnID": "enumdef-hashalgorithm", "url": "#enumdef-hashalgorithm", "dfnText": "HashAlgorithm", "refSections": [{"refs": [{"id": "ref-for-enumdef-hashalgorithm"}], "title": "3.33.1. Properties"}], "external": false};
 window.dfnpanelData['enumdef-attestationtype'] = {"dfnID": "enumdef-attestationtype", "url": "#enumdef-attestationtype", "dfnText": "AttestationType", "refSections": [{"refs": [{"id": "ref-for-enumdef-attestationtype"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-attestationtype\u2460"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};
 window.dfnpanelData['enumdef-prooftype'] = {"dfnID": "enumdef-prooftype", "url": "#enumdef-prooftype", "dfnText": "ProofType", "refSections": [{"refs": [{"id": "ref-for-enumdef-prooftype"}], "title": "3.40.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-prooftype\u2460"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-prooftype\u2461"}], "title": "Version 2.5.1-20230608 (June 8, 2023)"}], "external": false};

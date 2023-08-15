@@ -17,7 +17,7 @@
   ],
   "mrvExtensions": [
     {
-      "mrvExtensionType": "ProcessedClaimMrvExtension",
+      "mrvExtensionContext": "ProcessedClaimMrvExtension",
       "typedExtension": null,
       "untypedExtension": {
         "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
@@ -65,7 +65,7 @@
       "efAfter": "",
       "mrvExtensions": [
         {
-          "mrvExtensionType": "UnknownMrvExtension",
+          "mrvExtensionContext": "UnknownMrvExtension",
           "typedExtension": null,
           "untypedExtension": null,
           "extensionCase": "None"

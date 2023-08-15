@@ -28,21 +28,21 @@
         "startDate": {
           "date": {
             "dateTime": null,
-            "dateString": "8/9/2023"
+            "dateString": "8/15/2023"
           },
           "timeStamp": {
-            "seconds": 1691616309,
-            "nanos": 368221000
+            "seconds": 1692125519,
+            "nanos": 900606000
           }
         },
         "endDate": {
           "date": {
             "dateTime": null,
-            "dateString": "8/9/2023"
+            "dateString": "8/15/2023"
           },
           "timeStamp": {
-            "seconds": 1691616309,
-            "nanos": 368231000
+            "seconds": 1692125519,
+            "nanos": 900628000
           }
         }
       },
@@ -64,19 +64,19 @@
           "created": {
             "date": {
               "dateTime": {
-                "seconds": 1691616309,
-                "nanos": 368247000
+                "seconds": 1692125519,
+                "nanos": 900665000
               },
-              "dateString": "8/9/2023"
+              "dateString": "8/15/2023"
             },
             "timeStamp": {
-              "seconds": 1691616309,
-              "nanos": 368247000
+              "seconds": 1692125519,
+              "nanos": 900667000
             }
           },
           "mrvExtensions": [
             {
-              "mrvExtensionType": "SdpManifestMrvExtension",
+              "mrvExtensionContext": "SdpManifestMrvExtension",
               "typedExtension": null,
               "untypedExtension": {
                 "name": "VM0007 REDD+ Methodology Framework Extension",
@@ -108,7 +108,7 @@
               "claimSourceAttestation": "digital_signature",
               "mrvExtensions": [
                 {
-                  "mrvExtensionType": "SdpFileMrvExtension",
+                  "mrvExtensionContext": "SdpFileMrvExtension",
                   "typedExtension": null,
                   "untypedExtension": {
                     "name": "Carbonated Concrete Device Sensor Evidence File",
@@ -144,7 +144,7 @@
   ],
   "mrvExtensions": [
     {
-      "mrvExtensionType": "ClaimMrvExtension",
+      "mrvExtensionContext": "ClaimMrvExtension",
       "typedExtension": null,
       "untypedExtension": {
         "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",

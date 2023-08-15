@@ -1912,8 +1912,8 @@
       "MrvExtension": {
         "type": "object",
         "properties": {
-          "mrvExtensionType": {
-            "$ref": "#/components/schemas/MrvExtensionType"
+          "mrvExtensionContext": {
+            "$ref": "#/components/schemas/MrvExtensionContext"
           },
           "typedExtension": {
             "$ref": "#/components/schemas/TypedExtension"
@@ -1927,7 +1927,7 @@
         },
         "additionalProperties": false
       },
-      "MrvExtensionType": {
+      "MrvExtensionContext": {
         "enum": [
           "UnknownMrvExtension",
           "MbpMrvExtension",

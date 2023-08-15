@@ -709,7 +709,7 @@ message VerifiablePresentation{
     Proof proof = 5; //The proof of the presentation
 }
 
-enum MrvExtensionType{
+enum MrvExtensionContext{
     UNKNOWN_MRV_EXTENSION = 0; //Unknown extension
     MBP_MRV_EXTENSION = 1; //MBP extension
     MBP_CLAIM_SOURCE_MRV_EXTENSION = 2; //MBP Claim Source extension
@@ -729,7 +729,7 @@ message DataExtension{
 
 //The MrvExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
 message MrvExtension{
-    MrvExtensionType mrv_extension_type = 1; //type of the extension
+    MrvExtensionContext mrv_extension_context = 1; //type of the extension
     oneof extension{
         TypedExtension typed_extension = 2; //a typed extension
         UntypedExtension untyped_extension = 3; //an untyped extension
