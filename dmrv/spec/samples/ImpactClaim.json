@@ -1,6 +1,6 @@
 {
   "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
-  "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+  "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "processedClaimId": "",
   "unit": "TonneCo2E",
   "quantity": "1.41",
@@ -28,21 +28,21 @@
         "startDate": {
           "date": {
             "dateTime": null,
-            "dateString": "8/15/2023"
+            "dateString": "8/24/2023"
           },
           "timeStamp": {
-            "seconds": 1692125519,
-            "nanos": 900606000
+            "seconds": 1692901680,
+            "nanos": 372974000
           }
         },
         "endDate": {
           "date": {
             "dateTime": null,
-            "dateString": "8/15/2023"
+            "dateString": "8/24/2023"
           },
           "timeStamp": {
-            "seconds": 1692125519,
-            "nanos": 900628000
+            "seconds": 1692901680,
+            "nanos": 372995000
           }
         }
       },
@@ -58,20 +58,20 @@
         "manifest": {
           "id": "bd199e99-14e0-4440-af99-03b78096a24b",
           "version": "1",
-          "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+          "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
           "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
           "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
           "created": {
             "date": {
               "dateTime": {
-                "seconds": 1692125519,
-                "nanos": 900665000
+                "seconds": 1692901680,
+                "nanos": 373032000
               },
-              "dateString": "8/15/2023"
+              "dateString": "8/24/2023"
             },
             "timeStamp": {
-              "seconds": 1692125519,
-              "nanos": 900667000
+              "seconds": 1692901680,
+              "nanos": 373034000
             }
           },
           "mrvExtensions": [
@@ -178,5 +178,5 @@
       "extensionCase": "UntypedExtension"
     }
   ],
-  "modularBenefitProject": null
+  "activityImpactModule": null
 }

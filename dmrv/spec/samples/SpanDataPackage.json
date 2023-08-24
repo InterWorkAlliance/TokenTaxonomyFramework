@@ -2,25 +2,25 @@
   "manifest": {
     "id": "bd199e99-14e0-4440-af99-03b78096a24b",
     "version": "1",
-    "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+    "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
     "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
     "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
     "created": {
       "date": {
         "dateTime": {
-          "seconds": 1691616422,
-          "nanos": 139243000
+          "seconds": 1692901830,
+          "nanos": 76879000
         },
-        "dateString": "8/9/2023"
+        "dateString": "8/24/2023"
       },
       "timeStamp": {
-        "seconds": 1691616422,
-        "nanos": 139254000
+        "seconds": 1692901830,
+        "nanos": 76900000
       }
     },
     "mrvExtensions": [
       {
-        "mrvExtensionType": "SdpManifestMrvExtension",
+        "mrvExtensionContext": "SdpManifestMrvExtension",
         "typedExtension": null,
         "untypedExtension": {
           "name": "VM0007 REDD+ Methodology Framework Extension",
@@ -52,7 +52,7 @@
         "claimSourceAttestation": "digital_signature",
         "mrvExtensions": [
           {
-            "mrvExtensionType": "SdpFileMrvExtension",
+            "mrvExtensionContext": "SdpFileMrvExtension",
             "typedExtension": null,
             "untypedExtension": {
               "name": "Carbonated Concrete Device Sensor Evidence File",

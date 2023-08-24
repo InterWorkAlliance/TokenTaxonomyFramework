@@ -7,7 +7,7 @@ Example assets, CRU and REC, are included in the diagrams to show how they are l
 ```mermaid
 erDiagram
     %%entities
-    EcologicalProject {
+    AccountableImpactOrganization {
         guid id PK "unique id"
         string name "name of the project"
         string description "description of the project"
@@ -16,9 +16,9 @@ erDiagram
         Country country "country of the project"
         Region region "region of the project"
     }
-    ModularBenefitProject {
+    ActivityImpactModule {
         guid id PK "unique id"
-        guid ecologicalProjectId FK "ref EcologicalProject"
+        guid aioId FK "ref AccountableImpactOrganization"
         string name "name of the project"
         ClassificationCategory classificationCategory "category of the project"
         BenefitCategory benefitCategory "category of the project"
@@ -30,30 +30,30 @@ erDiagram
         Developers developers "developers of the project"
         Sponsors sponsors "sponsors of the project"
     }
-    EcologicalClaim {
+    ImpactClaim {
         guid id PK "unique id"
-        guid mbpId FK "ref ModularBenefitProject"
+        guid aimId FK "ref ActivityImpactModule"
         Unit unit "unit of measure for quantity"
         decimal quantity "estimated cumulative benefit amount"
         Cobenefits cobenefits "attached Cobenefits-UN-SDGs"
     }
-    EcologicalClaimCheckpoint {
+    ImpactClaimCheckpoint {
         guid id PK "unique id"
-        guid ecologicalClaimId FK "ref EcologicalClaim"
+        guid impactClaimId FK "ref ImpactClaim"
         guid developerId FK "ref ProjectDeveloper"
         guid verifiedLinkId FK "ref VerifiedLink"
         ClaimSources claimSources "sources of data for this checkpoint"
         string spanDataPackageManifest "manifest of span data package"
     }
 
-    EcologicalProject ||--|{ ModularBenefitProject : has
-    ModularBenefitProject ||--o{ EcologicalClaim : creates
-    EcologicalClaim ||--o{ EcologicalClaimCheckpoint : contains-multiple
-    ModularBenefitProject ||--|| Verifier-VVB : validates
+    AccountableImpactOrganization ||--|{ ActivityImpactModule : has
+    ActivityImpactModule ||--o{ ImpactClaim : creates
+    ImpactClaim ||--o{ ImpactClaimCheckpoint : contains-multiple
+    ActivityImpactModule ||--|| Verifier-VVB : validates
 
     ProcessedClaim {
         guid id PK "unique id"
-        guid ecologicalClaimId FK "ref EcologicalClaim"
+        guid impactClaimId FK "ref ImpactClaim"
         guid verificationContractid FK "ref VerificationContract"
         Unit unit "unit of measure for quantity"
         decimal quantity "estimated cumulative benefit amount"
@@ -62,12 +62,12 @@ erDiagram
     }
     CheckpointResult {
         guid id PK "unique id"
-        guid checkpointId FK "ref EcologicalClaimCheckpoint"
+        guid checkpointId FK "ref ImpactClaimCheckpoint"
         guid verifiedLinkId FK "ref VerifiedLink to findings"
     }
 
     ProcessedClaim ||--o{ CheckpointResult : contains-multiple
-    ProcessedClaim ||--|| EcologicalClaim : paired-with
+    ProcessedClaim ||--|| ImpactClaim : paired-with
     ProcessedClaim ||--|| Verifier-VVB : verifies
 
     VerifiedLink {
@@ -86,7 +86,7 @@ erDiagram
 
     VerificationContract {
         guid id PK "unique id"
-        guid mbpId FK "ref ModularBenefitProject"
+        guid mbpId FK "ref ActivityImpactModule"
         string name ""
         string description "description of the project and parties involved in origination process"
         QualityStandard qualityStandard "methodology, version, etc."
@@ -99,10 +99,10 @@ erDiagram
         guid id "unique id"
     }
 
-    VerificationContract ||--|| ModularBenefitProject : contracted
+    VerificationContract ||--|| ActivityImpactModule : contracted
     VerificationContract ||--|{ VerificationContractParty : signatories
 
-    EcologicalClaimCheckpoint ||--|| VerifiedLink : has
+    ImpactClaimCheckpoint ||--|| VerifiedLink : has
     CheckpointResult ||--|| VerifiedLink : has
 
     CRU { 
@@ -135,6 +135,6 @@ erDiagram
     ProcessedClaim ||--|| IssuingRegistry : approved-by
     CRU ||--|| IssuingRegistry : issued-by
     REC ||--|| IssuingRegistry : issued-by
-    EcologicalClaimCheckpoint ||--|| ProjectDeveloper : submits
+    ImpactClaimCheckpoint ||--|| ProjectDeveloper : submits
 
 ```

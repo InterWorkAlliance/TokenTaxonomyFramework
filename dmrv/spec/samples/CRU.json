@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "8/9/2023"
+      "dateString": "8/24/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -28,7 +28,7 @@
       "reversalMitigation": {
         "reversalRisk": "Material",
         "insuranceType": "BufferPool",
-        "insurancePolicyOwner": "EcologicalProject",
+        "insurancePolicyOwner": "AccountableImpactOrganization",
         "insurancePolicyLink": {
           "id": "a08f99d1-99cc-4ff7-804d-d7fab7be0c90",
           "uri": "https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",

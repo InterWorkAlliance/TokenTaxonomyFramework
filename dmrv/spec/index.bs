@@ -1,0 +1,4008 @@
+<pre class='metadata'>
+Title: DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2 
+Shortname: dMRV data-schema v2.0
+Level: 1
+Status: LD
+URL: https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html
+Editor: Marley Gray (Microsoft), https://microsoft.com, marleyg@microsoft.com
+Editor: Jackson Ross (GBBC), https://gbbc.org, jackson.ross@gbbcouncil.org
+Abstract: This document is the working specification for the IWA Voluntary Ecological Markets taskforce and is a work in progress.
+Markup Shorthands: markdown yes, idl yes, dfn yes
+Boilerplate: omit copyright, omit conformance, repository-issue-tracking off
+</pre>
+
+<pre class=biblio>
+{
+  "semver": {
+    "href": "https://semver.org/spec/v2.0.0.html",
+    "title": "Semantic Versioning",
+    "authors": [
+      "Tom Preston-Werner"
+    ],
+    "status": "Informational",
+    "publisher": "",
+    "id": "semver",
+    "date": "1 January 2013"
+  }
+}
+</pre>
+
+# Introduction # {#intro}
+
+This document is the working specification for the IWA Voluntary Ecological Markets taskforce and is a work in progress.
+
+The aim of this document is to define the set of tokens, their behaviors, a common data model, schema or data dictionary across for a Digital Measurement Reporting and Verification (dMRV) process
+for the IWA Voluntary Ecological Markets (VEM) taskforce.
+
+Advisement:
+  This specification is a work in progress and is subject to change. It is not a final or otherwise published version.
+
+## Status of this Document ## {#doc-status}
+
+Comments regarding the document are welcome, for IWA members, please file issues directly on [GitHub](https://github.com/InterWorkAlliance/TTF/blob/dmrv-tf/dmrv/spec/index.bs).
+
+Feedback from non-members is welcome via email to [iwa](mailto:iwa@gbbcouncil.org)
+
+The technical specifications within this document are the result of consent processses by GBBC/IWA members and other external sources.
+
+## Scope ## {#scope}
+
+The scope of this document is to reach consensus on a tokenized orgination process that describes the behaviors, common data model, schema or data dictionary and encoding standard of the process for the IWA 
+Voluntary Ecological Markets taskforce to represent the data entities involved in the origination process for the resulting digital assets.
+
+## Regarding the Token Taxonomy Framework ## {#ttf}
+
+The Token Taxonomy Framework (TTF) is the IWA's primary tool to define an open specification for a token. While it does a good job of defining a single token, it does not provide a good
+environment for defining a set of tokens that are related to each other and are involved in a larger process. This artifact will not replace the tokens defined in the TTF, but the tokens and their 
+data models defined in this artifact will be used to define the tokens in the TTF.
+
+Token definitions will be titled as *Token & Data Type* to make it clear that the token is defined in the context of the data model.
+All other data types are considered Property Sets in the TTF.
+
+Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.
+
+Additionally, a single contract that governs the process of origination, Verification Contract, see [[#dt-verification-contract]], is defined in this artifact. This contract is used to establish the parties
+and their roles in the origination process.
+
+## Intended Audience ## {#audience}
+
+This technical specification is for
+
+- software developers who want to build software to edit, exchange or store data in the format defined by this specification
+- business analysts who want to understand the data model and data dictionary defined by this specification
+- data scientists who want to understand the data model and data dictionary defined by this specification
+- anyone else who wants to understand the data model and data dictionary defined by this specification
+
+## About the Voluntary Ecological Markets Taskforce ## {#about}
+
+The IWA Voluntary Ecological Markets Taskforce is a working group of the InterWork Alliance (IWA) that is focused on the develoment of standards for the creation of digital assets that represent the environmental benefits of voluntary ecological markets. 
+
+The lifecycle of these assets has two main phases: **origination** and distribution.
+The *origination* phase is the process of creating the digital asset and the *distribution* phase is 
+the process of distributing the digital asset to the market, e.g., marketplaces, exchanges, DeFi, etc.
+
+This document and the specifications are aimed at the **origination phase** of the lifecycle.
+
+## Disclaimer ## {#disclaimer}
+
+While IWA encourages the implementation of the technical specifications by all entities for interoperability, those organiazations and individuals who contributed to the development of this 
+document do not assume responsibility for any consequences or damages resulting directly or indirectly from the use of this document.
+
+## License ## {#selectionlicense}
+
+The license can be found in [[#license]].
+
+# Terminology # {#terminology}
+
+: <dfn>dMRV</dfn>
+:: Digital Measurement, Reporting and Verification
+
+: <dfn>Accountable Impact Organization</dfn>
+:: 
+    An Accountable Impact Organization represents an individual or organization that will undertake a set of activities to achieve a set of outcomes. The outcomes of the project are typically environmental benefits that are measured by one or more of the project's Modular Benefit Projects (AIMs).
+
+    An Accountable Impact Organization can have multiple Modular Benefit Projects (AIMs) that are intended to achieve set of outcomes following a specific Quality Standard, i.e., methodology.
+
+    For example, an agricultural project may have a AIM for activities intended to remove carbon and another AIM for conserving biodiversity. This allows for an Accountable Impact Organization to have a single identity capable of having multiple types of credits issued to it.
+
+    The encoding of an Accountable Impact Organization in the data model is specified in [[#dt-accountable-impact-organization]]
+
+: <dfn>Activity Impact Module</dfn> (AIM) 
+::
+    An Activity Impact Module, AIM, has a defined scope and a defined set of activities that are intended to achieve a defined set of outcomes. The outcomes of the project are typically environmental benefits and follow a spcific Quality Standard, i.e. methodology.
+
+    A AIM is scoped or bound to a quality standard/methodology that it follows along with a physical location or boundary that defines where the project activities occur. For example, a land based project would be scoped to an area/polygon on a map and an engineered sequestion based project would be scoped to a power plant/GPS/INSS.
+
+    An Accountable Impact Organization can have multiple AIMs, but there cannot be another AIM using the same benefit type/quality standard/methodology and location.
+
+    The encoding of a Activity Impact Module in the data model is specified in [[#dt-activity-impact-module]]
+
+: <dfn>Quality Standard</dfn>
+:: 
+    A quality standard is a generic term for the methodology or protocol(s) that are used to validate a project and measure, report and verify the environmental benefits of an Accountable Impact Organization. The quality standard may include additional project validation requirements and be composed of different combinations of tools to calculate things like Additionally, etc.
+  
+    The encoding of a Quality Standard in the data model is specified in [[#dt-quality-standard]] 
+
+: <dfn>Impact Claim</dfn>
+:: 
+    An impact claim is a collection of the evidence data submitted according to the quality standard being followed by the AIM. An impact claim is composed of one or more checkpoints.
+
+    The encoding of an Impact Claim in the data model is specified in [[#dt-impact-claim]]
+
+: <dfn>Impact Claim Checkpoint</dfn>
+:: 
+    A impact claim checkpoint is a collection of the evidence data submitted periodically to an impact claim. The checkpoint is a cryptographic fingerprint of the evidence data to establish the provanance and integity of the evidence being submitted.
+
+    The encoding of an Impact Claim Checkpoint in the data model is specified in [[#dt-impact-claim-checkpoint]]
+
+: <dfn>Span Data Package</dfn>
+:: 
+    A span data package, SDP, is the data package file, i.e. .zip file, that contains the raw evidence data being submitted with a checkpoint.
+
+    The encoding of a Span Data Package in the data model is specified in [[#dt-span-data-package]]
+
+: <dfn>SDP Manifest</dfn>
+:: 
+    A span data package has a manifest.json file in the root of the .zip file that contains the metadata about the contents of the file as well as extensible metadata that is specific for the quality standard being followed.
+
+    The encoding of a SDP Manifest in the data model is specified in [[#dt-manifest]]
+
+: <dfn>Processed Claim</dfn>
+:: 
+    A processed claim is a corresponding collection of checkpoint results that are generated by the validator.
+    
+    The encoding of a Processed Claim in the data model is specified in [[#dt-processed-claim]]
+
+: <dfn>Checkpoint Result</dfn>
+:: 
+    A checkpoint result is paired with a corresponding checkpoint for the claim being processed and contains the results of the verification of the checkpoint.
+
+    The encoding of a Checkpoint Result in the data model is specified in [[#dt-checkpoint-result]]
+
+: <dfn>Verification Contract</dfn>
+:: 
+    A multiparty contract between the parties involved in the origination and digital MRV process. It defines the quality standard being followed, any monitoring/audit reports, etc.
+
+    The encoding of a Verification Contract in the data model is specified in [[#dt-verification-contract]]
+
+: <dfn>Carbon Removal or Reduction Credit - CRU</dfn>
+:: 
+    A CRU can represent either a carbon removal or reduction credit. The difference is that a carbon removal credit is a credit that is issued for the removal of carbon from the atmosphere, while a carbon reduction credit is a credit that is issued for the reduction of carbon emissions.
+
+    The encoding of a CRU in the data model is specified in [[#dt-cru]]
+
+
+# Tokens and their Data Model # {#data-model}
+
+This section specifies the tokens and their data model for the entities involved in the origination process to conform with this specification. 
+
+The data model consists of the following major data types:
+
+1. [=AccountableImpactOrganization=]: contains information identifying an individual or organization that will host one or more Activity Impact Module(s).
+2. [=ActivityImpactModule=]: is parented by an Accountable Impact Organization that can have multiple AIMs and contains information identifying a project that will host one or more Impact Claim(s).
+3. [=ImpactClaim=]: contains information identifying a claim that will host one or more Checkpoint(s).
+4. [=SpanDataPackage=]: contains information identifying a span data package that will host one or more Checkpoint(s).
+5. [=ProcessedClaim=]: contains information identifying a processed claim that will host one or more Checkpoint Result(s).
+6. [=VerificationContract=]: contains information identifying a verification contract that will host one or more Checkpoint Result(s).
+7. [=CRU=]: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.
+8. [=REC=]: contains information identifying a renewable energy credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.
+
+Of these data types, the [=CRU=] and [=REC=] are the only tokens that are `traded` and `retired or redeemed` in the system. The other data types are used to support the origination process and provide the system of record for the data that backs the asset types. 
+
+Some data types, like the SpanDataPackage, support extensible metadata. This means that the data type can be extended to support additional data types that are specific to the quality standard being followed. For example, the SpanDataPackage data type can be extended to support the data types required 
+by specific methodologies or quality standards.
+
+Not all data types defined in this artifact are tokens, but are a <dfn>Property-Set</dfn> which are a collection of
+properties grouped together that can be used or composed into other property-sets or be present in many token definitions.
+
+## Highlevel Data Model ## {#data-model-highlevel}
+
+The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
+the highlights of properties within the data types and does not include the full list of properties for each data type.
+
+<img alt="…" srcset="dmrv-diagram-20230502.png 2x">
+
+## Data Model ## {#data-model-detailed}
+
+The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from [here](Vem-2.0-lt-hiera.png).
+
+<img alt="…" srcset="Vem-2.0-lt-hiera.png 2x">
+
+## Token & Data Type: <dfn>AccountableImpactOrganization</dfn> ## {#dt-accountable-impact-organization}
+
+`AccountableImpactOrganization` is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s). 
+
+This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.
+
+### Base Token and Behaviors ### {#dt-accountable-impact-organization-base-token-behaviors}
+
+The AccountableImpactOrganization has a Non-Fungilble base that has the following behaviors:
+
+1. <dfn>Transferable</dfn> (t): The AccountableImpactOrganization can be transferred from one party to another.
+2. <dfn>Divisible</dfn> (d): The AccountableImpactOrganization can be divided into multiple AccountableImpactOrganization tokens, up to 2 decimal places.
+3. <dfn>Burnable</dfn> (b): The AccountableImpactOrganization can be burned, retired or permanently deactivated.
+
+TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,b</i>}]
+
+### Properties ### {#dt-accountable-impact-organization-properties}
+
+An Accountable Impact Organization has the following properties:
+
+<figure id="ep-properties-table" dfn-type="element-attr" dfn-for="AccountableImpactOrganization">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td><dfn>id</dfn> : [=Id=]
+        <td>String
+        <td>M
+        <td>The impact product identifier, See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>name</dfn>
+        <td>String
+        <td>M
+        <td>The name of the Accountable Impact Organization.
+      <tr>
+        <td><dfn>description</dfn> :
+        <td>String
+        <td>M
+        <td>A brief description of the Accountable Impact Organization.
+      <tr>
+        <td><dfn>address</dfn>es : [=Address=]
+        <td>Array
+        <td>M
+        <td>The non-empty set of addresses. Each value can represent physical, mailing and or legal addresses. See [[#dt-address]] for details.
+      <tr>
+        <td><dfn>owners</dfn> : [=Id=]
+        <td>Array
+        <td>M
+        <td>The non-empty set of [=Id=]. Each of the values in the set is supposed to uniquely identify each owner of the project.
+      <tr>
+        <td><dfn>country</dfn> : [=ISO3166CC=]
+        <td>String
+        <td>M
+        <td>
+            The country where the project is located. The value MUST be a valid ISO 3166-1 alpha-2 country code.
+            See [[#dt-iso3166cc]] for details.
+      <tr>
+        <td><dfn>region</dfn> : {{Region}}
+        <td>String
+        <td>M
+        <td>The region the project is located in.
+      <tr>
+        <td><dfn>informationLink</dfn> : [=VerifiedLink=]
+        <td>String
+        <td>M
+        <td>A URI for information, i.e., webpage. See[[#dt-verified-link]]
+      <tr>
+        <td><dfn>mediaLinks</dfn> : [=VerifiedLink=]
+        <td>Array
+        <td>O
+        <td>An array of optional media links. See[[#dt-verified-link]]
+      <tr>
+        <td><dfn>modularBenefitProjects</dfn> : [=ActivityImpactModule=][]
+        <td>Array
+        <td>M
+        <td>A collection of modularBenefitProjects that belong to this Accountable Impact Organization.
+  </table>
+  <figcaption>Properties of data type AccountableImpactOrganization</figcaption>
+
+</figure>
+
+## Data Type <dfn>Address</dfn> ## {#dt-address}
+
+An address is a collection of address lines, city, state, postal code and country that can represent physical, legal or mailing addresses.
+
+### Properties ### {#dt-address-properties}
+
+<figure id="address-properties-table" dfn-type="element-attr" dfn-for="Address">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>addressType</dfn> : {{AddressType}}
+          <td>AddressType
+          <td>M
+          <td>The type of the address. See [[#dt-address-type]] for details.
+        <tr>
+          <td><dfn>addressLines</dfn> : [=String=]
+          <td>Array
+          <td>M
+          <td>A collection of address lines.
+        <tr>
+          <td><dfn>city</dfn> : 
+          <td>String
+          <td>M
+          <td>The city of the address.
+        <tr>
+          <td><dfn>state</dfn> : 
+          <td>String
+          <td>M
+          <td>The state of the address.
+        <tr>
+          <td><dfn>postalCode</dfn> : 
+          <td>String
+          <td>M
+          <td>The postal code of the address.
+        <tr>
+          <td><dfn>country</dfn> : 
+          <td>String
+          <td>M
+          <td>The country of the address.
+    </table>
+    <figcaption>Properties of data type Address</figcaption>
+</figure>
+
+## Data Type: <dfn>ActivityImpactModule</dfn> ## {#dt-activity-impact-module}
+
+A ActivityImpactModule represents the actual project work that will generate benefits. 
+It is bound to to Quality Standard and is where claims are issued from.
+
+### Scope of a ActivityImpactModule ### {#dt-activity-impact-module-scope}
+
+Each ActivityImpactModule is scoped:
+1. To a parent Accountable Impact Organization, which can host multiple modularBenefitProjects
+2. Is bound or mapped to a QualityStandard that matches the AIM activities
+3. Must be unique for its geographic footprint and Quality Standard
+
+### Properties ### {#dt-activity-impact-module-properties}
+
+A ActivityImpactModule has the following properties:
+
+<figure id="activity-impact-module-properties-table" dfn-type="element-attr" dfn-for="ActivityImpactModule">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>id : [=Id=]
+        <td>String
+        <td>M
+        <td>Unique identifier for the AIM, See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>aioId</dfn> : [=Id=]
+        <td>String
+        <td>M
+        <td>The unique identifier for the parent Accountable Impact Organization, See [[#dt-id]] for details.
+      <tr>
+        <td>name : 
+        <td>String
+        <td>M
+        <td>The name of the ActivityImpactModule
+      <tr>
+        <td><dfn>classificationCategory</dfn> : {{ClassificationCategory}}
+        <td>String
+        <td>M
+        <td>The string representaion classification category of the ActivityImpactModule, see [[#dt-classification-category]] for details.
+      <tr>
+        <td><dfn>classificationMethod</dfn> : {{Method}}
+        <td>String
+        <td>M
+        <td>The string representation of the classification method used to generate the benefit, see [[#dt-method]] for details.
+
+            - Natural, where the benefit is generated by natural processes
+            - Technical, where the benefit is generated by technical processes, i.e. engineered.
+            - Natural and Technical, where the benefit is generated by both natural and technical processes
+      <tr>
+        <td><dfn>benefitCategory</dfn> : {{UN-SDGs}}
+        <td>String
+        <td>M
+        <td>The string representation of the benefit category of the ActivityImpactModule. The value MUST be a valid UN Sustainable Development Goal (UN SDG) code. See [[#dt-un-sdgs]] for details.
+      <tr>
+        <td><dfn>projectScope</dfn> : {{ProjectScope}}
+        <td>String
+        <td>M
+        <td>The string representation scope of the AIM, maps to the scope of the Quality Standard. See [[#dt-project-scope]] for details.
+      <tr>
+        <td><dfn>projectType</dfn> : {{ProjectType}}
+        <td>String
+        <td>M
+        <td>The type of the AIM, maps to the scope of the Quality Standard. See [[#dt-project-type]] for details.
+      <tr>
+        <td><dfn>projectScale</dfn> : {{ProjectScale}}
+        <td>String
+        <td>M
+        <td>String representation of scale, see [[#dt-project-scale]] for details.
+              MICRO = less than 1000 tCO2e
+              SMALL = 1000 - 10000 tCO2e
+              MEDIUM = 10000 - 100000 tCO2e
+              LARGE  = 100000 - 1000000 tCO2e Micro, Small, Medium or Large
+      <tr>
+        <td><dfn>arbId</dfn> : 
+        <td>String
+        <td>O
+        <td>If present, this is the California Air Resources Board (ARB) project identifier.
+      <tr>
+        <td><dfn>geographicLocation</dfn> : [=GeographicLocation=]
+        <td>Object
+        <td>M
+        <td>This is the geographic location of the project. See [[#dt-geographic-location]] for details.
+      <tr>
+        <td><dfn>firstYearIssuance</dfn> : 
+        <td>String
+        <td>O
+        <td>If present, this is the year credits were first issued for the project.
+      <tr>
+        <td><dfn>registryProjectId</dfn> : 
+        <td>String
+        <td>O
+        <td>If present, this is the Id assigned by the issuing registry for the project on their system.
+      <tr>
+        <td><dfn>developers</dfn> : [=Id=]
+        <td>Array
+        <td>M
+        <td>List of developers for the project. See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>sponsors</dfn> : [=Id=]
+        <td>Array
+        <td>M
+        <td>List of sponsors, i.e., financiers, etc. for the project. See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>claimSources</dfn> : [=ClaimSource=]
+        <td>Object
+        <td>M
+        <td>A collection of claim evidence sources for the project, i.e., sensors, meters, applications, etc. See [[#dt-claim-source]] for details.
+      <tr>
+        <td><dfn>impactClaims</dfn> : [=ImpactClaim=]
+        <td>Object
+        <td>M
+        <td>A collection of impact claims for the project. See [[#dt-impact-claim]] for details.
+      <tr>
+        <td><dfn>validations</dfn> : [=Validation=]
+        <td>Object
+        <td>M
+        <td>A collection of validations for the project. See [[#dt-validation]] for details.
+      <tr>
+        <td><dfn>mrvExtensions</dfn> : [=MrvExtension=]
+        <td>Array
+        <td>O
+        <td>A collection of MRV extensions for the project. See [[#dt-mrv-extension]] for details.
+    </table>
+  <figcaption>Properties of data type ActivityImpactModule</figcaption>
+
+</figure>
+
+## Data Type: <dfn>Validation</dfn> ## {#dt-validation}
+
+Represents the validation steps and artifacts created in the validation phase of a project. These would include
+Project Design Documents (PDD), etc.
+
+### Properties ### {#dt-validation-properties}
+<figure id="validation-properties-table" dfn-type="element-attr" dfn-for="Validation">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>validationDate</dfn> : [=Date=]
+          <td>Date
+          <td>M
+          <td>The date of the validation. See [[#dt-date]] for details.
+        <tr>
+          <td><dfn>validatingPartyId</dfn> : 
+          <td>String
+          <td>M
+          <td>The Id of the validating party, see [[#dt-id]] for details.
+        <tr>
+          <td><dfn>validationMethod</dfn> :
+          <td>String
+          <td>M
+          <td>The validation method used for the project, can include a version identifier.
+        <tr>
+          <td><dfn>validationExpirationDate</dfn> : [=Date=]
+          <td>Date
+          <td>M
+          <td>The date of the validation expires. See [[#dt-date]] for details.
+        <tr>
+          <td><dfn>validationSteps</dfn> : [=ValidationStep=]
+          <td>Array
+          <td>M
+          <td>A collection of Validation Steps. See [[#dt-validation-step]] for details.
+    </table>
+<figcaption>Properties of data type Validation</figcaption>
+</figure>
+
+## Data Type: <dfn>ValidationStep</dfn> ## {#dt-validation-step}
+
+A validation step is a single step in the validation process, a validation process can be composed of multiple steps
+each step can generate its own artifact like a Project Design Document.
+
+### Properties ### {#dt-validation-step-properties}
+
+<figure id="validation-step-table" dfn-type="element-attr" dfn-for="ValidationStep">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>validationStepName</dfn> : 
+          <td>String
+          <td>M
+          <td>The name of the validation step.
+        <tr>
+          <td><dfn>validationStepDescription</dfn> : 
+          <td>String
+          <td>M
+          <td>The description of the validation step.
+        <tr>
+          <td><dfn>validationStepStatus</dfn> : {{ValidationStepStatus}}
+          <td>ValidationStepStatus
+          <td>M
+          <td>The ValidationStepStatus of the validation step. See [[#dt-validation-step-status]] for details.
+        <tr>
+          <td><dfn>stepDocumentLink</dfn> : [=VerifiedLink=]
+          <td>VerifiedLink
+          <td>M
+          <td>The artifact generated by the validation step. See [[#dt-verified-link]] for details.
+    </table>
+    <figcaption>Properties of data type ValidationStep</figcaption>
+</figure>
+
+## Data Type: <dfn>ClaimSource</dfn> ## {#dt-claim-source}
+
+A ClaimSource is a registered source of evidence data to support a claim. A claim source can be a device like
+a sensor or meter, an application that collects user data or reference data like satellite imagery.
+
+### Properties ### {#dt-impact-claim-source-properties}
+
+<figure id="claim-source-properties-table" dfn-type="element-attr" dfn-for="ClaimSource">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>id : [=Id=]
+        <td>String
+        <td>M
+        <td>Unique identifier for the ClaimSource, See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>aimId</dfn> : [=Id=]
+        <td>String
+        <td>M
+        <td>The unique identifier for the parent ActivityImpactModule, See [[#dt-id]] for details.
+      <tr>
+        <td>name : 
+        <td>String
+        <td>M
+        <td>A name for the source.
+      <tr>
+        <td>description : 
+        <td>String
+        <td>M
+        <td>Description of the source and other details like the type of data collected, the frequency of collection, GPS/Location, etc.
+      <tr>
+        <td>location : [=GeographicLocation=]
+        <td>Object
+        <td>M
+        <td>GNSS, i.e., GPS coordinates, for the source. See [[#dt-geographic-location]] for details.
+      <tr>
+        <td><dfn>sourceType</dfn> : {{ClaimSourceType}}
+        <td>String
+        <td>M
+        <td>String representing the source type can include sensor, meter, application, reference, etc.  See [[#dt-claim-source-type]] for details.
+      <tr>
+        <td><dfn>unitOfMeasure</dfn> : {{Unit}}
+        <td>String
+        <td>M
+        <td>The string representation for unit of measure, see [[#dt-unit]] for details.
+      <tr>
+        <td><dfn>sourceIdentifier</dfn> : 
+        <td>string
+        <td>M
+        <td>this can be the unique identifier for the device, like a serial number, public key, etc.
+      <tr>
+        <td>mrvExtensions : [=MrvExtension=]
+        <td>Array
+        <td>O
+        <td>A collection of optional MrvExtensions, see [[#dt-mrv-extension]] for details.
+    </table>
+  <figcaption>Properties of data type ImpactClaim</figcaption>
+</figure>
+
+## Token & Data Type: <dfn>ImpactClaim</dfn> ## {#dt-impact-claim}
+
+An ImpactClaim represents the actual project work that will generate benefits through out the claim period
+that is agreed to by the developer, VVB and Registry. ImpactClaims are created by a ActivityImpactModule
+and contains metadata about the claim period as well as a collection of checkpoints that are used to submitted
+project evidence that is verified by the VVB or verification platform.
+
+### Base Token and Behaviors ### {#dt-impact-claim-base-token-behaviors}
+
+The ImpactClaim has a Non-Fungilble base that has the following behaviors:
+
+1. <dfn>Indivisible</dfn> (~d): The ImpactClaim is indivisible, meaning it cannot be divided into multiple ImpactClaim tokens.
+2. <dfn>Non-transferable</dfn> (~t): The ImpactClaim is non-transferable, meaning it cannot be transferred to another parent Accountable Impact Organization/AIM.
+3. <dfn>Delegable</dfn> (g): The ImpactClaim can have certain behaviors delegated to another party.
+4. <dfn>encumberable</dfn> (e): The ImpactClaim can be encumbered by a third party, typically the verification platform or VVB.
+5. <dfn>ProcessedClaimControl</dfn> (PCC): The ImpactClaim also has this <dfn>Behavior-Group</dfn> with a set of behaviors a bundled and 
+    configured to control the processing of the ImpactClaim.
+    - <dfn>Mintable</dfn> (m): The ImpactClaim can be minted, i.e., created, by the parent ActivityImpactModule.
+    - <dfn>Roles</dfn> (r): The ImpactClaim can have roles assigned to it, i.e., the VVB, Verifier, etc. that has the ability to burn or retire the claim after processing has completed.
+    - Burnable (b): The ImpactClaim can be burned, i.e., retired, by the VVB or Verifier.
+
+TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,e,PCC</i>}]
+
+### Properties ### {#dt-impact-claim-properties}
+
+<figure id="impact-claim-properties-table" dfn-type="element-attr" dfn-for="ImpactClaim">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>id : [=Id=]
+        <td>String
+        <td>M
+        <td>Unique identifier for the ImpactClaim, See [[#dt-id]] for details.
+      <tr>
+        <td>aimId : [=Id=]
+        <td>String
+        <td>M
+        <td>The unique identifier for the parent ActivityImpactModule, See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>processedClaimId</dfn> : [=Id=]
+        <td>String
+        <td>M
+        <td>The unique identifier for the corrisponding processed claim that the verification platform uses to track the verification process and results of a claim. See [[#dt-id]] for details.
+            The value can be null until a processed claim is created.
+      <tr>
+        <td><dfn>unit</dfn> : {{Unit}}
+        <td>String
+        <td>M
+        <td>The unit of measurement/analysis of the project. See Data Type [[#dt-unit]] for further information.
+      <tr>
+        <td>quantity : [=Decimal=]
+        <td>Decimal
+        <td>O
+        <td>Optional, the estimated benefit quantity.
+      <tr>
+        <td><dfn>co-benefits</dfn> : [=Co-benefit=]
+        <td>Object
+        <td>O
+        <td>Optional list of co-benefits associated with the ImpactClaim. See [[#dt-co-benefit]] for details.
+      <tr>
+        <td><dfn>checkpoints</dfn> : [=ImpactClaimCheckpoint=]
+        <td>Object
+        <td>M
+        <td>A collection of checkpoints for the ImpactClaim. See [[#dt-impact-claim-checkpoint]] for details.
+      <tr>
+        <td>mrvExtensions : [=MrvExtension=]
+        <td>Array
+        <td>O
+        <td>A collection of MRV extensions for the claim. See [[#dt-mrv-extension]] for details.
+    </table>
+  <figcaption>Properties of data type ImpactClaim</figcaption>
+  </figure>
+
+  ## Data Type: <dfn>ImpactClaimCheckpoint</dfn> ## {#dt-impact-claim-checkpoint}
+
+  The impact claim checkpoint is a collection of evidence that is submitted by the developer to support
+  the claim. The VVB or verification platform will review the evidence and provide a status of the evidence
+  in a corresponding CheckpointResult in the processed claim.
+
+  Checkpoints are used to periodically submit evidence on an agreed upon basis from the ActivityImpactModule
+  to the VVB or verification platform. This enables the development of continous verification of the project
+  and the ability to provide feedback to the developer on the status of the project and the evidence submitted
+  before the end of the claim period.
+
+  ### Properties ### {#dt-impact-claim-checkpoint-properties}
+
+  <figure id="impact-claim-checkpoint-properties-table" dfn-type="element-attr" dfn-for="impactClaimCheckpoint">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : 
+          <td>String
+          <td>M
+          <td>Unique identifier for the ImpactClaimCheckpoint, See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>claimId</dfn> : 
+          <td>String
+          <td>M
+          <td>The unique identifier for the parent ImpactClaim, See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>claimSourceIds</dfn> : [=Id=]
+          <td>Array 
+          <td>M
+          <td>A list of registered claim sources submitting evidence in this checkpoint. See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>projectDeveloperId</dfn> : 
+          <td>String
+          <td>M
+          <td>The Id of the project developer that is submitting the checkpoint, must be a developer registered in the [=ActivityImpactModule=]. 
+              This is used when multiple identities may submit a checkpoint for a claim, for example one party may submit evidence of carbon capture and
+              another may submit evidence of sequestration to support a carbon removal claim. See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>efBefore</dfn> : 
+          <td>String
+          <td>O
+          <td>Environmental factor before activity - i.e., total emissions = 3 tCO2e
+        <tr>
+          <td><dfn>efAfter</dfn> : 
+          <td>String
+          <td>O
+          <td>Environmental factor after activity - i.e., total emissions = 2 tCO2e.
+        <tr>
+          <td><dfn>checkpointDateRange</dfn> : [=DateRange=]
+          <td>DateRange
+          <td>M
+          <td>The date range for the checkpoint. See [[#dt-date-range]] for details.
+        <tr>
+          <td><dfn>verifiedLinkToCheckpointData</dfn> : [=VerifiedLink=]
+          <td>Object
+          <td>M
+          <td>A VerifiedLink that contain the evidence, in a span data package submitted by the AIM. See [[#dt-verified-link]] for details.
+        <tr>
+          <td>mrvExtensions : [=MrvExtension=]
+          <td>Array
+          <td>O
+          <td>A collection of MRV extensions for the checkpoint. See [[#dt-mrv-extension]] for details.
+        <tr>
+          <td><dfn>spanDataPackage</dfn> : [=SpanDataPackage=]
+          <td>String
+          <td>O
+          <td>Optional, collect and store the span data package for the checkpoint, this could be the string contents of the manifest.json in the Span Data Package root. See [[#dt-span-data-package]] for details.
+      </table>
+    <figcaption>Properties of data type ImpactClaimCheckpoint</figcaption>
+    </figure>
+
+    ## Data Type: <dfn>SpanDataPackage</dfn> ## {#dt-span-data-package}
+
+    A span data package is an index and metadata file that is stored in the root of the SpanDataPackage file
+    that is submitted with a checkpoint. It contains meta data about the evidence files contained in the package
+    as well as extensible MRV data that is specific to the Quality Standard/Methodology the AIM is bound to.
+
+    ### Properties ### {#dt-span-data-package-properties}
+
+    <figure id="span-data-package-properties-table" dfn-type="element-attr" dfn-for="SpanDataPackage">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>manifest : [=Manifest=]
+            <td>Object
+            <td>M
+            <td>The manifest object, a serialized JSON object that contains the metadata for the SpanDataPackage. See [[#dt-manifest]] for details.
+      </table>
+    <figcaption>Properties of data type SpanDataPackage</figcaption>
+    </figure>
+
+    ## Data Type: <dfn>Manifest</dfn> ## {#dt-manifest}
+
+    The Span Data Package has a manifest.json file that is an extensible JSON object that contains the metadata about the contents in the Span Data Package.
+    The manifest contains a list of files that are contained in the Span Data Package and the metadata about the files. The manifest also contains
+    extensible MRV data that is specific to the Quality Standard/Methodology the AIM is bound to.
+
+    ### Properties ### {#dt-manifest-properties}
+
+    <figure id="manifest-properties-table" dfn-type="element-attr" dfn-for="Manifest">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>id : [=Id=]
+            <td>String
+            <td>M
+            <td>The unique identifier for the Span Data Package, See [[#dt-id]] for details.
+          <tr>
+            <td>version: 
+            <td>String
+            <td>M
+            <td>The versions of the Span Data Package specification, default is 1.0.0.
+          <tr>
+            <td>aimId : [=Id=] 
+            <td>String
+            <td>M
+            <td>The Activity Impact Module that the SDP is sourced from.
+          <tr>
+            <td>claimId : [=Id=]
+            <td>String
+            <td>M
+            <td>The Impact Claim that the SDP is sourced from.  See, [[#dt-id]] for details.
+          <tr>
+            <td>projectDeveloperId : [=Id=]
+            <td>String
+            <td>M
+            <td>The Project Developer that submitted the SDP, See, [[#dt-id]] for details.
+          <tr>
+            <td>created : [=DatePoint=]
+            <td>DatePoint
+            <td>M
+            <td>The DatePoint that the Span Data Package was created. See [[#dt-date-point]] for details.
+          <tr>
+            <td><dfn>mrvExtensions</dfn> : [=MrvExtension=]
+            <td>Array
+            <td>O
+            <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See [[#dt-mrv-extension]] for details.
+          <tr>
+            <td>files : [=Sdp-File=]
+            <td>Array
+            <td>M
+            <td>The files that are in the Span Data Package, see [[#dt-sdp-file]] for details.
+      </table>
+    <figcaption>Properties of data type Manifest</figcaption>
+    </figure>
+
+    ## Data Type: <dfn>Sdp-File</dfn> ## {#dt-sdp-file}
+
+    A Sdp-File is a set of metadata about an evidence file contained within the Span Data Package.
+
+    ### Properties ### {#dt-sdp-file-properties}
+
+    <figure id="Sdp-File-properties-table" dfn-type="element-attr" dfn-for="Sdp-File">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>name : 
+            <td>String
+            <td>M
+            <td>The name of the file.
+          <tr>
+            <td>type : 
+            <td>String
+            <td>M
+            <td>The string representation of the file type, see [[#dt-sdp-file-type]] for details.
+          <tr>
+            <td>description : 
+            <td>String
+            <td>M
+            <td>A description of the contents of the file.
+          <tr>
+            <td>claimSourceId : [=Id=]
+            <td>String
+            <td>M
+            <td>The id for the claim source registered with the [=ActivityImpactModule=] that the file is sourced from.
+          <tr>
+            <td>claimSourceAttestation : [=DigitalSignature=]
+            <td>Object
+            <td>O
+            <td>The source attestation or signature for the file. See [[#dt-digital-signature]] for details.
+          <tr>
+            <td>mrvExtensions : [=MrvExtension=]
+            <td>Array
+            <td>O
+            <td>A collection of optional MrvExtensions. See [[#dt-mrv-extension]] for details.
+        </table>
+    <figcaption>Properties of data type File</figcaption>
+  </figure>
+
+    ## Data Type: <dfn>MrvExtension</dfn> ## {#dt-mrv-extension}
+
+    A MRV Extension is an extensible JSON object that contains the MRV data that is specific to the Quality Standard/Methodology. MRV mrvExtensions
+    can be defined by the methdology developers or the verifier, or verification platform to include an attributes or data that is helpful to have on the ledger. MrvExtensions can be
+    added to [=ActivityImpactModule=], [=ImpactClaim=], and [=ProcessedClaim=] types.
+
+    The MRV Extension can be typed or untyped, i.e., schemaless, so the MRV Extension with have either an `untypedExtension` or a `typedExtension` property.
+
+    ### Properties ### {#dt-mrv-extension-properties}
+
+    <figure id="mrv-extension-properties-table" dfn-type="element-attr" dfn-for="MrvExtension">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>mrvExtensionContext : {{MrvExtensionContext}}
+            <td>String
+            <td>M
+            <td>The type of extension and which entity it applies to, See [[#dt-mrv-extension-type]] for details.
+          <tr>
+            <td>untypedExtension : [=UntypedExtension=]
+            <td>Object
+            <td>O*
+            <td>An untyped extension, see [[#dt-untyped-extension]] for details. Not valid if typedExtension is present.
+          <tr>
+            <td>typedExtension : [=TypedExtension=]
+            <td>Object
+            <td>O*
+            <td>A typed extension, see [[#dt-typed-extension]] for details. Not valid if untypedExtension is present.
+      </table>
+    <figcaption>Properties of data type MrvExtension</figcaption>
+    </figure>
+
+    ## Data Type: <dfn>UntypedExtension</dfn> ## {#dt-untyped-extension}
+
+    An untyped extension is a schemaless extension that can be used to store key/vaue pairs of data that is not defined by the specification. 
+
+    ### Properties ### {#dt-untyped-extension-properties}
+
+    <figure id="untyped-extension-properties-table" dfn-type="element-attr" dfn-for="UntypedExtension">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>name : 
+            <td>String
+            <td>M
+            <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification platform.
+          <tr>
+            <td>version: 
+            <td>String
+            <td>M
+            <td>The versions of the MRV Extension specification, default is 1.0.0.
+          <tr>
+            <td>description : 
+            <td>String
+            <td>M
+            <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification platform describing the purpose of the extension.
+          <tr>
+            <td><dfn>documentation</dfn> :
+            <td>String
+            <td>O
+            <td>A link to the documentation for the MRV Extension, see [[#extension-documentation]] for details.
+          <tr>
+            <td>data_extensions : [=DataExtension=] 
+            <td>Array
+            <td>M
+            <td>A collection of DataExtensions
+      </table>
+    <figcaption>Properties of data type UntypedExtension</figcaption>
+    </figure>
+
+    ## Data Type: <dfn>DataExtension</dfn> ## {#dt-data-extension}
+
+    A Data Extension is an extensible JSON object that contains the data that is specific to the Quality Standard/Methodology using simple Name and Value pairs with nesting capabilities.
+
+    ### Properties ### {#dt-data-extension-properties}
+
+    <figure id="data-extension-properties-table" dfn-type="element-attr" dfn-for="DataExtension">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>key : [=String=]
+            <td>String
+            <td>M
+            <td>The key of the property of the extension, this is a string name for the extension.
+          <tr>
+            <td>value : [=String=]
+            <td>String
+            <td>M
+            <td>The value of the property of the extension, this is a string value for the extension. This could contain a serialized object.
+          <tr>
+            <td>Data : [=DataExtension=]
+            <td>Array
+            <td>O
+            <td>Optional array of DataExtensions, this is a collection of DataExtensions that are nested within the DataExtension to create a data hierchy within the extension.
+      </table>
+      <figcaption>Properties of data type DataExtension</figcaption>
+      </figure>
+
+    ## Data Type: <dfn>TypedExtension</dfn> ## {#dt-typed-extension}
+
+    A typed extension is a Json schema based extension that can be used to store data that is defined by a different specification, [=QualityStandard=] or industry.
+
+    ### Properties ### {#dt-typed-extension-properties}
+
+    <figure id="typed-extension-properties-table" dfn-type="element-attr" dfn-for="TypedExtension">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>dataSchema : 
+            <td>String
+            <td>M
+            <td>The Url/Uri to the Json extension file for the schema, see [[#typed-extension-definition]] for details.
+          <tr>
+            <td>documentation: 
+            <td>String
+            <td>M
+            <td>The Url/Uri to the documentation for the extension, see [[#extension-documentation]] for details.
+          <tr>
+            <td>data : 
+            <td>String
+            <td>M
+            <td>A Json object that contains the data for the extension, see [[#typed-extension-definition]] for details.
+      </table>
+    <figcaption>Properties of data type TypedExtension</figcaption>
+    </figure>
+    
+    ## Typed Extension Schema File: <dfn>TypedExtensionDefinition</dfn> ## {#typed-extension-definition}
+
+      Every extension MUST define a [valid JSON Schema document according to the JSON Schema specification](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01).
+      The extension schema file defines the data encoding and syntactical data validation details.
+
+      Authors of extension schema definitions SHOULD attempt to add as many validation rules as possible such that data validation can be automated as much as possible.
+
+      Extension schemas SHOULD be defined in a way to make illegal extension representations unrepresentable.
+
+      Additional details which are not representable in JSON Schema such as data semantics or validation rules, MUST be defined in the extension documentation ([[#extension-documentation]]).
+
+    ## Extension Documentation: <dfn>ExtensionDocumentation</dfn> ## {#extension-documentation}
+
+      The extension documentation is a human-readable document that describes the extension in detail. Extension document MUST be written in English. The documentation CAN be offered as a translation in other languages as well.
+
+      The documentation MUST include:
+
+      1. Version of the extension and the document. The value MUST be a string in the format `major.minor.patch` as defined in [[!SEMVER|Semantic Versioning 2.0.0]].
+      2. If the extension was updated, the document MUST include a changelog. The changelog MUST contain a summary of the changes between subsequent versions.
+      2. A description of the extension, including the business case addressed by the extension and the business value gained by extending the Pathfinder Data Model.
+          2.1 This includes methodological alignment of the extension, especially covering the alignment with the Pathfinder Framework if applicable.
+      4. A public [[!RFC3986|URL]] to the [[#typed-extension-definition]].
+      5. A license declaration covering the documentation, the extension schema file, and their use.
+      6. Electronic contact information on how to get in touch with the authors and maintainers of the extension.
+    
+    
+    ## Token & Data Type: <dfn>ProcessedClaim</dfn> ## {#dt-processed-claim}
+
+    The verification platform or VVB creates a ProcessedClaim at the beginning of verification to track the verification process
+    and support continous verification. A ProcessedClaim is paired with an ImpactClaim and also contains
+    a collection of CheckpointResults where results for each checkpoint verified are recorded.
+
+    ### Base Token and Behaviors ### {#dt-processed-claim-base-token}
+
+    The ProcessedClaim has a Non-Fungible base with the following behaviors:
+
+    1. Indivisible (~d): The ProcessedClaim is indivisible, meaning it cannot be divided into multiple ImpactClaim tokens.
+    2. Non-transferable (~t): The ProcessedClaim is non-transferable, meaning it cannot be transferred to another parent Accountable Impact Organization/AIM.
+    3. Delegable (g): The ProcessedClaim can have certain behaviors delegated to another party.
+    4. <dfn>CredibleClaimControl</dfn> (PCC): The ProcessedClaim also has this Behavior-Group with a set of behaviors a bundled and 
+        configured to control the processing of the ImpactClaim.
+        - Mintable (m): The ProcessedClaim can be minted, i.e., created, by the parent ActivityImpactModule.
+        - Roles (r): The ProcessedClaim can have roles assigned to it, i.e., the Issuing Registry. that has the ability to burn or retire the claim after a credit has been issued.
+        - Burnable (b): The ProcessedClaim can be burned, i.e., retired, by the VVB or Verifier.
+
+    TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>~d,~t,g,CCC</i>}]
+
+    ### Properties ### {#dt-processed-claim-properties}
+
+    <figure id="processed-claim-properties-table" dfn-type="element-attr" dfn-for="ProcessedClaim">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>id : 
+            <td>String
+            <td>M
+            <td>Unique identifier for the ProcessedClaim, See [[#dt-id]] for details.
+          <tr>
+            <td><dfn>verificationContractId</dfn> : 
+            <td>String
+            <td>M
+            <td>The unique identifier for the parent VerificationContract, See [[#dt-id]] for details.
+          <tr>
+            <td><dfn>impactClaimId</dfn> : 
+            <td>String
+            <td>M
+            <td>The unique identifier for the paired ImpactClaim, See [[#dt-id]] for details.
+          <tr>
+            <td><dfn>creditId</dfn> : 
+            <td>String
+            <td>O
+            <td>The unique identifier for the credit, once issued, associated with the ProcessedClaim, See [[#dt-id]] for details.
+          <tr>
+            <td>unit : {{Unit}}
+            <td>String
+            <td>M
+            <td>The unit of measurement/analysis of the project. See Data Type [[#dt-unit]] for further information.
+          <tr>
+            <td>quantity : 
+            <td>Decimal
+            <td>M
+            <td>The verified benefit quantity after the verification period is complete.
+           <tr>
+            <td>co-benefits : [=Co-benefit=]
+            <td>Object
+            <td>M
+            <td>A collection of co-benefits that should be attributed to the credit issued. See [[#dt-co-benefit]] for details.
+          <tr>
+            <td><dfn>checkpointResults</dfn> : [=CheckpointResults=]
+            <td>Object
+            <td>M
+            <td>A collection of checkpoint results for the ProcessedClaim. See [[#dt-checkpoint-result]] for details.
+          <tr>
+            <td>mrvExtensions : [=MrvExtension=]
+            <td>Object
+            <td>O
+            <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See [[#dt-mrv-extension]] for details.
+          <tr>
+            <td><dfn>proposedAsset</dfn> : 
+            <td>Object
+            <td>M
+            <td>Since a processed claim is generic, it can contain the proposed asset type with values to the 
+                issuing registry to use as a consideration. For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.
+                This allows the processed claim to be used as the source for any type of asset or credit.
+        </table>
+      <figcaption>Properties of data type ProcessedClaim</figcaption>
+      </figure>
+
+    ## Data Type: <dfn>CheckpointResult</dfn> ## {#dt-checkpoint-result}
+
+    A CheckpointResult is summary and verified links to verification results for the corresponding ImpactClaimCheckpoint.
+    The CheckpointResult enables continous verification of the project and the ability to provide feedback to the developer
+    during the verification process.
+
+    ### Properties ### {#dt-checkpoint-results-properties}
+
+    <figure id="checkpoint-result-properties-table" dfn-type="element-attr" dfn-for="CheckpointResult">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td>id : 
+            <td>String
+            <td>M
+            <td>Unique identifier for the CheckpointResult, See [[#dt-id]] for details.
+          <tr>
+            <td>checkpointId : 
+            <td>String
+            <td>M
+            <td>The unique identifier for the corresponding ImpactClaimCheckpoint being processed, See [[#dt-id]] for details.
+          <tr>
+            <td><dfn>verifiedLinkToProcessDataResult</dfn> : [=VerifiedLink=]
+            <td>Object
+            <td>M
+            <td>A VerifiedLink object that contain the processed data findings from verification. See [[#dt-verified-link]] for details.
+          <tr>
+            <td><dfn>dateRange</dfn> : [=DateRange=]
+            <td>DateRange
+            <td>M
+            <td>The date range for the checkpoint being processed. See [[#dt-date-range]] for details.
+          <tr>
+            <td>efBefore : 
+            <td>String
+            <td>O
+            <td>Verified environmental factor before activity - i.e., total emissions = 3 tCO2e
+          <tr>
+            <td>efAfter : 
+            <td>String
+            <td>O
+            <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e.
+           <tr>
+            <td>mrvExtensions : [=MrvExtension=]
+            <td>Object
+            <td>O
+            <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See [[#dt-mrv-extension]] for details.
+      </table>
+    <figcaption>Properties of data type CheckpointResult</figcaption>
+    </figure>
+
+  ## Contract & Data Type: <dfn>VerificationContract</dfn> ## {#dt-verification-contract}
+  
+  A VerificationContract is a contract between a developer, verifier and registry that defines the 
+  terms of the verification process. Shared properties of all the data entities in the validation and verification
+  process are listed here, like the Quality Standard being used, the MRV Requirements, Claim Period, audit 
+  schedule, etc. The VerificationContract is the indirect parent object for all the other data entities in the
+  origination process.
+
+  ### Properties ### {#dt-verification-contract-properties}
+
+  <figure id="verification-contract-properties-table" dfn-type="element-attr" dfn-for="VerificationContract">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : 
+          <td>String
+          <td>M
+          <td>Unique identifier for the VerificationContract, See [[#dt-id]] for details.
+        <tr>
+          <td>name : 
+          <td>String
+          <td>M
+          <td>The name of the Verification Contract, usually the name of the project - name of the issuing registry.
+        <tr>
+          <td>description : 
+          <td>String
+          <td>M
+          <td>A description of the Verification Contract and where special instructions are provided.
+        <tr>
+          <td><dfn>signatories</dfn> : [=Signatory=]
+          <td>Array
+          <td>M
+          <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and Verification platform are examples of signatories. See [[#dt-signatory]] for details.
+        <tr>
+          <td><dfn>qualityStandard</dfn> : [=QualityStandard=]
+          <td>Object
+          <td>M
+          <td>The quality standard being used for the verification. See [[#dt-quality-standard]] for details.
+        <tr>
+          <td><dfn>mrvRequirements</dfn> : [=MRVRequirements=]
+          <td>Object
+          <td>M
+          <td>The MRV requirements being used for the verification. See [[#dt-mrv-requirements]] for details.
+        <tr>
+          <td><dfn>agreementDate</dfn> : [=Date=]
+          <td>Date
+          <td>M
+          <td>The date the agreement was signed. See [[#dt-date]] for details.
+        <tr>
+          <td><dfn>estimatedAnnualCredits</dfn> : 
+          <td>String
+          <td>O
+          <td>The quantity of credits that are expected to be generated annually.
+        <tr>
+          <td>aimId : [=Id=]
+          <td>String
+          <td>M
+          <td>The unique identifier for the corresponding AIM. See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>AuditSchedule</dfn> : {{AuditSchedule}}
+          <td>String
+          <td>M
+          <td>The string representation of the audit schedule, see [[#dt-audit-schedule]] for details.
+        <tr>
+          <td><dfn>Audits</dfn> : [=Audits=]
+          <td>Object
+          <td>M
+          <td>The audits that are required for the verification contract. See [[#dt-audits]] for details.       
+      </table>
+    <figcaption>Properties of data type VerificationContract</figcaption>
+    </figure>
+
+  ## Token & Data Type: <dfn>CRU</dfn> ## {#dt-cru}
+
+  The Carbon Removal or Reduction Unit, is a digital asset or token that services as a credit
+  represents 1 metric tonne of CO2e. This is a non-financial, un-regulated, intangible digital asset that behavies
+  like a commodity and is ready for distribution.
+
+  This is one example of a specific type of token or credit that can represent the ecological or 
+  environmental benefits that can be traded and retired to net down effective emissions for the beneficiary.
+
+  Other types of credits can be created, and reuse all of the other data entities for the generic
+  validation and verification process.
+
+  ### Base Token and Behaviors ### {#dt-cru-base-token}
+
+    The CRU has a Non-Fungible base with the following behaviors:
+
+    1. Divisible (d): The CRU can be divided into multiple CRU tokens, up to 4 decimal places.
+    2. Transferable (t): The CRU can be transferred from one party to another.
+    3. Encumberable (e): The CRU can be encumbered by a third party, typically by a listing agent for distribution.
+    4. <dfn>Revokable</dfn> (v): The CRU can be revoked by the issuer, typically if the credit is found to be invalid, i.e., a carbon reversal event.
+    5. Delegable (g): The CRU can be delegated to a third party, typically by a listing agent in distribution scenarios.
+    6. <dfn>Offsetable Supply Control</dfn> (OSC): The CRU has a Behavior-Group for offseting and supply control with the following behaviors:
+        - Mintable (m): The CRU can be minted by the issuer.
+        - Roles (r): The CRU has a role for the issuer to be able to mint/issue and approve retirements.
+        - Burnable (b): The CRU can be burned or retired by the owner, or by delegation, but requires approval by the issuer and optionaly can include other metadata like reporting period and jurisdiction.
+
+    TTF base formula with behaviors is: [&tau;<sub>N</sub>{<i>d,t,e,v,g,</i>}]
+
+  ### Properties ### {#dt-cru-properties}
+
+  <figure id="cru-properties-table" dfn-type="element-attr" dfn-for="CRU">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=Id=]
+          <td>String
+          <td>M
+          <td>Unique identifier for the CRU, See [[#dt-id]] for details.
+        <tr>
+          <td>quantity : [=Decimal=]
+          <td>Decimal 
+          <td>M
+          <td>A quantity that is fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
+        <tr>
+          <td>unit : {{Unit}}
+          <td>String
+          <td>M
+          <td>The string representation of the unit of measure, see [[#dt-unit]] for details.
+        <tr>
+          <td>ownerId : [=Id=]
+          <td>string
+          <td>M
+          <td>The id for the owner of the CRU, See [[#dt-id]] for details.
+        <tr>
+          <td>listingAgentid : 
+          <td>String
+          <td>M
+          <td>The unique identifier for the listing agent, See [[#dt-id]] for details. This could be a marketplace or exchange that has an encumberance on the CRU and can split or transfer their representations of the 
+              CRU to other parties on their system of record.
+        <tr>
+          <td><dfn>coreCarbonPrinciples</dfn> : [=CoreCarbonPrinciples=]
+          <td>Object
+          <td>M
+          <td>The CoreCarbonPrinciples for this CRU, see [[#dt-core-carbon-principles]] for details.
+        <tr>
+          <td><dfn>climateLabels</dfn> : [=ClimateLabel=]
+          <td>Array
+          <td>O
+          <td>A collection of optional climate labels, see [[#dt-climate-label]] for details.
+        <tr>
+          <td><dfn>status</dfn> : {{CreditStatus}}
+          <td>Status
+          <td>M
+          <td>The status of the CRU, see [[#dt-credit-status]] for details.
+        <tr>
+          <td><dfn>referencedCredit</dfn> : [=ReferencedCredit=]
+          <td>Object
+          <td>O
+          <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+              See [[#dt-referenced-credit]] for details.
+        <tr>
+          <td>appliedToId : [=Id=]
+          <td>String
+          <td>O
+          <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See [[#dt-id]] for details.
+        <tr>
+          <td>processedClaimId : [=Id=]
+          <td>String
+          <td>M
+          <td>The id for the ProcessedClaim that the CRU is based on, see [[#dt-id]] for details.
+        <tr>
+          <td>issuerId : [=Id=]
+          <td>String
+          <td>M
+          <td>The id for the Issuing Registry, see [[#dt-id]] for details.
+      </table>
+    <figcaption>Properties of data type CRU</figcaption>
+    </figure>
+
+  ## Data Type: <dfn>CoreCarbonPrinciples</dfn> ## {#dt-core-carbon-principles}
+
+  The CoreCarbonPrinciples are a set of properties that are used to describe the carbon removal or reduction that follows the IC-VCM INSERTLINKHERE.
+
+  ### Properties ### {#dt-core-carbon-principles-properties}
+
+  <figure id="core-carbon-principles-properties-table" dfn-type="element-attr" dfn-for="CoreCarbonPrinciples">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>assetId : [=Id=]
+          <td>String
+          <td>O
+          <td>Typically the issuing registry's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+        <tr>
+          <td>issuanceDate : [=Date=]
+          <td>Date
+          <td>M
+          <td>The date of credit issuance, see [[#dt-date]] for details.
+        <tr>
+          <td>vintage : 
+          <td>String
+          <td>M
+          <td>The vintage year of the credit for the project.
+        <tr>
+          <td><dfn>generationType</dfn> : {{GenerationType}}
+          <td>String
+          <td>M
+          <td>The string representation for how the credit was generated, see [[#dt-generation-type]] for details.
+        <tr>
+          <td><dfn>verificationStandard</dfn> : {{Standard}}
+          <td>String
+          <td>M
+          <td>The string representation of the verification standard, see [[#dt-standard]] for details.
+        <tr>
+          <td><dfn>mitigationActivity</dfn> : [=MitigationActivity=]
+          <td>String
+          <td>M
+          <td>The string representation of the MitigationActivity, see [[#dt-mitigation-activity]] for details.
+        <tr>
+          <td><dfn>durability</dfn> : [=Durability=]
+          <td>Object
+          <td>M
+          <td>The Durability properties for the credit, see [[#dt-durability]] for details.
+        <tr>
+          <td><dfn>replacement</dfn> : [=Replacement=]
+          <td>Object
+          <td>O
+          <td>Present if the credit is a replacement credit, see [[#dt-replacement]] for details.
+        <tr>
+          <td><dfn>paCompliance</dfn> : [=PACompliance=]
+          <td>Object
+          <td>M
+          <td>The PACompliance properties for the credit, see [[#dt-pa-compliance]] for details.
+        <tr>
+          <td>quantifiedSDGImpacts : [=Co-benefit=]
+          <td>Array
+          <td>O
+          <td>An array of optional quantified impact cobenefits, see [[#dt-un-sdgs]] for details.
+        <tr>
+          <td>adaptionCoBenefits : {{UN-SDGs}}
+          <td>Array
+          <td>O
+          <td>An array of adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement, see [[#dt-un-sdgs]] for details.        
+      </table>
+    <figcaption>Properties of data type CoreCarbonPrinciples</figcaption>
+</figure>
+
+  ## Data Type: <dfn>Durability</dfn> ## {#dt-durability}
+
+  The Durability properties are used to describe the durability of the carbon removal or reduction, its expected permanence, and the expected duration of the carbon removal or reduction.
+  It includes the risk of reversal and how that risk is mitigated.
+
+  ### Properties ### {#dt-durability-properties}
+
+  <figure id="durability-properties-table" dfn-type="element-attr" dfn-for="Durability">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>storageType</dfn> : {{Storage}}
+          <td>String
+          <td>M
+          <td>The string representation of the Storage Type, see [[#dt-storage]] for details.
+        <tr>
+          <td>years : 
+          <td>Number
+          <td>M
+          <td>The length of time in years that the carbon removal or reduction is expected to last.
+        <tr>
+          <td><dfn>degradable</dfn> : [=Degradable=]
+          <td>Object
+          <td>M
+          <td>The degradable properties for the credit, see [[#dt-degradable]] for details.
+        <tr>
+          <td><dfn>reversalMitigation</dfn> : [=ReversalMitigation=]
+          <td>Object
+          <td>M
+          <td>The risk of reversal and how the risk is mitigated, see [[#dt-reversal-mitigation]] for details.
+      </table>
+    <figcaption>Properties of data type Durability</figcaption>
+    </figure>
+
+  ## Data Type: <dfn>Degradable</dfn> ## {#dt-degradable}
+
+  The Degradable properties are used to describe the degradation of the carbon removal or reduction.
+
+  ### Properties ### {#dt-degradable-properties}
+
+  <figure id="degradable-properties-table" dfn-type="element-attr" dfn-for="Degradable">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>percentage : 
+          <td>Number
+          <td>M
+          <td>The rate of degradation of the carbon removal or reduction, 0 = no degredation possible, 100 = all sequestered should be expected to be released
+        <tr>
+          <td>factor : 
+          <td>Number
+          <td>M
+          <td>Factor of years for degredation, 25 = .25 per year if linear or exponential starts at 25% of durability years.
+        <tr>
+          <td>degredationType : {{DegradationType}}
+          <td>String
+          <td>M
+          <td>A string representation of the degredation type, see [[#dt-degradation-type]] for details.
+      </table>
+    <figcaption>Properties of data type Degradable</figcaption>
+    </figure>
+
+## Data Type: <dfn>Replacement</dfn> ## {#dt-replacement}
+
+Replacement is used when a credit is replacing a revoked credit.
+
+### Properties ### {#dt-replacement-properties}
+
+  <figure id="replacement-properties-table" dfn-type="element-attr" dfn-for="Replacement">
+    <table class="data">
+      <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>replacesId</dfn> : 
+          <td>String
+          <td>M
+          <td>The Id of the revoked credit being replaced.
+        <tr>
+          <td><dfn>replacementDate</dfn> : [=Date=]
+          <td>Object
+          <td>M
+          <td>The date of the replacement.
+        <tr>
+          <td><dfn>notes</dfn> :
+          <td>String
+          <td>O
+          <td>Optional notes about the revokation and replacement
+      </table>
+    <figurecaption>Figure 1: <a>Replacement</a> Properties</figurecaption>
+  </figure>
+
+## Data Type: <dfn>Co-Benefit</dfn> ## {#dt-co-benefit}
+
+Co-benefits currently map to the UN SDGs and include a description for how the benefit applies as well as a rating placeholder.
+
+### Properties ### {#dt-co-benefit-properties}
+
+  <figure id="co-benefit-properties-table" dfn-type="element-attr" dfn-for="Co-Benefit">
+    <table class="data">
+      <thead>
+          <tr>
+            <th>Property
+            <th>Type
+            <th>Req
+            <th>Specification
+        <tbody>
+          <tr>
+            <td><dfn>un-sdg</dfn> : {{UN-SDGs}}
+            <td>String
+            <td>M
+            <td>The string representation of a UN SDG that the co-benefit applies to. See [[#dt-un-sdgs]] for details.
+          <tr>
+            <td><dfn>description</dfn> : [=Description=]
+            <td>String
+            <td>M
+            <td>A description of how the co-benefit applies to the project or activity.
+      </table>
+      <figcaption>Properties of data type Co-Benefit</figcaption>
+  </figure>
+
+  ## Data Type: <dfn>ReversalMitigation</dfn> ## {#dt-reversal-mitigation}
+
+  The ReversalMitigation properties are used to describe the risk of reversal and how the risk is mitigated.
+
+  ### Properties ### {#dt-reversal-mitigation-properties}
+
+  <figure id="reversal-mitigation-properties-table" dfn-type="element-attr" dfn-for="ReversalMitigation">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>reversalRisk : {{ReversalRisk}}
+          <td>String
+          <td>M
+          <td>The string representation of the reversal risk. See [[#dt-reversal-risk]] for details.
+        <tr>
+          <td>insuranceType : {{DurabilityInsuranceType}}
+          <td>String
+          <td>M
+          <td>A string representation of the insurance type, see [[#dt-durability-insurance-type]] for details.
+        <tr>
+          <td>insurancePolicyOwner : {{InsurancePolicyOwner}}
+          <td>String
+          <td>M
+          <td>A string representation of the insurance policy owner, see [[#dt-insurance-policy-owner]] for details.
+        <tr>
+          <td>insurancePolicyLink : [=VerifiedLink=]
+          <td>Object
+          <td>O
+          <td>Link to the insurance policy, see [[#dt-verified-link]] for details.
+      </table>
+    <figcaption>Properties of data type ReversalMitigation</figcaption>
+    </figure>
+
+## Data Type: <dfn>PACompliance</dfn> ## {#dt-pa-compliance}
+
+Details about a credit's Paris Agreement Compliance.
+
+### Properties ### {#dt-pa-compliance-properties}
+
+<figure id="pa-compliance-properties-table" dfn-type="element-attr" dfn-for="PACompliance">
+  <table class="data">
+    <thead>
+    <tr>
+      <th>Property
+      <th>Type
+      <th>Req
+      <th>Specification
+    <tbody>
+      <tr>
+        <td><dfn>correspondingAdjustment</dfn> : {{CorrespondingAdjustment}}
+        <td>String
+        <td>M
+        <td>The string status of the corresponding adjustment, see[[#dt-corresponding-adjustment]] for details.
+      <tr>
+        <td><dfn>letterOfApproval</dfn> : [=VerifiedLink=]
+        <td>Object
+        <td>O
+        <td>Optional verified link to the letter of approval. See [[#dt-verified-link]] for details.
+    </table>
+    <figurecaption>Figure 1: <a>PACompliance</a> Properties</figurecaption>
+  </figure>
+
+ ## Token & Data Type: <dfn>REC</dfn> ## {#dt-rec}
+
+  The Renewable Energy Credit token is a Fungible Token that represents the environmental benefits of a renewable energy project
+  and is exchangeable for evidencing the production of electricity. The primary unit of measure for I-REC(E)s is the megawatt hour (MWh), with below megawatt
+  hour resolution to the watt hour (Wh) as optional. Each unit of electricity is uniquely attributable
+  to the source generation using the same project and claims process that other assets like the CRU originate from.
+
+  This is one example of a specific type of token or credit that can represent the ecological or 
+  environmental benefits that can be traded and retired to net down effective emissions for the beneficiary.
+
+  ### Base Token and Behaviors ### {#dt-rec-base-token}
+
+    The REC has a Non-Fungible base with the following behaviors:
+
+    1. Divisible (d): The REC can be divided into multiple REC tokens, up to 6 decimal places.
+        - `1.000000` = 1MW
+        - `0.001000` = 1kW
+        - `0.000001` = 1W
+    2. Transferable (t): The REC can be transferred from one party to another.
+    3. Encumberable (e): The REC can be encumbered by a third party, typically by a listing agent for distribution.
+    4. Revokable (v): The REC can be revoked by the issuer, typically if the credit is found to be invalid, i.e., a carbon reversal event.
+    5. Delegable (g): The REC can be delegated to a third party, typically by a listing agent in distribution scenarios.
+    6. Offsetable Supply Control (OSC): The REC has a Behavior-Group for offseting and supply control with the following behaviors:
+        - Mintable (m): The REC can be minted by the issuer.
+        - Roles (r): The REC has a role for the issuer to be able to mint/issue and approve retirements.
+        - Burnable (b): The REC can be burned or retired by the owner, or by delegation, but requires approval by the issuer and optionaly can include other metadata like reporting period and jurisdiction.
+
+    TTF base formula with behaviors is: [&tau;<sub>F</sub>{<i>d,t,e,v,g,</i>}]
+
+  ### Properties ### {#dt-rec-properties}
+
+  <figure id="rec-properties-table" dfn-type="element-attr" dfn-for="REC">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=Id=]
+          <td>String
+          <td>M
+          <td>Unique identifier for the REC, See [[#dt-id]] for details.
+        <tr>
+          <td>type : {{RecType}}
+          <td>String
+          <td>M
+          <td>The string representation of the REC type, see [[#dt-rec-type]] for details.
+         <tr>
+          <td>validJurisdiction : [=String=]
+          <td>String
+          <td>O
+          <td>Optional jurisdiction where of the REC can be redeemed, i.e. US-Texas, multiples separated by a comma.
+        <tr>
+          <td>quantity : [=Decimal=]
+          <td>Decimal 
+          <td>M
+          <td>A quantity that is fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
+        <tr>
+          <td>unit : {{Unit}}
+          <td>String
+          <td>M
+          <td>The string representation of the unit of measure, see [[#dt-unit]] for details.
+        <tr>
+          <td>ownerId : [=Id=]
+          <td>string
+          <td>M
+          <td>The id for the owner of the REC, See [[#dt-id]] for details.
+        <tr>
+          <td>listingAgentid : 
+          <td>String
+          <td>M
+          <td>The unique identifier for the listing agent, See [[#dt-id]] for details. This could be a marketplace or exchange that has an encumberance on the REC and can split or transfer their representations of the 
+              REC to other parties on their system of record.
+        <tr>
+          <td><dfn>climateLabels</dfn> : [=ClimateLabel=]
+          <td>Array
+          <td>O
+          <td>A collection of optional climate labels, see [[#dt-climate-label]] for details.
+        <tr>
+          <td><dfn>status</dfn> : {{CreditStatus}}
+          <td>Status
+          <td>M
+          <td>The status of the REC, see [[#dt-credit-status]] for details.
+        <tr>
+          <td><dfn>referencedCredit</dfn> : [=ReferencedCredit=]
+          <td>Object
+          <td>O
+          <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+              See [[#dt-referenced-credit]] for details.
+        <tr>
+          <td>appliedToId : [=Id=]
+          <td>String
+          <td>O
+          <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See [[#dt-id]] for details.
+        <tr>
+          <td>processedClaimId : [=Id=]
+          <td>String
+          <td>M
+          <td>The id for the ProcessedClaim that the REC is based on, see [[#dt-id]] for details.
+        <tr>
+          <td>issuerId : [=Id=]
+          <td>String
+          <td>M
+          <td>The id for the Issuing Registry, see [[#dt-id]] for details.
+      </table>
+    <figcaption>Properties of data type REC</figcaption>
+    </figure>
+
+  ## Data Type: <dfn>ClimateLabel</dfn> ## {#dt-climate-label}
+
+  A ClimateLabel is a reference to an external data element that contains a climate label, typically set by the registry or methodology.
+
+  ### Properties ### {#dt-climate-label-properties}
+
+  <figure id="climate-label-properties-table" dfn-type="element-attr" dfn-for="ClimateLabel">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=String=]
+          <td>String 
+          <td>M
+          <td>Unique identifier for the ClimateLabel, See [[#dt-id]] for details.
+        <tr>
+          <td>name : [=String=]
+          <td>String
+          <td>M
+          <td>The name of the ClimateLabel.
+        <tr>
+          <td>description : [=String=]
+          <td>String
+          <td>M
+          <td>A description about how the label applies to the credit.
+      </table>
+    <figcaption>Properties of data type ClimateLabel</figcaption>
+  </figure>
+
+  ## Data Type: <dfn>VerifiedLink</dfn> ## {#dt-verified-link}
+
+  A VerifiedLink is a reference, URI or URL to an external data element along with a cryptographic
+  fingerprint of the external data so that its integrity can be checked by any party.
+
+  ### Properties ### {#dt-verifiedLink-properties}
+
+  <figure id="verified-link-properties-table" dfn-type="element-attr" dfn-for="VerifiedLink">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : 
+          <td>String
+          <td>M
+          <td>Unique identifier for the VerifiedLink, See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>uri</dfn> :
+          <td>String
+          <td>M
+          <td>The URI or URL of the external data element.
+        <tr>
+          <td>description : 
+          <td>String
+          <td>M
+          <td>A description of the link or data referenced.
+        <tr>
+          <td>hashProof
+          <td>String
+          <td>M
+          <td>The cryptographic hash of the external data element.
+        <tr>
+          <td><dfn>hashAlgorithm</dfn> : {{HashAlgorithm}}
+          <td>String
+          <td>M
+          <td>The cryptographic hash algorithm used to generate the hash. See [[#dt-hash-algorithm]] for details.
+      </table>
+    <figcaption>Properties of data type VerifiedLink</figcaption>
+    </figure>
+  
+   ## Data Type: <dfn>ReferencedCredit</dfn> ## {#dt-referenced-credit}
+
+  A ReferencedCredit is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+
+  ### Properties ### {#dt-referencedCredit-properties}
+
+  <figure id="referenced-credit-properties-table" dfn-type="element-attr" dfn-for="ReferencedCredit">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : 
+          <td>String
+          <td>M
+          <td>Unique identifier for the referenced credit, this can be a serial number or a master id on the external registry.
+      </table>
+    <figcaption>Properties of data type ReferencedCredit</figcaption>
+    </figure>
+
+  ## Data Type: <dfn>Audits</dfn> ## {#dt-audits}
+
+  Audits contain the audit schedule, date of last audit and the verified links to the audit reports for the verification contract.
+
+  ### Properties ### {#dt-audits-properties}
+
+  <figure id="audits-properties-table" dfn-type="element-attr" dfn-for="Audits">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>lastAuditDate : [=Date=]
+          <td>Date
+          <td>O
+          <td>Date of the audit, See [[#dt-date]] for details.
+        <tr>
+          <td>auditReports : [=VerifiedLink=]
+          <td>Array 
+          <td>M
+          <td>A collection of VerifiedLinks to audit reports for the verification contract, see [[#dt-verified-link]] .
+      </table>
+    <figcaption>Properties of data type Audits</figcaption>
+  </figure>
+
+## Data Type: <dfn>Signatory</dfn> ## {#dt-signatory}
+
+  A Signatory is a party that has signed a document or contract. The Signatory is a digital entity or identity in a 
+  specific role in the dMRV process.
+
+### Properties ### {#dt-signatory-properties}
+
+  <figure id="signatory-properties-table" dfn-type="element-attr" dfn-for="Signatory">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=Id=]
+          <td>String
+          <td>M
+          <td>Unique identifier for the signatory, See [[#dt-id]] for details.
+        <tr>
+          <td><dfn>name</dfn> : 
+          <td>String
+          <td>M
+          <td>The individual or organization name in the role.
+        <tr>
+          <td><dfn>description</dfn> : 
+          <td>String
+          <td>M
+          <td>A description of the signatory, notes or comments.
+        <tr>
+          <td><dfn>signatoryRole</dfn> : {{SignatoryRole}}
+          <td>String
+          <td>M
+          <td>The role of the signatory in the dMRV process.
+        <tr>
+          <td><dfn>signature</dfn> : [=DigitalSignature=]
+          <td>Object
+          <td>M
+          <td>The digital signature of the signatory.
+      </table>
+    <figcaption>Properties of data type Signatory</figcaption>
+    </figure>
+
+
+Data Type: DigitalSignature
+## Data Type: <dfn>DigitalSignature</dfn> ## {#dt-digital-signature}
+
+  A Signature is a digital signature of a document or contract. The Signature is a digital entity or identity in a 
+  specific role in the dMRV process. Support for JWT and Verifiable Credentials is planned.
+
+### Properties ### {#dt-digital-signature-properties}
+
+A Signature contains the following properties:
+
+  <figure id="digital-signature-properties-table" dfn-type="element-attr" dfn-for="DigitalSignature">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>type : {{SignatureType}}
+          <td>String
+          <td>M
+          <td>String representation of the enum SignatureType, see [[#dt-signature-type]] for details.
+        <tr>
+          <td><dfn>jws</dfn> : [=String=]
+          <td>String
+          <td>O
+          <td>If using a JWS, this is the serialized JWS.
+        <tr>
+          <td><dfn>credential</dfn> : [=Credential=]
+          <td>Object
+          <td>O
+          <td>If using a Verifiable Credential, this is the VC.
+      </table>
+    <figcaption>Properties of data type Signature</figcaption>
+    </figure>
+
+
+Data Type: Credential (data format, type (JWS, Verifiable Credential))
+## Data Type: <dfn>Credential</dfn> ## {#dt-credential}
+
+  A Credential is a digital credential that is an emerging W3C standard for Decentralized Identifiers (DIDs) and Verifiable Credentials (VCs). As implementations of the standard emerge, 
+  the dMRV specification will be updated to reflect the standard. Implementations can use the current format and type of the credential as a placeholder until the standard is finalized.
+
+  It is expected that the Credential will be a JSON Web Signature (JWS) or a Verifiable Credential (VC) as defined by the W3C Verifiable Credentials Data Model 1.0 specification and can 
+  be used to assign a DID to a party, device, source, etc. in the dMRV process.  These will be used for attestations, verifications, and signatures in the dMRV process.
+
+  See [W3C Verifiable Credentials Implementation Guidelines 1.0](https://w3c.github.io/vc-imp-guide/) for more information.
+
+### Properties ### {#dt-credential-properties}
+
+  A Credential contains the following properties:
+
+  <figure id="credential-properties-table" dfn-type="element-attr" dfn-for="Credential">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+     <tr>
+          <td><dfn>context</dfn> : [=String=]
+          <td>Array
+          <td>M
+          <td>The context of the credential, an array of strings.
+        <tr>
+          <td>id : [=String=]
+          <td>String
+          <td>M
+          <td>The id of the credential, a string.
+        <tr>
+          <td>type : {{CredentialType}}
+          <td>Array
+          <td>M
+          <td>The list of credential types, an array of strings.
+        <tr>
+          <td>issuer : [=String=]
+          <td>String
+          <td>M
+          <td>The issuer of the credential, a string.
+        <tr>
+          <td>issuanceDate : [=Date=]
+          <td>String
+          <td>M
+          <td>The issuance date of the credential, a string.
+        <tr>
+          <td>credentialSubject : [=CredentialSubject=]
+          <td>Object
+          <td>M
+          <td>The subject of the credential, an object.
+        <tr>
+          <td>proof : [=Proof=]
+          <td>Object
+          <td>M
+          <td>The proof of the credential, an object.
+      </table>
+    <figcaption>Properties of data type Credential</figcaption>
+    </figure>
+
+## Data Type: <dfn>CredentialSubject</dfn> ## {#dt-credential-subject}
+
+  A CredentialSubject is the subject of a Credential.
+
+### Properties ### {#dt-credential-subject-properties}
+
+  A CredentialSubject contains the following properties:
+
+  <figure id="credential-subject-properties-table" dfn-type="element-attr" dfn-for="CredentialSubject">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=String=]
+          <td>String
+          <td>O
+          <td>Unique identifier for the credential subject, usually assigned if referencing another DiD, but an optional property.
+        <tr>
+          <td>property : [=String=]
+          <td>String
+          <td>M
+          <td>The subject may contain multiple properties, these can be presented as a Json string in a single property or an array of properties.
+      </table>
+    <figcaption>Properties of data type CredentialSubject</figcaption>
+    </figure>
+
+## Data Type: <dfn>Proof</dfn> ## {#dt-proof}
+
+  A Proof is a digital proof of a Credential.
+
+### Properties ### {#dt-proof-properties}
+
+  A Proof contains the following properties:
+  
+  <figure id="proof-properties-table" dfn-type="element-attr" dfn-for="Proof">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>type : {{ProofType}}
+          <td>String
+          <td>M
+          <td>String representation of the enum ProofType, see [[#dt-proof-type]] for details.
+        <tr>
+          <td>created : [=Date=]
+          <td>String
+          <td>M
+          <td>The creation date of the proof, a string.
+        <tr>
+          <td>proofPurpose : [=String=]
+          <td>String
+          <td>M
+          <td>The purpose of the proof, a string.
+        <tr>
+          <td>verificationMethod : [=String=]
+          <td>String
+          <td>M
+          <td>The verification method of the proof, a string.
+        <tr>
+          <td>challenge : [=String=]
+          <td>String
+          <td>O
+          <td>Optional for Presentations for replay attacks, the challenge of the proof, a string.
+        <tr>
+          <td>domain : [=String=]
+          <td>String
+          <td>O
+          <td>Optional for Presentations for replay attacks, the domain of the proof, a string.
+        <tr>
+          <td>jws : [=String=]
+          <td>String
+          <td>M
+          <td>The JSON Web Signature of the proof, a string.
+      </table>
+    <figcaption>Properties of data type Proof</figcaption>
+    </figure>
+
+
+## Data Type: <dfn>VerifiablePresentation</dfn> ## {#dt-verifiable-presentation}
+
+  A VerifiablePresentation is a digital presentation of a Verifiable Credential or Digital Signature that is linked to a DID or Signatory.
+
+### Properties ### {#dt-verifiable-presentation-properties}
+
+  A VerifiablePresentation contains the following properties:
+
+  <figure id="verifiable-presentation-properties-table" dfn-type="element-attr" dfn-for="VerifiablePresentation">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>id : [=String=]
+          <td>String
+          <td>M
+          <td>The id of the presentation, a string.
+        <tr>
+          <td>type : {{SignatureType}}
+          <td>String
+          <td>M
+          <td>The type of the presentation, a string.
+        <tr>
+          <td>holder : [=String=]
+          <td>String
+          <td>M
+          <td>The holder of the presentation, a string.
+        <tr>
+          <td>credentials : [=Credential=]
+          <td>Array
+          <td>M
+          <td>The credentials of the presentation, an array of objects.
+        <tr>
+          <td>proof : [=Proof=]
+          <td>Object
+          <td>M
+          <td>The proof of the presentation, an object.
+      </table>
+    <figcaption>Properties of data type VerifiablePresentation</figcaption>
+    </figure>
+
+## Data Type: <dfn>Attestation</dfn> ## {#dt-attestation}
+
+  An Attestation is a digital attestation of a Verifiable Credential or Digital Signature that is linked to a DID or Signatory.
+
+### Properties ### {#dt-attestation-properties}
+
+  An Attestation contains the following properties:
+
+  <figure id="attestation-properties-table" dfn-type="element-attr" dfn-for="Attestation">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td>type : {{AttestationType}}
+          <td>String
+          <td>M
+          <td>The type of the attestation, a string.
+        <tr>
+          <td>proof_type : {{ProofType}}
+          <td>String
+          <td>M
+          <td>The type of the proof, a string.
+        <tr>
+          <td>attestor : [=String=]
+          <td>String
+          <td>M
+          <td>The attestor of the attestation, a string.
+        <tr>
+          <td>signature : [=DigitalSignature=]
+          <td>Object
+          <td>M
+          <td>The signature of the attestation, an object.
+      </table>
+    <figcaption>Properties of data type Attestation</figcaption>
+    </figure>
+
+## Data Type: <dfn>MitigationActivity</dfn> ## {#dt-mitigation-activity}
+
+The combination structure of the CCP MitigationActivity attribute.
+
+### Properties ### {#dt-mitigation-activity-properties}
+
+<figure id="mitigation-activity-properties-table" dfn-type="element-attr" dfn-for="MitigationActivity">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td><dfn>carbonCategory</dfn> : {{CarbonCategory}}
+        <td>String
+        <td>M
+        <td>The activity of the project, see [[#dt-carbon-category]] for details.
+      <tr>
+        <td><dfn>method</dfn> : {{Method}}
+        <td>String
+        <td>M
+        <td>The method used by the project for its activities, see [[#dt-method]] for details.
+    </table>
+  <figcaption>Properties of data type MitigationActivity</figcaption>
+  </figure>
+
+## Data Type: <dfn>GeographicLocation</dfn> ## {#dt-geographic-location}
+
+The GeographicLocation is a data type that can represent a GNSS/GPS point location for projects like a facility or building
+and or a geographic area, like a land project using a polygon represented as a string or file. *Either the longitude and latitude or
+the string or file for the area must have a value.
+
+### Properties ### {#dt-geographic-location-properties}
+
+<figure id="geographic-location-properties-table" dfn-type="element-attr" dfn-for="GeographicLocation">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>id : 
+        <td>String
+        <td>M
+        <td>Unique identifier for the GNSS, See [[#dt-id]] for details.
+      <tr>
+        <td><dfn>latitude</dfn> : 
+        <td>Decimal
+        <td>O*
+        <td>The latitude of the location using Decimal Degrees.
+      <tr>
+        <td><dfn>longitude</dfn> :
+        <td>Decimal
+        <td>O*
+        <td>The longitude of the location using Decimal Degrees.
+      <tr>
+        <td><dfn>geoJsonOrKml</dfn> :
+        <td>String
+        <td>O*
+        <td>The geoJson or KML as a minimized string of the geographic area.
+      <tr>
+        <td><dfn>geographicLocationFile</dfn> : [=VerifiedLink=]
+        <td>Object
+        <td>O*
+        <td>The geographic location file, Geojson, KML, etc., for larger geographic data sets, see [[#dt-verified-link]] for details.
+  </table>
+<figcaption>Properties of data type GeographicLocation</figcaption>
+</figure>
+
+
+## Data Type <dfn>QualityStandard</dfn> ## {#dt-quality-standard}
+
+The QualityStandard is a set of properties that identify the accredited standard, a methodology and any versioning information for the validation and verification process.
+
+### Properties ### {#dt-quality-standard-properties}
+
+<figure id="quality-standard-properties-table" dfn-type="element-attr" dfn-for="QualityStandard">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>name : 
+        <td>String
+        <td>M
+        <td>Name of the quality standard, methodology or protocol, can include version information in the name.
+      <tr>
+        <td>description : 
+        <td>String
+        <td>O
+        <td>Description of the quality standard, can include differentiating information related to the project implementation.
+      <tr>
+        <td>standard : {{Standard}}
+        <td>String
+        <td>M
+        <td>The standard used for the quality standard. See [[#dt-standard]] for details.
+      <tr>
+        <td>methdologyAndTools : {{MethodologyAndTool}}
+        <td>Array
+        <td>M
+        <td>A list of the methodology and any tools used for the quality standard. See [[#dt-methodology-and-tool]] for details.
+      <tr>
+        <td>version :
+        <td>String
+        <td>O
+        <td>The version of the quality standard, methodology or protocol.
+      <tr>
+        <td>co-benefits : [=Co-Benefit=]
+        <td>Object
+        <td>O
+        <td>The co-benefits of the quality standard. See [[#dt-co-benefit]] for details.
+      <tr>
+        <td>standardLink : [=VerifiedLink=]
+        <td>Object
+        <td>M
+        <td>The VerifiedLink to the standard. See [[#dt-verified-link]] for details.
+  </table>
+<figcaption>Properties of data type QualityStandard</figcaption>
+</figure>
+
+## Data Type <dfn>MRVRequirements</dfn> ## {#dt-mrv-requirements}
+
+The MRVRequirements is a set of properties that identify the measurement specification, the precision of the measurement and the link to 
+the specification. 
+
+### Properties ### {#dt-mrv-requirements-properties}
+
+<figure id="mrv-requirements-properties-table" dfn-type="element-attr" dfn-for="MRVRequirements">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>MeasurementSpecification : {{MeasurementSpecification}} 
+        <td>String
+        <td>M
+        <td>A string representation of the measurement specification, see [[#dt-measurement-specification]] for details.
+      <tr>
+        <td>specificationLink : [=VerifiedLink=]
+        <td>Object
+        <td>M
+        <td>The VerifiedLink to the specification. See [[#dt-verified-link]] for details.
+      <tr>
+        <td>precision : [=PrecisionMix=]
+        <td>Object
+        <td>M
+        <td>The precision of the measurement. See [[#dt-precision-mix]] for details.
+      <tr>
+        <td>claimPeriod : {{ClaimPeriod}}
+        <td>String
+        <td>M
+        <td>The string representation of claim period for measurement and reporting. See [[#dt-claim-period]] for details.
+  </table>
+<figcaption>Properties of data type MRVRequirements</figcaption>
+</figure>
+
+## Data Type: <dfn>PrecisionMix</dfn> ## {#dt-precision-mix}
+
+The mix of precision, by percentage, of the measurement specification used for the project. The sum of all the mixes <b>must</b> be 100 for 100%.
+
+### Properties ### {#dt-precision-mix-properties}
+
+<figure id="precision-mix-properties-table" dfn-type="element-attr" dfn-for="PrecisionMix">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Property
+        <th>Type
+        <th>Req
+        <th>Specification
+    <tbody>
+      <tr>
+        <td>low : 
+        <td>Decimal
+        <td>M
+        <td>The percentage of estimated or factored precision for the project.
+      <tr>
+        <td>medium : 
+        <td>Decimal
+        <td>M
+        <td>The percentage of indirect high quality precision for the project.
+      <tr>
+        <td>high : 
+        <td>Decimal
+        <td>M
+        <td>The percentage of direct highly accurate measurements for the project, i.e., from sensors. 
+  </table>
+  <figcaption>Properties of data type PrecisionMix</figcaption>
+  </figure>
+
+## Data Type: <dfn>DateRange</dfn> ## {#dt-date-range}
+
+A date range contains a start and end date, with optional timestamps for precision.
+
+### Properties ### {#dt-date-range-properties}
+
+<figure id="date-range-properties-table" dfn-type="element-attr" dfn-for="DateRange">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>start</dfn> : [=DatePoint=]
+          <td>DatePoint
+          <td>M
+          <td>The start date of the range. 
+        <tr>
+          <td><dfn>end</dfn> : [=DatePoint=]
+          <td>DatePoint
+          <td>M
+          <td>The end date of the range. 
+  </table>
+  <figcaption>Properties of the <a>DateRange</a> data type.</figcaption>
+  </figure>
+
+## Data Type: <dfn>DatePoint</dfn> ## {#dt-date-point}
+
+A DatePoint combines a date with an optional UTC Timestamp for precision if needed.
+
+### Properties ### {#dt-date-point-properties}
+
+<figure id="date-point-properties-table" dfn-type="element-attr" dfn-for="DatePoint">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>date</dfn> : [=Date=]
+          <td>Date
+          <td>M
+          <td>The date of the point. See [[#dt-date]] for details.
+        <tr>
+          <td><dfn>timestamp</dfn> : [=Timestamp=]
+          <td>Timestamp
+          <td>O
+          <td>The UTC timestamp of the point. 
+  </table>
+  <figcaption>Properties of the <a>DatePoint</a> data type.</figcaption>
+  </figure>
+
+## Data Type: <dfn>Date</dfn> ## {#dt-date}
+
+Represents a date with discrete values for month, day and year.
+
+### Properties ### {#dt-date-properties}
+
+<figure id="date-properties-table" dfn-type="element-attr" dfn-for="Date">
+  <table class="data">
+    <thead>
+        <tr>
+          <th>Property
+          <th>Type
+          <th>Req
+          <th>Specification
+      <tbody>
+        <tr>
+          <td><dfn>dateTime</dfn> : 
+          <td>DateTime
+          <td>O
+          <td>The UTC date time, often used as DateTimeOffset, depending on the platform. 
+        <tr>
+          <td><dfn>dateString</dfn> :
+          <td>String
+          <td>M
+          <td>Can be a simple date string, i.e. "2023-01-01".
+    </table>
+    <figcaption>Properties of data type Date</figcaption>
+    </figure>
+
+  ## Data Type: <dfn enum>DegradationType</dfn> ## {#dt-degradation-type}
+
+  Does the sequestration degrade over time?
+
+  <dl dfn-type="enum-value" dfn-for="DegradationType">
+
+  : <dfn>NOT_APPLICABLE</dfn>
+  :: the activity claim is not applicable to degradation.
+
+  : <dfn>LINEAR</dfn>
+  :: for activity claim is linear degradation
+
+  : <dfn>EXPONENTIAL</dfn>
+  :: for activity claim is exponential degradation
+
+  </dl>
+
+  ### JSON Representation ### {#dt-degradation-type-json}
+
+    Each DegredationType MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>ReversalRisk</dfn> ## {#dt-reversal-risk}
+
+  Carbon sequestration reversal risk.
+
+  <dl dfn-type="enum-value" dfn-for="ReversalRisk">
+
+  : <dfn>ZERO</dfn>
+  :: GHG reservoirs are subject to zero risk if the form of carbon storage is such that stored CO2e cannot conceivably be released into the atmosphere. This also includes activity types with no storage, and thus no risk of reversal, e.g., Enhanced weathering of minerals, mineralisation, renewable energy, other activities leading to lower demand for fossil fuel.
+
+  : <dfn>LOW</dfn>
+  :: GHG reservoirs might be subject to low risk of reversal if the characteristics of storage reservoirs (e.g., the geological formation in which carbon is to be stored,in the case of carbon capture and storage) and monitoring requirements virtually eliminate risk, e.g. Carbon capture and storage in geological formations, direct air capture and storage.
+
+  : <dfn>MATERIAL</dfn>
+  :: GHG reservoirs might be subject to significant reversal risks if: risks of reversal are exogenous and/or unavoidable (e.g., extreme weather events, invasive pest outbreaks, and wildfires); the GHG reservoir is subject to natural disturbance and natural fluxes in carbon inventories; reversal events may or can be expected to occur over a specified time horizon (100 years); a mitigation activity proponent could have economic interests in intentionally causing a reversal (for example cutting down a forest for timber or changing land use to agriculture), e.g. Improved forest management, afforestation/reforestation, enhanced soil organic carbon sequestration, Avoided deforestation, sequestration via harvested wood products (for example buildings)
+
+  </dl>
+
+  ### JSON Representation ### {#dt-reversal-risk-json}
+
+    Each ReversalRisk MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>DurabilityInsuranceType</dfn> ## {#dt-durability-insurance-type}
+
+  Types of durability insurance for carbon removal credits.
+
+  <dl dfn-type="enum-value" dfn-for="DurabilityInsuranceType">
+
+  : <dfn>BUFFER_POOL</dfn>
+  :: an Accountable Impact Organization or insurance product can set aside credits into a pool for risk mitigation. If needed issued credits can be revoked and replaced by credits from the pool.
+
+  : <dfn>REFUND</dfn>
+  :: purchase price of the credit is refunded to the buyer and the credit is revoked.
+
+  </dl>
+
+  ### JSON Representation ### {#dt-durability-insurance-type-json}
+
+    Each DurabilityInsuranceType MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>InsurancePolicyOwner</dfn> ## {#dt-insurance-policy-owner}
+
+  The owner of the durability insurance policy.
+
+  <dl dfn-type="enum-value" dfn-for="InsurancePolicyOwner">
+
+  : <dfn>ACCOUNTABLE_IMPACT_ORGANIZATION</dfn>
+  :: the Accountable Impact Organization is the owner of the insurance policy.
+
+  : <dfn>ISSUING_REGISTRY</dfn>
+  :: the issuing registry is the owner of the insurance policy.
+
+  : <dfn>RETIRER</dfn>
+  :: the retirer is the owner of the insurance policy.
+
+  : <dfn>CUSTODIAN</dfn>
+  :: the custodian is the owner of the insurance policy.
+
+  </dl>
+
+  ### JSON Representation ### {#dt-insurance-policy-owner-json}
+
+  Each InsurancePolicyOwner MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>MrvExtensionContext</dfn> ## {#dt-mrv-extension-type}
+
+  An MRV Extension can be context specific and attach to the appropriate data type. Because there can be many MRV Extensions defined for a Quality Standard and be applied to different data types,
+   the MRV Extension Type is used to identify the data type to which the MRV Extension applies.
+
+  <dl dfn-type="enum-value" dfn-for="MrvExtensionContext">
+
+  : <dfn>UNKNOWN_MRV_EXTENSION</dfn>
+  :: Unknown extension
+
+  : <dfn>MBP_MRV_EXTENSION</dfn>
+  :: AIM extension
+
+  : <dfn>MBP_CLAIM_SOURCE_MRV_EXTENSION</dfn>
+  :: AIM Claim Source extension
+
+  : <dfn>CLAIM_MRV_EXTENSION</dfn>
+  :: Claim extension
+
+  : <dfn>CHECKPOINT_MRV_EXTENSION</dfn>
+  :: Checkpoint extension
+
+  : <dfn>SDP_MANIFEST_MRV_EXTENSION</dfn>
+  :: SDP Manifest extension
+
+  : <dfn>SDP_FILE_MRV_EXTENSION</dfn>
+  :: SDP File extension
+
+  : <dfn>CHECKPOINT_RESULT_MRV_EXTENSION</dfn>
+  :: Checkpoint Result extension
+
+  : <dfn>PROCESSED_CHECKPOINT_MRV_EXTENSION</dfn>
+  :: Processed Checkpoint extension
+
+  </dl>
+
+  ### JSON Representation ### {#dt-mrv-extension-type-json}
+
+    Each MrvExtensionContext MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>FileType</dfn> ## {#dt-sdp-file-type}
+
+      The file type indicates what data is contained within the file.
+
+      <dl dfn-type="enum-value" dfn-for="FileType">
+
+        : <dfn>DATA_BINARY</dfn>
+        :: The file contains binary data.
+
+        : <dfn>DATA_CSV</dfn>
+        :: The file contains CSV data.
+
+        : <dfn>DATA_JSON</dfn>
+        :: The file contains JSON data.
+
+        : <dfn>DATA_XML</dfn>
+        :: The file contains XML data.
+
+        : <dfn>DATA_OTHER</dfn>
+        :: The file contains other data.
+
+      </dl>
+
+    ### JSON Representation ### {#dt-sdp-file-type-json}
+      
+        Each FileType MUST be encoded as a JSON String.
+
+  ## Data Type: <dfn enum>HashAlgorithm</dfn> ## {#dt-hash-algorithm}
+
+  The HashAlgorithm is a string enumeration that defines the cryptographic hash algorithm used to generate the hash of an external data element.
+
+  <dl dfn-type="enum-value" dfn-for="HashAlgorithm">
+
+  : <dfn>SHA-256</dfn>
+  :: The SHA-256 cryptographic hash algorithm.
+
+  : <dfn>SHA3</dfn>
+  :: The SHA3 cryptographic hash algorithm.
+
+  </dl>
+
+  ### JSON Representation ### {#dt-hash-algorithm-json}
+
+    Each HashAlgorithm MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>AttestationType</dfn> ## {#dt-attestation-type}
+
+Attestations can take the form of traditional PKI/JWT or Verified Credentials
+
+<dl dfn-type="enum-value" dfn-for="AttestationType">
+
+: <dfn>RS256</dfn>
+:: JSON Web Token
+
+: <dfn>VC</dfn>
+:: Verified Credentials
+
+</dl>
+
+### JSON Representation ### {#dt-attestation-type-json}
+
+Each AttestationType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ProofType</dfn> ## {#dt-proof-type}
+
+The type of attestation requested, supports two types: JWT, along with a ciphertype and Verified Credentials.
+
+<dl dfn-type="enum-value" dfn-for="ProofType">
+
+: <dfn>JWT</dfn>
+:: Json Web Token
+
+: <dfn>DIP</dfn>
+:: Data Integrity Proofs
+
+: <dfn>CL_ZKP</dfn>
+:: Camenisch-Lysyanskaya Zero-Knowledge Proofs
+
+</dl>
+
+### JSON Representation ### {#dt-proof-type-json}
+
+Each ProofType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>CredentialType</dfn> ## {#dt-credential-type}
+
+The type of credential requested, supports three types: Verifiable Credentials, Verifiable Presentations, and Identity Credentials.
+
+<dl dfn-type="enum-value" dfn-for="CredentialType">
+
+: <dfn>VERIFIABLE_CREDENTIAL</dfn>
+:: Verifiable Credentials
+
+: <dfn>VERIFIABLE_PRESENTATION</dfn>
+:: Verifiable Presentations
+
+: <dfn>IDENTITY_CREDENTIAL</dfn>
+:: Identity Credentials
+
+</dl>
+
+### JSON Representation ### {#dt-credential-type-json}
+
+Each CredentialType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>SignatureType</dfn> ## {#dt-signature-type}
+
+The type of signature requested, supports two types: JSON Web Signature and Verified Credentials.
+
+<dl dfn-type="enum-value" dfn-for="SignatureType">
+
+: <dfn>JWS</dfn>
+:: JSON Web Signature
+
+: <dfn>VERIFIED_CREDENTIAL</dfn>
+:: Verified Credentials
+
+</dl>
+
+### JSON Representation ### {#dt-signature-type-json}
+
+Each SignatureType MUST be encoded as a JSON String.
+ 
+## Data Type: <dfn enum>SignatoryRole</dfn> ## {#dt-signatory-role}
+
+Role of the signatory for the Validation and Verification process.
+
+<dl dfn-type="enum-value" dfn-for="SignatoryRole">
+
+: <dfn>ISSUING_REGISTRY</dfn>
+:: for Issuing Registry
+
+: <dfn>VALIDATION_AND_VERIFICATION_BODY</dfn>
+:: for Validation and Verification Body
+
+: <dfn>PROJECT_OWNER</dfn>
+:: for Project Owner
+
+: <dfn>VERIFICATION_PLATFORM_PROVIDER</dfn>
+:: for Verification Platform Provider
+
+</dl>
+
+### JSON Representation ### {#dt-signatory-role-json}
+
+  Each SignatoryRole MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ClassificationCategory</dfn> ## {#dt-classification-category}
+
+The ClassificationCategory is a string enumeration that defines the classification for the type of credit the project is seeking. 
+This list will be expanded to include other categories, like biodiversity, in the future.
+
+<dl dfn-type="enum-value" dfn-for="ClassificationCategory">
+
+: <dfn>CARBON_AVOIDANCE</dfn>
+:: for Carbon Avoidance
+
+: <dfn>CARBON_REDUCTION</dfn>
+:: for Carbon Reduction
+
+: <dfn>CARBON_REMOVAL</dfn>
+:: for Carbon Removal
+
+: <dfn>WATER</dfn>
+:: for Water
+
+: <dfn>UNDEFINED</dfn>
+:: for undefined
+
+</dl>
+
+### JSON Representation ### {#dt-classification-category-json}
+
+  Each ClassificationCategory MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>RecType</dfn> ## {#dt-rec-type}
+
+  The REC Type is a string enumeration that defines the type of renewable energy credit or program used to generate the credit.
+
+  <dl dfn-type="enum-value" dfn-for="RecType">
+
+  : <dfn>IREC</dfn>
+  :: For International REC
+
+  : <dfn>NERC</dfn>
+  :: For North American REC
+ 
+  <div class="issue">REC Types need to be completed</div>
+
+  </dl>
+
+  ### JSON Representation ### {#dt-rec-type-json}
+
+    Each RecType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>GenerationType</dfn> ## {#dt-generation-type}
+
+How the project generates the credits.
+
+<dl dfn-type="enum-value" dfn-for="GenerationType">
+
+: <dfn>GENERATED</dfn>
+:: the credit was generated by evidence collected and verified by the project; verifier and registry
+
+: <dfn>EX_ANTE</dfn>
+:: the credit represents forcasted emissions reductions
+
+: <dfn>EX_POST</dfn>
+:: the credit represents historical emissions reductions
+
+</dl>
+
+### JSON Representation ### {#dt-generation-type-json}
+
+  Each GenerationType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>CarbonCategory</dfn> ## {#dt-carbon-category}
+
+The CarbonCategory is used by the Core Carbon Principles to indicate wiether a credit is a reduction or a removal.
+
+<dl dfn-type="enum-value" dfn-for="CarbonCategory">
+
+: <dfn>REDUCTION</dfn>
+:: for Carbon Reduction
+
+: <dfn>REMOVAL</dfn>
+:: for Carbon Removal
+
+</dl>
+
+### JSON Representation ### {#dt-carbon-category-json}
+
+  Each CarbonCategory MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ClaimSourceType</dfn> ## {#dt-claim-source-type}
+
+A ClaimSourceType is the source type for evidence in a claim that can include sensor, meter, application, reference, etc.
+
+<dl dfn-type="enum-value" dfn-for="ClaimSourceType">
+
+  : <dfn>SENSOR_DEVICE</dfn>
+  :: A sensor or meter that collects data to support a claim, e.g., IoT, meter, etc.
+
+  : <dfn>USER_APPLICATION</dfn>
+  :: An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
+
+  : <dfn>REFERENCE</dfn>
+  :: Reference data like satellite imagery, remote sensing, anayltical models, etc.
+
+</dl>
+
+### JSON Representation ### {#dt-claim-source-type-json}
+
+  Each ClaimSourceType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>Method</dfn> ## {#dt-method}
+
+The method used by the project for its activities.
+
+<dl dfn-type="enum-value" dfn-for="Method">
+
+: <dfn>NATURAL</dfn>
+:: for Natural or using Natural processes
+
+: <dfn>TECHNOLOGICAL</dfn>
+:: for Technological or engineered
+
+: <dfn>BOTH_NATURAL_AND_TECHNOLOGICAL</dfn>
+:: for both Natural and Technological
+
+</dl>
+
+### JSON Representation ### {#dt-method-json}
+
+  Each Method MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>Storage</dfn> ## {#dt-storage}
+
+Storage is used by the Core Carbon Principles to indicate the storage type.
+
+<dl dfn-type="enum-value" dfn-for="Storage">
+
+: <dfn>BIOLOGICAL</dfn>
+:: for biological carbon sequestration
+
+: <dfn>GEOLOGICAL</dfn>
+:: for geological carbon sequestration
+
+: <dfn>MATERIALS</dfn>
+:: for sequestrationin materials, i.e., in products, concrete, etc.
+
+</dl>
+
+### JSON Representation ### {#dt-storage-json}
+
+  Each Storage MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>Region</dfn> ## {#dt-region}
+
+The region of the project.
+
+<dl dfn-type="enum-value" dfn-for="Region">
+
+: <dfn>GLOBAL</dfn>
+:: for Global
+
+: <dfn>CENTRAL_AMERICA</dfn>
+:: for Central America
+
+: <dfn>CENTRAL_ASIA</dfn>
+:: for Central Asia
+
+: <dfn>EAST_ASIA</dfn>
+:: for East Asia
+
+: <dfn>EUROPE</dfn>
+:: for Europe
+
+: <dfn>INTERNATIONAL</dfn>
+:: for International
+
+: <dfn>MIDDLE_EAST</dfn>
+:: for Middle East
+
+: <dfn>NORTH_AFRICA</dfn>
+:: for North Africa
+
+: <dfn>NORTH_AMERICA</dfn>
+:: for North America
+
+: <dfn>OCEANIA</dfn>
+:: for Oceania
+
+: <dfn>SOUTH_AMERICA</dfn>
+:: for South America
+
+: <dfn>SOUTH_ASIA</dfn>
+:: for South Asia
+
+: <dfn>SOUTH_EAST_ASIA</dfn>
+:: for South East Asia
+
+: <dfn>SUB_SAHARAN_AFRICA</dfn>
+:: for Sub-Saharan Africa
+
+</dl>
+
+### JSON Representation ### {#dt-region-json}
+
+  Each Region MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ClaimPeriod</dfn> ## {#dt-claim-period}
+
+Duration of the claim period.
+
+<dl dfn-type="enum-value" dfn-for="ClaimPeriod">
+
+: <dfn>DAILY</dfn>
+:: for Daily
+
+: <dfn>WEEKLY</dfn>
+:: for Weekly
+
+: <dfn>MONTHLY</dfn>
+:: for Monthly
+
+: <dfn>QUARTERLY</dfn>
+:: for Quarterly
+
+: <dfn>SEMIANNUAL</dfn>
+:: for Semiannual
+
+: <dfn>ANNUAL</dfn>
+:: for Annual
+
+: <dfn>BIENNIAL</dfn>
+:: for Biennial
+
+</dl>
+
+### JSON Representation ### {#dt-claim-period-json}
+
+  Each ClaimPeriod MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ProjectScale</dfn> ## {#dt-project-scale}
+
+The scale of the project.
+
+<dl dfn-type="enum-value" dfn-for="ProjectScale">
+
+: <dfn>MICRO</dfn>
+:: less than 1000 tCO2e
+
+: <dfn>SMALL</dfn>
+:: 1000 - 10000 tCO2e
+
+: <dfn>MEDIUM</dfn>
+:: 10000 - 100000 tCO2e
+
+: <dfn>LARGE</dfn>
+:: 100000 - 1000000 tCO2e
+
+</dl>
+
+### JSON Representation ### {#dt-project-scale-json}
+
+  Each ProjectScale MUST be encoded as a JSON String.
+
+
+## Data Type: <dfn enum>ValidationStepStatus</dfn> ## {#dt-validation-step-status}
+
+The status of the validation step.
+
+<dl dfn-type="enum-value" dfn-for="ValidationStepStatus">
+
+  : <dfn>UNKNOWN_VALIDATION_STEP_STATUS</dfn>
+  :: for Unknown status
+
+  : <dfn>NOT_STARTED</dfn>
+  :: for Not Started
+
+  : <dfn>IN_PROGRESS</dfn>
+  :: for In Progress
+
+  : <dfn>COMPLETED</dfn>
+  :: for Completed
+
+</dl>
+
+### JSON Representation ### {#dt-validation-step-status-json}
+
+  Each ValidationStepStatus MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>AddressType</dfn> ## {#dt-address-type}
+
+The type of the address.
+
+<dl dfn-type="enum-value" dfn-for="AddressType">
+
+  : <dfn>PHYSICAL</dfn>
+  :: for Physical Address
+
+  : <dfn>LEGAL</dfn>
+  :: for Legal Address
+
+  : <dfn>MAILING</dfn>
+  :: for Mailing Address
+
+</dl>
+
+### JSON Representation ### {#dt-address-type-json}
+
+  Each AddressType MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>AuditSchedule</dfn> ## {#dt-audit-schedule}
+
+The schedule of the audit.
+
+<dl dfn-type="enum-value" dfn-for="AuditSchedule">
+
+: <dfn>ANNUAL</dfn>
+:: for Annual Audits
+
+: <dfn>BIANNUAL</dfn>
+:: for Biannual Audits
+
+: <dfn>BIENNIAL</dfn>
+:: for Biennial Audits
+
+: <dfn>TRIENNIAL</dfn>
+:: for Triennial Audits
+
+: <dfn>QUADRENNIAL</dfn>
+:: for Quadrennial Audits
+
+: <dfn>QUINQUENNIAL</dfn>
+:: for Quinquennial Audits
+
+</dl>
+
+### JSON Representation ### {#dt-audit-schedule-json}
+
+  Each AuditSchedule MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>UN-SDGs</dfn> ## {#dt-un-sdgs}
+
+The UN SDGs are used in certain categories for entities as well as with Co-benefits that are usually attatched to assets like voluntary carbon credits.
+
+<dl dfn-type="enum-value" dfn-for="UN-SDGs">
+
+: <dfn>NO_CATEGORY</dfn>
+:: for No Category
+
+: <dfn>NO_POVERTY</dfn>
+:: for No Poverty
+
+: <dfn>ZERO_HUNGER</dfn>
+:: for Zero Hunger
+
+: <dfn>GOOD_HEALTH_AND_WELL_BEING</dfn>
+:: for Good Health and Well Being
+
+: <dfn>QUALITY_EDUCATION</dfn>
+:: for Quality Education
+
+: <dfn>GENDER_EQUALITY</dfn>
+:: for Gender Equality
+
+: <dfn>CLEAN_WATER_AND_SANITATION</dfn>
+:: for Clean Water and Sanitation
+
+: <dfn>AFFORDABLE_AND_CLEAN_ENERGY</dfn>
+:: for Affordable and Clean Energy
+
+: <dfn>DECENT_WORK_AND_ECONOMIC_GROWTH</dfn>
+:: for Decent Work and Economic Growth
+
+: <dfn>INDUSTRY_INNOVATION_AND_INFRASTRUCTURE</dfn>
+:: for Industry Innovation and Infrastructure
+
+: <dfn>REDUCED_INEQUALITIES</dfn>
+:: for Reduced Inequalities
+
+: <dfn>SUSTAINABLE_CITIES_AND_COMMUNITIES</dfn>
+:: for Sustainable Cities and Communities
+
+: <dfn>RESPONSIBLE_CONSUMPTION_AND_PRODUCTION</dfn>
+:: for Responsible Consumption and Production
+
+: <dfn>CLIMATE_ACTION</dfn>
+:: for Climate Action
+
+: <dfn>LIFE_BELOW_WATER</dfn>
+:: for Life Below Water
+
+: <dfn>LIFE_ON_LAND</dfn>
+:: for Life on Land
+
+: <dfn>PEACE_JUSTICE_AND_STRONG_INSTITUTIONS</dfn>
+:: for Peace Justice and Strong Institutions
+
+: <dfn>PARTNERSHIPS_FOR_THE_GOALS</dfn>
+:: for Partnerships for the Goals
+
+</dl>
+
+### JSON Representation ### {#dt-un-sdgs-json}
+
+  Each UN-SDGs MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ProjectScope</dfn> ## {#dt-project-scope}
+
+Project scope helps classify projects.
+
+<dl dfn-type="enum-value" dfn-for="ProjectScope">
+
+: <dfn>OTHER</dfn>
+:: for Other
+
+: <dfn>AGRICULTURE</dfn>
+:: for Agriculture
+
+: <dfn>CARBON_CAPTURE_AND_STORAGE</dfn>
+:: for Carbon Capture and Storage
+
+: <dfn>CHEMICAL_PROCESSES</dfn>
+:: for Chemical Processes
+
+: <dfn>FORESTRY_AND_LAND_USE</dfn>
+:: for Forestry and Land Use
+
+: <dfn>HOUSEHOLD_AND_COMMUNITY</dfn>
+:: for Household and Community
+
+: <dfn>INDUSTRIAL_MANUFACTURING</dfn>
+:: for Industrial Manufacturing
+
+: <dfn>RENEWABLE_ENERGY</dfn>
+:: for Renewable Energy
+
+: <dfn>TRANSPORTATION</dfn>
+:: for Transportation
+
+: <dfn>WASTE_MANAGEMENT</dfn>
+:: for Waste Management
+
+</dl>
+
+### JSON Representation ### {#dt-project-scope-json}
+
+  Each ProjectScope MUST be encoded as a JSON String.
+
+## Data Type: <dfn enum>ProjectType</dfn> ## {#dt-project-type}
+
+Project Type helps to classify a project.
+
+<dl dfn-type="enum-value" dfn-for="ProjectType">
+ 
+: <dfn>ADVANCED_REFRIDERANTS</dfn>
+:: for Advanced Refridierants
+
+: <dfn>AFFORESTATION_REFORESTATION</dfn>
+:: for Afforestation Reforestation
+
+: <dfn>ALUMINUM_SMELTERS_EMISSION_REDUCTIONS</dfn>
+:: for Aluminum Smelters Emission Reductions
+
+: <dfn>AVOIDED_FOREST_CONVERSION</dfn>
+:: for Avoided Forest Conversion
+
+: <dfn>AVOIDED_GRASSLAND_CONVERSION</dfn>
+:: for Avoided Grassland Conversion
+
+: <dfn>BYCYCLES</dfn>
+:: for Bicycles
+
+: <dfn>BIODIGESTERS</dfn>
+:: for Biodigesters
+
+: <dfn>BIOMASS</dfn>
+:: for Biomass
+
+: <dfn>BRICK_MANUFACTURING_EMISSION_REDUCTIONS</dfn>
+:: for Brick Manufacturing Emission Reductions
+
+: <dfn>BUNDLED_COMPOST_PRODUCTION_AND_SOIL_APPLICATION</dfn>
+:: for Bundled Compost Production and Soil Application
+
+: <dfn>BUNDLED_ENERGY_EFFICIENCY</dfn>
+:: for Bundled Energy Efficiency
+
+: <dfn>CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY</dfn>
+:: for Carbon Capture and Enhanced Oil Recovery
+
+: <dfn>CARBON_CAPTURE_IN_CEMENT</dfn>
+:: for Carbon Capture in Cement
+
+: <dfn>CARBON_CAPTURE_IN_PLASTIC</dfn>
+:: for Carbon Capture in Plastic
+
+: <dfn>CLEAN_WATER</dfn>
+:: for Clean Water
+
+: <dfn>COMMUNITY_BOREHOLES</dfn>
+:: for Community Boreholes
+
+: <dfn>COMPOST_ADDITION_TO_RANGELAND_SOIL</dfn>
+:: for Compost Addition to Rangeland Soil
+
+: <dfn>COMPOSTING</dfn>
+:: for Composting
+
+: <dfn>COOKSTOVES</dfn>
+:: for Cookstoves
+
+: <dfn>ELECTRIC_VEHICLES_AND_CHARGING</dfn>
+:: for Electric Vehicles and Charging
+
+: <dfn>ENERGY_EFFICIENCY</dfn>
+:: for Energy Efficiency
+
+: <dfn>FEED_ADDITIVES</dfn>
+:: for Feed Additives
+
+: <dfn>FLEET_EFFICIENCY</dfn>
+:: for Fleet Efficiency
+
+: <dfn>FUEL_SWITCHING</dfn>
+:: for Fuel Switching
+
+: <dfn>FUEL_TRANSPORT</dfn>
+: for Fuel Transport
+
+: <dfn>GEOTHERMAL</dfn>
+:: for Geothermal
+
+: <dfn>GRID_EXPANSION_AND_MINI_GRIDS</dfn>
+:: for Grid Expansion and Mini Grids
+
+: <dfn>HFC_REFRIGERANT_RECLAMATION</dfn>
+:: for HFC Refrigerant Reclamation
+
+: <dfn>HFC_REPLACEMENT_IN_FOAM_PRODUCTION</dfn>
+:: for HFC Replacement in Foam Production
+
+: <dfn>HFC23_DESTRUCTION</dfn>
+:: for HFC23 Destruction
+
+: <dfn>HYDROPOWER</dfn>
+:: for Hydropower
+
+: <dfn>IMPROVED_FOREST_MANAGEMENT</dfn>
+:: for Improved Forest Management
+
+: <dfn>IMPROVED_IRRIGATION_MANAGEMENT</dfn>
+:: for Improved Irrigation Management
+
+: <dfn>LANDFILL_METHANE</dfn>
+:: for Landfill Methane
+
+: <dfn>LEAK_DETECTION_AND_REPAIR_IN_GAS_SYSTEMS</dfn>
+:: for Leak Detection and Repair in Gas Systems
+
+: <dfn>LIGHTING</dfn>
+:: for Lighting
+
+: <dfn>MANURE_METHANE_DIGESTER</dfn>
+:: for Manure Methane Digester
+
+: <dfn>MASS_TRANSIT</dfn>
+:: for Mass Transit
+
+: <dfn>METHANE_RECOVERY_IN_WASTEWATER</dfn>
+:: for Methane Recovery in Wastewater
+
+: <dfn>MINE_METHANE_CAPTURE</dfn>
+:: for Mine Methane Capture
+
+: <dfn>MINERALIZATION</dfn>
+:: for Mineralization
+
+: <dfn>N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</dfn>
+:: for N20 Destruction in Adipic Acid Production
+
+: <dfn>N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</dfn>
+:: for N20 Destruction in Nitric Acid Production
+
+: <dfn>NATURAL_GAS_ELECTRICITY_GENERATION</dfn>
+:: for Natural Gas Electricy Generation
+
+: <dfn>NITROGEN_MANAGEMENT</dfn>
+:: for Nitrogen Management
+
+: <dfn>OIL_RECYCLING</dfn>
+:: for Oil Recycling
+
+: <dfn>OZONE_DEPLETING_SUBSTANCES_RECOVERY_AND_DESTRUCTION</dfn>
+:: for Ozone Depleting Substances Recovery and Destruction
+
+: <dfn>PNEUMATIC_RETROFIT</dfn>
+:: for Pneumatic Retrofit
+
+: <dfn>PROPYLENE_OXIDE_PRODUCTION</dfn>
+:: for Propylene Oxide Production
+
+: <dfn>RE_BUNDLED</dfn>
+:: for Re-Bundled
+
+: <dfn>REDD_PLUS</dfn>
+:: for REDD+
+
+: <dfn>REFRIGERANT_LEAK_DETECTION</dfn>
+:: for Refrigerant Leak Detection
+
+: <dfn>RICE_EMISSION_REDUCTIONS</dfn>
+:: for Rice Emission Reductions
+
+: <dfn>SF6_REPLACEMENT</dfn>
+:: for SF6 Replacement
+
+: <dfn>SHIPPING</dfn>
+:: for Shipping
+
+: <dfn>SOLAR_CENTRALIZED</dfn>
+:: for Solar Centralized
+
+: <dfn>SOLAR_DISTRIBUTED</dfn>
+:: for Solar Distributed
+
+: <dfn>SOLAR_LIGHTING</dfn>
+:: for Solar Lighting
+
+: <dfn>SOLAR_WATER_HEATERS</dfn>
+:: for Solar Water Heaters
+
+: <dfn>SOLID_WASTE_SEPARATION</dfn>
+:: for Solid Waste Separation
+
+: <dfn>SUSTAINABLE_AGRICULTURE</dfn>
+:: for Sustainable Agriculture
+
+: <dfn>SUSTAINABLE_GRASSLAND_MANAGEMENT</dfn>
+:: for Sustainable Grassland Management
+
+: <dfn>TRUCK_STOP_ELECTRIFICATION</dfn>
+:: for Truck Stop Electrification
+
+: <dfn>UNIVERSITY_CAMPUS_EMISSION_REDUCTIONS</dfn>
+:: for University Campus Emission Reductions
+
+: <dfn>WASTE_DIVERSION</dfn>
+:: for Waste Diversion
+
+: <dfn>WASTE_GAS_RECOVERY</dfn>
+:: for Waste Gas Recovery
+
+: <dfn>WASTE_HEAT_RECOVERY</dfn>
+:: for Waste Heat Recovery
+
+: <dfn>WASTE_INCINERATION</dfn>
+:: for Waste Incineration
+
+: <dfn>WASTE_RECYCLING</dfn>
+:: for Waste Recycling
+
+: <dfn>WEATHERIZATION</dfn>
+:: for Weatherization
+
+: <dfn>WETLAND_RESTORATION</dfn>
+:: for Wetland Restoration
+
+: <dfn>WIND</dfn>
+:: for Wind
+
+: <dfn>BIOCHAR</dfn>
+:: for Biochar
+
+: <dfn>CARBONATED_MATERIALS</dfn>
+:: for Carbonated Materials
+
+: <dfn>CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE</dfn>
+:: for Carbon Capture in Geological Storage
+
+: <dfn>ENHANCED_ROCK_WEATHERING</dfn>
+:: for Enhanced Rock Weathering
+
+: <dfn>TERRESTRIAL_STORAGE_OF_BIOMASS</dfn>
+:: for Terrestrial Storage of Biomass
+
+</dl>
+
+### JSON Representation ### {#dt-project-type-json}
+
+Each ProjectType is represented as a string in JSON.
+
+## Data Type: <dfn enum>MeasurementSpecification</dfn> ## {#dt-measurement-specification}
+
+The MRV measurement specification used.
+
+<dl dfn-type="enum-value" dfn-for="MeasurementSpecification">
+
+: <dfn>ISO_14064</dfn>
+:: for ISO 14064
+
+: <dfn>ISO_14064_1</dfn>
+:: for ISO 14064-1
+
+: <dfn>ISO_14064_2</dfn>
+:: for ISO 14064-2
+
+</dl>
+
+### JSON Representation ### {#dt-measurement-specification-json}
+
+Each MeasurementSpecification is represented as a string in JSON.
+
+## Data Type: <dfn enum>CreditStatus</dfn> ## {#dt-credit-status}
+
+A status indicator used for credits.
+
+<dl dfn-type="enum-value" dfn-for="CreditStatus">
+
+: <dfn>ACTIVE</dfn>
+:: for Active
+
+: <dfn>INACTIVE</dfn>
+:: for Inactive
+
+: <dfn>REVOKED</dfn>
+:: for Revoked
+
+: <dfn>RETIRED</dfn>
+:: for Retired
+
+</dl>
+
+### JSON Representation ### {#dt-credit-status-json}
+
+Each CreditStatus is represented as a string in JSON.
+
+## Data Type: <dfn enum>Standard</dfn> ## {#dt-standard}
+
+The list of Quality Standard, e.g., methodology or protocols.
+
+<dl dfn-type="enum-value" dfn-for="Standard">
+
+: <dfn>GS_VER</dfn>
+:: for Gold Standard Verified Emissions Reduction
+
+: <dfn>VCS</dfn>
+:: for Cerified Carbon Standard generates VCUs
+
+: <dfn>VOS</dfn>
+:: for Voluntary Offset Standard
+
+: <dfn>CCB</dfn>
+:: for Climate
+
+: <dfn>GREEN_E</dfn>
+:: for US renewable energy
+
+: <dfn>CDM</dfn>
+:: for Compliance: Clean Development Mechanism generates CERs
+
+: <dfn>JI</dfn>
+:: for Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
+
+: <dfn>EUA</dfn>
+:: for Compliance: European Union Allowances
+
+: <dfn>PURO</dfn>
+:: for Puro Standard verified durable carbon removal
+
+: <dfn>PENDING</dfn>
+:: for Other or in Development
+
+</dl>
+
+### JSON Representation ### {#dt-standard-json}
+
+Each Standard is represented as a string in JSON.
+
+## Data Type: <dfn enum>MethodologyAndTool</dfn> ## {#dt-methodology-and-tool}
+
+Each Quality Standard defined in the [=VerificationContract=](#dt-verification-contract) is has a Methodology and might also have multiple toolkits for Additionality, Leakage, and Baseline, etc. 
+This is not an exhaustive list of Methodologies and Tools as there can be hundreds of them.
+
+<dl dfn-type="enum-value" dfn-for="MethodologyAndTool">
+
+: <dfn>CDM - AM0007</dfn>
+:: for CDM - AM0007
+
+: <dfn>CDM - AM0010</dfn>
+:: for CDM - AM0010
+
+</dl>
+
+### JSON Representation ### {#dt-methodology-and-tool-json}
+
+Each MethodologyAndTool is represented as a string in JSON.
+
+## Data Type: <dfn enum>CorrespondingAdjustment</dfn> ## {#dt-corresponding-adjustment}
+
+A credits corresponding adjustment status.
+
+<dl dfn-type="enum-value" dfn-for="CorrespondingAdjustment">
+
+: <dfn>NONE</dfn>
+:: for there is no Corresponding adjustment associated with this credit. Meaning the country of origin for the credit will not subtract the credit from their Nationally Determined Contributions (NDCs)if the credit is exported and consumed in a different country.
+
+: <dfn>PARIS_AGREEMENT_COMPLIANT</dfn>
+:: for there is verified Corresponding adjustment associated with this credit. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+
+: <dfn>PARIS_AGREEMENT_PENDING_COMPLIANCE</dfn>
+:: for there is corresponding adjustment associated with this credit; that is pending verification. Meaning the country of origin for the credit will not count the credit in their Nationally Determined Contributions (NDCs)so the credit can be exported and count in a different country's NDC.
+
+</dl>
+
+### JSON Representation ### {#dt-corresponding-adjustment-json}
+
+Each CorrespondingAdjustment is represented as a string in JSON.
+
+## Data Type: <dfn enum>Unit</dfn> ## {#dt-unit}
+
+Unit is the enumeration of accepted declared units with values
+
+<dl dfn-type="enum-value" dfn-for="Unit">
+
+: <dfn>liter</dfn>
+:: for unit liter
+
+: <dfn>kilogram</dfn>
+:: for unit kilogram
+
+: <dfn>cubic meter</dfn>
+:: for cubic meter
+
+: <dfn>kilowatt</dfn>
+:: for kilowatt
+
+: <dfn>megawatt</dfn>
+:: for megawatt
+
+: <dfn>megajoule</dfn>
+:: for megajoule
+
+: <dfn>ton kilometer</dfn>
+:: for ton kilometer
+
+: <dfn>square meter</dfn>
+:: for square meter
+
+: <dfn>TONNE_CO2E</dfn>
+:: for tonne of CO2e
+
+: <dfn>TONNE_CO2</dfn>
+:: for tonne of CO2
+
+: <dfn>TONNE_CH4</dfn>
+:: for tonne of CH4
+
+: <dfn>TONNE_N2O</dfn>
+:: for tonne of N2O
+
+: <dfn>MwH</dfn>
+:: for megawatt hour
+
+</dl>
+
+### JSON Representation ### {#dt-unit-json}
+
+The value of each {{Unit}} MUST be encoded as a JSON String.
+
+## Data Type: <dfn>Decimal</dfn> ## {#dt-decimal}
+
+A dotted-decimal number. 
+
+Example values:
+<div class=example>
+    - `10`
+    - `42.12`
+    - `-182.84`
+</div>
+
+### JSON Representation ### {#dt-decimal-json}
+
+Each Decimal MUST be encoded as a JSON String.
+
+## Data Type: <dfn>String</dfn> ## {#dt-string}
+
+A regular UTF-8 String.
+
+### JSON Data Representation ### {#dt-string-json}
+
+Each [=String=] MUST be encoded as a JSON String.
+
+## Data Type: <dfn>Id</dfn> ## {#dt-id}
+
+A Id MUST either be a UUID v4 as specified in [[!RFC4122]].
+
+or a unique key that can be represented as a string.
+
+### JSON Representation ### {#dt-id-json}
+
+Each Id MUST be encoded as a JSON String, see [[#dt-string-json]] for details.
+
+Example JSON string value: 
+
+<div class=example>
+```json
+"f4b1225a-bd44-4c8e-861d-079e4e1dfd69"
+```
+</div>
+
+## Data Type: <dfn>ISO3166CC</dfn> ## {#dt-iso3166cc}
+
+An ISO 3166-2 alpha-2 country code.
+
+Example value for tue alpha-2 country code of the United States:
+<div class=example>
+  `US`
+</div>
+
+### JSON Representation ### {#dt-iso3166cc-json}
+
+Each [=ISO3166CC=] MUST be encoded as a JSON String.
+
+
+# Data Samples # {#data-samples}
+
+<div class=note>Non-normative</div>
+
+## Example Full Credit Lineage ## {#example-full-credit-lineage}
+<div class="example">
+CRU Full Lineage:
+<pre class=include-code>
+path: samples/FullLineage.json
+highlight: json
+</pre>
+</div>
+
+## Example Accountable Impact Organization ## {#example-accountable-impact-organization}
+<div class="example">
+Accountable Impact Organization:
+<pre class=include-code>
+path: samples/AccountableImpactOrganization.json
+highlight: json
+</pre>
+</div>
+
+## Example Activity Impact Module ## {#example-activity-impact-module}
+
+<div class="example">
+Activity Impact Module:
+<pre class=include-code>
+path: samples/ActivityImpactModule.json
+highlight: json
+</pre>
+</div>
+
+## Example Impact Claim ## {#example-impact-claim}
+
+<div class="example">
+Impact Claim:
+<pre class=include-code>
+path: samples/ImpactClaim.json
+highlight: json
+</pre>
+</div>
+
+## Example Span Data Package ## {#example-span-data-package}
+<div class="example">
+Span Data Package:
+<pre class=include-code>
+path: samples/SpanDataPackage.json
+highlight: json
+</pre>
+</div>
+
+## Example Processed Claim ## {#example-processed-claim}
+
+<div class="example">
+Processed Claim:
+<pre class=include-code>
+path: samples/ProcessedClaim.json
+highlight: json
+</pre>
+</div>
+
+## Example Verfication Contract ## {#example-verification-contract}
+
+<div class="example">
+Verification Contract:
+<pre class=include-code>
+path: samples/VerificationContract.json
+highlight: json
+</pre>
+</div>
+
+## Example Carbon Reduction or Removal Unit ## {#example-cru}
+
+<div class="example">
+Carbon Reduction or Removal Unit:
+<pre class=include-code>
+path: samples/CRU.json
+highlight: json
+</pre>
+</div>
+
+## Example Renewable Energy Credit ## {#example-rec}
+
+<div class="example">
+Renewable Energy Credit:
+<pre class=include-code>
+path: samples/REC.json
+highlight: json
+</pre>
+</div>
+
+## Example Renewable Energy Credit Full Lineage## {#example-rec-full-lineage}
+
+<div class="example">
+Renewable Energy Credit Full Lineage:
+<pre class=include-code>
+path: samples/RECFullLineage.json
+highlight: json
+</pre>
+</div>
+
+
+# Appendix A: License # {#license}
+
+<pre class=include>
+path: LICENSE
+</pre>
+
+# Appendix B: Changelog # {#changelog}
+
+Here we will document changes in the specification as they are made.
+
+## Version 2.5.1-20230412 (April 12, 2023) ## {#changelog-2.5.1-20230412}
+
+- Added `attatchedAssetId` to CRU object, see [[#dt-cru]] for details.
+- Added `projectDeveloperId` to record which developer submitted the checkpoint to both impactClaimCheckpoint and SpanDataPackage, see [[#dt-impact-claim-checkpoint]] and [[#dt-span-data-package]] for details.
+- Updated samples reflecting the changes above. See [[#data-samples]] for details.
+
+## Version 2.5.1-20230413 (April 13, 2023) ## {#changelog-2.5.0-20230413}
+
+- Renamed `ecologicalBenefitCategory` to `benefitCategory` in the ActivityImpactModule type, see [[#dt-activity-impact-module]] for details.
+- Adding issue about CRU Attached Asset. Shouldn't a non-financial, un-regulated, intangible asset that acts like a commodity, be bundled in a separate financial contract?
+- Moved ProjectScale from AccountableImpactOrganization to ActivityImpactModule, see [[#dt-accountable-impact-organization]] and [[#dt-activity-impact-module]] for details.
+
+## Version 2.5.1-20230417 (April 17, 2023) ## {#changelog-2.4.0-20230417}
+
+ - Changed [=ClaimSource=] property `quality` to `unitOfMeasure`, see [[#dt-claim-source]] for details.
+
+ ## Version 2.5.1-20230420 (April 20, 2023) ## {#changelog-2.4.0-20230420}
+
+ - Added [=REC=] token as another example of an ecological asset, see [[#dt-rec]] for details.
+ - Added {{RecType}}, see [[#dt-rec-type]] for details.
+ - Removed `attachedAssetIds` from the CRU objects, as a base asset it should not be made a parent or basket asset containing other assets. Base assets like the [=CRU=] and [=REC=] 
+    should be combined or composed into a separate basket asset or contract for distribution, see [[#dt-cru]] for details.
+ - Removed `rating` from [=Co-benefit=] as we didn't have a clear signal at to what this would be used for, see [[#dt-co-benefit]] for details.
+ - Changed the definition of the CRU to represent 1 metric tonne of CO2e.
+
+ ## Version 2.5.1-20230425 (April 25, 2023) ## {#changelog-2.4.0-20230425}
+
+ - Changed `validatingParty` to `validatingPartyId` for the [=Validation=] type, see [[#dt-validation]] for details.
+ - Fixed description of [=Validation=] type's `validationPartyId` property, see [[#dt-validation]] for details.
+ - Fixed the description of the `name` property of the [=ClaimSource=] type, see [[#dt-claim-source]] for details.
+ - Fixed the spelling of `projectDeveloperId` in the [=ImpactClaimCheckpoint=] type, see [[#dt-impact-claim-checkpoint]] for details.
+
+  ## Version 2.5.1-20230502 (May 2, 2023) ## {#changelog-2.4.0-20230502}
+
+ - Removed `timing` from the [=GeographicLocation=] type, see [[#dt-geographic-location]] for details.
+ - Added `location` to the [=ClaimSource=] type, see [[#dt-claim-source]] for details.
+ - Removed `data` from the [=MrvExtension=] type, see [[#dt-mrv-extension]] for details.
+ - Cleaned syntax and formatting of the specification, i.e. removed redundant array type names.
+ - Renamed `File` to `Sdp-File` in the [=SpanDataPackage=] type, to prevent name collisions, see [[#dt-span-data-package]] for details.
+ - Added `validJurisdiction` to the [=REC=] type, see [[#dt-rec]] for details.
+ - Updated diagram to include the [=REC=] type, see [[#dt-rec]] for details.
+
+ ## Version 2.5.1-20230503 (May 3, 2023) ## {#changelog-2.4.0-20230503}
+
+ - Added [=Credential=] type, see [[#dt-credential]] for details.
+ - Added [=DigitalSignature=] type, see [[#dt-digital-signature]] for details.
+ - Added [=VerifiablePresentation=] type, see [[#dt-verifiable-presentation]] for details.
+
+ ## Version 2.5.1-20230518 (May 18, 2023) ## {#changelog-2.4.0-20230518}
+
+ - Updated [=SpanDataPackage=] sample to include `sdpFiles` property, see [[#dt-span-data-package]] for details.
+ - Updated [=Date=] type to include `UTC date` property and `date string` for simple date representation, see [[#dt-date]] for details.
+ - Removed Data Type Month from the specification as no longer needed with simplified date and time representations.
+
+ ## Version 2.5.1-20230523 (May 23, 2023) ## {#changelog-2.4.0-20230523}
+
+ - Updated [=ClaimSource=] to include [=DataExtension=] type for optional source configuration or other metadata, see [[#dt-claim-source]] for details.
+ - Fixed [=Sdp-File=] syntax to match the specification, see [[#dt-sdp-file]] for details.
+
+## Version 2.5.1-20230601 (June 1, 2023) ## {#changelog-2.4.0-20230601}
+
+ - Added `MwH` to {{Unit}} enumeration, see [[#dt-unit]] for details.
+
+## Version 2.5.1-20230605 (June 5, 2023) ## {#changelog-2.4.0-20230605}
+
+ - Changed the link to point to the published TokenTaxonomyFramework spec page.
+
+## Version 2.5.1-20230607 (June 7, 2023) ## {#changelog-2.4.0-20230607}
+
+ - Added `mrvExtensions` an array of [=MrvExtension=] to the [=ActivityImpactModule=], [=ImpactClaim=], [=ProcessedClaim=], [=ImpactClaimCheckpoint=],
+    and [=CheckpointResult=] types, see [[#dt-mrv-extension]] for details.
+ - Added `Data` an array of optional nested [=DataExtension=] to the [=DataExtension=] type, see [[#dt-mrv-extension]] for details.
+ - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+## Version 2.5.1-20230608 (June 8, 2023) ## {#changelog-2.4.0-20230608}
+
+ - Updated [=Credential=] type, see [[#dt-credential]] for details.
+ - Updated [=DigitalSignature=] type, see [[#dt-digital-signature]] for details.
+ - Updated [=VerifiablePresentation=] type, see [[#dt-verifiable-presentation]] for details.
+ - Added {{CredentialType}} enumeration, see [[#dt-credential-type]] for details.
+ - Added {{SignatureType}} enumeration, see [[#dt-signature-type]] for details.
+ - Added {{AttestationType}} enumeration, see [[#dt-attestation-type]] for details.
+ - Added {{ProofType}} enumeration, see [[#dt-proof-type]] for details.
+ - Updated {{ProjectType}} enumeration, adding Biochar, Carbonated_Materials, Carbon_Capture_in_Geological_Storage, Enhanced_Rock_Weathering, and 
+    Terrestrial_Storage_of_Biomass see [[#dt-project-type]] for details.
+ - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+ ## Version 2.5.1-20230609 (June 9, 2023) ## {#changelog-2.4.0-20230609}
+
+  - Updated {{Standard}} type to include the Puro standard, see [[#dt-standard]] for details.
+  - Upate the [=ClaimSource=] type, changed `dataExtensions` to `mrvExtensions` to include the same support for MRV Extensions as the other types, see [[#dt-claim-source]] for details.
+  - Update the [=SDP-File=] type, changed `dataExtensions` to `mrvExtensions` to include the same support for MRV Extensions as the other types, see [[#dt-sdp-file]] for details.
+  - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+  ## Version 2.5.1-20230612 (June 12, 2023) ## {#changelog-2.4.0-20230612}
+
+  - Added {{MrvExtensionContext}} enumeration, see [[#dt-mrv-extension-type]] for details.
+  - Updated [=MrvExtension=] type, added {{MrvExtensionContext}}, see [[#dt-mrv-extension]] for details.
+  - Updated [=DataExtension=] type, changed `name` to `key`, see [[#dt-data-extension]] for details.
+  - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+  ## Version 2.0.1-20230613 (June 13, 2023) ## {#changelog-2.0.0-20230613}
+
+  - Added `geographicLocationFile` to the [=GeographicLocation=] type, for larger data sets for geographic data, see [[#dt-geographic-location]] for details.
+  - Updated samples to include the changes above, see [[#data-samples]] for details.
+  - Sync Version number to 2.0.1.20230613
+
+  ## Version 2.0.1-20230621 (June 21, 2023) ## {#changelog-2.0.0-20230621}
+
+  - Changed `GeographicCountry` to `Country` in the [=AccountableImpactOrganization=] type, see [[#dt-accountable-impact-organization]] for details.
+  - Changed `Status` to `CreditStatus` in the {{CreditStatus}} enumeration, see [[#dt-credit-status]] for details.
+  - Flattend [=GeographicLocation=] type to reduce complexity, see [[#dt-geographic-location]] for details.
+  - Moved {{AuditSchedule}} field to be in type [=VerificationContract=] type, see [[#dt-verification-contract]] for details.
+  - Updated feedback email to `iwa@gbbcouncil.org`
+  - Removed `processedClaimIds` from [=VerificationContract=] type, see [[#dt-verification-contract]] for details.
+  - Added {{MethodologyAndTool}} data type, see [[#dt-methodology-and-tool]] to the [=QualityStandard=] type, for supporting a methodology and multiple toolsets that can apply, see [[#dt-quality-standard]] for details.
+  - Update samples to include the changes above, see [[#data-samples]] for details.
+
+  ## Version 2.0.1-20230712 (July 12, 2023) ## {#changelog-2.0.0-20230712}
+
+  - Added full Data Model diagram to the specification, see [[#data-model-detailed]] for details.data-model-detailed
+
+  ## Version 2.0.1-20230809 (August 9, 2023) ## {#changelog-2.0.0-20230809}
+
+  - Renamed `offsetAppliedToId` to `appliedToId` for [=CRU=] and [=REC=] types, see [[#dt-cru]] and [[#dt-rec]] for details.
+  - Updated [=MrvExtension=] type to support `untypedExtension` or `typedExtension` properties, see [[#dt-mrv-extension]] for details. This aligns with the [WBCSD:PACT Data Model Extension](https://wbcsd.github.io/data-model-extensions/spec/) 
+  - Added [=UnTypedExtension=] type, see [[#dt-untyped-extension]] for details.
+  - Added [=TypedExtension=] type, see [[#dt-typed-extension]] for details.
+  - Added [=TypedExtensionDefinition=] type, see [[#typed-extension-definition]] for details.
+  - Added [=ExtensionDocumentation=] type, see [[#extension-documentation]] for details.
+  - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+  ## Version 2.0.1-20230815 (August 15, 2023) ## {#changelog-2.0.0-20230815}
+
+  - Added `REC-FullLineage` sample, see [[#example-rec-full-lineage]] for details.
+  - Renamed `MrvExtensionType` to `MrvExtensionContext` in the [=MrvExtension=] type, see [[#dt-mrv-extension]] for details.
+  - Updated samples to include the changes above, see [[#data-samples]] for details.
+
+ ## Version 2.0.1-20230824 (August 24, 2023) ## {#changelog-2.0.0-20230824}
+
+  - Renamed `EcologicalProject` to `AccountableImpactOrganization` and cleaned up residue data where found in documenation and in the data model, see [[#dt-accountable-impact-organization]] for details.
+  - Renamed `ModularBenefitProject` to `ActivityImpactModule` and cleaned up residue data where found in documenation and in the data model, see [[#dt-activity-impact-module]] for details.
+  - Renamed `EcologicalClaim` to `ImpactClaim` and cleaned up residue data where found in documenation and in the data model, see [[#dt-impact-claim]] for details.
+  - Changed `DMRV` to `dMRV`
+  - Updated Samples

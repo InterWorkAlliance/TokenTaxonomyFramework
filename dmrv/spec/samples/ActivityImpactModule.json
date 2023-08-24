@@ -1,6 +1,6 @@
 {
   "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-  "projectId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+  "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
   "name": "Forest Plot 3341",
   "classificationCategory": "CarbonRemoval",
   "classificationMethod": "Natural",
@@ -26,7 +26,7 @@
   "claimSources": [
     {
       "id": "147e7105-2333-4f5f-847c-6c984e5220dd",
-      "mbpId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+      "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
       "name": "Soil Sensor Device",
       "description": "Located in forest area e2",
       "location": {
@@ -40,7 +40,7 @@
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "mrvExtensions": [
         {
-          "mrvExtensionContext": "MbpClaimSourceMrvExtension",
+          "mrvExtensionContext": "AimClaimSourceMrvExtension",
           "typedExtension": {
             "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
             "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
@@ -52,22 +52,22 @@
       ]
     }
   ],
-  "ecologicalClaims": [
+  "impactClaims": [
     {
       "id": "",
-      "mbpId": "",
+      "aimId": "",
       "processedClaimId": "",
       "unit": "TonneCo2E",
       "quantity": "",
       "coBenefits": [],
       "checkpoints": [],
       "mrvExtensions": [],
-      "modularBenefitProject": null
+      "activityImpactModule": null
     }
   ],
   "mrvExtensions": [
     {
-      "mrvExtensionContext": "MbpMrvExtension",
+      "mrvExtensionContext": "AimMrvExtension",
       "typedExtension": {
         "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
         "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
@@ -81,13 +81,13 @@
     {
       "validationDate": {
         "dateTime": null,
-        "dateString": "8/15/2023"
+        "dateString": "8/24/2023"
       },
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
       "validationExpirationDate": {
         "dateTime": null,
-        "dateString": "8/15/2023"
+        "dateString": "8/24/2023"
       },
       "validationSteps": [
         {
@@ -105,5 +105,5 @@
       ]
     }
   ],
-  "ecologicalProject": null
+  "accountableImpactOrganization": null
 }

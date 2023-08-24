@@ -1,7 +1,7 @@
 {
   "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "verificationContractId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-  "ecologicalClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+  "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
   "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
   "unit": "TonneCo2E",
   "quantity": "1.41",
@@ -75,6 +75,6 @@
   ],
   "proposedAsset": null,
   "verificationContract": null,
-  "ecologicalClaim": null,
+  "impactClaim": null,
   "asset": null
 }

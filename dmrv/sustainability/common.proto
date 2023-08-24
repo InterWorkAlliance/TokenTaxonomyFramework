@@ -258,12 +258,12 @@ enum ReversalRisk{
 }
 
 enum DurabilityInsuranceType{
-    BUFFER_POOL = 0; //an ecological project or insurance product can set aside credits into a pool for risk mitigation. If needed issued credits can be revoked and replaced by credits from the pool.
+    BUFFER_POOL = 0; //an accountable impact organiation or insurance product can set aside credits into a pool for risk mitigation. If needed issued credits can be revoked and replaced by credits from the pool.
     REFUND = 1; //purchase price of the credit is refunded to the buyer and the credit is revoked.
 }
 
 enum InsurancePolicyOwner{
-    ECOLOGICAL_PROJECT = 0; //the ecological project is the owner of the insurance policy.
+    ACCOUNTABLE_IMPACT_ORGANIZATION = 0; //the accountable impact organiation is the owner of the insurance policy.
     ISSUING_REGISTRY = 1; //the issuing registry is the owner of the insurance policy.
     RETIRER = 2; //the retirer is the owner of the insurance policy.
     CUSTODIAN = 3; //the custodian is the owner of the insurance policy.
@@ -351,6 +351,7 @@ enum Standard{
     J_I =  6; //Compliance: Joint Implementation - Kyoto binding targets generation of ERUs
     E_U_A =  7; //Compliance: European Union Allowances
     PURO = 8; //Voluntary: Puro Standard verified durable carbon removal
+    I_REC = 9; //Voluntary: I-REC Standard renewable energy
     PENDING =  100; //Other
 }
 
@@ -711,8 +712,8 @@ message VerifiablePresentation{
 
 enum MrvExtensionContext{
     UNKNOWN_MRV_EXTENSION = 0; //Unknown extension
-    MBP_MRV_EXTENSION = 1; //MBP extension
-    MBP_CLAIM_SOURCE_MRV_EXTENSION = 2; //MBP Claim Source extension
+    AIM_MRV_EXTENSION = 1; //AIM extension
+    AIM_CLAIM_SOURCE_MRV_EXTENSION = 2; //AIM Claim Source extension
     CLAIM_MRV_EXTENSION = 3; //Claim extension
     CHECKPOINT_MRV_EXTENSION = 4; //Checkpoint extension
     SDP_MANIFEST_MRV_EXTENSION = 5; //SDP Manifest extension

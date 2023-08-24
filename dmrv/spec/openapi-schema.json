@@ -63,7 +63,7 @@
         }
       }
     },
-    "/Dmrv/getEcologicalProject": {
+    "/Dmrv/getAccountableImpactOrganization": {
       "get": {
         "tags": [
           "Dmrv"
@@ -74,17 +74,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalProject"
+                  "$ref": "#/components/schemas/AccountableImpactOrganization"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalProject"
+                  "$ref": "#/components/schemas/AccountableImpactOrganization"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalProject"
+                  "$ref": "#/components/schemas/AccountableImpactOrganization"
                 }
               }
             }
@@ -92,7 +92,7 @@
         }
       }
     },
-    "/Dmrv/getEcologicalClaim": {
+    "/Dmrv/getImpactClaim": {
       "get": {
         "tags": [
           "Dmrv"
@@ -103,17 +103,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalClaim"
+                  "$ref": "#/components/schemas/ImpactClaim"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalClaim"
+                  "$ref": "#/components/schemas/ImpactClaim"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EcologicalClaim"
+                  "$ref": "#/components/schemas/ImpactClaim"
                 }
               }
             }
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/Dmrv/getModularBenefitProject": {
+    "/Dmrv/getActivityImpactModule": {
       "get": {
         "tags": [
           "Dmrv"
@@ -132,17 +132,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModularBenefitProject"
+                  "$ref": "#/components/schemas/ActivityImpactModule"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModularBenefitProject"
+                  "$ref": "#/components/schemas/ActivityImpactModule"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModularBenefitProject"
+                  "$ref": "#/components/schemas/ActivityImpactModule"
                 }
               }
             }
@@ -269,6 +269,167 @@
   },
   "components": {
     "schemas": {
+      "AccountableImpactOrganization": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Region"
+          },
+          "informationLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "mediaLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerifiedLink"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "activityImpactModules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActivityImpactModule"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ActivityImpactModule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "aioId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "classificationCategory": {
+            "$ref": "#/components/schemas/ClassificationCategory"
+          },
+          "classificationMethod": {
+            "$ref": "#/components/schemas/Method"
+          },
+          "benefitCategory": {
+            "$ref": "#/components/schemas/BenefitCategory"
+          },
+          "projectScope": {
+            "$ref": "#/components/schemas/ProjectScope"
+          },
+          "projectType": {
+            "$ref": "#/components/schemas/ProjectType"
+          },
+          "projectScale": {
+            "$ref": "#/components/schemas/ProjectScale"
+          },
+          "arbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "geographicLocation": {
+            "$ref": "#/components/schemas/GeographicLocation"
+          },
+          "firstYearIssuance": {
+            "type": "string",
+            "nullable": true
+          },
+          "registryProjectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "developers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "sponsors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "claimSources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimSource"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "impactClaims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImpactClaim"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "validations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Validation"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "accountableImpactOrganization": {
+            "$ref": "#/components/schemas/AccountableImpactOrganization"
+          }
+        },
+        "additionalProperties": false
+      },
       "Address": {
         "type": "object",
         "properties": {
@@ -498,7 +659,7 @@
             "type": "string",
             "nullable": true
           },
-          "mbpId": {
+          "aimId": {
             "type": "string",
             "nullable": true
           },
@@ -1101,168 +1262,6 @@
         ],
         "type": "string"
       },
-      "EcologicalClaim": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "mbpId": {
-            "type": "string",
-            "nullable": true
-          },
-          "processedClaimId": {
-            "type": "string",
-            "nullable": true
-          },
-          "unit": {
-            "$ref": "#/components/schemas/Unit"
-          },
-          "quantity": {
-            "type": "string",
-            "nullable": true
-          },
-          "coBenefits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CoBenefit"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "checkpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EcologicalClaimCheckpoint"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "mrvExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "modularBenefitProject": {
-            "$ref": "#/components/schemas/ModularBenefitProject"
-          }
-        },
-        "additionalProperties": false
-      },
-      "EcologicalClaimCheckpoint": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimId": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimSourceIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "projectDeveloperId": {
-            "type": "string",
-            "nullable": true
-          },
-          "efBefore": {
-            "type": "string",
-            "nullable": true
-          },
-          "efAfter": {
-            "type": "string",
-            "nullable": true
-          },
-          "checkpointDateRange": {
-            "$ref": "#/components/schemas/DateRange"
-          },
-          "verifiedLinkToCheckpointData": {
-            "$ref": "#/components/schemas/VerifiedLink"
-          },
-          "mrvExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "spanDataPackage": {
-            "$ref": "#/components/schemas/SpanDataPackage"
-          }
-        },
-        "additionalProperties": false
-      },
-      "EcologicalProject": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "addresses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Address"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "owners": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "country": {
-            "$ref": "#/components/schemas/Country"
-          },
-          "region": {
-            "$ref": "#/components/schemas/Region"
-          },
-          "informationLink": {
-            "$ref": "#/components/schemas/VerifiedLink"
-          },
-          "mediaLinks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/VerifiedLink"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "modularBenefitProjects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ModularBenefitProject"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ExtensionOneofCase": {
         "enum": [
           "None",
@@ -1318,9 +1317,112 @@
         ],
         "type": "string"
       },
+      "ImpactClaim": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "aimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "quantity": {
+            "type": "string",
+            "nullable": true
+          },
+          "coBenefits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "checkpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImpactClaimCheckpoint"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "activityImpactModule": {
+            "$ref": "#/components/schemas/ActivityImpactModule"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImpactClaimCheckpoint": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "projectDeveloperId": {
+            "type": "string",
+            "nullable": true
+          },
+          "efBefore": {
+            "type": "string",
+            "nullable": true
+          },
+          "efAfter": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkpointDateRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "verifiedLinkToCheckpointData": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "spanDataPackage": {
+            "$ref": "#/components/schemas/SpanDataPackage"
+          }
+        },
+        "additionalProperties": false
+      },
       "InsurancePolicyOwner": {
         "enum": [
-          "EcologicalProject",
+          "AccountableImpactOrganization",
           "IssuingRegistry",
           "Retirer",
           "Custodian"
@@ -1356,7 +1458,7 @@
             "type": "string",
             "nullable": true
           },
-          "mbpId": {
+          "aimId": {
             "type": "string",
             "nullable": true
           },
@@ -1807,108 +1909,6 @@
         },
         "additionalProperties": false
       },
-      "ModularBenefitProject": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "projectId": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "classificationCategory": {
-            "$ref": "#/components/schemas/ClassificationCategory"
-          },
-          "classificationMethod": {
-            "$ref": "#/components/schemas/Method"
-          },
-          "benefitCategory": {
-            "$ref": "#/components/schemas/BenefitCategory"
-          },
-          "projectScope": {
-            "$ref": "#/components/schemas/ProjectScope"
-          },
-          "projectType": {
-            "$ref": "#/components/schemas/ProjectType"
-          },
-          "projectScale": {
-            "$ref": "#/components/schemas/ProjectScale"
-          },
-          "arbId": {
-            "type": "string",
-            "nullable": true
-          },
-          "geographicLocation": {
-            "$ref": "#/components/schemas/GeographicLocation"
-          },
-          "firstYearIssuance": {
-            "type": "string",
-            "nullable": true
-          },
-          "registryProjectId": {
-            "type": "string",
-            "nullable": true
-          },
-          "developers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "sponsors": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "claimSources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ClaimSource"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "ecologicalClaims": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EcologicalClaim"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "mrvExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "validations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Validation"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "ecologicalProject": {
-            "$ref": "#/components/schemas/EcologicalProject"
-          }
-        },
-        "additionalProperties": false
-      },
       "MrvExtension": {
         "type": "object",
         "properties": {
@@ -1930,8 +1930,8 @@
       "MrvExtensionContext": {
         "enum": [
           "UnknownMrvExtension",
-          "MbpMrvExtension",
-          "MbpClaimSourceMrvExtension",
+          "AimMrvExtension",
+          "AimClaimSourceMrvExtension",
           "ClaimMrvExtension",
           "CheckpointMrvExtension",
           "SdpManifestMrvExtension",
@@ -1982,7 +1982,7 @@
             "type": "string",
             "nullable": true
           },
-          "ecologicalClaimId": {
+          "impactClaimId": {
             "type": "string",
             "nullable": true
           },
@@ -2027,8 +2027,8 @@
           "verificationContract": {
             "$ref": "#/components/schemas/VerificationContract"
           },
-          "ecologicalClaim": {
-            "$ref": "#/components/schemas/EcologicalClaim"
+          "impactClaim": {
+            "$ref": "#/components/schemas/ImpactClaim"
           },
           "asset": {
             "$ref": "#/components/schemas/Any"
@@ -2703,7 +2703,7 @@
             "type": "string",
             "nullable": true
           },
-          "mbpId": {
+          "aimId": {
             "type": "string",
             "nullable": true
           },
@@ -2713,8 +2713,8 @@
           "audits": {
             "$ref": "#/components/schemas/Audits"
           },
-          "modularBenefitProject": {
-            "$ref": "#/components/schemas/ModularBenefitProject"
+          "activityImpactModule": {
+            "$ref": "#/components/schemas/ActivityImpactModule"
           },
           "processedClaims": {
             "type": "array",
