@@ -17,7 +17,8 @@ message AccountableImpactOrganization{
     common.Region region = 7; //region of the organization
     common.VerifiedLink information_link = 8; //Link to information about the organization
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the organization
-    repeated ActivityImpactModule activity_impact_modules = 10; //list of activity impact modules
+    repeated common.Attestation attestations = 10; //a collection of Attestation workflow steps for a project
+    repeated ActivityImpactModule activity_impact_modules = 11; //list of activity impact modules
 }
 
 message ActivityImpactModule {
@@ -60,7 +61,8 @@ message ActivityImpactModule {
         repeated ValidationStep validation_steps = 5; //collection of validation steps
     }
     repeated Validation validations = 19; //in DRAFT, a collection of Validation workflow steps for a project
-    AccountableImpactOrganization accountable_impact_organization = 20; //optional, for object navigation, the parent ecological project
+    repeated common.Attestation attestations = 20; //a collection of Attestation workflow steps for a project
+    AccountableImpactOrganization accountable_impact_organization = 21; //optional, for object navigation, the parent ecological project
 }
 
 message ClaimSource
@@ -133,7 +135,7 @@ message ProcessedClaim
         repeated common.MrvExtension mrv_extensions = 7; //a list of MRV extensions that are associated with the claim.
     }
     repeated CheckpointResult checkpoint_results = 9; //summary and verified links for the the claim's checkpoint verification results.
-    google.protobuf.Any proposed_asset = 10; //Since a processed claim is generic, it can contain the proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
+    google.protobuf.Any issuance_request = 10; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
     VerificationContract verification_contract = 11; //optional, for object navigation - the verification contract used to verify the claim
     ImpactClaim impact_claim = 12; //optional, for object navigation - the ecological claim being processed
     google.protobuf.Any asset = 13; //optional, for object navigation, the asset that is issued for the processed claim.
@@ -186,7 +188,7 @@ message CRU
         repeated common.CoBenefit quantified_sdg_impacts = 10; //the quantified impacts of the token.
         repeated common.CoBenefit adaptation_co_benefits = 11; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
     }
-    CoreCarbonPrinciples core_carbon_principals = 6; //these are aligned with the ICVCM Core Carbon Principles
+    CoreCarbonPrinciples core_carbon_principles = 6; //these are aligned with the ICVCM Core Carbon Principles
     repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
     common.CreditStatus status = 8; //the status of the token
     message ReferencedCredit{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.

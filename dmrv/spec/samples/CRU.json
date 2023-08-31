@@ -4,11 +4,11 @@
   "unit": "TonneCo2E",
   "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
   "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
-  "coreCarbonPrincipals": {
+  "coreCarbonPrinciples": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "8/24/2023"
+      "dateString": "8/31/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",

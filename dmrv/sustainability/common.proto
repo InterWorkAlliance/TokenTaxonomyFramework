@@ -663,10 +663,19 @@ enum SignatureType{
 
 // Attestation needs further definition
 message Attestation{
-    AttestationType type = 1; //The type of attestation 
-    ProofType proof_type = 2; //The type of proof 
-    string attestor = 3; //The id or address of the attestor
-    DigitalSignature signature = 4; //The signature of attestation
+    Tag tag = 1; //The tag of the attestation
+    AttestationType type = 2; //The type of attestation 
+    ProofType proof_type = 3; //The type of proof 
+    string attestor = 4; //The id or address of the attestor
+    DigitalSignature signature = 5; //The signature of attestation
+}
+
+// A tag's structure can vary based on implementation, for example using Verified Creditionals or DIDs.
+message Tag{
+    string name = 1; //The name of the tag
+    repeated string context = 2; //The context or data type the tag applies to
+    string description = 3; //The description of the tag
+    string data = 4; //Serialized tag properties
 }
 
 //A digital signature that can support both JWT and VC

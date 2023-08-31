@@ -4,11 +4,11 @@
   "unit": "TonneCo2E",
   "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
   "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
-  "coreCarbonPrincipals": {
+  "coreCarbonPrinciples": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "8/24/2023"
+      "dateString": "8/31/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -151,7 +151,7 @@
         ]
       }
     ],
-    "proposedAsset": null,
+    "issuanceRequest": null,
     "verificationContract": {
       "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
       "name": "Verification Contract for Concrete Plant 3341",
@@ -239,7 +239,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "8/24/2023"
+        "dateString": "8/31/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -247,7 +247,7 @@
       "audits": {
         "auditDate": {
           "dateTime": null,
-          "dateString": "8/24/2023"
+          "dateString": "8/31/2023"
         },
         "auditReports": [
           {
@@ -292,21 +292,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "8/24/2023"
+                "dateString": "8/31/2023"
               },
               "timeStamp": {
-                "seconds": 1692901489,
-                "nanos": 583076000
+                "seconds": 1693509205,
+                "nanos": 480072000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "8/24/2023"
+                "dateString": "8/31/2023"
               },
               "timeStamp": {
-                "seconds": 1692901489,
-                "nanos": 657447000
+                "seconds": 1693509205,
+                "nanos": 544943000
               }
             }
           },
@@ -328,14 +328,14 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1692901489,
-                    "nanos": 658968000
+                    "seconds": 1693509205,
+                    "nanos": 546430000
                   },
-                  "dateString": "8/24/2023"
+                  "dateString": "8/31/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1692901489,
-                  "nanos": 659097000
+                  "seconds": 1693509205,
+                  "nanos": 546704000
                 }
               },
               "mrvExtensions": [
@@ -525,13 +525,13 @@
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "8/24/2023"
+              "dateString": "8/31/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "8/24/2023"
+              "dateString": "8/31/2023"
             },
             "validationSteps": [
               {
@@ -549,6 +549,7 @@
             ]
           }
         ],
+        "attestations": [],
         "accountableImpactOrganization": {
           "id": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
           "name": "Eco-Earth Forest Growth",
@@ -586,6 +587,7 @@
               "hashAlgorithm": "Sha256"
             }
           ],
+          "attestations": [],
           "activityImpactModules": []
         }
       }

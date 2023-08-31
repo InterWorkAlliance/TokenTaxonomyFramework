@@ -35,6 +35,7 @@
       "hashAlgorithm": "Sha256"
     }
   ],
+  "attestations": [],
   "activityImpactModules": [
     {
       "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -119,13 +120,13 @@
         {
           "validationDate": {
             "dateTime": null,
-            "dateString": "8/24/2023"
+            "dateString": "8/31/2023"
           },
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
           "validationExpirationDate": {
             "dateTime": null,
-            "dateString": "8/24/2023"
+            "dateString": "8/31/2023"
           },
           "validationSteps": [
             {
@@ -143,6 +144,7 @@
           ]
         }
       ],
+      "attestations": [],
       "accountableImpactOrganization": null
     }
   ]
