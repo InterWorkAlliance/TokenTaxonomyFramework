@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="ad4a60c36e6c29a69e02bcf2e582209b9b1e28fb" name="document-revision">
+  <meta content="8dc4d21cae5f43e481ddf0930d47bc2c2530d788" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2734,6 +2734,11 @@ document do not assume responsibility for any consequences or damages resulting 
     <dd data-md>
      <p>A quality standard is a generic term for the methodology or protocol(s) that are used to validate a project and measure, report and verify the environmental benefits of an Accountable Impact Organization. The quality standard may include additional project validation requirements and be composed of different combinations of tools to calculate things like Additionally, etc.</p>
      <p>The encoding of a Quality Standard in the data model is specified in <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a></p>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="verification-automation">Verification Automation<a class="self-link" href="#verification-automation"></a></dfn>
+    <dd data-md>
+     <p>Solutions, platforms, services, etc., designed to accelerate the verification of claims. Depending on the Quality Standard, it may be able,
+with appropriate audit requirements, to perform full verification of claims issuance of impact credits. For other Quality Standards, 
+these platforms or services may automate and prepare findings data that are evaluated by a VVB in order to speed up and support a continuous verification process.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="impact-claim">Impact Claim<a class="self-link" href="#impact-claim"></a></dfn>
     <dd data-md>
      <p>An impact claim is a collection of the evidence data submitted according to the quality standard being followed by the AIM. An impact claim is composed of one or more checkpoints.</p>
@@ -3217,7 +3222,7 @@ a sensor or meter, an application that collects user data or reference data like
    <p>An ImpactClaim represents the actual project work that will generate benefits through out the claim period
 that is agreed to by the developer, VVB and Registry. ImpactClaims are created by a ActivityImpactModule
 and contains metadata about the claim period as well as a collection of checkpoints that are used to submitted
-project evidence that is verified by the VVB or verification platform.</p>
+project evidence that is verified by the VVB or Verification Automation.</p>
    <h4 class="heading settled" data-level="3.9.1" id="dt-impact-claim-base-token-behaviors"><span class="secno">3.9.1. </span><span class="content">Base Token and Behaviors</span><a class="self-link" href="#dt-impact-claim-base-token-behaviors"></a></h4>
    <p>The ImpactClaim has a Non-Fungilble base that has the following behaviors:</p>
    <ol>
@@ -3228,7 +3233,7 @@ project evidence that is verified by the VVB or verification platform.</p>
     <li data-md>
      <p><dfn data-dfn-type="dfn" data-noexport id="delegable">Delegable<a class="self-link" href="#delegable"></a></dfn> (g): The ImpactClaim can have certain behaviors delegated to another party.</p>
     <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="encumberable">encumberable<a class="self-link" href="#encumberable"></a></dfn> (e): The ImpactClaim can be encumbered by a third party, typically the verification platform or VVB.</p>
+     <p><dfn data-dfn-type="dfn" data-noexport id="encumberable">encumberable<a class="self-link" href="#encumberable"></a></dfn> (e): The ImpactClaim can be encumbered by a third party, typically the verification automation or VVB.</p>
     <li data-md>
      <p><dfn data-dfn-type="dfn" data-noexport id="processedclaimcontrol">ProcessedClaimControl<a class="self-link" href="#processedclaimcontrol"></a></dfn> (PCC): The ImpactClaim also has this <dfn data-dfn-type="dfn" data-noexport id="behavior-group">Behavior-Group<a class="self-link" href="#behavior-group"></a></dfn> with a set of behaviors a bundled and
 configured to control the processing of the ImpactClaim.</p>
@@ -3266,7 +3271,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-processedclaimid"><code>processedClaimId</code><a class="self-link" href="#element-attrdef-impactclaim-processedclaimid"></a></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①①">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the corrisponding processed claim that the verification platform uses to track the verification process and results of a claim. See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details.
+       <td>The unique identifier for the corrisponding processed claim that the verification automation uses to track the verification process and results of a claim. See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details.
             The value can be null until a processed claim is created. 
       <tr>
        <td><dfn data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-unit"><code>unit</code><a class="self-link" href="#element-attrdef-impactclaim-unit"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit①">Unit</a></code> 
@@ -3298,10 +3303,10 @@ configured to control the processing of the ImpactClaim.</p>
    </figure>
    <h3 class="heading settled" data-level="3.10" id="dt-impact-claim-checkpoint"><span class="secno">3.10. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="impactclaimcheckpoint">ImpactClaimCheckpoint</dfn></span><a class="self-link" href="#dt-impact-claim-checkpoint"></a></h3>
    <p>The impact claim checkpoint is a collection of evidence that is submitted by the developer to support
-  the claim. The VVB or verification platform will review the evidence and provide a status of the evidence
+  the claim. The VVB or verification automation will review the evidence and provide a status of the evidence
   in a corresponding CheckpointResult in the processed claim.</p>
    <p>Checkpoints are used to periodically submit evidence on an agreed upon basis from the ActivityImpactModule
-  to the VVB or verification platform. This enables the development of continous verification of the project
+  to the VVB or verification automation. This enables the development of continous verification of the project
   and the ability to provide feedback to the developer on the status of the project and the evidence submitted
   before the end of the claim period.</p>
    <h4 class="heading settled" data-level="3.10.1" id="dt-impact-claim-checkpoint-properties"><span class="secno">3.10.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-impact-claim-checkpoint-properties"></a></h4>
@@ -3495,7 +3500,7 @@ configured to control the processing of the ImpactClaim.</p>
    </figure>
    <h3 class="heading settled" data-level="3.14" id="dt-mrv-extension"><span class="secno">3.14. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvextension">MrvExtension</dfn></span><a class="self-link" href="#dt-mrv-extension"></a></h3>
    <p>A MRV Extension is an extensible JSON object that contains the MRV data that is specific to the Quality Standard/Methodology. MRV mrvExtensions
-    can be defined by the methdology developers or the verifier, or verification platform to include an attributes or data that is helpful to have on the ledger. MrvExtensions can be
+    can be defined by the methdology developers or the verifier, or verification automation to include an attributes or data that is helpful to have on the ledger. MrvExtensions can be
     added to <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule④">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim②">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim①">ProcessedClaim</a> types.</p>
    <p>The MRV Extension can be typed or untyped, i.e., schemaless, so the MRV Extension with have either an <code>untypedExtension</code> or a <code>typedExtension</code> property.</p>
    <h4 class="heading settled" data-level="3.14.1" id="dt-mrv-extension-properties"><span class="secno">3.14.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-extension-properties"></a></h4>
@@ -3542,7 +3547,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤">String</a> 
        <td>String 
        <td>M 
-       <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification platform. 
+       <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string⑥">String</a> 
        <td>String 
@@ -3552,7 +3557,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑦">String</a> 
        <td>String 
        <td>M 
-       <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification platform describing the purpose of the extension. 
+       <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
       <tr>
        <td><dfn data-dfn-for="UntypedExtension" data-dfn-type="element-attr" data-export id="element-attrdef-untypedextension-documentation"><code>documentation</code><a class="self-link" href="#element-attrdef-untypedextension-documentation"></a></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string⑧">String</a> 
        <td>String 
@@ -3651,7 +3656,7 @@ configured to control the processing of the ImpactClaim.</p>
      <p>Electronic contact information on how to get in touch with the authors and maintainers of the extension.</p>
    </ol>
    <h3 class="heading settled" data-level="3.20" id="dt-processed-claim"><span class="secno">3.20. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="processedclaim">ProcessedClaim</dfn></span><a class="self-link" href="#dt-processed-claim"></a></h3>
-   <p>The verification platform or VVB creates a ProcessedClaim at the beginning of verification to track the verification process
+   <p>The verification automation or VVB creates a ProcessedClaim at the beginning of verification to track the verification process
     and support continous verification. A ProcessedClaim is paired with an ImpactClaim and also contains
     a collection of CheckpointResults where results for each checkpoint verified are recorded.</p>
    <h4 class="heading settled" data-level="3.20.1" id="dt-processed-claim-base-token"><span class="secno">3.20.1. </span><span class="content">Base Token and Behaviors</span><a class="self-link" href="#dt-processed-claim-base-token"></a></h4>
@@ -3828,7 +3833,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-signatories"><code>signatories</code><a class="self-link" href="#element-attrdef-verificationcontract-signatories"></a></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
        <td>Array 
        <td>M 
-       <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and Verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.36 Data Type: Signatory</a> for details. 
+       <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.36 Data Type: Signatory</a> for details. 
       <tr>
        <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationcontract-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> 
        <td>Object 
@@ -5273,7 +5278,7 @@ the specification.</p>
      <p>for Project Owner</p>
     <dt data-md><dfn class="idl-code" data-dfn-for="SignatoryRole" data-dfn-type="enum-value" data-export id="dom-signatoryrole-verification_platform_provider"><code>VERIFICATION_PLATFORM_PROVIDER</code><a class="self-link" href="#dom-signatoryrole-verification_platform_provider"></a></dfn>
     <dd data-md>
-     <p>for Verification Platform Provider</p>
+     <p>for Verification Automation Provider</p>
    </dl>
    <h4 class="heading settled" data-level="3.65.1" id="dt-signatory-role-json"><span class="secno">3.65.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-signatory-role-json"></a></h4>
    <p>Each SignatoryRole MUST be encoded as a JSON String.</p>
@@ -8616,6 +8621,8 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
      <p>Updated <a data-link-type="dfn" href="#attestation" id="ref-for-attestation②">Attestation</a> type including <a data-link-type="dfn" href="#tag" id="ref-for-tag①">Tag</a> to match business document, see <a href="#dt-attestation">§ 3.42 Data Type: Attestation</a> for details.</p>
     <li data-md>
      <p>Updated samples, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
+    <li data-md>
+     <p>Added <code>Verification Automation</code> definition.</p>
    </ul>
   </main>
 <script>
@@ -9250,6 +9257,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-credentialtype-verifiable_credential">VERIFIABLE_CREDENTIAL</a><span>, in § 3.63</span>
    <li><a href="#dom-credentialtype-verifiable_presentation">VERIFIABLE_PRESENTATION</a><span>, in § 3.63</span>
    <li><a href="#verifiablepresentation">VerifiablePresentation</a><span>, in § 3.41</span>
+   <li><a href="#verification-automation">Verification Automation</a><span>, in § 2</span>
    <li><a href="#verification-contract">Verification Contract</a><span>, in § 2</span>
    <li><a href="#verificationcontract">VerificationContract</a><span>, in § 3.22</span>
    <li><a href="#element-attrdef-processedclaim-verificationcontractid">verificationContractId</a><span>, in § 3.20.2</span>
