@@ -117,7 +117,7 @@ message ImpactClaim
 message ProcessedClaim
 {
     string id = 1; //the id for the processed claim
-    string verification_contract_id = 2; //Id for the verification contract
+    string vpa_id = 2; //Id for the verification process agreement
     string impact_claim_id = 3; //the ID for the Ecological Claim being processed.
     string credit_id = 4; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
     common.Unit unit = 5; //unit of measure for the quantity
@@ -136,7 +136,7 @@ message ProcessedClaim
     }
     repeated CheckpointResult checkpoint_results = 9; //summary and verified links for the the claim's checkpoint verification results.
     google.protobuf.Any issuance_request = 10; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
-    VerificationContract verification_contract = 11; //optional, for object navigation - the verification contract used to verify the claim
+    VerificationProcessAgreement verification_process_agreement = 11; //optional, for object navigation - the verification process agreement used to verify the claim
     ImpactClaim impact_claim = 12; //optional, for object navigation - the ecological claim being processed
     google.protobuf.Any asset = 13; //optional, for object navigation, the asset that is issued for the processed claim.
 }
@@ -228,11 +228,11 @@ message REC
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
 }
 
-//Until there is a contract definition, we can define the required propoerties that a verification contract between a activity impact module, Verifier and Issuing Registry should have.
-message VerificationContract{
+//Define the required propoerties that a verification process agreement between a activity impact module, Verifier and Issuing Registry should have.
+message VerificationProcessAgreement{
     string id = 1; //unique identifier
-    string name = 2; //name of the contract
-    string description = 3; //description of the contract
+    string name = 2; //name of the agreement
+    string description = 3; //description of the agreement
     message Signatory{
         string id = 1; //unique identifier
         string name = 2; //name of the signatory
@@ -246,7 +246,7 @@ message VerificationContract{
         SignatoryRole signatory_role = 4; //role of the signatory
         common.DigitalSignature signature = 5; //digital signature of the signatory
     }
-    repeated Signatory signatories = 4; //list of signatories to the contract, by id
+    repeated Signatory signatories = 4; //list of signatories to the agreement, by id
     message QualityStandard{
         string name = 1; //name of the standard
         string description = 2; //description of the standard
@@ -278,17 +278,17 @@ message VerificationContract{
     }
     QualityStandard quality_standard = 5; //standard that is used to verify the project
     MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements
-    common.Date agreement_date = 7; //start date of the contract
-    string estimated_annual_credits = 8; //estimated annual credits that will be issued under the contract
+    common.Date agreement_date = 7; //start date of the agreement
+    string estimated_annual_credits = 8; //estimated annual credits that will be issued under the agreement
     string aim_id = 9; //id of the activity impact module that is being verified
     message Audits{
         common.Date audit_date = 2; //date of the audit
         repeated common.VerifiedLink audit_reports = 3; //list of audit reports
     }
     common.AuditSchedule audit_schedule = 10; //schedule of audits
-    Audits audits = 11; //list of audits that have been performed under the contract
+    Audits audits = 11; //list of audits that have been performed under the agreement
     ActivityImpactModule activity_impact_module = 12; //optional, for object navigation, the activity impact module that is being verified
-    repeated ProcessedClaim processed_claims = 13; //optional, for object navigation, the processed claims that have been processed under the contract
+    repeated ProcessedClaim processed_claims = 13; //optional, for object navigation, the processed claims that have been processed under the agreement
 }
 
 //Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.

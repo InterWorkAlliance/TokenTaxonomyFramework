@@ -22,9 +22,9 @@
     "issuerId": "c2862fe4-c97d-4494-afd0-b6c8d7efccd9",
     "processedClaim": {
       "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
-      "verificationContractId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+      "vpaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
       "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
-      "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
+      "creditId": "16e029bb-8258-4721-b3ab-3d4493425151",
       "unit": "MwH",
       "quantity": "1.3121",
       "coBenefits": [
@@ -92,10 +92,10 @@
         }
       ],
       "proposedAsset": null,
-      "verificationContract": {
+      "verificationProcessAgreement": {
         "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-        "name": "Verification Contract for Solar Deployment 3341",
-        "description": "Verification Contract for Solar Deployment 3341, with issuer Evident and verifier",
+        "name": "Verification Process Agreement for Solar Deployment 3341",
+        "description": "Verification Process Agreement for Solar Deployment 3341, with issuer Evident and verifier",
         "signatories": [
           {
             "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",

@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</title>
+  <title>Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="8dc4d21cae5f43e481ddf0930d47bc2c2530d788" name="document-revision">
+  <meta content="7ef200783ef4711c9bf15c0002460fcd311c9944" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2123,8 +2123,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1 class="p-name no-ref" id="title">DRAFT Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-08-31">31 August 2023</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-05">5 September 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2256,9 +2256,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-checkpoint-results-properties"><span class="secno">3.21.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-verification-contract"><span class="secno">3.22</span> <span class="content">Contract &amp; Data Type: <span>VerificationContract</span></span></a>
+       <a href="#dt-verification-process-agreement"><span class="secno">3.22</span> <span class="content">Contract &amp; Data Type: <span>VerificationProcessAgreement</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-verification-contract-properties"><span class="secno">3.22.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-verification-process-agreement-properties"><span class="secno">3.22.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-cru"><span class="secno">3.23</span> <span class="content">Token &amp; Data Type: <span>CRU</span></span></a>
@@ -2622,7 +2622,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#example-impact-claim"><span class="secno">4.4</span> <span class="content">Example Impact Claim</span></a>
       <li><a href="#example-span-data-package"><span class="secno">4.5</span> <span class="content">Example Span Data Package</span></a>
       <li><a href="#example-processed-claim"><span class="secno">4.6</span> <span class="content">Example Processed Claim</span></a>
-      <li><a href="#example-verification-contract"><span class="secno">4.7</span> <span class="content">Example Verfication Contract</span></a>
+      <li><a href="#example-verification-process-agreement"><span class="secno">4.7</span> <span class="content">Example Verification Process Agreement</span></a>
       <li><a href="#example-cru"><span class="secno">4.8</span> <span class="content">Example Carbon Reduction or Removal Unit</span></a>
       <li><a href="#example-rec"><span class="secno">4.9</span> <span class="content">Example Renewable Energy Credit</span></a>
       <li><a href="#example-rec-full-lineage"><span class="secno">4.10</span> <span class="content">Example Renewable Energy Credit Full Lineage</span></a>
@@ -2653,6 +2653,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.0.0-20230815"><span class="secno"></span> <span class="content">Version 2.0.1-20230815 (August 15, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230824"><span class="secno"></span> <span class="content">Version 2.0.1-20230824 (August 24, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230831"><span class="secno"></span> <span class="content">Version 2.0.1-20230831 (August 31, 2023)</span></a>
+      <li><a href="#changelog-2.0.0-20230905"><span class="secno"></span> <span class="content">Version 2.0.1-20230905 (September 5, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2688,7 +2689,7 @@ data models defined in this artifact will be used to define the tokens in the TT
    <p>Token definitions will be titled as <em>Token &amp; Data Type</em> to make it clear that the token is defined in the context of the data model.
 All other data types are considered Property Sets in the TTF.</p>
    <p>Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.</p>
-   <p>Additionally, a single contract that governs the process of origination, Verification Contract, see <a href="#dt-verification-contract">§ 3.22 Contract &amp; Data Type: VerificationContract</a>, is defined in this artifact. This contract is used to establish the parties
+   <p>Additionally, a single contract that governs the process of origination, Verification Process Agreement, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a>, is defined in this artifact. This contract is used to establish the parties
 and their roles in the origination process.</p>
    <h3 class="heading settled" data-level="1.4" id="audience"><span class="secno">1.4. </span><span class="content">Intended Audience</span><a class="self-link" href="#audience"></a></h3>
    <p>This technical specification is for</p>
@@ -2769,10 +2770,10 @@ these platforms or services may automate and prepare findings data that are eval
 requirements of the quality standard and can be contextually applied to the appropriate data types. For example, a MRV Extension can be applied to a Activity Impact Module to support 
 the data requirements of a specific quality standard. MRV Extensions can be <code>untyped</code> or <code>typed</code>. Untyped MRV Extensions are a collection of key/value pairs, while a typed MRV Extension
 is based on and conforms to a specific Json Schema.</p>
-    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="verification-contract">Verification Contract<a class="self-link" href="#verification-contract"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="verification-process-agreement">Verification Process Agreement<a class="self-link" href="#verification-process-agreement"></a></dfn>
     <dd data-md>
      <p>A multiparty contract between the parties involved in the origination and digital MRV process. It defines the quality standard being followed, any monitoring/audit reports, etc.</p>
-     <p>The encoding of a Verification Contract in the data model is specified in <a href="#dt-verification-contract">§ 3.22 Contract &amp; Data Type: VerificationContract</a></p>
+     <p>The encoding of a Verification Process Agreement in the data model is specified in <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="carbon-removal-or-reduction-credit---cru">Carbon Removal or Reduction Credit - CRU<a class="self-link" href="#carbon-removal-or-reduction-credit---cru"></a></dfn>
     <dd data-md>
      <p>A CRU can represent either a carbon removal or reduction credit. The difference is that a carbon removal credit is a credit that is issued for the removal of carbon from the atmosphere, while a carbon reduction credit is a credit that is issued for the reduction of carbon emissions.</p>
@@ -2793,7 +2794,7 @@ is based on and conforms to a specific Json Schema.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim">ProcessedClaim</a>: contains information identifying a processed claim that will host one or more Checkpoint Result(s).</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="#verificationcontract" id="ref-for-verificationcontract">VerificationContract</a>: contains information identifying a verification contract that will host one or more Checkpoint Result(s).</p>
+     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains information identifying a verification contract that will host one or more Checkpoint Result(s).</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#cru" id="ref-for-cru">CRU</a>: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.</p>
     <li data-md>
@@ -2807,10 +2808,10 @@ properties grouped together that can be used or composed into other property-set
    <h3 class="heading settled" data-level="3.1" id="data-model-highlevel"><span class="secno">3.1. </span><span class="content">Highlevel Data Model</span><a class="self-link" href="#data-model-highlevel"></a></h3>
    <p>The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
 the highlights of properties within the data types and does not include the full list of properties for each data type.</p>
-   <p><img alt="…" height="1229" src="dmrv-diagram-20230502.png" srcset="dmrv-diagram-20230502.png 2x" width="1264"></p>
+   <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2464" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8316"></p>
+   <p><img alt="…" height="2564" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8517"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -3697,10 +3698,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>Unique identifier for the ProcessedClaim, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-verificationcontractid"><code>verificationContractId</code><a class="self-link" href="#element-attrdef-processedclaim-verificationcontractid"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑤">String</a> 
+       <td><dfn data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-vpaid"><code>vpaId</code><a class="self-link" href="#element-attrdef-processedclaim-vpaid"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑤">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent VerificationContract, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent VerificationProcessAgreement, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
        <td><dfn data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-impactclaimid"><code>impactClaimId</code><a class="self-link" href="#element-attrdef-processedclaim-impactclaimid"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑥">String</a> 
        <td>String 
@@ -3798,14 +3799,14 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type CheckpointResult</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.22" id="dt-verification-contract"><span class="secno">3.22. </span><span class="content">Contract &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="verificationcontract">VerificationContract</dfn></span><a class="self-link" href="#dt-verification-contract"></a></h3>
-   <p>A VerificationContract is a contract between a developer, verifier and registry that defines the
+   <h3 class="heading settled" data-level="3.22" id="dt-verification-process-agreement"><span class="secno">3.22. </span><span class="content">Contract &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="verificationprocessagreement">VerificationProcessAgreement</dfn></span><a class="self-link" href="#dt-verification-process-agreement"></a></h3>
+   <p>A VerificationProcessAgreement is an agreement between a developer, verifier and registry that defines the
   terms of the verification process. Shared properties of all the data entities in the validation and verification
   process are listed here, like the Quality Standard being used, the MRV Requirements, Claim Period, audit 
-  schedule, etc. The VerificationContract is the indirect parent object for all the other data entities in the
+  schedule, etc. The VerificationProcessAgreement is the indirect parent object for all the other data entities in the
   origination process.</p>
-   <h4 class="heading settled" data-level="3.22.1" id="dt-verification-contract-properties"><span class="secno">3.22.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-verification-contract-properties"></a></h4>
-   <figure id="verification-contract-properties-table">
+   <h4 class="heading settled" data-level="3.22.1" id="dt-verification-process-agreement-properties"><span class="secno">3.22.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-verification-process-agreement-properties"></a></h4>
+   <figure id="verification-process-agreement-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3818,39 +3819,39 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string②②">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the VerificationContract, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
+       <td>Unique identifier for the VerificationProcessAgreement, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string②③">String</a> 
        <td>String 
        <td>M 
-       <td>The name of the Verification Contract, usually the name of the project - name of the issuing registry. 
+       <td>The name of the Verification Process Agreement, usually the name of the project - name of the issuing registry. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string②④">String</a> 
        <td>String 
        <td>M 
-       <td>A description of the Verification Contract and where special instructions are provided. 
+       <td>A description of the Verification Process Agreement and where special instructions are provided. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-signatories"><code>signatories</code><a class="self-link" href="#element-attrdef-verificationcontract-signatories"></a></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-signatories"><code>signatories</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-signatories"></a></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
        <td>Array 
        <td>M 
        <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.36 Data Type: Signatory</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationcontract-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> 
        <td>Object 
        <td>M 
        <td>The quality standard being used for the verification. See <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-mrvrequirements"><code>mrvRequirements</code><a class="self-link" href="#element-attrdef-verificationcontract-mrvrequirements"></a></dfn> : <a data-link-type="dfn" href="#mrvrequirements" id="ref-for-mrvrequirements">MRVRequirements</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-mrvrequirements"><code>mrvRequirements</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-mrvrequirements"></a></dfn> : <a data-link-type="dfn" href="#mrvrequirements" id="ref-for-mrvrequirements">MRVRequirements</a> 
        <td>Object 
        <td>M 
        <td>The MRV requirements being used for the verification. See <a href="#dt-mrv-requirements">§ 3.47 Data Type MRVRequirements</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-agreementdate"><code>agreementDate</code><a class="self-link" href="#element-attrdef-verificationcontract-agreementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date②">Date</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-agreementdate"><code>agreementDate</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-agreementdate"></a></dfn> : <a data-link-type="dfn" href="#date" id="ref-for-date②">Date</a> 
        <td>Date 
        <td>M 
        <td>The date the agreement was signed. See <a href="#dt-date">§ 3.51 Data Type: Date</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-estimatedannualcredits"><code>estimatedAnnualCredits</code><a class="self-link" href="#element-attrdef-verificationcontract-estimatedannualcredits"></a></dfn> : 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-estimatedannualcredits"><code>estimatedAnnualCredits</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-estimatedannualcredits"></a></dfn> : 
        <td>String 
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
@@ -3860,17 +3861,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The unique identifier for the corresponding AIM. See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-auditschedule"><code>AuditSchedule</code><a class="self-link" href="#element-attrdef-verificationcontract-auditschedule"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule">AuditSchedule</a></code> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-auditschedule"><code>AuditSchedule</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-auditschedule"></a></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule">AuditSchedule</a></code> 
        <td>String 
        <td>M 
        <td>The string representation of the audit schedule, see <a href="#dt-audit-schedule">§ 3.78 Data Type: AuditSchedule</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationContract" data-dfn-type="element-attr" data-export id="element-attrdef-verificationcontract-audits"><code>Audits</code><a class="self-link" href="#element-attrdef-verificationcontract-audits"></a></dfn> : <a data-link-type="dfn" href="#audits" id="ref-for-audits">Audits</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-audits"><code>Audits</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-audits"></a></dfn> : <a data-link-type="dfn" href="#audits" id="ref-for-audits">Audits</a> 
        <td>Object 
        <td>M 
        <td>The audits that are required for the verification contract. See <a href="#dt-audits">§ 3.35 Data Type: Audits</a> for details. 
     </table>
-    <figcaption>Properties of data type VerificationContract</figcaption>
+    <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.23" id="dt-cru"><span class="secno">3.23. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cru">CRU</dfn></span><a class="self-link" href="#dt-cru"></a></h3>
    <p>The Carbon Removal or Reduction Unit, is a digital asset or token that services as a credit
@@ -5942,7 +5943,7 @@ This list will be expanded to include other categories, like biodiversity, in th
    <h4 class="heading settled" data-level="3.84.1" id="dt-standard-json"><span class="secno">3.84.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-standard-json"></a></h4>
    <p>Each Standard is represented as a string in JSON.</p>
    <h3 class="heading settled" data-level="3.85" id="dt-methodology-and-tool"><span class="secno">3.85. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-methodologyandtool"><code>MethodologyAndTool</code></dfn></span><a class="self-link" href="#dt-methodology-and-tool"></a></h3>
-   <p>Each Quality Standard defined in the <a data-link-type="dfn" href="#verificationcontract" id="ref-for-verificationcontract①">VerificationContract</a>(#dt-verification-contract) is has a Methodology and might also have multiple toolkits for Additionality, Leakage, and Baseline, etc.
+   <p>Each Quality Standard defined in the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement①">VerificationProcessAgreement</a>(#dt-verification-process-agreement) is has a Methodology and might also have multiple toolkits for Additionality, Leakage, and Baseline, etc.
 This is not an exhaustive list of Methodologies and Tools as there can be hundreds of them.</p>
    <dl>
     <dt data-md><dfn class="idl-code" data-dfn-for="MethodologyAndTool" data-dfn-type="enum-value" data-export id="dom-methodologyandtool-cdm---am0007"><code>CDM - AM0007</code><a class="self-link" href="#dom-methodologyandtool-cdm---am0007"></a></dfn>
@@ -6070,8 +6071,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-e274186a">
-    <a class="self-link" href="#example-e274186a"></a> CRU Full Lineage: 
+   <div class="example" id="example-fdb15a4a">
+    <a class="self-link" href="#example-fdb15a4a"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6082,7 +6083,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6152,7 +6153,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
   <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-    <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+    <c- f>"vpaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
     <c- f>"impactClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
     <c- f>"creditId"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
     <c- f>"unit"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
@@ -6226,7 +6227,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"issuanceRequest"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-    <c- f>"verificationContract"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
       <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341"</c-><c- p>,</c->
       <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
@@ -6313,7 +6314,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6321,7 +6322,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6366,21 +6367,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693509205</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>480072000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>247727000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693509205</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>544943000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>318442000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6402,14 +6403,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693509205</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>546430000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>320073000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693509205</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>546704000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>320206000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6599,13 +6600,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -7217,11 +7218,11 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 </pre>
    </div>
    <h3 class="heading settled" data-level="4.6" id="example-processed-claim"><span class="secno">4.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
-   <div class="example" id="example-0cd10247">
-    <a class="self-link" href="#example-0cd10247"></a> Processed Claim: 
+   <div class="example" id="example-de9db558">
+    <a class="self-link" href="#example-de9db558"></a> Processed Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-  <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+  <c- f>"vpaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"impactClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"creditId"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"unit"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
@@ -7294,19 +7295,20 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>]</c->
     <c- p>}</c->
   <c- p>],</c->
-  <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-  <c- f>"verificationContract"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+  <c- f>"issuanceRequest"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+  <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"impactClaim"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
    </div>
-   <h3 class="heading settled" data-level="4.7" id="example-verification-contract"><span class="secno">4.7. </span><span class="content">Example Verfication Contract</span><a class="self-link" href="#example-verification-contract"></a></h3>
-   <div class="example" id="example-49724402">
-    <a class="self-link" href="#example-49724402"></a> Verification Contract: 
+   <h3 class="heading settled" data-level="4.7" id="example-verification-process-agreement"><span class="secno">4.7. </span><span class="content">Example Verification Process Agreement</span><a class="self-link" href="#example-verification-process-agreement"></a></h3>
+   <div class="example" id="example-06a3690a">
+    <a class="self-link" href="#example-06a3690a"></a> Verification Process Agreement: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-  <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341"</c-><c- p>,</c->
-  <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
+  <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
+  <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
   <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
@@ -7390,7 +7392,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -7398,13 +7400,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
         <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
         <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
         <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
       <c- p>}</c->
@@ -7527,8 +7529,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-72b0d57e">
-    <a class="self-link" href="#example-72b0d57e"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-b5a53817">
+    <a class="self-link" href="#example-b5a53817"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
     <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7553,9 +7555,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
     <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-      <c- f>"verificationContractId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+      <c- f>"vpaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
       <c- f>"impactClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
-      <c- f>"creditId"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
+      <c- f>"creditId"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
       <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
       <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
       <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
@@ -7623,10 +7625,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>}</c->
       <c- p>],</c->
       <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"verificationContract"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-        <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Solar Deployment 3341"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Solar Deployment 3341, with issuer Evident and verifier"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341, with issuer Evident and verifier"</c-><c- p>,</c->
         <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
@@ -8557,11 +8559,11 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Flattend <a data-link-type="dfn" href="#geographiclocation" id="ref-for-geographiclocation④">GeographicLocation</a> type to reduce complexity, see <a href="#dt-geographic-location">§ 3.45 Data Type: GeographicLocation</a> for details.</p>
     <li data-md>
-     <p>Moved <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule①">AuditSchedule</a></code> field to be in type <a data-link-type="dfn" href="#verificationcontract" id="ref-for-verificationcontract②">VerificationContract</a> type, see <a href="#dt-verification-contract">§ 3.22 Contract &amp; Data Type: VerificationContract</a> for details.</p>
+     <p>Moved <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule①">AuditSchedule</a></code> field to be in type <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
      <p>Updated feedback email to <code>iwa@gbbcouncil.org</code></p>
     <li data-md>
-     <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationcontract" id="ref-for-verificationcontract③">VerificationContract</a> type, see <a href="#dt-verification-contract">§ 3.22 Contract &amp; Data Type: VerificationContract</a> for details.</p>
+     <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement③">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
      <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.85 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard②">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details.</p>
     <li data-md>
@@ -8623,6 +8625,17 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
      <p>Updated samples, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
     <li data-md>
      <p>Added <code>Verification Automation</code> definition.</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.0.0-20230905"><span class="content">Version 2.0.1-20230905 (September 5, 2023)</span><a class="self-link" href="#changelog-2.0.0-20230905"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Renamed <code>VerificationContract</code> to <code>VerificationProcessAgreement</code> (VPA), see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
+    <li data-md>
+     <p>Renamed <code>verificationContractId to</code>vpaId`, in <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim④">ProcessedClaim</a> type, see <a href="#dt-processed-claim">§ 3.20 Token &amp; Data Type: ProcessedClaim</a> for details.</p>
+    <li data-md>
+     <p>Updated samples, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
+    <li data-md>
+     <p>Updated diagrams</p>
    </ul>
   </main>
 <script>
@@ -8771,7 +8784,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-projecttype-advanced_refrigerants">ADVANCED_REFRIGERANTS</a><span>, in § 3.81</span>
    <li><a href="#dom-un-sdgs-affordable_and_clean_energy">AFFORDABLE_AND_CLEAN_ENERGY</a><span>, in § 3.79</span>
    <li><a href="#dom-projecttype-afforestation_reforestation">AFFORESTATION_REFORESTATION</a><span>, in § 3.81</span>
-   <li><a href="#element-attrdef-verificationcontract-agreementdate">agreementDate</a><span>, in § 3.22.1</span>
+   <li><a href="#element-attrdef-verificationprocessagreement-agreementdate">agreementDate</a><span>, in § 3.22.1</span>
    <li><a href="#dom-projectscope-agriculture">AGRICULTURE</a><span>, in § 3.80</span>
    <li><a href="#dom-mrvextensioncontext-aim_claim_source_mrv_extension">AIM_CLAIM_SOURCE_MRV_EXTENSION</a><span>, in § 3.58</span>
    <li><a href="#element-attrdef-claimsource-aimid">aimId</a><span>, in § 3.8.1</span>
@@ -8797,13 +8810,13 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     Audits
     <ul>
      <li><a href="#audits">definition of</a><span>, in § 3.35</span>
-     <li><a href="#element-attrdef-verificationcontract-audits">element-attr for VerificationContract</a><span>, in § 3.22.1</span>
+     <li><a href="#element-attrdef-verificationprocessagreement-audits">element-attr for VerificationProcessAgreement</a><span>, in § 3.22.1</span>
     </ul>
    <li>
     AuditSchedule
     <ul>
      <li><a href="#enumdef-auditschedule">(enum)</a><span>, in § 3.78</span>
-     <li><a href="#element-attrdef-verificationcontract-auditschedule">element-attr for VerificationContract</a><span>, in § 3.22.1</span>
+     <li><a href="#element-attrdef-verificationprocessagreement-auditschedule">element-attr for VerificationProcessAgreement</a><span>, in § 3.22.1</span>
     </ul>
    <li><a href="#dom-projecttype-avoided_forest_conversion">AVOIDED_FOREST_CONVERSION</a><span>, in § 3.81</span>
    <li><a href="#dom-projecttype-avoided_grassland_conversion">AVOIDED_GRASSLAND_CONVERSION</a><span>, in § 3.81</span>
@@ -8948,7 +8961,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#element-attrdef-daterange-end">end</a><span>, in § 3.49.1</span>
    <li><a href="#dom-projecttype-energy_efficiency">ENERGY_EFFICIENCY</a><span>, in § 3.81</span>
    <li><a href="#dom-projecttype-enhanced_rock_weathering">ENHANCED_ROCK_WEATHERING</a><span>, in § 3.81</span>
-   <li><a href="#element-attrdef-verificationcontract-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 3.22.1</span>
+   <li><a href="#element-attrdef-verificationprocessagreement-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 3.22.1</span>
    <li><a href="#dom-standard-eua">EUA</a><span>, in § 3.84</span>
    <li><a href="#dom-region-europe">EUROPE</a><span>, in § 3.73</span>
    <li><a href="#dom-generationtype-ex_ante">EX_ANTE</a><span>, in § 3.68</span>
@@ -9061,7 +9074,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#mrvextension">MrvExtension</a><span>, in § 3.14</span>
    <li><a href="#enumdef-mrvextensioncontext">MrvExtensionContext</a><span>, in § 3.58</span>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 3.47</span>
-   <li><a href="#element-attrdef-verificationcontract-mrvrequirements">mrvRequirements</a><span>, in § 3.22.1</span>
+   <li><a href="#element-attrdef-verificationprocessagreement-mrvrequirements">mrvRequirements</a><span>, in § 3.22.1</span>
    <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.87</span>
    <li><a href="#dom-projecttype-n20_destruction_in_adipic_acid_production">N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</a><span>, in § 3.81</span>
    <li><a href="#dom-projecttype-n20_destruction_in_nitric_acid_production">N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</a><span>, in § 3.81</span>
@@ -9123,7 +9136,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-un-sdgs-quality_education">QUALITY_EDUCATION</a><span>, in § 3.79</span>
    <li><a href="#quality-standard">Quality Standard</a><span>, in § 2</span>
    <li><a href="#qualitystandard">QualityStandard</a><span>, in § 3.46</span>
-   <li><a href="#element-attrdef-verificationcontract-qualitystandard">qualityStandard</a><span>, in § 3.22.1</span>
+   <li><a href="#element-attrdef-verificationprocessagreement-qualitystandard">qualityStandard</a><span>, in § 3.22.1</span>
    <li><a href="#dom-claimperiod-quarterly">QUARTERLY</a><span>, in § 3.74</span>
    <li><a href="#dom-auditschedule-quinquennial">QUINQUENNIAL</a><span>, in § 3.78</span>
    <li><a href="#dom-projecttype-re_bundled">RE_BUNDLED</a><span>, in § 3.81</span>
@@ -9172,7 +9185,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-hashalgorithm-sha-256">SHA-256</a><span>, in § 3.60</span>
    <li><a href="#dom-hashalgorithm-sha3">SHA3</a><span>, in § 3.60</span>
    <li><a href="#dom-projecttype-shipping">SHIPPING</a><span>, in § 3.81</span>
-   <li><a href="#element-attrdef-verificationcontract-signatories">signatories</a><span>, in § 3.22.1</span>
+   <li><a href="#element-attrdef-verificationprocessagreement-signatories">signatories</a><span>, in § 3.22.1</span>
    <li><a href="#signatory">Signatory</a><span>, in § 3.36</span>
    <li><a href="#enumdef-signatoryrole">SignatoryRole</a><span>, in § 3.65</span>
    <li><a href="#element-attrdef-signatory-signatoryrole">signatoryRole</a><span>, in § 3.36.1</span>
@@ -9258,16 +9271,16 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-credentialtype-verifiable_presentation">VERIFIABLE_PRESENTATION</a><span>, in § 3.63</span>
    <li><a href="#verifiablepresentation">VerifiablePresentation</a><span>, in § 3.41</span>
    <li><a href="#verification-automation">Verification Automation</a><span>, in § 2</span>
-   <li><a href="#verification-contract">Verification Contract</a><span>, in § 2</span>
-   <li><a href="#verificationcontract">VerificationContract</a><span>, in § 3.22</span>
-   <li><a href="#element-attrdef-processedclaim-verificationcontractid">verificationContractId</a><span>, in § 3.20.2</span>
    <li><a href="#dom-signatoryrole-verification_platform_provider">VERIFICATION_PLATFORM_PROVIDER</a><span>, in § 3.65</span>
+   <li><a href="#verification-process-agreement">Verification Process Agreement</a><span>, in § 2</span>
+   <li><a href="#verificationprocessagreement">VerificationProcessAgreement</a><span>, in § 3.22</span>
    <li><a href="#element-attrdef-corecarbonprinciples-verificationstandard">verificationStandard</a><span>, in § 3.24.1</span>
    <li><a href="#dom-signaturetype-verified_credential">VERIFIED_CREDENTIAL</a><span>, in § 3.64</span>
    <li><a href="#verifiedlink">VerifiedLink</a><span>, in § 3.33</span>
    <li><a href="#element-attrdef-impactclaimcheckpoint-verifiedlinktocheckpointdata">verifiedLinkToCheckpointData</a><span>, in § 3.10.1</span>
    <li><a href="#element-attrdef-checkpointresult-verifiedlinktoprocessdataresult">verifiedLinkToProcessDataResult</a><span>, in § 3.21.1</span>
    <li><a href="#dom-standard-vos">VOS</a><span>, in § 3.84</span>
+   <li><a href="#element-attrdef-processedclaim-vpaid">vpaId</a><span>, in § 3.20.2</span>
    <li><a href="#dom-projecttype-waste_diversion">WASTE_DIVERSION</a><span>, in § 3.81</span>
    <li><a href="#dom-projecttype-waste_gas_recovery">WASTE_GAS_RECOVERY</a><span>, in § 3.81</span>
    <li><a href="#dom-projecttype-waste_heat_recovery">WASTE_HEAT_RECOVERY</a><span>, in § 3.81</span>
@@ -9635,9 +9648,9 @@ window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#datae
 window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['typedextensiondefinition'] = {"dfnID": "typedextensiondefinition", "url": "#typedextensiondefinition", "dfnText": "TypedExtensionDefinition", "refSections": [{"refs": [{"id": "ref-for-typedextensiondefinition"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['extensiondocumentation'] = {"dfnID": "extensiondocumentation", "url": "#extensiondocumentation", "dfnText": "ExtensionDocumentation", "refSections": [{"refs": [{"id": "ref-for-extensiondocumentation"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
-window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}], "external": false};
+window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2463"}], "title": "Version 2.0.1-20230905 (September 5, 2023)"}], "external": false};
 window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
-window.dfnpanelData['verificationcontract'] = {"dfnID": "verificationcontract", "url": "#verificationcontract", "dfnText": "VerificationContract", "refSections": [{"refs": [{"id": "ref-for-verificationcontract"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationcontract\u2460"}], "title": "3.85. Data Type: MethodologyAndTool"}, {"refs": [{"id": "ref-for-verificationcontract\u2461"}, {"id": "ref-for-verificationcontract\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
+window.dfnpanelData['verificationprocessagreement'] = {"dfnID": "verificationprocessagreement", "url": "#verificationprocessagreement", "dfnText": "VerificationProcessAgreement", "refSections": [{"refs": [{"id": "ref-for-verificationprocessagreement"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2460"}], "title": "3.85. Data Type: MethodologyAndTool"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2461"}, {"id": "ref-for-verificationprocessagreement\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
 window.dfnpanelData['cru'] = {"dfnID": "cru", "url": "#cru", "dfnText": "CRU", "refSections": [{"refs": [{"id": "ref-for-cru"}, {"id": "ref-for-cru\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-cru\u2461"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}, {"refs": [{"id": "ref-for-cru\u2462"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['corecarbonprinciples'] = {"dfnID": "corecarbonprinciples", "url": "#corecarbonprinciples", "dfnText": "CoreCarbonPrinciples", "refSections": [{"refs": [{"id": "ref-for-corecarbonprinciples"}], "title": "3.23.2. Properties"}], "external": false};
 window.dfnpanelData['durability'] = {"dfnID": "durability", "url": "#durability", "dfnText": "Durability", "refSections": [{"refs": [{"id": "ref-for-durability"}], "title": "3.24.1. Properties"}], "external": false};

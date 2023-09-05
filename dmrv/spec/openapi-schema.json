@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/Dmrv/getLineage": {
+    "/DMrv/getLineage": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -34,10 +34,10 @@
         }
       }
     },
-    "/Dmrv/getCru": {
+    "/DMrv/getCru": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -63,10 +63,10 @@
         }
       }
     },
-    "/Dmrv/getAccountableImpactOrganization": {
+    "/DMrv/getAccountableImpactOrganization": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -92,10 +92,10 @@
         }
       }
     },
-    "/Dmrv/getImpactClaim": {
+    "/DMrv/getImpactClaim": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -121,10 +121,10 @@
         }
       }
     },
-    "/Dmrv/getActivityImpactModule": {
+    "/DMrv/getActivityImpactModule": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -150,10 +150,10 @@
         }
       }
     },
-    "/Dmrv/getProcessedClaim": {
+    "/DMrv/getProcessedClaim": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -179,10 +179,10 @@
         }
       }
     },
-    "/Dmrv/getVerificationContract": {
+    "/DMrv/getVerificationProcessAgreement": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -190,17 +190,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerificationContract"
+                  "$ref": "#/components/schemas/VerificationProcessAgreement"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerificationContract"
+                  "$ref": "#/components/schemas/VerificationProcessAgreement"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerificationContract"
+                  "$ref": "#/components/schemas/VerificationProcessAgreement"
                 }
               }
             }
@@ -208,10 +208,10 @@
         }
       }
     },
-    "/Dmrv/getSpanDataPackage": {
+    "/DMrv/getSpanDataPackage": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -237,10 +237,10 @@
         }
       }
     },
-    "/Dmrv/getRec": {
+    "/DMrv/getRec": {
       "get": {
         "tags": [
-          "Dmrv"
+          "DMrv"
         ],
         "responses": {
           "200": {
@@ -313,6 +313,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VerifiedLink"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "attestations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attestation"
             },
             "nullable": true,
             "readOnly": true
@@ -424,6 +432,14 @@
             "nullable": true,
             "readOnly": true
           },
+          "attestations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attestation"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
           "accountableImpactOrganization": {
             "$ref": "#/components/schemas/AccountableImpactOrganization"
           }
@@ -488,6 +504,35 @@
           }
         },
         "additionalProperties": false
+      },
+      "Attestation": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "$ref": "#/components/schemas/Tag"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AttestationType"
+          },
+          "proofType": {
+            "$ref": "#/components/schemas/ProofType"
+          },
+          "attestor": {
+            "type": "string",
+            "nullable": true
+          },
+          "signature": {
+            "$ref": "#/components/schemas/DigitalSignature"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttestationType": {
+        "enum": [
+          "Rs256",
+          "Vc"
+        ],
+        "type": "string"
       },
       "AuditSchedule": {
         "enum": [
@@ -562,7 +607,7 @@
             "type": "string",
             "nullable": true
           },
-          "coreCarbonPrincipals": {
+          "coreCarbonPrinciples": {
             "$ref": "#/components/schemas/CoreCarbonPrinciples"
           },
           "climateLabels": {
@@ -1978,7 +2023,7 @@
             "type": "string",
             "nullable": true
           },
-          "verificationContractId": {
+          "vpaId": {
             "type": "string",
             "nullable": true
           },
@@ -2021,11 +2066,11 @@
             "nullable": true,
             "readOnly": true
           },
-          "proposedAsset": {
+          "issuanceRequest": {
             "$ref": "#/components/schemas/Any"
           },
-          "verificationContract": {
-            "$ref": "#/components/schemas/VerificationContract"
+          "verificationProcessAgreement": {
+            "$ref": "#/components/schemas/VerificationProcessAgreement"
           },
           "impactClaim": {
             "$ref": "#/components/schemas/ImpactClaim"
@@ -2477,6 +2522,7 @@
           "JI",
           "EUA",
           "Puro",
+          "IRec",
           "Pending"
         ],
         "type": "string"
@@ -2488,6 +2534,32 @@
           "Materials"
         ],
         "type": "string"
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "context": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "Timestamp": {
         "type": "object",
@@ -2667,7 +2739,7 @@
         ],
         "type": "string"
       },
-      "VerificationContract": {
+      "VerificationProcessAgreement": {
         "type": "object",
         "properties": {
           "id": {

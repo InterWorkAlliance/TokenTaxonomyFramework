@@ -54,7 +54,7 @@ erDiagram
     ProcessedClaim {
         guid id PK "unique id"
         guid impactClaimId FK "ref ImpactClaim"
-        guid verificationContractid FK "ref VerificationContract"
+        guid vpaId FK "ref VerificationProcessAgreement"
         Unit unit "unit of measure for quantity"
         decimal quantity "estimated cumulative benefit amount"
         Cobenefits cobenefits "attached Cobenefits-UN-SDGs"
@@ -84,7 +84,7 @@ erDiagram
 
     VerifiedLink ||--|| HashAlgorithm : uses
 
-    VerificationContract {
+    VerificationProcessAgreement {
         guid id PK "unique id"
         guid mbpId FK "ref ActivityImpactModule"
         string name ""
@@ -95,12 +95,12 @@ erDiagram
         Audits audits "scheduled audit reports"
     }
 
-    VerificationContractParty {
+    VerificationProcessAgreementParty {
         guid id "unique id"
     }
 
-    VerificationContract ||--|| ActivityImpactModule : contracted
-    VerificationContract ||--|{ VerificationContractParty : signatories
+    VerificationProcessAgreement ||--|| ActivityImpactModule : contracted
+    VerificationProcessAgreement ||--|{ VerificationProcessAgreementParty : signatories
 
     ImpactClaimCheckpoint ||--|| VerifiedLink : has
     CheckpointResult ||--|| VerifiedLink : has
@@ -131,7 +131,7 @@ erDiagram
 
     REC ||--|| ProcessedClaim : linked-to
     CRU ||--|| ProcessedClaim : linked-to
-    ProcessedClaim ||--|| VerificationContract : linked-to
+    ProcessedClaim ||--|| VerificationProcessAgreement : linked-to
     ProcessedClaim ||--|| IssuingRegistry : approved-by
     CRU ||--|| IssuingRegistry : issued-by
     REC ||--|| IssuingRegistry : issued-by

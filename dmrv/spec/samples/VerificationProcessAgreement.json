@@ -1,7 +1,7 @@
 {
   "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-  "name": "Verification Contract for Concrete Plant 3341",
-  "description": "Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
+  "name": "Verification Process Agreement for Concrete Plant 3341",
+  "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
   "signatories": [
     {
       "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
@@ -85,7 +85,7 @@
   },
   "agreementDate": {
     "dateTime": null,
-    "dateString": "8/24/2023"
+    "dateString": "9/5/2023"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -93,13 +93,13 @@
   "audits": {
     "auditDate": {
       "dateTime": null,
-      "dateString": "8/24/2023"
+      "dateString": "9/5/2023"
     },
     "auditReports": [
       {
         "id": "424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f",
         "uri": "https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216",
-        "description": "Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216",
+        "description": "Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216",
         "hashProof": "0xzxWW-1234567890abcdefasdf",
         "hashAlgorithm": "Sha256"
       }
