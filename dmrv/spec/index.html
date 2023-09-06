@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</title>
+  <title>Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="7ef200783ef4711c9bf15c0002460fcd311c9944" name="document-revision">
+  <meta content="c68a8fb410e2801eb2c4cdef11c315e111900b96" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2123,8 +2123,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-05">5 September 2023</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-06">6 September 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2141,7 +2141,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document is the working specification for the IWA Voluntary Ecological Markets taskforce and is a work in progress.</p>
+   <p>The first version of the Digital Measurement, Reporting &amp; Verification (dMRV) Framework was published in late 2021. Since that time, the membership of the InterWork Alliance (IWA) and Global Blockchain Business Council (GBBC) have shared the framework broadly throughout the sustainability ecosystem and put it through its paces to find missing elements, refine definitions, and strive to establish common ground to help unify the way ecological and environmental products like voluntary carbon credits are manufactured or originated. This specification will replace its predecessor in its entirety due to the hard work and collaboration of its contributors. But we are not done. There are still improvements to be made and refinements to be discovered as we all set forth to implement these specifications and commit to returning the lessons learned back for the next version of this specification in the future.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -2256,7 +2256,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-checkpoint-results-properties"><span class="secno">3.21.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-verification-process-agreement"><span class="secno">3.22</span> <span class="content">Contract &amp; Data Type: <span>VerificationProcessAgreement</span></span></a>
+       <a href="#dt-verification-process-agreement"><span class="secno">3.22</span> <span class="content">Agreement &amp; Data Type: <span>VerificationProcessAgreement</span></span></a>
        <ol class="toc">
         <li><a href="#dt-verification-process-agreement-properties"><span class="secno">3.22.1</span> <span class="content">Properties</span></a>
        </ol>
@@ -2671,12 +2671,15 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>This document is the working specification for the IWA Voluntary Ecological Markets taskforce and is a work in progress.</p>
-   <p>The aim of this document is to define the set of tokens, their behaviors, a common data model, schema or data dictionary across for a Digital Measurement Reporting and Verification (dMRV) process
-for the IWA Voluntary Ecological Markets (VEM) taskforce.</p>
-   <p><strong class="advisement"> This specification is a work in progress and is subject to change. It is not a final or otherwise published version.</strong></p>
+   <p>The Digital MRV (dMRV) Framework defines the terminology, roles, process workflows, generic evidence packaging, and attestations that digital MRV solutions should follow to originate these next generation digital assets.
+The framework defines a generic roles-based process along with an extensible data model to facilitate a consistent taxonomy across infrastructure and asset classes and allow for customization of the diverse array of 
+activities that can produce these new assets.</p>
+   <p>The framework can better enable investments in, and generation of, high-quality, well-documented ecological assets at scale. This framework defines the variables that enable the application of a wide variety of standards,
+ protocols, and technologies that can be used in combination to create high-quality projects and claims, ready for validation and verification.</p>
+   <p>This is the technical specification for the dMRV Framework. It is intended to be used by software developers, business analysts, data scientists and others who want to understand the data model
+and its entities, e.g., tokens, agreements, data extensions, etc., defined by this specification.</p>
    <h3 class="heading settled" data-level="1.1" id="doc-status"><span class="secno">1.1. </span><span class="content">Status of this Document</span><a class="self-link" href="#doc-status"></a></h3>
-   <p>Comments regarding the document are welcome, for IWA members, please file issues directly on <a href="https://github.com/InterWorkAlliance/TTF/blob/dmrv-tf/dmrv/spec/index.bs">GitHub</a>.</p>
+   <p>Although this is the released Version 2.0 of the framework, comments regarding the document are welcome, for IWA members, please file issues directly on <a href="https://github.com/InterWorkAlliance/TTF/blob/dmrv-tf/dmrv/spec/index.bs">GitHub</a>.</p>
    <p>Feedback from non-members is welcome via email to <a href="mailto:iwa@gbbcouncil.org">iwa</a></p>
    <p>The technical specifications within this document are the result of consent processses by GBBC/IWA members and other external sources.</p>
    <h3 class="heading settled" data-level="1.2" id="scope"><span class="secno">1.2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h3>
@@ -2689,7 +2692,7 @@ data models defined in this artifact will be used to define the tokens in the TT
    <p>Token definitions will be titled as <em>Token &amp; Data Type</em> to make it clear that the token is defined in the context of the data model.
 All other data types are considered Property Sets in the TTF.</p>
    <p>Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.</p>
-   <p>Additionally, a single contract that governs the process of origination, Verification Process Agreement, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a>, is defined in this artifact. This contract is used to establish the parties
+   <p>Additionally, a single agreement that governs the process of origination, the Verification Process Agreement, see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a>, is defined in this artifact. This agreement is used to establish the parties
 and their roles in the origination process.</p>
    <h3 class="heading settled" data-level="1.4" id="audience"><span class="secno">1.4. </span><span class="content">Intended Audience</span><a class="self-link" href="#audience"></a></h3>
    <p>This technical specification is for</p>
@@ -2772,8 +2775,8 @@ the data requirements of a specific quality standard. MRV Extensions can be <cod
 is based on and conforms to a specific Json Schema.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="verification-process-agreement">Verification Process Agreement<a class="self-link" href="#verification-process-agreement"></a></dfn>
     <dd data-md>
-     <p>A multiparty contract between the parties involved in the origination and digital MRV process. It defines the quality standard being followed, any monitoring/audit reports, etc.</p>
-     <p>The encoding of a Verification Process Agreement in the data model is specified in <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a></p>
+     <p>A multiparty agreement between the parties involved in the origination and digital MRV process. It defines the quality standard being followed, any monitoring/audit reports, etc.</p>
+     <p>The encoding of a Verification Process Agreement in the data model is specified in <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="carbon-removal-or-reduction-credit---cru">Carbon Removal or Reduction Credit - CRU<a class="self-link" href="#carbon-removal-or-reduction-credit---cru"></a></dfn>
     <dd data-md>
      <p>A CRU can represent either a carbon removal or reduction credit. The difference is that a carbon removal credit is a credit that is issued for the removal of carbon from the atmosphere, while a carbon reduction credit is a credit that is issued for the reduction of carbon emissions.</p>
@@ -2794,7 +2797,7 @@ is based on and conforms to a specific Json Schema.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim">ProcessedClaim</a>: contains information identifying a processed claim that will host one or more Checkpoint Result(s).</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains information identifying a verification contract that will host one or more Checkpoint Result(s).</p>
+     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains information identifying a verification agreement that will host one or more Checkpoint Result(s).</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#cru" id="ref-for-cru">CRU</a>: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.</p>
     <li data-md>
@@ -3799,7 +3802,7 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type CheckpointResult</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.22" id="dt-verification-process-agreement"><span class="secno">3.22. </span><span class="content">Contract &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="verificationprocessagreement">VerificationProcessAgreement</dfn></span><a class="self-link" href="#dt-verification-process-agreement"></a></h3>
+   <h3 class="heading settled" data-level="3.22" id="dt-verification-process-agreement"><span class="secno">3.22. </span><span class="content">Agreement &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="verificationprocessagreement">VerificationProcessAgreement</dfn></span><a class="self-link" href="#dt-verification-process-agreement"></a></h3>
    <p>A VerificationProcessAgreement is an agreement between a developer, verifier and registry that defines the
   terms of the verification process. Shared properties of all the data entities in the validation and verification
   process are listed here, like the Quality Standard being used, the MRV Requirements, Claim Period, audit 
@@ -3869,7 +3872,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-audits"><code>Audits</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-audits"></a></dfn> : <a data-link-type="dfn" href="#audits" id="ref-for-audits">Audits</a> 
        <td>Object 
        <td>M 
-       <td>The audits that are required for the verification contract. See <a href="#dt-audits">§ 3.35 Data Type: Audits</a> for details. 
+       <td>The audits that are required for the verification agreement. See <a href="#dt-audits">§ 3.35 Data Type: Audits</a> for details. 
     </table>
     <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
    </figure>
@@ -4444,7 +4447,7 @@ configured to control the processing of the ImpactClaim.</p>
     <figcaption>Properties of data type ReferencedCredit</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.35" id="dt-audits"><span class="secno">3.35. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="audits">Audits</dfn></span><a class="self-link" href="#dt-audits"></a></h3>
-   <p>Audits contain the audit schedule, date of last audit and the verified links to the audit reports for the verification contract.</p>
+   <p>Audits contain the audit schedule, date of last audit and the verified links to the audit reports for the verification agreement.</p>
    <h4 class="heading settled" data-level="3.35.1" id="dt-audits-properties"><span class="secno">3.35.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-audits-properties"></a></h4>
    <figure id="audits-properties-table">
     <table class="data">
@@ -4464,12 +4467,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>auditReports : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑦">VerifiedLink</a> 
        <td>Array 
        <td>M 
-       <td>A collection of VerifiedLinks to audit reports for the verification contract, see <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> . 
+       <td>A collection of VerifiedLinks to audit reports for the verification agreement, see <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> . 
     </table>
     <figcaption>Properties of data type Audits</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.36" id="dt-signatory"><span class="secno">3.36. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="signatory">Signatory</dfn></span><a class="self-link" href="#dt-signatory"></a></h3>
-   <p>A Signatory is a party that has signed a document or contract. The Signatory is a digital entity or identity in a
+   <p>A Signatory is a party that has signed a document or agreement. The Signatory is a digital entity or identity in a
   specific role in the dMRV process.</p>
    <h4 class="heading settled" data-level="3.36.1" id="dt-signatory-properties"><span class="secno">3.36.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-signatory-properties"></a></h4>
    <figure id="signatory-properties-table">
@@ -4511,7 +4514,7 @@ configured to control the processing of the ImpactClaim.</p>
    </figure>
    <p>Data Type: DigitalSignature</p>
    <h3 class="heading settled" data-level="3.37" id="dt-digital-signature"><span class="secno">3.37. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="digitalsignature">DigitalSignature</dfn></span><a class="self-link" href="#dt-digital-signature"></a></h3>
-   <p>A Signature is a digital signature of a document or contract. The Signature is a digital entity or identity in a
+   <p>A Signature is a digital signature of a document or agreement. The Signature is a digital entity or identity in a
   specific role in the dMRV process. Support for JWT and Verifiable Credentials is planned.</p>
    <h4 class="heading settled" data-level="3.37.1" id="dt-digital-signature-properties"><span class="secno">3.37.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-digital-signature-properties"></a></h4>
    <p>A Signature contains the following properties:</p>
@@ -8559,11 +8562,11 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Flattend <a data-link-type="dfn" href="#geographiclocation" id="ref-for-geographiclocation④">GeographicLocation</a> type to reduce complexity, see <a href="#dt-geographic-location">§ 3.45 Data Type: GeographicLocation</a> for details.</p>
     <li data-md>
-     <p>Moved <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule①">AuditSchedule</a></code> field to be in type <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
+     <p>Moved <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule①">AuditSchedule</a></code> field to be in type <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
      <p>Updated feedback email to <code>iwa@gbbcouncil.org</code></p>
     <li data-md>
-     <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement③">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
+     <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement③">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
      <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.85 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard②">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details.</p>
     <li data-md>
@@ -8629,7 +8632,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <h3 class="heading settled" id="changelog-2.0.0-20230905"><span class="content">Version 2.0.1-20230905 (September 5, 2023)</span><a class="self-link" href="#changelog-2.0.0-20230905"></a></h3>
    <ul>
     <li data-md>
-     <p>Renamed <code>VerificationContract</code> to <code>VerificationProcessAgreement</code> (VPA), see <a href="#dt-verification-process-agreement">§ 3.22 Contract &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
+     <p>Renamed <code>VerificationContract</code> to <code>VerificationProcessAgreement</code> (VPA), see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
      <p>Renamed <code>verificationContractId to</code>vpaId`, in <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim④">ProcessedClaim</a> type, see <a href="#dt-processed-claim">§ 3.20 Token &amp; Data Type: ProcessedClaim</a> for details.</p>
     <li data-md>
