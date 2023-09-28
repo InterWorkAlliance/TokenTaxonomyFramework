@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "9/5/2023"
+      "dateString": "9/28/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -154,8 +154,8 @@
     "issuanceRequest": null,
     "verificationProcessAgreement": {
       "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-      "name": "Verification Contract for Concrete Plant 3341",
-      "description": "Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
+      "name": "Verification Process Agreement for Concrete Plant 3341",
+      "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
       "signatories": [
         {
           "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
@@ -165,6 +165,7 @@
           "signature": {
             "type": "JWS",
             "jws": "epx324jkasdf883429f2lMMm8asxdz9ZW0",
+            "hasJws": true,
             "vc": null,
             "signatureCase": "Jws"
           }
@@ -177,6 +178,7 @@
           "signature": {
             "type": "JWS",
             "jws": "789908sa32980231ll132fsd89asdfa123",
+            "hasJws": true,
             "vc": null,
             "signatureCase": "Jws"
           }
@@ -189,6 +191,7 @@
           "signature": {
             "type": "JWS",
             "jws": "1234567890asdfasdfas",
+            "hasJws": true,
             "vc": null,
             "signatureCase": "Jws"
           }
@@ -239,7 +242,7 @@
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "9/5/2023"
+        "dateString": "9/28/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -247,13 +250,13 @@
       "audits": {
         "auditDate": {
           "dateTime": null,
-          "dateString": "9/5/2023"
+          "dateString": "9/28/2023"
         },
         "auditReports": [
           {
             "id": "424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f",
             "uri": "https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216",
-            "description": "Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216",
+            "description": "Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216",
             "hashProof": "0xzxWW-1234567890abcdefasdf",
             "hashAlgorithm": "Sha256"
           }
@@ -292,21 +295,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "9/5/2023"
+                "dateString": "9/28/2023"
               },
               "timeStamp": {
-                "seconds": 1693943391,
-                "nanos": 247727000
+                "seconds": 1695935973,
+                "nanos": 311528000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "9/5/2023"
+                "dateString": "9/28/2023"
               },
               "timeStamp": {
-                "seconds": 1693943391,
-                "nanos": 318442000
+                "seconds": 1695935973,
+                "nanos": 375889000
               }
             }
           },
@@ -322,20 +325,21 @@
             "manifest": {
               "id": "bd199e99-14e0-4440-af99-03b78096a24b",
               "version": "1",
+              "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
               "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
               "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1693943391,
-                    "nanos": 320073000
+                    "seconds": 1695935973,
+                    "nanos": 377281000
                   },
-                  "dateString": "9/5/2023"
+                  "dateString": "9/28/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1693943391,
-                  "nanos": 320206000
+                  "seconds": 1695935973,
+                  "nanos": 377390000
                 }
               },
               "mrvExtensions": [
@@ -525,13 +529,13 @@
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "9/5/2023"
+              "dateString": "9/28/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "9/5/2023"
+              "dateString": "9/28/2023"
             },
             "validationSteps": [
               {

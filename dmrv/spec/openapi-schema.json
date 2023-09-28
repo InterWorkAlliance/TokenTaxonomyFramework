@@ -1272,6 +1272,10 @@
             "type": "string",
             "nullable": true
           },
+          "hasJws": {
+            "type": "boolean",
+            "readOnly": true
+          },
           "vc": {
             "$ref": "#/components/schemas/Credential"
           },
@@ -1500,6 +1504,10 @@
             "nullable": true
           },
           "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "aioId": {
             "type": "string",
             "nullable": true
           },

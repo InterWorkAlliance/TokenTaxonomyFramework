@@ -296,11 +296,12 @@ message SpanDataPackage{
     message Manifest{
         string id = 1; //unique identifier
         string version = 2; //version of the SDP specification
-        string aim_id = 3; //id of the activity impact module
-        string claimId = 4; //id of the claim
-        string project_developer_id = 5; //id of the project developer submitting the SDP
-        common.DatePoint created = 6; //date the SDP was created
-        repeated common.MrvExtension mrv_extensions = 7; //list of MRV extensions
+        string aio_id = 3; //id of the accountable impact organization
+        string aim_id = 4; //id of the activity impact module
+        string claimId = 5; //id of the claim
+        string project_developer_id = 6; //id of the project developer submitting the SDP
+        common.DatePoint created = 7; //date the SDP was created
+        repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions
         message SdpFile{
             string name = 1; //name of the file
             enum FileType
@@ -318,7 +319,7 @@ message SpanDataPackage{
             string claim_source_attestation = 5; //claim source attestation or signature for the file
             repeated common.MrvExtension mrv_extensions = 6; //mrv extensions for the file
         }
-        repeated SdpFile sdp_files = 8; //list of files in the SDP
+        repeated SdpFile sdp_files = 9; //list of files in the SDP
     }
     Manifest manifest = 1; //manifest of the SDP
 }

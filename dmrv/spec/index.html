@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="7f7ac6e1535c4bdddbcb5b85d2178a85806acc6c" name="document-revision">
+  <meta content="c50a47a1e19fde0b21898881296c1ed9d177ff09" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-11">11 September 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-28">28 September 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2815,7 +2815,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2524" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8184"></p>
+   <p><img alt="…" height="2584" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8297"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -3426,17 +3426,22 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The versions of the Span Data Package specification, default is 1.0.0. 
       <tr>
-       <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
+       <td>aioId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
+       <td>String 
+       <td>M 
+       <td>The unique identifier for the Accountable Impact Organization, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
+      <tr>
+       <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
        <td>String 
        <td>M 
        <td>The Activity Impact Module that the SDP is sourced from. 
       <tr>
-       <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
+       <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
        <td>String 
        <td>M 
        <td>The Impact Claim that the SDP is sourced from.  See, <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
+       <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
        <td>String 
        <td>M 
        <td>The Project Developer that submitted the SDP, See, <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -3486,7 +3491,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A description of the contents of the file. 
       <tr>
-       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
+       <td>claimSourceId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the claim source registered with the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule③">ActivityImpactModule</a> that the file is sourced from. 
@@ -3860,7 +3865,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
       <tr>
-       <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
+       <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the corresponding AIM. See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -3921,7 +3926,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the CRU, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -3936,7 +3941,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.87 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⓪">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the CRU, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -3968,17 +3973,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
+       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -3998,7 +4003,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②④">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
@@ -4287,7 +4292,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑤">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the REC, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -4312,12 +4317,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.87 Data Type: Unit</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑥">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the REC, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>listingAgentid : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
+       <td>listingAgentid : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the REC and can split or transfer their representations of the 
@@ -4339,17 +4344,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
+       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id③①">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -4400,7 +4405,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③①">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③②">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the VerifiedLink, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -4440,7 +4445,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③②">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③③">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the referenced credit, this can be a serial number or a master id on the external registry. 
@@ -4486,7 +4491,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③③">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③④">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -4780,7 +4785,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③④">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⑤">Id</a> 
        <td>String 
        <td>M 
        <td>Id of the tag, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -4842,7 +4847,7 @@ the string or file for the area must have a value.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⑤">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⑥">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the GNSS, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
@@ -6075,8 +6080,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-fdb15a4a">
-    <a class="self-link" href="#example-fdb15a4a"></a> CRU Full Lineage: 
+   <div class="example" id="example-da8d70e5">
+    <a class="self-link" href="#example-da8d70e5"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6087,7 +6092,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6233,8 +6238,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"issuanceRequest"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
     <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Contract for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
       <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
@@ -6244,6 +6249,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
             <c- f>"jws"</c-><c- p>:</c-> <c- u>"epx324jkasdf883429f2lMMm8asxdz9ZW0"</c-><c- p>,</c->
+            <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
             <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
           <c- p>}</c->
@@ -6256,6 +6262,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
             <c- f>"jws"</c-><c- p>:</c-> <c- u>"789908sa32980231ll132fsd89asdfa123"</c-><c- p>,</c->
+            <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
             <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
           <c- p>}</c->
@@ -6268,6 +6275,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
             <c- f>"jws"</c-><c- p>:</c-> <c- u>"1234567890asdfasdfas"</c-><c- p>,</c->
+            <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
             <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
           <c- p>}</c->
@@ -6318,7 +6326,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6326,13 +6334,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
             <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
             <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
             <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
           <c- p>}</c->
@@ -6371,21 +6379,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>247727000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>311528000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>318442000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>375889000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6401,20 +6409,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+              <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
               <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
               <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
               <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>320073000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>377281000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1693943391</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>320206000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>377390000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6604,13 +6613,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -6945,8 +6954,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="example-impact-claim"><span class="secno">4.4. </span><span class="content">Example Impact Claim</span><a class="self-link" href="#example-impact-claim"></a></h3>
-   <div class="example" id="example-2bc7f178">
-    <a class="self-link" href="#example-2bc7f178"></a> Impact Claim: 
+   <div class="example" id="example-260ffbb3">
+    <a class="self-link" href="#example-260ffbb3"></a> Impact Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6977,21 +6986,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901680</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>372974000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936043</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>683252000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901680</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>372995000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936043</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>683269000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
@@ -7007,20 +7016,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+          <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
           <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
           <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
           <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
           <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901680</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>373032000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936043</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>683302000</c->
               <c- p>},</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
             <c- p>},</c->
             <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901680</c-><c- p>,</c->
-              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>373034000</c->
+              <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936043</c-><c- p>,</c->
+              <c- f>"nanos"</c-><c- p>:</c-> <c- mi>683303000</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -7131,26 +7141,27 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
-   <div class="example" id="example-f201d001">
-    <a class="self-link" href="#example-f201d001"></a> Span Data Package: 
+   <div class="example" id="example-6078c331">
+    <a class="self-link" href="#example-6078c331"></a> Span Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
     <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+    <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
     <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
     <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
     <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
     <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901830</c-><c- p>,</c->
-          <c- f>"nanos"</c-><c- p>:</c-> <c- mi>76879000</c->
+          <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936106</c-><c- p>,</c->
+          <c- f>"nanos"</c-><c- p>:</c-> <c- mi>44148000</c->
         <c- p>},</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901830</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>76900000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695936106</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>44226000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -7218,8 +7229,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>}</c->
     <c- p>]</c->
   <c- p>}</c->
-<c- p>}</c->
-</pre>
+<c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.6" id="example-processed-claim"><span class="secno">4.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
    <div class="example" id="example-de9db558">
@@ -9722,7 +9732,7 @@ window.dfnpanelData['enumdef-unit'] = {"dfnID": "enumdef-unit", "url": "#enumdef
 window.dfnpanelData['wholenumber'] = {"dfnID": "wholenumber", "url": "#wholenumber", "dfnText": "WholeNumber", "refSections": [{"refs": [{"id": "ref-for-wholenumber"}], "title": "3.25.1. Properties"}, {"refs": [{"id": "ref-for-wholenumber\u2460"}, {"id": "ref-for-wholenumber\u2461"}], "title": "3.26.1. Properties"}], "external": false};
 window.dfnpanelData['decimal'] = {"dfnID": "decimal", "url": "#decimal", "dfnText": "Decimal", "refSections": [{"refs": [{"id": "ref-for-decimal"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2460"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2461"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2462"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2463"}, {"id": "ref-for-decimal\u2464"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-decimal\u2465"}, {"id": "ref-for-decimal\u2466"}, {"id": "ref-for-decimal\u2467"}], "title": "3.48.1. Properties"}], "external": false};
 window.dfnpanelData['string'] = {"dfnID": "string", "url": "#string", "dfnText": "String", "refSections": [{"refs": [{"id": "ref-for-string"}], "title": "3.4.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461"}, {"id": "ref-for-string\u2462"}, {"id": "ref-for-string\u2463"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464"}, {"id": "ref-for-string\u2465"}, {"id": "ref-for-string\u2466"}, {"id": "ref-for-string\u2467"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-string\u2468"}, {"id": "ref-for-string\u2460\u24ea"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2460"}, {"id": "ref-for-string\u2460\u2461"}, {"id": "ref-for-string\u2460\u2462"}], "title": "3.17.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2463"}, {"id": "ref-for-string\u2460\u2464"}, {"id": "ref-for-string\u2460\u2465"}, {"id": "ref-for-string\u2460\u2466"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2467"}, {"id": "ref-for-string\u2460\u2468"}, {"id": "ref-for-string\u2461\u24ea"}, {"id": "ref-for-string\u2461\u2460"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2461"}, {"id": "ref-for-string\u2461\u2462"}, {"id": "ref-for-string\u2461\u2463"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2464"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2465"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2466"}], "title": "3.27.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2467"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2468"}, {"id": "ref-for-string\u2462\u24ea"}, {"id": "ref-for-string\u2462\u2460"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2461"}, {"id": "ref-for-string\u2462\u2462"}, {"id": "ref-for-string\u2462\u2463"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2464"}, {"id": "ref-for-string\u2462\u2465"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2466"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2467"}, {"id": "ref-for-string\u2462\u2468"}, {"id": "ref-for-string\u2463\u24ea"}], "title": "3.38.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2460"}, {"id": "ref-for-string\u2463\u2461"}], "title": "3.39.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2462"}, {"id": "ref-for-string\u2463\u2463"}, {"id": "ref-for-string\u2463\u2464"}, {"id": "ref-for-string\u2463\u2465"}, {"id": "ref-for-string\u2463\u2466"}], "title": "3.40.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2467"}, {"id": "ref-for-string\u2463\u2468"}], "title": "3.41.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u24ea"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2460"}, {"id": "ref-for-string\u2464\u2461"}, {"id": "ref-for-string\u2464\u2462"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2463"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2464"}, {"id": "ref-for-string\u2464\u2465"}, {"id": "ref-for-string\u2464\u2466"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2467"}], "title": "3.51.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2468"}], "title": "3.90.1. JSON Data Representation"}], "external": false};
-window.dfnpanelData['id'] = {"dfnID": "id", "url": "#id", "dfnText": "Id", "refSections": [{"refs": [{"id": "ref-for-id"}, {"id": "ref-for-id\u2460"}, {"id": "ref-for-id\u2461"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462"}, {"id": "ref-for-id\u2463"}, {"id": "ref-for-id\u2464"}, {"id": "ref-for-id\u2465"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-id\u2466"}, {"id": "ref-for-id\u2467"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-id\u2468"}, {"id": "ref-for-id\u2460\u24ea"}, {"id": "ref-for-id\u2460\u2460"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2461"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2462"}, {"id": "ref-for-id\u2460\u2463"}, {"id": "ref-for-id\u2460\u2464"}, {"id": "ref-for-id\u2460\u2465"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2466"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2467"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2468"}, {"id": "ref-for-id\u2461\u24ea"}, {"id": "ref-for-id\u2461\u2460"}, {"id": "ref-for-id\u2461\u2461"}, {"id": "ref-for-id\u2461\u2462"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2463"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2464"}, {"id": "ref-for-id\u2461\u2465"}, {"id": "ref-for-id\u2461\u2466"}, {"id": "ref-for-id\u2461\u2467"}, {"id": "ref-for-id\u2461\u2468"}, {"id": "ref-for-id\u2462\u24ea"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2460"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2461"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2462"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2463"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2464"}], "title": "3.45.1. Properties"}], "external": false};
+window.dfnpanelData['id'] = {"dfnID": "id", "url": "#id", "dfnText": "Id", "refSections": [{"refs": [{"id": "ref-for-id"}, {"id": "ref-for-id\u2460"}, {"id": "ref-for-id\u2461"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462"}, {"id": "ref-for-id\u2463"}, {"id": "ref-for-id\u2464"}, {"id": "ref-for-id\u2465"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-id\u2466"}, {"id": "ref-for-id\u2467"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-id\u2468"}, {"id": "ref-for-id\u2460\u24ea"}, {"id": "ref-for-id\u2460\u2460"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2461"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2462"}, {"id": "ref-for-id\u2460\u2463"}, {"id": "ref-for-id\u2460\u2464"}, {"id": "ref-for-id\u2460\u2465"}, {"id": "ref-for-id\u2460\u2466"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2467"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2468"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u24ea"}, {"id": "ref-for-id\u2461\u2460"}, {"id": "ref-for-id\u2461\u2461"}, {"id": "ref-for-id\u2461\u2462"}, {"id": "ref-for-id\u2461\u2463"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2464"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2465"}, {"id": "ref-for-id\u2461\u2466"}, {"id": "ref-for-id\u2461\u2467"}, {"id": "ref-for-id\u2461\u2468"}, {"id": "ref-for-id\u2462\u24ea"}, {"id": "ref-for-id\u2462\u2460"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2461"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2462"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2463"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2464"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2465"}], "title": "3.45.1. Properties"}], "external": false};
 window.dfnpanelData['iso3166cc'] = {"dfnID": "iso3166cc", "url": "#iso3166cc", "dfnText": "ISO3166CC", "refSections": [{"refs": [{"id": "ref-for-iso3166cc"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-iso3166cc\u2460"}], "title": "3.92.1. JSON Representation"}], "external": false};
 </script>
 <script>/* Boilerplate: script-dom-helper */
