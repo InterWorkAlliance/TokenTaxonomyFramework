@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="c50a47a1e19fde0b21898881296c1ed9d177ff09" name="document-revision">
+  <meta content="05a426b8d690854e976816b66b095b037e4268aa" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-09-28">28 September 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-05">5 October 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2654,6 +2654,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.0.0-20230824"><span class="secno"></span> <span class="content">Version 2.0.1-20230824 (August 24, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230831"><span class="secno"></span> <span class="content">Version 2.0.1-20230831 (August 31, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230905"><span class="secno"></span> <span class="content">Version 2.0.1-20230905 (September 5, 2023)</span></a>
+      <li><a href="#changelog-2.0.0-20231005"><span class="secno"></span> <span class="content">Version 2.0.1-20231005 (October 5, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -3612,7 +3613,9 @@ configured to control the processing of the ImpactClaim.</p>
     <figcaption>Properties of data type DataExtension</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.17" id="dt-typed-extension"><span class="secno">3.17. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="typedextension">TypedExtension</dfn></span><a class="self-link" href="#dt-typed-extension"></a></h3>
-   <p>A typed extension is a Json schema based extension that can be used to store data that is defined by a different specification, <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> or industry.</p>
+   <p>A typed extension is a Json schema based extension that can be used to store data that is defined by a different specification, <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> or industry. Sample and <code>official</code> typed extensions
+    can be found in the <a href="https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions">Extensions</a> folder of the Token Taxonomy Framework. Adopters of this specification are invited to
+    create their own typed extension sets for <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a>s or industries that they are working with.</p>
    <h4 class="heading settled" data-level="3.17.1" id="dt-typed-extension-properties"><span class="secno">3.17.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-typed-extension-properties"></a></h4>
    <figure id="typed-extension-properties-table">
     <table class="data">
@@ -3845,7 +3848,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and verification platform are examples of signatories. See <a href="#dt-signatory">§ 3.36 Data Type: Signatory</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard①">QualityStandard</a> 
+       <td><dfn data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-qualitystandard"><code>qualityStandard</code><a class="self-link" href="#element-attrdef-verificationprocessagreement-qualitystandard"></a></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard②">QualityStandard</a> 
        <td>Object 
        <td>M 
        <td>The quality standard being used for the verification. See <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details. 
@@ -8579,7 +8582,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Removed <code>processedClaimIds</code> from <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement③">VerificationProcessAgreement</a> type, see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
-     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.85 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard②">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details.</p>
+     <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-methodologyandtool" id="ref-for-enumdef-methodologyandtool①">MethodologyAndTool</a></code> data type, see <a href="#dt-methodology-and-tool">§ 3.85 Data Type: MethodologyAndTool</a> to the <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard③">QualityStandard</a> type, for supporting a methodology and multiple toolsets that can apply, see <a href="#dt-quality-standard">§ 3.46 Data Type QualityStandard</a> for details.</p>
     <li data-md>
      <p>Update samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -8650,6 +8653,11 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
      <p>Updated samples, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
     <li data-md>
      <p>Updated diagrams</p>
+   </ul>
+   <h3 class="heading settled" id="changelog-2.0.0-20231005"><span class="content">Version 2.0.1-20231005 (October 5, 2023)</span><a class="self-link" href="#changelog-2.0.0-20231005"></a></h3>
+   <ul>
+    <li data-md>
+     <p>Details about data type <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension②">TypedExtension</a>, including links to sample extension sets.</p>
    </ul>
   </main>
 <script>
@@ -9659,7 +9667,7 @@ window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfn
 window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2461"}], "title": "Version 2.0.1-20230815 (August 15, 2023)"}], "external": false};
 window.dfnpanelData['untypedextension'] = {"dfnID": "untypedextension", "url": "#untypedextension", "dfnText": "UntypedExtension", "refSections": [{"refs": [{"id": "ref-for-untypedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-untypedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2462"}, {"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
-window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
+window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-typedextension\u2461"}], "title": "Version 2.0.1-20231005 (October 5, 2023)"}], "external": false};
 window.dfnpanelData['typedextensiondefinition'] = {"dfnID": "typedextensiondefinition", "url": "#typedextensiondefinition", "dfnText": "TypedExtensionDefinition", "refSections": [{"refs": [{"id": "ref-for-typedextensiondefinition"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['extensiondocumentation'] = {"dfnID": "extensiondocumentation", "url": "#extensiondocumentation", "dfnText": "ExtensionDocumentation", "refSections": [{"refs": [{"id": "ref-for-extensiondocumentation"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2463"}], "title": "Version 2.0.1-20230905 (September 5, 2023)"}], "external": false};
@@ -9688,7 +9696,7 @@ window.dfnpanelData['attestation'] = {"dfnID": "attestation", "url": "#attestati
 window.dfnpanelData['tag'] = {"dfnID": "tag", "url": "#tag", "dfnText": "Tag", "refSections": [{"refs": [{"id": "ref-for-tag"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-tag\u2460"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}], "external": false};
 window.dfnpanelData['mitigationactivity'] = {"dfnID": "mitigationactivity", "url": "#mitigationactivity", "dfnText": "MitigationActivity", "refSections": [{"refs": [{"id": "ref-for-mitigationactivity"}], "title": "3.24.1. Properties"}], "external": false};
 window.dfnpanelData['geographiclocation'] = {"dfnID": "geographiclocation", "url": "#geographiclocation", "dfnText": "GeographicLocation", "refSections": [{"refs": [{"id": "ref-for-geographiclocation"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-geographiclocation\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-geographiclocation\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-geographiclocation\u2462"}], "title": "Version 2.0.1-20230613 (June 13, 2023)"}, {"refs": [{"id": "ref-for-geographiclocation\u2463"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
-window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.17. Data Type: TypedExtension"}, {"refs": [{"id": "ref-for-qualitystandard\u2460"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-qualitystandard\u2461"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
+window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}, {"id": "ref-for-qualitystandard\u2460"}], "title": "3.17. Data Type: TypedExtension"}, {"refs": [{"id": "ref-for-qualitystandard\u2461"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-qualitystandard\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
 window.dfnpanelData['mrvrequirements'] = {"dfnID": "mrvrequirements", "url": "#mrvrequirements", "dfnText": "MRVRequirements", "refSections": [{"refs": [{"id": "ref-for-mrvrequirements"}], "title": "3.22.1. Properties"}], "external": false};
 window.dfnpanelData['precisionmix'] = {"dfnID": "precisionmix", "url": "#precisionmix", "dfnText": "PrecisionMix", "refSections": [{"refs": [{"id": "ref-for-precisionmix"}], "title": "3.47.1. Properties"}], "external": false};
 window.dfnpanelData['daterange'] = {"dfnID": "daterange", "url": "#daterange", "dfnText": "DateRange", "refSections": [{"refs": [{"id": "ref-for-daterange"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2460"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2461"}], "title": "3.49.1. Properties"}], "external": false};

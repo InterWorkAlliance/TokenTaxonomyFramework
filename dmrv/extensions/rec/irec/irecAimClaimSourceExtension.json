@@ -1,0 +1,28 @@
+{
+    "$id": "https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions/samples/irecAimClaimSourceExt.json",
+    "$schema": "https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions/rec/irec/irecAimClaimSourceExtension.json",
+    "title": "SAMPLE I-REC AIM Claim Source MRV Extension",
+    "description": "A dMRV Extension for additional data properties needed for the Claim Source device.",
+    "$defs": {
+      "deviceDetail": {
+        "type": "object",
+        "properties":{
+          "commissioningDate": {"type": "date-time"},
+          "requestedEffectiveDate": {"type": "date-time"},
+          "expiryDate": {"type": "date-time"},
+          "capacityInMW": {"type": "number"},
+          "deviceTechnology": {"type": "string"},
+          "deviceFuel": {"type": "string"}
+        },
+        "required": ["commissioningDate","deviceTechnology"]
+        }
+    },
+    "type": "object",
+    "properties": {
+      "deviceDetail": {
+        "type": "object",
+        "items": {"$ref": "#/$defs/deviceDetail"}
+        }
+    },
+    "required": ["deviceDetail"]
+}

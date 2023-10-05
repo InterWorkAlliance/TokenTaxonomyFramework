@@ -1,0 +1,23 @@
+{
+    "$id": "https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions/samples/irecImpactClaimCheckpointExt.json",
+    "$schema": "https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions/rec/irec/irecImpactClaimCheckpointExtension.json",
+    "title": "SAMPLE I-REC Impact Claim Checkpoint MRV Extension",
+    "description": "A dMRV Extension for additional data properties needed for the Impact Claim Checkpoint.",
+    "$defs": {
+      "evidenceDetail": {
+        "type": "object",
+        "properties":{
+          "sourcesInCheckpoint": {"type": "number"}
+        },
+        "required": ["sourcesInCheckpoint"]
+        }
+    },
+    "type": "object",
+    "properties": {
+      "deviceDetail": {
+        "type": "object",
+        "items": {"$ref": "#/$defs/evidenceDetail"}
+        }
+    },
+    "required": ["evidenceDetail"]
+}
