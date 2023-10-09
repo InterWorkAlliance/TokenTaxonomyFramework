@@ -1488,9 +1488,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
+  <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="05a426b8d690854e976816b66b095b037e4268aa" name="document-revision">
+  <meta content="7e08e2b3e66a951700b139cf46bed91bb1d145e6" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-05">5 October 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-09">9 October 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2654,7 +2654,6 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-2.0.0-20230824"><span class="secno"></span> <span class="content">Version 2.0.1-20230824 (August 24, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230831"><span class="secno"></span> <span class="content">Version 2.0.1-20230831 (August 31, 2023)</span></a>
       <li><a href="#changelog-2.0.0-20230905"><span class="secno"></span> <span class="content">Version 2.0.1-20230905 (September 5, 2023)</span></a>
-      <li><a href="#changelog-2.0.0-20231005"><span class="secno"></span> <span class="content">Version 2.0.1-20231005 (October 5, 2023)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -3971,9 +3970,9 @@ configured to control the processing of the ImpactClaim.</p>
        <td>The status of the CRU, see <a href="#dt-credit-status">§ 3.83 Data Type: CreditStatus</a> for details. 
       <tr>
        <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-referencedcredit"><code>referencedCredit</code><a class="self-link" href="#element-attrdef-cru-referencedcredit"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit">ReferencedCredit</a> 
-       <td>Object 
+       <td>Array 
        <td>O 
-       <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+       <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details. 
       <tr>
        <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
@@ -4342,9 +4341,9 @@ configured to control the processing of the ImpactClaim.</p>
        <td>The status of the REC, see <a href="#dt-credit-status">§ 3.83 Data Type: CreditStatus</a> for details. 
       <tr>
        <td><dfn data-dfn-for="REC" data-dfn-type="element-attr" data-export id="element-attrdef-rec-referencedcredit"><code>referencedCredit</code><a class="self-link" href="#element-attrdef-rec-referencedcredit"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit①">ReferencedCredit</a> 
-       <td>Object 
+       <td>Array 
        <td>O 
-       <td>Used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+       <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details. 
       <tr>
        <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
@@ -4452,6 +4451,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>String 
        <td>M 
        <td>Unique identifier for the referenced credit, this can be a serial number or a master id on the external registry. 
+      <tr>
+       <td>metadata : <a data-link-type="dfn" href="#string" id="ref-for-string③⑤">String</a> 
+       <td>String 
+       <td>O 
+       <td>Optional metadata about the referenced credit, json serialized as a string. 
     </table>
     <figcaption>Properties of data type ReferencedCredit</figcaption>
    </figure>
@@ -4499,12 +4503,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-name"><code>name</code><a class="self-link" href="#element-attrdef-signatory-name"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑤">String</a> 
+       <td><dfn data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-name"><code>name</code><a class="self-link" href="#element-attrdef-signatory-name"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑥">String</a> 
        <td>String 
        <td>M 
        <td>The individual or organization name in the role. 
       <tr>
-       <td><dfn data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-description"><code>description</code><a class="self-link" href="#element-attrdef-signatory-description"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑥">String</a> 
+       <td><dfn data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-description"><code>description</code><a class="self-link" href="#element-attrdef-signatory-description"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑦">String</a> 
        <td>String 
        <td>M 
        <td>A description of the signatory, notes or comments. 
@@ -4542,7 +4546,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>String representation of the enum SignatureType, see <a href="#dt-signature-type">§ 3.64 Data Type: SignatureType</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="DigitalSignature" data-dfn-type="element-attr" data-export id="element-attrdef-digitalsignature-jws"><code>jws</code><a class="self-link" href="#element-attrdef-digitalsignature-jws"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑦">String</a> 
+       <td><dfn data-dfn-for="DigitalSignature" data-dfn-type="element-attr" data-export id="element-attrdef-digitalsignature-jws"><code>jws</code><a class="self-link" href="#element-attrdef-digitalsignature-jws"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑧">String</a> 
        <td>String 
        <td>O 
        <td>If using a JWS, this is the serialized JWS. 
@@ -4573,12 +4577,12 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td><dfn data-dfn-for="Credential" data-dfn-type="element-attr" data-export id="element-attrdef-credential-context"><code>context</code><a class="self-link" href="#element-attrdef-credential-context"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑧">String</a> 
+       <td><dfn data-dfn-for="Credential" data-dfn-type="element-attr" data-export id="element-attrdef-credential-context"><code>context</code><a class="self-link" href="#element-attrdef-credential-context"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⑨">String</a> 
        <td>Array 
        <td>M 
        <td>The context of the credential, an array of strings. 
       <tr>
-       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string③⑨">String</a> 
+       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④⓪">String</a> 
        <td>String 
        <td>M 
        <td>The id of the credential, a string. 
@@ -4588,7 +4592,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The list of credential types, an array of strings. 
       <tr>
-       <td>issuer : <a data-link-type="dfn" href="#string" id="ref-for-string④⓪">String</a> 
+       <td>issuer : <a data-link-type="dfn" href="#string" id="ref-for-string④①">String</a> 
        <td>String 
        <td>M 
        <td>The issuer of the credential, a string. 
@@ -4624,12 +4628,12 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④①">String</a> 
+       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④②">String</a> 
        <td>String 
        <td>O 
        <td>Unique identifier for the credential subject, usually assigned if referencing another DiD, but an optional property. 
       <tr>
-       <td>property : <a data-link-type="dfn" href="#string" id="ref-for-string④②">String</a> 
+       <td>property : <a data-link-type="dfn" href="#string" id="ref-for-string④③">String</a> 
        <td>String 
        <td>M 
        <td>The subject may contain multiple properties, these can be presented as a Json string in a single property or an array of properties. 
@@ -4660,27 +4664,27 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The creation date of the proof, a string. 
       <tr>
-       <td>proofPurpose : <a data-link-type="dfn" href="#string" id="ref-for-string④③">String</a> 
+       <td>proofPurpose : <a data-link-type="dfn" href="#string" id="ref-for-string④④">String</a> 
        <td>String 
        <td>M 
        <td>The purpose of the proof, a string. 
       <tr>
-       <td>verificationMethod : <a data-link-type="dfn" href="#string" id="ref-for-string④④">String</a> 
+       <td>verificationMethod : <a data-link-type="dfn" href="#string" id="ref-for-string④⑤">String</a> 
        <td>String 
        <td>M 
        <td>The verification method of the proof, a string. 
       <tr>
-       <td>challenge : <a data-link-type="dfn" href="#string" id="ref-for-string④⑤">String</a> 
+       <td>challenge : <a data-link-type="dfn" href="#string" id="ref-for-string④⑥">String</a> 
        <td>String 
        <td>O 
        <td>Optional for Presentations for replay attacks, the challenge of the proof, a string. 
       <tr>
-       <td>domain : <a data-link-type="dfn" href="#string" id="ref-for-string④⑥">String</a> 
+       <td>domain : <a data-link-type="dfn" href="#string" id="ref-for-string④⑦">String</a> 
        <td>String 
        <td>O 
        <td>Optional for Presentations for replay attacks, the domain of the proof, a string. 
       <tr>
-       <td>jws : <a data-link-type="dfn" href="#string" id="ref-for-string④⑦">String</a> 
+       <td>jws : <a data-link-type="dfn" href="#string" id="ref-for-string④⑧">String</a> 
        <td>String 
        <td>M 
        <td>The JSON Web Signature of the proof, a string. 
@@ -4701,7 +4705,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④⑧">String</a> 
+       <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④⑨">String</a> 
        <td>String 
        <td>M 
        <td>The id of the presentation, a string. 
@@ -4711,7 +4715,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The type of the presentation, a string. 
       <tr>
-       <td>holder : <a data-link-type="dfn" href="#string" id="ref-for-string④⑨">String</a> 
+       <td>holder : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⓪">String</a> 
        <td>String 
        <td>M 
        <td>The holder of the presentation, a string. 
@@ -4761,7 +4765,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The type of the proof, a string. 
       <tr>
-       <td>attestor : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⓪">String</a> 
+       <td>attestor : <a data-link-type="dfn" href="#string" id="ref-for-string⑤①">String</a> 
        <td>String 
        <td>M 
        <td>The attestor of the attestation, a string. 
@@ -4793,17 +4797,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>Id of the tag, see <a href="#dt-id">§ 3.91 Data Type: Id</a> for details. 
       <tr>
-       <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤①">String</a> 
+       <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤②">String</a> 
        <td>String 
        <td>M 
        <td>Name of the tag as applied to the data type. 
       <tr>
-       <td>context : <a data-link-type="dfn" href="#string" id="ref-for-string⑤②">String</a> 
+       <td>context : <a data-link-type="dfn" href="#string" id="ref-for-string⑤③">String</a> 
        <td>Array 
        <td>M 
        <td>The contexts of the tag, similar to Json-LD, an array of strings. 
       <tr>
-       <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑤③">String</a> 
+       <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑤④">String</a> 
        <td>String 
        <td>M 
        <td>The description of the tag. 
@@ -4865,7 +4869,7 @@ the string or file for the area must have a value.</p>
        <td>O* 
        <td>The longitude of the location using Decimal Degrees. 
       <tr>
-       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-geojsonorkml"><code>geoJsonOrKml</code><a class="self-link" href="#element-attrdef-geographiclocation-geojsonorkml"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string⑤④">String</a> 
+       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-geojsonorkml"><code>geoJsonOrKml</code><a class="self-link" href="#element-attrdef-geographiclocation-geojsonorkml"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑤">String</a> 
        <td>String 
        <td>O* 
        <td>The geoJson or KML as a minimized string of the geographic area. 
@@ -4890,12 +4894,12 @@ the string or file for the area must have a value.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑤">String</a> 
+       <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑥">String</a> 
        <td>String 
        <td>M 
        <td>Name of the quality standard, methodology or protocol, can include version information in the name. 
       <tr>
-       <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑥">String</a> 
+       <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑦">String</a> 
        <td>String 
        <td>O 
        <td>Description of the quality standard, can include differentiating information related to the project implementation. 
@@ -4910,7 +4914,7 @@ the string or file for the area must have a value.</p>
        <td>M 
        <td>A list of the methodology and any tools used for the quality standard. See <a href="#dt-methodology-and-tool">§ 3.85 Data Type: MethodologyAndTool</a> for details. 
       <tr>
-       <td>version :<a data-link-type="dfn" href="#string" id="ref-for-string⑤⑦">String</a> 
+       <td>version :<a data-link-type="dfn" href="#string" id="ref-for-string⑤⑧">String</a> 
        <td>String 
        <td>O 
        <td>The version of the quality standard, methodology or protocol. 
@@ -5061,7 +5065,7 @@ the specification.</p>
        <td>O 
        <td>The UTC date time, often used as DateTimeOffset, depending on the platform. 
       <tr>
-       <td><dfn data-dfn-for="Date" data-dfn-type="element-attr" data-export id="element-attrdef-date-datestring"><code>dateString</code><a class="self-link" href="#element-attrdef-date-datestring"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑧">String</a> 
+       <td><dfn data-dfn-for="Date" data-dfn-type="element-attr" data-export id="element-attrdef-date-datestring"><code>dateString</code><a class="self-link" href="#element-attrdef-date-datestring"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑨">String</a> 
        <td>String 
        <td>M 
        <td>Can be a simple date string, i.e. "2023-01-01". 
@@ -6062,7 +6066,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h3 class="heading settled" data-level="3.90" id="dt-string"><span class="secno">3.90. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="string">String</dfn></span><a class="self-link" href="#dt-string"></a></h3>
    <p>A regular UTF-8 String.</p>
    <h4 class="heading settled" data-level="3.90.1" id="dt-string-json"><span class="secno">3.90.1. </span><span class="content">JSON Data Representation</span><a class="self-link" href="#dt-string-json"></a></h4>
-   <p>Each <a data-link-type="dfn" href="#string" id="ref-for-string⑤⑨">String</a> MUST be encoded as a JSON String.</p>
+   <p>Each <a data-link-type="dfn" href="#string" id="ref-for-string⑥⓪">String</a> MUST be encoded as a JSON String.</p>
    <h3 class="heading settled" data-level="3.91" id="dt-id"><span class="secno">3.91. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="id">Id</dfn></span><a class="self-link" href="#dt-id"></a></h3>
    <p>A Id MUST either be a UUID v4 as specified in <a data-link-type="biblio" href="#biblio-rfc4122" title="A Universally Unique IDentifier (UUID) URN Namespace">[RFC4122]</a>.</p>
    <p>or a unique key that can be represented as a string.</p>
@@ -6083,8 +6087,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-da8d70e5">
-    <a class="self-link" href="#example-da8d70e5"></a> CRU Full Lineage: 
+   <div class="example" id="example-f0667244">
+    <a class="self-link" href="#example-f0667244"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6095,7 +6099,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6157,9 +6161,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedCredit"</c-><c- p>:</c-> <c- p>{</c->
-    <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
-  <c- p>},</c->
+  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
@@ -6329,7 +6331,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6337,7 +6339,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6382,21 +6384,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>311528000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236560000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>375889000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>298018000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6419,14 +6421,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>377281000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>299622000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1695935973</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>377390000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>299754000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6616,13 +6618,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/28/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -7434,8 +7436,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-   <div class="example" id="example-92b5c2b4">
-    <a class="self-link" href="#example-92b5c2b4"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-ac5dd953">
+    <a class="self-link" href="#example-ac5dd953"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -7446,7 +7448,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -7508,9 +7510,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedCredit"</c-><c- p>:</c-> <c- p>{</c->
-    <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
-  <c- p>},</c->
+  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
@@ -7518,8 +7518,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.9" id="example-rec"><span class="secno">4.9. </span><span class="content">Example Renewable Energy Credit</span><a class="self-link" href="#example-rec"></a></h3>
-   <div class="example" id="example-5ddc6873">
-    <a class="self-link" href="#example-5ddc6873"></a> Renewable Energy Credit: 
+   <div class="example" id="example-a823f564">
+    <a class="self-link" href="#example-a823f564"></a> Renewable Energy Credit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7536,9 +7536,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedRec"</c-><c- p>:</c-> <c- p>{</c->
-    <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
-  <c- p>},</c->
+  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"45a85f6e-472d-46cf-87b6-73d3a34b4020"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
@@ -7546,65 +7544,371 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-b5a53817">
-    <a class="self-link" href="#example-b5a53817"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-bf14c9ad">
+    <a class="self-link" href="#example-bf14c9ad"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
-    <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
-    <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
-    <c- f>"validJurisdiction"</c-><c- p>:</c-> <c- u>"US"</c-><c- p>,</c->
-    <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+  <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
+  <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
+  <c- f>"validJurisdiction"</c-><c- p>:</c-> <c- u>"US"</c-><c- p>,</c->
+  <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+  <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
+  <c- f>"ownerId"</c-><c- p>:</c-> <c- u>"396a2870-851e-4c93-bd97-e330c0d2d3c1"</c-><c- p>,</c->
+  <c- f>"listingAgentId"</c-><c- p>:</c-> <c- u>"ac497050-23eb-4fac-b9e5-1ec9039b2d34"</c-><c- p>,</c->
+  <c- f>"climateLabels"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Climate Neutral"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Neutral - environmentally friendly, climate positive"</c->
+    <c- p>}</c->
+  <c- p>],</c->
+  <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
+  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[],</c->
+  <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+  <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+  <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
+  <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+    <c- f>"vpaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+    <c- f>"impactClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+    <c- f>"creditId"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
     <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
-    <c- f>"ownerId"</c-><c- p>:</c-> <c- u>"396a2870-851e-4c93-bd97-e330c0d2d3c1"</c-><c- p>,</c->
-    <c- f>"listingAgentId"</c-><c- p>:</c-> <c- u>"ac497050-23eb-4fac-b9e5-1ec9039b2d34"</c-><c- p>,</c->
-    <c- f>"climateLabels"</c-><c- p>:</c-> <c- p>[</c->
+    <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+    <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"91c7a40a-d64a-44d3-b3e8-cb0e7c21c45c"</c-><c- p>,</c->
-        <c- f>"name"</c-><c- p>:</c-> <c- u>"Climate Neutral"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Neutral - environmentally friendly, climate positive"</c->
+        <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"By training and employing locals, this project is reducing inequalities in the country."</c->
       <c- p>}</c->
     <c- p>],</c->
-    <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-    <c- f>"referencedRec"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>""</c->
+    <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+        <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Avoidance Through Solar Power"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying GHG emission avoidance from solar power"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://verra.org/methodology/vm0026-solar-framework-extension/"</c-><c- p>,</c->
+          <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"key"</c-><c- p>:</c-> <c- u>"mCO2,i,d"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of CO2 which was avoided over monitoring period y"</c-><c- p>,</c->
+              <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"key"</c-><c- p>:</c-> <c- u>"CO2"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                <c- p>},</c->
+                <c- p>{</c->
+                  <c- f>"key"</c-><c- p>:</c-> <c- u>"y"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>]</c->
+        <c- p>},</c->
+        <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"5eda007d-e136-4b21-8c27-9374447c0212"</c-><c- p>,</c->
+        <c- f>"checkpointId"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+        <c- f>"linkToVerificationData"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"d11fb465-77bb-4190-aa0a-d7e5553d2bf1"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/verification/189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Results for verification checkpoint 189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+          <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x1234567890abcdef"</c-><c- p>,</c->
+          <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+        <c- p>},</c->
+        <c- f>"dateRange"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"startDate"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+          <c- f>"endDate"</c-><c- p>:</c-> <c- kc>null</c->
+        <c- p>},</c->
+        <c- f>"efBefore"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
+            <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
+          <c- p>}</c->
+        <c- p>]</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+    <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341, with issuer Evident and verifier"</c-><c- p>,</c->
+      <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Evident is a registry that provides an I-REC code and issuance capabilities."</c-><c- p>,</c->
+          <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"IssuingRegistry"</c-><c- p>,</c->
+          <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+            <c- f>"jws"</c-><c- p>:</c-> <c- u>"epx324jkasdf883429f2lMMm8asxdz9ZW0"</c-><c- p>,</c->
+            <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+          <c- p>}</c->
+        <c- p>},</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"58827053-14ab-441d-8699-7108de68e687"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"SustainCERT"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"SustainCERT is an organization..."</c-><c- p>,</c->
+          <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ValidationAndVerificationBody"</c-><c- p>,</c->
+          <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+            <c- f>"jws"</c-><c- p>:</c-> <c- u>"789908sa32980231ll132fsd89asdfa123"</c-><c- p>,</c->
+            <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+          <c- p>}</c->
+        <c- p>},</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"9431e6b8-9601-460b-b0e3-c3da409da3de"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Solar for Growth"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Eco-Solar for Growth is a solar management firm that..."</c-><c- p>,</c->
+          <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ProjectOwner"</c-><c- p>,</c->
+          <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+            <c- f>"jws"</c-><c- p>:</c-> <c- u>"1234567890asdfasdfas"</c-><c- p>,</c->
+            <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
+          <c- p>}</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"qualityStandard"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident - I-REC Solar"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Evident - I-REC Solar is a quality standard for solar projects."</c-><c- p>,</c->
+        <c- f>"standard"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
+        <c- f>"methodologyAndTools"</c-><c- p>:</c-> <c- p>[</c->
+          <c- u>"EvidentCode"</c->
+        <c- p>],</c->
+        <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+        <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action, by removing carbon from the atmosphere."</c->
+          <c- p>},</c->
+          <c- p>{</c->
+            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Improving Life on Land, the use of the projects land to provide..."</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"be062a19-133c-4626-aa2d-bcca2c510ab2"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://evident.global/solar/irec"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the solar methodology or code"</c-><c- p>,</c->
+          <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
+          <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+        <c- p>}</c->
+      <c- p>},</c->
+      <c- f>"mrvRequirements"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"measurementSpecification"</c-><c- p>:</c-> <c- u>"Iso14064"</c-><c- p>,</c->
+        <c- f>"specificationLink"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"efc93244-030d-48b8-95a5-9204c45dd679"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.iso.org/standard/70964.pdf"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the ISO 14064-3:2018 standard"</c-><c- p>,</c->
+          <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"GX1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
+          <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+        <c- p>},</c->
+        <c- f>"precision"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"low"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+          <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+          <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
+        <c- p>},</c->
+        <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Quarterly"</c->
+      <c- p>},</c->
+      <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+      <c- p>},</c->
+      <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
+      <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+      <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
+      <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+        <c- p>},</c->
+        <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>}</c->
+        <c- p>]</c->
+      <c- p>},</c->
+      <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+      <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
     <c- p>},</c->
-    <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-    <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
-    <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-      <c- f>"vpaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-      <c- f>"impactClaimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
-      <c- f>"creditId"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
-      <c- f>"unit"</c-><c- p>:</c-> <c- u>"MwH"</c-><c- p>,</c->
-      <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.3121"</c-><c- p>,</c->
+    <c- f>"impactClaim"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+      <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+      <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+      <c- f>"unit"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
+      <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
       <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ReducedInequalities"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"By training and employing locals, this project is reducing inequalities in the country."</c->
+          <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
+          <c- f>"claimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
+          <c- f>"claimSourceIds"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c->
+          <c- p>],</c->
+          <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
+          <c- f>"efBefore"</c-><c- p>:</c-> <c- u>"0"</c-><c- p>,</c->
+          <c- f>"efAfter"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
+          <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+              <c- p>},</c->
+              <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>583076000</c->
+              <c- p>}</c->
+            <c- p>},</c->
+            <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+              <c- p>},</c->
+              <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>657447000</c->
+              <c- p>}</c->
+            <c- p>}</c->
+          <c- p>},</c->
+          <c- f>"verifiedLinkToCheckpointData"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Span Data Package"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"asdflkdfs889fj3l437098asdfi"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>},</c->
+          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
+          <c- f>"spanDataPackage"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
+              <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+              <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+              <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
+              <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>658968000</c->
+                  <c- p>},</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+                <c- p>},</c->
+                <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>659097000</c->
+                <c- p>}</c->
+              <c- p>},</c->
+              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
+                  <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                  <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                    <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident IREC Code Framework Extension"</c-><c- p>,</c->
+                    <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
+                    <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology specific data attributes being tracked."</c-><c- p>,</c->
+                    <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+                    <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                      <c- p>{</c->
+                        <c- f>"key"</c-><c- p>:</c-> <c- u>"Δ𝑠𝑠,𝑡"</c-><c- p>,</c->
+                        <c- f>"value"</c-><c- p>:</c-> <c- u>"Addition output of the solar panels in the time period t"</c-><c- p>,</c->
+                        <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                      <c- p>}</c->
+                    <c- p>]</c->
+                  <c- p>},</c->
+                  <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+                <c- p>}</c->
+              <c- p>],</c->
+              <c- f>"sdpFiles"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"Data from sensor"</c-><c- p>,</c->
+                  <c- f>"type"</c-><c- p>:</c-> <c- u>"DataBinary"</c-><c- p>,</c->
+                  <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
+                  <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
+                  <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
+                  <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- p>{</c->
+                      <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
+                      <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                      <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                        <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar inverter Device Sensor Evidence File"</c-><c- p>,</c->
+                        <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
+                        <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
+                        <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://evident.global/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
+                        <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
+                          <c- p>{</c->
+                            <c- f>"key"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
+                            <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
+                            <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                          <c- p>},</c->
+                          <c- p>{</c->
+                            <c- f>"key"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
+                            <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
+                            <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                          <c- p>},</c->
+                          <c- p>{</c->
+                            <c- f>"key"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
+                            <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
+                            <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                          <c- p>}</c->
+                        <c- p>]</c->
+                      <c- p>},</c->
+                      <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+                    <c- p>}</c->
+                  <c- p>]</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>}</c->
         <c- p>}</c->
       <c- p>],</c->
       <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaimMrvExtension"</c-><c- p>,</c->
+          <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
           <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Avoidance Through Solar Power"</c-><c- p>,</c->
             <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying GHG emission avoidance from solar power"</c-><c- p>,</c->
-            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://verra.org/methodology/vm0026-solar-framework-extension/"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying avoided GHG emissions from solar power"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://evident.global/solar-framework-extension/"</c-><c- p>,</c->
             <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"key"</c-><c- p>:</c-> <c- u>"mCO2,i,d"</c-><c- p>,</c->
-                <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of CO2 which was avoided over monitoring period y"</c-><c- p>,</c->
+                <c- f>"key"</c-><c- p>:</c-> <c- u>"MGy,i,d"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of the aggregate type i of a distribution d in monitoring period y."</c-><c- p>,</c->
                 <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"key"</c-><c- p>:</c-> <c- u>"CO2"</c-><c- p>,</c->
-                    <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                    <c- f>"key"</c-><c- p>:</c-> <c- u>"i"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"solar"</c-><c- p>,</c->
+                    <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
+                  <c- p>},</c->
+                  <c- p>{</c->
+                    <c- f>"key"</c-><c- p>:</c-> <c- u>"d"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"0.5-1.0 mm"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
                   <c- p>},</c->
                   <c- p>{</c->
                     <c- f>"key"</c-><c- p>:</c-> <c- u>"y"</c-><c- p>,</c->
-                    <c- f>"value"</c-><c- p>:</c-> <c- u>"2"</c-><c- p>,</c->
+                    <c- f>"value"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
                   <c- p>}</c->
                 <c- p>]</c->
@@ -7614,465 +7918,157 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
         <c- p>}</c->
       <c- p>],</c->
-      <c- f>"checkpointResults"</c-><c- p>:</c-> <c- p>[</c->
-        <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"5eda007d-e136-4b21-8c27-9374447c0212"</c-><c- p>,</c->
-          <c- f>"checkpointId"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
-          <c- f>"linkToVerificationData"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"d11fb465-77bb-4190-aa0a-d7e5553d2bf1"</c-><c- p>,</c->
-            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/verification/189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Results for verification checkpoint 189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
-            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x1234567890abcdef"</c-><c- p>,</c->
-            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-          <c- p>},</c->
-          <c- f>"dateRange"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"startDate"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"endDate"</c-><c- p>:</c-> <c- kc>null</c->
-          <c- p>},</c->
-          <c- f>"efBefore"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"efAfter"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"UnknownMrvExtension"</c-><c- p>,</c->
-              <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"None"</c->
-            <c- p>}</c->
-          <c- p>]</c->
-        <c- p>}</c->
-      <c- p>],</c->
-      <c- f>"proposedAsset"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"verificationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-        <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Solar Deployment 3341, with issuer Evident and verifier"</c-><c- p>,</c->
-        <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
-          <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"60425f71-6d55-4875-b661-6bc1b1a4be8a"</c-><c- p>,</c->
-            <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Evident is a registry that provides an I-REC code and issuance capabilities."</c-><c- p>,</c->
-            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"IssuingRegistry"</c-><c- p>,</c->
-            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
-              <c- f>"jws"</c-><c- p>:</c-> <c- u>"epx324jkasdf883429f2lMMm8asxdz9ZW0"</c-><c- p>,</c->
-              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
-            <c- p>}</c->
-          <c- p>},</c->
-          <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"58827053-14ab-441d-8699-7108de68e687"</c-><c- p>,</c->
-            <c- f>"name"</c-><c- p>:</c-> <c- u>"SustainCERT"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"SustainCERT is an organization..."</c-><c- p>,</c->
-            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ValidationAndVerificationBody"</c-><c- p>,</c->
-            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
-              <c- f>"jws"</c-><c- p>:</c-> <c- u>"789908sa32980231ll132fsd89asdfa123"</c-><c- p>,</c->
-              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
-            <c- p>}</c->
-          <c- p>},</c->
-          <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"9431e6b8-9601-460b-b0e3-c3da409da3de"</c-><c- p>,</c->
-            <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Solar for Growth"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Eco-Solar for Growth is a solar management firm that..."</c-><c- p>,</c->
-            <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"ProjectOwner"</c-><c- p>,</c->
-            <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
-              <c- f>"jws"</c-><c- p>:</c-> <c- u>"1234567890asdfasdfas"</c-><c- p>,</c->
-              <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
-            <c- p>}</c->
-          <c- p>}</c->
+      <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+        <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar deployment 3341"</c-><c- p>,</c->
+        <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"RenewableEnergy"</c-><c- p>,</c->
+        <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Technilogical"</c-><c- p>,</c->
+        <c- f>"benefitCategory"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
+        <c- f>"projectScope"</c-><c- p>:</c-> <c- u>"RenewableEnergy"</c-><c- p>,</c->
+        <c- f>"projectType"</c-><c- p>:</c-> <c- u>"SolarDistributed"</c-><c- p>,</c->
+        <c- f>"projectScale"</c-><c- p>:</c-> <c- u>"Medium"</c-><c- p>,</c->
+        <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+          <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
+          <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c-><c- p>,</c->
+          <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
+        <c- p>},</c->
+        <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2022"</c-><c- p>,</c->
+        <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
+        <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
+          <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
         <c- p>],</c->
-        <c- f>"qualityStandard"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident - I-REC Solar"</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Evident - I-REC Solar is a quality standard for solar projects."</c-><c- p>,</c->
-          <c- f>"standard"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
-          <c- f>"methodologyAndTools"</c-><c- p>:</c-> <c- p>[</c->
-            <c- u>"EvidentCode"</c->
-          <c- p>],</c->
-          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
-          <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action, by removing carbon from the atmosphere."</c->
+        <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
+          <c- u>"sponsor"</c->
+        <c- p>],</c->
+        <c- f>"claimSources"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
+            <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar Inverter Device"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in main solar array"</c-><c- p>,</c->
+            <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
+              <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
+              <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+              <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
             <c- p>},</c->
-            <c- p>{</c->
-              <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"LifeOnLand"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Improving Life on Land, the use of the projects land to provide..."</c->
-            <c- p>}</c->
-          <c- p>],</c->
-          <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"be062a19-133c-4626-aa2d-bcca2c510ab2"</c-><c- p>,</c->
-            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://evident.global/solar/irec"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the solar methodology or code"</c-><c- p>,</c->
-            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
-            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-          <c- p>}</c->
-        <c- p>},</c->
-        <c- f>"mrvRequirements"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"measurementSpecification"</c-><c- p>:</c-> <c- u>"Iso14064"</c-><c- p>,</c->
-          <c- f>"specificationLink"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"efc93244-030d-48b8-95a5-9204c45dd679"</c-><c- p>,</c->
-            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.iso.org/standard/70964.pdf"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the ISO 14064-3:2018 standard"</c-><c- p>,</c->
-            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"GX1234567890abc12fasdfw43asdfasdf342"</c-><c- p>,</c->
-            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-          <c- p>},</c->
-          <c- f>"precision"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"low"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
-            <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
-            <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
-          <c- p>},</c->
-          <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Quarterly"</c->
-        <c- p>},</c->
-        <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-        <c- p>},</c->
-        <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
-        <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
-        <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
-        <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-          <c- p>},</c->
-          <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
-              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification contract e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
-              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-            <c- p>}</c->
-          <c- p>]</c->
-        <c- p>},</c->
-        <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
-      <c- p>},</c->
-      <c- f>"impactClaim"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
-        <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
-        <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"unit"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
-        <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
-        <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
-          <c- p>{</c->
-            <c- f>"unSdg"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Climate Action for this project includes: carbon removal, reduction and carbon avoidance."</c->
-          <c- p>}</c->
-        <c- p>],</c->
-        <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[</c->
-          <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"189bc8ee-b19c-4116-be65-e8ec1d0b7764"</c-><c- p>,</c->
-            <c- f>"claimId"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
-            <c- f>"claimSourceIds"</c-><c- p>:</c-> <c- p>[</c->
-              <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c->
-            <c- p>],</c->
-            <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
-            <c- f>"efBefore"</c-><c- p>:</c-> <c- u>"0"</c-><c- p>,</c->
-            <c- f>"efAfter"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
-            <c- f>"checkpointDateRange"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+            <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+            <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
+            <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
+            <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+              <c- p>{</c->
+                <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"AimClaimSourceMrvExtension"</c-><c- p>,</c->
+                <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
+                  <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
+                  <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"</c->
                 <c- p>},</c->
-                <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>583076000</c->
-                <c- p>}</c->
-              <c- p>},</c->
-              <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-                <c- p>},</c->
-                <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>657447000</c->
-                <c- p>}</c->
+                <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+                <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
               <c- p>}</c->
-            <c- p>},</c->
-            <c- f>"verifiedLinkToCheckpointData"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
-              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Link to the Span Data Package"</c-><c- p>,</c->
-              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"asdflkdfs889fj3l437098asdfi"</c-><c- p>,</c->
-              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-            <c- p>},</c->
+            <c- p>]</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"impactClaims"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+            <c- f>"aimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+            <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+            <c- f>"unit"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
+            <c- f>"quantity"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+            <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[],</c->
+            <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[],</c->
             <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
-            <c- f>"spanDataPackage"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
-                <c- f>"version"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
-                <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
-                <c- f>"claimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
-                <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
-                <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                      <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
-                      <c- f>"nanos"</c-><c- p>:</c-> <c- mi>658968000</c->
-                    <c- p>},</c->
-                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-                  <c- p>},</c->
-                  <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1692901489</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>659097000</c->
-                  <c- p>}</c->
-                <c- p>},</c->
-                <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                  <c- p>{</c->
-                    <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpManifestMrvExtension"</c-><c- p>,</c->
-                    <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                    <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
-                      <c- f>"name"</c-><c- p>:</c-> <c- u>"Evident IREC Code Framework Extension"</c-><c- p>,</c->
-                      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
-                      <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology specific data attributes being tracked."</c-><c- p>,</c->
-                      <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                      <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                        <c- p>{</c->
-                          <c- f>"key"</c-><c- p>:</c-> <c- u>"Δ𝑠𝑠,𝑡"</c-><c- p>,</c->
-                          <c- f>"value"</c-><c- p>:</c-> <c- u>"Addition output of the solar panels in the time period t"</c-><c- p>,</c->
-                          <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                        <c- p>}</c->
-                      <c- p>]</c->
-                    <c- p>},</c->
-                    <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
-                  <c- p>}</c->
-                <c- p>],</c->
-                <c- f>"sdpFiles"</c-><c- p>:</c-> <c- p>[</c->
-                  <c- p>{</c->
-                    <c- f>"name"</c-><c- p>:</c-> <c- u>"Data from sensor"</c-><c- p>,</c->
-                    <c- f>"type"</c-><c- p>:</c-> <c- u>"DataBinary"</c-><c- p>,</c->
-                    <c- f>"description"</c-><c- p>:</c-> <c- u>"Primary source data from sensor."</c-><c- p>,</c->
-                    <c- f>"claimSourceId"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
-                    <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
-                    <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                      <c- p>{</c->
-                        <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"SdpFileMrvExtension"</c-><c- p>,</c->
-                        <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                        <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
-                          <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar inverter Device Sensor Evidence File"</c-><c- p>,</c->
-                          <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
-                          <c- f>"description"</c-><c- p>:</c-> <c- u>"Sensor data values required for evidence data."</c-><c- p>,</c->
-                          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://evident.global/mrv-extension/concrete-device-sensor/sdp-file"</c-><c- p>,</c->
-                          <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                            <c- p>{</c->
-                              <c- f>"key"</c-><c- p>:</c-> <c- u>"Starting Temperature Sensor Reading"</c-><c- p>,</c->
-                              <c- f>"value"</c-><c- p>:</c-> <c- u>"31.2c"</c-><c- p>,</c->
-                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                            <c- p>},</c->
-                            <c- p>{</c->
-                              <c- f>"key"</c-><c- p>:</c-> <c- u>"End Temperature Sensor Reading"</c-><c- p>,</c->
-                              <c- f>"value"</c-><c- p>:</c-> <c- u>"50.7c"</c-><c- p>,</c->
-                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                            <c- p>},</c->
-                            <c- p>{</c->
-                              <c- f>"key"</c-><c- p>:</c-> <c- u>"Dust Sensor Reading"</c-><c- p>,</c->
-                              <c- f>"value"</c-><c- p>:</c-> <c- u>"1.0002"</c-><c- p>,</c->
-                              <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                            <c- p>}</c->
-                          <c- p>]</c->
-                        <c- p>},</c->
-                        <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
-                      <c- p>}</c->
-                    <c- p>]</c->
-                  <c- p>}</c->
-                <c- p>]</c->
-              <c- p>}</c->
-            <c- p>}</c->
+            <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c->
           <c- p>}</c->
         <c- p>],</c->
         <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"ClaimMrvExtension"</c-><c- p>,</c->
-            <c- f>"typedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"untypedExtension"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Avoidance Through Solar Power"</c-><c- p>,</c->
-              <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology for quantifying avoided GHG emissions from solar power"</c-><c- p>,</c->
-              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://evident.global/solar-framework-extension/"</c-><c- p>,</c->
-              <c- f>"dataExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                <c- p>{</c->
-                  <c- f>"key"</c-><c- p>:</c-> <c- u>"MGy,i,d"</c-><c- p>,</c->
-                  <c- f>"value"</c-><c- p>:</c-> <c- u>"Mass of the aggregate type i of a distribution d in monitoring period y."</c-><c- p>,</c->
-                  <c- f>"data"</c-><c- p>:</c-> <c- p>[</c->
-                    <c- p>{</c->
-                      <c- f>"key"</c-><c- p>:</c-> <c- u>"i"</c-><c- p>,</c->
-                      <c- f>"value"</c-><c- p>:</c-> <c- u>"solar"</c-><c- p>,</c->
-                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                    <c- p>},</c->
-                    <c- p>{</c->
-                      <c- f>"key"</c-><c- p>:</c-> <c- u>"d"</c-><c- p>,</c->
-                      <c- f>"value"</c-><c- p>:</c-> <c- u>"0.5-1.0 mm"</c-><c- p>,</c->
-                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                    <c- p>},</c->
-                    <c- p>{</c->
-                      <c- f>"key"</c-><c- p>:</c-> <c- u>"y"</c-><c- p>,</c->
-                      <c- f>"value"</c-><c- p>:</c-> <c- u>"1"</c-><c- p>,</c->
-                      <c- f>"data"</c-><c- p>:</c-> <c- p>[]</c->
-                    <c- p>}</c->
-                  <c- p>]</c->
-                <c- p>}</c->
-              <c- p>]</c->
+            <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"AimMrvExtension"</c-><c- p>,</c->
+            <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://evident.global/schemas/mrv-extension/v1.0/aim-mrv-extension.json"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/evident.global/mrv-extensions/aim-mrv-extension/"</c-><c- p>,</c->
+              <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"</c->
             <c- p>},</c->
-            <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"UntypedExtension"</c->
+            <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+            <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
           <c- p>}</c->
         <c- p>],</c->
-        <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
-          <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
-          <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar deployment 3341"</c-><c- p>,</c->
-          <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"RenewableEnergy"</c-><c- p>,</c->
-          <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Technilogical"</c-><c- p>,</c->
-          <c- f>"benefitCategory"</c-><c- p>:</c-> <c- u>"ClimateAction"</c-><c- p>,</c->
-          <c- f>"projectScope"</c-><c- p>:</c-> <c- u>"RenewableEnergy"</c-><c- p>,</c->
-          <c- f>"projectType"</c-><c- p>:</c-> <c- u>"SolarDistributed"</c-><c- p>,</c->
-          <c- f>"projectScale"</c-><c- p>:</c-> <c- u>"Medium"</c-><c- p>,</c->
-          <c- f>"arbId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
-            <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
-            <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}"</c-><c- p>,</c->
-            <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
-          <c- p>},</c->
-          <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"2022"</c-><c- p>,</c->
-          <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"vef-1321-99da-1"</c-><c- p>,</c->
-          <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
-            <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c->
-          <c- p>],</c->
-          <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
-            <c- u>"sponsor"</c->
-          <c- p>],</c->
-          <c- f>"claimSources"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"147e7105-2333-4f5f-847c-6c984e5220dd"</c-><c- p>,</c->
-              <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
-              <c- f>"name"</c-><c- p>:</c-> <c- u>"Solar Inverter Device"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Located in main solar array"</c-><c- p>,</c->
-              <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"longitude"</c-><c- p>:</c-> <c- u>"41.40338"</c-><c- p>,</c->
-                <c- f>"latitude"</c-><c- p>:</c-> <c- u>"2.17403"</c-><c- p>,</c->
-                <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- kc>null</c->
-              <c- p>},</c->
-              <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
-              <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
-              <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
-              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
-                <c- p>{</c->
-                  <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"AimClaimSourceMrvExtension"</c-><c- p>,</c->
-                  <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json"</c-><c- p>,</c->
-                    <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/"</c-><c- p>,</c->
-                    <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"</c->
-                  <c- p>},</c->
-                  <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                  <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
-                <c- p>}</c->
-              <c- p>]</c->
-            <c- p>}</c->
-          <c- p>],</c->
-          <c- f>"impactClaims"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-              <c- f>"aimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-              <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-              <c- f>"unit"</c-><c- p>:</c-> <c- u>"KwH"</c-><c- p>,</c->
-              <c- f>"quantity"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-              <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[],</c->
-              <c- f>"checkpoints"</c-><c- p>:</c-> <c- p>[],</c->
-              <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
-              <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c->
-            <c- p>}</c->
-          <c- p>],</c->
-          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"mrvExtensionContext"</c-><c- p>:</c-> <c- u>"AimMrvExtension"</c-><c- p>,</c->
-              <c- f>"typedExtension"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://evident.global/schemas/mrv-extension/v1.0/aim-mrv-extension.json"</c-><c- p>,</c->
-                <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https:/evident.global/mrv-extensions/aim-mrv-extension/"</c-><c- p>,</c->
-                <c- f>"data"</c-><c- p>:</c-> <c- u>"{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"</c->
-              <c- p>},</c->
-              <c- f>"untypedExtension"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"extensionCase"</c-><c- p>:</c-> <c- u>"TypedExtension"</c->
-            <c- p>}</c->
-          <c- p>],</c->
-          <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
-            <c- p>{</c->
-              <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-              <c- p>},</c->
-              <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
-              <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-              <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
-              <c- p>},</c->
-              <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
-                <c- p>{</c->
-                  <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
-                  <c- f>"validationStepDescription"</c-><c- p>:</c-> <c- u>"Detailed project plan for the solar deployment"</c-><c- p>,</c->
-                  <c- f>"validationStepStatus"</c-><c- p>:</c-> <c- u>"Completed"</c-><c- p>,</c->
-                  <c- f>"validationStepDocumentLink"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"id"</c-><c- p>:</c-> <c- u>"456bf8d1-f090-47b1-b7c0-b539441e557e"</c-><c- p>,</c->
-                    <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://evident.global/irec-solar/projectplan.pdf"</c-><c- p>,</c->
-                    <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
-                    <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x32wasfd1234567890abcdef"</c-><c- p>,</c->
-                    <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-                  <c- p>}</c->
-                <c- p>}</c->
-              <c- p>]</c->
-            <c- p>}</c->
-          <c- p>],</c->
-          <c- f>"accountableImpactOrganization"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
-            <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Solar Deployment"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"The Eco-Earth Solar Deployment organization is a solar project that aims to create cheap renewable energy along with carbon avoidance."</c-><c- p>,</c->
-            <c- f>"addresses"</c-><c- p>:</c-> <c- p>[</c->
+        <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+            <c- p>},</c->
+            <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
+            <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
+            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/24/2023"</c->
+            <c- p>},</c->
+            <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"addressType"</c-><c- p>:</c-> <c- u>"Legal"</c-><c- p>,</c->
-                <c- f>"addressLines"</c-><c- p>:</c-> <c- p>[</c->
-                  <c- u>"123 ABC St."</c->
-                <c- p>],</c->
-                <c- f>"city"</c-><c- p>:</c-> <c- u>"Santarém"</c-><c- p>,</c->
-                <c- f>"state"</c-><c- p>:</c-> <c- u>"PA"</c-><c- p>,</c->
-                <c- f>"zip"</c-><c- p>:</c-> <c- u>"234123"</c-><c- p>,</c->
-                <c- f>"country"</c-><c- p>:</c-> <c- u>"Brazil"</c->
+                <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
+                <c- f>"validationStepDescription"</c-><c- p>:</c-> <c- u>"Detailed project plan for the solar deployment"</c-><c- p>,</c->
+                <c- f>"validationStepStatus"</c-><c- p>:</c-> <c- u>"Completed"</c-><c- p>,</c->
+                <c- f>"validationStepDocumentLink"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"id"</c-><c- p>:</c-> <c- u>"456bf8d1-f090-47b1-b7c0-b539441e557e"</c-><c- p>,</c->
+                  <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://evident.global/irec-solar/projectplan.pdf"</c-><c- p>,</c->
+                  <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
+                  <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0x32wasfd1234567890abcdef"</c-><c- p>,</c->
+                  <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+                <c- p>}</c->
               <c- p>}</c->
-            <c- p>],</c->
-            <c- f>"owners"</c-><c- p>:</c-> <c- p>[</c->
-              <c- u>"owner"</c->
-            <c- p>],</c->
-            <c- f>"country"</c-><c- p>:</c-> <c- u>"BR"</c-><c- p>,</c->
-            <c- f>"region"</c-><c- p>:</c-> <c- u>"SouthAmerica"</c-><c- p>,</c->
-            <c- f>"informationLink"</c-><c- p>:</c-> <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"7edef2c7-ff0e-41fc-b5e7-dda5aa65e850"</c-><c- p>,</c->
-              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/solar.html"</c-><c- p>,</c->
-              <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Website"</c-><c- p>,</c->
+            <c- p>]</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"accountableImpactOrganization"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Solar Deployment"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"The Eco-Earth Solar Deployment organization is a solar project that aims to create cheap renewable energy along with carbon avoidance."</c-><c- p>,</c->
+          <c- f>"addresses"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"addressType"</c-><c- p>:</c-> <c- u>"Legal"</c-><c- p>,</c->
+              <c- f>"addressLines"</c-><c- p>:</c-> <c- p>[</c->
+                <c- u>"123 ABC St."</c->
+              <c- p>],</c->
+              <c- f>"city"</c-><c- p>:</c-> <c- u>"Santarém"</c-><c- p>,</c->
+              <c- f>"state"</c-><c- p>:</c-> <c- u>"PA"</c-><c- p>,</c->
+              <c- f>"zip"</c-><c- p>:</c-> <c- u>"234123"</c-><c- p>,</c->
+              <c- f>"country"</c-><c- p>:</c-> <c- u>"Brazil"</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"owners"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"owner"</c->
+          <c- p>],</c->
+          <c- f>"country"</c-><c- p>:</c-> <c- u>"BR"</c-><c- p>,</c->
+          <c- f>"region"</c-><c- p>:</c-> <c- u>"SouthAmerica"</c-><c- p>,</c->
+          <c- f>"informationLink"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"7edef2c7-ff0e-41fc-b5e7-dda5aa65e850"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/solar.html"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Website"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"n/a"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>},</c->
+          <c- f>"mediaLinks"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"987c9c95-09bf-4ad5-8331-50be9805a9af"</c-><c- p>,</c->
+              <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/solar.mp4"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Video"</c-><c- p>,</c->
               <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"n/a"</c-><c- p>,</c->
               <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-            <c- p>},</c->
-            <c- f>"mediaLinks"</c-><c- p>:</c-> <c- p>[</c->
-              <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"987c9c95-09bf-4ad5-8331-50be9805a9af"</c-><c- p>,</c->
-                <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://www.ecoearth.com/solar.mp4"</c-><c- p>,</c->
-                <c- f>"description"</c-><c- p>:</c-> <c- u>"Project Video"</c-><c- p>,</c->
-                <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"n/a"</c-><c- p>,</c->
-                <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
-              <c- p>}</c->
-            <c- p>],</c->
-            <c- f>"activityImpactModules"</c-><c- p>:</c-> <c- p>[]</c->
-          <c- p>}</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"activityImpactModules"</c-><c- p>:</c-> <c- p>[]</c->
         <c- p>}</c->
-      <c- p>},</c->
-      <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
-    <c- p>}</c->
-  <c- p>}</c-></pre>
+      <c- p>}</c->
+    <c- p>},</c->
+    <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
+  <c- p>}</c->
+<c- p>}</c-></pre>
    </div>
    <h2 class="heading settled" id="license"><span class="content">Appendix A: License</span><a class="self-link" href="#license"></a></h2>
    <p>﻿Attribution 4.0 International</p>
@@ -8648,16 +8644,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Renamed <code>VerificationContract</code> to <code>VerificationProcessAgreement</code> (VPA), see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
-     <p>Renamed <code>verificationContractId to</code>vpaId`, in <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim④">ProcessedClaim</a> type, see <a href="#dt-processed-claim">§ 3.20 Token &amp; Data Type: ProcessedClaim</a> for details.</p>
-    <li data-md>
-     <p>Updated samples, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
-    <li data-md>
-     <p>Updated diagrams</p>
-   </ul>
-   <h3 class="heading settled" id="changelog-2.0.0-20231005"><span class="content">Version 2.0.1-20231005 (October 5, 2023)</span><a class="self-link" href="#changelog-2.0.0-20231005"></a></h3>
-   <ul>
-    <li data-md>
-     <p>Details about data type <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension②">TypedExtension</a>, including links to sample extension sets.</p>
+     <p>Renamed <code>verificationContractId to </code>vpaId<code>, in [=ProcessedClaim=] type, see [[#dt-processed-claim]] for details.   - Updated samples, see [[#data-samples]] for details.   - Updated diagrams  ## Version 2.0.1-20231005 (October 5, 2023) ## {#changelog-2.0.0-20231005}    - Details about data type [=TypedExtension=], including links to sample extension sets.   - Updated sample credits to have a collection of [=ReferencedCredit=]s, to support a credit having multiple underlying referenced credits, see [[#dt-referenced-credit]] for details   - Added </code>metadata` property to contain metadata about a referencedCredit, see <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details.</p>
    </ul>
   </main>
 <script>
@@ -9667,10 +9654,10 @@ window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfn
 window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2461"}], "title": "Version 2.0.1-20230815 (August 15, 2023)"}], "external": false};
 window.dfnpanelData['untypedextension'] = {"dfnID": "untypedextension", "url": "#untypedextension", "dfnText": "UntypedExtension", "refSections": [{"refs": [{"id": "ref-for-untypedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-untypedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2462"}, {"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
-window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-typedextension\u2461"}], "title": "Version 2.0.1-20231005 (October 5, 2023)"}], "external": false};
+window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['typedextensiondefinition'] = {"dfnID": "typedextensiondefinition", "url": "#typedextensiondefinition", "dfnText": "TypedExtensionDefinition", "refSections": [{"refs": [{"id": "ref-for-typedextensiondefinition"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['extensiondocumentation'] = {"dfnID": "extensiondocumentation", "url": "#extensiondocumentation", "dfnText": "ExtensionDocumentation", "refSections": [{"refs": [{"id": "ref-for-extensiondocumentation"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
-window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2463"}], "title": "Version 2.0.1-20230905 (September 5, 2023)"}], "external": false};
+window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}], "external": false};
 window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
 window.dfnpanelData['verificationprocessagreement'] = {"dfnID": "verificationprocessagreement", "url": "#verificationprocessagreement", "dfnText": "VerificationProcessAgreement", "refSections": [{"refs": [{"id": "ref-for-verificationprocessagreement"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2460"}], "title": "3.85. Data Type: MethodologyAndTool"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2461"}, {"id": "ref-for-verificationprocessagreement\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
 window.dfnpanelData['cru'] = {"dfnID": "cru", "url": "#cru", "dfnText": "CRU", "refSections": [{"refs": [{"id": "ref-for-cru"}, {"id": "ref-for-cru\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-cru\u2461"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}, {"refs": [{"id": "ref-for-cru\u2462"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
@@ -9739,7 +9726,7 @@ window.dfnpanelData['enumdef-correspondingadjustment'] = {"dfnID": "enumdef-corr
 window.dfnpanelData['enumdef-unit'] = {"dfnID": "enumdef-unit", "url": "#enumdef-unit", "dfnText": "Unit", "refSections": [{"refs": [{"id": "ref-for-enumdef-unit"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2460"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2461"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2462"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2463"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-enumdef-unit\u2464"}], "title": "3.87.1. JSON Representation"}, {"refs": [{"id": "ref-for-enumdef-unit\u2465"}], "title": "Version 2.5.1-20230601 (June 1, 2023)"}], "external": false};
 window.dfnpanelData['wholenumber'] = {"dfnID": "wholenumber", "url": "#wholenumber", "dfnText": "WholeNumber", "refSections": [{"refs": [{"id": "ref-for-wholenumber"}], "title": "3.25.1. Properties"}, {"refs": [{"id": "ref-for-wholenumber\u2460"}, {"id": "ref-for-wholenumber\u2461"}], "title": "3.26.1. Properties"}], "external": false};
 window.dfnpanelData['decimal'] = {"dfnID": "decimal", "url": "#decimal", "dfnText": "Decimal", "refSections": [{"refs": [{"id": "ref-for-decimal"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2460"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2461"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2462"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-decimal\u2463"}, {"id": "ref-for-decimal\u2464"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-decimal\u2465"}, {"id": "ref-for-decimal\u2466"}, {"id": "ref-for-decimal\u2467"}], "title": "3.48.1. Properties"}], "external": false};
-window.dfnpanelData['string'] = {"dfnID": "string", "url": "#string", "dfnText": "String", "refSections": [{"refs": [{"id": "ref-for-string"}], "title": "3.4.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461"}, {"id": "ref-for-string\u2462"}, {"id": "ref-for-string\u2463"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464"}, {"id": "ref-for-string\u2465"}, {"id": "ref-for-string\u2466"}, {"id": "ref-for-string\u2467"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-string\u2468"}, {"id": "ref-for-string\u2460\u24ea"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2460"}, {"id": "ref-for-string\u2460\u2461"}, {"id": "ref-for-string\u2460\u2462"}], "title": "3.17.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2463"}, {"id": "ref-for-string\u2460\u2464"}, {"id": "ref-for-string\u2460\u2465"}, {"id": "ref-for-string\u2460\u2466"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2467"}, {"id": "ref-for-string\u2460\u2468"}, {"id": "ref-for-string\u2461\u24ea"}, {"id": "ref-for-string\u2461\u2460"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2461"}, {"id": "ref-for-string\u2461\u2462"}, {"id": "ref-for-string\u2461\u2463"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2464"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2465"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2466"}], "title": "3.27.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2467"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2468"}, {"id": "ref-for-string\u2462\u24ea"}, {"id": "ref-for-string\u2462\u2460"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2461"}, {"id": "ref-for-string\u2462\u2462"}, {"id": "ref-for-string\u2462\u2463"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2464"}, {"id": "ref-for-string\u2462\u2465"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2466"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2467"}, {"id": "ref-for-string\u2462\u2468"}, {"id": "ref-for-string\u2463\u24ea"}], "title": "3.38.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2460"}, {"id": "ref-for-string\u2463\u2461"}], "title": "3.39.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2462"}, {"id": "ref-for-string\u2463\u2463"}, {"id": "ref-for-string\u2463\u2464"}, {"id": "ref-for-string\u2463\u2465"}, {"id": "ref-for-string\u2463\u2466"}], "title": "3.40.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2467"}, {"id": "ref-for-string\u2463\u2468"}], "title": "3.41.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u24ea"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2460"}, {"id": "ref-for-string\u2464\u2461"}, {"id": "ref-for-string\u2464\u2462"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2463"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2464"}, {"id": "ref-for-string\u2464\u2465"}, {"id": "ref-for-string\u2464\u2466"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2467"}], "title": "3.51.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2468"}], "title": "3.90.1. JSON Data Representation"}], "external": false};
+window.dfnpanelData['string'] = {"dfnID": "string", "url": "#string", "dfnText": "String", "refSections": [{"refs": [{"id": "ref-for-string"}], "title": "3.4.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461"}, {"id": "ref-for-string\u2462"}, {"id": "ref-for-string\u2463"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464"}, {"id": "ref-for-string\u2465"}, {"id": "ref-for-string\u2466"}, {"id": "ref-for-string\u2467"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-string\u2468"}, {"id": "ref-for-string\u2460\u24ea"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2460"}, {"id": "ref-for-string\u2460\u2461"}, {"id": "ref-for-string\u2460\u2462"}], "title": "3.17.1. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2463"}, {"id": "ref-for-string\u2460\u2464"}, {"id": "ref-for-string\u2460\u2465"}, {"id": "ref-for-string\u2460\u2466"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-string\u2460\u2467"}, {"id": "ref-for-string\u2460\u2468"}, {"id": "ref-for-string\u2461\u24ea"}, {"id": "ref-for-string\u2461\u2460"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2461"}, {"id": "ref-for-string\u2461\u2462"}, {"id": "ref-for-string\u2461\u2463"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2464"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2465"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2466"}], "title": "3.27.1. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2467"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-string\u2461\u2468"}, {"id": "ref-for-string\u2462\u24ea"}, {"id": "ref-for-string\u2462\u2460"}], "title": "3.32.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2461"}, {"id": "ref-for-string\u2462\u2462"}, {"id": "ref-for-string\u2462\u2463"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2464"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2465"}, {"id": "ref-for-string\u2462\u2466"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2467"}], "title": "3.37.1. Properties"}, {"refs": [{"id": "ref-for-string\u2462\u2468"}, {"id": "ref-for-string\u2463\u24ea"}, {"id": "ref-for-string\u2463\u2460"}], "title": "3.38.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2461"}, {"id": "ref-for-string\u2463\u2462"}], "title": "3.39.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2463"}, {"id": "ref-for-string\u2463\u2464"}, {"id": "ref-for-string\u2463\u2465"}, {"id": "ref-for-string\u2463\u2466"}, {"id": "ref-for-string\u2463\u2467"}], "title": "3.40.1. Properties"}, {"refs": [{"id": "ref-for-string\u2463\u2468"}, {"id": "ref-for-string\u2464\u24ea"}], "title": "3.41.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2460"}], "title": "3.42.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2461"}, {"id": "ref-for-string\u2464\u2462"}, {"id": "ref-for-string\u2464\u2463"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2464"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2465"}, {"id": "ref-for-string\u2464\u2466"}, {"id": "ref-for-string\u2464\u2467"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-string\u2464\u2468"}], "title": "3.51.1. Properties"}, {"refs": [{"id": "ref-for-string\u2465\u24ea"}], "title": "3.90.1. JSON Data Representation"}], "external": false};
 window.dfnpanelData['id'] = {"dfnID": "id", "url": "#id", "dfnText": "Id", "refSections": [{"refs": [{"id": "ref-for-id"}, {"id": "ref-for-id\u2460"}, {"id": "ref-for-id\u2461"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462"}, {"id": "ref-for-id\u2463"}, {"id": "ref-for-id\u2464"}, {"id": "ref-for-id\u2465"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-id\u2466"}, {"id": "ref-for-id\u2467"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-id\u2468"}, {"id": "ref-for-id\u2460\u24ea"}, {"id": "ref-for-id\u2460\u2460"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2461"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2462"}, {"id": "ref-for-id\u2460\u2463"}, {"id": "ref-for-id\u2460\u2464"}, {"id": "ref-for-id\u2460\u2465"}, {"id": "ref-for-id\u2460\u2466"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2467"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-id\u2460\u2468"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u24ea"}, {"id": "ref-for-id\u2461\u2460"}, {"id": "ref-for-id\u2461\u2461"}, {"id": "ref-for-id\u2461\u2462"}, {"id": "ref-for-id\u2461\u2463"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2464"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-id\u2461\u2465"}, {"id": "ref-for-id\u2461\u2466"}, {"id": "ref-for-id\u2461\u2467"}, {"id": "ref-for-id\u2461\u2468"}, {"id": "ref-for-id\u2462\u24ea"}, {"id": "ref-for-id\u2462\u2460"}], "title": "3.31.2. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2461"}], "title": "3.33.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2462"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2463"}], "title": "3.36.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2464"}], "title": "3.43.1. Properties"}, {"refs": [{"id": "ref-for-id\u2462\u2465"}], "title": "3.45.1. Properties"}], "external": false};
 window.dfnpanelData['iso3166cc'] = {"dfnID": "iso3166cc", "url": "#iso3166cc", "dfnText": "ISO3166CC", "refSections": [{"refs": [{"id": "ref-for-iso3166cc"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-iso3166cc\u2460"}], "title": "3.92.1. JSON Representation"}], "external": false};
 </script>

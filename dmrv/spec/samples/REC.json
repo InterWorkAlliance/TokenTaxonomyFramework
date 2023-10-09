@@ -14,9 +14,7 @@
     }
   ],
   "status": "Active",
-  "referencedRec": {
-    "id": ""
-  },
+  "referencedRecs": [],
   "appliedToId": "",
   "processedClaimId": "45a85f6e-472d-46cf-87b6-73d3a34b4020",
   "issuerId": "c2862fe4-c97d-4494-afd0-b6c8d7efccd9",
