@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "10/9/2023"
+      "dateString": "10/23/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -70,7 +70,19 @@
     }
   ],
   "status": "Active",
-  "referencedCredits": [],
+  "referencedCredits": [
+    {
+      "referencedCreditId": "16e029bb-8258-4721-b3ab-3d4493425151",
+      "registryLink": {
+        "id": "",
+        "uri": "",
+        "description": "",
+        "hashProof": "",
+        "hashAlgorithm": "Sha256"
+      },
+      "metadata": "serialized json data"
+    }
+  ],
   "appliedToId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",

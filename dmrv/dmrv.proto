@@ -191,11 +191,12 @@ message CRU
     CoreCarbonPrinciples core_carbon_principles = 6; //these are aligned with the ICVCM Core Carbon Principles
     repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
     common.CreditStatus status = 8; //the status of the token
-    message ReferencedCredit{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-        string id = 1; //the id of the referenced credit, this can be a serial number or a master id
-        string metadata = 2; //metadata about the referenced credit, json serialized as a string
+    message ReferencedCru{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+        string referenced_credit_id = 1; //the id of the referenced credit, this can be a serial number or a master id
+        common.VerifiedLink registry_link = 2; //link to the registry that issued the referenced credit
+        string metadata = 3; //metadata about the referenced credit, json serialized as a string
     }
-    repeated ReferencedCredit referenced_credits = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+    repeated ReferencedCru referenced_credits = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
     string applied_to_id = 10; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
@@ -220,8 +221,9 @@ message REC
     repeated common.ClimateLabel climate_labels = 8; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
     common.CreditStatus status = 9; //the status of the token
     message ReferencedRec{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-        string id = 1; //the id of the referenced credit, this can be a serial number or a master id
-        string metadata = 2; //metadata about the referenced credit, json serialized as a string
+        string referenced_credit_id = 1; //the id of the referenced credit, this can be a serial number or a master id
+        common.VerifiedLink registry_link = 2; //link to the registry that issued the referenced credit
+        string metadata = 3; //metadata about the referenced credit, json serialized as a string
     }
     repeated ReferencedRec referenced_recs = 10; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
     string applied_to_id = 11; //optional link to external reporting system for the reporting period that the credit was retired and applied to.

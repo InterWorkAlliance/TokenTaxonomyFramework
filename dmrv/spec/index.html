@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="7e08e2b3e66a951700b139cf46bed91bb1d145e6" name="document-revision">
+  <meta content="291ea77683ef16897cd1a511716ea86b35ef4e40" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-09">9 October 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-23">23 October 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2815,7 +2815,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2584" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="8297"></p>
+   <p><img alt="…" height="2724" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="7873"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -3969,7 +3969,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The status of the CRU, see <a href="#dt-credit-status">§ 3.83 Data Type: CreditStatus</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-referencedcredit"><code>referencedCredit</code><a class="self-link" href="#element-attrdef-cru-referencedcredit"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit">ReferencedCredit</a> 
+       <td><dfn data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-referencedcru"><code>referencedCru</code><a class="self-link" href="#element-attrdef-cru-referencedcru"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit">ReferencedCredit</a> 
        <td>Array 
        <td>O 
        <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
@@ -4340,7 +4340,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The status of the REC, see <a href="#dt-credit-status">§ 3.83 Data Type: CreditStatus</a> for details. 
       <tr>
-       <td><dfn data-dfn-for="REC" data-dfn-type="element-attr" data-export id="element-attrdef-rec-referencedcredit"><code>referencedCredit</code><a class="self-link" href="#element-attrdef-rec-referencedcredit"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit①">ReferencedCredit</a> 
+       <td><dfn data-dfn-for="REC" data-dfn-type="element-attr" data-export id="element-attrdef-rec-referencedrec"><code>referencedRec</code><a class="self-link" href="#element-attrdef-rec-referencedrec"></a></dfn> : <a data-link-type="dfn" href="#referencedcredit" id="ref-for-referencedcredit①">ReferencedCredit</a> 
        <td>Array 
        <td>O 
        <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
@@ -4447,10 +4447,15 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③③">Id</a> 
+       <td>referencedCreditId : <a data-link-type="dfn" href="#id" id="ref-for-id③③">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the referenced credit, this can be a serial number or a master id on the external registry. 
+      <tr>
+       <td>registryLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑦">VerifiedLink</a> 
+       <td>Object 
+       <td>M 
+       <td>VerifiedLink to the external registry for the referenced credit or asset, see <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> for details. 
       <tr>
        <td>metadata : <a data-link-type="dfn" href="#string" id="ref-for-string③⑤">String</a> 
        <td>String 
@@ -4477,7 +4482,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>Date of the audit, See <a href="#dt-date">§ 3.51 Data Type: Date</a> for details. 
       <tr>
-       <td>auditReports : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑦">VerifiedLink</a> 
+       <td>auditReports : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑧">VerifiedLink</a> 
        <td>Array 
        <td>M 
        <td>A collection of VerifiedLinks to audit reports for the verification agreement, see <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> . 
@@ -4874,7 +4879,7 @@ the string or file for the area must have a value.</p>
        <td>O* 
        <td>The geoJson or KML as a minimized string of the geographic area. 
       <tr>
-       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-geographiclocationfile"><code>geographicLocationFile</code><a class="self-link" href="#element-attrdef-geographiclocation-geographiclocationfile"></a></dfn> : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑧">VerifiedLink</a> 
+       <td><dfn data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-geographiclocationfile"><code>geographicLocationFile</code><a class="self-link" href="#element-attrdef-geographiclocation-geographiclocationfile"></a></dfn> : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑨">VerifiedLink</a> 
        <td>Object 
        <td>O* 
        <td>The geographic location file, Geojson, KML, etc., for larger geographic data sets, see <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> for details. 
@@ -4924,7 +4929,7 @@ the string or file for the area must have a value.</p>
        <td>O 
        <td>The co-benefits of the quality standard. See <a href="#dt-co-benefit">§ 3.28 Data Type: Co-Benefit</a> for details. 
       <tr>
-       <td>standardLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink⑨">VerifiedLink</a> 
+       <td>standardLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①⓪">VerifiedLink</a> 
        <td>Object 
        <td>M 
        <td>The VerifiedLink to the standard. See <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> for details. 
@@ -4950,7 +4955,7 @@ the specification.</p>
        <td>M 
        <td>A string representation of the measurement specification, see <a href="#dt-measurement-specification">§ 3.82 Data Type: MeasurementSpecification</a> for details. 
       <tr>
-       <td>specificationLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①⓪">VerifiedLink</a> 
+       <td>specificationLink : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①①">VerifiedLink</a> 
        <td>Object 
        <td>M 
        <td>The VerifiedLink to the specification. See <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> for details. 
@@ -6087,8 +6092,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-f0667244">
-    <a class="self-link" href="#example-f0667244"></a> CRU Full Lineage: 
+   <div class="example" id="example-a6036428">
+    <a class="self-link" href="#example-a6036428"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6099,7 +6104,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6161,7 +6166,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[],</c->
+  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"referencedCreditId"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
+      <c- f>"registryLink"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>},</c->
+      <c- f>"metadata"</c-><c- p>:</c-> <c- u>"serialized json data"</c->
+    <c- p>}</c->
+  <c- p>],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
@@ -6331,7 +6348,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6339,7 +6356,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6384,21 +6401,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>236560000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>161880000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>298018000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>225790000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6421,14 +6438,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>299622000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>227426000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1696873348</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>299754000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>227583000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6618,13 +6635,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -7436,8 +7453,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-   <div class="example" id="example-ac5dd953">
-    <a class="self-link" href="#example-ac5dd953"></a> Carbon Reduction or Removal Unit: 
+   <div class="example" id="example-430d9a37">
+    <a class="self-link" href="#example-430d9a37"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -7448,7 +7465,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/9/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -7510,7 +7527,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[],</c->
+  <c- f>"referencedCredits"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"referencedCreditId"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
+      <c- f>"registryLink"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>},</c->
+      <c- f>"metadata"</c-><c- p>:</c-> <c- u>"serialized json data"</c->
+    <c- p>}</c->
+  <c- p>],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"2ab239a3-63e6-42dc-a0aa-8ca26dd81cde"</c-><c- p>,</c->
@@ -7518,8 +7547,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.9" id="example-rec"><span class="secno">4.9. </span><span class="content">Example Renewable Energy Credit</span><a class="self-link" href="#example-rec"></a></h3>
-   <div class="example" id="example-a823f564">
-    <a class="self-link" href="#example-a823f564"></a> Renewable Energy Credit: 
+   <div class="example" id="example-e5f65482">
+    <a class="self-link" href="#example-e5f65482"></a> Renewable Energy Credit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7536,7 +7565,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[],</c->
+  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"referencedCreditId"</c-><c- p>:</c-> <c- u>"17e029bb8258A4721B3ab4493425151"</c-><c- p>,</c->
+      <c- f>"registryLink"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>},</c->
+      <c- f>"metadata"</c-><c- p>:</c-> <c- u>"serialized json data"</c->
+    <c- p>}</c->
+  <c- p>],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
   <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"45a85f6e-472d-46cf-87b6-73d3a34b4020"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
@@ -7544,8 +7585,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-bf14c9ad">
-    <a class="self-link" href="#example-bf14c9ad"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-d86aa512">
+    <a class="self-link" href="#example-d86aa512"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7562,9 +7603,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"Active"</c-><c- p>,</c->
-  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[],</c->
+  <c- f>"referencedRecs"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"referencedCreditId"</c-><c- p>:</c-> <c- u>"17e029bb8258A4721B3ab4493425151"</c-><c- p>,</c->
+      <c- f>"registryLink"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>},</c->
+      <c- f>"metadata"</c-><c- p>:</c-> <c- u>"serialized json data"</c->
+    <c- p>}</c->
+  <c- p>],</c->
   <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-  <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
+  <c- f>"processedClaimId"</c-><c- p>:</c-> <c- u>"45a85f6e-472d-46cf-87b6-73d3a34b4020"</c-><c- p>,</c->
   <c- f>"issuerId"</c-><c- p>:</c-> <c- u>"c2862fe4-c97d-4494-afd0-b6c8d7efccd9"</c-><c- p>,</c->
   <c- f>"processedClaim"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
@@ -9156,12 +9209,8 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
    <li><a href="#dom-carboncategory-reduction">REDUCTION</a><span>, in § 3.69</span>
    <li><a href="#dom-claimsourcetype-reference">REFERENCE</a><span>, in § 3.70</span>
    <li><a href="#referencedcredit">ReferencedCredit</a><span>, in § 3.34</span>
-   <li>
-    referencedCredit
-    <ul>
-     <li><a href="#element-attrdef-cru-referencedcredit">element-attr for CRU</a><span>, in § 3.23.2</span>
-     <li><a href="#element-attrdef-rec-referencedcredit">element-attr for REC</a><span>, in § 3.31.2</span>
-    </ul>
+   <li><a href="#element-attrdef-cru-referencedcru">referencedCru</a><span>, in § 3.23.2</span>
+   <li><a href="#element-attrdef-rec-referencedrec">referencedRec</a><span>, in § 3.31.2</span>
    <li><a href="#dom-projecttype-refrigerant_leak_detection">REFRIGERANT_LEAK_DETECTION</a><span>, in § 3.81</span>
    <li><a href="#dom-durabilityinsurancetype-refund">REFUND</a><span>, in § 3.56</span>
    <li><a href="#enumdef-region">Region</a><span>, in § 3.73</span>
@@ -9670,7 +9719,7 @@ window.dfnpanelData['reversalmitigation'] = {"dfnID": "reversalmitigation", "url
 window.dfnpanelData['pacompliance'] = {"dfnID": "pacompliance", "url": "#pacompliance", "dfnText": "PACompliance", "refSections": [{"refs": [{"id": "ref-for-pacompliance"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-pacompliance\u2460"}], "title": "3.30.1. Properties"}], "external": false};
 window.dfnpanelData['rec'] = {"dfnID": "rec", "url": "#rec", "dfnText": "REC", "refSections": [{"refs": [{"id": "ref-for-rec"}, {"id": "ref-for-rec\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-rec\u2461"}, {"id": "ref-for-rec\u2462"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}, {"refs": [{"id": "ref-for-rec\u2463"}, {"id": "ref-for-rec\u2464"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-rec\u2465"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['climatelabel'] = {"dfnID": "climatelabel", "url": "#climatelabel", "dfnText": "ClimateLabel", "refSections": [{"refs": [{"id": "ref-for-climatelabel"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-climatelabel\u2460"}], "title": "3.31.2. Properties"}], "external": false};
-window.dfnpanelData['verifiedlink'] = {"dfnID": "verifiedlink", "url": "#verifiedlink", "dfnText": "VerifiedLink", "refSections": [{"refs": [{"id": "ref-for-verifiedlink"}, {"id": "ref-for-verifiedlink\u2460"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2461"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2463"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2464"}], "title": "3.29.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2465"}], "title": "3.30.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2466"}], "title": "3.35.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2467"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2468"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2460\u24ea"}], "title": "3.47.1. Properties"}], "external": false};
+window.dfnpanelData['verifiedlink'] = {"dfnID": "verifiedlink", "url": "#verifiedlink", "dfnText": "VerifiedLink", "refSections": [{"refs": [{"id": "ref-for-verifiedlink"}, {"id": "ref-for-verifiedlink\u2460"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2461"}], "title": "3.7.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2463"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2464"}], "title": "3.29.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2465"}], "title": "3.30.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2466"}], "title": "3.34.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2467"}], "title": "3.35.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2468"}], "title": "3.45.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2460\u24ea"}], "title": "3.46.1. Properties"}, {"refs": [{"id": "ref-for-verifiedlink\u2460\u2460"}], "title": "3.47.1. Properties"}], "external": false};
 window.dfnpanelData['referencedcredit'] = {"dfnID": "referencedcredit", "url": "#referencedcredit", "dfnText": "ReferencedCredit", "refSections": [{"refs": [{"id": "ref-for-referencedcredit"}], "title": "3.23.2. Properties"}, {"refs": [{"id": "ref-for-referencedcredit\u2460"}], "title": "3.31.2. Properties"}], "external": false};
 window.dfnpanelData['audits'] = {"dfnID": "audits", "url": "#audits", "dfnText": "Audits", "refSections": [{"refs": [{"id": "ref-for-audits"}], "title": "3.22.1. Properties"}], "external": false};
 window.dfnpanelData['signatory'] = {"dfnID": "signatory", "url": "#signatory", "dfnText": "Signatory", "refSections": [{"refs": [{"id": "ref-for-signatory"}], "title": "3.22.1. Properties"}], "external": false};

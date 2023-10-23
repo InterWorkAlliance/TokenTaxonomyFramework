@@ -621,8 +621,13 @@
           "status": {
             "$ref": "#/components/schemas/CreditStatus"
           },
-          "referencedCredit": {
-            "$ref": "#/components/schemas/ReferencedCredit"
+          "referencedCredits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferencedCru"
+            },
+            "nullable": true,
+            "readOnly": true
           },
           "appliedToId": {
             "type": "string",
@@ -2316,8 +2321,13 @@
           "status": {
             "$ref": "#/components/schemas/CreditStatus"
           },
-          "referencedRec": {
-            "$ref": "#/components/schemas/ReferencedRec"
+          "referencedRecs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferencedRec"
+            },
+            "nullable": true,
+            "readOnly": true
           },
           "appliedToId": {
             "type": "string",
@@ -2346,10 +2356,17 @@
         ],
         "type": "string"
       },
-      "ReferencedCredit": {
+      "ReferencedCru": {
         "type": "object",
         "properties": {
-          "id": {
+          "referencedCreditId": {
+            "type": "string",
+            "nullable": true
+          },
+          "registryLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "metadata": {
             "type": "string",
             "nullable": true
           }
@@ -2359,7 +2376,14 @@
       "ReferencedRec": {
         "type": "object",
         "properties": {
-          "id": {
+          "referencedCreditId": {
+            "type": "string",
+            "nullable": true
+          },
+          "registryLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "metadata": {
             "type": "string",
             "nullable": true
           }
