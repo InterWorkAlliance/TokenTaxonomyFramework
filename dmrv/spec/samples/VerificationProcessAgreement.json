@@ -11,6 +11,7 @@
       "signature": {
         "type": "JWS",
         "jws": "epx324jkasdf883429f2lMMm8asxdz9ZW0",
+        "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
       }
@@ -23,6 +24,7 @@
       "signature": {
         "type": "JWS",
         "jws": "789908sa32980231ll132fsd89asdfa123",
+        "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
       }
@@ -35,6 +37,7 @@
       "signature": {
         "type": "JWS",
         "jws": "1234567890asdfasdfas",
+        "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
       }
@@ -81,11 +84,18 @@
       "medium": 0,
       "high": 0
     },
-    "claimPeriod": "Annual"
+    "claimPeriod": "Annual",
+    "typedMrvExtensions": [
+      {
+        "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+        "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+        "data": ""
+      }
+    ]
   },
   "agreementDate": {
     "dateTime": null,
-    "dateString": "9/5/2023"
+    "dateString": "10/30/2023"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -93,7 +103,7 @@
   "audits": {
     "auditDate": {
       "dateTime": null,
-      "dateString": "9/5/2023"
+      "dateString": "10/30/2023"
     },
     "auditReports": [
       {
@@ -105,6 +115,7 @@
       }
     ]
   },
+  "mrvExtensions": [],
   "activityImpactModule": null,
   "processedClaims": []
 }

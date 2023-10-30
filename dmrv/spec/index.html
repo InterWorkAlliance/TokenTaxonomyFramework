@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="291ea77683ef16897cd1a511716ea86b35ef4e40" name="document-revision">
+  <meta content="52bdf3caf7bcaf2f591bc49a8b9030c4b14664fe" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-23">23 October 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-10-30">30 October 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2815,7 +2815,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2724" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="7873"></p>
+   <p><img alt="…" height="2664" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="9297"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -2897,6 +2897,11 @@ the highlights of properties within the data types and does not include the full
        <td>Array 
        <td>M 
        <td>A collection of ActivityImpactModules that belong to this Accountable Impact Organization. 
+      <tr>
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MrvExtension</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
     </table>
     <figcaption>Properties of data type AccountableImpactOrganization</figcaption>
    </figure>
@@ -3078,7 +3083,7 @@ It is bound to to Quality Standard and is where claims are issued from.</p>
        <td>O 
        <td>An array of optional attestations including tags. See<a href="#dt-attestation">§ 3.42 Data Type: Attestation</a> 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of MRV extensions for the project. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3216,7 +3221,7 @@ a sensor or meter, an application that collects user data or reference data like
        <td>M 
        <td>this can be the unique identifier for the device, like a serial number, public key, etc. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension②">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3299,7 +3304,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoints for the ImpactClaim. See <a href="#dt-impact-claim-checkpoint">§ 3.10 Data Type: ImpactClaimCheckpoint</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension②">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension③">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of MRV extensions for the claim. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3367,7 +3372,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A VerifiedLink that contain the evidence, in a span data package submitted by the AIM. See <a href="#dt-verified-link">§ 3.33 Data Type: VerifiedLink</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension③">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension④">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of MRV extensions for the checkpoint. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3451,7 +3456,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The DatePoint that the Span Data Package was created. See <a href="#dt-date-point">§ 3.50 Data Type: DatePoint</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension④">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3501,7 +3506,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>The source attestation or signature for the file. See <a href="#dt-digital-signature">§ 3.37 Data Type: DigitalSignature</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑥">MrvExtension</a> 
        <td>Array 
        <td>O 
        <td>A collection of optional MrvExtensions. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3744,7 +3749,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoint results for the ProcessedClaim. See <a href="#dt-checkpoint-result">§ 3.21 Data Type: CheckpointResult</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑥">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑦">MrvExtension</a> 
        <td>Object 
        <td>O 
        <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3803,7 +3808,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑦">MrvExtension</a> 
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑧">MrvExtension</a> 
        <td>Object 
        <td>O 
        <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
@@ -3881,6 +3886,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Object 
        <td>M 
        <td>The audits that are required for the verification agreement. See <a href="#dt-audits">§ 3.35 Data Type: Audits</a> for details. 
+      <tr>
+       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑨">MrvExtension</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. 
     </table>
     <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
    </figure>
@@ -4969,6 +4979,11 @@ the specification.</p>
        <td>String 
        <td>M 
        <td>The string representation of claim period for measurement and reporting. See <a href="#dt-claim-period">§ 3.74 Data Type: ClaimPeriod</a> for details. 
+      <tr>
+       <td>typedMrvExtensions : <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension①">TypedExtension</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of typed MRV extensions used in the verification process, see <a href="#dt-typed-extension">§ 3.17 Data Type: TypedExtension</a> for details. 
     </table>
     <figcaption>Properties of data type MRVRequirements</figcaption>
    </figure>
@@ -6092,8 +6107,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-a6036428">
-    <a class="self-link" href="#example-a6036428"></a> CRU Full Lineage: 
+   <div class="example" id="example-bc364421">
+    <a class="self-link" href="#example-bc364421"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6104,7 +6119,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6344,11 +6359,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
           <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
         <c- p>},</c->
-        <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c->
+        <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
+        <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->
+            <c- f>"data"</c-><c- p>:</c-> <c- u>""</c->
+          <c- p>}</c->
+        <c- p>]</c->
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6356,7 +6378,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6368,6 +6390,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>}</c->
         <c- p>]</c->
       <c- p>},</c->
+      <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
       <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
       <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
     <c- p>},</c->
@@ -6401,21 +6424,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>161880000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698680706</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>272963000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>225790000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698680706</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>348197000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6438,14 +6461,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"dateTime"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>227426000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698680706</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>349841000</c->
                   <c- p>},</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698095905</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>227583000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698680706</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>349985000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6635,13 +6658,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>{</c->
             <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
             <c- p>},</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
             <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/23/2023"</c->
+              <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
             <c- p>},</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
@@ -6698,7 +6721,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- p>}</c->
           <c- p>],</c->
           <c- f>"attestations"</c-><c- p>:</c-> <c- p>[],</c->
-          <c- f>"activityImpactModules"</c-><c- p>:</c-> <c- p>[]</c->
+          <c- f>"activityImpactModules"</c-><c- p>:</c-> <c- p>[],</c->
+          <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[]</c->
         <c- p>}</c->
       <c- p>}</c->
     <c- p>},</c->
@@ -6707,8 +6731,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="example-accountable-impact-organization"><span class="secno">4.2. </span><span class="content">Example Accountable Impact Organization</span><a class="self-link" href="#example-accountable-impact-organization"></a></h3>
-   <div class="example" id="example-9d8f8c16">
-    <a class="self-link" href="#example-9d8f8c16"></a> Accountable Impact Organization: 
+   <div class="example" id="example-6fe60a9e">
+    <a class="self-link" href="#example-6fe60a9e"></a> Accountable Impact Organization: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -6831,13 +6855,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>{</c->
           <c- f>"validationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
           <c- p>},</c->
           <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
           <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/31/2023"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
           <c- p>},</c->
           <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -6858,7 +6882,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"attestations"</c-><c- p>:</c-> <c- p>[],</c->
       <c- f>"accountableImpactOrganization"</c-><c- p>:</c-> <c- kc>null</c->
     <c- p>}</c->
-  <c- p>]</c->
+  <c- p>],</c->
+  <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[]</c->
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.3" id="example-activity-impact-module"><span class="secno">4.3. </span><span class="content">Example Activity Impact Module</span><a class="self-link" href="#example-activity-impact-module"></a></h3>
@@ -7339,8 +7364,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 </pre>
    </div>
    <h3 class="heading settled" data-level="4.7" id="example-verification-process-agreement"><span class="secno">4.7. </span><span class="content">Example Verification Process Agreement</span><a class="self-link" href="#example-verification-process-agreement"></a></h3>
-   <div class="example" id="example-06a3690a">
-    <a class="self-link" href="#example-06a3690a"></a> Verification Process Agreement: 
+   <div class="example" id="example-68fc0775">
+    <a class="self-link" href="#example-68fc0775"></a> Verification Process Agreement: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
@@ -7354,6 +7379,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
         <c- f>"jws"</c-><c- p>:</c-> <c- u>"epx324jkasdf883429f2lMMm8asxdz9ZW0"</c-><c- p>,</c->
+        <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
         <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
       <c- p>}</c->
@@ -7366,6 +7392,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
         <c- f>"jws"</c-><c- p>:</c-> <c- u>"789908sa32980231ll132fsd89asdfa123"</c-><c- p>,</c->
+        <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
         <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
       <c- p>}</c->
@@ -7378,6 +7405,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
         <c- f>"jws"</c-><c- p>:</c-> <c- u>"1234567890asdfasdfas"</c-><c- p>,</c->
+        <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
         <c- f>"vc"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"Jws"</c->
       <c- p>}</c->
@@ -7424,11 +7452,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
       <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
     <c- p>},</c->
-    <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c->
+    <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
+    <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
+        <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->
+        <c- f>"data"</c-><c- p>:</c-> <c- u>""</c->
+      <c- p>}</c->
+    <c- p>]</c->
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -7436,7 +7471,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/5/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"10/30/2023"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
@@ -7448,9 +7483,11 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>}</c->
     <c- p>]</c->
   <c- p>},</c->
+  <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
    </div>
    <h3 class="heading settled" data-level="4.8" id="example-cru"><span class="secno">4.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
    <div class="example" id="example-430d9a37">
@@ -7585,8 +7622,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-d86aa512">
-    <a class="self-link" href="#example-d86aa512"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-2e23d932">
+    <a class="self-link" href="#example-2e23d932"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7773,7 +7810,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
           <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
         <c- p>},</c->
-        <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Quarterly"</c->
+        <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Quarterly"</c-><c- p>,</c->
+        <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->
+            <c- f>"data"</c-><c- p>:</c-> <c- u>""</c->
+          <c- p>}</c->
+        <c- p>]</c->
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
@@ -8508,7 +8552,7 @@ public licenses.</p>
     <li data-md>
      <p>Added <code>location</code> to the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> type, see <a href="#dt-claim-source">§ 3.8 Data Type: ClaimSource</a> for details.</p>
     <li data-md>
-     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑧">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
+     <p>Removed <code>data</code> from the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①⓪">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Cleaned syntax and formatting of the specification, i.e. removed redundant array type names.</p>
     <li data-md>
@@ -8556,7 +8600,7 @@ public licenses.</p>
    <h3 class="heading settled" id="changelog-2.4.0-20230607"><span class="content">Version 2.5.1-20230607 (June 7, 2023)</span><a class="self-link" href="#changelog-2.4.0-20230607"></a></h3>
    <ul>
     <li data-md>
-     <p>Added <code>mrvExtensions</code> an array of <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑨">MrvExtension</a> to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑤">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim③">ImpactClaim</a>, <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a>, <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint②">ImpactClaimCheckpoint</a>,
+     <p>Added <code>mrvExtensions</code> an array of <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①①">MrvExtension</a> to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑤">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim③">ImpactClaim</a>, <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a>, <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint②">ImpactClaimCheckpoint</a>,
 and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Added <code>Data</code> an array of optional nested <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension③">DataExtension</a> to the <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension④">DataExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
@@ -8601,7 +8645,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext①">MrvExtensionContext</a></code> enumeration, see <a href="#dt-mrv-extension-type">§ 3.58 Data Type: MrvExtensionContext</a> for details.</p>
     <li data-md>
-     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①⓪">MrvExtension</a> type, added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext②">MrvExtensionContext</a></code>, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
+     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①②">MrvExtension</a> type, added <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext②">MrvExtensionContext</a></code>, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Updated <a data-link-type="dfn" href="#dataextension" id="ref-for-dataextension⑤">DataExtension</a> type, changed <code>name</code> to <code>key</code>, see <a href="#dt-data-extension">§ 3.16 Data Type: DataExtension</a> for details.</p>
     <li data-md>
@@ -8645,11 +8689,11 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Renamed <code>offsetAppliedToId</code> to <code>appliedToId</code> for <a data-link-type="dfn" href="#cru" id="ref-for-cru③">CRU</a> and <a data-link-type="dfn" href="#rec" id="ref-for-rec⑥">REC</a> types, see <a href="#dt-cru">§ 3.23 Token &amp; Data Type: CRU</a> and <a href="#dt-rec">§ 3.31 Token &amp; Data Type: REC</a> for details.</p>
     <li data-md>
-     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①①">MrvExtension</a> type to support <code>untypedExtension</code> or <code>typedExtension</code> properties, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. This aligns with the <a href="https://wbcsd.github.io/data-model-extensions/spec/">WBCSD:PACT Data Model Extension</a></p>
+     <p>Updated <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①③">MrvExtension</a> type to support <code>untypedExtension</code> or <code>typedExtension</code> properties, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details. This aligns with the <a href="https://wbcsd.github.io/data-model-extensions/spec/">WBCSD:PACT Data Model Extension</a></p>
     <li data-md>
      <p>Added <a data-link-type="dfn" href="#untypedextension" id="ref-for-untypedextension①">UnTypedExtension</a> type, see <a href="#dt-untyped-extension">§ 3.15 Data Type: UntypedExtension</a> for details.</p>
     <li data-md>
-     <p>Added <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension①">TypedExtension</a> type, see <a href="#dt-typed-extension">§ 3.17 Data Type: TypedExtension</a> for details.</p>
+     <p>Added <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension②">TypedExtension</a> type, see <a href="#dt-typed-extension">§ 3.17 Data Type: TypedExtension</a> for details.</p>
     <li data-md>
      <p>Added <a data-link-type="dfn" href="#typedextensiondefinition" id="ref-for-typedextensiondefinition">TypedExtensionDefinition</a> type, see <a href="#typed-extension-definition">§ 3.18 Typed Extension Schema File: TypedExtensionDefinition</a> for details.</p>
     <li data-md>
@@ -8662,7 +8706,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Added <code>REC-FullLineage</code> sample, see <a href="#example-rec-full-lineage">§ 4.10 Example Renewable Energy Credit Full Lineage</a> for details.</p>
     <li data-md>
-     <p>Renamed <code>MrvExtensionType</code> to <code>MrvExtensionContext</code> in the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①②">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
+     <p>Renamed <code>MrvExtensionType</code> to <code>MrvExtensionContext</code> in the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①④">MrvExtension</a> type, see <a href="#dt-mrv-extension">§ 3.14 Data Type: MrvExtension</a> for details.</p>
     <li data-md>
      <p>Updated samples to include the changes above, see <a href="#data-samples">§ 4 Data Samples</a> for details.</p>
    </ul>
@@ -8697,7 +8741,7 @@ Terrestrial_Storage_of_Biomass see <a href="#dt-project-type">§ 3.81 Data Typ
     <li data-md>
      <p>Renamed <code>VerificationContract</code> to <code>VerificationProcessAgreement</code> (VPA), see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
     <li data-md>
-     <p>Renamed <code>verificationContractId to </code>vpaId<code>, in [=ProcessedClaim=] type, see [[#dt-processed-claim]] for details.   - Updated samples, see [[#data-samples]] for details.   - Updated diagrams  ## Version 2.0.1-20231005 (October 5, 2023) ## {#changelog-2.0.0-20231005}    - Details about data type [=TypedExtension=], including links to sample extension sets.   - Updated sample credits to have a collection of [=ReferencedCredit=]s, to support a credit having multiple underlying referenced credits, see [[#dt-referenced-credit]] for details   - Added </code>metadata` property to contain metadata about a referencedCredit, see <a href="#dt-referenced-credit">§ 3.34 Data Type: ReferencedCredit</a> for details.</p>
+     <p>Renamed <code>verificationContractId to </code>vpaId<code>, in [=ProcessedClaim=] type, see [[#dt-processed-claim]] for details.   - Updated samples, see [[#data-samples]] for details.   - Updated diagrams  ## Version 2.0.1-20231005 (October 5, 2023) ## {#changelog-2.0.0-20231005}    - Details about data type [=TypedExtension=], including links to sample extension sets.   - Updated sample credits to have a collection of [=ReferencedCredit=]s, to support a credit having multiple underlying referenced credits, see [[#dt-referenced-credit]] for details   - Added </code>metadata<code>property to contain metadata about a referencedCredit, see [[#dt-referenced-credit]] for details.  ## Version 2.0.1-20231030 (Octber 30th, 2023)  ##{#changelog-2.0.1-20231030}    - Added</code>typedMrvExtensions<code>to [=MrvRequirements=] type to document the typed extensions to be used in the agreement, see [[#dt-mrv-requirements]] for details.   - Added</code>mrvExtensions<code>to [=AccountableImpactOrganization=] type for consistency with other types, see [[#dt-accountable-impact-organization]] for details.   - Added</code>mrvExtensions` to <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement④">VerificationProcessAgreement</a> type for consistency with other types, see <a href="#dt-verification-process-agreement">§ 3.22 Agreement &amp; Data Type: VerificationProcessAgreement</a> for details.</p>
    </ul>
   </main>
 <script>
@@ -9700,15 +9744,15 @@ window.dfnpanelData['impactclaimcheckpoint'] = {"dfnID": "impactclaimcheckpoint"
 window.dfnpanelData['spandatapackage'] = {"dfnID": "spandatapackage", "url": "#spandatapackage", "dfnText": "SpanDataPackage", "refSections": [{"refs": [{"id": "ref-for-spandatapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-spandatapackage\u2460"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-spandatapackage\u2461"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-spandatapackage\u2462"}], "title": "Version 2.5.1-20230518 (May 18, 2023)"}], "external": false};
 window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.11.1. Properties"}], "external": false};
 window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfnText": "Sdp-File", "refSections": [{"refs": [{"id": "ref-for-sdp-file"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-sdp-file\u2460"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-sdp-file\u2461"}], "title": "Version 2.5.1-20230609 (June 9, 2023)"}], "external": false};
-window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2461"}], "title": "Version 2.0.1-20230815 (August 15, 2023)"}], "external": false};
+window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "3.21.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "3.22.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "Version 2.5.1-20230502 (May 2, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2461"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2462"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2463"}], "title": "Version 2.0.1-20230815 (August 15, 2023)"}], "external": false};
 window.dfnpanelData['untypedextension'] = {"dfnID": "untypedextension", "url": "#untypedextension", "dfnText": "UntypedExtension", "refSections": [{"refs": [{"id": "ref-for-untypedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-untypedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['dataextension'] = {"dfnID": "dataextension", "url": "#dataextension", "dfnText": "DataExtension", "refSections": [{"refs": [{"id": "ref-for-dataextension"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-dataextension\u2461"}], "title": "Version 2.5.1-20230523 (May 23, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2462"}, {"id": "ref-for-dataextension\u2463"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-dataextension\u2464"}], "title": "Version 2.5.1-20230612 (June 12, 2023)"}], "external": false};
-window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
+window.dfnpanelData['typedextension'] = {"dfnID": "typedextension", "url": "#typedextension", "dfnText": "TypedExtension", "refSections": [{"refs": [{"id": "ref-for-typedextension"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2460"}], "title": "3.47.1. Properties"}, {"refs": [{"id": "ref-for-typedextension\u2461"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['typedextensiondefinition'] = {"dfnID": "typedextensiondefinition", "url": "#typedextensiondefinition", "dfnText": "TypedExtensionDefinition", "refSections": [{"refs": [{"id": "ref-for-typedextensiondefinition"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['extensiondocumentation'] = {"dfnID": "extensiondocumentation", "url": "#extensiondocumentation", "dfnText": "ExtensionDocumentation", "refSections": [{"refs": [{"id": "ref-for-extensiondocumentation"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.14. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-processedclaim\u2461"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}, {"refs": [{"id": "ref-for-processedclaim\u2462"}], "title": "Version 2.0.1-20230831 (August 31, 2023)"}], "external": false};
 window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.20.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.1-20230607 (June 7, 2023)"}], "external": false};
-window.dfnpanelData['verificationprocessagreement'] = {"dfnID": "verificationprocessagreement", "url": "#verificationprocessagreement", "dfnText": "VerificationProcessAgreement", "refSections": [{"refs": [{"id": "ref-for-verificationprocessagreement"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2460"}], "title": "3.85. Data Type: MethodologyAndTool"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2461"}, {"id": "ref-for-verificationprocessagreement\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}], "external": false};
+window.dfnpanelData['verificationprocessagreement'] = {"dfnID": "verificationprocessagreement", "url": "#verificationprocessagreement", "dfnText": "VerificationProcessAgreement", "refSections": [{"refs": [{"id": "ref-for-verificationprocessagreement"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2460"}], "title": "3.85. Data Type: MethodologyAndTool"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2461"}, {"id": "ref-for-verificationprocessagreement\u2462"}], "title": "Version 2.0.1-20230621 (June 21, 2023)"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2463"}], "title": "Version 2.0.1-20230905 (September 5, 2023)"}], "external": false};
 window.dfnpanelData['cru'] = {"dfnID": "cru", "url": "#cru", "dfnText": "CRU", "refSections": [{"refs": [{"id": "ref-for-cru"}, {"id": "ref-for-cru\u2460"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-cru\u2461"}], "title": "Version 2.5.1-20230420 (April 20, 2023)"}, {"refs": [{"id": "ref-for-cru\u2462"}], "title": "Version 2.0.1-20230809 (August 9, 2023)"}], "external": false};
 window.dfnpanelData['corecarbonprinciples'] = {"dfnID": "corecarbonprinciples", "url": "#corecarbonprinciples", "dfnText": "CoreCarbonPrinciples", "refSections": [{"refs": [{"id": "ref-for-corecarbonprinciples"}], "title": "3.23.2. Properties"}], "external": false};
 window.dfnpanelData['durability'] = {"dfnID": "durability", "url": "#durability", "dfnText": "Durability", "refSections": [{"refs": [{"id": "ref-for-durability"}], "title": "3.24.1. Properties"}], "external": false};

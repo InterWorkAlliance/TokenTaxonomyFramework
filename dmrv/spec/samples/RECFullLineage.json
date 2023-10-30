@@ -184,7 +184,14 @@
           "medium": 0,
           "high": 0
         },
-        "claimPeriod": "Quarterly"
+        "claimPeriod": "Quarterly",
+        "typedMrvExtensions": [
+          {
+            "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+            "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+            "data": ""
+          }
+        ]
       },
       "agreementDate": {
         "dateTime": null,

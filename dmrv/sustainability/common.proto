@@ -721,14 +721,16 @@ message VerifiablePresentation{
 
 enum MrvExtensionContext{
     UNKNOWN_MRV_EXTENSION = 0; //Unknown extension
-    AIM_MRV_EXTENSION = 1; //AIM extension
-    AIM_CLAIM_SOURCE_MRV_EXTENSION = 2; //AIM Claim Source extension
-    CLAIM_MRV_EXTENSION = 3; //Claim extension
-    CHECKPOINT_MRV_EXTENSION = 4; //Checkpoint extension
-    SDP_MANIFEST_MRV_EXTENSION = 5; //SDP Manifest extension
-    SDP_FILE_MRV_EXTENSION = 6; //SDP File extension
-    CHECKPOINT_RESULT_MRV_EXTENSION = 7; //Checkpoint Result extension
-    PROCESSED_CLAIM_MRV_EXTENSION = 8; //Processed Checkpoint extension
+    AIO_MRV_EXTENSION = 1; //AIO extension
+    AIM_MRV_EXTENSION = 2; //AIM extension
+    AIM_CLAIM_SOURCE_MRV_EXTENSION = 3; //AIM Claim Source extension
+    CLAIM_MRV_EXTENSION = 4; //Claim extension
+    CHECKPOINT_MRV_EXTENSION = 5; //Checkpoint extension
+    SDP_MANIFEST_MRV_EXTENSION = 6; //SDP Manifest extension
+    SDP_FILE_MRV_EXTENSION = 7; //SDP File extension
+    CHECKPOINT_RESULT_MRV_EXTENSION = 8; //Checkpoint Result extension
+    PROCESSED_CLAIM_MRV_EXTENSION = 9; //Processed Checkpoint extension
+    VERIFICATION_PROCESS_AGREEMENT_MRV_EXTENSION = 10; //Verification Process Agreement extension
 }
 
 message DataExtension{

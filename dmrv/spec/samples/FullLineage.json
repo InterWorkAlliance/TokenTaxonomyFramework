@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": null,
-      "dateString": "10/23/2023"
+      "dateString": "10/30/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -248,11 +248,18 @@
           "medium": 0,
           "high": 0
         },
-        "claimPeriod": "Annual"
+        "claimPeriod": "Annual",
+        "typedMrvExtensions": [
+          {
+            "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+            "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+            "data": ""
+          }
+        ]
       },
       "agreementDate": {
         "dateTime": null,
-        "dateString": "10/23/2023"
+        "dateString": "10/30/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -260,7 +267,7 @@
       "audits": {
         "auditDate": {
           "dateTime": null,
-          "dateString": "10/23/2023"
+          "dateString": "10/30/2023"
         },
         "auditReports": [
           {
@@ -272,6 +279,7 @@
           }
         ]
       },
+      "mrvExtensions": [],
       "activityImpactModule": null,
       "processedClaims": []
     },
@@ -305,21 +313,21 @@
             "startDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "10/23/2023"
+                "dateString": "10/30/2023"
               },
               "timeStamp": {
-                "seconds": 1698095905,
-                "nanos": 161880000
+                "seconds": 1698680706,
+                "nanos": 272963000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": null,
-                "dateString": "10/23/2023"
+                "dateString": "10/30/2023"
               },
               "timeStamp": {
-                "seconds": 1698095905,
-                "nanos": 225790000
+                "seconds": 1698680706,
+                "nanos": 348197000
               }
             }
           },
@@ -342,14 +350,14 @@
               "created": {
                 "date": {
                   "dateTime": {
-                    "seconds": 1698095905,
-                    "nanos": 227426000
+                    "seconds": 1698680706,
+                    "nanos": 349841000
                   },
-                  "dateString": "10/23/2023"
+                  "dateString": "10/30/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1698095905,
-                  "nanos": 227583000
+                  "seconds": 1698680706,
+                  "nanos": 349985000
                 }
               },
               "mrvExtensions": [
@@ -539,13 +547,13 @@
           {
             "validationDate": {
               "dateTime": null,
-              "dateString": "10/23/2023"
+              "dateString": "10/30/2023"
             },
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
             "validationExpirationDate": {
               "dateTime": null,
-              "dateString": "10/23/2023"
+              "dateString": "10/30/2023"
             },
             "validationSteps": [
               {
@@ -602,7 +610,8 @@
             }
           ],
           "attestations": [],
-          "activityImpactModules": []
+          "activityImpactModules": [],
+          "mrvExtensions": []
         }
       }
     },

@@ -19,6 +19,7 @@ message AccountableImpactOrganization{
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the organization
     repeated common.Attestation attestations = 10; //a collection of Attestation workflow steps for a project
     repeated ActivityImpactModule activity_impact_modules = 11; //list of activity impact modules
+    repeated common.MrvExtension mrv_extensions = 12; //list of MRV extensions for the organization
 }
 
 message ActivityImpactModule {
@@ -39,7 +40,7 @@ message ActivityImpactModule {
     repeated string sponsors = 15; //list of sponsors of the project, i.e., financial backers
     repeated ClaimSource claim_sources = 16; //a list of claim sources that can be used for claims from this activity impact module.
     repeated ImpactClaim impact_claims  = 17; //list of ecological claims for the project
-    repeated common.MrvExtension mrv_extensions = 18; //list of MRV extensions for the project
+    repeated common.MrvExtension mrv_extensions = 18; //list of MRV extensions for the module
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -279,6 +280,7 @@ message VerificationProcessAgreement{
             BIENNIAL = 6; //biennial claims
         }
         ClaimPeriod claim_period = 4; //period of claims
+        repeated common.TypedExtension typed_mrv_extensions = 5; //list of required typed MRV extensions used in the agreement
     }
     QualityStandard quality_standard = 5; //standard that is used to verify the project
     MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements
@@ -291,8 +293,9 @@ message VerificationProcessAgreement{
     }
     common.AuditSchedule audit_schedule = 10; //schedule of audits
     Audits audits = 11; //list of audits that have been performed under the agreement
-    ActivityImpactModule activity_impact_module = 12; //optional, for object navigation, the activity impact module that is being verified
-    repeated ProcessedClaim processed_claims = 13; //optional, for object navigation, the processed claims that have been processed under the agreement
+    repeated common.MrvExtension mrv_extensions = 12; //list of MRV extensions for the agreement
+    ActivityImpactModule activity_impact_module = 13; //optional, for object navigation, the activity impact module that is being verified
+    repeated ProcessedClaim processed_claims = 14; //optional, for object navigation, the processed claims that have been processed under the agreement
 }
 
 //Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.

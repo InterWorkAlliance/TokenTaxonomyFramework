@@ -332,6 +332,14 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1497,6 +1505,14 @@
           },
           "claimPeriod": {
             "$ref": "#/components/schemas/ClaimPeriod"
+          },
+          "typedMrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TypedExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1988,6 +2004,7 @@
       "MrvExtensionContext": {
         "enum": [
           "UnknownMrvExtension",
+          "AioMrvExtension",
           "AimMrvExtension",
           "AimClaimSourceMrvExtension",
           "ClaimMrvExtension",
@@ -1995,7 +2012,8 @@
           "SdpManifestMrvExtension",
           "SdpFileMrvExtension",
           "CheckpointResultMrvExtension",
-          "ProcessedClaimMrvExtension"
+          "ProcessedClaimMrvExtension",
+          "VerificationProcessAgreementMrvExtension"
         ],
         "type": "string"
       },
@@ -2816,6 +2834,14 @@
           },
           "audits": {
             "$ref": "#/components/schemas/Audits"
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
           },
           "activityImpactModule": {
             "$ref": "#/components/schemas/ActivityImpactModule"
