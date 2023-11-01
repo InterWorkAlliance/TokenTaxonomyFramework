@@ -2,6 +2,8 @@
   "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "processedClaimId": "",
+  "startDate": "2021-01-01",
+  "endDate": "2021-12-31",
   "unit": "TonneCo2E",
   "quantity": "1.41",
   "coBenefits": [
@@ -27,22 +29,22 @@
       "checkpointDateRange": {
         "startDate": {
           "date": {
-            "dateTime": null,
-            "dateString": "9/28/2023"
+            "dateTime": "",
+            "dateString": "11/1/2023"
           },
           "timeStamp": {
-            "seconds": 1695936043,
-            "nanos": 683252000
+            "seconds": 1698853333,
+            "nanos": 880837000
           }
         },
         "endDate": {
           "date": {
-            "dateTime": null,
-            "dateString": "9/28/2023"
+            "dateTime": "",
+            "dateString": "11/1/2023"
           },
           "timeStamp": {
-            "seconds": 1695936043,
-            "nanos": 683269000
+            "seconds": 1698853333,
+            "nanos": 880854000
           }
         }
       },
@@ -64,15 +66,12 @@
           "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
           "created": {
             "date": {
-              "dateTime": {
-                "seconds": 1695936043,
-                "nanos": 683302000
-              },
-              "dateString": "9/28/2023"
+              "dateTime": "11/01/2023 15:42:13",
+              "dateString": "11/1/2023"
             },
             "timeStamp": {
-              "seconds": 1695936043,
-              "nanos": 683303000
+              "seconds": 1698853333,
+              "nanos": 880895000
             }
           },
           "mrvExtensions": [

@@ -1217,7 +1217,8 @@
         "type": "object",
         "properties": {
           "dateTime": {
-            "$ref": "#/components/schemas/Timestamp"
+            "type": "string",
+            "nullable": true
           },
           "dateString": {
             "type": "string",
@@ -1391,6 +1392,14 @@
             "nullable": true
           },
           "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "endDate": {
             "type": "string",
             "nullable": true
           },
@@ -2736,8 +2745,13 @@
       "Validation": {
         "type": "object",
         "properties": {
+          "requestDate": {
+            "type": "string",
+            "nullable": true
+          },
           "validationDate": {
-            "$ref": "#/components/schemas/Date"
+            "type": "string",
+            "nullable": true
           },
           "validatingPartyId": {
             "type": "string",
@@ -2748,7 +2762,8 @@
             "nullable": true
           },
           "validationExpirationDate": {
-            "$ref": "#/components/schemas/Date"
+            "type": "string",
+            "nullable": true
           },
           "validationSteps": {
             "type": "array",

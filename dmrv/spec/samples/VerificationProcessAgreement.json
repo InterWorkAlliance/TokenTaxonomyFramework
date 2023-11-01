@@ -94,16 +94,16 @@
     ]
   },
   "agreementDate": {
-    "dateTime": null,
-    "dateString": "10/30/2023"
+    "dateTime": "",
+    "dateString": "11/1/2023"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "auditSchedule": "Quinquennial",
   "audits": {
     "auditDate": {
-      "dateTime": null,
-      "dateString": "10/30/2023"
+      "dateTime": "",
+      "dateString": "11/1/2023"
     },
     "auditReports": [
       {

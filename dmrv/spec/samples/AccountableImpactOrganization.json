@@ -96,6 +96,8 @@
           "id": "",
           "aimId": "",
           "processedClaimId": "",
+          "startDate": "",
+          "endDate": "",
           "unit": "TonneCo2E",
           "quantity": "",
           "coBenefits": [],
@@ -118,16 +120,11 @@
       ],
       "validations": [
         {
-          "validationDate": {
-            "dateTime": null,
-            "dateString": "10/30/2023"
-          },
+          "requestDate": "2021-04-01",
+          "validationDate": "11/1/2023",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": {
-            "dateTime": null,
-            "dateString": "10/30/2023"
-          },
+          "validationExpirationDate": "11/1/2023",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",

@@ -15,8 +15,8 @@ enum AddressType
 }
 
 message Date{
-    google.protobuf.Timestamp date_time = 1; //less granular timestamp for date only
-    string date_string = 2; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
+    string date_time = 1; //more granular timestamp yyyy-MM-dd'T'HH:mm:ss.SSSZ
+    string date_string = 2; //can be a simple date format yyyy-MM-dd
 }
 
 message DatePoint{

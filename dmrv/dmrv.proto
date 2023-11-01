@@ -55,11 +55,12 @@ message ActivityImpactModule {
     }
     //DRAFT
     message Validation{
-        common.Date validation_date = 1; //date of the validation
-        string validating_party_id = 2; //name or Id of the party that performed the validation
-        string validation_method = 3; //name of the validation method used
-        common.Date validation_expiration_date = 4; //expiration date of the validation
-        repeated ValidationStep validation_steps = 5; //collection of validation steps
+        string request_date = 1; //date of the validation request, yyyy-mm-dd
+        string validation_date = 2; //date of the validation, yyyy-mm-dd
+        string validating_party_id = 3; //name or Id of the party that performed the validation
+        string validation_method = 4; //name of the validation method used
+        string validation_expiration_date = 5; //expiration date of the validation, yyyy-mm-dd
+        repeated ValidationStep validation_steps = 6; //collection of validation steps
     }
     repeated Validation validations = 19; //in DRAFT, a collection of Validation workflow steps for a project
     repeated common.Attestation attestations = 20; //a collection of Attestation workflow steps for a project
@@ -93,7 +94,7 @@ message ImpactClaimCheckpoint
     string project_developer_id = 4; //the id of the project developer that is submitting the checkpoint, must be a developer of the project.
     string ef_before = 5; //environmental factor before activity - i.e., total emissions = 3 tCO2e
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
-    common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers.
+    common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers within the claim period.
     common.VerifiedLink verified_link_to_checkpoint_data = 8; //a link to the claim span data package that is associated with the checkpoint.
     repeated common.MrvExtension mrv_extensions = 9; //list of MRV extensions for the checkpoint
     SpanDataPackage span_data_package = 10; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
@@ -104,13 +105,15 @@ message ImpactClaim
     string id = 1; //unique id for the claim
     string aim_id = 2; //the id of the AIM that the claim is associated with
     string processed_claim_id = 3; //once processing starts and the processed claim is created, this is the id of the processed claim paired with this claim.
-    common.Unit unit = 4; //unit of measure for the quantity
-    string quantity = 5; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
-    repeated common.CoBenefit co_benefits = 6; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
+    string start_date = 4; //the start date of the claim, yyyy-mm-dd
+    string end_date = 5; //the end date of the claim, yyyy-mm-dd
+    common.Unit unit = 6; //unit of measure for the quantity
+    string quantity = 7; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
+    repeated common.CoBenefit co_benefits = 8; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
     //a claim source is registered as a valid source for claim data, either raw source data or reference.
-    repeated ImpactClaimCheckpoint checkpoints = 7; //a list of checkpoints that are associated with the claim.
-    repeated common.MrvExtension mrv_extensions = 8; //a list of MRV extensions that are associated with the claim.
-    ActivityImpactModule activity_impact_module = 9; //optional, for object navigation, the parent activity impact module
+    repeated ImpactClaimCheckpoint checkpoints = 9; //a list of checkpoints that are associated with the claim.
+    repeated common.MrvExtension mrv_extensions = 10; //a list of MRV extensions that are associated with the claim.
+    ActivityImpactModule activity_impact_module = 11; //optional, for object navigation, the parent activity impact module
 }
 
 

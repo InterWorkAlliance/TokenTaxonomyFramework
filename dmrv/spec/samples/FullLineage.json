@@ -7,8 +7,8 @@
   "coreCarbonPrinciples": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
-      "dateTime": null,
-      "dateString": "10/30/2023"
+      "dateTime": "",
+      "dateString": "11/1/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -258,16 +258,16 @@
         ]
       },
       "agreementDate": {
-        "dateTime": null,
-        "dateString": "10/30/2023"
+        "dateTime": "",
+        "dateString": "11/1/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
       "auditSchedule": "Quinquennial",
       "audits": {
         "auditDate": {
-          "dateTime": null,
-          "dateString": "10/30/2023"
+          "dateTime": "",
+          "dateString": "11/1/2023"
         },
         "auditReports": [
           {
@@ -287,6 +287,8 @@
       "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
       "processedClaimId": "",
+      "startDate": "2021-01-01",
+      "endDate": "2021-12-31",
       "unit": "TonneCo2E",
       "quantity": "1.41",
       "coBenefits": [
@@ -312,22 +314,22 @@
           "checkpointDateRange": {
             "startDate": {
               "date": {
-                "dateTime": null,
-                "dateString": "10/30/2023"
+                "dateTime": "",
+                "dateString": "11/1/2023"
               },
               "timeStamp": {
-                "seconds": 1698680706,
-                "nanos": 272963000
+                "seconds": 1698853293,
+                "nanos": 664403000
               }
             },
             "endDate": {
               "date": {
-                "dateTime": null,
-                "dateString": "10/30/2023"
+                "dateTime": "",
+                "dateString": "11/1/2023"
               },
               "timeStamp": {
-                "seconds": 1698680706,
-                "nanos": 348197000
+                "seconds": 1698853293,
+                "nanos": 741350000
               }
             }
           },
@@ -349,15 +351,12 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": {
-                    "seconds": 1698680706,
-                    "nanos": 349841000
-                  },
-                  "dateString": "10/30/2023"
+                  "dateTime": "11/01/2023 15:41:33",
+                  "dateString": "11/1/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1698680706,
-                  "nanos": 349985000
+                  "seconds": 1698853293,
+                  "nanos": 743497000
                 }
               },
               "mrvExtensions": [
@@ -523,6 +522,8 @@
             "id": "",
             "aimId": "",
             "processedClaimId": "",
+            "startDate": "",
+            "endDate": "",
             "unit": "TonneCo2E",
             "quantity": "",
             "coBenefits": [],
@@ -545,16 +546,11 @@
         ],
         "validations": [
           {
-            "validationDate": {
-              "dateTime": null,
-              "dateString": "10/30/2023"
-            },
+            "requestDate": "2021-04-01",
+            "validationDate": "11/1/2023",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": {
-              "dateTime": null,
-              "dateString": "10/30/2023"
-            },
+            "validationExpirationDate": "11/1/2023",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",
