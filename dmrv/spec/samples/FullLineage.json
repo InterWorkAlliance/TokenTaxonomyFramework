@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": "",
-      "dateString": "11/1/2023"
+      "dateString": "11/16/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -249,7 +249,7 @@
           "high": 0
         },
         "claimPeriod": "Annual",
-        "typedMrvExtensions": [
+        "mrvExtensionSets": [
           {
             "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
             "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
@@ -259,7 +259,7 @@
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "11/1/2023"
+        "dateString": "11/16/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -267,7 +267,7 @@
       "audits": {
         "auditDate": {
           "dateTime": "",
-          "dateString": "11/1/2023"
+          "dateString": "11/16/2023"
         },
         "auditReports": [
           {
@@ -315,21 +315,21 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/1/2023"
+                "dateString": "11/16/2023"
               },
               "timeStamp": {
-                "seconds": 1698853293,
-                "nanos": 664403000
+                "seconds": 1700143493,
+                "nanos": 238996000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/1/2023"
+                "dateString": "11/16/2023"
               },
               "timeStamp": {
-                "seconds": 1698853293,
-                "nanos": 741350000
+                "seconds": 1700143493,
+                "nanos": 296398000
               }
             }
           },
@@ -351,12 +351,12 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "11/01/2023 15:41:33",
-                  "dateString": "11/1/2023"
+                  "dateTime": "11/16/2023 14:04:53",
+                  "dateString": "11/16/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1698853293,
-                  "nanos": 743497000
+                  "seconds": 1700143493,
+                  "nanos": 297993000
                 }
               },
               "mrvExtensions": [
@@ -547,10 +547,10 @@
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "11/1/2023",
+            "validationDate": "11/16/2023",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "11/1/2023",
+            "validationExpirationDate": "11/16/2023",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",

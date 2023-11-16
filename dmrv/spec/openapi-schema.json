@@ -1515,7 +1515,7 @@
           "claimPeriod": {
             "$ref": "#/components/schemas/ClaimPeriod"
           },
-          "typedMrvExtensions": {
+          "mrvExtensionSets": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TypedExtension"

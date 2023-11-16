@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="354ab9543f906d2a2b60009ca280f1b3a4dfeccb" name="document-revision">
+  <meta content="c7b9518167b37a0f18b3650e82414ed3a4a054d1" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-11-01">1 November 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-11-16">16 November 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2799,7 +2799,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2524" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="9360"></p>
+   <p><img alt="…" height="2704" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="9262"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -4947,7 +4947,7 @@ the string or file for the area must have a value.</p>
    </figure>
    <h3 class="heading settled" data-level="3.47" id="dt-mrv-requirements"><span class="secno">3.47. </span><span class="content">Data Type <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvrequirements">MRVRequirements</dfn></span><a class="self-link" href="#dt-mrv-requirements"></a></h3>
    <p>The MRVRequirements is a set of properties that identify the measurement specification, the precision of the measurement and the link to
-the specification.</p>
+the specification. Here is where a Quality Standard can prescribe a set of MRV Extensions to be used in the verification process.</p>
    <h4 class="heading settled" data-level="3.47.1" id="dt-mrv-requirements-properties"><span class="secno">3.47.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-requirements-properties"></a></h4>
    <figure id="mrv-requirements-properties-table">
     <table class="data">
@@ -4979,10 +4979,10 @@ the specification.</p>
        <td>M 
        <td>The string representation of claim period for measurement and reporting. See <a href="#dt-claim-period">§ 3.75 Data Type: ClaimPeriod</a> for details. 
       <tr>
-       <td>typedMrvExtensions : <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension①">TypedExtension</a> 
+       <td>mrvExtensionSets : <a data-link-type="dfn" href="#typedextension" id="ref-for-typedextension①">TypedExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of typed MRV extensions used in the verification process, see <a href="#dt-typed-extension">§ 3.17 Data Type: TypedExtension</a> for details. 
+       <td>A collection of typed MRV extensions, called a set, used in the verification process, see <a href="#dt-typed-extension">§ 3.17 Data Type: TypedExtension</a> for details. 
     </table>
     <figcaption>Properties of data type MRVRequirements</figcaption>
    </figure>
@@ -6110,8 +6110,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
    <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
    <div class="note" role="note">Non-normative</div>
    <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-   <div class="example" id="example-eaad6466">
-    <a class="self-link" href="#example-eaad6466"></a> CRU Full Lineage: 
+   <div class="example" id="example-210f5309">
+    <a class="self-link" href="#example-210f5309"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6122,7 +6122,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -6363,7 +6363,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
         <c- p>},</c->
         <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
-        <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- f>"mrvExtensionSets"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
             <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->
@@ -6373,7 +6373,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -6381,7 +6381,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -6429,21 +6429,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698853293</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>664403000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1700143493</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>238996000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698853293</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>741350000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1700143493</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>296398000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -6465,12 +6465,12 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"11/01/2023 15:41:33"</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"11/16/2023 14:04:53"</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1698853293</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>743497000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1700143493</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>297993000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"mrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
@@ -6661,10 +6661,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"2021-04-01"</c-><c- p>,</c->
-            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"11/1/2023"</c-><c- p>,</c->
+            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"11/16/2023"</c-><c- p>,</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"11/1/2023"</c-><c- p>,</c->
+            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"11/16/2023"</c-><c- p>,</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
                 <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
@@ -7356,8 +7356,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 </pre>
    </div>
    <h3 class="heading settled" data-level="4.7" id="example-verification-process-agreement"><span class="secno">4.7. </span><span class="content">Example Verification Process Agreement</span><a class="self-link" href="#example-verification-process-agreement"></a></h3>
-   <div class="example" id="example-95933b11">
-    <a class="self-link" href="#example-95933b11"></a> Verification Process Agreement: 
+   <div class="example" id="example-de7f8473">
+    <a class="self-link" href="#example-de7f8473"></a> Verification Process Agreement: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
@@ -7445,7 +7445,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
     <c- p>},</c->
     <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
-    <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+    <c- f>"mrvExtensionSets"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
         <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->
@@ -7455,7 +7455,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -7463,7 +7463,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/1/2023"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"11/16/2023"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
@@ -7613,8 +7613,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
    </div>
    <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-   <div class="example" id="example-e826957a">
-    <a class="self-link" href="#example-e826957a"></a> Renewable Energy Credit Full Lineage: 
+   <div class="example" id="example-70940c03">
+    <a class="self-link" href="#example-70940c03"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -7810,7 +7810,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
         <c- p>},</c->
         <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
-        <c- f>"typedMrvExtensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- f>"mrvExtensionSets"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"dataSchema"</c-><c- p>:</c-> <c- u>"https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json"</c-><c- p>,</c->
             <c- f>"documentation"</c-><c- p>:</c-> <c- u>"EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/"</c-><c- p>,</c->

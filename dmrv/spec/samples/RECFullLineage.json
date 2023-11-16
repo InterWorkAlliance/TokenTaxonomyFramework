@@ -193,7 +193,7 @@
           "high": 0
         },
         "claimPeriod": "Annual",
-        "typedMrvExtensions": [
+        "mrvExtensionSets": [
           {
             "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
             "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
