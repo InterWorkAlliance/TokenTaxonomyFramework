@@ -7,8 +7,8 @@
   "coreCarbonPrinciples": {
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
-      "dateTime": null,
-      "dateString": "10/23/2023"
+      "dateTime": "",
+      "dateString": "11/28/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -47,7 +47,8 @@
         "description": "Letter of Approval for Paris Agreement Compliance",
         "hashProof": "uuisdE12A0213az2133ASdfsdf",
         "hashAlgorithm": "Sha256"
-      }
+      },
+      "itmoId": "CA12-EU01-SP-1234500-2023-NIO"
     },
     "quantifiedSdgImpacts": [
       {

@@ -364,6 +364,7 @@ enum CorrespondingAdjustment {
 message PACompliance{
     CorrespondingAdjustment c_a = 1; //does the credit require or have a CA?
     VerifiedLink letter_of_approval = 2; //Link to the letter of approval for the CA. 
+    string i_t_m_o_id = 3; //ID of the ITMO that the CA is associated with. Format: <identifier of cooperative approach>-<identifier of the originating party registry>-<identifier of the first transferring party>-<serial number>-<vintage of the underlying mitigation outcome>-<authorizations>, example CA12-EU01-SP-1236500-2022-NIO
 }
 
 message ClimateLabel

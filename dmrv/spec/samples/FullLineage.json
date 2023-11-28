@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": "",
-      "dateString": "11/16/2023"
+      "dateString": "11/28/2023"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -47,7 +47,8 @@
         "description": "Letter of Approval for Paris Agreement Compliance",
         "hashProof": "uuisdE12A0213az2133ASdfsdf",
         "hashAlgorithm": "Sha256"
-      }
+      },
+      "itmoId": "CA12-EU01-SP-1234500-2023-NIO"
     },
     "quantifiedSdgImpacts": [
       {
@@ -259,7 +260,7 @@
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "11/16/2023"
+        "dateString": "11/28/2023"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -267,7 +268,7 @@
       "audits": {
         "auditDate": {
           "dateTime": "",
-          "dateString": "11/16/2023"
+          "dateString": "11/28/2023"
         },
         "auditReports": [
           {
@@ -315,21 +316,21 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/16/2023"
+                "dateString": "11/28/2023"
               },
               "timeStamp": {
-                "seconds": 1700143493,
-                "nanos": 238996000
+                "seconds": 1701185484,
+                "nanos": 321455000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/16/2023"
+                "dateString": "11/28/2023"
               },
               "timeStamp": {
-                "seconds": 1700143493,
-                "nanos": 296398000
+                "seconds": 1701185484,
+                "nanos": 389493000
               }
             }
           },
@@ -351,12 +352,12 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "11/16/2023 14:04:53",
-                  "dateString": "11/16/2023"
+                  "dateTime": "11/28/2023 15:31:24",
+                  "dateString": "11/28/2023"
                 },
                 "timeStamp": {
-                  "seconds": 1700143493,
-                  "nanos": 297993000
+                  "seconds": 1701185484,
+                  "nanos": 391215000
                 }
               },
               "mrvExtensions": [
@@ -547,10 +548,10 @@
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "11/16/2023",
+            "validationDate": "11/28/2023",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "11/16/2023",
+            "validationExpirationDate": "11/28/2023",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",

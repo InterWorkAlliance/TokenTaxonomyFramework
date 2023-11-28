@@ -2034,6 +2034,10 @@
           },
           "letterOfApproval": {
             "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "itmoId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
