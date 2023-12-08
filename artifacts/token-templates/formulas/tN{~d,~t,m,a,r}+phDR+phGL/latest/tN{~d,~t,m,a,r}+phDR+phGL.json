@@ -1,0 +1,142 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "7cc54ca0-6f17-11ee-9c8f-e9be558858dd",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,m,a,r</i>}]",
+      "tooling": "[tN{~d,~t,m,a,r}+phDR+phGL]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "[tN{~d,~t,m,a,r}+phDR+phGL]",
+    "aliases": ["Attendance Token", "Score Token" , "Score Token For Instructor"],
+    "artifactDefinition": {
+      "businessDescription": "This is a Unique Whole Fungible Token with Variable Supply where supply is set when the tokens are fabricated and supply can be added to new owners and removed by owners by redeeming. It is Whole by setting the Decimals property on the dividable behavior = 0.",
+      "businessExample": "Loyalty points are a common use of this type of token. Representing a loyalty point using fractional amounts like `.081231` does not make sense, so a point is just that a single whole unit. Redemption of these is easy for users to understand using whole numbers. New points can be fabricated or issued based on customer activity and points can be removed when they are redeemed. This formula supports transferable points as well.",
+      "analogies": [
+        {
+          "name": "Attendance Token",
+          "description": "",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Score Token For Learner",
+          "description": "Score token that learner gets as a reward of assisment",
+          "artifactDefinition": null
+        },
+        {
+          "name": "Score Token For Instructor",
+          "description": "Score token that instructor gets as a reward of their performace",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "[tN{~d,~t,m,a,r}+phDR+phGL].proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "[tN{~d,~t,m,a,r}+phDR+phGL].proto",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tN{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "visual": "<i>~t</i>",
+        "tooling": "~t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "189b1589-a93a-4aa6-8d9d-0d9237ab5b42",
+        "type": "BEHAVIOR",
+        "visual": "<i>a</i>",
+        "tooling": "a",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "visual": "<i>r</i>",
+        "tooling": "r",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "propertySet": {
+        "id": "d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>DR</i>",
+        "tooling": "phDR",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "propertySet": {
+        "id": "7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>GL</i>",
+        "tooling": "phGL",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "childTokens": []
+}

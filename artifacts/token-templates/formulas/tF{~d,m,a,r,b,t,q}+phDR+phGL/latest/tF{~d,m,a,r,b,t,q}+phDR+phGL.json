@@ -1,0 +1,152 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "4270a3f0-6f27-11ee-9c8f-e9be558858dd",
+      "type": "TEMPLATE_FORMULA",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,m,a,r,b,t,q</i>}]",
+      "tooling": "[tF{~d,m,a,r,b,t,q}+phDR+phGL]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "[tF{~d,m,a,r,b,t,q}+phDR+phGL]",
+    "aliases": ["Helping Token"],
+    "artifactDefinition": {
+      "businessDescription": "This is a Fixed Supply Fungible where the total supply is set at creation using the Quantity property of the Base token.  It is not fractional by setting the Decimals property has initialize for that. A token instance can be burned.",
+      "businessExample": "Typically used to represent an Initial Token To all the learner for creating an reward based helping community.",
+      "analogies": [
+        {
+          "name": "Helping Token",
+          "description": "Helping Token that will be distributed to all the learner within a course. This will create a reward based helping community among learner.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "[tF{~d,m,a,r,b,t,q}+phDR+phGL].proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "[tF{~d,m,a,r,b,t,q}+phDR+phGL].md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "templateType": "SINGLE_TOKEN",
+  "tokenBase": {
+    "base": {
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "visual": "&tau<sub>N</sub>{<i>~d</i>}",
+      "tooling": "tF{~d}",
+      "version": "1.0",
+      "templateValidated": true
+    }
+  },
+  "behaviors": [
+    {
+      "behavior": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "visual": "<i>~d</i>",
+        "tooling": "~d",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "visual": "<i>m</i>",
+        "tooling": "m",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "189b1589-a93a-4aa6-8d9d-0d9237ab5b42",
+        "type": "BEHAVIOR",
+        "visual": "<i>a</i>",
+        "tooling": "a",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "visual": "<i>r</i>",
+        "tooling": "r",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "803297a1-c0f9-4898-9d44-29c9d41cca97",
+        "type": "BEHAVIOR",
+        "visual": "<i>b</i>",
+        "tooling": "b",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "af119e58-6d84-4ca6-9656-75e8d312f038",
+        "type": "BEHAVIOR",
+        "visual": "<i>t</i>",
+        "tooling": "t",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "behavior": {
+        "id": "51a62eba-0e84-433a-a3f1-9b3e7f72d928",
+        "type": "BEHAVIOR",
+        "visual": "<i>q</i>",
+        "tooling": "q",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "propertySet": {
+        "id": "d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>DR</i>",
+        "tooling": "phDR",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    },
+    {
+      "propertySet": {
+        "id": "7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+        "type": "PROPERTY_SET",
+        "visual": "&phi;<i>GL</i>",
+        "tooling": "phGL",
+        "version": "1.0",
+        "templateValidated": false
+      }
+    }
+  ],
+  "childTokens": []
+}
