@@ -1,0 +1,893 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "19d3145b-7446-4c04-ad98-6625ef5355fe",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>N</sub>{<i>~d,~t,m,a,r</i>}]",
+      "tooling": "[tN{~d,~t,m,,r}+phDR+phGL]",
+      "version": "1.0",
+      "templateValidated": true
+    },
+    "name": "LearningToken1",
+    "aliases": [
+      "Attendance Token",
+      "Score Token"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This is a Unique Whole Fungible Token with Variable Supply where supply is set when the tokens are fabricated and supply can be added to new owners and removed by owners by redeeming. It is Whole by setting the Decimals property on the dividable behavior = 0.",
+      "businessExample": "Loyalty points are a common use of this type of token. Representing a loyalty point using fractional amounts like `.081231` does not make sense, so a point is just that a single whole unit. Redemption of these is easy for users to understand using whole numbers. New points can be fabricated or issued based on customer activity and points can be removed when they are redeemed. This formula supports transferable points as well.",
+      "analogies": [
+        {
+          "name": "Attendance Token",
+          "description": ""
+        },
+        {
+          "name": "Score Token For Learner",
+          "description": "Score token that learner gets as a reward of assisment"
+        },
+        {
+          "name": "Score Token For Instructor",
+          "description": "Score token that instructor gets as a reward of their performace"
+        }
+      ],
+      "comments": ""
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "LearningToken1.proto",
+        "fileData": ""
+      },
+      {
+        "content": "UML",
+        "fileName": "LearningToken1.md",
+        "fileData": ""
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": []
+    },
+    "contributors": []
+  },
+  "formulaReference": {
+    "id": "7cc54ca0-6f17-11ee-9c8f-e9be558858dd",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "LearningToken1"
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "3c05a856-c901-4c30-917e-df9feed1c8de",
+      "type": "BASE",
+      "referenceNotes": "",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": []
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "FIXED",
+    "name": "",
+    "symbol": "",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 0,
+    "tokenProperties": {},
+    "constructorName": "Constructor"
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "d5807a8e-879b-4885-95fa-f09ba2a22172",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Indivisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to Zero, not allowing any division, usually this is applied to the base token.",
+          "templateValue": "0",
+          "propertyInvocations": [
+            {
+              "id": "2ca7fbb2-ce98-4dda-a6ae-e4ac2527bb33",
+              "name": "GetDecimals",
+              "description": "Should return 0",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return 0",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "0"
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [],
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Mintable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Mintable.sol"
+              }
+            ],
+            "implementationReferences": [
+              {
+                "mappingType": "IMPLEMENTATION",
+                "name": "Implementation 1",
+                "platform": "CHAINCODE_GO",
+                "referencePath": ""
+              }
+            ],
+            "resources": [
+              {
+                "mappingType": "RESOURCE",
+                "name": "Regulation Reference 1",
+                "description": "",
+                "resourcePath": ""
+              }
+            ]
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "3ddf15db-c919-4f72-a57b-d089931bc901",
+          "name": "Mint",
+          "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission. Minted tokens using this invocation will be owned by the owner or token pool account. Requires a Quantity field in the request.",
+          "request": {
+            "controlMessageName": "MintRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of new tokens to create."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "MintResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+          "name": "MintTo",
+          "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+          "request": {
+            "controlMessageName": "MintToRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "ToAccount",
+                "valueDescription": "Account Id to mint the tokens to."
+              },
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of new tokens to create."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "MintToResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "189b1589-a93a-4aa6-8d9d-0d9237ab5b42",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Attestable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "f404f43f-c922-475d-9a0c-b4a0bdca6029",
+          "name": "Attest",
+          "description": "A request to validate a rule or attestation.",
+          "request": {
+            "controlMessageName": "AttestRequest",
+            "description": "The request to Attest an attestation.",
+            "inputParameters": [
+              {
+                "name": "Attestation",
+                "valueDescription": "Value of the attestation to validate"
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AttestResponse",
+            "description": "The response from the AttestRequest.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "c573dc98-d669-4e24-a06d-70a7c1d29078",
+          "name": "AttestByAccount",
+          "description": "A request to validate a rule or attestation.",
+          "request": {
+            "controlMessageName": "AttestByAccountRequest",
+            "description": "The request to Attest by an account id.",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "The Id of the account to validate."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AttestByAccountResponse",
+            "description": "The response from the AttestByAccountRequest, if true can include a Attestation for the caller to use in subsequent attestation checks.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              },
+              {
+                "name": "Attestation",
+                "valueDescription": "A cryptographic signature that can be validated with AttestRequest."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Roles",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [
+              {
+                "mappingType": "SOURCE_CODE",
+                "name": "Open Zeppelin - Roles",
+                "platform": "ETHEREUM_SOLIDITY",
+                "referencePath": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Roles.sol"
+              }
+            ],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "00a665e3-1dda-441e-8262-5750435c153c",
+          "name": "RoleCheck",
+          "description": "Internal invocation when the applied behavior is called to check if the requestor is a member of the role.",
+          "request": {
+            "controlMessageName": "IsInRole",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "AccountId of the requestor."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "True/False",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "IsInRole",
+                "valueDescription": "True/False"
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Role",
+          "valueDescription": "A group or list an account can be a member or be in.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetRoleMembers",
+              "description": "Request the the list of member accounts in the role.",
+              "request": {
+                "controlMessageName": "GetRoleMembersRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetRoleMembersResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Members",
+                    "valueDescription": "Returning the list of accounts in the role."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+              "name": "AddRoleMember",
+              "description": "Add a member to the group or role property.",
+              "request": {
+                "controlMessageName": "AddRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be added to the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "AddRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+              "name": "RemoveRoleMember",
+              "description": "Remove a member to the group or role property.",
+              "request": {
+                "controlMessageName": "RemoveRoleMemberRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are adding a member to. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "RemoveRoleMemberResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Added",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+              "name": "IsInRole",
+              "description": "Check to see if an account is in the role.",
+              "request": {
+                "controlMessageName": "IsInRoleRequest",
+                "description": "The request may be internal only and not exposed externally.",
+                "inputParameters": [
+                  {
+                    "name": "RoleName",
+                    "valueDescription": "Name of the role you are checking membership of. Optional parameter if there is only one role."
+                  },
+                  {
+                    "name": "AccountAddress",
+                    "valueDescription": "Address, name or identifier of the account to be checked."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "IsInRoleRequestResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "InRole",
+                    "valueDescription": "True or False."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [],
+          "repeated": false
+        }
+      ]
+    }
+  ],
+  "behaviorGroups": [],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "d7607f63-5e29-424f-a991-3f05c8f0daf7",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Date Range",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "DateRange",
+          "valueDescription": "Contains the date range.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "e3b45dcc-f767-4c9d-a081-9b0f91eb728c",
+              "name": "GetDateRange",
+              "description": "Request the value of the verified link property",
+              "request": {
+                "controlMessageName": "GetDateRangeRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDateRangeResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Returning the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Returning the granular start timestamp."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "269dfe9a-bf3e-4416-af54-4a49a0e408d0",
+              "name": "SetDateRange",
+              "description": "Set the Value of the Date Range Property, note if Roles should be applied to the Setter.",
+              "request": {
+                "controlMessageName": "SetDateRangeRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "StartDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "StartTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  },
+                  {
+                    "name": "EndDate",
+                    "valueDescription": "Set the simple date value."
+                  },
+                  {
+                    "name": "EndTimeStamp",
+                    "valueDescription": "Set the granular start timestamp."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetDateRangeResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "DateRange",
+              "valueDescription": "Contains the values for the Date Range.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "influenceBindings": [],
+              "properties": [
+                {
+                  "name": "StartDate",
+                  "valueDescription": "A simple date format.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "StartTimeStamp",
+                  "valueDescription": "A granular timestamp.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "EndDate",
+                  "valueDescription": "A simple date format.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "EndTimeStamp",
+                  "valueDescription": "A granular timestamp.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        }
+      ],
+      "propertySets": [],
+      "repeated": false
+    },
+    {
+      "reference": {
+        "id": "7a768ba8-b87f-4ffe-aed6-ce0121617baf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Geographic Location",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "GNSS",
+          "valueDescription": "Contains a simple GNSS location, for an area this may be a center point or just one of the area points.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetGNSS",
+              "description": "Request the GNSS point location.",
+              "request": {
+                "controlMessageName": "GetGNSSRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetGNSSResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Longitude",
+                    "valueDescription": "Returning the longitude."
+                  },
+                  {
+                    "name": "Latitude",
+                    "valueDescription": "Returning the latitude."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "SetGNSS",
+              "description": "Add a geographic area entry into the list of the Property, note if Roles should be applied to the Setter. This property should validate that the category submitted is valid for the scope.",
+              "request": {
+                "controlMessageName": "SetGNSSRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "Longitude",
+                    "valueDescription": "Returning the longitude."
+                  },
+                  {
+                    "name": "Latitude",
+                    "valueDescription": "Returning the latitude."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetGNSSResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "GNSS",
+              "valueDescription": "Contains a single GNSS coordinate for simple location.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "influenceBindings": [],
+              "properties": [
+                {
+                  "name": "Longitude",
+                  "valueDescription": "A string of text or possibly numeric value.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "Latitude",
+                  "valueDescription": "A string of text or possibly numeric value.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                },
+                {
+                  "name": "Timing",
+                  "valueDescription": "A string of text or possibly numeric value.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        },
+        {
+          "name": "GeographicAreas",
+          "valueDescription": "Contains the reported emission scope and it's category from pick list, see ggbsc.proto.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "id": "",
+              "name": "GetGeographicAreas",
+              "description": "Request the a Geographic Area, usually stored as a GeoJSON string for an area.",
+              "request": {
+                "controlMessageName": "GetGeographicAreasRequest",
+                "description": "The request",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetGeographicAreasResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "GeographicAreas",
+                    "valueDescription": "Returns the GeoJSON of Geographic Areas."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "id": "",
+              "name": "SetGeographicArea",
+              "description": "Set the geographic area usually stored as GeoJSON, note if Roles should be applied to the Setter.",
+              "request": {
+                "controlMessageName": "SetGeographicAreaRequest",
+                "description": "The request",
+                "inputParameters": [
+                  {
+                    "name": "GeographicArea",
+                    "valueDescription": "A GeographicArea as GeoJSON."
+                  }
+                ]
+              },
+              "response": {
+                "controlMessageName": "SetGeographicAreaResponse",
+                "description": "The response",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the add request."
+                  }
+                ]
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            }
+          ],
+          "influenceBindings": [],
+          "properties": [
+            {
+              "name": "GeographicLocations",
+              "valueDescription": "Contains the Geographic Areas as GeoJSON.",
+              "templateValue": "",
+              "propertyInvocations": [],
+              "influenceBindings": [],
+              "properties": [
+                {
+                  "name": "GeographicArea",
+                  "valueDescription": "A complex type described in the as GeoJSON.",
+                  "templateValue": "",
+                  "propertyInvocations": [],
+                  "influenceBindings": [],
+                  "properties": [],
+                  "repeated": false
+                }
+              ],
+              "repeated": false
+            }
+          ],
+          "repeated": false
+        }
+      ],
+      "propertySets": [],
+      "repeated": false
+    }
+  ],
+  "childTokens": []
+}
