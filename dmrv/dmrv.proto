@@ -250,6 +250,8 @@ message VerificationProcessAgreement{
             VALIDATION_AND_VERIFICATION_BODY = 1;
             PROJECT_OWNER = 2;
             VERIFICATION_PLATFORM_PROVIDER = 3;
+            ACCOUNTABLE_IMPACT_ORGANIZATION = 4;
+            ACTIVITY_IMPACT_MODULE = 5;
         }
         SignatoryRole signatory_role = 4; //role of the signatory
         common.DigitalSignature signature = 5; //digital signature of the signatory

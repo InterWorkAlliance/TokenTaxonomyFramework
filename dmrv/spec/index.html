@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="75afa47895ac61a7ecee2c3ea6e9970d06be8c49" name="document-revision">
+  <meta content="836f78b5f6a368bd5a0f116b0144004b812a7ff4" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2023-11-28">28 November 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-03-12">12 March 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -5137,8 +5137,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.55" id="dt-itmo-id"><span class="secno">3.55. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-c7599ece">
-    <a class="self-link" href="#example-c7599ece"></a> 
+   <div class="example" id="example-e5fdcc78">
+    <a class="self-link" href="#example-e5fdcc78"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -5360,6 +5360,12 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
       <dt data-md><dfn class="idl-code" data-dfn-for="SignatoryRole" data-dfn-type="enum-value" data-export id="dom-signatoryrole-verification_platform_provider"><code>VERIFICATION_PLATFORM_PROVIDER</code><a class="self-link" href="#dom-signatoryrole-verification_platform_provider"></a></dfn>
       <dd data-md>
        <p>for Verification Automation Provider</p>
+      <dt data-md><dfn class="idl-code" data-dfn-for="SignatoryRole" data-dfn-type="enum-value" data-export id="dom-signatoryrole-accountable_impact_organization"><code>ACCOUNTABLE_IMPACT_ORGANIZATION</code><a class="self-link" href="#dom-signatoryrole-accountable_impact_organization"></a></dfn>
+      <dd data-md>
+       <p>for Accountable Impact Organization</p>
+      <dt data-md><dfn class="idl-code" data-dfn-for="SignatoryRole" data-dfn-type="enum-value" data-export id="dom-signatoryrole-activity_impact_module"><code>ACTIVITY_IMPACT_MODULE</code><a class="self-link" href="#dom-signatoryrole-activity_impact_module"></a></dfn>
+      <dd data-md>
+       <p>for Activity Impact Module</p>
      </dl>
      <h4 class="heading settled" data-level="3.67.1" id="dt-signatory-role-json"><span class="secno">3.67.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-signatory-role-json"></a></h4>
      <p>Each SignatoryRole MUST be encoded as a JSON String.</p>
@@ -8715,10 +8721,16 @@ public licenses.</p>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
    <li><a href="#accountable-impact-organization">Accountable Impact Organization</a><span>, in § 2</span>
-   <li><a href="#dom-insurancepolicyowner-accountable_impact_organization">ACCOUNTABLE_IMPACT_ORGANIZATION</a><span>, in § 3.59</span>
+   <li>
+    ACCOUNTABLE_IMPACT_ORGANIZATION
+    <ul>
+     <li><a href="#dom-insurancepolicyowner-accountable_impact_organization">enum-value for InsurancePolicyOwner</a><span>, in § 3.59</span>
+     <li><a href="#dom-signatoryrole-accountable_impact_organization">enum-value for SignatoryRole</a><span>, in § 3.67</span>
+    </ul>
    <li><a href="#accountableimpactorganization">AccountableImpactOrganization</a><span>, in § 3.3</span>
    <li><a href="#dom-creditstatus-active">ACTIVE</a><span>, in § 3.85</span>
    <li><a href="#activity-impact-module">Activity Impact Module</a><span>, in § 2</span>
+   <li><a href="#dom-signatoryrole-activity_impact_module">ACTIVITY_IMPACT_MODULE</a><span>, in § 3.67</span>
    <li><a href="#activityimpactmodule">ActivityImpactModule</a><span>, in § 3.5</span>
    <li><a href="#element-attrdef-accountableimpactorganization-activityimpactmodules">activityImpactModules</a><span>, in § 3.3.2</span>
    <li><a href="#address">Address</a><span>, in § 3.4</span>
