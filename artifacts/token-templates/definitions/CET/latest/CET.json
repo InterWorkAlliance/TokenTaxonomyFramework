@@ -1,0 +1,1274 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id": "598eeaa8-7acf-4797-91cc-701dc39a8ac5",
+      "type": "TEMPLATE_DEFINITION",
+      "visual": "[&tau;<sub>F'</sub>{<i>d,g,ref,~t,v,</i>OSC}+&ph;EG+&ph;CESP+&ph;CEA]",
+      "tooling": "[tF’{d,g,ref,~t,v,OSC}+phEG+phCESP+phCEA]",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "CET",
+    "aliases": [
+      "Carbon Emission Token"
+    ],
+    "artifactDefinition": {
+      "businessDescription": "This a reference token which represents a specified volume of metric tons of greenhouse gas (GHG) emissions. This token is fractional or divisible up to 8 decimal places (minimum of 2 decimal places, with a recommendation of at least 4 decimal places). It is a unique token so that it may be issued in quantities of a fraction or numbers larger than 1. Meaning, if in the production of an item that a supplier creates generates 1.242 tons of carbon a token can be created with the same amount. The token has the Carbon Emission Scope and Properties property set, the Carbon Emission Attributes property set, and the Emission Generator property set that allows the creator of the token to specify the origin of the emission, which is helpful for track and trace supply chain requirements.",
+      "businessExample": "CET tokens are useful for tracking carbon emissions within a supply chain as it allow for CETs to follow items through the supply chain between parties. This allows for carbon tracing for commodities and enables accounting for total carbon emissions for finished goods to be calculated and traced to sources.",
+      "analogies": [
+        {
+          "name": "Carbon Emissions Token",
+          "description": "A token created by a supplier of goods that generates carbon emissions.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "controlUri": "",
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "CET.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "CET.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    },
+    "contributors": []
+  },
+  "formulaReference": {
+    "id": "291b4b1a-b960-4ea7-8295-f2aa921e9560",
+    "type": "TEMPLATE_FORMULA",
+    "referenceNotes": "CET",
+    "values": null
+  },
+  "tokenBase": {
+    "reference": {
+      "id": "3e05130c-969a-4dfc-abe6-c83fad98a4ec",
+      "type": "BASE",
+      "referenceNotes": "Decimals set to 8.",
+      "values": {
+        "controlUri": "",
+        "artifactFiles": [],
+        "maps": {
+          "codeReferences": [],
+          "implementationReferences": [],
+          "resources": [],
+          "artifact": null
+        }
+      }
+    },
+    "valueType": "INTRINSIC",
+    "supply": "INFINITE",
+    "name": "CET",
+    "symbol": "CET",
+    "owner": "",
+    "quantity": "0",
+    "decimals": 8,
+    "tokenProperties": {
+      "issuers": "Should be the emitting organization to which the emissions originated."
+    },
+    "constructorName": "Constructor",
+    "constructor": null
+  },
+  "behaviors": [
+    {
+      "reference": {
+        "id": "6e3501dc-5800-4c71-b59e-ad11418a998c",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Divisible",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "constructor": null,
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": [
+        {
+          "name": "Decimals",
+          "valueDescription": "Set to a number greater than Zero, allowing subdivision",
+          "templateValue": "8",
+          "propertyInvocations": [
+            {
+              "id": "01f7ef04-1215-45f1-b118-12b4a76db9ad",
+              "name": "GetDecimals",
+              "description": "Return the value",
+              "request": {
+                "controlMessageName": "GetDecimalsRequest",
+                "description": "",
+                "inputParameters": []
+              },
+              "response": {
+                "controlMessageName": "GetDecimalsResponse",
+                "description": "Return number of decimal places",
+                "outputParameters": [
+                  {
+                    "name": "Decimals",
+                    "valueDescription": "integer"
+                  }
+                ]
+              }
+            }
+          ],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "a4fa4ca8-6afd-452b-91f5-7103b6fee5e5",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Non-transferable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "b3b7fc9d-b0c7-4567-bedd-4454fedbe433",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Referenceable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "45335a35-816f-410a-8907-2b35d113d758",
+          "name": "Reference",
+          "description": "A request to reference token data.",
+          "request": {
+            "controlMessageName": "ReferenceRequest",
+            "description": "The request to Reference token data.",
+            "inputParameters": [
+              {
+                "name": "DesiredReference",
+                "valueDescription": "Value associated with the desired reference token."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "ReferenceResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              },
+              {
+                "name": "CETValue",
+                "valueDescription": "Value of CET requested for reference." 
+              }
+            ],
+            "description": "The response from the ReferenceRequest."
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "009e8528-d89b-4abb-bb58-6db6dea8fea6",
+          "name": "ReferenceByAccount",
+          "description": "A request to reference specific tokens by account.",
+          "request": {
+            "controlMessageName": "ReferenceByAccountRequest",
+            "description": "The request to Reference by an account id.",
+            "inputParameters": [
+              {
+                "name": "AccountId",
+                "valueDescription": "The Id of the account to reference."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "ReferenceByAccountResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A true or false result"
+              },
+              {
+                "name": "Reference",
+                "valueDescription": "A cryptographic signature that can be validated with ReferenceRequest."
+              }
+            ],
+            "description": "The response from the ReferenceByAccountRequest, if true can include a Reference for the caller to use in subsequent reference checks."
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "ffaee29b-f599-4812-9914-56693ab32532",
+        "type": "BEHAVIOR",
+        "referenceNotes": "revocable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "dc133e8d-3be9-4aa2-8183-57a38429e8fa",
+          "name": "Revoke",
+          "description": "A request to revoke a token.",
+          "request": {
+            "controlMessageName": "RevokeRequest",
+            "description": "The request must be made by the issuer determined by a role check.",
+            "inputParameters": []
+          },
+          "response": {
+            "controlMessageName": "RevokeResponse",
+            "description": "The response, successful if the invoker is the issuer.",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the mint request."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    },
+    {
+      "reference": {
+        "id": "a3d02076-6009-4a65-9ed4-2deffe5291e1",
+        "type": "BEHAVIOR",
+        "referenceNotes": "Delegable",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "isExternal": true,
+      "constructorType": "",
+      "appliesTo": [],
+      "invocations": [
+        {
+          "id": "2e0fd8e5-2090-4c62-b094-232c32a78022",
+          "name": "Allowance",
+          "description": "A Request by a party or account to the owner of a token(s) to have the right to perform a delegated behavior on their behalf.",
+          "request": {
+            "controlMessageName": "AllowanceRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of Tokens to be allowed."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "AllowanceResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation receipt or denial be returned to the allowance requestor."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "id": "6d5df99d-2f5e-4c7a-aea4-d2d54176abfd",
+          "name": "Approve Allowance",
+          "description": "Same control message as the AllowanceRequest.  This could allow for an AllowanceRequest to be forwarded to multiple parties needed to Approve and shield this from the requestor. When all Approvals are obtained, an AllowanceResponse could be sent.",
+          "request": {
+            "controlMessageName": "AllowanceRequest",
+            "description": "The request",
+            "inputParameters": [
+              {
+                "name": "Quantity",
+                "valueDescription": "Number of Tokens to be allowed."
+              }
+            ]
+          },
+          "response": {
+            "controlMessageName": "ApproveResponse",
+            "description": "The response",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "A confirmation response from the owner approving the an allowance request, indicating a allowance quantity the requestor has the option to invoke the Delegable behaviors on the token(s)."
+              }
+            ]
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        }
+      ],
+      "influenceBindings": [],
+      "properties": []
+    }
+  ],
+  "behaviorGroups": [
+    {
+      "reference": {
+        "id": "d7f7aa2c-0488-482c-afd9-74f631e8a113",
+        "type": "BEHAVIOR_GROUP",
+        "referenceNotes": "Offsetable Supply Control",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": []
+          }
+        }
+      },
+      "behaviorArtifacts": [
+        {
+          "reference": {
+            "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Mintable, in Offsetable Supply Control, will be bound to the Roles behavior (minter) to determine if the requesting issuer is allowed to invoke the behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "559c9f31-dd89-4012-a726-40cde5463569",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Offsetable is not modified from the referenced behavior.",
+            "values": {
+              "controlUri": "",
+              "artifactFiles": []
+            }
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [],
+          "invocations": [],
+          "influenceBindings": [],
+          "properties": []
+        },
+        {
+          "reference": {
+            "id": "c32726da-9787-4dd8-8de3-d07d1733d0f6",
+            "type": "BEHAVIOR",
+            "referenceNotes": "Roles support requires that a role or group called 'Issuers' be created that allows for account to be added. These accounts will be allowed to invoke MintTo."
+          },
+          "isExternal": false,
+          "constructorType": "",
+          "appliesTo": [
+            {
+              "id": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "type": "BEHAVIOR",
+              "visual": "<i>m</i>",
+              "tooling": "m",
+              "version": "1.0",
+              "templateValidated": false
+            }
+          ],
+          "invocations": [],
+          "influenceBindings": [
+            {
+              "influencedId": "f9224e90-3cab-45bf-b5dc-0175121e2ead",
+              "influencedInvocationId": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+              "influenceType": "INTERCEPT",
+              "influencingInvocation": {
+                "id": "00a665e3-1dda-441e-8262-5750435c153c",
+                "name": "RoleCheck",
+                "description": "Check to see if the account is in the Role called 'Issuers'",
+                "request": {
+                  "controlMessageName": "IsInRole",
+                  "description": "Checking the 'Issuers' role.",
+                  "inputParameters": [
+                    {
+                      "name": "AccountId",
+                      "valueDescription": "AccountId of the requestor."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "True/False",
+                  "description": "Respond true if the account is in the 'Issuers' role.",
+                  "outputParameters": [
+                    {
+                      "name": "IsInRole",
+                      "valueDescription": "True/False"
+                    }
+                  ]
+                },
+                "notForRepetition": false,
+                "forRepetitionOnly": false
+              },
+              "influencedInvocation": {
+                "id": "70499b23-a1dd-4c87-90d6-6e45400f28b5",
+                "name": "MintTo",
+                "description": "A request to create new token instances in the class by the owner or a party or account in a role that is granted this permission to another party or account.  Requires a To and Quantity fields in the request.",
+                "request": {
+                  "controlMessageName": "MintToRequest",
+                  "description": "The request",
+                  "inputParameters": [
+                    {
+                      "name": "ToAccount",
+                      "valueDescription": "Account Id to mint the tokens to."
+                    },
+                    {
+                      "name": "Quantity",
+                      "valueDescription": "Number of new tokens to create."
+                    }
+                  ]
+                },
+                "response": {
+                  "controlMessageName": "MintToResponse",
+                  "description": "The response",
+                  "outputParameters": [
+                    {
+                      "name": "Confirmation",
+                      "valueDescription": "A confirmation receipt or error may be returned to the invoker based on the outcome of the MintTo request."
+                    }
+                  ]
+                },
+                "notForRepetition": false,
+                "forRepetitionOnly": false
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "Role",
+              "valueDescription": "A group or list an account can be a member or be in.",
+              "templateValue": "Issuers",
+              "propertyInvocations": [
+                {
+                  "id": "",
+                  "name": "GetIssuers",
+                  "description": "Request the the list of member accounts in the 'Issuers' role.",
+                  "request": {
+                    "controlMessageName": "GetIssuersRequest",
+                    "description": "The request",
+                    "inputParameters": []
+                  },
+                  "response": {
+                    "controlMessageName": "GetIssuersResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Members",
+                        "valueDescription": "Returning the list of accounts in the 'Issuers' role."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "600357f8-0499-47f8-87a5-eedf4ad034af",
+                  "name": "AddRoleMember",
+                  "description": "Add a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "AddRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Value is always set to 'Issuers'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be added to the 'Issuers' role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "AddRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "97e160bb-6c60-4f1d-923b-813b07b89638",
+                  "name": "RemoveRoleMember",
+                  "description": "Remove a member to the group or role property.",
+                  "request": {
+                    "controlMessageName": "RemoveRoleMemberRequest",
+                    "description": "The request",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always set to 'Issuers'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be removed from the role."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "RemoveRoleMemberResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "Added",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                },
+                {
+                  "id": "e42b1b16-074a-4d7d-b9f9-f69a2397a21b",
+                  "name": "IsInRole",
+                  "description": "Check to see if an account is in the role.",
+                  "request": {
+                    "controlMessageName": "IsInRoleRequest",
+                    "description": "The request may be internal only and not exposed externally.",
+                    "inputParameters": [
+                      {
+                        "name": "RoleName",
+                        "valueDescription": "Always be bound to 'Issuers'"
+                      },
+                      {
+                        "name": "AccountAddress",
+                        "valueDescription": "Address, name or identifier of the account to be checked."
+                      }
+                    ]
+                  },
+                  "response": {
+                    "controlMessageName": "IsInRoleRequestResponse",
+                    "description": "The response",
+                    "outputParameters": [
+                      {
+                        "name": "InRole",
+                        "valueDescription": "True or False."
+                      }
+                    ]
+                  },
+                  "notForRepetition": false,
+                  "forRepetitionOnly": false
+                }
+              ],
+              "influenceBindings": [],
+              "properties": [],
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [
+    {
+      "reference": {
+        "id": "74ce1d31-794e-4ff2-a91a-3081ca084e61",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Carbon Emission Generator",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "EG",
+          "valueDescription": "Contains one Emission Generator composite property.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetEmissionGenerator",
+              "description": "Request the Emission Generator Object.",
+              "request": {
+                "controlMessageName": "GetEmissionGeneratorRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetEmissionGeneratorResponse",
+                "outputParameters": [
+                  {
+                    "name": "EmissionGenerator",
+                    "valueDescription": "Returning the EmissionGenerator values - see control file emission-generator.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetEmissionGenerator",
+              "description": "Set the Emission Generator Object",
+              "request": {
+                "controlMessageName": "SetEmissionGeneratorRequest",
+                "inputParameters": [
+                  {
+                    "name": "EmissionGenerator",
+                    "valueDescription": "Set the EmissionGenerator values - see control file emission-generator.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetEmissionGeneratorResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "AddEmissionGenerator",
+              "description": "Add the Emission Generator Object",
+              "request": {
+                "controlMessageName": "AddEmissionGeneratorRequest",
+                "inputParameters": [
+                  {
+                    "name": "EmissionGenerator",
+                    "valueDescription": "Add the EmissionGenerator value to a repeated list - see control file emission-generator.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "AddEmissionGeneratorResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "RemoveEmissionGenerator",
+              "description": "Remove the Emission Generator Object",
+              "request": {
+                "controlMessageName": "RemoveEmissionGeneratorRequest",
+                "inputParameters": [
+                  {
+                    "name": "EmissionGenerator",
+                    "valueDescription": "Remove the EmissionGenerator value from a repeated list - see control file emission-generator.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveEmissionGeneratorResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "EmissionGenerator",
+              "valueDescription": "Contains the values for the EmissionGenerator.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "EGOId",
+                  "valueDescription": "Unique number or identifier given to each EGO.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "EGOName",
+                  "valueDescription": "Name and/or description of the process, facility, output or value which resulted in or generated the tokenized emissions. It can be the name of the process or the product or the facility associated with the emission. Essentially, the EGO is the emission generator and can refer to any level (e.g., process, facility, product, or value) based on the situation and requirements.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "OrgId",
+                  "valueDescription": "ID of the organization that is accountable for the tokenized emissions.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "OrgName",
+                  "valueDescription": "Name of the organization associated with the OrgId that is accountable for the tokenized emissions.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "SiteId",
+                  "valueDescription": "D of the site or facility where the emissions were generated.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "SiteName",
+                  "valueDescription": "Name of the facility where the emissions were generated.",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "4aabe32f-70ff-46e6-a946-b898109ef162",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Carbon Emission Scope and Properties",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CESP",
+          "valueDescription": "Contains the reported emission scope and it's category, respresented by either PCF (product carbon footprint) or a number indicating scope and category (e.g. 3.15 represents scope 3 category 15).",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetCarbonEmissionScopeAndProperties",
+              "description": "Request the Carbon Emission Scope and Properties.",
+              "request": {
+                "controlMessageName": "GetCarbonEmissionScopeAndPropertiesRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCarbonEmissionScopeAndPropertiesResponse",
+                "outputParameters": [
+                  {
+                    "name": "CarbonEmissionScopeAndProperties",
+                    "valueDescription": "Returning the CarbonEmissionScopeAndProperties values - see control file carbon-emission-scope-and-properties.proto."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": false
+            },
+            {
+              "name": "SetCarbonEmissionScopeAndProperties",
+              "description": "Set the Carbon Emission Scope and Properties",
+              "request": {
+                "controlMessageName": "SetCarbonEmissionScopeAndPropertiesRequest",
+                "inputParameters": [
+                  {
+                    "name": "CarbonEmissionScopeAndProperties",
+                    "valueDescription": "Set the CarbonEmissionScopeAndProperties values - see control file carbon-emission-scope-and-properties.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetCarbonEmissionScopeAndPropertiesResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": true,
+              "forRepetitionOnly": false
+            },
+            {
+              "name": "AddCarbonEmissionScopeAndProperties",
+              "description": "Add the Carbon Emission Scope and Properties",
+              "request": {
+                "controlMessageName": "AddCarbonEmissionScopeAndPropertiesRequest",
+                "inputParameters": [
+                  {
+                    "name": "CarbonEmissionScopeAndProperties",
+                    "valueDescription": "Add the CarbonEmissionScopeAndProperties value to a repeated list - see control file carbon-emission-scope-and-properties.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "Addcarbon-emission-scope-and-propertiesResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            },
+            {
+              "name": "RemoveCarbonEmissionScopeAndProperties",
+              "description": "Remove the Carbon Emission Scope and Properties",
+              "request": {
+                "controlMessageName": "RemoveCarbonEmissionScopeAndPropertiesRequest",
+                "inputParameters": [
+                  {
+                    "name": "CarbonEmissionScopeAndProperties",
+                    "valueDescription": "Remove the CarbonEmissionScopeAndProperties value from a repeated list - see control file carbon-emission-scope-and-properties.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "RemoveCarbonEmissionScopeAndPropertiesResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              },
+              "notForRepetition": false,
+              "forRepetitionOnly": true
+            }
+          ],
+          "properties": [
+            {
+              "name": "CarbonEmissionScopeAndProperties",
+              "valueDescription": "Contains the values for the CarbonEmissionScopeAndProperties.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "GHGId",
+                  "valueDescription": "Unique alphanumeric identifier given to a particular set of emissions, e.g., 1 metric ton CO2e, generated from a single source.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "ScopeOrPCF",
+                  "valueDescription": "Per the WRI Corporate Standard: Scope 1: Direct GHG emissions (Direct GHG emissions occur from sources that are owned or controlled by the organization, for example, emissions from combustion in owned or controlled boilers, furnaces, vehicles, etc.; emissions from chemical production in owned or controlled process equipment.) Scope 2: Indirect GHG emissions from grid-supplied electricity (Scope 2 accounts for GHG emissions from the generation of purchased electricity consumed by the organization. Purchased electricity is defined as electricity that is purchased or otherwise brought into the organizational boundary of the entity that is tokenizing emissions. Scope 2 emissions physically occur at the facility where electricity is generated.) Scope 3: Indirect GHG emissions from other sources, outside of scope 2. (Scope 3 is an optional reporting category that allows for the treatment of all other indirect emissions. Scope 3 emissions are a consequence of the activities of the company but occur from sources not owned or controlled by the company. Some examples of scope 3 activities are extraction and production of purchased materials; transportation of purchased fuels; and use of sold products and services.) NOTE: The number following the decimal for Scope 3 emissions represents the category of Scope 3 emission (e.g. Scope 3.15 would be Scope 3, Category 15).",
+                  "templateValue": ""
+                }
+              ]
+            }
+          ],
+          "propertySets": [
+            {         
+              "reference": {
+                "id":"d7607f63-5e29-424f-a991-3f05c8f0daf7",
+                "type": "PROPERTY_SET",
+                "referenceNotes": "Date Range for this Carbon Emission Scope and Properties' data.",
+                "values": {
+                  "controlUri": "",
+                  "artifactFiles": [],
+                  "maps": null
+                }
+              },
+              "representationType": "COMMON",
+              "properties":[
+                {
+                  "name": "DateRange",
+                  "valueDescription": "Contains a Date Range for the CESP's data.",
+                  "templateValue": "",
+                  "propertyInvocations": [
+                    {
+                      "name": "GetDateRange",
+                      "description": "Request the Date Range.",
+                      "request": {
+                        "controlMessageName": "GetDateRangeRequest",
+                        "inputParameters": [],
+                        "description": "The request"
+                      },
+                      "response": {
+                        "controlMessageName": "GetDateRangeResponse",
+                        "outputParameters": [
+                          {
+                            "name": "StartDate",
+                            "valueDescription": "Returning the simple date value."
+                          },
+                          {
+                            "name": "StartTimeStamp",
+                            "valueDescription": "Returning the granular start timestamp."
+                          },
+                          {
+                            "name": "EndDate",
+                            "valueDescription": "Returning the simple date value."
+                          },
+                          {
+                            "name": "EndTimeStamp",
+                            "valueDescription": "Returning the granular end timestamp."
+                          }
+                        ],
+                        "description": "The response"
+                      }
+                    },
+                    {
+                      "name": "SetDateRange",
+                      "description": "Set the Date Range entry for the CESP.",
+                      "request": {
+                        "controlMessageName": "SetDateRangeRequest",
+                        "inputParameters": [
+                          {
+                            "name": "StartDate",
+                            "valueDescription": "Set the simple date value."
+                          },
+                          {
+                            "name": "StartTimeStamp",
+                            "valueDescription": "Set the granular start timestamp."
+                          },
+                          {
+                            "name": "EndDate",
+                            "valueDescription": "Set the simple date value."
+                          },
+                          {
+                            "name": "EndTimeStamp",
+                            "valueDescription": "Set the granular end timestamp."
+                          }
+                        ],
+                        "description": "The request"
+                      },
+                      "response": {
+                        "controlMessageName": "SetDateRangeResponse",
+                        "outputParameters": [
+                          {
+                            "name": "Confirmation",
+                            "valueDescription": "Returning a confirmation for the set request."
+                          }
+                        ],
+                        "description": "The response"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reference": {
+        "id": "e8010806-0707-4c06-bfea-11a80301a9df",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Carbon Emission Attributes",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": {
+            "codeReferences": [],
+            "implementationReferences": [],
+            "resources": [],
+            "artifact": null
+          }
+        }
+      },
+      "representationType": "COMMON",
+      "properties": [
+        {
+          "name": "CEA",
+          "valueDescription": "Contains the attributes and composition of the emissions.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetCarbonEmissionAttributes",
+              "description": "Request the Carbon Emission Attributes.",
+              "request": {
+                "controlMessageName": "GetCarbonEmissionAttributesRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetCarbonEmissionAttributesResponse",
+                "outputParameters": [
+                  {
+                    "name": "CarbonEmissionAttributes",
+                    "valueDescription": "Returning the CarbonEmissionAttributes values - see control file carbon-emission-attributes.proto."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetCarbonEmissionAttributes",
+              "description": "Set the Carbon Emission Attributes.",
+              "request": {
+                "controlMessageName": "SetCarbonEmissionAttributesRequest",
+                "inputParameters": [
+                  {
+                    "name": "CarbonEmissionAttributes",
+                    "valueDescription": "Set the CarbonEmissionAttributes values - see control file carbon-emission-attributes.proto."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetCarbonEmissionAttributesResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning the value of the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ],
+          "properties": [
+            {
+              "name": "CarbonEmissionAttributes",
+              "valueDescription": "Contains the values for the CarbonEmissionAttributes.",
+              "templateValue": "",
+              "properties":
+              [
+                {
+                  "name": "PrimaryDataShare",
+                  "valueDescription": "The percentage of primary data used in emissions calculations.",
+                  "templateValue": ""
+                },
+                {
+                  "name": "ThirdPartyVerificationDone",
+                  "valueDescription": "Confirmation of third-party verification.",
+                  "templateValue": ""
+                },
+                {
+                    "name": "ThirdPartyVerifierDetails",
+                    "valueDescription": "Name or details of the third-party verifier.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "CalculationDetailsReference",
+                    "valueDescription": "Reference documentation on sources, methodologies, and supporting documents with represented emissions factors.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "Longitude",
+                    "valueDescription": "Site location in longitude degrees.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "Latitude",
+                    "valueDescription": "Site location in latitude degrees.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "GeographicArea",
+                    "valueDescription": "List the regulatory jurisdictions that apply to these emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "GeographicAreaFileLink",
+                    "valueDescription": "Link to File in acceptable data format for geographic area",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "CO2",
+                    "valueDescription": "Decompose CO2e into quantities of CO2, CH4, N2O, at a minimum, but where applicable, include the following greenhouse gasses: CO2 (and biogenic CO2), CH4, N2O, HFCs, PFCs, SF6, and NF3. This element captures the quantity of CO2 emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "BiogenicCO2",
+                    "valueDescription": "This element captures the quantity of CO2 emissions from the decomposition of plant and animal matter, or the combustion of biofuels produced from plants. Defined as carbon neutral, and reported separately from other CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "CH4",
+                    "valueDescription": "This element captures the quantity of CH4 emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "N2O",
+                    "valueDescription": "This element captures the quantity of N2O emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "HFCs",
+                    "valueDescription": "This element captures the quantity of HFC emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "PFCs",
+                    "valueDescription": "This element captures the quantity of PFC emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "SF6",
+                    "valueDescription": "This element captures the quantity of SF6 emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "NF3",
+                    "valueDescription": "This element captures the quantity of NF3 emissions associated with the CO2e emissions.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "GlobalWarmingPotentialFactors",
+                    "valueDescription": "GWP factors refer to the relative ability of each greenhouse gas to trap heat in the atmosphere over time (such as 100 years). Carbon dioxide is the reference gas with a GWP of 1. Within one year of its release, participants should use the GWP rates from the most recent IPCC Assessment Report based on a 100-year timeline to summarize greenhouse gas emissions in terms of carbon dioxide equivalents unless otherwise bound by regulatory requirements. This must be updated at the beginning of the most recent temporal boundary to the current IPCC Assessment Report. Any deviations from the most recent IPCC AR require a GWP Factor Adjustment.",
+                    "templateValue": ""
+                  },
+                  {
+                    "name": "GWPFactorAdjustment",
+                    "valueDescription": "This is a contingent field to represent  the required adjustment factor due to a deviation from the current AR GWP based on a local jurisdiction requirement to calculate CO2e with a prior GWP factor or non-GWP factor from a regulator or industry standard. This would be defined prior to minting in the accounting methodology based on rules at the time of minting. This should reference the regulatory regime (e.g., EPA) and GWP factors and is meant to address interjurisdictional accounting adjustments where one party references one GWP Factor and another party references a different standard and factor.",
+                    "templateValue": ""
+                  }
+              ]
+            }
+          ],
+          "propertySets": [
+            {         
+              "reference": {
+                "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+                "type": "PROPERTY_SET",
+                "referenceNotes": "Verified Link Property Set for this CEA's data.",
+                "values": {
+                  "controlUri": "",
+                  "artifactFiles": [],
+                  "maps": null
+                }
+              },
+              "representationType": "COMMON",
+              "properties":[
+                {
+                  "name": "VerifiedLink",
+                  "valueDescription": "Contains a Verified Link to the documentation data.",
+                  "templateValue": "",
+                  "propertyInvocations": [
+                    {
+                      "name": "GetVerifiedLink",
+                      "description": "Request the a Verified Link.",
+                      "request": {
+                        "controlMessageName": "GetVerifiedLinkRequest",
+                        "inputParameters": [],
+                        "description": "The request"
+                      },
+                      "response": {
+                        "controlMessageName": "GetVerifiedLinkResponse",
+                        "outputParameters": [
+                          {
+                            "name": "VerifiedLink",
+                            "valueDescription": "Returning the Verified Link."
+                          }
+                        ],
+                        "description": "The response"
+                      }
+                    },
+                    {
+                      "name": "SetVerifiedLink",
+                      "description": "Set the documentation entry for the CEA.",
+                      "request": {
+                        "controlMessageName": "SetVerifiedLinkRequest",
+                        "inputParameters": [
+                          {
+                            "name": "VerifiedLink",
+                            "valueDescription": "The Verified Link type to add to the CEA."
+                          }
+                        ],
+                        "description": "The request"
+                      },
+                      "response": {
+                        "controlMessageName": "SetVerifiedLinkResponse",
+                        "outputParameters": [
+                          {
+                            "name": "Confirmation",
+                            "valueDescription": "Returning a confirmation for the set request."
+                          }
+                        ],
+                        "description": "The response"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "childTokens": []
+}
