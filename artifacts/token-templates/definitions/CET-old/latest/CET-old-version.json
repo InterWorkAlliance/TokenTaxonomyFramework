@@ -32,13 +32,13 @@
     "artifactFiles": [
       {
         "content": "CONTROL",
-        "fileName": "CET.proto",
+        "fileName": "CET-old-version.proto",
         "fileData": "",
         "artifact": null
       },
       {
         "content": "UML",
-        "fileName": "CET.md",
+        "fileName": "CET-old-version.md",
         "fileData": "",
         "artifact": null
       }

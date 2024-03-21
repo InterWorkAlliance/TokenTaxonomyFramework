@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package referenceable;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "IWA.TTF.Behaviors.Referenceable";
+option java_package = "org.iwa.ttf.behaviors.referenceable";
+option java_multiple_files = true;
+
+message ReferenceRequest {
+    tokens.MessageHeader header = 1;
+    string reference = 2;
+}
+
+message ReferenceResponse {
+    tokens.MessageHeader header = 1;
+    bool confirmation = 2;
+    bytes cet_value = 3;
+}
+
+//if Delegable present
+message ReferenceByAccountRequest {
+    tokens.MessageHeader header = 1;
+    string account_id = 2;
+}
+
+//if Delegable present
+message ReferenceByAccountResponse {
+    tokens.MessageHeader header = 1;
+    bool confirmation = 2;
+    string reference = 3;
+}

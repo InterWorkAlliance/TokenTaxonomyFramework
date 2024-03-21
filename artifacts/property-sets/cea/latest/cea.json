@@ -1,0 +1,290 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"e8010806-0707-4c06-bfea-11a80301a9df",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>CEA</i>",
+      "tooling": "phCEA",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Carbon Emission Attributes",
+    "aliases": [],
+    "controlUri": "../../../../../../artifacts/property-sets/cea/cea.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this set of properties will include attributes of the GHG emissions to support verification such as Primary Data Share, third-party verification, and supporting documentation. Additionally, the properties include details of the greenhouse gasses which comprise the CO2e emissions, geo-location, and factors of global warming potential.",
+      "businessExample": "An organization minting emissions tokens will include CEA for each emission during the given temporal period.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [
+      {
+        "description": "The verified link is included in this property set.",
+        "symbol": {
+          "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+          "type": "PROPERTY_SET",
+          "visual": "&phi;<i>VL</i>",
+          "tooling": "phVL",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the CEA Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "cea.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "cea.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "CarbonEmissionAttributes",
+      "valueDescription": "Contains the values for the properties.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetCarbonEmissionAttributes",
+          "description": "Request the Carbon Emission Attributes.",
+          "request": {
+            "controlMessageName": "GetCarbonEmissionAttributesRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetCarbonEmissionAttributesResponse",
+            "outputParameters": [
+              {
+                "name": "CarbonEmissionAttributes",
+                "valueDescription": "Returning the CarbonEmissionAttributes values - see control file carbon-emission-attributes.proto."
+              }
+            ],
+            "description": "The response"
+          }
+        },
+        {
+          "name": "SetCarbonEmissionAttributes",
+          "description": "Set the Carbon Emission Attributes.",
+          "request": {
+            "controlMessageName": "SetCarbonEmissionAttributesRequest",
+            "inputParameters": [
+              {
+                "name": "CarbonEmissionAttributes",
+                "valueDescription": "Set the CarbonEmissionAttributes values - see control file carbon-emission-attributes.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetCarbonEmissionAttributesResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CarbonEmissionAttributes",
+          "valueDescription": "Contains the values for the CarbonEmissionAttributes.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "PrimaryDataShare",
+              "valueDescription": "The percentage of primary data used in emissions calculations.",
+              "templateValue": ""
+            },
+            {
+              "name": "ThirdPartyVerificationDone",
+              "valueDescription": "Confirmation of third-party verification.",
+              "templateValue": ""
+            },
+            {
+                "name": "ThirdPartyVerifierDetails",
+                "valueDescription": "Name or details of the third-party verifier.",
+                "templateValue": ""
+              },
+              {
+                "name": "CalculationDetailsReference",
+                "valueDescription": "Reference documentation on sources, methodologies, and supporting documents with represented emissions factors.",
+                "templateValue": ""
+              },
+              {
+                "name": "Longitude",
+                "valueDescription": "Site location in longitude degrees.",
+                "templateValue": ""
+              },
+              {
+                "name": "Latitude",
+                "valueDescription": "Site location in latitude degrees.",
+                "templateValue": ""
+              },
+              {
+                "name": "GeographicArea",
+                "valueDescription": "List the regulatory jurisdictions that apply to these emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "GeographicAreaFileLink",
+                "valueDescription": "Link to File in acceptable data format for geographic area",
+                "templateValue": ""
+              },
+              {
+                "name": "CO2",
+                "valueDescription": "Decompose CO2e into quantities of CO2, CH4, N2O, at a minimum, but where applicable, include the following greenhouse gasses: CO2 (and biogenic CO2), CH4, N2O, HFCs, PFCs, SF6, and NF3. This element captures the quantity of CO2 emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "BiogenicCO2",
+                "valueDescription": "This element captures the quantity of CO2 emissions from the decomposition of plant and animal matter, or the combustion of biofuels produced from plants. Defined as carbon neutral, and reported separately from other CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "CH4",
+                "valueDescription": "This element captures the quantity of CH4 emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "N2O",
+                "valueDescription": "This element captures the quantity of N2O emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "HFCs",
+                "valueDescription": "This element captures the quantity of HFC emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "PFCs",
+                "valueDescription": "This element captures the quantity of PFC emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "SF6",
+                "valueDescription": "This element captures the quantity of SF6 emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "NF3",
+                "valueDescription": "This element captures the quantity of NF3 emissions associated with the CO2e emissions.",
+                "templateValue": ""
+              },
+              {
+                "name": "GlobalWarmingPotentialFactors",
+                "valueDescription": "GWP factors refer to the relative ability of each greenhouse gas to trap heat in the atmosphere over time (such as 100 years). Carbon dioxide is the reference gas with a GWP of 1. Within one year of its release, participants should use the GWP rates from the most recent IPCC Assessment Report based on a 100-year timeline to summarize greenhouse gas emissions in terms of carbon dioxide equivalents unless otherwise bound by regulatory requirements. This must be updated at the beginning of the most recent temporal boundary to the current IPCC Assessment Report. Any deviations from the most recent IPCC AR require a GWP Factor Adjustment.",
+                "templateValue": ""
+              },
+              {
+                "name": "GWPFactorAdjustment",
+                "valueDescription": "This is a contingent field to represent  the required adjustment factor due to a deviation from the current AR GWP based on a local jurisdiction requirement to calculate CO2e with a prior GWP factor or non-GWP factor from a regulator or industry standard. This would be defined prior to minting in the accounting methodology based on rules at the time of minting. This should reference the regulatory regime (e.g., EPA) and GWP factors and is meant to address interjurisdictional accounting adjustments where one party references one GWP Factor and another party references a different standard and factor.",
+                "templateValue": ""
+              }
+          ]
+        }
+      ]      
+    }
+  ],
+  "propertySets": [
+    {         
+      "reference": {
+        "id":"ce1ca787-d018-4eb2-90e7-03b8876197bf",
+        "type": "PROPERTY_SET",
+        "referenceNotes": "Verified Link Property Set for this CEA's data.",
+        "values": {
+          "controlUri": "",
+          "artifactFiles": [],
+          "maps": null
+        }
+      },
+      "representationType": "COMMON",
+      "properties":[
+        {
+          "name": "VerifiedLink",
+          "valueDescription": "Contains a Verified Link to the documentation data.",
+          "templateValue": "",
+          "propertyInvocations": [
+            {
+              "name": "GetVerifiedLink",
+              "description": "Request the a Verified Link.",
+              "request": {
+                "controlMessageName": "GetVerifiedLinkRequest",
+                "inputParameters": [],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "GetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "Returning the Verified Link."
+                  }
+                ],
+                "description": "The response"
+              }
+            },
+            {
+              "name": "SetVerifiedLink",
+              "description": "Set the documentation entry for the CEA.",
+              "request": {
+                "controlMessageName": "SetVerifiedLinkRequest",
+                "inputParameters": [
+                  {
+                    "name": "VerifiedLink",
+                    "valueDescription": "The Verified Link type to add to the CEA."
+                  }
+                ],
+                "description": "The request"
+              },
+              "response": {
+                "controlMessageName": "SetVerifiedLinkResponse",
+                "outputParameters": [
+                  {
+                    "name": "Confirmation",
+                    "valueDescription": "Returning a confirmation for the set request."
+                  }
+                ],
+                "description": "The response"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repeated": false
+}

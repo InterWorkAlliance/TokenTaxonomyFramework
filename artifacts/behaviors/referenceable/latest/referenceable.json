@@ -1,0 +1,106 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"b3b7fc9d-b0c7-4567-bedd-4454fedbe433",
+      "type": "BEHAVIOR",
+      "visual": "<i>ref</i>",
+      "tooling": "ref",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Referenceable",
+    "aliases": [],
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this behavior will support a basic reference request returning a true or false and if true it will return token information for future use. Referenceable will accept a simple ownership query to validate that an account is the owner of the token.",
+      "businessExample": "Certain tokens will want to allow data to be referenced by outside entities.",
+      "analogies": [
+        {
+          "name": "Carbon Emissions Tokens",
+          "description": "Check to see if an account is the owner or holder of a CET token. This can be done by the emitting organization or authorized entities.",
+          "artifactDefinition": null
+        }
+      ],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "referenceable.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "referenceable.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {}
+  },
+  "invocations": [
+    {
+      "id": "45335a35-816f-410a-8907-2b35d113d758",
+      "name": "Reference",
+      "description": "A request to reference token data.",
+      "request": {
+        "controlMessageName": "ReferenceRequest",
+        "description": "The request to Reference token data.",
+        "inputParameters": [
+          {
+            "name": "DesiredReference",
+            "valueDescription": "Value associated with the desired reference token."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "ReferenceResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A true or false result"
+          },
+          {
+            "name": "CETValue",
+            "valueDescription": "Value of CET requested for reference." 
+          }
+        ],
+        "description": "The response from the ReferenceRequest."
+      }
+    },
+    {
+      "id": "009e8528-d89b-4abb-bb58-6db6dea8fea6",
+      "name": "ReferenceByAccount",
+      "description": "A request to reference specific tokens by account.",
+      "request": {
+        "controlMessageName": "ReferenceByAccountRequest",
+        "description": "The request to Reference by an account id.",
+        "inputParameters": [
+          {
+            "name": "AccountId",
+            "valueDescription": "The Id of the account to reference."
+          }
+        ]
+      },
+      "response": {
+        "controlMessageName": "ReferenceByAccountResponse",
+        "outputParameters": [
+          {
+            "name": "Confirmation",
+            "valueDescription": "A true or false result"
+          },
+          {
+            "name": "Reference",
+            "valueDescription": "A cryptographic signature that can be validated with ReferenceRequest."
+          }
+        ],
+        "description": "The response from the ReferenceByAccountRequest, if true can include a Reference for the caller to use in subsequent reference checks."
+      }
+    }
+  ],
+  "properties": []
+}

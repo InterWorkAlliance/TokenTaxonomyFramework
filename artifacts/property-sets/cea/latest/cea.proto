@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package carbonemissionattributes;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.CEA";
+option java_package = "org.iwa.ttf.propertySets.cea";
+option java_multiple_files = true;
+
+
+message CarbonEmissionAttributes{
+    int32 primary_data_share= 1;
+    string third_party_verification_done = 2; //confirmation of verification
+    string third_party_verifier_details = 3; //name or details of verifier
+    string calculation_details_reference = 4; //reference documentation on sources, methodologies, and supporting info
+    string longitude = 5;
+    string latitude = 6;
+    string geographic_area = 7; //regulatory jurisdiction(s)
+    string geographic_area_file_link = 8;
+    float co2 = 9;
+    float biogenic_co2 = 10;
+    float ch4 = 11;
+    float n2o = 12;
+    float hfcs = 13;
+    float pfcs = 14;
+    float sf6 = 15;
+    float nf3 = 16;
+    string global_warming_potential_factor  = 17;
+    string gwp_factor_adjustment = 18;
+    common.VerifiedLink information_link = 19;
+    //repeated verifiedlink.VerifiedLink media_links = 7; //Links to media
+}
+
+message GetCarbonEmissionAttributesRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetCarbonEmissionAttributesResponse {
+    tokens.MessageHeader header = 1;
+    CarbonEmissionAttributes carbon_emission_attributes = 2;
+}
+
+message SetCarbonEmissionAttributesRequest {
+    tokens.MessageHeader header = 1;
+    CarbonEmissionAttributes carbon_emission_attributes = 2;
+}
+
+message SetCarbonEmissionAttributesResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+} 
