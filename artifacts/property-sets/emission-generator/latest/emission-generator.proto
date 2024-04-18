@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package emissiongenerator;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.EG";
+option java_package = "org.iwa.ttf.propertySets.eg";
+option java_multiple_files = true;
+
+
+message EmissionGenerator{
+    string ego_id = 1;
+    string ego_name = 2;
+    string org_id = 3;
+    string org_name = 4;
+    string site_id = 5;
+    string site_name = 6;
+
+}
+
+message GetEmissionGeneratorRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetEmissionGeneratorResponse {
+    tokens.MessageHeader header = 1;
+    EmissionGenerator emission_generator = 2;
+}
+
+message SetEmissionGeneratorRequest {
+    tokens.MessageHeader header = 1;
+    EmissionGenerator emission_generator = 2;
+}
+
+message SetEmissionGeneratorResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+} 

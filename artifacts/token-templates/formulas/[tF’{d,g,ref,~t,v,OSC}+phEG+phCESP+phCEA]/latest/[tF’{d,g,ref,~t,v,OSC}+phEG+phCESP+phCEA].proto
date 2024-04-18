@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package FractionalFungible;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "IWA.TTF.TokenTemplates.FractionalFungible";
+option java_package = "org.iwa.ttf.TokenTemplates.FractionalFungible";
+option java_multiple_files = true;

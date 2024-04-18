@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package carbonemissionscopeandproperties;
+
+import "tokens.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "verified-link.proto";
+
+option csharp_namespace = "IWA.TTF.PropertySets.CESP";
+option java_package = "org.iwa.ttf.propertySets.cesp";
+option java_multiple_files = true;
+
+
+message CarbonEmissionScopeAndProperties{
+    string ghg_id= 1;
+    string scope_or_pcf = 2;//confirmation of verification
+    common.DateRange date_range = 3;
+    //repeated verifiedlink.VerifiedLink media_links = 7; //Links to media
+}
+
+message GetCarbonEmissionScopeAndPropertiesRequest {
+    tokens.MessageHeader header = 1;
+}
+
+message GetCarbonEmissionScopeAndPropertiesResponse {
+    tokens.MessageHeader header = 1;
+    CarbonEmissionScopeAndProperties carbon_emission_scope_and_properties = 2;
+}
+
+message SetCarbonEmissionScopeAndPropertiesRequest {
+    tokens.MessageHeader header = 1;
+    CarbonEmissionScopeAndProperties carbon_emission_scope_and_properties = 2;
+}
+
+message SetCarbonEmissionScopeAndPropertiesResponse {
+    tokens.MessageHeader header = 1;
+    tokens.TransactionConfirmation transaction_confirmation = 2;
+} 

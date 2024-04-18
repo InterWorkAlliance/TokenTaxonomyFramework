@@ -1,0 +1,211 @@
+{
+  "artifact": {
+    "artifactSymbol": {
+      "id":"74ce1d31-794e-4ff2-a91a-3081ca084e61",
+      "type": "PROPERTY_SET",
+      "visual": "&phi;<i>EG</i>",
+      "tooling": "phEG",
+      "version": "1.0",
+      "templateValidated": false
+    },
+    "name": "Emission Generator Object",
+    "aliases": [
+      "Source of Emissions",
+      "Individual Emitter"
+    ],
+    "controlUri": "../../../../../../artifacts/property-sets/emission-generator/emission-generator.proto",
+    "artifactDefinition": {
+      "businessDescription": "A token class that implements this set of properties will have a Carbon Emission Generator Object (EGO) with a Read/Query and Set control. An EGO has two fields that are used to identify the object to which the carbon emissions are attributed. This is useful when referencing or accounting for a fractional CET resulting from value chain emissions attributed to a specific workload or asset.",
+      "businessExample": "An emitting organization will create an EGO for each site opperated by the organization which is producing emissions. EGOs are site-specific.",
+      "analogies": [],
+      "comments": "",
+      "artifact": null
+    },
+    "dependencies": [],
+    "incompatibleWithSymbols": [],
+    "influencedBySymbols": [
+      {
+        "description": "Roles should be used to control what accounts can set the EG Property.",
+        "symbol": {
+          "id":"c32726da-9787-4dd8-8de3-d07d1733d0f6",
+          "type": "BEHAVIOR",
+          "visual": "<i>r</i>",
+          "tooling": "r",
+          "version": "1.0",
+          "templateValidated": false
+        }
+      }
+    ],
+    "artifactFiles": [
+      {
+        "content": "CONTROL",
+        "fileName": "emission-generator.proto",
+        "fileData": "",
+        "artifact": null
+      },
+      {
+        "content": "UML",
+        "fileName": "emission-generator.md",
+        "fileData": "",
+        "artifact": null
+      }
+    ],
+    "maps": {
+      "codeReferences": [],
+      "implementationReferences": [],
+      "resources": [],
+      "artifact": null
+    }
+  },
+  "representationType": "COMMON",
+  "properties": [
+    {
+      "name": "EmissionGenerator",
+      "valueDescription": "Contains the values for the Emission Generator.",
+      "templateValue": "",
+      "propertyInvocations": [
+        {
+          "name": "GetEmissionGenerator",
+          "description": "Request the Emission Generator.",
+          "request": {
+            "controlMessageName": "GetEmissionGeneratorRequest",
+            "inputParameters": [],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "GetEmissionGeneratorResponse",
+            "outputParameters": [
+              {
+                "name": "EmissionGenerator",
+                "valueDescription": "Returning the EmissionGenerator values - see control file emission-generator.proto."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "SetEmissionGenerator",
+          "description": "Set the Emission Generator",
+          "request": {
+            "controlMessageName": "SetEmissionGeneratorRequest",
+            "inputParameters": [
+              {
+                "name": "EmissionGenerator",
+                "valueDescription": "Set the EmissionGenerator values - see control file emission-generator.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "SetEmissionGeneratorResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": true,
+          "forRepetitionOnly": false
+        },
+        {
+          "name": "AddEmissionGenerator",
+          "description": "Add the Emission Generator",
+          "request": {
+            "controlMessageName": "AddEmissionGeneratorRequest",
+            "inputParameters": [
+              {
+                "name": "EmissionGenerator",
+                "valueDescription": "Add the EmissionGenerator value to a repeated list - see control file emission-generator.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "AddEmissionGeneratorResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        },
+        {
+          "name": "RemoveEmissionGenerator",
+          "description": "Remove the Emission Generator",
+          "request": {
+            "controlMessageName": "RemoveEmissionGeneratorRequest",
+            "inputParameters": [
+              {
+                "name": "EmissionGenerator",
+                "valueDescription": "Remove the EmissionGenerator value from a repeated list - see control file emission-generator.proto."
+              }
+            ],
+            "description": "The request"
+          },
+          "response": {
+            "controlMessageName": "RemoveEmissionGeneratorResponse",
+            "outputParameters": [
+              {
+                "name": "Confirmation",
+                "valueDescription": "Returning the value of the set request."
+              }
+            ],
+            "description": "The response"
+          },
+          "notForRepetition": false,
+          "forRepetitionOnly": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmissionGenerator",
+          "valueDescription": "Contains the values for the EmissionGenerator.",
+          "templateValue": "",
+          "properties":
+          [
+            {
+              "name": "EGOId",
+              "valueDescription": "Unique number or identifier given to each EGO.",
+              "templateValue": ""
+            },
+            {
+              "name": "EGOName",
+              "valueDescription": "Name and/or description of the process, facility, output or value which resulted in or generated the tokenized emissions. It can be the name of the process or the product or the facility associated with the emission. Essentially, the EGO is the emission generator and can refer to any level (e.g., process, facility, product, or value) based on the situation and requirements.",
+              "templateValue": ""
+            },
+            {
+              "name": "OrgId",
+              "valueDescription": "ID of the organization that is accountable for the tokenized emissions.",
+              "templateValue": ""
+            },
+            {
+              "name": "OrgName",
+              "valueDescription": "Name of the organization associated with the OrgId that is accountable for the tokenized emissions.",
+              "templateValue": ""
+            },
+            {
+              "name": "SiteId",
+              "valueDescription": "D of the site or facility where the emissions were generated.",
+              "templateValue": ""
+            },
+            {
+              "name": "SiteName",
+              "valueDescription": "Name of the facility where the emissions were generated.",
+              "templateValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "propertySets": [],
+  "repeated": false
+}
