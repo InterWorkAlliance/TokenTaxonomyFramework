@@ -285,7 +285,7 @@ message VerificationProcessAgreement{
             BIENNIAL = 6; //biennial claims
         }
         ClaimPeriod claim_period = 4; //period of claims
-        repeated common.TypedExtension mrv_extension_sets = 5; //list of required typed MRV extension sets used in the agreement
+        repeated common.MrvExtension mrv_extension_sets = 5; //list of required typed MRV extension sets used in the agreement
     }
     QualityStandard quality_standard = 5; //standard that is used to verify the project
     MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements

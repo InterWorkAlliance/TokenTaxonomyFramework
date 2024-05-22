@@ -325,6 +325,7 @@ enum Unit{
     TONNE = 108;
     MW_H = 109;
     KW_H = 110;
+    MULTIPLE = 111;
 }
 
 enum CreditStatus{
@@ -734,35 +735,22 @@ enum MrvExtensionContext{
     VERIFICATION_PROCESS_AGREEMENT_MRV_EXTENSION = 10; //Verification Process Agreement extension
 }
 
-message DataExtension{
+message Property{
     string key = 1; //name of the data extension
     string value = 2; //value of the data extension
-    repeated DataExtension data = 3; //data extension for nesting
 }
 
 //The MrvExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
 message MrvExtension{
-    MrvExtensionContext mrv_extension_context = 1; //type of the extension
-    oneof extension{
-        TypedExtension typed_extension = 2; //a typed extension
-        UntypedExtension untyped_extension = 3; //an untyped extension
-    }
-}
-
-//An extension that has a Json Schema
-message TypedExtension{
-    string dataSchema = 1; //the URI/URL to the Json Schema for the extension
-    string documentation = 2; //optional documentation url of the extension
-    string data = 3; //the data of the extension, must be valid against the Json Schema
-}
-
-//A schemaless extension that supports key/value pairs
-message UntypedExtension{
-    string name = 1; //name of the extension
-    string version = 2; //version of the extension
-    string description = 3; //description of the extension
-    string documentation = 4; //optional documentation url of the extension
-    repeated DataExtension data_extensions = 5; //list of data extensions
+    string id = 1; //unique identifier for the extension
+    string name = 2; //name of the extension
+    string version = 3; //version of the extension
+    string description = 4; //description of the extension
+    string documentation = 5; //optional documentation url of the extension
+    MrvExtensionContext mrv_extension_context = 6; //type of the extension
+    repeated Property properties = 7; //list of properties of the extension
+    string dataSchemaOrType = 8; //the URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data = 9; //the data of the extension
 }
 
 enum MethodologyAndTool{
