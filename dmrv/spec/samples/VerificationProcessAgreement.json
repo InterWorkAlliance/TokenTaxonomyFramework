@@ -87,15 +87,21 @@
     "claimPeriod": "Annual",
     "mrvExtensionSets": [
       {
-        "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+        "id": "",
+        "name": "",
+        "version": "",
+        "description": "",
         "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+        "mrvExtensionContext": "UnknownMrvExtension",
+        "properties": [],
+        "dataSchemaOrType": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
         "data": ""
       }
     ]
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "11/16/2023"
+    "dateString": "5/22/2024"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -103,7 +109,7 @@
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "11/16/2023"
+      "dateString": "5/22/2024"
     },
     "auditReports": [
       {

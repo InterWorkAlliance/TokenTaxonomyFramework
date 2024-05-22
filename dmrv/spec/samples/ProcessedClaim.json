@@ -17,33 +17,28 @@
   ],
   "mrvExtensions": [
     {
+      "id": "",
+      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+      "version": "1.0",
+      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+      "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
       "mrvExtensionContext": "ProcessedClaimMrvExtension",
-      "typedExtension": null,
-      "untypedExtension": {
-        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-        "version": "1.0",
-        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-        "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-        "dataExtensions": [
-          {
-            "key": "mCO2,i,d",
-            "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
-            "data": [
-              {
-                "key": "CO2",
-                "value": "2",
-                "data": []
-              },
-              {
-                "key": "y",
-                "value": "2",
-                "data": []
-              }
-            ]
-          }
-        ]
-      },
-      "extensionCase": "UntypedExtension"
+      "properties": [
+        {
+          "key": "mCO2,i,d",
+          "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y"
+        },
+        {
+          "key": "CO2",
+          "value": "2"
+        },
+        {
+          "key": "y",
+          "value": "2"
+        }
+      ],
+      "dataSchemaOrType": "",
+      "data": ""
     }
   ],
   "checkpointResults": [
@@ -65,10 +60,15 @@
       "efAfter": "",
       "mrvExtensions": [
         {
+          "id": "",
+          "name": "",
+          "version": "",
+          "description": "",
+          "documentation": "",
           "mrvExtensionContext": "UnknownMrvExtension",
-          "typedExtension": null,
-          "untypedExtension": null,
-          "extensionCase": "None"
+          "properties": [],
+          "dataSchemaOrType": "",
+          "data": ""
         }
       ]
     }

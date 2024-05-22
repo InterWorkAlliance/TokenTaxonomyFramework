@@ -12,7 +12,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -41,7 +41,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -70,7 +70,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -99,7 +99,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -128,7 +128,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -157,7 +157,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -186,7 +186,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -215,7 +215,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -244,7 +244,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1191,28 +1191,6 @@
         ],
         "type": "string"
       },
-      "DataExtension": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Date": {
         "type": "object",
         "properties": {
@@ -1322,14 +1300,6 @@
         "enum": [
           "BufferPool",
           "Refund"
-        ],
-        "type": "string"
-      },
-      "ExtensionOneofCase": {
-        "enum": [
-          "None",
-          "TypedExtension",
-          "UntypedExtension"
         ],
         "type": "string"
       },
@@ -1518,7 +1488,7 @@
           "mrvExtensionSets": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TypedExtension"
+              "$ref": "#/components/schemas/MrvExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1995,17 +1965,44 @@
       "MrvExtension": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
           "mrvExtensionContext": {
             "$ref": "#/components/schemas/MrvExtensionContext"
           },
-          "typedExtension": {
-            "$ref": "#/components/schemas/TypedExtension"
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "nullable": true,
+            "readOnly": true
           },
-          "untypedExtension": {
-            "$ref": "#/components/schemas/UntypedExtension"
+          "dataSchemaOrType": {
+            "type": "string",
+            "nullable": true
           },
-          "extensionCase": {
-            "$ref": "#/components/schemas/ExtensionOneofCase"
+          "data": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2271,6 +2268,20 @@
           "ClZkp"
         ],
         "type": "string"
+      },
+      "Property": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "QualityStandard": {
         "type": "object",
@@ -2546,7 +2557,9 @@
           "IssuingRegistry",
           "ValidationAndVerificationBody",
           "ProjectOwner",
-          "VerificationPlatformProvider"
+          "VerificationPlatformProvider",
+          "AccountableImpactOrganization",
+          "ActivityImpactModule"
         ],
         "type": "string"
       },
@@ -2638,24 +2651,6 @@
         },
         "additionalProperties": false
       },
-      "TypedExtension": {
-        "type": "object",
-        "properties": {
-          "dataSchema": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentation": {
-            "type": "string",
-            "nullable": true
-          },
-          "data": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Unit": {
         "enum": [
           "TonneCo2E",
@@ -2712,39 +2707,10 @@
           "SquareMeter",
           "Tonne",
           "MwH",
-          "KwH"
+          "KwH",
+          "Multiple"
         ],
         "type": "string"
-      },
-      "UntypedExtension": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentation": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
       },
       "Validation": {
         "type": "object",

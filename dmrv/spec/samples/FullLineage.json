@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": "",
-      "dateString": "11/28/2023"
+      "dateString": "5/22/2024"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -106,33 +106,28 @@
     ],
     "mrvExtensions": [
       {
+        "id": "",
+        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+        "version": "1.0",
+        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+        "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
         "mrvExtensionContext": "ProcessedClaimMrvExtension",
-        "typedExtension": null,
-        "untypedExtension": {
-          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-          "version": "1.0",
-          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-          "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-          "dataExtensions": [
-            {
-              "key": "mCO2,i,d",
-              "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y",
-              "data": [
-                {
-                  "key": "CO2",
-                  "value": "2",
-                  "data": []
-                },
-                {
-                  "key": "y",
-                  "value": "2",
-                  "data": []
-                }
-              ]
-            }
-          ]
-        },
-        "extensionCase": "UntypedExtension"
+        "properties": [
+          {
+            "key": "mCO2,i,d",
+            "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y"
+          },
+          {
+            "key": "CO2",
+            "value": "2"
+          },
+          {
+            "key": "y",
+            "value": "2"
+          }
+        ],
+        "dataSchemaOrType": "",
+        "data": ""
       }
     ],
     "checkpointResults": [
@@ -154,10 +149,15 @@
         "efAfter": "",
         "mrvExtensions": [
           {
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentation": "",
             "mrvExtensionContext": "UnknownMrvExtension",
-            "typedExtension": null,
-            "untypedExtension": null,
-            "extensionCase": "None"
+            "properties": [],
+            "dataSchemaOrType": "",
+            "data": ""
           }
         ]
       }
@@ -252,15 +252,21 @@
         "claimPeriod": "Annual",
         "mrvExtensionSets": [
           {
-            "dataSchema": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
             "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+            "mrvExtensionContext": "UnknownMrvExtension",
+            "properties": [],
+            "dataSchemaOrType": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
             "data": ""
           }
         ]
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "11/28/2023"
+        "dateString": "5/22/2024"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -268,7 +274,7 @@
       "audits": {
         "auditDate": {
           "dateTime": "",
-          "dateString": "11/28/2023"
+          "dateString": "5/22/2024"
         },
         "auditReports": [
           {
@@ -316,21 +322,21 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/28/2023"
+                "dateString": "5/22/2024"
               },
               "timeStamp": {
-                "seconds": 1701185484,
-                "nanos": 321455000
+                "seconds": 1716413266,
+                "nanos": 366443000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "11/28/2023"
+                "dateString": "5/22/2024"
               },
               "timeStamp": {
-                "seconds": 1701185484,
-                "nanos": 389493000
+                "seconds": 1716413266,
+                "nanos": 428701000
               }
             }
           },
@@ -352,37 +358,34 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "11/28/2023 15:31:24",
-                  "dateString": "11/28/2023"
+                  "dateTime": "05/22/2024 21:27:46",
+                  "dateString": "5/22/2024"
                 },
                 "timeStamp": {
-                  "seconds": 1701185484,
-                  "nanos": 391215000
+                  "seconds": 1716413266,
+                  "nanos": 430239000
                 }
               },
               "mrvExtensions": [
                 {
+                  "id": "",
+                  "name": "VM0007 REDD+ Methodology Framework Extension",
+                  "version": "1.6",
+                  "description": "Methodology specific data attributes being tracked.",
+                  "documentation": "",
                   "mrvExtensionContext": "SdpManifestMrvExtension",
-                  "typedExtension": null,
-                  "untypedExtension": {
-                    "name": "VM0007 REDD+ Methodology Framework Extension",
-                    "version": "1.6",
-                    "description": "Methodology specific data attributes being tracked.",
-                    "documentation": "",
-                    "dataExtensions": [
-                      {
-                        "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                        "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
-                        "data": []
-                      },
-                      {
-                        "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                        "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)",
-                        "data": []
-                      }
-                    ]
-                  },
-                  "extensionCase": "UntypedExtension"
+                  "properties": [
+                    {
+                      "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                      "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+                    },
+                    {
+                      "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                      "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+                    }
+                  ],
+                  "dataSchemaOrType": "",
+                  "data": ""
                 }
               ],
               "sdpFiles": [
@@ -394,32 +397,28 @@
                   "claimSourceAttestation": "digital_signature",
                   "mrvExtensions": [
                     {
+                      "id": "",
+                      "name": "Carbonated Concrete Device Sensor Evidence File",
+                      "version": "1.0",
+                      "description": "Sensor data values required for evidence data.",
+                      "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
                       "mrvExtensionContext": "SdpFileMrvExtension",
-                      "typedExtension": null,
-                      "untypedExtension": {
-                        "name": "Carbonated Concrete Device Sensor Evidence File",
-                        "version": "1.0",
-                        "description": "Sensor data values required for evidence data.",
-                        "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                        "dataExtensions": [
-                          {
-                            "key": "Starting Temperature Sensor Reading",
-                            "value": "31.2c",
-                            "data": []
-                          },
-                          {
-                            "key": "End Temperature Sensor Reading",
-                            "value": "50.7c",
-                            "data": []
-                          },
-                          {
-                            "key": "Dust Sensor Reading",
-                            "value": "1.0002",
-                            "data": []
-                          }
-                        ]
-                      },
-                      "extensionCase": "UntypedExtension"
+                      "properties": [
+                        {
+                          "key": "Starting Temperature Sensor Reading",
+                          "value": "31.2c"
+                        },
+                        {
+                          "key": "End Temperature Sensor Reading",
+                          "value": "50.7c"
+                        },
+                        {
+                          "key": "Dust Sensor Reading",
+                          "value": "1.0002"
+                        }
+                      ],
+                      "dataSchemaOrType": "",
+                      "data": ""
                     }
                   ]
                 }
@@ -430,38 +429,32 @@
       ],
       "mrvExtensions": [
         {
+          "id": "",
+          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+          "version": "1.0",
+          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+          "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
           "mrvExtensionContext": "ClaimMrvExtension",
-          "typedExtension": null,
-          "untypedExtension": {
-            "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-            "version": "1.0",
-            "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-            "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-            "dataExtensions": [
-              {
-                "key": "MGy,i,d",
-                "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y.",
-                "data": [
-                  {
-                    "key": "i",
-                    "value": "limestone",
-                    "data": []
-                  },
-                  {
-                    "key": "d",
-                    "value": "0.5-1.0 mm",
-                    "data": []
-                  },
-                  {
-                    "key": "y",
-                    "value": "1",
-                    "data": []
-                  }
-                ]
-              }
-            ]
-          },
-          "extensionCase": "UntypedExtension"
+          "properties": [
+            {
+              "key": "MGy,i,d",
+              "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y."
+            },
+            {
+              "key": "i",
+              "value": "limestone"
+            },
+            {
+              "key": "d",
+              "value": "0.5-1.0 mm"
+            },
+            {
+              "key": "y",
+              "value": "1"
+            }
+          ],
+          "dataSchemaOrType": "",
+          "data": ""
         }
       ],
       "activityImpactModule": {
@@ -506,14 +499,15 @@
             "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
             "mrvExtensions": [
               {
+                "id": "",
+                "name": "",
+                "version": "",
+                "description": "",
+                "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
                 "mrvExtensionContext": "AimClaimSourceMrvExtension",
-                "typedExtension": {
-                  "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
-                  "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-                  "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
-                },
-                "untypedExtension": null,
-                "extensionCase": "TypedExtension"
+                "properties": [],
+                "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+                "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
               }
             ]
           }
@@ -535,23 +529,24 @@
         ],
         "mrvExtensions": [
           {
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
             "mrvExtensionContext": "AimMrvExtension",
-            "typedExtension": {
-              "dataSchema": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
-              "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
-              "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
-            },
-            "untypedExtension": null,
-            "extensionCase": "TypedExtension"
+            "properties": [],
+            "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+            "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
           }
         ],
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "11/28/2023",
+            "validationDate": "5/22/2024",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "11/28/2023",
+            "validationExpirationDate": "5/22/2024",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",
