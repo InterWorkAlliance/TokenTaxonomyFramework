@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="fde812d52411c42641839202830ad9102dcb7465" name="document-revision">
+  <meta content="fdd82986efa40fb0b0adf9b69602acebe8d685a2" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2124,7 +2124,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-05-22">22 May 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-05-23">23 May 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2703,8 +2703,8 @@ document do not assume responsibility for any consequences or damages resulting 
      <p>Digital Measurement, Reporting and Verification</p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="accountable-impact-organization">Accountable Impact Organization<a class="self-link" href="#accountable-impact-organization"></a></dfn>
     <dd data-md>
-     <p>An Accountable Impact Organization represents an individual or organization that will undertake a set of activities to achieve a set of outcomes. The outcomes of the project are typically environmental benefits that are measured by one or more of the project’s Modular Benefit Projects (AIMs).</p>
-     <p>An Accountable Impact Organization can have multiple Modular Benefit Projects (AIMs) that are intended to achieve set of outcomes following a specific Quality Standard, i.e., methodology.</p>
+     <p>An Accountable Impact Organization represents an individual or organization that will undertake a set of activities to achieve a set of outcomes. The outcomes of the project are typically environmental benefits that are measured by one or more of the project’s Activity Impact Module (AIMs).</p>
+     <p>An Accountable Impact Organization can have multiple Activity Impact Modules (AIMs) that are intended to achieve set of outcomes following a specific Quality Standard, i.e., methodology.</p>
      <p>For example, an agricultural project may have a AIM for activities intended to remove carbon and another AIM for conserving biodiversity. This allows for an Accountable Impact Organization to have a single identity capable of having multiple types of credits issued to it.</p>
      <p>The encoding of an Accountable Impact Organization in the data model is specified in <a href="#dt-accountable-impact-organization">§ 3.3 Token &amp; Data Type: AccountableImpactOrganization</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="activity-impact-module">Activity Impact Module<a class="self-link" href="#activity-impact-module"></a></dfn> (AIM)
@@ -2935,7 +2935,7 @@ It is bound to to Quality Standard and is where claims are issued from.</p>
    <p>Each ActivityImpactModule is scoped:</p>
    <ol>
     <li data-md>
-     <p>To a parent Accountable Impact Organization, which can host multiple modularBenefitProjects</p>
+     <p>To a parent Accountable Impact Organization, which can host multiple Activity Impact Modules</p>
     <li data-md>
      <p>Is bound or mapped to a QualityStandard that matches the AIM activities</p>
     <li data-md>
