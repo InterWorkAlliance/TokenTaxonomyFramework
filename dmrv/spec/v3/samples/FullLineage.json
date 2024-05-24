@@ -1,0 +1,693 @@
+{
+  "id": "bef817d3-e178-402c-93bd-b20aab360e71",
+  "quantity": "1.41",
+  "unit": "TonneCo2E",
+  "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
+  "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
+  "coreCarbonPrinciples": {
+    "assetId": "snei219123-998sdfl-sad21-1-1.41",
+    "issuanceDate": {
+      "dateTime": "",
+      "dateString": "5/24/2024"
+    },
+    "vintage": "2018",
+    "generationType": "Generated",
+    "verificationStandard": "Puro",
+    "mitigationActivity": {
+      "category": "Removal",
+      "method": "Technological"
+    },
+    "durability": {
+      "storageType": "Biological",
+      "years": 100,
+      "degradable": {
+        "percentage": 10,
+        "factor": 5,
+        "degradationType": "Linear"
+      },
+      "reversalMitigation": {
+        "reversalRisk": "Material",
+        "insuranceType": "BufferPool",
+        "insurancePolicyOwner": "AccountableImpactOrganization",
+        "insurancePolicyLink": {
+          "id": "a08f99d1-99cc-4ff7-804d-d7fab7be0c90",
+          "uri": "https://puro.earth/mitigations/a08f99d1-99cc-4ff7-804d-d7fab7be0c90.pdf",
+          "description": "Link to the Reversal Mitigation Insurance Policy",
+          "hashProof": "98uuisdE12A0213az2133ASdfsdf",
+          "hashAlgorithm": "Sha256"
+        }
+      }
+    },
+    "replacement": null,
+    "parisAgreementCompliance": {
+      "ca": "ParisAgreementCompliant",
+      "letterOfApproval": {
+        "id": "492be7eb-0d9a-499b-9a95-e8ed8d7e4c9f",
+        "uri": "https://span.com/492be7eb-0d9a-499b-9a95-e8ed8d7e4c9f.pdf",
+        "description": "Letter of Approval for Paris Agreement Compliance",
+        "hashProof": "uuisdE12A0213az2133ASdfsdf",
+        "hashAlgorithm": "Sha256"
+      },
+      "itmoId": "CA12-EU01-SP-1234500-2023-NIO"
+    },
+    "quantifiedSdgImpacts": [
+      {
+        "unSdg": "AffordableAndCleanEnergy",
+        "description": "This project provides affordable clean energy to the surrounding community."
+      }
+    ],
+    "adaptationCoBenefits": [
+      {
+        "unSdg": "IndustryInnovationAndInfrastructure",
+        "description": "The project is contributing to the expansion of renewable infrastructure."
+      }
+    ]
+  },
+  "climateLabels": [
+    {
+      "id": "92252fdf-5c2d-4dc9-9a39-af6362a6b122",
+      "name": "Climate Neutral",
+      "description": "Climate Neutral - environmentally friendly, climate positive"
+    }
+  ],
+  "status": "Active",
+  "referencedCredits": [
+    {
+      "referencedCreditId": "16e029bb-8258-4721-b3ab-3d4493425151",
+      "registryLink": {
+        "id": "",
+        "uri": "",
+        "description": "",
+        "hashProof": "",
+        "hashAlgorithm": "Sha256"
+      },
+      "metadata": "serialized json data"
+    }
+  ],
+  "appliedToId": "",
+  "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+  "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
+  "processedClaim": {
+    "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+    "vpaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+    "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+    "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
+    "unit": "TonneCo2E",
+    "quantity": "1.41",
+    "coBenefits": [
+      {
+        "unSdg": "CleanWaterAndSanitation",
+        "description": "The project was found to significantly contribute towards the communities clean water program."
+      },
+      {
+        "unSdg": "ReducedInequalities",
+        "description": "By training and employing locals, this project is reducing inequalities in the country."
+      }
+    ],
+    "mrvExtensions": [
+      {
+        "id": "",
+        "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+        "version": "1.0",
+        "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+        "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+        "mrvExtensionContext": "ProcessedClaimMrvExtension",
+        "properties": [
+          {
+            "key": "mCO2,i,d",
+            "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y"
+          },
+          {
+            "key": "CO2",
+            "value": "2"
+          },
+          {
+            "key": "y",
+            "value": "2"
+          }
+        ],
+        "dataSchemaOrType": "",
+        "data": ""
+      }
+    ],
+    "checkpointResults": [
+      {
+        "id": "5eda007d-e136-4b21-8c27-9374447c0212",
+        "checkpointId": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+        "processedData": [
+          {
+            "manifest": {
+              "id": "bd199e99-14e0-4440-af99-03b78096a24b",
+              "version": "1",
+              "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+              "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+              "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+              "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+              "created": {
+                "date": {
+                  "dateTime": "05/24/2024 15:27:52",
+                  "dateString": "5/24/2024"
+                },
+                "timeStamp": {
+                  "seconds": 1716564472,
+                  "nanos": 694648000
+                }
+              },
+              "mrvExtensions": [
+                {
+                  "id": "",
+                  "name": "VM0007 REDD+ Methodology Framework Extension",
+                  "version": "1.6",
+                  "description": "Methodology specific data attributes being tracked.",
+                  "documentation": "",
+                  "mrvExtensionContext": "SdpManifestMrvExtension",
+                  "properties": [
+                    {
+                      "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                      "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+                    },
+                    {
+                      "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                      "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+                    }
+                  ],
+                  "dataSchemaOrType": "",
+                  "data": ""
+                }
+              ],
+              "sdpFiles": [
+                {
+                  "name": "Data from sensor",
+                  "type": "DataBinary",
+                  "description": "Primary source data from sensor.",
+                  "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+                  "claimSourceAttestation": "digital_signature",
+                  "mrvExtensions": [
+                    {
+                      "id": "",
+                      "name": "Carbonated Concrete Device Sensor Evidence File",
+                      "version": "1.0",
+                      "description": "Sensor data values required for evidence data.",
+                      "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                      "mrvExtensionContext": "SdpFileMrvExtension",
+                      "properties": [
+                        {
+                          "key": "Starting Temperature Sensor Reading",
+                          "value": "31.2c"
+                        },
+                        {
+                          "key": "End Temperature Sensor Reading",
+                          "value": "50.7c"
+                        },
+                        {
+                          "key": "Dust Sensor Reading",
+                          "value": "1.0002"
+                        }
+                      ],
+                      "dataSchemaOrType": "",
+                      "data": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "verifiedLinkToSdpFile": {
+              "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+              "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+              "description": "Link to the Span Data Package",
+              "hashProof": "asdflkdfs889fj3l437098asdfi",
+              "hashAlgorithm": "Sha256"
+            }
+          }
+        ],
+        "dateRange": {
+          "startDate": null,
+          "endDate": null
+        },
+        "efBefore": "",
+        "efAfter": "",
+        "mrvExtensions": [
+          {
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentation": "",
+            "mrvExtensionContext": "UnknownMrvExtension",
+            "properties": [],
+            "dataSchemaOrType": "",
+            "data": ""
+          }
+        ]
+      }
+    ],
+    "issuanceRequest": null,
+    "verificationProcessAgreement": {
+      "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+      "name": "Verification Process Agreement for Concrete Plant 3341",
+      "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
+      "signatories": [
+        {
+          "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
+          "name": "Puro.earth",
+          "description": "Puro.earth is the world's leading platform for engineered carbon removal. Our mission is to mobilize the economy to reward carbon net negative emissions.",
+          "signatoryRole": "IssuingRegistry",
+          "signature": {
+            "type": "JWS",
+            "jws": "epx324jkasdf883429f2lMMm8asxdz9ZW0",
+            "hasJws": true,
+            "vc": null,
+            "signatureCase": "Jws"
+          }
+        },
+        {
+          "id": "58827053-14ab-441d-8699-7108de68e687",
+          "name": "SustainCERT",
+          "description": "SustainCERT is an organization...",
+          "signatoryRole": "ValidationAndVerificationBody",
+          "signature": {
+            "type": "JWS",
+            "jws": "789908sa32980231ll132fsd89asdfa123",
+            "hasJws": true,
+            "vc": null,
+            "signatureCase": "Jws"
+          }
+        },
+        {
+          "id": "9431e6b8-9601-460b-b0e3-c3da409da3de",
+          "name": "Eco-Earth Forest Growth",
+          "description": "Eco-Earth Forest Growth is a forest management firm that...",
+          "signatoryRole": "ProjectOwner",
+          "signature": {
+            "type": "JWS",
+            "jws": "1234567890asdfasdfas",
+            "hasJws": true,
+            "vc": null,
+            "signatureCase": "Jws"
+          }
+        }
+      ],
+      "qualityStandard": {
+        "name": "Puro - Carbonated Building Materials",
+        "description": "Manufactured concrete-like building elements from steel slag (waste material from steel industry) instead of traditional cement. Basically, it’s CO2 negative concrete that removes more CO2 than its production emits.",
+        "standard": "Puro",
+        "methodologyAndTools": [
+          "VcsVm0026",
+          "VcsVm0009"
+        ],
+        "version": "1.0",
+        "coBenefits": [
+          {
+            "unSdg": "ClimateAction",
+            "description": "Climate Action, by removing carbon from the atmosphere."
+          },
+          {
+            "unSdg": "LifeOnLand",
+            "description": "Improving Life on Land, the use of the projects land to provide..."
+          }
+        ],
+        "standardLink": {
+          "id": "be062a19-133c-4626-aa2d-bcca2c510ab2",
+          "uri": "https://puro.earth/carbon-removal-methods/carbonated-building-materials",
+          "description": "Link to the Carbonated Building Materials",
+          "hashProof": "1234567890abc12fasdfw43asdfasdf342",
+          "hashAlgorithm": "Sha256"
+        }
+      },
+      "mrvRequirements": {
+        "measurementSpecification": "Iso14064",
+        "specificationLink": {
+          "id": "efc93244-030d-48b8-95a5-9204c45dd679",
+          "uri": "https://www.iso.org/standard/70964.pdf",
+          "description": "Link to the ISO 14064-3:2018 standard",
+          "hashProof": "GX1234567890abc12fasdfw43asdfasdf342",
+          "hashAlgorithm": "Sha256"
+        },
+        "precision": {
+          "low": 0,
+          "medium": 0,
+          "high": 0
+        },
+        "claimPeriod": "Annual",
+        "mrvExtensionSets": [
+          {
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
+            "mrvExtensionContext": "UnknownMrvExtension",
+            "properties": [],
+            "dataSchemaOrType": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
+            "data": ""
+          }
+        ]
+      },
+      "agreementDate": {
+        "dateTime": "",
+        "dateString": "5/24/2024"
+      },
+      "estimatedAnnualCredits": "15,000",
+      "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+      "auditSchedule": "Quinquennial",
+      "audits": {
+        "auditDate": {
+          "dateTime": "",
+          "dateString": "5/24/2024"
+        },
+        "auditReports": [
+          {
+            "id": "424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f",
+            "uri": "https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216",
+            "description": "Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216",
+            "hashProof": "0xzxWW-1234567890abcdefasdf",
+            "hashAlgorithm": "Sha256"
+          }
+        ]
+      },
+      "mrvExtensions": [],
+      "activityImpactModule": null,
+      "processedClaims": []
+    },
+    "impactClaim": {
+      "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+      "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+      "processedClaimId": "",
+      "startDate": "2021-01-01",
+      "endDate": "2021-12-31",
+      "unit": "TonneCo2E",
+      "quantity": "1.41",
+      "coBenefits": [
+        {
+          "unSdg": "ClimateAction",
+          "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance."
+        },
+        {
+          "unSdg": "CleanWaterAndSanitation",
+          "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."
+        }
+      ],
+      "checkpoints": [
+        {
+          "id": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+          "claimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+          "claimSourceIds": [
+            "147e7105-2333-4f5f-847c-6c984e5220dd"
+          ],
+          "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+          "efBefore": "0",
+          "efAfter": "1.41",
+          "checkpointDateRange": {
+            "startDate": {
+              "date": {
+                "dateTime": "",
+                "dateString": "5/24/2024"
+              },
+              "timeStamp": {
+                "seconds": 1716564472,
+                "nanos": 767416000
+              }
+            },
+            "endDate": {
+              "date": {
+                "dateTime": "",
+                "dateString": "5/24/2024"
+              },
+              "timeStamp": {
+                "seconds": 1716564472,
+                "nanos": 767471000
+              }
+            }
+          },
+          "mrvExtensions": [],
+          "spanDataPackages": [
+            {
+              "manifest": {
+                "id": "bd199e99-14e0-4440-af99-03b78096a24b",
+                "version": "1",
+                "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+                "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+                "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+                "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+                "created": {
+                  "date": {
+                    "dateTime": "05/24/2024 15:27:52",
+                    "dateString": "5/24/2024"
+                  },
+                  "timeStamp": {
+                    "seconds": 1716564472,
+                    "nanos": 767690000
+                  }
+                },
+                "mrvExtensions": [
+                  {
+                    "id": "",
+                    "name": "VM0007 REDD+ Methodology Framework Extension",
+                    "version": "1.6",
+                    "description": "Methodology specific data attributes being tracked.",
+                    "documentation": "",
+                    "mrvExtensionContext": "SdpManifestMrvExtension",
+                    "properties": [
+                      {
+                        "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                        "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+                      },
+                      {
+                        "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                        "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+                      }
+                    ],
+                    "dataSchemaOrType": "",
+                    "data": ""
+                  }
+                ],
+                "sdpFiles": [
+                  {
+                    "name": "Data from sensor",
+                    "type": "DataBinary",
+                    "description": "Primary source data from sensor.",
+                    "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+                    "claimSourceAttestation": "digital_signature",
+                    "mrvExtensions": [
+                      {
+                        "id": "",
+                        "name": "Carbonated Concrete Device Sensor Evidence File",
+                        "version": "1.0",
+                        "description": "Sensor data values required for evidence data.",
+                        "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                        "mrvExtensionContext": "SdpFileMrvExtension",
+                        "properties": [
+                          {
+                            "key": "Starting Temperature Sensor Reading",
+                            "value": "31.2c"
+                          },
+                          {
+                            "key": "End Temperature Sensor Reading",
+                            "value": "50.7c"
+                          },
+                          {
+                            "key": "Dust Sensor Reading",
+                            "value": "1.0002"
+                          }
+                        ],
+                        "dataSchemaOrType": "",
+                        "data": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              "verifiedLinkToSdpFile": {
+                "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+                "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+                "description": "Link to the Span Data Package",
+                "hashProof": "asdflkdfs889fj3l437098asdfi",
+                "hashAlgorithm": "Sha256"
+              }
+            }
+          ]
+        }
+      ],
+      "mrvExtensions": [
+        {
+          "id": "",
+          "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+          "version": "1.0",
+          "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+          "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+          "mrvExtensionContext": "ClaimMrvExtension",
+          "properties": [
+            {
+              "key": "MGy,i,d",
+              "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y."
+            },
+            {
+              "key": "i",
+              "value": "limestone"
+            },
+            {
+              "key": "d",
+              "value": "0.5-1.0 mm"
+            },
+            {
+              "key": "y",
+              "value": "1"
+            }
+          ],
+          "dataSchemaOrType": "",
+          "data": ""
+        }
+      ],
+      "activityImpactModule": {
+        "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+        "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+        "name": "Forest Plot 3341",
+        "classificationCategory": "CarbonRemoval",
+        "classificationMethod": "Natural",
+        "benefitCategory": "ClimateAction",
+        "projectScope": "CarbonCaptureAndStorage",
+        "projectType": "CarbonCaptureAndEnhancedOilRecovery",
+        "projectScale": "Medium",
+        "arbId": "",
+        "geographicLocation": {
+          "longitude": "41.40338",
+          "latitude": "2.17403",
+          "geoJsonOrKml": "{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}",
+          "geographicLocationFile": null
+        },
+        "firstYearIssuance": "2017",
+        "registryProjectId": "vef-1321-99da-1",
+        "developers": [
+          "9c6e926f-9603-45de-9933-8af01ac45f31"
+        ],
+        "sponsors": [
+          "sponsor"
+        ],
+        "claimSources": [
+          {
+            "id": "147e7105-2333-4f5f-847c-6c984e5220dd",
+            "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+            "name": "Soil Sensor Device",
+            "description": "Located in forest area e2",
+            "location": {
+              "longitude": "41.40338",
+              "latitude": "2.17403",
+              "geoJsonOrKml": "",
+              "geographicLocationFile": null
+            },
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "TonneCo2E",
+            "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
+            "mrvExtensions": [
+              {
+                "id": "",
+                "name": "",
+                "version": "",
+                "description": "",
+                "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+                "mrvExtensionContext": "AimClaimSourceMrvExtension",
+                "properties": [],
+                "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+                "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+              }
+            ]
+          }
+        ],
+        "impactClaims": [
+          {
+            "id": "",
+            "aimId": "",
+            "processedClaimId": "",
+            "startDate": "",
+            "endDate": "",
+            "unit": "TonneCo2E",
+            "quantity": "",
+            "coBenefits": [],
+            "checkpoints": [],
+            "mrvExtensions": [],
+            "activityImpactModule": null
+          }
+        ],
+        "mrvExtensions": [
+          {
+            "id": "",
+            "name": "",
+            "version": "",
+            "description": "",
+            "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
+            "mrvExtensionContext": "AimMrvExtension",
+            "properties": [],
+            "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+            "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+          }
+        ],
+        "validations": [
+          {
+            "requestDate": "2021-04-01",
+            "validationDate": "5/24/2024",
+            "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
+            "validationMethod": "ISO 14064-3:2018",
+            "validationExpirationDate": "5/24/2024",
+            "validationSteps": [
+              {
+                "validationStepName": "Project Plan",
+                "validationStepDescription": "Detailed project plan for the management of forest carbon sequestration",
+                "validationStepStatus": "Completed",
+                "validationStepDocumentLink": {
+                  "id": "456bf8d1-f090-47b1-b7c0-b539441e557e",
+                  "uri": "https://sustaincert.com/forestcarbonsequestration/projectplan.pdf",
+                  "description": "Project Plan",
+                  "hashProof": "0x32wasfd1234567890abcdef",
+                  "hashAlgorithm": "Sha256"
+                }
+              }
+            ]
+          }
+        ],
+        "attestations": [],
+        "accountableImpactOrganization": {
+          "id": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+          "name": "Eco-Earth Forest Growth",
+          "description": "The Eco-Earth Forest Growth organization is a reforestation project that aims to restore degraded land in the Amazon rainforest.",
+          "addresses": [
+            {
+              "addressType": "Legal",
+              "addressLines": [
+                "123 ABC St."
+              ],
+              "city": "Santarém",
+              "state": "PA",
+              "zip": "234123",
+              "country": "Brazil"
+            }
+          ],
+          "owners": [
+            "owner"
+          ],
+          "country": "BR",
+          "region": "SouthAmerica",
+          "informationLink": {
+            "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
+            "uri": "https://www.ecoearth.com/forest-growth.html",
+            "description": "Project Website",
+            "hashProof": "n/a",
+            "hashAlgorithm": "Sha256"
+          },
+          "mediaLinks": [
+            {
+              "id": "987c9c95-09bf-4ad5-8331-50be9805a9af",
+              "uri": "https://www.ecoearth.com/forest-growth-video.mp4",
+              "description": "Project Video",
+              "hashProof": "n/a",
+              "hashAlgorithm": "Sha256"
+            }
+          ],
+          "attestations": [],
+          "activityImpactModules": [],
+          "mrvExtensions": []
+        }
+      }
+    },
+    "asset": null
+  }
+}

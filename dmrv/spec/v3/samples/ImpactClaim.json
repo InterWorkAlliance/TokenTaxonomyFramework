@@ -1,0 +1,171 @@
+{
+  "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+  "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+  "processedClaimId": "",
+  "startDate": "2021-01-01",
+  "endDate": "2021-12-31",
+  "unit": "TonneCo2E",
+  "quantity": "1.41",
+  "coBenefits": [
+    {
+      "unSdg": "ClimateAction",
+      "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance."
+    },
+    {
+      "unSdg": "CleanWaterAndSanitation",
+      "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
+      "claimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+      "claimSourceIds": [
+        "147e7105-2333-4f5f-847c-6c984e5220dd"
+      ],
+      "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+      "efBefore": "0",
+      "efAfter": "1.41",
+      "checkpointDateRange": {
+        "startDate": {
+          "date": {
+            "dateTime": "",
+            "dateString": "5/24/2024"
+          },
+          "timeStamp": {
+            "seconds": 1716564617,
+            "nanos": 684558000
+          }
+        },
+        "endDate": {
+          "date": {
+            "dateTime": "",
+            "dateString": "5/24/2024"
+          },
+          "timeStamp": {
+            "seconds": 1716564617,
+            "nanos": 684568000
+          }
+        }
+      },
+      "mrvExtensions": [],
+      "spanDataPackages": [
+        {
+          "manifest": {
+            "id": "bd199e99-14e0-4440-af99-03b78096a24b",
+            "version": "1",
+            "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+            "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+            "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+            "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+            "created": {
+              "date": {
+                "dateTime": "05/24/2024 15:30:17",
+                "dateString": "5/24/2024"
+              },
+              "timeStamp": {
+                "seconds": 1716564617,
+                "nanos": 684578000
+              }
+            },
+            "mrvExtensions": [
+              {
+                "id": "",
+                "name": "VM0007 REDD+ Methodology Framework Extension",
+                "version": "1.6",
+                "description": "Methodology specific data attributes being tracked.",
+                "documentation": "",
+                "mrvExtensionContext": "SdpManifestMrvExtension",
+                "properties": [
+                  {
+                    "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                    "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
+                  },
+                  {
+                    "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
+                    "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
+                  }
+                ],
+                "dataSchemaOrType": "",
+                "data": ""
+              }
+            ],
+            "sdpFiles": [
+              {
+                "name": "Data from sensor",
+                "type": "DataBinary",
+                "description": "Primary source data from sensor.",
+                "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+                "claimSourceAttestation": "digital_signature",
+                "mrvExtensions": [
+                  {
+                    "id": "",
+                    "name": "Carbonated Concrete Device Sensor Evidence File",
+                    "version": "1.0",
+                    "description": "Sensor data values required for evidence data.",
+                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                    "mrvExtensionContext": "SdpFileMrvExtension",
+                    "properties": [
+                      {
+                        "key": "Starting Temperature Sensor Reading",
+                        "value": "31.2c"
+                      },
+                      {
+                        "key": "End Temperature Sensor Reading",
+                        "value": "50.7c"
+                      },
+                      {
+                        "key": "Dust Sensor Reading",
+                        "value": "1.0002"
+                      }
+                    ],
+                    "dataSchemaOrType": "",
+                    "data": ""
+                  }
+                ]
+              }
+            ]
+          },
+          "verifiedLinkToSdpFile": {
+            "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+            "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+            "description": "Link to the Span Data Package",
+            "hashProof": "asdflkdfs889fj3l437098asdfi",
+            "hashAlgorithm": "Sha256"
+          }
+        }
+      ]
+    }
+  ],
+  "mrvExtensions": [
+    {
+      "id": "",
+      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
+      "version": "1.0",
+      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
+      "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
+      "mrvExtensionContext": "ClaimMrvExtension",
+      "properties": [
+        {
+          "key": "MGy,i,d",
+          "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y."
+        },
+        {
+          "key": "i",
+          "value": "limestone"
+        },
+        {
+          "key": "d",
+          "value": "0.5-1.0 mm"
+        },
+        {
+          "key": "y",
+          "value": "1"
+        }
+      ],
+      "dataSchemaOrType": "",
+      "data": ""
+    }
+  ],
+  "activityImpactModule": null
+}
