@@ -40,10 +40,10 @@
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "mrvExtensions": [
         {
-          "id": "",
-          "name": "",
-          "version": "",
-          "description": "",
+          "id": "ef683b0a-3e54-496e-b6d2-08ba61f73c7a",
+          "name": "Concrete Device Sensor",
+          "version": "1.0",
+          "description": "A sensor device that measures the carbonation of concrete.",
           "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
           "mrvExtensionContext": "AimClaimSourceMrvExtension",
           "properties": [],

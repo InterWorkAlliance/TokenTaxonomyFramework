@@ -1493,13 +1493,8 @@
           "claimPeriod": {
             "$ref": "#/components/schemas/ClaimPeriod"
           },
-          "mrvExtensionSets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvExtension"
-            },
-            "nullable": true,
-            "readOnly": true
+          "mrvExtensionSet": {
+            "$ref": "#/components/schemas/MrvExtensionSet"
           }
         },
         "additionalProperties": false
@@ -2030,6 +2025,74 @@
           "VerificationProcessAgreementMrvExtension"
         ],
         "type": "string"
+      },
+      "MrvExtensionSet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtensionSetModule"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MrvExtensionSetModule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "PACompliance": {
         "type": "object",

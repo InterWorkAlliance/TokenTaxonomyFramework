@@ -85,23 +85,39 @@
       "high": 0
     },
     "claimPeriod": "Annual",
-    "mrvExtensionSets": [
-      {
-        "id": "",
-        "name": "",
-        "version": "",
-        "description": "",
-        "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
-        "mrvExtensionContext": "UnknownMrvExtension",
-        "properties": [],
-        "dataSchemaOrType": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
-        "data": ""
-      }
-    ]
+    "mrvExtensionSet": {
+      "id": "",
+      "name": "",
+      "version": "",
+      "description": "",
+      "documentation": "",
+      "modules": [
+        {
+          "id": "",
+          "name": "VM0007 REDD+ Methodology Framework Extension",
+          "version": "1.6",
+          "description": "Methodology specific data attributes being tracked.",
+          "documentation": "",
+          "extensions": [
+            {
+              "id": "",
+              "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+              "version": "",
+              "description": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+              "documentation": "",
+              "mrvExtensionContext": "SdpManifestMrvExtension",
+              "properties": [],
+              "dataSchemaOrType": "",
+              "data": ""
+            }
+          ]
+        }
+      ]
+    }
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "5/24/2024"
+    "dateString": "6/5/2024"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -109,7 +125,7 @@
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "5/24/2024"
+      "dateString": "6/5/2024"
     },
     "auditReports": [
       {
