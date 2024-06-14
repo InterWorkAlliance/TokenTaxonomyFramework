@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="3620032dcaa29684849f80627554b445150ffb46" name="document-revision">
+  <meta content="bd292a7bf7a89e666c1dc5ef924b9685bb39ea5f" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -3632,7 +3632,8 @@ configured to control the processing of the ImpactClaim.</p>
     <figcaption>Properties of data type MrvExtensionMessagePair</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.17" id="dt-mrv-extension-message"><span class="secno">3.17. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvextensionmessage">MrvExtensionMessage</dfn></span><a class="self-link" href="#dt-mrv-extension-message"></a></h3>
-   <p>A MRV Extension Message is a defined message that is used to communicate and drive MRV Process between the parties involved in the MRV process, i.e., the supplier, verifier, issuer.</p>
+   <p>A MRV Extension Message is a defined message that is used to communicate and drive MRV Process between the parties involved in the MRV process, i.e., the supplier, verifier, issuer. It is recommended
+    that these messages use Apache Avro and Json Schema to define the message structure, content and serialization.</p>
    <h4 class="heading settled" data-level="3.17.1" id="dt-mrv-extension-message-properties"><span class="secno">3.17.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-extension-message-properties"></a></h4>
    <figure id="mrv-extension-message-properties-table">
     <table class="data">
@@ -3677,7 +3678,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>message 
        <td>object 
        <td>M 
-       <td>The content of the message, this is a string that is defined by the verifier or verification automation. 
+       <td>The content of the message that is defined by the participants in the MRV Process. 
     </table>
     <figcaption>Properties of data type MrvExtensionMessage</figcaption>
    </figure>
