@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="bd292a7bf7a89e666c1dc5ef924b9685bb39ea5f" name="document-revision">
+  <meta content="f713a8dcb249c9edd002b381af88c9afc57f62f5" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2071,7 +2071,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-06-14">14 June 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-07-16">16 July 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2606,6 +2606,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#changelog-3.0.0-20240524"><span class="secno"></span> <span class="content">Version 3.0.0-20240428 (May 24th, 2024)</span></a>
       <li><a href="#changelog-3.0.0-20240605"><span class="secno"></span> <span class="content">Version 3.0.0-20240605 (June 5th, 2024)</span></a>
       <li><a href="#changelog-3.0.0-20240614"><span class="secno"></span> <span class="content">Version 3.0.0-20240614 (June 14th, 2024)</span></a>
+      <li><a href="#changelog-3.0.0-20240716"><span class="secno"></span> <span class="content">Version 3.0.0-20240716 (July 16th, 2024)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -3669,6 +3670,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>String 
        <td>O 
        <td>A conversation Id for the message, this is used to track the conversation between the parties. 
+      <tr>
+       <td>closed 
+       <td>Boolean 
+       <td>O 
+       <td>A boolean that indicates if the conversation is closed, is optional for use by messaging implementations. 
       <tr>
        <td>mrvExtensionContext : <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext">MrvExtensionContext</a></code> 
        <td>String 
@@ -5257,8 +5263,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.57" id="dt-itmo-id"><span class="secno">3.57. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-2293c1b4">
-    <a class="self-link" href="#example-2293c1b4"></a> 
+   <div class="example" id="example-466c6e08">
+    <a class="self-link" href="#example-466c6e08"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -8879,6 +8885,11 @@ public licenses.</p>
       <li data-md>
        <p>Added the <a data-link-type="dfn" href="#mrvextensionmessagepair" id="ref-for-mrvextensionmessagepair③">MrvExtensionMessagePair</a> array to both the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset②">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule②">MrvExtensionSetModule</a> to include message definitions in extension sets.</p>
      </ul>
+     <h3 class="heading settled" id="changelog-3.0.0-20240716"><span class="content">Version 3.0.0-20240716 (July 16th, 2024)</span><a class="self-link" href="#changelog-3.0.0-20240716"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Added the <code>Closed</code> optional property to the <a data-link-type="dfn" href="#mrvextensionmessage" id="ref-for-mrvextensionmessage③">MrvExtensionMessage</a> type to indicate that the message is closed for use in messaging implementations.</p>
+     </ul>
     </div>
    </div>
   </main>
@@ -9734,7 +9745,7 @@ window.dfnpanelData['sdp-file'] = {"dfnID": "sdp-file", "url": "#sdp-file", "dfn
 window.dfnpanelData['mrvextensionset'] = {"dfnID": "mrvextensionset", "url": "#mrvextensionset", "dfnText": "MrvExtensionSet", "refSections": [{"refs": [{"id": "ref-for-mrvextensionset"}], "title": "3.49.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionset\u2460"}], "title": "Version 3.0.0-20240605 (June 5th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionset\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionsetmodule'] = {"dfnID": "mrvextensionsetmodule", "url": "#mrvextensionsetmodule", "dfnText": "MrvExtensionSetModule", "refSections": [{"refs": [{"id": "ref-for-mrvextensionsetmodule"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2460"}], "title": "Version 3.0.0-20240605 (June 5th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionmessagepair'] = {"dfnID": "mrvextensionmessagepair", "url": "#mrvextensionmessagepair", "dfnText": "MrvExtensionMessagePair", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessagepair"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2460"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2461"}, {"id": "ref-for-mrvextensionmessagepair\u2462"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
-window.dfnpanelData['mrvextensionmessage'] = {"dfnID": "mrvextensionmessage", "url": "#mrvextensionmessage", "dfnText": "MrvExtensionMessage", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessage"}, {"id": "ref-for-mrvextensionmessage\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessage\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
+window.dfnpanelData['mrvextensionmessage'] = {"dfnID": "mrvextensionmessage", "url": "#mrvextensionmessage", "dfnText": "MrvExtensionMessage", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessage"}, {"id": "ref-for-mrvextensionmessage\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessage\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionmessage\u2462"}], "title": "Version 3.0.0-20240716 (July 16th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "3.22.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "3.23.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 3.0.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['property'] = {"dfnID": "property", "url": "#property", "dfnText": "Property", "refSections": [{"refs": [{"id": "ref-for-property"}], "title": "3.18.1. Properties"}], "external": false};
 window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.18. Data Type: MrvExtension"}], "external": false};
