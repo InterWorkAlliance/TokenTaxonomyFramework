@@ -30,26 +30,26 @@
         "startDate": {
           "date": {
             "dateTime": "",
-            "dateString": "5/24/2024"
+            "dateString": "8/1/2024"
           },
           "timeStamp": {
-            "seconds": 1716564617,
-            "nanos": 684558000
+            "seconds": 1722540643,
+            "nanos": 638386000
           }
         },
         "endDate": {
           "date": {
             "dateTime": "",
-            "dateString": "5/24/2024"
+            "dateString": "8/1/2024"
           },
           "timeStamp": {
-            "seconds": 1716564617,
-            "nanos": 684568000
+            "seconds": 1722540643,
+            "nanos": 638409000
           }
         }
       },
       "mrvExtensions": [],
-      "spanDataPackages": [
+      "dataPackages": [
         {
           "manifest": {
             "id": "bd199e99-14e0-4440-af99-03b78096a24b",
@@ -60,12 +60,12 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "05/24/2024 15:30:17",
-                "dateString": "5/24/2024"
+                "dateTime": "08/01/2024 19:30:43",
+                "dateString": "8/1/2024"
               },
               "timeStamp": {
-                "seconds": 1716564617,
-                "nanos": 684578000
+                "seconds": 1722540643,
+                "nanos": 638431000
               }
             },
             "mrvExtensions": [
@@ -87,7 +87,8 @@
                   }
                 ],
                 "dataSchemaOrType": "",
-                "data": ""
+                "data": null,
+                "serializedData": null
               }
             ],
             "sdpFiles": [
@@ -120,7 +121,8 @@
                       }
                     ],
                     "dataSchemaOrType": "",
-                    "data": ""
+                    "data": null,
+                    "serializedData": null
                   }
                 ]
               }
@@ -164,7 +166,8 @@
         }
       ],
       "dataSchemaOrType": "",
-      "data": ""
+      "data": null,
+      "serializedData": null
     }
   ],
   "activityImpactModule": null

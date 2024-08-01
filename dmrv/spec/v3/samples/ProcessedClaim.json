@@ -38,7 +38,8 @@
         }
       ],
       "dataSchemaOrType": "",
-      "data": ""
+      "data": null,
+      "serializedData": null
     }
   ],
   "checkpointResults": [
@@ -56,12 +57,12 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "05/24/2024 15:31:50",
-                "dateString": "5/24/2024"
+                "dateTime": "08/01/2024 19:31:42",
+                "dateString": "8/1/2024"
               },
               "timeStamp": {
-                "seconds": 1716564710,
-                "nanos": 348970000
+                "seconds": 1722540702,
+                "nanos": 905744000
               }
             },
             "mrvExtensions": [
@@ -83,7 +84,8 @@
                   }
                 ],
                 "dataSchemaOrType": "",
-                "data": ""
+                "data": null,
+                "serializedData": null
               }
             ],
             "sdpFiles": [
@@ -116,7 +118,8 @@
                       }
                     ],
                     "dataSchemaOrType": "",
-                    "data": ""
+                    "data": null,
+                    "serializedData": null
                   }
                 ]
               }
@@ -147,7 +150,8 @@
           "mrvExtensionContext": "UnknownMrvExtension",
           "properties": [],
           "dataSchemaOrType": "",
-          "data": ""
+          "data": null,
+          "serializedData": null
         }
       ]
     }

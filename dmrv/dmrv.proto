@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package iwa.ttf.token.sustainbility;
+package iwa.ttf.token.sustainability;
 import "sustainability/common.proto";
 import "google/protobuf/any.proto";
 option csharp_namespace = "IWA.TTF.Token.Sustainability";
@@ -95,9 +95,43 @@ message ImpactClaimCheckpoint
     string ef_before = 5; //environmental factor before activity - i.e., total emissions = 3 tCO2e
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
     common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers within the claim period.
-    common.VerifiedLink verified_link_to_checkpoint_data = 8; //a link to the claim span data package that is associated with the checkpoint.
-    repeated common.MrvExtension mrv_extensions = 9; //list of MRV extensions for the checkpoint
-    SpanDataPackage span_data_package = 10; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+    repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions for the checkpoint
+    repeated DataPackage data_packages = 9; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+}
+
+//Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
+message DataPackage{
+    message Manifest{
+        string id = 1; //unique identifier
+        string version = 2; //version of the SDP specification
+        string aio_id = 3; //id of the accountable impact organization
+        string aim_id = 4; //id of the activity impact module
+        string claimId = 5; //id of the claim
+        string project_developer_id = 6; //id of the project developer submitting the SDP
+        common.DatePoint created = 7; //date the SDP was created
+        repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions
+        message SdpFile{
+            string name = 1; //name of the file
+            enum FileType
+            {
+                DATA_BINARY = 0; //binary data file
+                DATA_CSV = 1; //csv data file
+                DATA_JSON = 2; //json data file
+                DATA_XML = 3; //xml data file
+                DATA_PDF = 4; //pdf data file
+                DATA_AVRO = 5; //avro data file
+                DATA_OTHER = 6; //other data file
+            }
+            FileType type = 2; //type of the file
+            string description = 3; //description of the file
+            string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
+            string claim_source_attestation = 5; //claim source attestation or signature for the file
+            repeated common.MrvExtension mrv_extensions = 6; //mrv extensions for the file
+        }
+        repeated SdpFile sdp_files = 9; //list of files in the SDP
+    }
+    Manifest manifest = 1; //manifest of the SDP
+    common.VerifiedLink verified_link_to_sdp_file = 2; //a link to the checkpoint  data package that is associated with the checkpoint.
 }
 
 message ImpactClaim
@@ -132,7 +166,7 @@ message ProcessedClaim
     message CheckpointResult{
         string id = 1; //the id for the processed checkpoint
         string checkpoint_id = 2; //The unique identifier for the corresponding ImpactClaimCheckpoint being processed.
-        common.VerifiedLink link_to_verification_data = 3; //Processed data findings
+        repeated DataPackage processed_data = 3; //Processed data findings, one for each data package in the checkpoint.
         common.DateRange date_range = 4; //Date range for the checkpoints processed
         string ef_before = 5; //verified environmental factor before project activities 
         string ef_after = 6; //verified environmental factor after project activities
@@ -285,7 +319,7 @@ message VerificationProcessAgreement{
             BIENNIAL = 6; //biennial claims
         }
         ClaimPeriod claim_period = 4; //period of claims
-        repeated common.MrvExtension mrv_extension_sets = 5; //list of required typed MRV extension sets used in the agreement
+        common.MrvExtensionSet mrv_extension_set = 5; //the MRV extension set used in the agreement
     }
     QualityStandard quality_standard = 5; //standard that is used to verify the project
     MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements
@@ -303,35 +337,4 @@ message VerificationProcessAgreement{
     repeated ProcessedClaim processed_claims = 14; //optional, for object navigation, the processed claims that have been processed under the agreement
 }
 
-//Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
-message SpanDataPackage{
-    message Manifest{
-        string id = 1; //unique identifier
-        string version = 2; //version of the SDP specification
-        string aio_id = 3; //id of the accountable impact organization
-        string aim_id = 4; //id of the activity impact module
-        string claimId = 5; //id of the claim
-        string project_developer_id = 6; //id of the project developer submitting the SDP
-        common.DatePoint created = 7; //date the SDP was created
-        repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions
-        message SdpFile{
-            string name = 1; //name of the file
-            enum FileType
-            {
-                DATA_BINARY = 0; //binary data file
-                DATA_CSV = 1; //csv data file
-                DATA_JSON = 2; //json data file
-                DATA_XML = 3; //xml data file
-                DATA_PDF = 4; //pdf data file
-                DATA_OTHER = 5; //other data file
-            }
-            FileType type = 2; //type of the file
-            string description = 3; //description of the file
-            string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
-            string claim_source_attestation = 5; //claim source attestation or signature for the file
-            repeated common.MrvExtension mrv_extensions = 6; //mrv extensions for the file
-        }
-        repeated SdpFile sdp_files = 9; //list of files in the SDP
-    }
-    Manifest manifest = 1; //manifest of the SDP
-}
+

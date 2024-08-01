@@ -87,7 +87,11 @@
               "mrvExtensionContext": "AimClaimSourceMrvExtension",
               "properties": [],
               "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
-              "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+              "data": null,
+              "serializedData": {
+                "type": "",
+                "value": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+              }
             }
           ]
         }
@@ -117,16 +121,20 @@
           "mrvExtensionContext": "AimMrvExtension",
           "properties": [],
           "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
-          "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+          "data": null,
+          "serializedData": {
+            "type": "",
+            "value": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+          }
         }
       ],
       "validations": [
         {
           "requestDate": "2021-04-01",
-          "validationDate": "5/24/2024",
+          "validationDate": "8/1/2024",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": "5/24/2024",
+          "validationExpirationDate": "8/1/2024",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",

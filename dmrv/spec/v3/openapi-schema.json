@@ -208,7 +208,7 @@
         }
       }
     },
-    "/DMrv/getSpanDataPackage": {
+    "/DMrv/getDataPackage": {
       "get": {
         "tags": [
           "DMrv"
@@ -219,17 +219,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/SpanDataPackage"
+                  "$ref": "#/components/schemas/DataPackage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SpanDataPackage"
+                  "$ref": "#/components/schemas/DataPackage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SpanDataPackage"
+                  "$ref": "#/components/schemas/DataPackage"
                 }
               }
             }
@@ -513,6 +513,20 @@
         },
         "additionalProperties": false
       },
+      "AnyData": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Attestation": {
         "type": "object",
         "properties": {
@@ -676,7 +690,7 @@
           "processedData": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SpanDataPackage"
+              "$ref": "#/components/schemas/DataPackage"
             },
             "nullable": true,
             "readOnly": true
@@ -1196,6 +1210,18 @@
         ],
         "type": "string"
       },
+      "DataPackage": {
+        "type": "object",
+        "properties": {
+          "manifest": {
+            "$ref": "#/components/schemas/Manifest"
+          },
+          "verifiedLinkToSdpFile": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          }
+        },
+        "additionalProperties": false
+      },
       "Date": {
         "type": "object",
         "properties": {
@@ -1458,10 +1484,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "spanDataPackages": {
+          "dataPackages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SpanDataPackage"
+              "$ref": "#/components/schemas/DataPackage"
             },
             "nullable": true,
             "readOnly": true
@@ -1553,6 +1579,13 @@
           "Iso14064",
           "Iso140641",
           "Iso140642"
+        ],
+        "type": "string"
+      },
+      "MessageType": {
+        "enum": [
+          "Request",
+          "Response"
         ],
         "type": "string"
       },
@@ -2004,8 +2037,10 @@
             "nullable": true
           },
           "data": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/Any"
+          },
+          "serializedData": {
+            "$ref": "#/components/schemas/AnyData"
           }
         },
         "additionalProperties": false
@@ -2025,6 +2060,79 @@
           "VerificationProcessAgreementMrvExtension"
         ],
         "type": "string"
+      },
+      "MrvExtensionMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageType": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "senderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "closed": {
+            "type": "boolean"
+          },
+          "hasClosed": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "mrvExtensionContext": {
+            "$ref": "#/components/schemas/MrvExtensionContext"
+          },
+          "message": {
+            "$ref": "#/components/schemas/Any"
+          },
+          "serializedMessage": {
+            "$ref": "#/components/schemas/AnyData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MrvExtensionMessagePair": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "request": {
+            "$ref": "#/components/schemas/MrvExtensionMessage"
+          },
+          "response": {
+            "$ref": "#/components/schemas/MrvExtensionMessage"
+          }
+        },
+        "additionalProperties": false
       },
       "MrvExtensionSet": {
         "type": "object",
@@ -2053,6 +2161,22 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MrvExtensionSetModule"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtensionMessagePair"
             },
             "nullable": true,
             "readOnly": true
@@ -2087,6 +2211,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtensionMessagePair"
             },
             "nullable": true,
             "readOnly": true
@@ -2648,18 +2780,6 @@
           "VerifiedCredential"
         ],
         "type": "string"
-      },
-      "SpanDataPackage": {
-        "type": "object",
-        "properties": {
-          "manifest": {
-            "$ref": "#/components/schemas/Manifest"
-          },
-          "verifiedLinkToSdpFile": {
-            "$ref": "#/components/schemas/VerifiedLink"
-          }
-        },
-        "additionalProperties": false
       },
       "Standard": {
         "enum": [

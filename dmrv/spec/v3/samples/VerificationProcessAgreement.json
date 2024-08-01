@@ -108,16 +108,20 @@
               "mrvExtensionContext": "SdpManifestMrvExtension",
               "properties": [],
               "dataSchemaOrType": "",
-              "data": ""
+              "data": null,
+              "serializedData": null
             }
-          ]
+          ],
+          "messages": []
         }
-      ]
+      ],
+      "extensions": [],
+      "messages": []
     }
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "6/5/2024"
+    "dateString": "8/1/2024"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -125,7 +129,7 @@
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "6/5/2024"
+      "dateString": "8/1/2024"
     },
     "auditReports": [
       {

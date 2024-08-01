@@ -1,0 +1,90 @@
+{
+  "manifest": {
+    "id": "string",
+    "version": "string",
+    "aioId": "string",
+    "aimId": "string",
+    "claimId": "string",
+    "projectDeveloperId": "string",
+    "created": {
+      "date": {
+        "dateTime": "string",
+        "dateString": "string"
+      },
+      "timeStamp": {
+        "seconds": 0,
+        "nanos": 0
+      }
+    },
+    "mrvExtensions": [
+      {
+        "id": "string",
+        "name": "string",
+        "version": "string",
+        "description": "string",
+        "documentation": "string",
+        "mrvExtensionContext": "UnknownMrvExtension",
+        "properties": [
+          {
+            "key": "string",
+            "value": "string"
+          }
+        ],
+        "dataSchemaOrType": "string",
+        "data": {
+          "typeUrl": "string",
+          "value": [
+            0
+          ]
+        },
+        "serializedData": {
+          "type": "string",
+          "value": "string"
+        }
+      }
+    ],
+    "sdpFiles": [
+      {
+        "name": "string",
+        "type": "DataBinary",
+        "description": "string",
+        "claimSourceId": "string",
+        "claimSourceAttestation": "string",
+        "mrvExtensions": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "mrvExtensionContext": "UnknownMrvExtension",
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ],
+            "dataSchemaOrType": "string",
+            "data": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "serializedData": {
+              "type": "string",
+              "value": "string"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "verifiedLinkToSdpFile": {
+    "id": "string",
+    "uri": "string",
+    "description": "string",
+    "hashProof": "string",
+    "hashAlgorithm": "Sha256"
+  }
+}

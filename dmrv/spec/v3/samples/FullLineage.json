@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": "",
-      "dateString": "5/24/2024"
+      "dateString": "8/1/2024"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -127,7 +127,8 @@
           }
         ],
         "dataSchemaOrType": "",
-        "data": ""
+        "data": null,
+        "serializedData": null
       }
     ],
     "checkpointResults": [
@@ -145,12 +146,12 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "05/24/2024 15:27:52",
-                  "dateString": "5/24/2024"
+                  "dateTime": "08/01/2024 19:29:01",
+                  "dateString": "8/1/2024"
                 },
                 "timeStamp": {
-                  "seconds": 1716564472,
-                  "nanos": 694648000
+                  "seconds": 1722540541,
+                  "nanos": 492631000
                 }
               },
               "mrvExtensions": [
@@ -172,7 +173,8 @@
                     }
                   ],
                   "dataSchemaOrType": "",
-                  "data": ""
+                  "data": null,
+                  "serializedData": null
                 }
               ],
               "sdpFiles": [
@@ -205,7 +207,8 @@
                         }
                       ],
                       "dataSchemaOrType": "",
-                      "data": ""
+                      "data": null,
+                      "serializedData": null
                     }
                   ]
                 }
@@ -236,7 +239,8 @@
             "mrvExtensionContext": "UnknownMrvExtension",
             "properties": [],
             "dataSchemaOrType": "",
-            "data": ""
+            "data": null,
+            "serializedData": null
           }
         ]
       }
@@ -329,23 +333,43 @@
           "high": 0
         },
         "claimPeriod": "Annual",
-        "mrvExtensionSets": [
-          {
-            "id": "",
-            "name": "",
-            "version": "",
-            "description": "",
-            "documentation": "EXAMPLE: https://example.com/mrv-extensions/a-sample-mrv-extension/",
-            "mrvExtensionContext": "UnknownMrvExtension",
-            "properties": [],
-            "dataSchemaOrType": "https://example.schema.com/mrv-extension/v1.0/a-sample-mrv-extension.json",
-            "data": ""
-          }
-        ]
+        "mrvExtensionSet": {
+          "id": "",
+          "name": "",
+          "version": "",
+          "description": "",
+          "documentation": "",
+          "modules": [
+            {
+              "id": "",
+              "name": "VM0007 REDD+ Methodology Framework Extension",
+              "version": "1.6",
+              "description": "Methodology specific data attributes being tracked.",
+              "documentation": "",
+              "extensions": [
+                {
+                  "id": "",
+                  "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
+                  "version": "",
+                  "description": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
+                  "documentation": "",
+                  "mrvExtensionContext": "SdpManifestMrvExtension",
+                  "properties": [],
+                  "dataSchemaOrType": "",
+                  "data": null,
+                  "serializedData": null
+                }
+              ],
+              "messages": []
+            }
+          ],
+          "extensions": [],
+          "messages": []
+        }
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "5/24/2024"
+        "dateString": "8/1/2024"
       },
       "estimatedAnnualCredits": "15,000",
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -353,7 +377,7 @@
       "audits": {
         "auditDate": {
           "dateTime": "",
-          "dateString": "5/24/2024"
+          "dateString": "8/1/2024"
         },
         "auditReports": [
           {
@@ -401,26 +425,26 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "5/24/2024"
+                "dateString": "8/1/2024"
               },
               "timeStamp": {
-                "seconds": 1716564472,
-                "nanos": 767416000
+                "seconds": 1722540541,
+                "nanos": 566369000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "5/24/2024"
+                "dateString": "8/1/2024"
               },
               "timeStamp": {
-                "seconds": 1716564472,
-                "nanos": 767471000
+                "seconds": 1722540541,
+                "nanos": 566409000
               }
             }
           },
           "mrvExtensions": [],
-          "spanDataPackages": [
+          "dataPackages": [
             {
               "manifest": {
                 "id": "bd199e99-14e0-4440-af99-03b78096a24b",
@@ -431,12 +455,12 @@
                 "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
                 "created": {
                   "date": {
-                    "dateTime": "05/24/2024 15:27:52",
-                    "dateString": "5/24/2024"
+                    "dateTime": "08/01/2024 19:29:01",
+                    "dateString": "8/1/2024"
                   },
                   "timeStamp": {
-                    "seconds": 1716564472,
-                    "nanos": 767690000
+                    "seconds": 1722540541,
+                    "nanos": 566568000
                   }
                 },
                 "mrvExtensions": [
@@ -458,7 +482,8 @@
                       }
                     ],
                     "dataSchemaOrType": "",
-                    "data": ""
+                    "data": null,
+                    "serializedData": null
                   }
                 ],
                 "sdpFiles": [
@@ -491,7 +516,8 @@
                           }
                         ],
                         "dataSchemaOrType": "",
-                        "data": ""
+                        "data": null,
+                        "serializedData": null
                       }
                     ]
                   }
@@ -535,7 +561,8 @@
             }
           ],
           "dataSchemaOrType": "",
-          "data": ""
+          "data": null,
+          "serializedData": null
         }
       ],
       "activityImpactModule": {
@@ -588,7 +615,11 @@
                 "mrvExtensionContext": "AimClaimSourceMrvExtension",
                 "properties": [],
                 "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
-                "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+                "data": null,
+                "serializedData": {
+                  "type": "",
+                  "value": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
+                }
               }
             ]
           }
@@ -618,16 +649,20 @@
             "mrvExtensionContext": "AimMrvExtension",
             "properties": [],
             "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
-            "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+            "data": null,
+            "serializedData": {
+              "type": "",
+              "value": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
+            }
           }
         ],
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "5/24/2024",
+            "validationDate": "8/1/2024",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "5/24/2024",
+            "validationExpirationDate": "8/1/2024",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",
