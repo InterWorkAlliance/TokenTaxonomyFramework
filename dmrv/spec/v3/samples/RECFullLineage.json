@@ -316,7 +316,7 @@
                   "version": "1.6",
                   "description": "Methodology specific data attributes being tracked.",
                   "documentation": "",
-                  "mrvExtensionContext": "SdpManifestMrvExtension",
+                  "mrvExtensionContext": "DataPackageManifestMrvExtension",
                   "properties": [
                     {
                       "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
@@ -331,7 +331,7 @@
                   "data": ""
                 }
               ],
-              "sdpFiles": [
+              "dataFiles": [
                 {
                   "name": "Data from sensor",
                   "type": "DataBinary",
@@ -344,8 +344,8 @@
                       "name": "Carbonated Concrete Device Sensor Evidence File",
                       "version": "1.0",
                       "description": "Sensor data values required for evidence data.",
-                      "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                      "mrvExtensionContext": "SdpFileMrvExtension",
+                      "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/data-file",
+                      "mrvExtensionContext": "DataPackageFileMrvExtension",
                       "properties": [
                         {
                           "key": "Starting Temperature Sensor Reading",

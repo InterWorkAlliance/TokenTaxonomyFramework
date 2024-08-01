@@ -43,7 +43,7 @@
         }
       }
     ],
-    "sdpFiles": [
+    "dataFiles": [
       {
         "name": "string",
         "type": "DataBinary",
@@ -80,7 +80,7 @@
       }
     ]
   },
-  "verifiedLinkToSdpFile": {
+  "verifiedLinkToDataPackage": {
     "id": "string",
     "uri": "string",
     "description": "string",

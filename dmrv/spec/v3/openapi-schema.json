@@ -1210,13 +1210,46 @@
         ],
         "type": "string"
       },
+      "DataFile": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/FileType"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "claimSourceAttestation": {
+            "type": "string",
+            "nullable": true
+          },
+          "mrvExtensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DataPackage": {
         "type": "object",
         "properties": {
           "manifest": {
             "$ref": "#/components/schemas/Manifest"
           },
-          "verifiedLinkToSdpFile": {
+          "verifiedLinkToDataPackage": {
             "$ref": "#/components/schemas/VerifiedLink"
           }
         },
@@ -1563,10 +1596,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "sdpFiles": {
+          "dataFiles": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SdpFile"
+              "$ref": "#/components/schemas/DataFile"
             },
             "nullable": true,
             "readOnly": true
@@ -2053,8 +2086,8 @@
           "AimClaimSourceMrvExtension",
           "ClaimMrvExtension",
           "CheckpointMrvExtension",
-          "SdpManifestMrvExtension",
-          "SdpFileMrvExtension",
+          "DataPackageManifestMrvExtension",
+          "DataPackageFileMrvExtension",
           "CheckpointResultMrvExtension",
           "ProcessedClaimMrvExtension",
           "VerificationProcessAgreementMrvExtension"
@@ -2697,39 +2730,6 @@
           "Material"
         ],
         "type": "string"
-      },
-      "SdpFile": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "$ref": "#/components/schemas/FileType"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimSourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "claimSourceAttestation": {
-            "type": "string",
-            "nullable": true
-          },
-          "mrvExtensions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvExtension"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
       },
       "Signatory": {
         "type": "object",

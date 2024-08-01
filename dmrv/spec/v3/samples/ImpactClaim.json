@@ -75,7 +75,7 @@
                 "version": "1.6",
                 "description": "Methodology specific data attributes being tracked.",
                 "documentation": "",
-                "mrvExtensionContext": "SdpManifestMrvExtension",
+                "mrvExtensionContext": "DataPackageManifestMrvExtension",
                 "properties": [
                   {
                     "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
@@ -91,7 +91,7 @@
                 "serializedData": null
               }
             ],
-            "sdpFiles": [
+            "dataFiles": [
               {
                 "name": "Data from sensor",
                 "type": "DataBinary",
@@ -104,8 +104,8 @@
                     "name": "Carbonated Concrete Device Sensor Evidence File",
                     "version": "1.0",
                     "description": "Sensor data values required for evidence data.",
-                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                    "mrvExtensionContext": "SdpFileMrvExtension",
+                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/data-file",
+                    "mrvExtensionContext": "DataPackageFileMrvExtension",
                     "properties": [
                       {
                         "key": "Starting Temperature Sensor Reading",
@@ -128,7 +128,7 @@
               }
             ]
           },
-          "verifiedLinkToSdpFile": {
+          "verifiedLinkToDataPackage": {
             "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
             "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
             "description": "Link to the Span Data Package",

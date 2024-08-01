@@ -105,7 +105,7 @@
               "version": "",
               "description": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
               "documentation": "",
-              "mrvExtensionContext": "SdpManifestMrvExtension",
+              "mrvExtensionContext": "DataPackageManifestMrvExtension",
               "properties": [],
               "dataSchemaOrType": "",
               "data": null,
