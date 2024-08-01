@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="65bdb62ab8f36ea309f8ac84fab600ba9ae938e4" name="document-revision">
+  <meta content="073bfac51f225ff6e19e50d375aae2cc83e758b2" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2155,9 +2155,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-impact-claim-checkpoint-properties"><span class="secno">3.10.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-span-data-package"><span class="secno">3.11</span> <span class="content">Data Type: <span>DataPackage</span></span></a>
+       <a href="#dt-data-package"><span class="secno">3.11</span> <span class="content">Data Type: <span>DataPackage</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-span-data-package-properties"><span class="secno">3.11.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-data-package-properties"><span class="secno">3.11.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-manifest"><span class="secno">3.12</span> <span class="content">Data Type: <span>Manifest</span></span></a>
@@ -2165,9 +2165,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-manifest-properties"><span class="secno">3.12.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-sdp-file"><span class="secno">3.13</span> <span class="content">Data Type: <span>Sdp-File</span></span></a>
+       <a href="#dt-file"><span class="secno">3.13</span> <span class="content">Data Type: <span>Sdp-File</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-sdp-file-properties"><span class="secno">3.13.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-file-properties"><span class="secno">3.13.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-mrv-extension-set"><span class="secno">3.14</span> <span class="content">Data Type: <span>MrvExtensionSet</span></span></a>
@@ -2415,9 +2415,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-message-type-json"><span class="secno">3.63.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-sdp-file-type"><span class="secno">3.64</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
+       <a href="#dt-file-type"><span class="secno">3.64</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
        <ol class="toc">
-        <li><a href="#dt-sdp-file-type-json"><span class="secno">3.64.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-file-type-json"><span class="secno">3.64.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
        <a href="#dt-hash-algorithm"><span class="secno">3.65</span> <span class="content">Data Type: <span><code>HashAlgorithm</code></span></span></a>
@@ -2592,7 +2592,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#example-accountable-impact-organization"><span class="secno">4.2</span> <span class="content">Example Accountable Impact Organization</span></a>
       <li><a href="#example-activity-impact-module"><span class="secno">4.3</span> <span class="content">Example Activity Impact Module</span></a>
       <li><a href="#example-impact-claim"><span class="secno">4.4</span> <span class="content">Example Impact Claim</span></a>
-      <li><a href="#example-span-data-package"><span class="secno">4.5</span> <span class="content">Example Span Data Package</span></a>
+      <li><a href="#example-data-package"><span class="secno">4.5</span> <span class="content">Example Data Package</span></a>
       <li><a href="#example-processed-claim"><span class="secno">4.6</span> <span class="content">Example Processed Claim</span></a>
       <li><a href="#example-verification-process-agreement"><span class="secno">4.7</span> <span class="content">Example Verification Process Agreement</span></a>
       <li><a href="#example-cru"><span class="secno">4.8</span> <span class="content">Example Carbon Reduction or Removal Unit</span></a>
@@ -2705,14 +2705,14 @@ these platforms or services may automate and prepare findings data that are eval
     <dd data-md>
      <p>A impact claim checkpoint is a collection of the evidence data submitted periodically to an impact claim. The checkpoint is a cryptographic fingerprint of the evidence data to establish the provanance and integity of the evidence being submitted.</p>
      <p>The encoding of an Impact Claim Checkpoint in the data model is specified in <a href="#dt-impact-claim-checkpoint">§ 3.10 Data Type: ImpactClaimCheckpoint</a></p>
-    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="span-data-package">Span Data Package<a class="self-link" href="#span-data-package"></a></dfn>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="data-package">Data Package<a class="self-link" href="#data-package"></a></dfn>
     <dd data-md>
-     <p>A span data package, SDP, is the data package file, i.e. .zip file, that contains the raw evidence data being submitted with a checkpoint.</p>
-     <p>The encoding of a Span Data Package in the data model is specified in <a href="#dt-span-data-package">§ 3.11 Data Type: DataPackage</a></p>
-    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="sdp-manifest">SDP Manifest<a class="self-link" href="#sdp-manifest"></a></dfn>
+     <p>A data package, is the data package file, i.e. .zip file, that contains the raw evidence data being submitted with a checkpoint.</p>
+     <p>The encoding of a Data Package in the data model is specified in <a href="#dt-data-package">§ 3.11 Data Type: DataPackage</a></p>
+    <dt data-md><dfn data-dfn-type="dfn" data-noexport id="data-package-manifest">Data Package Manifest<a class="self-link" href="#data-package-manifest"></a></dfn>
     <dd data-md>
-     <p>A span data package has a manifest.json file in the root of the .zip file that contains the metadata about the contents of the file as well as extensible metadata that is specific for the quality standard being followed.</p>
-     <p>The encoding of a SDP Manifest in the data model is specified in <a href="#dt-manifest">§ 3.12 Data Type: Manifest</a></p>
+     <p>A data package has a manifest.json file in the root of the .zip file that contains the metadata about the contents of the file as well as extensible metadata that is specific for the quality standard being followed.</p>
+     <p>The encoding of a Manifest in the data model is specified in <a href="#dt-manifest">§ 3.12 Data Type: Manifest</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="processed-claim">Processed Claim<a class="self-link" href="#processed-claim"></a></dfn>
     <dd data-md>
      <p>A processed claim is a corresponding collection of checkpoint results that are generated by the validator.</p>
@@ -3343,16 +3343,16 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-datapackages"><code>dataPackages</code><a class="self-link" href="#element-attrdef-impactclaimcheckpoint-datapackages"></a></dfn> : <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage①">DataPackage</a> 
        <td>Array 
        <td>O 
-       <td>Optional, collect and store the span data packages for the checkpoint, this contains be the Json string contents of the manifest.json in the Span Data Package root and the <a href="#dt-verified-link">§ 3.35 Data Type: VerifiedLink</a> to the data file. See <a href="#dt-span-data-package">§ 3.11 Data Type: DataPackage</a> for details. 
+       <td>Optional, collect and store the data packages for the checkpoint, this contains be the Json string contents of the manifest.json in the Data Package root and the <a href="#dt-verified-link">§ 3.35 Data Type: VerifiedLink</a> to the data file. See <a href="#dt-data-package">§ 3.11 Data Type: DataPackage</a> for details. 
     </table>
     <figcaption>Properties of data type ImpactClaimCheckpoint</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.11" id="dt-span-data-package"><span class="secno">3.11. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="datapackage">DataPackage</dfn></span><a class="self-link" href="#dt-span-data-package"></a></h3>
-   <p>A span data package is an index and metadata file that is stored in the root of the DataPackage file
+   <h3 class="heading settled" data-level="3.11" id="dt-data-package"><span class="secno">3.11. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="datapackage">DataPackage</dfn></span><a class="self-link" href="#dt-data-package"></a></h3>
+   <p>A data package is an index and metadata file that is stored in the root of the DataPackage file
     that is submitted with a checkpoint. It contains meta data about the evidence files contained in the package
     as well as extensible MRV data that is specific to the Quality Standard/Methodology the AIM is bound to.</p>
-   <h4 class="heading settled" data-level="3.11.1" id="dt-span-data-package-properties"><span class="secno">3.11.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-span-data-package-properties"></a></h4>
-   <figure id="span-data-package-properties-table">
+   <h4 class="heading settled" data-level="3.11.1" id="dt-data-package-properties"><span class="secno">3.11.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-data-package-properties"></a></h4>
+   <figure id="data-package-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3370,13 +3370,13 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn data-dfn-for="DataPackage" data-dfn-type="element-attr" data-export id="element-attrdef-datapackage-verifiedlinktocheckpointdata"><code>verifiedLinkToCheckpointData</code><a class="self-link" href="#element-attrdef-datapackage-verifiedlinktocheckpointdata"></a></dfn> : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink③">VerifiedLink</a> 
        <td>Object 
        <td>M 
-       <td>A VerifiedLink that contain the evidence, in a span data package submitted by the AIM. See <a href="#dt-verified-link">§ 3.35 Data Type: VerifiedLink</a> for details. 
+       <td>A VerifiedLink that contain the evidence, in a data package submitted by the AIM. See <a href="#dt-verified-link">§ 3.35 Data Type: VerifiedLink</a> for details. 
     </table>
     <figcaption>Properties of data type DataPackage</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.12" id="dt-manifest"><span class="secno">3.12. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="manifest">Manifest</dfn></span><a class="self-link" href="#dt-manifest"></a></h3>
-   <p>The Span Data Package has a manifest.json file that is an extensible JSON object that contains the metadata about the contents in the Span Data Package.
-    The manifest contains a list of files that are contained in the Span Data Package and the metadata about the files. The manifest also contains
+   <p>The Data Package has a manifest.json file that is an extensible JSON object that contains the metadata about the contents in the Data Package.
+    The manifest contains a list of files that are contained in the Data Package and the metadata about the files. The manifest also contains
     extensible MRV data that is specific to the Quality Standard/Methodology the AIM is bound to.</p>
    <h4 class="heading settled" data-level="3.12.1" id="dt-manifest-properties"><span class="secno">3.12.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-manifest-properties"></a></h4>
    <figure id="manifest-properties-table">
@@ -3392,12 +3392,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①③">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the Span Data Package, See <a href="#dt-id">§ 3.96 Data Type: Id</a> for details. 
+       <td>The unique identifier for the Data Package, See <a href="#dt-id">§ 3.96 Data Type: Id</a> for details. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string①">String</a> 
        <td>String 
        <td>M 
-       <td>The versions of the Span Data Package specification, default is 1.0.0. 
+       <td>The versions of the Data Package specification, default is 1.0.0. 
       <tr>
        <td>aioId : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
        <td>String 
@@ -3422,7 +3422,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>created : <a data-link-type="dfn" href="#datepoint" id="ref-for-datepoint">DatePoint</a> 
        <td>DatePoint 
        <td>M 
-       <td>The DatePoint that the Span Data Package was created. See <a href="#dt-date-point">§ 3.52 Data Type: DatePoint</a> for details. 
+       <td>The DatePoint that the Data Package was created. See <a href="#dt-date-point">§ 3.52 Data Type: DatePoint</a> for details. 
       <tr>
        <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
        <td>Array 
@@ -3432,13 +3432,13 @@ configured to control the processing of the ImpactClaim.</p>
        <td>files : <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file">Sdp-File</a> 
        <td>Array 
        <td>M 
-       <td>The files that are in the Span Data Package, see <a href="#dt-sdp-file">§ 3.13 Data Type: Sdp-File</a> for details. 
+       <td>The files that are in the Data Package, see <a href="#dt-file">§ 3.13 Data Type: Sdp-File</a> for details. 
     </table>
     <figcaption>Properties of data type Manifest</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.13" id="dt-sdp-file"><span class="secno">3.13. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sdp-file">Sdp-File</dfn></span><a class="self-link" href="#dt-sdp-file"></a></h3>
-   <p>A Sdp-File is a set of metadata about an evidence file contained within the Span Data Package.</p>
-   <h4 class="heading settled" data-level="3.13.1" id="dt-sdp-file-properties"><span class="secno">3.13.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-sdp-file-properties"></a></h4>
+   <h3 class="heading settled" data-level="3.13" id="dt-file"><span class="secno">3.13. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="sdp-file">Sdp-File</dfn></span><a class="self-link" href="#dt-file"></a></h3>
+   <p>A Sdp-File is a set of metadata about an evidence file contained within the Data Package.</p>
+   <h4 class="heading settled" data-level="3.13.1" id="dt-file-properties"><span class="secno">3.13.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-file-properties"></a></h4>
    <figure id="Sdp-File-properties-table">
     <table class="data">
      <thead>
@@ -3457,7 +3457,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>type : <a data-link-type="dfn" href="#string" id="ref-for-string③">String</a> 
        <td>String 
        <td>M 
-       <td>The string representation of the file type, see <a href="#dt-sdp-file-type">§ 3.64 Data Type: FileType</a> for details. 
+       <td>The string representation of the file type, see <a href="#dt-file-type">§ 3.64 Data Type: FileType</a> for details. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string④">String</a> 
        <td>String 
@@ -5264,8 +5264,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.57" id="dt-itmo-id"><span class="secno">3.57. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-2380ed50">
-    <a class="self-link" href="#example-2380ed50"></a> 
+   <div class="example" id="example-cb3d2285">
+    <a class="self-link" href="#example-cb3d2285"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -5397,7 +5397,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
      </dl>
      <h4 class="heading settled" data-level="3.63.1" id="dt-message-type-json"><span class="secno">3.63.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-message-type-json"></a></h4>
      <p>Each MessageType MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.64" id="dt-sdp-file-type"><span class="secno">3.64. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-sdp-file-type"></a></h3>
+     <h3 class="heading settled" data-level="3.64" id="dt-file-type"><span class="secno">3.64. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-file-type"></a></h3>
      <p>The file type indicates what data is contained within the file.</p>
      <dl>
       <dt data-md><dfn class="idl-code" data-dfn-for="FileType" data-dfn-type="enum-value" data-export id="dom-filetype-data_binary"><code>DATA_BINARY</code><a class="self-link" href="#dom-filetype-data_binary"></a></dfn>
@@ -5419,7 +5419,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
       <dd data-md>
        <p>The file contains other data.</p>
      </dl>
-     <h4 class="heading settled" data-level="3.64.1" id="dt-sdp-file-type-json"><span class="secno">3.64.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-sdp-file-type-json"></a></h4>
+     <h4 class="heading settled" data-level="3.64.1" id="dt-file-type-json"><span class="secno">3.64.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-file-type-json"></a></h4>
      <p>Each FileType MUST be encoded as a JSON String.</p>
      <h3 class="heading settled" data-level="3.65" id="dt-hash-algorithm"><span class="secno">3.65. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-hashalgorithm"><code>HashAlgorithm</code></dfn></span><a class="self-link" href="#dt-hash-algorithm"></a></h3>
      <p>The HashAlgorithm is a string enumeration that defines the cryptographic hash algorithm used to generate the hash of an external data element.</p>
@@ -7492,9 +7492,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c->
 <c- p>}</c-></pre>
      </div>
-     <h3 class="heading settled" data-level="4.5" id="example-span-data-package"><span class="secno">4.5. </span><span class="content">Example Span Data Package</span><a class="self-link" href="#example-span-data-package"></a></h3>
-     <div class="example" id="example-fd657523">
-      <a class="self-link" href="#example-fd657523"></a> Span Data Package: 
+     <h3 class="heading settled" data-level="4.5" id="example-data-package"><span class="secno">4.5. </span><span class="content">Example Data Package</span><a class="self-link" href="#example-data-package"></a></h3>
+     <div class="example" id="example-959e84ca">
+      <a class="self-link" href="#example-959e84ca"></a> Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
@@ -8933,9 +8933,9 @@ public licenses.</p>
       <li data-md>
        <p>Simplified and collapsed the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①①">MrvExtension</a> type removing untyped and typed into a single type.</p>
       <li data-md>
-       <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Span Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage②">DataPackage</a> type.</p>
+       <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage②">DataPackage</a> type.</p>
       <li data-md>
-       <p>Added arrays of <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> to both <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint①">ImpactClaimCheckpoint</a> and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types to support a checkpoint having more than one Span Data Package.</p>
+       <p>Added arrays of <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> to both <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint①">ImpactClaimCheckpoint</a> and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types to support a checkpoint having more than one Data Package.</p>
       <li data-md>
        <p>Added <code>AVRO</code> as a supported data format for a <a data-link-type="dfn" href="#sdp-file" id="ref-for-sdp-file①">Sdp-File</a>.</p>
      </ul>
@@ -9259,7 +9259,9 @@ public licenses.</p>
    <li><a href="#dom-filetype-data_csv">DATA_CSV</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_json">DATA_JSON</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_other">DATA_OTHER</a><span>, in § 3.64</span>
+   <li><a href="#data-package">Data Package</a><span>, in § 2</span>
    <li><a href="#datapackage">DataPackage</a><span>, in § 3.11</span>
+   <li><a href="#data-package-manifest">Data Package Manifest</a><span>, in § 2</span>
    <li><a href="#element-attrdef-impactclaimcheckpoint-datapackages">dataPackages</a><span>, in § 3.10.1</span>
    <li><a href="#dom-filetype-data_xml">DATA_XML</a><span>, in § 3.64</span>
    <li><a href="#date">Date</a><span>, in § 3.54</span>
@@ -9521,7 +9523,6 @@ public licenses.</p>
    <li><a href="#dom-attestationtype-rs256">RS256</a><span>, in § 3.66</span>
    <li><a href="#sdp-file">Sdp-File</a><span>, in § 3.13</span>
    <li><a href="#dom-mrvextensioncontext-sdp_file_mrv_extension">SDP_FILE_MRV_EXTENSION</a><span>, in § 3.62</span>
-   <li><a href="#sdp-manifest">SDP Manifest</a><span>, in § 2</span>
    <li><a href="#dom-mrvextensioncontext-sdp_manifest_mrv_extension">SDP_MANIFEST_MRV_EXTENSION</a><span>, in § 3.62</span>
    <li><a href="#dom-claimperiod-semiannual">SEMIANNUAL</a><span>, in § 3.79</span>
    <li><a href="#dom-claimsourcetype-sensor_device">SENSOR_DEVICE</a><span>, in § 3.75</span>
@@ -9546,7 +9547,6 @@ public licenses.</p>
    <li><a href="#dom-region-south_america">SOUTH_AMERICA</a><span>, in § 3.78</span>
    <li><a href="#dom-region-south_asia">SOUTH_ASIA</a><span>, in § 3.78</span>
    <li><a href="#dom-region-south_east_asia">SOUTH_EAST_ASIA</a><span>, in § 3.78</span>
-   <li><a href="#span-data-package">Span Data Package</a><span>, in § 2</span>
    <li><a href="#element-attrdef-activityimpactmodule-sponsors">sponsors</a><span>, in § 3.5.2</span>
    <li><a href="#dom-unit-square-meter">square meter</a><span>, in § 3.92</span>
    <li><a href="#enumdef-standard">Standard</a><span>, in § 3.89</span>
