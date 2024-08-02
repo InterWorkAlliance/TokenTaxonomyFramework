@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="6e04a6e9aa96774fe7241278f2fdc706a61206fe" name="document-revision">
+  <meta content="dca14e12e7e25797a39f7de7a3872a8b384f9153" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2071,7 +2071,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-08-01">1 August 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-08-02">2 August 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2165,9 +2165,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-manifest-properties"><span class="secno">3.12.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-file"><span class="secno">3.13</span> <span class="content">Data Type: <span>Data-File</span></span></a>
+       <a href="#dt-data-file"><span class="secno">3.13</span> <span class="content">Data Type: <span>DataFile</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-file-properties"><span class="secno">3.13.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-data-file-properties"><span class="secno">3.13.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-mrv-extension-set"><span class="secno">3.14</span> <span class="content">Data Type: <span>MrvExtensionSet</span></span></a>
@@ -2415,9 +2415,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-message-type-json"><span class="secno">3.63.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-file-type"><span class="secno">3.64</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
+       <a href="#dt-data-file-type"><span class="secno">3.64</span> <span class="content">Data Type: <span><code>FileType</code></span></span></a>
        <ol class="toc">
-        <li><a href="#dt-file-type-json"><span class="secno">3.64.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-data-file-type-json"><span class="secno">3.64.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
        <a href="#dt-hash-algorithm"><span class="secno">3.65</span> <span class="content">Data Type: <span><code>HashAlgorithm</code></span></span></a>
@@ -2765,10 +2765,10 @@ properties grouped together that can be used or composed into other property-set
    <h3 class="heading settled" data-level="3.1" id="data-model-highlevel"><span class="secno">3.1. </span><span class="content">Highlevel Data Model</span><a class="self-link" href="#data-model-highlevel"></a></h3>
    <p>The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
 the highlights of properties within the data types and does not include the full list of properties for each data type.</p>
-   <p><img alt="…" height="1454" src="../dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
+   <p><img alt="…" height="1454" src="../dmrv-diagram-20230905.png" srcset="../dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2804" src="../Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="9757"></p>
+   <p><img alt="…" height="2804" src="../Vem-2.0-lt-hiera.png" srcset="../Vem-2.0-lt-hiera.png 2x" width="9757"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -3429,17 +3429,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
       <tr>
-       <td>files : <a data-link-type="dfn" href="#data-file" id="ref-for-data-file">Data-File</a> 
+       <td>files : <a data-link-type="dfn" href="#datafile" id="ref-for-datafile">DataFile</a> 
        <td>Array 
        <td>M 
-       <td>The files that are in the Data Package, see <a href="#dt-file">§ 3.13 Data Type: Data-File</a> for details. 
+       <td>The files that are in the Data Package, see <a href="#dt-data-file">§ 3.13 Data Type: DataFile</a> for details. 
     </table>
     <figcaption>Properties of data type Manifest</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.13" id="dt-file"><span class="secno">3.13. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="data-file">Data-File</dfn></span><a class="self-link" href="#dt-file"></a></h3>
-   <p>A Data-File is a set of metadata about an evidence file contained within the Data Package.</p>
-   <h4 class="heading settled" data-level="3.13.1" id="dt-file-properties"><span class="secno">3.13.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-file-properties"></a></h4>
-   <figure id="Data-File-properties-table">
+   <h3 class="heading settled" data-level="3.13" id="dt-data-file"><span class="secno">3.13. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="datafile">DataFile</dfn></span><a class="self-link" href="#dt-data-file"></a></h3>
+   <p>A DataFile is a set of metadata about an evidence file contained within the Data Package.</p>
+   <h4 class="heading settled" data-level="3.13.1" id="dt-data-file-properties"><span class="secno">3.13.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-data-file-properties"></a></h4>
+   <figure id="DataFile-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3457,7 +3457,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>type : <a data-link-type="dfn" href="#string" id="ref-for-string③">String</a> 
        <td>String 
        <td>M 
-       <td>The string representation of the file type, see <a href="#dt-file-type">§ 3.64 Data Type: FileType</a> for details. 
+       <td>The string representation of the file type, see <a href="#dt-data-file-type">§ 3.64 Data Type: FileType</a> for details. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string④">String</a> 
        <td>String 
@@ -5264,8 +5264,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.57" id="dt-itmo-id"><span class="secno">3.57. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-540beaff">
-    <a class="self-link" href="#example-540beaff"></a> 
+   <div class="example" id="example-4118ff0c">
+    <a class="self-link" href="#example-4118ff0c"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -5397,7 +5397,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
      </dl>
      <h4 class="heading settled" data-level="3.63.1" id="dt-message-type-json"><span class="secno">3.63.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-message-type-json"></a></h4>
      <p>Each MessageType MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.64" id="dt-file-type"><span class="secno">3.64. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-file-type"></a></h3>
+     <h3 class="heading settled" data-level="3.64" id="dt-data-file-type"><span class="secno">3.64. </span><span class="content">Data Type: <dfn class="idl-code" data-dfn-type="enum" data-export id="enumdef-filetype"><code>FileType</code><a class="self-link" href="#enumdef-filetype"></a></dfn></span><a class="self-link" href="#dt-data-file-type"></a></h3>
      <p>The file type indicates what data is contained within the file.</p>
      <dl>
       <dt data-md><dfn class="idl-code" data-dfn-for="FileType" data-dfn-type="enum-value" data-export id="dom-filetype-data_binary"><code>DATA_BINARY</code><a class="self-link" href="#dom-filetype-data_binary"></a></dfn>
@@ -5419,7 +5419,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
       <dd data-md>
        <p>The file contains other data.</p>
      </dl>
-     <h4 class="heading settled" data-level="3.64.1" id="dt-file-type-json"><span class="secno">3.64.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-file-type-json"></a></h4>
+     <h4 class="heading settled" data-level="3.64.1" id="dt-data-file-type-json"><span class="secno">3.64.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-data-file-type-json"></a></h4>
      <p>Each FileType MUST be encoded as a JSON String.</p>
      <h3 class="heading settled" data-level="3.65" id="dt-hash-algorithm"><span class="secno">3.65. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-hashalgorithm"><code>HashAlgorithm</code></dfn></span><a class="self-link" href="#dt-hash-algorithm"></a></h3>
      <p>The HashAlgorithm is a string enumeration that defines the cryptographic hash algorithm used to generate the hash of an external data element.</p>
@@ -8937,7 +8937,7 @@ public licenses.</p>
       <li data-md>
        <p>Added arrays of <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> to both <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint①">ImpactClaimCheckpoint</a> and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types to support a checkpoint having more than one Data Package.</p>
       <li data-md>
-       <p>Added <code>AVRO</code> as a supported data format for a <a data-link-type="dfn" href="#data-file" id="ref-for-data-file①">Data-File</a>.</p>
+       <p>Added <code>AVRO</code> as a supported data format for a <a data-link-type="dfn" href="#datafile" id="ref-for-datafile①">DataFile</a>.</p>
      </ul>
      <h3 class="heading settled" id="changelog-3.0.0-20240605"><span class="content">Version 3.0.0-20240605 (June 5th, 2024)</span><a class="self-link" href="#changelog-3.0.0-20240605"></a></h3>
      <ul>
@@ -9257,7 +9257,7 @@ public licenses.</p>
    <li><a href="#dom-filetype-data_avro">DATA_AVRO</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_binary">DATA_BINARY</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_csv">DATA_CSV</a><span>, in § 3.64</span>
-   <li><a href="#data-file">Data-File</a><span>, in § 3.13</span>
+   <li><a href="#datafile">DataFile</a><span>, in § 3.13</span>
    <li><a href="#dom-filetype-data_json">DATA_JSON</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_other">DATA_OTHER</a><span>, in § 3.64</span>
    <li><a href="#data-package">Data Package</a><span>, in § 2</span>
@@ -9816,7 +9816,7 @@ window.dfnpanelData['impactclaim'] = {"dfnID": "impactclaim", "url": "#impactcla
 window.dfnpanelData['impactclaimcheckpoint'] = {"dfnID": "impactclaimcheckpoint", "url": "#impactclaimcheckpoint", "dfnText": "ImpactClaimCheckpoint", "refSections": [{"refs": [{"id": "ref-for-impactclaimcheckpoint"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-impactclaimcheckpoint\u2460"}], "title": "Version 3.0.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['datapackage'] = {"dfnID": "datapackage", "url": "#datapackage", "dfnText": "DataPackage", "refSections": [{"refs": [{"id": "ref-for-datapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-datapackage\u2460"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-datapackage\u2461"}, {"id": "ref-for-datapackage\u2462"}], "title": "Version 3.0.0-20240428 (May 24th, 2024)"}, {"refs": [{"id": "ref-for-datapackage\u2463"}], "title": "Version 3.0.0-20240801 (August 1st, 2024)"}], "external": false};
 window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.11.1. Properties"}], "external": false};
-window.dfnpanelData['data-file'] = {"dfnID": "data-file", "url": "#data-file", "dfnText": "Data-File", "refSections": [{"refs": [{"id": "ref-for-data-file"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-data-file\u2460"}], "title": "Version 3.0.0-20240428 (May 24th, 2024)"}], "external": false};
+window.dfnpanelData['datafile'] = {"dfnID": "datafile", "url": "#datafile", "dfnText": "DataFile", "refSections": [{"refs": [{"id": "ref-for-datafile"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-datafile\u2460"}], "title": "Version 3.0.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionset'] = {"dfnID": "mrvextensionset", "url": "#mrvextensionset", "dfnText": "MrvExtensionSet", "refSections": [{"refs": [{"id": "ref-for-mrvextensionset"}], "title": "3.49.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionset\u2460"}], "title": "Version 3.0.0-20240605 (June 5th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionset\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionsetmodule'] = {"dfnID": "mrvextensionsetmodule", "url": "#mrvextensionsetmodule", "dfnText": "MrvExtensionSetModule", "refSections": [{"refs": [{"id": "ref-for-mrvextensionsetmodule"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2460"}], "title": "Version 3.0.0-20240605 (June 5th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2461"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionmessagepair'] = {"dfnID": "mrvextensionmessagepair", "url": "#mrvextensionmessagepair", "dfnText": "MrvExtensionMessagePair", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessagepair"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2460"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2461"}, {"id": "ref-for-mrvextensionmessagepair\u2462"}], "title": "Version 3.0.0-20240614 (June 14th, 2024)"}], "external": false};
