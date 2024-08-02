@@ -22,7 +22,7 @@
       "version": "1.0",
       "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
       "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-      "mrvExtensionContext": "ProcessedClaimMrvExtension",
+      "mrvExtensionContext": "ProcessedClaim",
       "properties": [
         {
           "key": "mCO2,i,d",
@@ -57,12 +57,12 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "08/01/2024 19:31:42",
-                "dateString": "8/1/2024"
+                "dateTime": "08/02/2024 13:15:23",
+                "dateString": "8/2/2024"
               },
               "timeStamp": {
-                "seconds": 1722540702,
-                "nanos": 905744000
+                "seconds": 1722604523,
+                "nanos": 556082000
               }
             },
             "mrvExtensions": [
@@ -72,7 +72,7 @@
                 "version": "1.6",
                 "description": "Methodology specific data attributes being tracked.",
                 "documentation": "",
-                "mrvExtensionContext": "DataPackageManifestMrvExtension",
+                "mrvExtensionContext": "DataPackageManifest",
                 "properties": [
                   {
                     "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
@@ -101,8 +101,8 @@
                     "name": "Carbonated Concrete Device Sensor Evidence File",
                     "version": "1.0",
                     "description": "Sensor data values required for evidence data.",
-                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/data-file",
-                    "mrvExtensionContext": "DataPackageFileMrvExtension",
+                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
+                    "mrvExtensionContext": "DataFile",
                     "properties": [
                       {
                         "key": "Starting Temperature Sensor Reading",
@@ -147,7 +147,7 @@
           "version": "",
           "description": "",
           "documentation": "",
-          "mrvExtensionContext": "UnknownMrvExtension",
+          "mrvExtensionContext": "UnknownContext",
           "properties": [],
           "dataSchemaOrType": "",
           "data": null,

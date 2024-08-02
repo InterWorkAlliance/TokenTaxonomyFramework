@@ -264,7 +264,7 @@ enum DurabilityInsuranceType{
 }
 
 enum InsurancePolicyOwner{
-    ACCOUNTABLE_IMPACT_ORGANIZATION = 0; //the accountable impact organiation is the owner of the insurance policy.
+    ACCOUNTABLE_IMPACT_ORG = 0; //the accountable impact organiation is the owner of the insurance policy.
     ISSUING_REGISTRY = 1; //the issuing registry is the owner of the insurance policy.
     RETIRER = 2; //the retirer is the owner of the insurance policy.
     CUSTODIAN = 3; //the custodian is the owner of the insurance policy.
@@ -723,17 +723,17 @@ message VerifiablePresentation{
 }
 
 enum MrvExtensionContext{
-    UNKNOWN_MRV_EXTENSION = 0; //Unknown extension
-    AIO_MRV_EXTENSION = 1; //AIO extension
-    AIM_MRV_EXTENSION = 2; //AIM extension
-    AIM_CLAIM_SOURCE_MRV_EXTENSION = 3; //AIM Claim Source extension
-    CLAIM_MRV_EXTENSION = 4; //Claim extension
-    CHECKPOINT_MRV_EXTENSION = 5; //Checkpoint extension
-    DATA_PACKAGE_MANIFEST_MRV_EXTENSION = 6; //DataPackage Manifest extension
-    DATA_FILE_MRV_EXTENSION = 7; //DataPackage File extension
-    CHECKPOINT_RESULT_MRV_EXTENSION = 8; //Checkpoint Result extension
-    PROCESSED_CLAIM_MRV_EXTENSION = 9; //Processed Checkpoint extension
-    VERIFICATION_PROCESS_AGREEMENT_MRV_EXTENSION = 10; //Verification Process Agreement extension
+    UNKNOWN_CONTEXT = 0; //Unknown context
+    ACCOUNTABLE_IMPACT_ORGANIZATION = 1; //Accountable Impact Organization context
+    ACTIVITY_IMPACT_MODULE = 2; //Activity Impact Module context
+    CLAIM_SOURCE = 3; // Claim Source context
+    IMPACT_CLAIM = 4; //Claim context
+    CHECKPOINT = 5; //Checkpoint context
+    CHECKPOINT_RESULT = 6; //Checkpoint Result context
+    DATA_PACKAGE_MANIFEST = 7; //DataPackage Manifest context
+    DATA_FILE = 8; //DataPackage File context
+    PROCESSED_CLAIM = 9; //Processed Checkpoint context
+    VERIFICATION_PROCESS_AGREEMENT = 10; //Verification Process Agreement context
 }
 
 message Property{

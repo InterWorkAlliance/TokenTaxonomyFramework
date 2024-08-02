@@ -84,7 +84,7 @@
               "version": "",
               "description": "",
               "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-              "mrvExtensionContext": "AimClaimSourceMrvExtension",
+              "mrvExtensionContext": "ClaimSource",
               "properties": [],
               "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
               "data": null,
@@ -118,7 +118,7 @@
           "version": "",
           "description": "",
           "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
-          "mrvExtensionContext": "AimMrvExtension",
+          "mrvExtensionContext": "AccountableImpactOrganization",
           "properties": [],
           "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
           "data": null,
@@ -131,10 +131,10 @@
       "validations": [
         {
           "requestDate": "2021-04-01",
-          "validationDate": "8/1/2024",
+          "validationDate": "8/2/2024",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": "8/1/2024",
+          "validationExpirationDate": "8/2/2024",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",

@@ -93,22 +93,25 @@
       "documentation": "",
       "modules": [
         {
-          "id": "",
+          "id": "976e0566-21a5-4529-8d55-391644d6bcc0",
           "name": "VM0007 REDD+ Methodology Framework Extension",
           "version": "1.6",
           "description": "Methodology specific data attributes being tracked.",
-          "documentation": "",
+          "documentation": "https://verra.org/methodologies/vm0007-redd-methodology-framework/",
           "extensions": [
             {
-              "id": "",
+              "id": "c57faa2c-3218-4620-bf92-5b571affb97b",
               "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-              "version": "",
+              "version": "1.0",
               "description": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
-              "documentation": "",
-              "mrvExtensionContext": "DataPackageManifestMrvExtension",
+              "documentation": "https://verra.org/methodologies/vm0007-redd-methodology-framework/",
+              "mrvExtensionContext": "DataPackageManifest",
               "properties": [],
               "dataSchemaOrType": "",
-              "data": null,
+              "data": {
+                "@type": "type.googleapis.com/verra.mrvExtension.set.CarbonStockBioMass",
+                "@value": ""
+              },
               "serializedData": null
             }
           ],
@@ -121,7 +124,7 @@
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "8/1/2024"
+    "dateString": "8/2/2024"
   },
   "estimatedAnnualCredits": "15,000",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -129,7 +132,7 @@
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "8/1/2024"
+      "dateString": "8/2/2024"
     },
     "auditReports": [
       {

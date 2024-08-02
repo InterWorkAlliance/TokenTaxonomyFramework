@@ -1530,7 +1530,7 @@
       },
       "InsurancePolicyOwner": {
         "enum": [
-          "AccountableImpactOrganization",
+          "AccountableImpactOrg",
           "IssuingRegistry",
           "Retirer",
           "Custodian"
@@ -2080,17 +2080,17 @@
       },
       "MrvExtensionContext": {
         "enum": [
-          "UnknownMrvExtension",
-          "AioMrvExtension",
-          "AimMrvExtension",
-          "AimClaimSourceMrvExtension",
-          "ClaimMrvExtension",
-          "CheckpointMrvExtension",
-          "DataPackageManifestMrvExtension",
-          "DataPackageFileMrvExtension",
-          "CheckpointResultMrvExtension",
-          "ProcessedClaimMrvExtension",
-          "VerificationProcessAgreementMrvExtension"
+          "UnknownContext",
+          "AccountableImpactOrganization",
+          "ActivityImpactModule",
+          "ClaimSource",
+          "ImpactClaim",
+          "Checkpoint",
+          "CheckpointResult",
+          "DataPackageManifest",
+          "DataFile",
+          "ProcessedClaim",
+          "VerificationProcessAgreement"
         ],
         "type": "string"
       },
