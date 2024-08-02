@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="dca14e12e7e25797a39f7de7a3872a8b384f9153" name="document-revision">
+  <meta content="ba8b95d579a746c56c367f11b1ca28931b588c7f" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2765,10 +2765,10 @@ properties grouped together that can be used or composed into other property-set
    <h3 class="heading settled" data-level="3.1" id="data-model-highlevel"><span class="secno">3.1. </span><span class="content">Highlevel Data Model</span><a class="self-link" href="#data-model-highlevel"></a></h3>
    <p>The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
 the highlights of properties within the data types and does not include the full list of properties for each data type.</p>
-   <p><img alt="…" height="1454" src="../dmrv-diagram-20230905.png" srcset="../dmrv-diagram-20230905.png 2x" width="1523"></p>
+   <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.0-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="2804" src="../Vem-2.0-lt-hiera.png" srcset="../Vem-2.0-lt-hiera.png 2x" width="9757"></p>
+   <p><img alt="…" height="2804" src="Vem-2.0-lt-hiera.png" srcset="Vem-2.0-lt-hiera.png 2x" width="9757"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -5264,8 +5264,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.57" id="dt-itmo-id"><span class="secno">3.57. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-4118ff0c">
-    <a class="self-link" href="#example-4118ff0c"></a> 
+   <div class="example" id="example-7332113c">
+    <a class="self-link" href="#example-7332113c"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -5373,9 +5373,9 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
       <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-data_package_manifest_mrv_extension"><code>DATA_PACKAGE_MANIFEST_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-data_package_manifest_mrv_extension"></a></dfn>
       <dd data-md>
        <p>Data Package Manifest extension</p>
-      <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-data_package_file_mrv_extension"><code>DATA_PACKAGE_FILE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-data_package_file_mrv_extension"></a></dfn>
+      <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-data_file_mrv_extension"><code>DATA_FILE_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-data_file_mrv_extension"></a></dfn>
       <dd data-md>
-       <p>Dat Package File extension</p>
+       <p>Data File extension</p>
       <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-checkpoint_result_mrv_extension"><code>CHECKPOINT_RESULT_MRV_EXTENSION</code><a class="self-link" href="#dom-mrvextensioncontext-checkpoint_result_mrv_extension"></a></dfn>
       <dd data-md>
        <p>Checkpoint Result extension</p>
@@ -9258,11 +9258,11 @@ public licenses.</p>
    <li><a href="#dom-filetype-data_binary">DATA_BINARY</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_csv">DATA_CSV</a><span>, in § 3.64</span>
    <li><a href="#datafile">DataFile</a><span>, in § 3.13</span>
+   <li><a href="#dom-mrvextensioncontext-data_file_mrv_extension">DATA_FILE_MRV_EXTENSION</a><span>, in § 3.62</span>
    <li><a href="#dom-filetype-data_json">DATA_JSON</a><span>, in § 3.64</span>
    <li><a href="#dom-filetype-data_other">DATA_OTHER</a><span>, in § 3.64</span>
    <li><a href="#data-package">Data Package</a><span>, in § 2</span>
    <li><a href="#datapackage">DataPackage</a><span>, in § 3.11</span>
-   <li><a href="#dom-mrvextensioncontext-data_package_file_mrv_extension">DATA_PACKAGE_FILE_MRV_EXTENSION</a><span>, in § 3.62</span>
    <li><a href="#data-package-manifest">Data Package Manifest</a><span>, in § 2</span>
    <li><a href="#dom-mrvextensioncontext-data_package_manifest_mrv_extension">DATA_PACKAGE_MANIFEST_MRV_EXTENSION</a><span>, in § 3.62</span>
    <li><a href="#element-attrdef-impactclaimcheckpoint-datapackages">dataPackages</a><span>, in § 3.10.1</span>

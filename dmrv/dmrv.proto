@@ -96,10 +96,10 @@ message ImpactClaimCheckpoint
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
     common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers within the claim period.
     repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions for the checkpoint
-    repeated DataPackage data_packages = 9; //the manifest from the Span Data Package is a 'table of contents' of evidence files and the sources.
+    repeated DataPackage data_packages = 9; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
 }
 
-//Span Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
+// Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
 message DataPackage{
     message Manifest{
         string id = 1; //unique identifier
@@ -110,7 +110,7 @@ message DataPackage{
         string project_developer_id = 6; //id of the project developer submitting the SDP
         common.DatePoint created = 7; //date the SDP was created
         repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions
-        message SdpFile{
+        message DataFile{
             string name = 1; //name of the file
             enum FileType
             {
@@ -128,10 +128,10 @@ message DataPackage{
             string claim_source_attestation = 5; //claim source attestation or signature for the file
             repeated common.MrvExtension mrv_extensions = 6; //mrv extensions for the file
         }
-        repeated SdpFile sdp_files = 9; //list of files in the SDP
+        repeated DataFile data_files = 9; //list of files in the SDP
     }
     Manifest manifest = 1; //manifest of the SDP
-    common.VerifiedLink verified_link_to_sdp_file = 2; //a link to the checkpoint  data package that is associated with the checkpoint.
+    common.VerifiedLink verified_link_to_data_package = 2; //a link to the checkpoint data package that is associated with the checkpoint.
 }
 
 message ImpactClaim

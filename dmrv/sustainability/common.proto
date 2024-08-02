@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package iwa.ttf.token.sustainbility.common;
+package iwa.ttf.token.sustainability.common;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
 option csharp_namespace = "IWA.TTF.Token.Sustainability.Common";
 option java_package = "org.iwa.ttf.token.sustainability.common";
 option java_multiple_files = true;
@@ -728,8 +729,8 @@ enum MrvExtensionContext{
     AIM_CLAIM_SOURCE_MRV_EXTENSION = 3; //AIM Claim Source extension
     CLAIM_MRV_EXTENSION = 4; //Claim extension
     CHECKPOINT_MRV_EXTENSION = 5; //Checkpoint extension
-    SDP_MANIFEST_MRV_EXTENSION = 6; //SDP Manifest extension
-    SDP_FILE_MRV_EXTENSION = 7; //SDP File extension
+    DATA_PACKAGE_MANIFEST_MRV_EXTENSION = 6; //DataPackage Manifest extension
+    DATA_FILE_MRV_EXTENSION = 7; //DataPackage File extension
     CHECKPOINT_RESULT_MRV_EXTENSION = 8; //Checkpoint Result extension
     PROCESSED_CLAIM_MRV_EXTENSION = 9; //Processed Checkpoint extension
     VERIFICATION_PROCESS_AGREEMENT_MRV_EXTENSION = 10; //Verification Process Agreement extension
@@ -738,6 +739,34 @@ enum MrvExtensionContext{
 message Property{
     string key = 1; //name of the data extension
     string value = 2; //value of the data extension
+}
+
+//MrvExtensionMessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.
+message MrvExtensionMessagePair{
+    string id = 1; //unique identifier for the extension message pair
+    string name = 2; //name of the extension message pair
+    string version = 3; //version of the extension message pair
+    string description = 4; //description of the extension message pair
+    string documentation = 5; //optional documentation url of the extension message pair
+    MrvExtensionMessage request = 6; //The request message
+    MrvExtensionMessage response = 7; //The response message
+}
+
+//Recommended that MrvExtensionMessages use Avro for serialization
+message MrvExtensionMessage{
+    string id = 1; //unique identifier for the extension message
+    enum MessageType{
+        REQUEST = 0; //request message
+        RESPONSE = 1; //response message
+    }
+    MessageType message_type = 2; //type of the extension message
+    string sender_id = 3; //sender id of the extension message
+    string correlation_id = 4; //correlation id of the extension message, i.e., the id of the request message that the response is for
+    string conversation_id = 5; //conversation id of the extension message
+    optional bool closed = 6; //if the conversation is closed
+    MrvExtensionContext mrv_extension_context = 7; //type of the extension message
+    google.protobuf.Any message = 8; //the data of the extension message
+    AnyData serialized_message = 9; //the serialized data of the extension message
 }
 
 //The MrvExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
@@ -750,7 +779,35 @@ message MrvExtension{
     MrvExtensionContext mrv_extension_context = 6; //type of the extension
     repeated Property properties = 7; //list of properties of the extension
     string dataSchemaOrType = 8; //the URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
-    string data = 9; //the data of the extension
+    google.protobuf.Any data = 9; //the data of the extension
+    AnyData serialized_data = 10; //the serialized data of the extension
+}
+
+//For serialized any data to be represented as a type and bytestring
+message AnyData{
+    string type = 1; //the type of the data
+    string value = 2; //the serialized data
+}
+
+message MrvExtensionSet{
+    string id = 1; //unique identifier for the extension set
+    string name = 2; //name of the extension set
+    string version = 3; //version of the extension set
+    string description = 4; //description of the extension set
+    string documentation = 5; //optional documentation url of the extension set
+    repeated MrvExtensionSetModule modules = 6; //list of extension set modules
+    repeated MrvExtension extensions = 7; //list of extensions in the set, these would apply to the entire set and not be scoped to a single module
+    repeated MrvExtensionMessagePair messages = 8; //list of extension messages in the set, these would apply to the entire set and not be scoped to a single module
+}
+
+message MrvExtensionSetModule{
+    string id = 1; //unique identifier for the extension set module
+    string name = 2; //name of the extension set module
+    string version = 3; //version of the extension set module
+    string description = 4; //description of the extension set module
+    string documentation = 5; //optional documentation url of the extension set module
+    repeated MrvExtension extensions = 6; //list of extensions in the set
+    repeated MrvExtensionMessagePair messages = 7; //list of extension messages in the set
 }
 
 enum MethodologyAndTool{
