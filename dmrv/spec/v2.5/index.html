@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="8ca79a722316494989179188a0d79d644ec726ff" name="document-revision">
+  <meta content="f3bce17eed7be81136d567ee22601fcd6f4b3cd5" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -3670,15 +3670,15 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The Id for the sender of the message. 
       <tr>
-       <td>correlationId : <a data-link-type="dfn" href="#string" id="ref-for-string①⑧">String</a> 
+       <td><dfn data-dfn-for="MrvExtensionMessage" data-dfn-type="element-attr" data-export id="element-attrdef-mrvextensionmessage-correlationid"><code>correlationId</code><a class="self-link" href="#element-attrdef-mrvextensionmessage-correlationid"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑧">String</a> 
        <td>String 
        <td>M 
-       <td>The correlation Id for the message will be the same for the request and response messages, typically the request message’s id. 
+       <td>The correlation Id for the message will be the same for related messages, typically the initial request message’s id. 
       <tr>
        <td><dfn data-dfn-for="MrvExtensionMessage" data-dfn-type="element-attr" data-export id="element-attrdef-mrvextensionmessage-conversationid"><code>conversationId</code><a class="self-link" href="#element-attrdef-mrvextensionmessage-conversationid"></a></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑨">String</a> 
        <td>String 
        <td>O 
-       <td>A conversation Id for the message, this is used to track the conversation between the parties. 
+       <td>A conversation Id for the message, this is used to track the conversation between the parties and should be set for message pairs that may have multiple requests and responses tied to a process. 
       <tr>
        <td>closed 
        <td>Boolean 
@@ -9377,6 +9377,7 @@ public licenses.</p>
    <li><a href="#dom-projecttype-cookstoves">COOKSTOVES</a><span>, in § 3.86</span>
    <li><a href="#corecarbonprinciples">CoreCarbonPrinciples</a><span>, in § 3.26</span>
    <li><a href="#element-attrdef-cru-corecarbonprinciples">coreCarbonPrinciples</a><span>, in § 3.25.2</span>
+   <li><a href="#element-attrdef-mrvextensionmessage-correlationid">correlationId</a><span>, in § 3.17.1</span>
    <li><a href="#enumdef-correspondingadjustment">CorrespondingAdjustment</a><span>, in § 3.91</span>
    <li><a href="#element-attrdef-pacompliance-correspondingadjustment">correspondingAdjustment</a><span>, in § 3.32.1</span>
    <li>
