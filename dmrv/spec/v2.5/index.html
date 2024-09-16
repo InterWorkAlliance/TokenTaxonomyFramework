@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="0a480a5ef40b45862626027829212e863dd7484e" name="document-revision">
+  <meta content="8ca79a722316494989179188a0d79d644ec726ff" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2071,7 +2071,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2.5 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-09-12">12 September 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-09-16">16 September 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2190,9 +2190,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-mrv-extension-message-properties"><span class="secno">3.17.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-mrv-extension"><span class="secno">3.18</span> <span class="content">Data Type: <span>MrvExtension</span></span></a>
+       <a href="#dt-mrv-entity-extension"><span class="secno">3.18</span> <span class="content">Data Type: <span>MrvEntityExtension</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-mrv-extension-properties"><span class="secno">3.18.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-mrv-entity-extension-properties"><span class="secno">3.18.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-property"><span class="secno">3.19</span> <span class="content">Data Type: <span>Property</span></span></a>
@@ -2603,6 +2603,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-2.5.0-20240916"><span class="secno"></span> <span class="content">Version 2.5.0-20240916 (September 16th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20240801"><span class="secno"></span> <span class="content">Version 2.5.0-20240801 (August 2nd, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20240716"><span class="secno"></span> <span class="content">Version 2.5.0-20240716 (July 16th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20240614"><span class="secno"></span> <span class="content">Version 2.5.0-20240614 (June 14th, 2024)</span></a>
@@ -2725,13 +2726,13 @@ these platforms or services may automate and prepare findings data that are eval
      <p>The encoding of a Checkpoint Result in the data model is specified in <a href="#dt-checkpoint-result">§ 3.23 Data Type: CheckpointResult</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="mrv-extension">MRV Extension<a class="self-link" href="#mrv-extension"></a></dfn>
     <dd data-md>
-     <p>A MRV Extension is a collection of metadata that is specific to the quality standard being followed. This metadata is used to extend the data model to support the specific
-requirements of the quality standard and can be contextually applied to the appropriate data types. For example, a MRV Extension can be applied to a Activity Impact Module to support 
-the data requirements of a specific quality standard. MRV Extensions can be <code>untyped</code> or <code>typed</code>. Untyped MRV Extensions are a collection of key/value pairs, while a typed MRV Extension
-is based on and conforms to a specific Json Schema.</p>
+     <p>A MRV Extension can be an <code>Entity</code> or <code>Message</code> extension to the data model that is specific to the quality standard being followed. These extension are used to extend the data model and process to support the specific
+requirements of the quality standard and can be contextually applied to the appropriate data types. For example, a MRV Entity Extension can be applied to a Activity Impact Module to support 
+the data requirements of a specific quality standard. A MRV Extension Message Pair can be defined to add a process step to a claim verification for one party to request something from another and 
+be recorded as a request/response message pair in the proper context of the business process.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="verification-process-agreement">Verification Process Agreement<a class="self-link" href="#verification-process-agreement"></a></dfn>
     <dd data-md>
-     <p>A multiparty agreement between the parties involved in the origination and digital MRV process. It defines the quality standard being followed, any monitoring/audit reports, etc.</p>
+     <p>A multiparty agreement between the parties involved in the origination and digital MRV process. It defines the quality standard and <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset">MRVExtensionSet</a> being followed, any monitoring/audit reports, etc.</p>
      <p>The encoding of a Verification Process Agreement in the data model is specified in <a href="#dt-verification-process-agreement">§ 3.24 Agreement &amp; Data Type: VerificationProcessAgreement</a></p>
     <dt data-md><dfn data-dfn-type="dfn" data-noexport id="carbon-removal-or-reduction-credit---cru">Carbon Removal or Reduction Credit - CRU<a class="self-link" href="#carbon-removal-or-reduction-credit---cru"></a></dfn>
     <dd data-md>
@@ -2853,10 +2854,10 @@ the highlights of properties within the data types and does not include the full
        <td>M 
        <td>A collection of ActivityImpactModules that belong to this Accountable Impact Organization. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type AccountableImpactOrganization</figcaption>
    </figure>
@@ -3038,10 +3039,10 @@ It is bound to to Quality Standard and is where claims are issued from.</p>
        <td>O 
        <td>An array of optional attestations including tags. See<a href="#dt-attestation">§ 3.44 Data Type: Attestation</a> 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV extensions for the project. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV extensions for the project. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type ActivityImpactModule</figcaption>
    </figure>
@@ -3181,10 +3182,10 @@ a sensor or meter, an application that collects user data or reference data like
        <td>M 
        <td>this can be the unique identifier for the device, like a serial number, public key, etc. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension②">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension②">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type ImpactClaim</figcaption>
    </figure>
@@ -3274,10 +3275,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoints for the ImpactClaim. See <a href="#dt-impact-claim-checkpoint">§ 3.10 Data Type: ImpactClaimCheckpoint</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension③">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension③">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV extensions for the claim. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV extensions for the claim. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type ImpactClaim</figcaption>
    </figure>
@@ -3337,10 +3338,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The date range for the checkpoint. See <a href="#dt-date-range">§ 3.51 Data Type: DateRange</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension④">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension④">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV extensions for the checkpoint. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV extensions for the checkpoint. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
       <tr>
        <td><dfn data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-datapackages"><code>dataPackages</code><a class="self-link" href="#element-attrdef-impactclaimcheckpoint-datapackages"></a></dfn> : <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage①">DataPackage</a> 
        <td>Array 
@@ -3426,10 +3427,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The DatePoint that the Data Package was created. See <a href="#dt-date-point">§ 3.52 Data Type: DatePoint</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑤">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension⑤">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of one or more MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of one or more MRV Entity Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
       <tr>
        <td>files : <a data-link-type="dfn" href="#datafile" id="ref-for-datafile">DataFile</a> 
        <td>Array 
@@ -3476,16 +3477,16 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>The source attestation or signature for the file. See <a href="#dt-digital-signature">§ 3.39 Data Type: DigitalSignature</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑥">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension⑥">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of optional MrvExtensions. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type File</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.14" id="dt-mrv-extension-set"><span class="secno">3.14. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvextensionset">MrvExtensionSet</dfn></span><a class="self-link" href="#dt-mrv-extension-set"></a></h3>
-   <p>A collection of MRV Extensions Set Modules that are specific to the Quality Standard/Methodology the AIM is bound to, typically comprosised of multiple MRV Extensions for modules or activities. A MrvExtensionSet
-    can be defined by the supplier, verifier and issuer based on a set of methodology modules to form reusable libraries for the MRV process.</p>
+   <p>A collection of MRV Extensions (<code>Entity</code> or <code>Message</code>) and Modules that are specific to the Quality Standard/Methodology the AIM is bound to, typically comprosised of multiple MRV Extensions for modules or activities. A MrvExtensionSet
+    can be defined by the supplier, verifier and issuer based on a set of methodology modules to form reusable libraries for the MRV process for all parties.</p>
    <h4 class="heading settled" data-level="3.14.1" id="dt-mrv-extension-set-properties"><span class="secno">3.14.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-extension-set-properties"></a></h4>
    <figure id="mrv-extension-set-properties-table">
     <table class="data">
@@ -3500,42 +3501,47 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
        <td>String 
        <td>M 
-       <td>A unique identifier for the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>A unique identifier for the MRV Extension Set, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤">String</a> 
        <td>String 
        <td>M 
-       <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>The name of the MRV Extension Set, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string⑥">String</a> 
        <td>String 
        <td>M 
-       <td>The versions of the MRV Extension specification, default is 1.0.0. 
+       <td>The versions of the MRV Extension Set specification, default is 1.0.0. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string⑦">String</a> 
        <td>String 
        <td>M 
-       <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
+       <td>A description of the MRV Extension Set, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
       <tr>
        <td><dfn data-dfn-for="MrvExtensionSet" data-dfn-type="element-attr" data-export id="element-attrdef-mrvextensionset-documentation"><code>documentation</code><a class="self-link" href="#element-attrdef-mrvextensionset-documentation"></a></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string⑧">String</a> 
        <td>String 
        <td>O 
-       <td>A link to the documentation for the MRV Extension, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
+       <td>A link to the documentation for the MRV Extension Set, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
        <td>modules : <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule">MrvExtensionSetModule</a> 
        <td>Array 
        <td>M 
        <td>A collection of MRV Extension Modules for the Quality Standard. See <a href="#dt-mrv-extension-set-module">§ 3.15 Data Type: MrvExtensionSetModule</a> for details. 
       <tr>
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension⑦">MrvEntityExtension</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of MRV Entity Extensions for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
+      <tr>
        <td>mrvExtensionMessages : <a data-link-type="dfn" href="#mrvextensionmessagepair" id="ref-for-mrvextensionmessagepair">MrvExtensionMessagePair</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV Extension Message Pairs for the Quality Standard. See <a href="#dt-mrv-extension-message-pair">§ 3.16 Data Type: MrvExtensionMessagePair</a> for details. 
+       <td>A collection of MRV Extension Message Pairs for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-mrv-extension-message-pair">§ 3.16 Data Type: MrvExtensionMessagePair</a> for details. 
     </table>
     <figcaption>Properties of data type MrvExtensionSet</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.15" id="dt-mrv-extension-set-module"><span class="secno">3.15. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvextensionsetmodule">MrvExtensionSetModule</dfn></span><a class="self-link" href="#dt-mrv-extension-set-module"></a></h3>
-   <p>A MRV Extension Module is a collection of MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to, typically comprosised of multiple MRV Extensions
+   <p>A MRV Extension St Module is a collection of MRV Extensions that are specific to the Quality Standard/Methodology the AIM is bound to, typically comprosised of multiple MRV Extensions
     for modules or activities. A MrvExtensionSetModule, categorizes MrvExtensions into modules like, "Carbon Capture", "Carbon Sequestration", "Carbon Removal", etc.</p>
    <h4 class="heading settled" data-level="3.15.1" id="dt-mrv-extension-set-module-properties"><span class="secno">3.15.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-extension-set-module-properties"></a></h4>
    <figure id="mrv-extension-set-module-properties-table">
@@ -3573,10 +3579,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A link to the documentation for the MRV Extension, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
-       <td>extensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑦">MrvExtension</a> 
+       <td>extensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension⑧">MrvEntityExtension</a> 
        <td>Array 
        <td>M 
-       <td>A collection of MRV Extensions for the Module. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV Entity Extensions for the Module. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
       <tr>
        <td>mrvExtensionMessages : <a data-link-type="dfn" href="#mrvextensionmessagepair" id="ref-for-mrvextensionmessagepair①">MrvExtensionMessagePair</a> 
        <td>Array 
@@ -3601,27 +3607,27 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
        <td>String 
        <td>M 
-       <td>A unique identifier for the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>A unique identifier for the MRV Extension Message Pair, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string①③">String</a> 
        <td>String 
        <td>M 
-       <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>The name of the MRV Extension Message Pair, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string①④">String</a> 
        <td>String 
        <td>M 
-       <td>The versions of the MRV Extension specification, default is 1.0.0. 
+       <td>The versions of the MRV Extension Message Pair specification, default is 1.0.0. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string①⑤">String</a> 
        <td>String 
        <td>M 
-       <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
+       <td>A description of the MRV Extension Message Pair, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
       <tr>
        <td><dfn data-dfn-for="MrvExtensionMessagePair" data-dfn-type="element-attr" data-export id="element-attrdef-mrvextensionmessagepair-documentation"><code>documentation</code><a class="self-link" href="#element-attrdef-mrvextensionmessagepair-documentation"></a></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string①⑥">String</a> 
        <td>String 
        <td>O 
-       <td>A link to the documentation for the MRV Extension, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
+       <td>A link to the documentation for the MRV Extension Message Pair, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
        <td>requestMessage : <a data-link-type="dfn" href="#mrvextensionmessage" id="ref-for-mrvextensionmessage">MrvExtensionMessage</a> 
        <td>Object 
@@ -3652,7 +3658,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
        <td>String 
        <td>M 
-       <td>A unique identifier for the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>A unique identifier for the MRV Extension Message, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>messageType : <code class="idl"><a data-link-type="idl" href="#enumdef-messagetype" id="ref-for-enumdef-messagetype">MessageType</a></code> 
        <td>String 
@@ -3691,16 +3697,16 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type MrvExtensionMessage</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.18" id="dt-mrv-extension"><span class="secno">3.18. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvextension">MrvExtension</dfn></span><a class="self-link" href="#dt-mrv-extension"></a></h3>
-   <p>A MRV Extension is an extensible JSON object that contains the MRV data that is specific to the Quality Standard/Methodology ActivityImpactModules. MRV mrvExtensions
+   <h3 class="heading settled" data-level="3.18" id="dt-mrv-entity-extension"><span class="secno">3.18. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrventityextension">MrvEntityExtension</dfn></span><a class="self-link" href="#dt-mrv-entity-extension"></a></h3>
+   <p>A MRV Entity Extension is an extensible JSON object that contains the MRV data that is specific to a Quality Standard/Methodology Entity. MRV Entity Extensions
     can be defined by the methdology developers or the verifier, or verification automation to include attributes or data that is helpful to have on the ledger. MrvExtensions can be
     added to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule④">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim②">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim①">ProcessedClaim</a> types.</p>
-   <p>The MRV Extension can be simple and only have a collection of properties or more complex with an accompanying schema.</p>
+   <p>The MRV Entity Extension can be simple and only have a collection of properties or more complex with an accompanying schema.</p>
    <p>Sample and <code>official</code> extensions
     can be found in the <a href="https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extensions">Extensions</a> folder of the Token Taxonomy Framework. Adopters of this specification are invited to
     create their own typed extension sets for <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a>s or industries that they are working with.</p>
-   <h4 class="heading settled" data-level="3.18.1" id="dt-mrv-extension-properties"><span class="secno">3.18.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-extension-properties"></a></h4>
-   <figure id="mrv-extension-properties-table">
+   <h4 class="heading settled" data-level="3.18.1" id="dt-mrv-entity-extension-properties"><span class="secno">3.18.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-mrv-entity-extension-properties"></a></h4>
+   <figure id="mrv-entity-extension-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3713,27 +3719,27 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②③">Id</a> 
        <td>String 
        <td>M 
-       <td>A unique identifier for the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>A unique identifier for the MRV Entity Extension, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string②⓪">String</a> 
        <td>String 
        <td>M 
-       <td>The name of the MRV Extension, this is a string that is defined by the verifier or verification automation. 
+       <td>The name of the MRV Entity Extension, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string②①">String</a> 
        <td>String 
        <td>M 
-       <td>The versions of the MRV Extension specification, default is 1.0.0. 
+       <td>The versions of the MRV Entity Extension specification, default is 1.0.0. 
       <tr>
        <td>description : <a data-link-type="dfn" href="#string" id="ref-for-string②②">String</a> 
        <td>String 
        <td>M 
-       <td>A description of the MRV Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
+       <td>A description of the MRV Entity Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
       <tr>
-       <td><dfn data-dfn-for="MrvExtension" data-dfn-type="element-attr" data-export id="element-attrdef-mrvextension-documentation"><code>documentation</code><a class="self-link" href="#element-attrdef-mrvextension-documentation"></a></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string②③">String</a> 
+       <td><dfn data-dfn-for="MrvEntityExtension" data-dfn-type="element-attr" data-export id="element-attrdef-mrventityextension-documentation"><code>documentation</code><a class="self-link" href="#element-attrdef-mrventityextension-documentation"></a></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string②③">String</a> 
        <td>String 
        <td>O 
-       <td>A link to the documentation for the MRV Extension, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
+       <td>A link to the documentation for the MRV Entity Extension, see <a href="#extension-documentation">§ 3.21 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
        <td>mrvExtensionContext : <code class="idl"><a data-link-type="idl" href="#enumdef-mrvextensioncontext" id="ref-for-enumdef-mrvextensioncontext①">MrvExtensionContext</a></code> 
        <td>String 
@@ -3748,14 +3754,14 @@ configured to control the processing of the ImpactClaim.</p>
        <td>dataSchemaOrType : <a data-link-type="dfn" href="#string" id="ref-for-string②④">string</a> 
        <td>URI, URL or string 
        <td>O* 
-       <td>A link to the Json schema file for the MRV Extension that the <code>data</code> property follows or is mapped to. It also may contain a type name for direct serialization/de-serialization functionality. 
+       <td>A link to the Json schema file for the MRV Entity Extension that the <code>data</code> property follows or is mapped to. It also may contain a type name for direct serialization/de-serialization functionality. 
       <tr>
        <td>data 
        <td>Object 
        <td>O* 
        <td>A Json object that contains the data for the extension. 
     </table>
-    <figcaption>Properties of data type MrvExtension</figcaption>
+    <figcaption>Properties of data type MrvEntityExtension</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.19" id="dt-property"><span class="secno">3.19. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="property">Property</dfn></span><a class="self-link" href="#dt-property"></a></h3>
    <p>A property contains a simple key value pair that is used in MRV Extensions.</p>
@@ -3883,10 +3889,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoint results for the ProcessedClaim. See <a href="#dt-checkpoint-result">§ 3.23 Data Type: CheckpointResult</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑧">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension⑨">MrvEntityExtension</a> 
        <td>Object 
        <td>O 
-       <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
       <tr>
        <td><dfn data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-issuancerequest"><code>issuanceRequest</code><a class="self-link" href="#element-attrdef-processedclaim-issuancerequest"></a></dfn> : 
        <td>Object 
@@ -3942,10 +3948,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension⑨">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①⓪">MrvEntityExtension</a> 
        <td>Object 
        <td>O 
-       <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of MRV extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type CheckpointResult</figcaption>
    </figure>
@@ -4021,10 +4027,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The audits that are required for the verification agreement. See <a href="#dt-audits">§ 3.37 Data Type: Audits</a> for details. 
       <tr>
-       <td>mrvExtensions : <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①⓪">MrvExtension</a> 
+       <td>mrvEntityExtensions : <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①①">MrvEntityExtension</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions, see <a href="#dt-mrv-extension">§ 3.18 Data Type: MrvExtension</a> for details. 
+       <td>A collection of optional MrvEntityExtensions, see <a href="#dt-mrv-entity-extension">§ 3.18 Data Type: MrvEntityExtension</a> for details. 
     </table>
     <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
    </figure>
@@ -5119,7 +5125,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
        <td>M 
        <td>The string representation of claim period for measurement and reporting. See <a href="#dt-claim-period">§ 3.79 Data Type: ClaimPeriod</a> for details. 
       <tr>
-       <td>mrvExtensionSet : <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset">MrvExtensionSet</a> 
+       <td>mrvExtensionSet : <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset①">MrvExtensionSet</a> 
        <td>Object 
        <td>M 
        <td>A collection of MRV extensions, called a set, used in the verification process, see <a href="#dt-mrv-extension-set">§ 3.14 Data Type: MrvExtensionSet</a> for details. 
@@ -5266,8 +5272,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.57" id="dt-itmo-id"><span class="secno">3.57. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-3b7549f2">
-    <a class="self-link" href="#example-3b7549f2"></a> 
+   <div class="example" id="example-9033fba7">
+    <a class="self-link" href="#example-9033fba7"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -5387,7 +5393,7 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
       <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-processed_claim"><code>PROCESSED_CLAIM</code><a class="self-link" href="#dom-mrvextensioncontext-processed_claim"></a></dfn>
       <dd data-md>
        <p>Processed Claim context</p>
-      <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-verification_processagreement"><code>VERIFICATION_PROCESS+AGREEMENT</code><a class="self-link" href="#dom-mrvextensioncontext-verification_processagreement"></a></dfn>
+      <dt data-md><dfn class="idl-code" data-dfn-for="MrvExtensionContext" data-dfn-type="enum-value" data-export id="dom-mrvextensioncontext-verification_process_agreement"><code>VERIFICATION_PROCESS_AGREEMENT</code><a class="self-link" href="#dom-mrvextensioncontext-verification_process_agreement"></a></dfn>
       <dd data-md>
        <p>Verification Process Agreement context</p>
      </dl>
@@ -9051,6 +9057,13 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-2.5.0-20240916"><span class="content">Version 2.5.0-20240916 (September 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240916"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Renamed <code>MrvExtension</code> to <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①②">MrvEntityExtension</a> to better reflect the entity nature of the type.</p>
+      <li data-md>
+       <p>Added the <code>mrvEntityExtensions</code> array to the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset②">MrvExtensionSet</a> type to support multiple extensions that can apply to the entire set, i.e. child modules.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20240801"><span class="content">Version 2.5.0-20240801 (August 2nd, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240801"></a></h3>
      <ul>
       <li data-md>
@@ -9070,19 +9083,19 @@ public licenses.</p>
       <li data-md>
        <p>Added the <a data-link-type="dfn" href="#mrvextensionmessage" id="ref-for-mrvextensionmessage③">MrvExtensionMessage</a> type to support custom messages, used in pairs, to be defined to facilitate the MRV Process between the parties.</p>
       <li data-md>
-       <p>Added the <a data-link-type="dfn" href="#mrvextensionmessagepair" id="ref-for-mrvextensionmessagepair③">MrvExtensionMessagePair</a> array to both the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset①">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule①">MrvExtensionSetModule</a> to include message definitions in extension sets.</p>
+       <p>Added the <a data-link-type="dfn" href="#mrvextensionmessagepair" id="ref-for-mrvextensionmessagepair③">MrvExtensionMessagePair</a> array to both the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset③">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule①">MrvExtensionSetModule</a> to include message definitions in extension sets.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20240605"><span class="content">Version 2.5.0-20240605 (June 5th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240605"></a></h3>
      <ul>
       <li data-md>
-       <p>Added the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset②">MrvExtensionSet</a> type to support sets of extensions as a collection mapped to a quality standard.</p>
+       <p>Added the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset④">MrvExtensionSet</a> type to support sets of extensions as a collection mapped to a quality standard.</p>
       <li data-md>
        <p>Added the <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule②">MrvExtensionSetModule</a> type to support modules of extensions as a collection mapped to a quality standard.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20240524"><span class="content">Version 2.5.0-20240428 (May 24th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240524"></a></h3>
      <ul>
       <li data-md>
-       <p>Simplified and collapsed the <a data-link-type="dfn" href="#mrvextension" id="ref-for-mrvextension①①">MrvExtension</a> type removing untyped and typed into a single type.</p>
+       <p>Simplified and collapsed the <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①③">MrvEntityExtension</a> type removing untyped and typed into a single type.</p>
       <li data-md>
        <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> type.</p>
       <li data-md>
@@ -9420,7 +9433,7 @@ public licenses.</p>
    <li>
     documentation
     <ul>
-     <li><a href="#element-attrdef-mrvextension-documentation">element-attr for MrvExtension</a><span>, in § 3.18.1</span>
+     <li><a href="#element-attrdef-mrventityextension-documentation">element-attr for MrvEntityExtension</a><span>, in § 3.18.1</span>
      <li><a href="#element-attrdef-mrvextensionmessagepair-documentation">element-attr for MrvExtensionMessagePair</a><span>, in § 3.16.1</span>
      <li><a href="#element-attrdef-mrvextensionset-documentation">element-attr for MrvExtensionSet</a><span>, in § 3.14.1</span>
      <li><a href="#element-attrdef-mrvextensionsetmodule-documentation">element-attr for MrvExtensionSetModule</a><span>, in § 3.15.1</span>
@@ -9550,8 +9563,8 @@ public licenses.</p>
    <li><a href="#mitigationactivity">MitigationActivity</a><span>, in § 3.46</span>
    <li><a href="#element-attrdef-corecarbonprinciples-mitigationactivity">mitigationActivity</a><span>, in § 3.26.1</span>
    <li><a href="#dom-claimperiod-monthly">MONTHLY</a><span>, in § 3.79</span>
+   <li><a href="#mrventityextension">MrvEntityExtension</a><span>, in § 3.18</span>
    <li><a href="#mrv-extension">MRV Extension</a><span>, in § 2</span>
-   <li><a href="#mrvextension">MrvExtension</a><span>, in § 3.18</span>
    <li><a href="#enumdef-mrvextensioncontext">MrvExtensionContext</a><span>, in § 3.62</span>
    <li><a href="#mrvextensionmessage">MrvExtensionMessage</a><span>, in § 3.17</span>
    <li><a href="#mrvextensionmessagepair">MrvExtensionMessagePair</a><span>, in § 3.16</span>
@@ -9742,7 +9755,7 @@ public licenses.</p>
    <li><a href="#verification-automation">Verification Automation</a><span>, in § 2</span>
    <li><a href="#dom-signatoryrole-verification_platform_provider">VERIFICATION_PLATFORM_PROVIDER</a><span>, in § 3.70</span>
    <li><a href="#verification-process-agreement">Verification Process Agreement</a><span>, in § 2</span>
-   <li><a href="#dom-mrvextensioncontext-verification_processagreement">VERIFICATION_PROCESS+AGREEMENT</a><span>, in § 3.62</span>
+   <li><a href="#dom-mrvextensioncontext-verification_process_agreement">VERIFICATION_PROCESS_AGREEMENT</a><span>, in § 3.62</span>
    <li><a href="#verificationprocessagreement">VerificationProcessAgreement</a><span>, in § 3.24</span>
    <li><a href="#element-attrdef-corecarbonprinciples-verificationstandard">verificationStandard</a><span>, in § 3.26.1</span>
    <li><a href="#dom-signaturetype-verified_credential">VERIFIED_CREDENTIAL</a><span>, in § 3.69</span>
@@ -9939,22 +9952,22 @@ public licenses.</p>
 window.dfnpanelData = {};
 window.dfnpanelData['accountableimpactorganization'] = {"dfnID": "accountableimpactorganization", "url": "#accountableimpactorganization", "dfnText": "AccountableImpactOrganization", "refSections": [{"refs": [{"id": "ref-for-accountableimpactorganization"}], "title": "3. Tokens and their Data Model"}], "external": false};
 window.dfnpanelData['address'] = {"dfnID": "address", "url": "#address", "dfnText": "Address", "refSections": [{"refs": [{"id": "ref-for-address"}], "title": "3.3.2. Properties"}], "external": false};
-window.dfnpanelData['activityimpactmodule'] = {"dfnID": "activityimpactmodule", "url": "#activityimpactmodule", "dfnText": "ActivityImpactModule", "refSections": [{"refs": [{"id": "ref-for-activityimpactmodule"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2460"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2461"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2462"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2463"}], "title": "3.18. Data Type: MrvExtension"}], "external": false};
+window.dfnpanelData['activityimpactmodule'] = {"dfnID": "activityimpactmodule", "url": "#activityimpactmodule", "dfnText": "ActivityImpactModule", "refSections": [{"refs": [{"id": "ref-for-activityimpactmodule"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2460"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2461"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2462"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-activityimpactmodule\u2463"}], "title": "3.18. Data Type: MrvEntityExtension"}], "external": false};
 window.dfnpanelData['validation'] = {"dfnID": "validation", "url": "#validation", "dfnText": "Validation", "refSections": [{"refs": [{"id": "ref-for-validation"}], "title": "3.5.2. Properties"}], "external": false};
 window.dfnpanelData['validationstep'] = {"dfnID": "validationstep", "url": "#validationstep", "dfnText": "ValidationStep", "refSections": [{"refs": [{"id": "ref-for-validationstep"}], "title": "3.6.1. Properties"}], "external": false};
 window.dfnpanelData['claimsource'] = {"dfnID": "claimsource", "url": "#claimsource", "dfnText": "ClaimSource", "refSections": [{"refs": [{"id": "ref-for-claimsource"}], "title": "3.5.2. Properties"}], "external": false};
-window.dfnpanelData['impactclaim'] = {"dfnID": "impactclaim", "url": "#impactclaim", "dfnText": "ImpactClaim", "refSections": [{"refs": [{"id": "ref-for-impactclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-impactclaim\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-impactclaim\u2461"}], "title": "3.18. Data Type: MrvExtension"}], "external": false};
+window.dfnpanelData['impactclaim'] = {"dfnID": "impactclaim", "url": "#impactclaim", "dfnText": "ImpactClaim", "refSections": [{"refs": [{"id": "ref-for-impactclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-impactclaim\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-impactclaim\u2461"}], "title": "3.18. Data Type: MrvEntityExtension"}], "external": false};
 window.dfnpanelData['impactclaimcheckpoint'] = {"dfnID": "impactclaimcheckpoint", "url": "#impactclaimcheckpoint", "dfnText": "ImpactClaimCheckpoint", "refSections": [{"refs": [{"id": "ref-for-impactclaimcheckpoint"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-impactclaimcheckpoint\u2460"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['datapackage'] = {"dfnID": "datapackage", "url": "#datapackage", "dfnText": "DataPackage", "refSections": [{"refs": [{"id": "ref-for-datapackage"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-datapackage\u2460"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-datapackage\u2461"}], "title": "Version 2.5.0-20240801 (August 2nd, 2024)"}, {"refs": [{"id": "ref-for-datapackage\u2462"}, {"id": "ref-for-datapackage\u2463"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['manifest'] = {"dfnID": "manifest", "url": "#manifest", "dfnText": "Manifest", "refSections": [{"refs": [{"id": "ref-for-manifest"}], "title": "3.11.1. Properties"}], "external": false};
 window.dfnpanelData['datafile'] = {"dfnID": "datafile", "url": "#datafile", "dfnText": "DataFile", "refSections": [{"refs": [{"id": "ref-for-datafile"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-datafile\u2460"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
-window.dfnpanelData['mrvextensionset'] = {"dfnID": "mrvextensionset", "url": "#mrvextensionset", "dfnText": "MrvExtensionSet", "refSections": [{"refs": [{"id": "ref-for-mrvextensionset"}], "title": "3.49.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionset\u2460"}], "title": "Version 2.5.0-20240614 (June 14th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionset\u2461"}], "title": "Version 2.5.0-20240605 (June 5th, 2024)"}], "external": false};
+window.dfnpanelData['mrvextensionset'] = {"dfnID": "mrvextensionset", "url": "#mrvextensionset", "dfnText": "MrvExtensionSet", "refSections": [{"refs": [{"id": "ref-for-mrvextensionset"}], "title": "2. Terminology"}, {"refs": [{"id": "ref-for-mrvextensionset\u2460"}], "title": "3.49.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionset\u2461"}], "title": "Version 2.5.0-20240916 (September 16th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionset\u2462"}], "title": "Version 2.5.0-20240614 (June 14th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionset\u2463"}], "title": "Version 2.5.0-20240605 (June 5th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionsetmodule'] = {"dfnID": "mrvextensionsetmodule", "url": "#mrvextensionsetmodule", "dfnText": "MrvExtensionSetModule", "refSections": [{"refs": [{"id": "ref-for-mrvextensionsetmodule"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2460"}], "title": "Version 2.5.0-20240614 (June 14th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionsetmodule\u2461"}], "title": "Version 2.5.0-20240605 (June 5th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionmessagepair'] = {"dfnID": "mrvextensionmessagepair", "url": "#mrvextensionmessagepair", "dfnText": "MrvExtensionMessagePair", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessagepair"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2460"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessagepair\u2461"}, {"id": "ref-for-mrvextensionmessagepair\u2462"}], "title": "Version 2.5.0-20240614 (June 14th, 2024)"}], "external": false};
 window.dfnpanelData['mrvextensionmessage'] = {"dfnID": "mrvextensionmessage", "url": "#mrvextensionmessage", "dfnText": "MrvExtensionMessage", "refSections": [{"refs": [{"id": "ref-for-mrvextensionmessage"}, {"id": "ref-for-mrvextensionmessage\u2460"}], "title": "3.16.1. Properties"}, {"refs": [{"id": "ref-for-mrvextensionmessage\u2461"}], "title": "Version 2.5.0-20240716 (July 16th, 2024)"}, {"refs": [{"id": "ref-for-mrvextensionmessage\u2462"}], "title": "Version 2.5.0-20240614 (June 14th, 2024)"}], "external": false};
-window.dfnpanelData['mrvextension'] = {"dfnID": "mrvextension", "url": "#mrvextension", "dfnText": "MrvExtension", "refSections": [{"refs": [{"id": "ref-for-mrvextension"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2461"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2462"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2463"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2464"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2465"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2466"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2467"}], "title": "3.22.2. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2468"}], "title": "3.23.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u24ea"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-mrvextension\u2460\u2460"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
+window.dfnpanelData['mrventityextension'] = {"dfnID": "mrventityextension", "url": "#mrventityextension", "dfnText": "MrvEntityExtension", "refSections": [{"refs": [{"id": "ref-for-mrventityextension"}], "title": "3.3.2. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2460"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2461"}], "title": "3.8.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2462"}], "title": "3.9.2. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2463"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2464"}], "title": "3.12.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2465"}], "title": "3.13.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2466"}], "title": "3.14.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2467"}], "title": "3.15.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2468"}], "title": "3.22.2. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2460\u24ea"}], "title": "3.23.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2460\u2460"}], "title": "3.24.1. Properties"}, {"refs": [{"id": "ref-for-mrventityextension\u2460\u2461"}], "title": "Version 2.5.0-20240916 (September 16th, 2024)"}, {"refs": [{"id": "ref-for-mrventityextension\u2460\u2462"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['property'] = {"dfnID": "property", "url": "#property", "dfnText": "Property", "refSections": [{"refs": [{"id": "ref-for-property"}], "title": "3.18.1. Properties"}], "external": false};
-window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.18. Data Type: MrvExtension"}], "external": false};
+window.dfnpanelData['processedclaim'] = {"dfnID": "processedclaim", "url": "#processedclaim", "dfnText": "ProcessedClaim", "refSections": [{"refs": [{"id": "ref-for-processedclaim"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-processedclaim\u2460"}], "title": "3.18. Data Type: MrvEntityExtension"}], "external": false};
 window.dfnpanelData['checkpointresult'] = {"dfnID": "checkpointresult", "url": "#checkpointresult", "dfnText": "CheckpointResult", "refSections": [{"refs": [{"id": "ref-for-checkpointresult"}], "title": "3.22.2. Properties"}, {"refs": [{"id": "ref-for-checkpointresult\u2460"}], "title": "Version 2.5.0-20240428 (May 24th, 2024)"}], "external": false};
 window.dfnpanelData['verificationprocessagreement'] = {"dfnID": "verificationprocessagreement", "url": "#verificationprocessagreement", "dfnText": "VerificationProcessAgreement", "refSections": [{"refs": [{"id": "ref-for-verificationprocessagreement"}], "title": "3. Tokens and their Data Model"}, {"refs": [{"id": "ref-for-verificationprocessagreement\u2460"}], "title": "3.90. Data Type: MethodologyAndTool"}], "external": false};
 window.dfnpanelData['cru'] = {"dfnID": "cru", "url": "#cru", "dfnText": "CRU", "refSections": [{"refs": [{"id": "ref-for-cru"}, {"id": "ref-for-cru\u2460"}], "title": "3. Tokens and their Data Model"}], "external": false};
@@ -9979,7 +9992,7 @@ window.dfnpanelData['attestation'] = {"dfnID": "attestation", "url": "#attestati
 window.dfnpanelData['tag'] = {"dfnID": "tag", "url": "#tag", "dfnText": "Tag", "refSections": [{"refs": [{"id": "ref-for-tag"}], "title": "3.44.1. Properties"}], "external": false};
 window.dfnpanelData['mitigationactivity'] = {"dfnID": "mitigationactivity", "url": "#mitigationactivity", "dfnText": "MitigationActivity", "refSections": [{"refs": [{"id": "ref-for-mitigationactivity"}], "title": "3.26.1. Properties"}], "external": false};
 window.dfnpanelData['geographiclocation'] = {"dfnID": "geographiclocation", "url": "#geographiclocation", "dfnText": "GeographicLocation", "refSections": [{"refs": [{"id": "ref-for-geographiclocation"}], "title": "3.5.2. Properties"}, {"refs": [{"id": "ref-for-geographiclocation\u2460"}], "title": "3.8.1. Properties"}], "external": false};
-window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.18. Data Type: MrvExtension"}, {"refs": [{"id": "ref-for-qualitystandard\u2460"}], "title": "3.24.1. Properties"}], "external": false};
+window.dfnpanelData['qualitystandard'] = {"dfnID": "qualitystandard", "url": "#qualitystandard", "dfnText": "QualityStandard", "refSections": [{"refs": [{"id": "ref-for-qualitystandard"}], "title": "3.18. Data Type: MrvEntityExtension"}, {"refs": [{"id": "ref-for-qualitystandard\u2460"}], "title": "3.24.1. Properties"}], "external": false};
 window.dfnpanelData['mrvrequirements'] = {"dfnID": "mrvrequirements", "url": "#mrvrequirements", "dfnText": "MRVRequirements", "refSections": [{"refs": [{"id": "ref-for-mrvrequirements"}], "title": "3.24.1. Properties"}], "external": false};
 window.dfnpanelData['precisionmix'] = {"dfnID": "precisionmix", "url": "#precisionmix", "dfnText": "PrecisionMix", "refSections": [{"refs": [{"id": "ref-for-precisionmix"}], "title": "3.49.1. Properties"}], "external": false};
 window.dfnpanelData['daterange'] = {"dfnID": "daterange", "url": "#daterange", "dfnText": "DateRange", "refSections": [{"refs": [{"id": "ref-for-daterange"}], "title": "3.10.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2460"}], "title": "3.23.1. Properties"}, {"refs": [{"id": "ref-for-daterange\u2461"}], "title": "3.51.1. Properties"}], "external": false};
