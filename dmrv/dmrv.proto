@@ -19,7 +19,7 @@ message AccountableImpactOrganization{
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the organization
     repeated common.Attestation attestations = 10; //a collection of Attestation workflow steps for a project
     repeated ActivityImpactModule activity_impact_modules = 11; //list of activity impact modules
-    repeated common.MrvExtension mrv_extensions = 12; //list of MRV extensions for the organization
+    repeated common.MrvEntityExtension extensions = 12; //list of MRV extensions for the organization
 }
 
 message ActivityImpactModule {
@@ -40,7 +40,7 @@ message ActivityImpactModule {
     repeated string sponsors = 15; //list of sponsors of the project, i.e., financial backers
     repeated ClaimSource claim_sources = 16; //a list of claim sources that can be used for claims from this activity impact module.
     repeated ImpactClaim impact_claims  = 17; //list of ecological claims for the project
-    repeated common.MrvExtension mrv_extensions = 18; //list of MRV extensions for the module
+    repeated common.MrvEntityExtension extensions = 18; //list of MRV extensions for the module
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -83,7 +83,7 @@ message ClaimSource
     ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
     common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
     string source_identifier = 8; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
-    repeated common.MrvExtension mrv_extensions = 9; //an optional list of MRV extensions that can be used for source configuration or other metadata.
+    repeated common.MrvEntityExtension extensions = 9; //an optional list of MRV extensions that can be used for source configuration or other metadata.
 }
 
 message ImpactClaimCheckpoint
@@ -95,7 +95,7 @@ message ImpactClaimCheckpoint
     string ef_before = 5; //environmental factor before activity - i.e., total emissions = 3 tCO2e
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
     common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers within the claim period.
-    repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions for the checkpoint
+    repeated common.MrvEntityExtension extensions = 8; //list of MRV extensions for the checkpoint
     repeated DataPackage data_packages = 9; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
 }
 
@@ -109,7 +109,7 @@ message DataPackage{
         string claimId = 5; //id of the claim
         string project_developer_id = 6; //id of the project developer submitting the SDP
         common.DatePoint created = 7; //date the SDP was created
-        repeated common.MrvExtension mrv_extensions = 8; //list of MRV extensions
+        repeated common.MrvEntityExtension extensions = 8; //list of MRV extensions
         message DataFile{
             string name = 1; //name of the file
             enum FileType
@@ -126,7 +126,7 @@ message DataPackage{
             string description = 3; //description of the file
             string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
             string claim_source_attestation = 5; //claim source attestation or signature for the file
-            repeated common.MrvExtension mrv_extensions = 6; //mrv extensions for the file
+            repeated common.MrvEntityExtension extensions = 6; //mrv extensions for the file
         }
         repeated DataFile data_files = 9; //list of files in the SDP
     }
@@ -146,7 +146,7 @@ message ImpactClaim
     repeated common.CoBenefit co_benefits = 8; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
     //a claim source is registered as a valid source for claim data, either raw source data or reference.
     repeated ImpactClaimCheckpoint checkpoints = 9; //a list of checkpoints that are associated with the claim.
-    repeated common.MrvExtension mrv_extensions = 10; //a list of MRV extensions that are associated with the claim.
+    repeated common.MrvEntityExtension extensions = 10; //a list of MRV extensions that are associated with the claim.
     ActivityImpactModule activity_impact_module = 11; //optional, for object navigation, the parent activity impact module
 }
 
@@ -161,7 +161,7 @@ message ProcessedClaim
     common.Unit unit = 5; //unit of measure for the quantity
     string quantity = 6; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
     repeated common.CoBenefit co_benefits = 7; //list of co-benefits for the claim
-    repeated common.MrvExtension mrv_extensions = 8; //a list of MRV extensions that are associated with the claim.
+    repeated common.MrvEntityExtension extensions = 8; //a list of MRV extensions that are associated with the claim.
     //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
     message CheckpointResult{
         string id = 1; //the id for the processed checkpoint
@@ -170,7 +170,7 @@ message ProcessedClaim
         common.DateRange date_range = 4; //Date range for the checkpoints processed
         string ef_before = 5; //verified environmental factor before project activities 
         string ef_after = 6; //verified environmental factor after project activities
-        repeated common.MrvExtension mrv_extensions = 7; //a list of MRV extensions that are associated with the claim.
+        repeated common.MrvEntityExtension extensions = 7; //a list of MRV extensions that are associated with the claim.
     }
     repeated CheckpointResult checkpoint_results = 9; //summary and verified links for the the claim's checkpoint verification results.
     google.protobuf.Any issuance_request = 10; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
@@ -332,7 +332,7 @@ message VerificationProcessAgreement{
     }
     common.AuditSchedule audit_schedule = 10; //schedule of audits
     Audits audits = 11; //list of audits that have been performed under the agreement
-    repeated common.MrvExtension mrv_extensions = 12; //list of MRV extensions for the agreement
+    repeated common.MrvEntityExtension extensions = 12; //list of MRV extensions for the agreement
     ActivityImpactModule activity_impact_module = 13; //optional, for object navigation, the activity impact module that is being verified
     repeated ProcessedClaim processed_claims = 14; //optional, for object navigation, the processed claims that have been processed under the agreement
 }

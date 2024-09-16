@@ -769,8 +769,8 @@ message MrvExtensionMessage{
     AnyData serialized_message = 9; //the serialized data of the extension message
 }
 
-//The MrvExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
-message MrvExtension{
+//The MrvEntityExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
+message MrvEntityExtension{
     string id = 1; //unique identifier for the extension
     string name = 2; //name of the extension
     string version = 3; //version of the extension
@@ -796,7 +796,7 @@ message MrvExtensionSet{
     string description = 4; //description of the extension set
     string documentation = 5; //optional documentation url of the extension set
     repeated MrvExtensionSetModule modules = 6; //list of extension set modules
-    repeated MrvExtension extensions = 7; //list of extensions in the set, these would apply to the entire set and not be scoped to a single module
+    repeated MrvEntityExtension extensions = 7; //list of extensions in the set, these would apply to the entire set and not be scoped to a single module
     repeated MrvExtensionMessagePair messages = 8; //list of extension messages in the set, these would apply to the entire set and not be scoped to a single module
 }
 
@@ -806,7 +806,7 @@ message MrvExtensionSetModule{
     string version = 3; //version of the extension set module
     string description = 4; //description of the extension set module
     string documentation = 5; //optional documentation url of the extension set module
-    repeated MrvExtension extensions = 6; //list of extensions in the set
+    repeated MrvEntityExtension extensions = 6; //list of extensions in the set
     repeated MrvExtensionMessagePair messages = 7; //list of extension messages in the set
 }
 

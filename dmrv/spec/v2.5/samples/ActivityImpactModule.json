@@ -38,7 +38,7 @@
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-      "mrvExtensions": [
+      "extensions": [
         {
           "id": "",
           "name": "",
@@ -68,11 +68,11 @@
       "quantity": "",
       "coBenefits": [],
       "checkpoints": [],
-      "mrvExtensions": [],
+      "extensions": [],
       "activityImpactModule": null
     }
   ],
-  "mrvExtensions": [
+  "extensions": [
     {
       "id": "",
       "name": "",
@@ -92,10 +92,10 @@
   "validations": [
     {
       "requestDate": "2021-04-01",
-      "validationDate": "8/2/2024",
+      "validationDate": "9/16/2024",
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
-      "validationExpirationDate": "8/2/2024",
+      "validationExpirationDate": "9/16/2024",
       "validationSteps": [
         {
           "validationStepName": "Project Plan",

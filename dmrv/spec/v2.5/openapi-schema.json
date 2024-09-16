@@ -333,10 +333,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -424,10 +424,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -706,10 +706,10 @@
             "type": "string",
             "nullable": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -761,10 +761,10 @@
             "type": "string",
             "nullable": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1232,10 +1232,10 @@
             "type": "string",
             "nullable": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1461,10 +1461,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1509,10 +1509,10 @@
           "checkpointDateRange": {
             "$ref": "#/components/schemas/DateRange"
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1588,10 +1588,10 @@
           "created": {
             "$ref": "#/components/schemas/DatePoint"
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -2031,7 +2031,7 @@
         },
         "additionalProperties": false
       },
-      "MrvExtension": {
+      "MrvEntityExtension": {
         "type": "object",
         "properties": {
           "id": {
@@ -2201,7 +2201,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -2243,7 +2243,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -2327,10 +2327,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -3014,10 +3014,10 @@
           "audits": {
             "$ref": "#/components/schemas/Audits"
           },
-          "mrvExtensions": {
+          "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MrvExtension"
+              "$ref": "#/components/schemas/MrvEntityExtension"
             },
             "nullable": true,
             "readOnly": true
