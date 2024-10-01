@@ -1,6 +1,7 @@
 {
   "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+  "correlatingProjectId": "",
   "name": "Forest Plot 3341",
   "classificationCategory": "CarbonRemoval",
   "classificationMethod": "Natural",

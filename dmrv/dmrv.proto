@@ -7,6 +7,7 @@ option csharp_namespace = "IWA.TTF.Token.Sustainability";
 option java_package = "org.iwa.ttf.token.sustainability";
 option java_multiple_files = true;
 
+//the identity of the organization operating one or more AIM projects
 message AccountableImpactOrganization{
     string id = 1; //unique id for the organization
     string name = 2; //name of the organization
@@ -22,25 +23,27 @@ message AccountableImpactOrganization{
     repeated common.MrvEntityExtension extensions = 12; //list of MRV extensions for the organization
 }
 
+//Can represent a single Project or a Module of a Project, if a project contains multiple AIMs, these can be correlated by the correlating_project_id.
 message ActivityImpactModule {
-    string id = 1; //unique identifier for the activity impact module
+    string id = 1; //unique identifier for the activity impact project or module
     string aio_id = 2; //identifier for the parent organization
-    string name = 3; //descriptive name for the project
-    common.ClassificationCategory classification_category = 4; //classification category for the project
-    common.Method classification_method = 5; //classification method for the project
-    common.BenefitCategory benefit_category = 6; //ecological benefit category for the project
-    common.ProjectScope project_scope = 7; //scope of the project
-    common.ProjectType project_type = 8; //type of the project
-    common.ProjectScale project_scale = 9; //size of the project, small, medium, large
-    string arb_id = 10; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
-    common.GeographicLocation geographic_location = 11; //geographic location of the project
-    string first_year_issuance = 12; //first year of issuance, historical if an established project
-    string registry_project_id = 13; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to AIM and assign unique identifiers to projects.
-    repeated string developers = 14; //list of developers of the project
-    repeated string sponsors = 15; //list of sponsors of the project, i.e., financial backers
-    repeated ClaimSource claim_sources = 16; //a list of claim sources that can be used for claims from this activity impact module.
-    repeated ImpactClaim impact_claims  = 17; //list of ecological claims for the project
-    repeated common.MrvEntityExtension extensions = 18; //list of MRV extensions for the module
+    string correlating_project_id = 3; //optional, the id of the correlating project if there are multiple AIMs for a project
+    string name = 4; //descriptive name for the project
+    common.ClassificationCategory classification_category = 5; //classification category for the project
+    common.Method classification_method = 6; //classification method for the project
+    common.BenefitCategory benefit_category = 7; //ecological benefit category for the project
+    common.ProjectScope project_scope = 8; //scope of the project
+    common.ProjectType project_type = 9; //type of the project
+    common.ProjectScale project_scale = 10; //size of the project, small, medium, large
+    string arb_id = 11; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
+    common.GeographicLocation geographic_location = 12; //geographic location of the project
+    string first_year_issuance = 13; //first year of issuance, historical if an established project
+    string registry_project_id = 14; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to AIM and assign unique identifiers to projects.
+    repeated string developers = 15; //list of developers of the project
+    repeated string sponsors = 16; //list of sponsors of the project, i.e., financial backers
+    repeated ClaimSource claim_sources = 17; //a list of claim sources that can be used for claims from this activity impact module.
+    repeated ImpactClaim impact_claims  = 18; //list of ecological claims for the project
+    repeated common.MrvEntityExtension extensions = 19; //list of MRV extensions for the module
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -62,9 +65,9 @@ message ActivityImpactModule {
         string validation_expiration_date = 5; //expiration date of the validation, yyyy-mm-dd
         repeated ValidationStep validation_steps = 6; //collection of validation steps
     }
-    repeated Validation validations = 19; //in DRAFT, a collection of Validation workflow steps for a project
-    repeated common.Attestation attestations = 20; //a collection of Attestation workflow steps for a project
-    AccountableImpactOrganization accountable_impact_organization = 21; //optional, for object navigation, the parent ecological project
+    repeated Validation validations = 20; //in DRAFT, a collection of Validation workflow steps for a project
+    repeated common.Attestation attestations = 21; //a collection of Attestation workflow steps for a project
+    AccountableImpactOrganization accountable_impact_organization = 22; //optional, for object navigation, the parent ecological project
 }
 
 message ClaimSource

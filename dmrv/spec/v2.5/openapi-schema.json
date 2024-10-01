@@ -355,6 +355,10 @@
             "type": "string",
             "nullable": true
           },
+          "correlatingProjectId": {
+            "type": "string",
+            "nullable": true
+          },
           "name": {
             "type": "string",
             "nullable": true
