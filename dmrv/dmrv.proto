@@ -102,6 +102,26 @@ message ImpactClaimCheckpoint
     repeated DataPackage data_packages = 9; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
 }
 
+// DataFile is file metadata for a file that is part of a DataPackage.  The DataFile is a file that is part of a DataPackage and is used to submit evidence data from registered claim sources in a claim checkpoint.
+message DataFile{
+    string name = 1; //name of the file
+    enum FileType
+    {
+        DATA_BINARY = 0; //binary data file
+        DATA_CSV = 1; //csv data file
+        DATA_JSON = 2; //json data file
+        DATA_XML = 3; //xml data file
+        DATA_PDF = 4; //pdf data file
+        DATA_AVRO = 5; //avro data file
+        DATA_OTHER = 6; //other data file
+    }
+    FileType type = 2; //type of the file
+    string description = 3; //description of the file
+    string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
+    string claim_source_attestation = 5; //claim source attestation or signature for the file
+    repeated common.MrvEntityExtension extensions = 6; //mrv extensions for the file
+}
+
 // Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
 message DataPackage{
     message Manifest{
@@ -109,28 +129,10 @@ message DataPackage{
         string version = 2; //version of the SDP specification
         string aio_id = 3; //id of the accountable impact organization
         string aim_id = 4; //id of the activity impact module
-        string claimId = 5; //id of the claim
+        string claim_id = 5; //id of the claim
         string project_developer_id = 6; //id of the project developer submitting the SDP
         common.DatePoint created = 7; //date the SDP was created
         repeated common.MrvEntityExtension extensions = 8; //list of MRV extensions
-        message DataFile{
-            string name = 1; //name of the file
-            enum FileType
-            {
-                DATA_BINARY = 0; //binary data file
-                DATA_CSV = 1; //csv data file
-                DATA_JSON = 2; //json data file
-                DATA_XML = 3; //xml data file
-                DATA_PDF = 4; //pdf data file
-                DATA_AVRO = 5; //avro data file
-                DATA_OTHER = 6; //other data file
-            }
-            FileType type = 2; //type of the file
-            string description = 3; //description of the file
-            string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
-            string claim_source_attestation = 5; //claim source attestation or signature for the file
-            repeated common.MrvEntityExtension extensions = 6; //mrv extensions for the file
-        }
         repeated DataFile data_files = 9; //list of files in the SDP
     }
     Manifest manifest = 1; //manifest of the SDP
