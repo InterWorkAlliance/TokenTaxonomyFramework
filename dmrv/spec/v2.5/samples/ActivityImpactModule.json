@@ -9,6 +9,8 @@
   "projectScope": "CarbonCaptureAndStorage",
   "projectType": "CarbonCaptureAndEnhancedOilRecovery",
   "projectScale": "Medium",
+  "country": "BR",
+  "region": "SouthAmerica",
   "arbId": "",
   "geographicLocation": {
     "longitude": "41.40338",

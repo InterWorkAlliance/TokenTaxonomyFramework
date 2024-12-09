@@ -519,6 +519,8 @@
         "projectScope": "CarbonCaptureAndStorage",
         "projectType": "CarbonCaptureAndEnhancedOilRecovery",
         "projectScale": "Medium",
+        "country": "BR",
+        "region": "SouthAmerica",
         "arbId": "",
         "geographicLocation": {
           "longitude": "41.40338",
@@ -643,8 +645,6 @@
           "owners": [
             "owner"
           ],
-          "country": "BR",
-          "region": "SouthAmerica",
           "informationLink": {
             "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
             "uri": "https://www.ecoearth.com/forest-growth.html",

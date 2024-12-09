@@ -14,8 +14,6 @@ message AccountableImpactOrganization{
     string description = 3; //description of the organization
     repeated common.Address addresses = 4; //list of addresses associated with the organization
     repeated string owners = 5; //list of owners of the organization
-    common.Country country = 6;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
-    common.Region region = 7; //region of the organization
     common.VerifiedLink information_link = 8; //Link to information about the organization
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the organization
     repeated common.Attestation attestations = 10; //a collection of Attestation workflow steps for a project
@@ -35,15 +33,17 @@ message ActivityImpactModule {
     common.ProjectScope project_scope = 8; //scope of the project
     common.ProjectType project_type = 9; //type of the project
     common.ProjectScale project_scale = 10; //size of the project, small, medium, large
-    string arb_id = 11; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
-    common.GeographicLocation geographic_location = 12; //geographic location of the project
-    string first_year_issuance = 13; //first year of issuance, historical if an established project
-    string registry_project_id = 14; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to AIM and assign unique identifiers to projects.
-    repeated string developers = 15; //list of developers of the project
-    repeated string sponsors = 16; //list of sponsors of the project, i.e., financial backers
-    repeated ClaimSource claim_sources = 17; //a list of claim sources that can be used for claims from this activity impact module.
-    repeated ImpactClaim impact_claims  = 18; //list of ecological claims for the project
-    repeated common.MrvEntityExtension extensions = 19; //list of MRV extensions for the module
+    common.Country country = 11;//Alpha 3 ISO 3166 international standard country code https://www.iban.com/country-codes
+    common.Region region = 12; //region of the organization
+    string arb_id = 13; //if the credit is registered for the California Air Resources Board, this is the ARB ID assigned to the project.
+    common.GeographicLocation geographic_location = 14; //geographic location of the project
+    string first_year_issuance = 15; //first year of issuance, historical if an established project
+    string registry_project_id = 16; //OPTIONAL Registry ID if different from the project id. Most registries do not have a one to many EP to AIM and assign unique identifiers to projects.
+    repeated string developers = 17; //list of developers of the project
+    repeated string sponsors = 18; //list of sponsors of the project, i.e., financial backers
+    repeated ClaimSource claim_sources = 19; //a list of claim sources that can be used for claims from this activity impact module.
+    repeated ImpactClaim impact_claims  = 20; //list of ecological claims for the project
+    repeated common.MrvEntityExtension extensions = 21; //list of MRV extensions for the module
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -65,9 +65,9 @@ message ActivityImpactModule {
         string validation_expiration_date = 5; //expiration date of the validation, yyyy-mm-dd
         repeated ValidationStep validation_steps = 6; //collection of validation steps
     }
-    repeated Validation validations = 20; //in DRAFT, a collection of Validation workflow steps for a project
-    repeated common.Attestation attestations = 21; //a collection of Attestation workflow steps for a project
-    AccountableImpactOrganization accountable_impact_organization = 22; //optional, for object navigation, the parent ecological project
+    repeated Validation validations = 22; //in DRAFT, a collection of Validation workflow steps for a project
+    repeated common.Attestation attestations = 23; //a collection of Attestation workflow steps for a project
+    AccountableImpactOrganization accountable_impact_organization = 24; //optional, for object navigation, the parent ecological project
 }
 
 message ClaimSource
