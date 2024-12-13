@@ -300,12 +300,6 @@
             "nullable": true,
             "readOnly": true
           },
-          "country": {
-            "$ref": "#/components/schemas/Country"
-          },
-          "region": {
-            "$ref": "#/components/schemas/Region"
-          },
           "informationLink": {
             "$ref": "#/components/schemas/VerifiedLink"
           },
@@ -355,9 +349,8 @@
             "type": "string",
             "nullable": true
           },
-          "correlatingProjectId": {
-            "type": "string",
-            "nullable": true
+          "isGrouped": {
+            "type": "boolean"
           },
           "name": {
             "type": "string",
@@ -380,6 +373,12 @@
           },
           "projectScale": {
             "$ref": "#/components/schemas/ProjectScale"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Region"
           },
           "arbId": {
             "type": "string",
@@ -1434,6 +1433,10 @@
             "type": "string",
             "nullable": true
           },
+          "impactClaimGroupId": {
+            "type": "string",
+            "nullable": true
+          },
           "startDate": {
             "type": "string",
             "nullable": true
@@ -2094,7 +2097,10 @@
           "DataPackageManifest",
           "DataFile",
           "ProcessedClaim",
-          "VerificationProcessAgreement"
+          "VerificationProcessAgreement",
+          "ActivityImpactModuleGroup",
+          "ImpactClaimGroup",
+          "ProcessedClaimGroup"
         ],
         "type": "string"
       },
@@ -2309,6 +2315,10 @@
             "nullable": true
           },
           "impactClaimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "processedClaimGroupId": {
             "type": "string",
             "nullable": true
           },
