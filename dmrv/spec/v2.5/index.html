@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="2bcce9153609725f77b634298a9e87f30781fb6d" name="revision">
+  <meta content="cbaa9b8c0bbe48253f4f41d967ecd998eeb97832" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2904,7 +2904,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.5-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="3032" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="13389"></p>
+   <p><img alt="…" height="3092" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="13542"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -5526,8 +5526,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.60" id="dt-itmo-id"><span class="secno">3.60. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-f8cca49e">
-    <a class="self-link" href="#example-f8cca49e"></a> 
+   <div class="example" id="example-e5a3b750">
+    <a class="self-link" href="#example-e5a3b750"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6567,8 +6567,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
      <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
      <div class="note" role="note">Non-normative</div>
      <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-     <div class="example" id="example-4249930b">
-      <a class="self-link" href="#example-4249930b"></a> CRU Full Lineage: 
+     <div class="example" id="example-fa00c8aa">
+      <a class="self-link" href="#example-fa00c8aa"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -7139,7 +7139,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
         <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
-        <c- f>"correlatingProjectId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"isGrouped"</c-><c- p>:</c-> <c- kc>false</c-><c- p>,</c->
         <c- f>"name"</c-><c- p>:</c-> <c- u>"Forest Plot 3341"</c-><c- p>,</c->
         <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"CarbonRemoval"</c-><c- p>,</c->
         <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Natural"</c-><c- p>,</c->
@@ -7464,12 +7464,12 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="4.3" id="example-activity-impact-module"><span class="secno">4.3. </span><span class="content">Example Activity Impact Module</span><a class="self-link" href="#example-activity-impact-module"></a></h3>
-     <div class="example" id="example-25b5c4d3">
-      <a class="self-link" href="#example-25b5c4d3"></a> Activity Impact Module: 
+     <div class="example" id="example-55fbf056">
+      <a class="self-link" href="#example-55fbf056"></a> Activity Impact Module: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
-  <c- f>"correlatingProjectId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+  <c- f>"isGrouped"</c-><c- p>:</c-> <c- kc>false</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Forest Plot 3341"</c-><c- p>,</c->
   <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"CarbonRemoval"</c-><c- p>,</c->
   <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Natural"</c-><c- p>,</c->
@@ -8307,8 +8307,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="4.10" id="example-rec-full-lineage"><span class="secno">4.10. </span><span class="content">Example Renewable Energy Credit Full Lineage</span><a class="self-link" href="#example-rec-full-lineage"></a></h3>
-     <div class="example" id="example-5c692da0">
-      <a class="self-link" href="#example-5c692da0"></a> Renewable Energy Credit Full Lineage: 
+     <div class="example" id="example-4a3ce04f">
+      <a class="self-link" href="#example-4a3ce04f"></a> Renewable Energy Credit Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"16e029bb-8258-4721-b3ab-3d4493425151"</c-><c- p>,</c->
   <c- f>"recType"</c-><c- p>:</c-> <c- u>"IRec"</c-><c- p>,</c->
@@ -8822,7 +8822,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
         <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
-        <c- f>"correlatingProjectId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
+        <c- f>"isGrouped"</c-><c- p>:</c-> <c- kc>false</c-><c- p>,</c->
         <c- f>"name"</c-><c- p>:</c-> <c- u>"Forest Plot 3341"</c-><c- p>,</c->
         <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"CarbonRemoval"</c-><c- p>,</c->
         <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Natural"</c-><c- p>,</c->
