@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="cbaa9b8c0bbe48253f4f41d967ecd998eeb97832" name="revision">
+  <meta content="b56705ccf3f6b73dd98aa478f41a571d4ec91b2c" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2.5 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-12-13">13 December 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2024-12-16">16 December 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2719,7 +2719,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
-      <li><a href="#changelog-2.5.0-20241213"><span class="secno"></span> <span class="content">Version 2.5.0-20241213 (December 13th, 2024)</span></a>
+      <li><a href="#changelog-2.5.0-20241216"><span class="secno"></span> <span class="content">Version 2.5.0-20241216 (December 16th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20241209"><span class="secno"></span> <span class="content">Version 2.5.0-20241209 (December 9th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20240916"><span class="secno"></span> <span class="content">Version 2.5.0-20240916 (September 16th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20240801"><span class="secno"></span> <span class="content">Version 2.5.0-20240801 (August 2nd, 2024)</span></a>
@@ -2904,7 +2904,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.5-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="3092" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="13542"></p>
+   <p><img alt="…" height="2928" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="13661"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -4241,6 +4241,16 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A description of the Verification Process Agreement and where special instructions are provided. 
       <tr>
+       <td>isAimGroup 
+       <td>Boolean 
+       <td>M 
+       <td>If true the VPA is for a AIM Group and the Id below is for a group instead of a single AIM. 
+      <tr>
+       <td>aimOrAimGroupId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
+       <td>String 
+       <td>M 
+       <td>The unique identifier for the corresponding AIM or AIM Group, depending on the value of <code>isAimGroup</code>. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+      <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-signatories"><code>signatories</code></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
        <td>Array 
        <td>M 
@@ -4265,11 +4275,6 @@ configured to control the processing of the ImpactClaim.</p>
        <td>String 
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
-      <tr>
-       <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
-       <td>String 
-       <td>M 
-       <td>The unique identifier for the corresponding AIM. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-auditschedule"><code>AuditSchedule</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule">AuditSchedule</a></code> 
        <td>String 
@@ -5526,8 +5531,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.60" id="dt-itmo-id"><span class="secno">3.60. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-e5a3b750">
-    <a class="self-link" href="#example-e5a3b750"></a> 
+   <div class="example" id="example-f2fd3f26">
+    <a class="self-link" href="#example-f2fd3f26"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -9313,7 +9318,7 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
-     <h3 class="heading settled" id="changelog-2.5.0-20241213"><span class="content">Version 2.5.0-20241213 (December 13th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241213"></a></h3>
+     <h3 class="heading settled" id="changelog-2.5.0-20241216"><span class="content">Version 2.5.0-20241216 (December 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241216"></a></h3>
      <ul>
       <li data-md>
        <p>Added support for grouping Activity Impact Modules, Impact and Processed Claims to support credits issued by <code>Quality Standards</code> that require multiple modules that may be operated by different parties resulting in multiple Activities and Claims to be composed together for processing.  CCS is a good example of this.</p>
@@ -9325,6 +9330,8 @@ public licenses.</p>
        <p>Added <a data-link-type="dfn" href="#processedclaimgroup" id="ref-for-processedclaimgroup">ProcessedClaimGroup</a> to support Processed Claims that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for issuance.</p>
       <li data-md>
        <p>Removed the <code>correlatingProjectId</code> property to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑥">ActivityImpactModule</a> type, no longer needed due to <a data-link-type="dfn" href="#activityimpactmodulegroup" id="ref-for-activityimpactmodulegroup①">ActivityImpactModuleGroup</a>.</p>
+      <li data-md>
+       <p>Update the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a>, rename <code>mbpId</code> to <code>mbpOrMbpGroupId</code> and added a <code>isMbpGroup</code> boolean to support single or multiple MBPs for a VPA.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20241209"><span class="content">Version 2.5.0-20241209 (December 9th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241209"></a></h3>
      <ul>
@@ -10305,8 +10312,8 @@ let dfnPanelData = {
 "accountableimpactorganization": {"dfnID":"accountableimpactorganization","dfnText":"AccountableImpactOrganization","external":false,"refSections":[{"refs":[{"id":"ref-for-accountableimpactorganization"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-accountableimpactorganization\u2460"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#accountableimpactorganization"},
 "activity-impact-module": {"dfnID":"activity-impact-module","dfnText":"Activity Impact Module","external":false,"refSections":[],"url":"#activity-impact-module"},
 "activity-impact-module-group": {"dfnID":"activity-impact-module-group","dfnText":"Activity Impact Module Group","external":false,"refSections":[],"url":"#activity-impact-module-group"},
-"activityimpactmodule": {"dfnID":"activityimpactmodule","dfnText":"ActivityImpactModule","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodule"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2461"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2462"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2464"}],"title":"3.20. Data Type: MrvEntityExtension"},{"refs":[{"id":"ref-for-activityimpactmodule\u2465"}],"title":"Version 2.5.0-20241213 (December 13th, 2024)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2466"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#activityimpactmodule"},
-"activityimpactmodulegroup": {"dfnID":"activityimpactmodulegroup","dfnText":"ActivityImpactModuleGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodulegroup"},{"id":"ref-for-activityimpactmodulegroup\u2460"}],"title":"Version 2.5.0-20241213 (December 13th, 2024)"}],"url":"#activityimpactmodulegroup"},
+"activityimpactmodule": {"dfnID":"activityimpactmodule","dfnText":"ActivityImpactModule","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodule"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2461"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2462"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2464"}],"title":"3.20. Data Type: MrvEntityExtension"},{"refs":[{"id":"ref-for-activityimpactmodule\u2465"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2466"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#activityimpactmodule"},
+"activityimpactmodulegroup": {"dfnID":"activityimpactmodulegroup","dfnText":"ActivityImpactModuleGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodulegroup"},{"id":"ref-for-activityimpactmodulegroup\u2460"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#activityimpactmodulegroup"},
 "address": {"dfnID":"address","dfnText":"Address","external":false,"refSections":[{"refs":[{"id":"ref-for-address"}],"title":"3.3.2. Properties"}],"url":"#address"},
 "attestation": {"dfnID":"attestation","dfnText":"Attestation","external":false,"refSections":[{"refs":[{"id":"ref-for-attestation"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-attestation\u2460"}],"title":"3.5.2. Properties"}],"url":"#attestation"},
 "audits": {"dfnID":"audits","dfnText":"Audits","external":false,"refSections":[{"refs":[{"id":"ref-for-audits"}],"title":"3.27.1. Properties"}],"url":"#audits"},
@@ -10759,7 +10766,7 @@ let dfnPanelData = {
 "impact-claim-group": {"dfnID":"impact-claim-group","dfnText":"Impact Claim Group","external":false,"refSections":[],"url":"#impact-claim-group"},
 "impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"3.20. Data Type: MrvEntityExtension"}],"url":"#impactclaim"},
 "impactclaimcheckpoint": {"dfnID":"impactclaimcheckpoint","dfnText":"ImpactClaimCheckpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimcheckpoint"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2460"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#impactclaimcheckpoint"},
-"impactclaimgroup": {"dfnID":"impactclaimgroup","dfnText":"ImpactClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimgroup"}],"title":"Version 2.5.0-20241213 (December 13th, 2024)"}],"url":"#impactclaimgroup"},
+"impactclaimgroup": {"dfnID":"impactclaimgroup","dfnText":"ImpactClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimgroup"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#impactclaimgroup"},
 "indivisible": {"dfnID":"indivisible","dfnText":"Indivisible","external":false,"refSections":[],"url":"#indivisible"},
 "iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"3.100.1. JSON Representation"}],"url":"#iso3166cc"},
 "itmoid": {"dfnID":"itmoid","dfnText":"ITMOId","external":false,"refSections":[{"refs":[{"id":"ref-for-itmoid"}],"title":"3.35.1. Properties"}],"url":"#itmoid"},
@@ -10781,7 +10788,7 @@ let dfnPanelData = {
 "processed-claim-group": {"dfnID":"processed-claim-group","dfnText":"Processed Claim Group","external":false,"refSections":[],"url":"#processed-claim-group"},
 "processedclaim": {"dfnID":"processedclaim","dfnText":"ProcessedClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-processedclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-processedclaim\u2460"}],"title":"3.20. Data Type: MrvEntityExtension"},{"refs":[{"id":"ref-for-processedclaim\u2461"}],"title":"3.26.1. Properties"}],"url":"#processedclaim"},
 "processedclaimcontrol": {"dfnID":"processedclaimcontrol","dfnText":"ProcessedClaimControl","external":false,"refSections":[],"url":"#processedclaimcontrol"},
-"processedclaimgroup": {"dfnID":"processedclaimgroup","dfnText":"ProcessedClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-processedclaimgroup"}],"title":"Version 2.5.0-20241213 (December 13th, 2024)"}],"url":"#processedclaimgroup"},
+"processedclaimgroup": {"dfnID":"processedclaimgroup","dfnText":"ProcessedClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-processedclaimgroup"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#processedclaimgroup"},
 "proof": {"dfnID":"proof","dfnText":"Proof","external":false,"refSections":[{"refs":[{"id":"ref-for-proof"}],"title":"3.43.1. Properties"},{"refs":[{"id":"ref-for-proof\u2460"}],"title":"3.46.1. Properties"}],"url":"#proof"},
 "property": {"dfnID":"property","dfnText":"Property","external":false,"refSections":[{"refs":[{"id":"ref-for-property"}],"title":"3.20.1. Properties"}],"url":"#property"},
 "property-set": {"dfnID":"property-set","dfnText":"Property-Set","external":false,"refSections":[],"url":"#property-set"},
@@ -10803,7 +10810,7 @@ let dfnPanelData = {
 "verifiablepresentation": {"dfnID":"verifiablepresentation","dfnText":"VerifiablePresentation","external":false,"refSections":[],"url":"#verifiablepresentation"},
 "verification-automation": {"dfnID":"verification-automation","dfnText":"Verification Automation","external":false,"refSections":[],"url":"#verification-automation"},
 "verification-process-agreement": {"dfnID":"verification-process-agreement","dfnText":"Verification Process Agreement","external":false,"refSections":[],"url":"#verification-process-agreement"},
-"verificationprocessagreement": {"dfnID":"verificationprocessagreement","dfnText":"VerificationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-verificationprocessagreement"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2460"}],"title":"3.93. Data Type: MethodologyAndTool"}],"url":"#verificationprocessagreement"},
+"verificationprocessagreement": {"dfnID":"verificationprocessagreement","dfnText":"VerificationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-verificationprocessagreement"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2460"}],"title":"3.93. Data Type: MethodologyAndTool"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2461"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#verificationprocessagreement"},
 "verifiedlink": {"dfnID":"verifiedlink","dfnText":"VerifiedLink","external":false,"refSections":[{"refs":[{"id":"ref-for-verifiedlink"},{"id":"ref-for-verifiedlink\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2461"}],"title":"3.7.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2462"}],"title":"3.12.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2463"}],"title":"3.25.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2464"}],"title":"3.34.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2465"}],"title":"3.35.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2466"}],"title":"3.39.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2467"}],"title":"3.40.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2468"}],"title":"3.50.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u24ea"}],"title":"3.51.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2460"}],"title":"3.52.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#verifiedlink"},
 "wholenumber": {"dfnID":"wholenumber","dfnText":"WholeNumber","external":false,"refSections":[{"refs":[{"id":"ref-for-wholenumber"}],"title":"3.30.1. Properties"},{"refs":[{"id":"ref-for-wholenumber\u2460"},{"id":"ref-for-wholenumber\u2461"}],"title":"3.31.1. Properties"}],"url":"#wholenumber"},
 };
