@@ -751,11 +751,11 @@ message MrvExtensionMessagePair{
     string version = 3; //version of the extension message pair
     string description = 4; //description of the extension message pair
     string documentation = 5; //optional documentation url of the extension message pair
-    MrvExtensionMessage request = 6; //The request message
-    MrvExtensionMessage response = 7; //The response message
+    AnyData request_sample = 6; //A sample request message, that provides details as to the type or kind of data that is expected in the request
+    AnyData response_sample = 7; //A sample response message, that provides details as to the type or kind of data that is expected in the response
 }
 
-//Recommended that MrvExtensionMessages use Avro for serialization
+//Definition of MrvExtensionMessage instance 
 message MrvExtensionMessage{
     string id = 1; //unique identifier for the extension message
     enum MessageType{
@@ -767,9 +767,15 @@ message MrvExtensionMessage{
     string correlation_id = 4; //correlation id of the extension message, i.e., the id of the request message that the response is for
     string conversation_id = 5; //conversation id of the extension message
     optional bool closed = 6; //if the conversation is closed
-    MrvExtensionContext mrv_extension_context = 7; //type of the extension message
-    google.protobuf.Any message = 8; //the data of the extension message
-    AnyData serialized_message = 9; //the serialized data of the extension message
+    AnyData serialized_message = 7; //the serialized data of the extension message
+}
+
+//For serialized any data to be represented as a serialize protobuf, or other data type as json or bytestring. These are the actual custom messages that are defined for the extension.
+message AnyData{
+    google.protobuf.Any proto_message = 1; //the data of the extension message
+    string data_type = 2; //if not a protobuf message, the type of the data
+    string value = 3; //if not a protobuf message, the serialized data
+    MrvExtensionContext mrv_extension_context = 4; //the entity context for the message
 }
 
 //The MrvEntityExtension is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
@@ -784,12 +790,6 @@ message MrvEntityExtension{
     string dataSchemaOrType = 8; //the URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
     google.protobuf.Any data = 9; //the data of the extension
     AnyData serialized_data = 10; //the serialized data of the extension
-}
-
-//For serialized any data to be represented as a type and bytestring
-message AnyData{
-    string type = 1; //the type of the data
-    string value = 2; //the serialized data
 }
 
 message MrvExtensionSet{

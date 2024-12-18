@@ -113,7 +113,7 @@ message ProcessedClaimGroup
 message ClaimSource
 {
     string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
-    string aim_id = 2; //the id of the activity impact module that the claim source is associated withd.
+    string aim_id = 2; //the id of the activity impact module that the claim source is associated with.
     string name = 3; //the name of the device.
     string description = 4; //a description of the device, like the location, etc.
     common.GeographicLocation location = 5; //the location of the device, using GNSS with Decimal Degrees.
@@ -121,7 +121,7 @@ message ClaimSource
     {
         SENSOR_DEVICE = 0; //IoT, meter, etc.
         USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
-        REFERENCE = 2; //Satellite, Remote Sensing, Anayltical Models, etc.
+        REFERENCE = 2; //Satellite, Remote Sensing, Analytical Models, etc.
     }
     ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
     common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
@@ -170,7 +170,7 @@ message ProcessedClaim
         repeated common.MrvEntityExtension extensions = 7; //a list of MRV extensions that are associated with the claim.
     }
     repeated CheckpointResult checkpoint_results = 10; //summary and verified links for the the claim's checkpoint verification results.
-    google.protobuf.Any issuance_request = 11; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verfication.  This allows the processed claim to be used as the source for any type of asset or credit.
+    google.protobuf.Any issuance_request = 11; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.  This allows the processed claim to be used as the source for any type of asset or credit.
     VerificationProcessAgreement verification_process_agreement = 12; //optional, for object navigation - the verification process agreement used to verify the claim
     ImpactClaim impact_claim = 13; //optional, for object navigation - the ecological claim being processed
     google.protobuf.Any asset = 14; //optional, for object navigation, the asset that is issued for the processed claim.
@@ -318,7 +318,7 @@ message REC
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
 }
 
-//Define the required propoerties that a verification process agreement between a activity impact module, Verifier and Issuing Registry should have.
+//Define the required properties that a verification process agreement between a activity impact module, Verifier and Issuing Registry should have.
 message VerificationProcessAgreement{
     string id = 1; //unique identifier
     string name = 2; //name of the agreement
@@ -338,7 +338,9 @@ message VerificationProcessAgreement{
         SignatoryRole signatory_role = 4; //role of the signatory
         common.DigitalSignature signature = 5; //digital signature of the signatory
     }
-    repeated Signatory signatories = 4; //list of signatories to the agreement, by id
+    bool is_aim_group = 4; //if true, this agreement is for a AIM group, if false, it is for a single AIM
+    string aim_or_aim_group_id = 5; //the id of the AIM or AIM group that the agreement is associated with, if there is no group, this will be null.
+    repeated Signatory signatories = 6; //list of signatories to the agreement, by id
     message QualityStandard{
         string name = 1; //name of the standard
         string description = 2; //description of the standard
@@ -369,20 +371,19 @@ message VerificationProcessAgreement{
         ClaimPeriod claim_period = 4; //period of claims
         common.MrvExtensionSet mrv_extension_set = 5; //the MRV extension set used in the agreement
     }
-    QualityStandard quality_standard = 5; //standard that is used to verify the project
-    MRVRequirements mrv_requirements = 6; //measurement, reporting and verification requirements
-    common.Date agreement_date = 7; //start date of the agreement
-    string estimated_annual_credits = 8; //estimated annual credits that will be issued under the agreement
-    string aim_id = 9; //id of the activity impact module that is being verified
+    QualityStandard quality_standard = 7; //standard that is used to verify the project
+    MRVRequirements mrv_requirements = 8; //measurement, reporting and verification requirements
+    common.Date agreement_date = 9; //start date of the agreement
+    string estimated_annual_credits = 10; //estimated annual credits that will be issued under the agreement
     message Audits{
         common.Date audit_date = 2; //date of the audit
         repeated common.VerifiedLink audit_reports = 3; //list of audit reports
     }
-    common.AuditSchedule audit_schedule = 10; //schedule of audits
-    Audits audits = 11; //list of audits that have been performed under the agreement
-    repeated common.MrvEntityExtension extensions = 12; //list of MRV extensions for the agreement
-    ActivityImpactModule activity_impact_module = 13; //optional, for object navigation, the activity impact module that is being verified
-    repeated ProcessedClaim processed_claims = 14; //optional, for object navigation, the processed claims that have been processed under the agreement
+    common.AuditSchedule audit_schedule = 11; //schedule of audits
+    Audits audits = 12; //list of audits that have been performed under the agreement
+    repeated common.MrvEntityExtension extensions = 13; //list of MRV extensions for the agreement
+    ActivityImpactModule activity_impact_module = 14; //optional, for object navigation, the activity impact module that is being verified
+    repeated ProcessedClaim processed_claims = 15; //optional, for object navigation, the processed claims that have been processed under the agreement
 }
 
 
