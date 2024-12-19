@@ -751,8 +751,8 @@ message MrvExtensionMessagePair{
     string version = 3; //version of the extension message pair
     string description = 4; //description of the extension message pair
     string documentation = 5; //optional documentation url of the extension message pair
-    AnyData request_sample = 6; //A sample request message, that provides details as to the type or kind of data that is expected in the request
-    AnyData response_sample = 7; //A sample response message, that provides details as to the type or kind of data that is expected in the response
+    AnyData request_definition = 6; //A request message definition, that provides details as to the type or kind of data that is expected in the request
+    AnyData response_definition = 7; //A response message definition, that provides details as to the type or kind of data that is expected in the response
 }
 
 //Definition of MrvExtensionMessage instance 
