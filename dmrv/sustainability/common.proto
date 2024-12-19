@@ -767,7 +767,7 @@ message MrvExtensionMessage{
     string correlation_id = 4; //correlation id of the extension message, i.e., the id of the request message that the response is for
     string conversation_id = 5; //conversation id of the extension message
     optional bool closed = 6; //if the conversation is closed
-    AnyData serialized_message = 7; //the serialized data of the extension message
+    AnyData message = 7; //the data of the extension message
 }
 
 //For serialized any data to be represented as a serialize protobuf, or other data type as json or bytestring. These are the actual custom messages that are defined for the extension.
