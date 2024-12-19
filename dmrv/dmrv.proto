@@ -209,20 +209,20 @@ message DataFile{
     repeated common.MrvEntityExtension extensions = 6; //mrv extensions for the file
 }
 
-// Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The SDP is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
+// Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The DataPackage is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
 message DataPackage{
     message Manifest{
         string id = 1; //unique identifier
-        string version = 2; //version of the SDP specification
+        string version = 2; //version of the DataPackage specification
         string aio_id = 3; //id of the accountable impact organization
         string aim_id = 4; //id of the activity impact module
         string claim_id = 5; //id of the claim
-        string project_developer_id = 6; //id of the project developer submitting the SDP
-        common.DatePoint created = 7; //date the SDP was created
+        string project_developer_id = 6; //id of the project developer submitting the DataPackage
+        common.DatePoint created = 7; //date the DataPackage was created
         repeated common.MrvEntityExtension extensions = 8; //list of MRV extensions
-        repeated DataFile data_files = 9; //list of files in the SDP
+        repeated DataFile data_files = 9; //list of files in the DataPackage
     }
-    Manifest manifest = 1; //manifest of the SDP
+    Manifest manifest = 1; //manifest of the DataPackage
     common.VerifiedLink verified_link_to_data_package = 2; //a link to the checkpoint data package that is associated with the checkpoint.
 }
 
