@@ -86,30 +86,22 @@ message ActivityImpactModuleGroup
     string description = 4; //a description of the group
     repeated common.MrvEntityExtension extensions = 5; //a list of MRV extensions that are associated with the group
     repeated ActivityImpactModule activity_impact_modules = 6; //for model navigation, the collection of child activity impact modules
+    repeated ClaimGroup claim_groups = 7; //for model navigation, the collection of child claim groups
 }
 
-//An ImpactClaimGroup is a group of Impact Claims that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for processing.
-message ImpactClaimGroup
+//A ClaimGroup is a group of Impact and Processed Claim pairs that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for processing.
+message ClaimGroup
 {
     string id = 1; //unique id for the group
-    repeated string claim_ids = 2; //list of claim ids that are associated with the group
+    string activity_impact_module_group_id = 2; //the id of the ActivityImpactModuleGroup that the claim group is associated with.
     string name = 3; //the name of the group
     string description = 4; //a description of the group
     repeated common.MrvEntityExtension extensions = 5; //a list of MRV extensions that are associated with the group
     repeated ImpactClaim impact_claims = 6; //for model navigation, the collection of child impact claims
+    repeated ProcessedClaim processed_claims = 7; //for model navigation, the collection of child processed claims
 }
 
-//A ProcessedClaimGroup is a group of Processed Claims that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for issuance.
-message ProcessedClaimGroup
-{
-    string id = 1; //unique id for the group
-    repeated string processed_claim_ids = 2; //list of processed claim ids that are associated with the group
-    string name = 3; //the name of the group
-    string description = 4; //a description of the group
-    repeated common.MrvEntityExtension extensions = 5; //a list of MRV extensions that are associated with the group
-    repeated ProcessedClaim processed_claims = 6; //for model navigation, the collection of child processed claims
-}
-
+//A ClaimSource is a source of claim data that is registered with an AIM.  The claim source can be a sensor device, an application running on a device, or a reference source like a satellite or remote sensing data.
 message ClaimSource
 {
     string id = 1; //each claim source is issued an id unique to the claim it is sourcing.  This is independent of the identifiers the device may have.
@@ -131,10 +123,10 @@ message ClaimSource
 
 message ImpactClaim
 {
-    string id = 1; //unique id for the claim
+    string id = 1; //unique id for the claim, the processed claim should have the same id. If the implementation uses a different id for the processed claim, the processed claim id should be recorded in the claim.
     string aim_id = 2; //the id of the AIM that the claim is associated with
-    string processed_claim_id = 3; //once processing starts and the processed claim is created, this is the id of the processed claim paired with this claim.
-    string impact_claim_group_id = 4; //the id of the ImpactClaimGroup that the claim is associated with, will be null if not part of a group.
+    string processed_claim_id = 3; //will be null if the implementation allows for the Id to be the same as the Impact Claim, once processing starts and the processed claim is created, this is the id of the processed claim paired with this claim.
+    string claim_group_id = 4; //the id of the ClaimGroup that the claim is associated with, will be null if not part of a group.
     string start_date = 5; //the start date of the claim, yyyy-mm-dd
     string end_date = 6; //the end date of the claim, yyyy-mm-dd
     common.Unit unit = 7; //unit of measure for the quantity
@@ -152,8 +144,8 @@ message ProcessedClaim
 {
     string id = 1; //the id for the processed claim
     string vpa_id = 2; //Id for the verification process agreement
-    string impact_claim_id = 3; //the ID for the Ecological Claim being processed.
-    string processed_claim_group_id = 4; //the id of the ProcessedClaimGroup that the claim is associated with, will be null if not part of a group.
+    string impact_claim_id = 3; //the ID for the Ecological Claim being processed, will be null or missing if the implementation allows for the Id to be the same as the Impact Claim Id.
+    string claim_group_id = 4; //the id of the ProcessedClaimGroup that the claim is associated with, will be null if not part of a group.
     string credit_id = 5; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
     common.Unit unit = 6; //unit of measure for the quantity
     string quantity = 7; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
