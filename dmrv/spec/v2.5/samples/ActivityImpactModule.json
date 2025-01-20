@@ -40,6 +40,7 @@
       },
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
+      "reportingFrequency": "Daily",
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "extensions": [
         {

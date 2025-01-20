@@ -519,13 +519,19 @@
       "AnyData": {
         "type": "object",
         "properties": {
-          "type": {
+          "protoMessage": {
+            "$ref": "#/components/schemas/Any"
+          },
+          "dataType": {
             "type": "string",
             "nullable": true
           },
           "value": {
             "type": "string",
             "nullable": true
+          },
+          "mrvExtensionContext": {
+            "$ref": "#/components/schemas/MrvExtensionContext"
           }
         },
         "additionalProperties": false
@@ -760,6 +766,9 @@
           "unitOfMeasure": {
             "$ref": "#/components/schemas/Unit"
           },
+          "reportingFrequency": {
+            "$ref": "#/components/schemas/ReportingFrequency"
+          },
           "sourceIdentifier": {
             "type": "string",
             "nullable": true
@@ -779,7 +788,9 @@
         "enum": [
           "SensorDevice",
           "UserApplication",
-          "Reference"
+          "Reference",
+          "Document",
+          "Other"
         ],
         "type": "string"
       },
@@ -1433,7 +1444,7 @@
             "type": "string",
             "nullable": true
           },
-          "impactClaimGroupId": {
+          "claimGroupId": {
             "type": "string",
             "nullable": true
           },
@@ -1619,13 +1630,6 @@
           "Iso14064",
           "Iso140641",
           "Iso140642"
-        ],
-        "type": "string"
-      },
-      "MessageType": {
-        "enum": [
-          "Request",
-          "Response"
         ],
         "type": "string"
       },
@@ -2022,7 +2026,8 @@
           "MxAm001",
           "EtAm001",
           "LaAm001",
-          "MvAm001"
+          "MvAm001",
+          "VmVm0049"
         ],
         "type": "string"
       },
@@ -2104,47 +2109,6 @@
         ],
         "type": "string"
       },
-      "MrvExtensionMessage": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "messageType": {
-            "$ref": "#/components/schemas/MessageType"
-          },
-          "senderId": {
-            "type": "string",
-            "nullable": true
-          },
-          "correlationId": {
-            "type": "string",
-            "nullable": true
-          },
-          "conversationId": {
-            "type": "string",
-            "nullable": true
-          },
-          "closed": {
-            "type": "boolean"
-          },
-          "hasClosed": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "mrvExtensionContext": {
-            "$ref": "#/components/schemas/MrvExtensionContext"
-          },
-          "message": {
-            "$ref": "#/components/schemas/Any"
-          },
-          "serializedMessage": {
-            "$ref": "#/components/schemas/AnyData"
-          }
-        },
-        "additionalProperties": false
-      },
       "MrvExtensionMessagePair": {
         "type": "object",
         "properties": {
@@ -2168,11 +2132,11 @@
             "type": "string",
             "nullable": true
           },
-          "request": {
-            "$ref": "#/components/schemas/MrvExtensionMessage"
+          "requestDefinition": {
+            "$ref": "#/components/schemas/AnyData"
           },
-          "response": {
-            "$ref": "#/components/schemas/MrvExtensionMessage"
+          "responseDefinition": {
+            "$ref": "#/components/schemas/AnyData"
           }
         },
         "additionalProperties": false
@@ -2318,7 +2282,7 @@
             "type": "string",
             "nullable": true
           },
-          "processedClaimGroupId": {
+          "claimGroupId": {
             "type": "string",
             "nullable": true
           },
@@ -2719,6 +2683,18 @@
         },
         "additionalProperties": false
       },
+      "ReportingFrequency": {
+        "enum": [
+          "SubHourly",
+          "Hourly",
+          "Daily",
+          "SubWeekly",
+          "Weekly",
+          "SubMonthly",
+          "Monthly"
+        ],
+        "type": "string"
+      },
       "ReversalMitigation": {
         "type": "object",
         "properties": {
@@ -2997,6 +2973,13 @@
             "type": "string",
             "nullable": true
           },
+          "isAimGroup": {
+            "type": "boolean"
+          },
+          "aimOrAimGroupId": {
+            "type": "string",
+            "nullable": true
+          },
           "signatories": {
             "type": "array",
             "items": {
@@ -3015,10 +2998,6 @@
             "$ref": "#/components/schemas/Date"
           },
           "estimatedAnnualCredits": {
-            "type": "string",
-            "nullable": true
-          },
-          "aimId": {
             "type": "string",
             "nullable": true
           },

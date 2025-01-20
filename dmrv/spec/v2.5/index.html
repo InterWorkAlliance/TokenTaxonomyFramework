@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="45187145ef3b38a82efc6777ae05b50a10ce197a" name="revision">
+  <meta content="995e1a8f66b34bee6c327b4f2242ec9e361003cf" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2.5 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-01-07">7 January 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-01-20">20 January 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2671,34 +2671,39 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-corresponding-adjustment-json"><span class="secno">3.94.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-unit"><span class="secno">3.95</span> <span class="content">Data Type: <span><code>Unit</code></span></span></a>
+       <a href="#dt-reporting-frequency"><span class="secno">3.95</span> <span class="content">Data Type: <span><code>ReportingFrequency</code></span></span></a>
        <ol class="toc">
-        <li><a href="#dt-unit-json"><span class="secno">3.95.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-reporting-frequency-json"><span class="secno">3.95.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-whole-number"><span class="secno">3.96</span> <span class="content">Data Type: <span>WholeNumber</span></span></a>
+       <a href="#dt-unit"><span class="secno">3.96</span> <span class="content">Data Type: <span><code>Unit</code></span></span></a>
        <ol class="toc">
-        <li><a href="#dt-whole-number-json"><span class="secno">3.96.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-unit-json"><span class="secno">3.96.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-decimal"><span class="secno">3.97</span> <span class="content">Data Type: <span>Decimal</span></span></a>
+       <a href="#dt-whole-number"><span class="secno">3.97</span> <span class="content">Data Type: <span>WholeNumber</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-decimal-json"><span class="secno">3.97.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-whole-number-json"><span class="secno">3.97.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-string"><span class="secno">3.98</span> <span class="content">Data Type: <span>String</span></span></a>
+       <a href="#dt-decimal"><span class="secno">3.98</span> <span class="content">Data Type: <span>Decimal</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-string-json"><span class="secno">3.98.1</span> <span class="content">JSON Data Representation</span></a>
+        <li><a href="#dt-decimal-json"><span class="secno">3.98.1</span> <span class="content">JSON Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-id"><span class="secno">3.99</span> <span class="content">Data Type: <span>Id</span></span></a>
+       <a href="#dt-string"><span class="secno">3.99</span> <span class="content">Data Type: <span>String</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-id-json"><span class="secno">3.99.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-string-json"><span class="secno">3.99.1</span> <span class="content">JSON Data Representation</span></a>
        </ol>
       <li>
-       <a href="#dt-iso3166cc"><span class="secno">3.100</span> <span class="content">Data Type: <span>ISO3166CC</span></span></a>
+       <a href="#dt-id"><span class="secno">3.100</span> <span class="content">Data Type: <span>Id</span></span></a>
        <ol class="toc">
-        <li><a href="#dt-iso3166cc-json"><span class="secno">3.100.1</span> <span class="content">JSON Representation</span></a>
+        <li><a href="#dt-id-json"><span class="secno">3.100.1</span> <span class="content">JSON Representation</span></a>
+       </ol>
+      <li>
+       <a href="#dt-iso3166cc"><span class="secno">3.101</span> <span class="content">Data Type: <span>ISO3166CC</span></span></a>
+       <ol class="toc">
+        <li><a href="#dt-iso3166cc-json"><span class="secno">3.101.1</span> <span class="content">JSON Representation</span></a>
        </ol>
      </ol>
     <li>
@@ -2719,6 +2724,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-2.5.0-20250120"><span class="secno"></span> <span class="content">Version 2.5.0-20250120 (January 20th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250107"><span class="secno"></span> <span class="content">Version 2.5.0-20250107 (January 7th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20241219"><span class="secno"></span> <span class="content">Version 2.5.0-20241219 (December 19th, 2024)</span></a>
       <li><a href="#changelog-2.5.0-20241216"><span class="secno"></span> <span class="content">Version 2.5.0-20241216 (December 16th, 2024)</span></a>
@@ -2905,7 +2911,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.5-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" height="3078" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="14081"></p>
+   <p><img alt="…" height="3082" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="13839"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -2935,7 +2941,7 @@ the highlights of properties within the data types and does not include the full
        <td><dfn class="dfn-paneled" data-dfn-for="AccountableImpactOrganization" data-dfn-type="element-attr" data-export id="element-attrdef-accountableimpactorganization-id"><code>id</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id">Id</a> 
        <td>String 
        <td>M 
-       <td>The Organization’s unique identifier, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The Organization’s unique identifier, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="AccountableImpactOrganization" data-dfn-type="element-attr" data-export id="element-attrdef-accountableimpactorganization-name"><code>name</code></dfn> 
        <td>String 
@@ -3057,12 +3063,12 @@ It is bound to to Quality Standard and is where claims are issued from. An AIM c
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the AIM, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the AIM, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-aioid"><code>aioId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id④">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent Accountable Impact Organization, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent Accountable Impact Organization, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-isgrouped"><code>isGrouped</code></dfn> : <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#boolean" id="ref-for-boolean">Boolean</a> 
        <td>Boolean 
@@ -3121,7 +3127,7 @@ It is bound to to Quality Standard and is where claims are issued from. An AIM c
        <td>String 
        <td>M 
        <td> The country where the project is located. The value MUST be a valid ISO 3166-1 alpha-2 country code.
-            See <a href="#dt-iso3166cc">§ 3.100 Data Type: ISO3166CC</a> for details. 
+            See <a href="#dt-iso3166cc">§ 3.101 Data Type: ISO3166CC</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-region"><code>region</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-region" id="ref-for-enumdef-region">Region</a></code> 
        <td>String 
@@ -3151,12 +3157,12 @@ It is bound to to Quality Standard and is where claims are issued from. An AIM c
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-developers"><code>developers</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id⑤">Id</a> 
        <td>Array 
        <td>M 
-       <td>List of developers for the project. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>List of developers for the project. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-sponsors"><code>sponsors</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id⑥">Id</a> 
        <td>Array 
        <td>M 
-       <td>List of sponsors, i.e., financiers, etc. for the project. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>List of sponsors, i.e., financiers, etc. for the project. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ActivityImpactModule" data-dfn-type="element-attr" data-export id="element-attrdef-activityimpactmodule-claimsources"><code>claimSources</code></dfn> : <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource">ClaimSource</a> 
        <td>Object 
@@ -3212,7 +3218,7 @@ Project Design Documents (PDD), etc.</p>
        <td><dfn class="dfn-paneled" data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validatingpartyid"><code>validatingPartyId</code></dfn> : 
        <td>String 
        <td>M 
-       <td>The Id of the validating party, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The Id of the validating party, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="Validation" data-dfn-type="element-attr" data-export id="element-attrdef-validation-validationmethod"><code>validationMethod</code></dfn> : 
        <td>String 
@@ -3284,7 +3290,7 @@ A carbon credit may require several different modules and claims to be combined 
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑦">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ActivityImpactModuleGroup, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ActivityImpactModuleGroup, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name 
        <td>String 
@@ -3325,12 +3331,12 @@ a sensor or meter, an application that collects user data or reference data like
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑧">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ClaimSource, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ClaimSource, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-aimid"><code>aimId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id⑨">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent ActivityImpactModule, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent ActivityImpactModule, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name : 
        <td>String 
@@ -3355,7 +3361,12 @@ a sensor or meter, an application that collects user data or reference data like
        <td><dfn class="dfn-paneled" data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-unitofmeasure"><code>unitOfMeasure</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit">Unit</a></code> 
        <td>String 
        <td>M 
-       <td>The string representation for unit of measure, see <a href="#dt-unit">§ 3.95 Data Type: Unit</a> for details. 
+       <td>The string representation for unit of measure, see <a href="#dt-unit">§ 3.96 Data Type: Unit</a> for details. 
+      <tr>
+       <td><dfn class="dfn-paneled" data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-reportingfrequency"><code>reportingFrequency</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-reportingfrequency" id="ref-for-enumdef-reportingfrequency">ReportingFrequency</a></code> 
+       <td>String 
+       <td>M 
+       <td>The string representation for Reporting Frequency, see <a href="#dt-reporting-frequency">§ 3.95 Data Type: ReportingFrequency</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ClaimSource" data-dfn-type="element-attr" data-export id="element-attrdef-claimsource-sourceidentifier"><code>sourceIdentifier</code></dfn> : 
        <td>string 
@@ -3412,17 +3423,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⓪">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ImpactClaim, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ImpactClaim, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①①">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent ActivityImpactModule, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent ActivityImpactModule, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-processedclaimid"><code>processedClaimId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①②">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the corrisponding processed claim that the verification automation uses to track the verification process and results of a claim. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details.
+       <td>The unique identifier for the corrisponding processed claim that the verification automation uses to track the verification process and results of a claim. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details.
             The value can be null until a processed claim is created. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-claimgroupid"><code>claimGroupId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①③">Id</a> 
@@ -3443,7 +3454,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn class="dfn-paneled" data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-unit"><code>unit</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit①">Unit</a></code> 
        <td>String 
        <td>M 
-       <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.95 Data Type: Unit</a> for further information. 
+       <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.96 Data Type: Unit</a> for further information. 
       <tr>
        <td>quantity : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal">Decimal</a> 
        <td>Decimal 
@@ -3489,24 +3500,24 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ImpactClaimCheckpoint, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ImpactClaimCheckpoint, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-claimid"><code>claimId</code></dfn> : 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent ImpactClaim, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent ImpactClaim, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-claimsourceids"><code>claimSourceIds</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①④">Id</a> 
        <td>Array 
        <td>M 
-       <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-projectdeveloperid"><code>projectDeveloperId</code></dfn> : 
        <td>String 
        <td>M 
        <td>The Id of the project developer that is submitting the checkpoint, must be a developer registered in the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule③">ActivityImpactModule</a>. 
               This is used when multiple identities may submit a checkpoint for a claim, for example one party may submit evidence of carbon capture and
-              another may submit evidence of sequestration to support a carbon removal claim. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+              another may submit evidence of sequestration to support a carbon removal claim. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-efbefore"><code>efBefore</code></dfn> : 
        <td>String 
@@ -3580,7 +3591,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id①⑤">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the Data Package, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the Data Package, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>version: <a data-link-type="dfn" href="#string" id="ref-for-string①">String</a> 
        <td>String 
@@ -3590,7 +3601,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>aioId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑥">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the Accountable Impact Organization, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the Accountable Impact Organization, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>aimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑦">Id</a> 
        <td>String 
@@ -3600,12 +3611,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>claimId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
        <td>String 
        <td>M 
-       <td>The Impact Claim that the Data Package is sourced from.  See, <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The Impact Claim that the Data Package is sourced from.  See, <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>projectDeveloperId : <a data-link-type="dfn" href="#id" id="ref-for-id①⑨">Id</a> 
        <td>String 
        <td>M 
-       <td>The Project Developer that submitted the Data Package, See, <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The Project Developer that submitted the Data Package, See, <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>created : <a data-link-type="dfn" href="#datepoint" id="ref-for-datepoint">DatePoint</a> 
        <td>DatePoint 
@@ -3685,12 +3696,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id②①">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ClaimGroup, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ClaimGroup, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>activityImpactModuleGroupId : <a data-link-type="dfn" href="#id" id="ref-for-id②②">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the Activity Impact Module Group the Claim Group belongs to, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the Activity Impact Module Group the Claim Group belongs to, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name 
        <td>String 
@@ -4107,17 +4118,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string②⑨">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ProcessedClaim, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ProcessedClaim, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-vpaid"><code>vpaId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③⓪">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent VerificationProcessAgreement, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent VerificationProcessAgreement, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-impactclaimid"><code>impactClaimId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③①">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the paired ImpactClaim, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the paired ImpactClaim, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-claimgroupid"><code>claimGroupId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id②⑧">Id</a> 
        <td>String 
@@ -4127,12 +4138,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-creditid"><code>creditId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string③②">String</a> 
        <td>String 
        <td>O 
-       <td>The unique identifier for the credit, once issued, associated with the ProcessedClaim, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the credit, once issued, associated with the ProcessedClaim, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit②">Unit</a></code> 
        <td>String 
        <td>M 
-       <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.95 Data Type: Unit</a> for further information. 
+       <td>The unit of measurement/analysis of the project. See Data Type <a href="#dt-unit">§ 3.96 Data Type: Unit</a> for further information. 
       <tr>
        <td>quantity : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal①">Decimal</a> 
        <td>Decimal 
@@ -4181,12 +4192,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string③③">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the CheckpointResult, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the CheckpointResult, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>checkpointId : <a data-link-type="dfn" href="#string" id="ref-for-string③④">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the corresponding ImpactClaimCheckpoint being processed, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the corresponding ImpactClaimCheckpoint being processed, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="CheckpointResult" data-dfn-type="element-attr" data-export id="element-attrdef-checkpointresult-verifiedlinktoprocessdataresult"><code>verifiedLinkToProcessDataResult</code></dfn> : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink④">VerifiedLink</a> 
        <td>Object 
@@ -4235,7 +4246,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string③⑦">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the VerificationProcessAgreement, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the VerificationProcessAgreement, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string③⑧">String</a> 
        <td>String 
@@ -4255,7 +4266,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>aimOrAimGroupId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑨">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the corresponding AIM or AIM Group, depending on the value of <code>isAimGroup</code>. See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The unique identifier for the corresponding AIM or AIM Group, depending on the value of <code>isAimGroup</code>. See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-signatories"><code>signatories</code></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
        <td>Array 
@@ -4346,7 +4357,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⓪">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the CRU, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the CRU, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>quantity : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal②">Decimal</a> 
        <td>Decimal 
@@ -4356,17 +4367,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit③">Unit</a></code> 
        <td>String 
        <td>M 
-       <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.95 Data Type: Unit</a> for details. 
+       <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.96 Data Type: Unit</a> for details. 
       <tr>
        <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id③①">Id</a> 
        <td>string 
        <td>M 
-       <td>The id for the owner of the CRU, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the owner of the CRU, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>listingAgentId : <a data-link-type="dfn" href="#string" id="ref-for-string④⓪">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the CRU and can split or transfer their representations of the 
+       <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the CRU and can split or transfer their representations of the 
               CRU to other parties on their system of record. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="CRU" data-dfn-type="element-attr" data-export id="element-attrdef-cru-corecarbonprinciples"><code>coreCarbonPrinciples</code></dfn> : <a data-link-type="dfn" href="#corecarbonprinciples" id="ref-for-corecarbonprinciples">CoreCarbonPrinciples</a> 
@@ -4393,17 +4404,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id③②">Id</a> 
        <td>String 
        <td>O 
-       <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id③③">Id</a> 
        <td>String 
        <td>M 
-       <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id③④">Id</a> 
        <td>String 
        <td>M 
-       <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
     </table>
     <figcaption>Properties of data type CRU</figcaption>
    </figure>
@@ -4717,7 +4728,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⑥">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the REC, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the REC, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>type : <code class="idl"><a data-link-type="idl" href="#enumdef-rectype" id="ref-for-enumdef-rectype">RecType</a></code> 
        <td>String 
@@ -4737,17 +4748,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>unit : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit④">Unit</a></code> 
        <td>String 
        <td>M 
-       <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.95 Data Type: Unit</a> for details. 
+       <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 3.96 Data Type: Unit</a> for details. 
       <tr>
        <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id③⑦">Id</a> 
        <td>string 
        <td>M 
-       <td>The id for the owner of the REC, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the owner of the REC, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>listingAgentId : <a data-link-type="dfn" href="#id" id="ref-for-id③⑧">Id</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the REC and can split or transfer their representations of the 
+       <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the REC and can split or transfer their representations of the 
               REC to other parties on their system of record. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="REC" data-dfn-type="element-attr" data-export id="element-attrdef-rec-climatelabels"><code>climateLabels</code></dfn> : <a data-link-type="dfn" href="#climatelabel" id="ref-for-climatelabel①">ClimateLabel</a> 
@@ -4769,17 +4780,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id③⑨">Id</a> 
        <td>String 
        <td>O 
-       <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id④⓪">Id</a> 
        <td>String 
        <td>M 
-       <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id④①">Id</a> 
        <td>String 
        <td>M 
-       <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>The id for the Issuing Registry, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
     </table>
     <figcaption>Properties of data type REC</figcaption>
    </figure>
@@ -4799,7 +4810,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④④">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ClimateLabel, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the ClimateLabel, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string④⑤">String</a> 
        <td>String 
@@ -4830,7 +4841,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④②">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the VerifiedLink, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the VerifiedLink, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="VerifiedLink" data-dfn-type="element-attr" data-export id="element-attrdef-verifiedlink-uri"><code>uri</code></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string④⑦">String</a> 
        <td>String 
@@ -4926,7 +4937,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④④">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the signatory, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤①">String</a> 
        <td>String 
@@ -5220,7 +5231,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⑤">Id</a> 
        <td>String 
        <td>M 
-       <td>Id of the tag, see <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Id of the tag, see <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑥⑦">String</a> 
        <td>String 
@@ -5282,7 +5293,7 @@ the string or file for the area must have a value.</p>
        <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⑥">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the GNSS, See <a href="#dt-id">§ 3.99 Data Type: Id</a> for details. 
+       <td>Unique identifier for the GNSS, See <a href="#dt-id">§ 3.100 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="GeographicLocation" data-dfn-type="element-attr" data-export id="element-attrdef-geographiclocation-latitude"><code>latitude</code></dfn> : <a data-link-type="dfn" href="#decimal" id="ref-for-decimal④">Decimal</a> 
        <td>Decimal 
@@ -5537,8 +5548,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.60" id="dt-itmo-id"><span class="secno">3.60. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-00ae4c57">
-    <a class="self-link" href="#example-00ae4c57"></a> 
+   <div class="example" id="example-0eb2d6c6">
+    <a class="self-link" href="#example-0eb2d6c6"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6183,6 +6194,9 @@ This list will be expanded to include other categories, like biodiversity, in th
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-carbon_capture_and_enhanced_oil_recovery"><code>CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY</code></dfn>
       <dd data-md>
        <p>for Carbon Capture and Enhanced Oil Recovery</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-carbon_capture_and_storage"><code>CARBON_CAPTURE_AND_STORAGE</code></dfn>
+      <dd data-md>
+       <p>for Carbon Capture and Storage</p>
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ProjectType" data-dfn-type="enum-value" data-export id="dom-projecttype-carbon_capture_in_cement"><code>CARBON_CAPTURE_IN_CEMENT</code></dfn>
       <dd data-md>
        <p>for Carbon Capture in Cement</p>
@@ -6477,7 +6491,34 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
      </dl>
      <h4 class="heading settled" data-level="3.94.1" id="dt-corresponding-adjustment-json"><span class="secno">3.94.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-corresponding-adjustment-json"></a></h4>
      <p>Each CorrespondingAdjustment is represented as a string in JSON.</p>
-     <h3 class="heading settled" data-level="3.95" id="dt-unit"><span class="secno">3.95. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-unit"><code>Unit</code></dfn></span><a class="self-link" href="#dt-unit"></a></h3>
+     <h3 class="heading settled" data-level="3.95" id="dt-reporting-frequency"><span class="secno">3.95. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-reportingfrequency"><code>ReportingFrequency</code></dfn></span><a class="self-link" href="#dt-reporting-frequency"></a></h3>
+     <p>Reporting Frequency is the enumeration of the frequency that a claim source reports data.</p>
+     <dl>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-sub_hourly"><code>SUB_HOURLY</code></dfn>
+      <dd data-md>
+       <p>can report in intervals less than an hour</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-hourly"><code>HOURLY</code></dfn>
+      <dd data-md>
+       <p>can report hourly</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-daily"><code>DAILY</code></dfn>
+      <dd data-md>
+       <p>can report daily</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-sub_weekly"><code>SUB_WEEKLY</code></dfn>
+      <dd data-md>
+       <p>can report in intervals less than a week</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-weekly"><code>WEEKLY</code></dfn>
+      <dd data-md>
+       <p>can report weekly</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-sub_monthly"><code>SUB_MONTHLY</code></dfn>
+      <dd data-md>
+       <p>can report in intervals less than a month</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ReportingFrequency" data-dfn-type="enum-value" data-export id="dom-reportingfrequency-monthly"><code>MONTHLY</code></dfn>
+      <dd data-md>
+       <p>can report monthly</p>
+     </dl>
+     <h4 class="heading settled" data-level="3.95.1" id="dt-reporting-frequency-json"><span class="secno">3.95.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-reporting-frequency-json"></a></h4>
+     <p>The value of each <code class="idl"><a data-link-type="idl" href="#enumdef-reportingfrequency" id="ref-for-enumdef-reportingfrequency①">ReportingFrequency</a></code> MUST be encoded as a JSON String.</p>
+     <h3 class="heading settled" data-level="3.96" id="dt-unit"><span class="secno">3.96. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-unit"><code>Unit</code></dfn></span><a class="self-link" href="#dt-unit"></a></h3>
      <p>Unit is the enumeration of accepted declared units with values</p>
      <dl>
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="Unit" data-dfn-type="enum-value" data-export id="dom-unit-liter"><code>liter</code></dfn>
@@ -6520,9 +6561,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <dd data-md>
        <p>for megawatt hour</p>
      </dl>
-     <h4 class="heading settled" data-level="3.95.1" id="dt-unit-json"><span class="secno">3.95.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-unit-json"></a></h4>
+     <h4 class="heading settled" data-level="3.96.1" id="dt-unit-json"><span class="secno">3.96.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-unit-json"></a></h4>
      <p>The value of each <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit⑤">Unit</a></code> MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.96" id="dt-whole-number"><span class="secno">3.96. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="wholenumber">WholeNumber</dfn></span><a class="self-link" href="#dt-whole-number"></a></h3>
+     <h3 class="heading settled" data-level="3.97" id="dt-whole-number"><span class="secno">3.97. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="wholenumber">WholeNumber</dfn></span><a class="self-link" href="#dt-whole-number"></a></h3>
      <p>A whole number, may be signed, positive or negative.</p>
      <p>Example values:</p>
      <div class="example" id="example-65105688">
@@ -6536,9 +6577,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <p><code>-182</code></p>
       </ul>
      </div>
-     <h4 class="heading settled" data-level="3.96.1" id="dt-whole-number-json"><span class="secno">3.96.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-whole-number-json"></a></h4>
+     <h4 class="heading settled" data-level="3.97.1" id="dt-whole-number-json"><span class="secno">3.97.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-whole-number-json"></a></h4>
      <p>Each whole number MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.97" id="dt-decimal"><span class="secno">3.97. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="decimal">Decimal</dfn></span><a class="self-link" href="#dt-decimal"></a></h3>
+     <h3 class="heading settled" data-level="3.98" id="dt-decimal"><span class="secno">3.98. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="decimal">Decimal</dfn></span><a class="self-link" href="#dt-decimal"></a></h3>
      <p>A dotted-decimal number.</p>
      <p>Example values:</p>
      <div class="example" id="example-73d4ac86">
@@ -6552,28 +6593,28 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <p><code>-182.84</code></p>
       </ul>
      </div>
-     <h4 class="heading settled" data-level="3.97.1" id="dt-decimal-json"><span class="secno">3.97.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-decimal-json"></a></h4>
+     <h4 class="heading settled" data-level="3.98.1" id="dt-decimal-json"><span class="secno">3.98.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-decimal-json"></a></h4>
      <p>Each Decimal MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.98" id="dt-string"><span class="secno">3.98. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="string">String</dfn></span><a class="self-link" href="#dt-string"></a></h3>
+     <h3 class="heading settled" data-level="3.99" id="dt-string"><span class="secno">3.99. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="string">String</dfn></span><a class="self-link" href="#dt-string"></a></h3>
      <p>A regular UTF-8 String.</p>
-     <h4 class="heading settled" data-level="3.98.1" id="dt-string-json"><span class="secno">3.98.1. </span><span class="content">JSON Data Representation</span><a class="self-link" href="#dt-string-json"></a></h4>
+     <h4 class="heading settled" data-level="3.99.1" id="dt-string-json"><span class="secno">3.99.1. </span><span class="content">JSON Data Representation</span><a class="self-link" href="#dt-string-json"></a></h4>
      <p>Each <a data-link-type="dfn" href="#string" id="ref-for-string⑦⑤">String</a> MUST be encoded as a JSON String.</p>
-     <h3 class="heading settled" data-level="3.99" id="dt-id"><span class="secno">3.99. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="id">Id</dfn></span><a class="self-link" href="#dt-id"></a></h3>
+     <h3 class="heading settled" data-level="3.100" id="dt-id"><span class="secno">3.100. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="id">Id</dfn></span><a class="self-link" href="#dt-id"></a></h3>
      <p>A Id MUST either be a UUID v4 as specified in <a data-link-type="biblio" href="#biblio-rfc9562" title="Universally Unique IDentifiers (UUIDs)">[rfc9562]</a>.</p>
      <p>or a unique key that can be represented as a string.</p>
-     <h4 class="heading settled" data-level="3.99.1" id="dt-id-json"><span class="secno">3.99.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-id-json"></a></h4>
-     <p>Each Id MUST be encoded as a JSON String, see <a href="#dt-string-json">§ 3.98.1 JSON Data Representation</a> for details.</p>
+     <h4 class="heading settled" data-level="3.100.1" id="dt-id-json"><span class="secno">3.100.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-id-json"></a></h4>
+     <p>Each Id MUST be encoded as a JSON String, see <a href="#dt-string-json">§ 3.99.1 JSON Data Representation</a> for details.</p>
      <p>Example JSON string value:</p>
      <div class="example" id="example-3ff44a83">
       <a class="self-link" href="#example-3ff44a83"></a> 
 <pre class="language-json highlight"><c- u>"f4b1225a-bd44-4c8e-861d-079e4e1dfd69"</c->
 </pre>
      </div>
-     <h3 class="heading settled" data-level="3.100" id="dt-iso3166cc"><span class="secno">3.100. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="iso3166cc">ISO3166CC</dfn></span><a class="self-link" href="#dt-iso3166cc"></a></h3>
+     <h3 class="heading settled" data-level="3.101" id="dt-iso3166cc"><span class="secno">3.101. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="iso3166cc">ISO3166CC</dfn></span><a class="self-link" href="#dt-iso3166cc"></a></h3>
      <p>An ISO 3166-2 alpha-2 country code.</p>
      <p>Example value for tue alpha-2 country code of the United States:</p>
      <div class="example" id="example-7516fd43"><a class="self-link" href="#example-7516fd43"></a> <code>US</code> </div>
-     <h4 class="heading settled" data-level="3.100.1" id="dt-iso3166cc-json"><span class="secno">3.100.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-iso3166cc-json"></a></h4>
+     <h4 class="heading settled" data-level="3.101.1" id="dt-iso3166cc-json"><span class="secno">3.101.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-iso3166cc-json"></a></h4>
      <p>Each <a data-link-type="dfn" href="#iso3166cc" id="ref-for-iso3166cc①">ISO3166CC</a> MUST be encoded as a JSON String.</p>
      <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
      <div class="note" role="note">Non-normative</div>
@@ -9325,6 +9366,13 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-2.5.0-20250120"><span class="content">Version 2.5.0-20250120 (January 20th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250120"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Added the <code>ReportingFrequency</code> property to the <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource①">ClaimSource</a> type to support the frequency that a claim source reports data.</p>
+      <li data-md>
+       <p>Added the <code class="idl"><a data-link-type="idl" href="#enumdef-reportingfrequency" id="ref-for-enumdef-reportingfrequency②">ReportingFrequency</a></code> enumeration to support the frequency that a claim source reports data.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250107"><span class="content">Version 2.5.0-20250107 (January 7th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250107"></a></h3>
      <ul>
       <li data-md>
@@ -9635,7 +9683,12 @@ public licenses.</p>
    <li><a href="#dom-projecttype-carbonated_materials">CARBONATED_MATERIALS</a><span>, in § 3.89</span>
    <li><a href="#dom-classificationcategory-carbon_avoidance">CARBON_AVOIDANCE</a><span>, in § 3.74</span>
    <li><a href="#dom-projecttype-carbon_capture_and_enhanced_oil_recovery">CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY</a><span>, in § 3.89</span>
-   <li><a href="#dom-projectscope-carbon_capture_and_storage">CARBON_CAPTURE_AND_STORAGE</a><span>, in § 3.88</span>
+   <li>
+    CARBON_CAPTURE_AND_STORAGE
+    <ul>
+     <li><a href="#dom-projectscope-carbon_capture_and_storage">enum-value for ProjectScope</a><span>, in § 3.88</span>
+     <li><a href="#dom-projecttype-carbon_capture_and_storage">enum-value for ProjectType</a><span>, in § 3.89</span>
+    </ul>
    <li><a href="#dom-projecttype-carbon_capture_in_cement">CARBON_CAPTURE_IN_CEMENT</a><span>, in § 3.89</span>
    <li><a href="#dom-projecttype-carbon_capture_in_geological_storage">CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE</a><span>, in § 3.89</span>
    <li><a href="#dom-projecttype-carbon_capture_in_plastic">CARBON_CAPTURE_IN_PLASTIC</a><span>, in § 3.89</span>
@@ -9717,9 +9770,14 @@ public licenses.</p>
    <li><a href="#element-attrdef-processedclaim-creditid">creditId</a><span>, in § 3.25.2</span>
    <li><a href="#enumdef-creditstatus">CreditStatus</a><span>, in § 3.91</span>
    <li><a href="#cru">CRU</a><span>, in § 3.28</span>
-   <li><a href="#dom-unit-cubic-meter">cubic meter</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-cubic-meter">cubic meter</a><span>, in § 3.96</span>
    <li><a href="#dom-insurancepolicyowner-custodian">CUSTODIAN</a><span>, in § 3.64</span>
-   <li><a href="#dom-claimperiod-daily">DAILY</a><span>, in § 3.82</span>
+   <li>
+    DAILY
+    <ul>
+     <li><a href="#dom-claimperiod-daily">enum-value for ClaimPeriod</a><span>, in § 3.82</span>
+     <li><a href="#dom-reportingfrequency-daily">enum-value for ReportingFrequency</a><span>, in § 3.95</span>
+    </ul>
    <li><a href="#dom-filetype-data_avro">DATA_AVRO</a><span>, in § 3.67</span>
    <li><a href="#dom-filetype-data_binary">DATA_BINARY</a><span>, in § 3.67</span>
    <li><a href="#dom-filetype-data_csv">DATA_CSV</a><span>, in § 3.67</span>
@@ -9743,7 +9801,7 @@ public licenses.</p>
    <li><a href="#datetime">DateTime</a><span>, in § 3.58</span>
    <li><a href="#element-attrdef-date-datetime">dateTime</a><span>, in § 3.57.1</span>
    <li><a href="#dom-un-sdgs-decent_work_and_economic_growth">DECENT_WORK_AND_ECONOMIC_GROWTH</a><span>, in § 3.87</span>
-   <li><a href="#decimal">Decimal</a><span>, in § 3.97</span>
+   <li><a href="#decimal">Decimal</a><span>, in § 3.98</span>
    <li><a href="#degradable">Degradable</a><span>, in § 3.31</span>
    <li><a href="#element-attrdef-durability-degradable">degradable</a><span>, in § 3.30.1</span>
    <li><a href="#enumdef-degradationtype">DegradationType</a><span>, in § 3.61</span>
@@ -9808,9 +9866,10 @@ public licenses.</p>
    <li><a href="#dom-projecttype-hfc23_destruction">HFC23_DESTRUCTION</a><span>, in § 3.89</span>
    <li><a href="#dom-projecttype-hfc_refrigerant_reclamation">HFC_REFRIGERANT_RECLAMATION</a><span>, in § 3.89</span>
    <li><a href="#dom-projecttype-hfc_replacement_in_foam_production">HFC_REPLACEMENT_IN_FOAM_PRODUCTION</a><span>, in § 3.89</span>
+   <li><a href="#dom-reportingfrequency-hourly">HOURLY</a><span>, in § 3.95</span>
    <li><a href="#dom-projectscope-household_and_community">HOUSEHOLD_AND_COMMUNITY</a><span>, in § 3.88</span>
    <li><a href="#dom-projecttype-hydropower">HYDROPOWER</a><span>, in § 3.89</span>
-   <li><a href="#id">Id</a><span>, in § 3.99</span>
+   <li><a href="#id">Id</a><span>, in § 3.100</span>
    <li><a href="#element-attrdef-accountableimpactorganization-id">id</a><span>, in § 3.3.2</span>
    <li><a href="#dom-credentialtype-identity_credential">IDENTITY_CREDENTIAL</a><span>, in § 3.71</span>
    <li><a href="#impact-claim">Impact Claim</a><span>, in § 2</span>
@@ -9840,7 +9899,7 @@ public licenses.</p>
    <li><a href="#dom-measurementspecification-iso_14064">ISO_14064</a><span>, in § 3.90</span>
    <li><a href="#dom-measurementspecification-iso_14064_1">ISO_14064_1</a><span>, in § 3.90</span>
    <li><a href="#dom-measurementspecification-iso_14064_2">ISO_14064_2</a><span>, in § 3.90</span>
-   <li><a href="#iso3166cc">ISO3166CC</a><span>, in § 3.100</span>
+   <li><a href="#iso3166cc">ISO3166CC</a><span>, in § 3.101</span>
    <li><a href="#element-attrdef-processedclaim-issuancerequest">issuanceRequest</a><span>, in § 3.25.2</span>
    <li>
     ISSUING_REGISTRY
@@ -9854,8 +9913,8 @@ public licenses.</p>
    <li><a href="#dom-signaturetype-jws">JWS</a><span>, in § 3.72</span>
    <li><a href="#element-attrdef-digitalsignature-jws">jws</a><span>, in § 3.42.1</span>
    <li><a href="#dom-prooftype-jwt">JWT</a><span>, in § 3.70</span>
-   <li><a href="#dom-unit-kilogram">kilogram</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-kilowatt">kilowatt</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-kilogram">kilogram</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-kilowatt">kilowatt</a><span>, in § 3.96</span>
    <li><a href="#dom-projecttype-landfill_methane">LANDFILL_METHANE</a><span>, in § 3.89</span>
    <li><a href="#dom-projectscale-large">LARGE</a><span>, in § 3.83</span>
    <li><a href="#element-attrdef-geographiclocation-latitude">latitude</a><span>, in § 3.50.1</span>
@@ -9866,7 +9925,7 @@ public licenses.</p>
    <li><a href="#dom-un-sdgs-life_on_land">LIFE_ON_LAND</a><span>, in § 3.87</span>
    <li><a href="#dom-projecttype-lighting">LIGHTING</a><span>, in § 3.89</span>
    <li><a href="#dom-degradationtype-linear">LINEAR</a><span>, in § 3.61</span>
-   <li><a href="#dom-unit-liter">liter</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-liter">liter</a><span>, in § 3.96</span>
    <li><a href="#element-attrdef-geographiclocation-longitude">longitude</a><span>, in § 3.50.1</span>
    <li><a href="#dom-reversalrisk-low">LOW</a><span>, in § 3.62</span>
    <li><a href="#dom-addresstype-mailing">MAILING</a><span>, in § 3.85</span>
@@ -9878,8 +9937,8 @@ public licenses.</p>
    <li><a href="#enumdef-measurementspecification">MeasurementSpecification</a><span>, in § 3.90</span>
    <li><a href="#element-attrdef-accountableimpactorganization-medialinks">mediaLinks</a><span>, in § 3.3.2</span>
    <li><a href="#dom-projectscale-medium">MEDIUM</a><span>, in § 3.83</span>
-   <li><a href="#dom-unit-megajoule">megajoule</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-megawatt">megawatt</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-megajoule">megajoule</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-megawatt">megawatt</a><span>, in § 3.96</span>
    <li><a href="#enumdef-messagetype">MessageType</a><span>, in § 3.66</span>
    <li><a href="#dom-projecttype-methane_recovery_in_wastewater">METHANE_RECOVERY_IN_WASTEWATER</a><span>, in § 3.89</span>
    <li><a href="#enumdef-method">Method</a><span>, in § 3.79</span>
@@ -9892,7 +9951,12 @@ public licenses.</p>
    <li><a href="#mintable">Mintable</a><span>, in § 3.10.1</span>
    <li><a href="#mitigationactivity">MitigationActivity</a><span>, in § 3.49</span>
    <li><a href="#element-attrdef-corecarbonprinciples-mitigationactivity">mitigationActivity</a><span>, in § 3.29.1</span>
-   <li><a href="#dom-claimperiod-monthly">MONTHLY</a><span>, in § 3.82</span>
+   <li>
+    MONTHLY
+    <ul>
+     <li><a href="#dom-claimperiod-monthly">enum-value for ClaimPeriod</a><span>, in § 3.82</span>
+     <li><a href="#dom-reportingfrequency-monthly">enum-value for ReportingFrequency</a><span>, in § 3.95</span>
+    </ul>
    <li><a href="#mrventityextension">MrvEntityExtension</a><span>, in § 3.21</span>
    <li><a href="#mrv-extension">MRV Extension</a><span>, in § 2</span>
    <li><a href="#enumdef-mrvextensioncontext">MrvExtensionContext</a><span>, in § 3.65</span>
@@ -9902,7 +9966,7 @@ public licenses.</p>
    <li><a href="#mrvextensionsetmodule">MrvExtensionSetModule</a><span>, in § 3.17</span>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 3.52</span>
    <li><a href="#element-attrdef-verificationprocessagreement-mrvrequirements">mrvRequirements</a><span>, in § 3.27.1</span>
-   <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.96</span>
    <li><a href="#dom-projecttype-n20_destruction_in_adipic_acid_production">N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</a><span>, in § 3.89</span>
    <li><a href="#dom-projecttype-n20_destruction_in_nitric_acid_production">N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</a><span>, in § 3.89</span>
    <li><a href="#element-attrdef-accountableimpactorganization-name">name</a><span>, in § 3.3.2</span>
@@ -9984,6 +10048,8 @@ public licenses.</p>
    <li><a href="#element-attrdef-corecarbonprinciples-replacement">replacement</a><span>, in § 3.29.1</span>
    <li><a href="#element-attrdef-replacement-replacementdate">replacementDate</a><span>, in § 3.32.1</span>
    <li><a href="#element-attrdef-replacement-replacesid">replacesId</a><span>, in § 3.32.1</span>
+   <li><a href="#enumdef-reportingfrequency">ReportingFrequency</a><span>, in § 3.95</span>
+   <li><a href="#element-attrdef-claimsource-reportingfrequency">reportingFrequency</a><span>, in § 3.9.1</span>
    <li><a href="#dom-messagetype-request">REQUEST</a><span>, in § 3.66</span>
    <li><a href="#element-attrdef-validation-requestdate">requestDate</a><span>, in § 3.6.1</span>
    <li><a href="#dom-messagetype-response">RESPONSE</a><span>, in § 3.66</span>
@@ -10022,7 +10088,7 @@ public licenses.</p>
    <li><a href="#dom-region-south_asia">SOUTH_ASIA</a><span>, in § 3.81</span>
    <li><a href="#dom-region-south_east_asia">SOUTH_EAST_ASIA</a><span>, in § 3.81</span>
    <li><a href="#element-attrdef-activityimpactmodule-sponsors">sponsors</a><span>, in § 3.5.2</span>
-   <li><a href="#dom-unit-square-meter">square meter</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-square-meter">square meter</a><span>, in § 3.96</span>
    <li><a href="#enumdef-standard">Standard</a><span>, in § 3.92</span>
    <li><a href="#element-attrdef-daterange-start">start</a><span>, in § 3.54.1</span>
    <li><a href="#element-attrdef-address-state">state</a><span>, in § 3.4.1</span>
@@ -10035,8 +10101,11 @@ public licenses.</p>
    <li><a href="#element-attrdef-validationstep-stepdocumentlink">stepDocumentLink</a><span>, in § 3.7.1</span>
    <li><a href="#enumdef-storage">Storage</a><span>, in § 3.80</span>
    <li><a href="#element-attrdef-durability-storagetype">storageType</a><span>, in § 3.30.1</span>
-   <li><a href="#string">String</a><span>, in § 3.98</span>
+   <li><a href="#string">String</a><span>, in § 3.99</span>
+   <li><a href="#dom-reportingfrequency-sub_hourly">SUB_HOURLY</a><span>, in § 3.95</span>
+   <li><a href="#dom-reportingfrequency-sub_monthly">SUB_MONTHLY</a><span>, in § 3.95</span>
    <li><a href="#dom-region-sub_saharan_africa">SUB_SAHARAN_AFRICA</a><span>, in § 3.81</span>
+   <li><a href="#dom-reportingfrequency-sub_weekly">SUB_WEEKLY</a><span>, in § 3.95</span>
    <li><a href="#dom-projecttype-sustainable_agriculture">SUSTAINABLE_AGRICULTURE</a><span>, in § 3.89</span>
    <li><a href="#dom-un-sdgs-sustainable_cities_and_communities">SUSTAINABLE_CITIES_AND_COMMUNITIES</a><span>, in § 3.87</span>
    <li><a href="#dom-projecttype-sustainable_grassland_management">SUSTAINABLE_GRASSLAND_MANAGEMENT</a><span>, in § 3.89</span>
@@ -10045,17 +10114,17 @@ public licenses.</p>
    <li><a href="#dom-projecttype-terrestrial_storage_of_biomass">TERRESTRIAL_STORAGE_OF_BIOMASS</a><span>, in § 3.89</span>
    <li><a href="#timestamp">Timestamp</a><span>, in § 3.59</span>
    <li><a href="#element-attrdef-datepoint-timestamp">timestamp</a><span>, in § 3.55.1</span>
-   <li><a href="#dom-unit-ton-kilometer">ton kilometer</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-tonne_ch4">TONNE_CH4</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-tonne_co2">TONNE_CO2</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-tonne_co2e">TONNE_CO2E</a><span>, in § 3.95</span>
-   <li><a href="#dom-unit-tonne_n2o">TONNE_N2O</a><span>, in § 3.95</span>
+   <li><a href="#dom-unit-ton-kilometer">ton kilometer</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-tonne_ch4">TONNE_CH4</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-tonne_co2">TONNE_CO2</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-tonne_co2e">TONNE_CO2E</a><span>, in § 3.96</span>
+   <li><a href="#dom-unit-tonne_n2o">TONNE_N2O</a><span>, in § 3.96</span>
    <li><a href="#transferable">Transferable</a><span>, in § 3.3.1</span>
    <li><a href="#dom-projectscope-transportation">TRANSPORTATION</a><span>, in § 3.88</span>
    <li><a href="#dom-auditschedule-triennial">TRIENNIAL</a><span>, in § 3.86</span>
    <li><a href="#dom-projecttype-truck_stop_electrification">TRUCK_STOP_ELECTRIFICATION</a><span>, in § 3.89</span>
    <li><a href="#dom-classificationcategory-undefined">UNDEFINED</a><span>, in § 3.74</span>
-   <li><a href="#enumdef-unit">Unit</a><span>, in § 3.95</span>
+   <li><a href="#enumdef-unit">Unit</a><span>, in § 3.96</span>
    <li><a href="#element-attrdef-impactclaim-unit">unit</a><span>, in § 3.10.2</span>
    <li><a href="#element-attrdef-claimsource-unitofmeasure">unitOfMeasure</a><span>, in § 3.9.1</span>
    <li><a href="#dom-projecttype-university_campus_emission_reductions">UNIVERSITY_CAMPUS_EMISSION_REDUCTIONS</a><span>, in § 3.89</span>
@@ -10103,9 +10172,14 @@ public licenses.</p>
    <li><a href="#dom-projecttype-waste_recycling">WASTE_RECYCLING</a><span>, in § 3.89</span>
    <li><a href="#dom-classificationcategory-water">WATER</a><span>, in § 3.74</span>
    <li><a href="#dom-projecttype-weatherization">WEATHERIZATION</a><span>, in § 3.89</span>
-   <li><a href="#dom-claimperiod-weekly">WEEKLY</a><span>, in § 3.82</span>
+   <li>
+    WEEKLY
+    <ul>
+     <li><a href="#dom-claimperiod-weekly">enum-value for ClaimPeriod</a><span>, in § 3.82</span>
+     <li><a href="#dom-reportingfrequency-weekly">enum-value for ReportingFrequency</a><span>, in § 3.95</span>
+    </ul>
    <li><a href="#dom-projecttype-wetland_restoration">WETLAND_RESTORATION</a><span>, in § 3.89</span>
-   <li><a href="#wholenumber">WholeNumber</a><span>, in § 3.96</span>
+   <li><a href="#wholenumber">WholeNumber</a><span>, in § 3.97</span>
    <li><a href="#dom-projecttype-wind">WIND</a><span>, in § 3.89</span>
    <li><a href="#dom-reversalrisk-zero">ZERO</a><span>, in § 3.62</span>
    <li><a href="#dom-un-sdgs-zero_hunger">ZERO_HUNGER</a><span>, in § 3.87</span>
@@ -10354,7 +10428,7 @@ let dfnPanelData = {
 "checkpointresult": {"dfnID":"checkpointresult","dfnText":"CheckpointResult","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpointresult"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-checkpointresult\u2460"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpointresult"},
 "claim-group": {"dfnID":"claim-group","dfnText":"Claim Group","external":false,"refSections":[],"url":"#claim-group"},
 "claimgroup": {"dfnID":"claimgroup","dfnText":"ClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-claimgroup"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-claimgroup\u2460"},{"id":"ref-for-claimgroup\u2461"}],"title":"Version 2.5.0-20250107 (January 7th, 2025)"}],"url":"#claimgroup"},
-"claimsource": {"dfnID":"claimsource","dfnText":"ClaimSource","external":false,"refSections":[{"refs":[{"id":"ref-for-claimsource"}],"title":"3.5.2. Properties"}],"url":"#claimsource"},
+"claimsource": {"dfnID":"claimsource","dfnText":"ClaimSource","external":false,"refSections":[{"refs":[{"id":"ref-for-claimsource"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-claimsource\u2460"}],"title":"Version 2.5.0-20250120 (January 20th, 2025)"}],"url":"#claimsource"},
 "climatelabel": {"dfnID":"climatelabel","dfnText":"ClimateLabel","external":false,"refSections":[{"refs":[{"id":"ref-for-climatelabel"}],"title":"3.28.2. Properties"},{"refs":[{"id":"ref-for-climatelabel\u2460"}],"title":"3.36.2. Properties"}],"url":"#climatelabel"},
 "co-benefit": {"dfnID":"co-benefit","dfnText":"Co-Benefit","external":false,"refSections":[{"refs":[{"id":"ref-for-co-benefit"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-co-benefit\u2460"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-co-benefit\u2461"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-co-benefit\u2462"}],"title":"3.51.1. Properties"}],"url":"#co-benefit"},
 "corecarbonprinciples": {"dfnID":"corecarbonprinciples","dfnText":"CoreCarbonPrinciples","external":false,"refSections":[{"refs":[{"id":"ref-for-corecarbonprinciples"}],"title":"3.28.2. Properties"}],"url":"#corecarbonprinciples"},
@@ -10483,6 +10557,7 @@ let dfnPanelData = {
 "dom-projecttype-bundled_compost_production_and_soil_application": {"dfnID":"dom-projecttype-bundled_compost_production_and_soil_application","dfnText":"BUNDLED_COMPOST_PRODUCTION_AND_SOIL_APPLICATION","external":false,"refSections":[],"url":"#dom-projecttype-bundled_compost_production_and_soil_application"},
 "dom-projecttype-bundled_energy_efficiency": {"dfnID":"dom-projecttype-bundled_energy_efficiency","dfnText":"BUNDLED_ENERGY_EFFICIENCY","external":false,"refSections":[],"url":"#dom-projecttype-bundled_energy_efficiency"},
 "dom-projecttype-carbon_capture_and_enhanced_oil_recovery": {"dfnID":"dom-projecttype-carbon_capture_and_enhanced_oil_recovery","dfnText":"CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY","external":false,"refSections":[],"url":"#dom-projecttype-carbon_capture_and_enhanced_oil_recovery"},
+"dom-projecttype-carbon_capture_and_storage": {"dfnID":"dom-projecttype-carbon_capture_and_storage","dfnText":"CARBON_CAPTURE_AND_STORAGE","external":false,"refSections":[],"url":"#dom-projecttype-carbon_capture_and_storage"},
 "dom-projecttype-carbon_capture_in_cement": {"dfnID":"dom-projecttype-carbon_capture_in_cement","dfnText":"CARBON_CAPTURE_IN_CEMENT","external":false,"refSections":[],"url":"#dom-projecttype-carbon_capture_in_cement"},
 "dom-projecttype-carbon_capture_in_geological_storage": {"dfnID":"dom-projecttype-carbon_capture_in_geological_storage","dfnText":"CARBON_CAPTURE_IN_GEOLOGICAL_STORAGE","external":false,"refSections":[],"url":"#dom-projecttype-carbon_capture_in_geological_storage"},
 "dom-projecttype-carbon_capture_in_plastic": {"dfnID":"dom-projecttype-carbon_capture_in_plastic","dfnText":"CARBON_CAPTURE_IN_PLASTIC","external":false,"refSections":[],"url":"#dom-projecttype-carbon_capture_in_plastic"},
@@ -10566,6 +10641,13 @@ let dfnPanelData = {
 "dom-region-south_asia": {"dfnID":"dom-region-south_asia","dfnText":"SOUTH_ASIA","external":false,"refSections":[],"url":"#dom-region-south_asia"},
 "dom-region-south_east_asia": {"dfnID":"dom-region-south_east_asia","dfnText":"SOUTH_EAST_ASIA","external":false,"refSections":[],"url":"#dom-region-south_east_asia"},
 "dom-region-sub_saharan_africa": {"dfnID":"dom-region-sub_saharan_africa","dfnText":"SUB_SAHARAN_AFRICA","external":false,"refSections":[],"url":"#dom-region-sub_saharan_africa"},
+"dom-reportingfrequency-daily": {"dfnID":"dom-reportingfrequency-daily","dfnText":"DAILY","external":false,"refSections":[],"url":"#dom-reportingfrequency-daily"},
+"dom-reportingfrequency-hourly": {"dfnID":"dom-reportingfrequency-hourly","dfnText":"HOURLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-hourly"},
+"dom-reportingfrequency-monthly": {"dfnID":"dom-reportingfrequency-monthly","dfnText":"MONTHLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-monthly"},
+"dom-reportingfrequency-sub_hourly": {"dfnID":"dom-reportingfrequency-sub_hourly","dfnText":"SUB_HOURLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-sub_hourly"},
+"dom-reportingfrequency-sub_monthly": {"dfnID":"dom-reportingfrequency-sub_monthly","dfnText":"SUB_MONTHLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-sub_monthly"},
+"dom-reportingfrequency-sub_weekly": {"dfnID":"dom-reportingfrequency-sub_weekly","dfnText":"SUB_WEEKLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-sub_weekly"},
+"dom-reportingfrequency-weekly": {"dfnID":"dom-reportingfrequency-weekly","dfnText":"WEEKLY","external":false,"refSections":[],"url":"#dom-reportingfrequency-weekly"},
 "dom-reversalrisk-low": {"dfnID":"dom-reversalrisk-low","dfnText":"LOW","external":false,"refSections":[],"url":"#dom-reversalrisk-low"},
 "dom-reversalrisk-material": {"dfnID":"dom-reversalrisk-material","dfnText":"MATERIAL","external":false,"refSections":[],"url":"#dom-reversalrisk-material"},
 "dom-reversalrisk-zero": {"dfnID":"dom-reversalrisk-zero","dfnText":"ZERO","external":false,"refSections":[],"url":"#dom-reversalrisk-zero"},
@@ -10667,6 +10749,7 @@ let dfnPanelData = {
 "element-attrdef-claimgroup-impactclaims": {"dfnID":"element-attrdef-claimgroup-impactclaims","dfnText":"impactClaims","external":false,"refSections":[],"url":"#element-attrdef-claimgroup-impactclaims"},
 "element-attrdef-claimgroup-processedclaims": {"dfnID":"element-attrdef-claimgroup-processedclaims","dfnText":"processedClaims","external":false,"refSections":[],"url":"#element-attrdef-claimgroup-processedclaims"},
 "element-attrdef-claimsource-aimid": {"dfnID":"element-attrdef-claimsource-aimid","dfnText":"aimId","external":false,"refSections":[],"url":"#element-attrdef-claimsource-aimid"},
+"element-attrdef-claimsource-reportingfrequency": {"dfnID":"element-attrdef-claimsource-reportingfrequency","dfnText":"reportingFrequency","external":false,"refSections":[],"url":"#element-attrdef-claimsource-reportingfrequency"},
 "element-attrdef-claimsource-sourceidentifier": {"dfnID":"element-attrdef-claimsource-sourceidentifier","dfnText":"sourceIdentifier","external":false,"refSections":[],"url":"#element-attrdef-claimsource-sourceidentifier"},
 "element-attrdef-claimsource-sourcetype": {"dfnID":"element-attrdef-claimsource-sourcetype","dfnText":"sourceType","external":false,"refSections":[],"url":"#element-attrdef-claimsource-sourcetype"},
 "element-attrdef-claimsource-unitofmeasure": {"dfnID":"element-attrdef-claimsource-unitofmeasure","dfnText":"unitOfMeasure","external":false,"refSections":[],"url":"#element-attrdef-claimsource-unitofmeasure"},
@@ -10782,13 +10865,14 @@ let dfnPanelData = {
 "enumdef-prooftype": {"dfnID":"enumdef-prooftype","dfnText":"ProofType","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-prooftype"}],"title":"3.45.1. Properties"},{"refs":[{"id":"ref-for-enumdef-prooftype\u2460"}],"title":"3.47.1. Properties"}],"url":"#enumdef-prooftype"},
 "enumdef-rectype": {"dfnID":"enumdef-rectype","dfnText":"RecType","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-rectype"}],"title":"3.36.2. Properties"}],"url":"#enumdef-rectype"},
 "enumdef-region": {"dfnID":"enumdef-region","dfnText":"Region","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-region"}],"title":"3.5.2. Properties"}],"url":"#enumdef-region"},
+"enumdef-reportingfrequency": {"dfnID":"enumdef-reportingfrequency","dfnText":"ReportingFrequency","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-reportingfrequency"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-enumdef-reportingfrequency\u2460"}],"title":"3.95.1. JSON Representation"},{"refs":[{"id":"ref-for-enumdef-reportingfrequency\u2461"}],"title":"Version 2.5.0-20250120 (January 20th, 2025)"}],"url":"#enumdef-reportingfrequency"},
 "enumdef-reversalrisk": {"dfnID":"enumdef-reversalrisk","dfnText":"ReversalRisk","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-reversalrisk"}],"title":"3.34.1. Properties"}],"url":"#enumdef-reversalrisk"},
 "enumdef-signatoryrole": {"dfnID":"enumdef-signatoryrole","dfnText":"SignatoryRole","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-signatoryrole"}],"title":"3.41.1. Properties"}],"url":"#enumdef-signatoryrole"},
 "enumdef-signaturetype": {"dfnID":"enumdef-signaturetype","dfnText":"SignatureType","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-signaturetype"}],"title":"3.42.1. Properties"},{"refs":[{"id":"ref-for-enumdef-signaturetype\u2460"}],"title":"3.46.1. Properties"}],"url":"#enumdef-signaturetype"},
 "enumdef-standard": {"dfnID":"enumdef-standard","dfnText":"Standard","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-standard"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-enumdef-standard\u2460"}],"title":"3.51.1. Properties"}],"url":"#enumdef-standard"},
 "enumdef-storage": {"dfnID":"enumdef-storage","dfnText":"Storage","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-storage"}],"title":"3.30.1. Properties"}],"url":"#enumdef-storage"},
 "enumdef-un-sdgs": {"dfnID":"enumdef-un-sdgs","dfnText":"UN-SDGs","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-un-sdgs"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-enumdef-un-sdgs\u2460"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-enumdef-un-sdgs\u2461"}],"title":"3.33.1. Properties"}],"url":"#enumdef-un-sdgs"},
-"enumdef-unit": {"dfnID":"enumdef-unit","dfnText":"Unit","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-unit"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2460"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2461"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2462"}],"title":"3.28.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2463"}],"title":"3.36.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2464"}],"title":"3.95.1. JSON Representation"}],"url":"#enumdef-unit"},
+"enumdef-unit": {"dfnID":"enumdef-unit","dfnText":"Unit","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-unit"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2460"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2461"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2462"}],"title":"3.28.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2463"}],"title":"3.36.2. Properties"},{"refs":[{"id":"ref-for-enumdef-unit\u2464"}],"title":"3.96.1. JSON Representation"}],"url":"#enumdef-unit"},
 "enumdef-validationstepstatus": {"dfnID":"enumdef-validationstepstatus","dfnText":"ValidationStepStatus","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-validationstepstatus"}],"title":"3.7.1. Properties"}],"url":"#enumdef-validationstepstatus"},
 "extensiondefinition": {"dfnID":"extensiondefinition","dfnText":"ExtensionDefinition","external":false,"refSections":[],"url":"#extensiondefinition"},
 "extensiondocumentation": {"dfnID":"extensiondocumentation","dfnText":"ExtensionDocumentation","external":false,"refSections":[],"url":"#extensiondocumentation"},
@@ -10799,7 +10883,7 @@ let dfnPanelData = {
 "impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"3.21. Data Type: MrvEntityExtension"}],"url":"#impactclaim"},
 "impactclaimcheckpoint": {"dfnID":"impactclaimcheckpoint","dfnText":"ImpactClaimCheckpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimcheckpoint"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2460"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#impactclaimcheckpoint"},
 "indivisible": {"dfnID":"indivisible","dfnText":"Indivisible","external":false,"refSections":[],"url":"#indivisible"},
-"iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"3.100.1. JSON Representation"}],"url":"#iso3166cc"},
+"iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"3.101.1. JSON Representation"}],"url":"#iso3166cc"},
 "itmoid": {"dfnID":"itmoid","dfnText":"ITMOId","external":false,"refSections":[{"refs":[{"id":"ref-for-itmoid"}],"title":"3.35.1. Properties"}],"url":"#itmoid"},
 "manifest": {"dfnID":"manifest","dfnText":"Manifest","external":false,"refSections":[{"refs":[{"id":"ref-for-manifest"}],"title":"3.12.1. Properties"}],"url":"#manifest"},
 "mintable": {"dfnID":"mintable","dfnText":"Mintable","external":false,"refSections":[],"url":"#mintable"},
@@ -10830,7 +10914,7 @@ let dfnPanelData = {
 "revokable": {"dfnID":"revokable","dfnText":"Revokable","external":false,"refSections":[],"url":"#revokable"},
 "roles": {"dfnID":"roles","dfnText":"Roles","external":false,"refSections":[],"url":"#roles"},
 "signatory": {"dfnID":"signatory","dfnText":"Signatory","external":false,"refSections":[{"refs":[{"id":"ref-for-signatory"}],"title":"3.27.1. Properties"}],"url":"#signatory"},
-"string": {"dfnID":"string","dfnText":"String","external":false,"refSections":[{"refs":[{"id":"ref-for-string"}],"title":"3.4.1. Properties"},{"refs":[{"id":"ref-for-string\u2460"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-string\u2461"},{"id":"ref-for-string\u2462"},{"id":"ref-for-string\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-string\u2464"},{"id":"ref-for-string\u2465"},{"id":"ref-for-string\u2466"},{"id":"ref-for-string\u2467"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-string\u2468"},{"id":"ref-for-string\u2460\u24ea"},{"id":"ref-for-string\u2460\u2460"},{"id":"ref-for-string\u2460\u2461"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2462"},{"id":"ref-for-string\u2460\u2463"},{"id":"ref-for-string\u2460\u2464"},{"id":"ref-for-string\u2460\u2465"}],"title":"3.18.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2466"},{"id":"ref-for-string\u2460\u2467"},{"id":"ref-for-string\u2460\u2468"}],"title":"3.19.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u24ea"},{"id":"ref-for-string\u2461\u2460"}],"title":"3.20.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2461"},{"id":"ref-for-string\u2461\u2462"},{"id":"ref-for-string\u2461\u2463"},{"id":"ref-for-string\u2461\u2464"},{"id":"ref-for-string\u2461\u2465"}],"title":"3.21.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2466"},{"id":"ref-for-string\u2461\u2467"}],"title":"3.22.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2468"},{"id":"ref-for-string\u2462\u24ea"},{"id":"ref-for-string\u2462\u2460"},{"id":"ref-for-string\u2462\u2461"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2462"},{"id":"ref-for-string\u2462\u2463"},{"id":"ref-for-string\u2462\u2464"},{"id":"ref-for-string\u2462\u2465"}],"title":"3.26.1. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2466"},{"id":"ref-for-string\u2462\u2467"},{"id":"ref-for-string\u2462\u2468"}],"title":"3.27.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u24ea"}],"title":"3.28.2. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2460"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2461"}],"title":"3.32.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2462"}],"title":"3.36.2. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2463"},{"id":"ref-for-string\u2463\u2464"},{"id":"ref-for-string\u2463\u2465"}],"title":"3.37.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2466"},{"id":"ref-for-string\u2463\u2467"},{"id":"ref-for-string\u2463\u2468"}],"title":"3.38.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u24ea"}],"title":"3.39.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2460"},{"id":"ref-for-string\u2464\u2461"}],"title":"3.41.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2462"}],"title":"3.42.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2463"},{"id":"ref-for-string\u2464\u2464"},{"id":"ref-for-string\u2464\u2465"}],"title":"3.43.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2466"},{"id":"ref-for-string\u2464\u2467"}],"title":"3.44.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2468"},{"id":"ref-for-string\u2465\u24ea"},{"id":"ref-for-string\u2465\u2460"},{"id":"ref-for-string\u2465\u2461"},{"id":"ref-for-string\u2465\u2462"}],"title":"3.45.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2463"},{"id":"ref-for-string\u2465\u2464"}],"title":"3.46.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2465"}],"title":"3.47.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2466"},{"id":"ref-for-string\u2465\u2467"},{"id":"ref-for-string\u2465\u2468"}],"title":"3.48.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u24ea"}],"title":"3.50.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2460"},{"id":"ref-for-string\u2466\u2461"},{"id":"ref-for-string\u2466\u2462"}],"title":"3.51.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2463"}],"title":"3.57.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2464"}],"title":"3.98.1. JSON Data Representation"}],"url":"#string"},
+"string": {"dfnID":"string","dfnText":"String","external":false,"refSections":[{"refs":[{"id":"ref-for-string"}],"title":"3.4.1. Properties"},{"refs":[{"id":"ref-for-string\u2460"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-string\u2461"},{"id":"ref-for-string\u2462"},{"id":"ref-for-string\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-string\u2464"},{"id":"ref-for-string\u2465"},{"id":"ref-for-string\u2466"},{"id":"ref-for-string\u2467"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-string\u2468"},{"id":"ref-for-string\u2460\u24ea"},{"id":"ref-for-string\u2460\u2460"},{"id":"ref-for-string\u2460\u2461"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2462"},{"id":"ref-for-string\u2460\u2463"},{"id":"ref-for-string\u2460\u2464"},{"id":"ref-for-string\u2460\u2465"}],"title":"3.18.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2466"},{"id":"ref-for-string\u2460\u2467"},{"id":"ref-for-string\u2460\u2468"}],"title":"3.19.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u24ea"},{"id":"ref-for-string\u2461\u2460"}],"title":"3.20.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2461"},{"id":"ref-for-string\u2461\u2462"},{"id":"ref-for-string\u2461\u2463"},{"id":"ref-for-string\u2461\u2464"},{"id":"ref-for-string\u2461\u2465"}],"title":"3.21.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2466"},{"id":"ref-for-string\u2461\u2467"}],"title":"3.22.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2468"},{"id":"ref-for-string\u2462\u24ea"},{"id":"ref-for-string\u2462\u2460"},{"id":"ref-for-string\u2462\u2461"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2462"},{"id":"ref-for-string\u2462\u2463"},{"id":"ref-for-string\u2462\u2464"},{"id":"ref-for-string\u2462\u2465"}],"title":"3.26.1. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2466"},{"id":"ref-for-string\u2462\u2467"},{"id":"ref-for-string\u2462\u2468"}],"title":"3.27.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u24ea"}],"title":"3.28.2. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2460"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2461"}],"title":"3.32.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2462"}],"title":"3.36.2. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2463"},{"id":"ref-for-string\u2463\u2464"},{"id":"ref-for-string\u2463\u2465"}],"title":"3.37.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2466"},{"id":"ref-for-string\u2463\u2467"},{"id":"ref-for-string\u2463\u2468"}],"title":"3.38.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u24ea"}],"title":"3.39.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2460"},{"id":"ref-for-string\u2464\u2461"}],"title":"3.41.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2462"}],"title":"3.42.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2463"},{"id":"ref-for-string\u2464\u2464"},{"id":"ref-for-string\u2464\u2465"}],"title":"3.43.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2466"},{"id":"ref-for-string\u2464\u2467"}],"title":"3.44.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2468"},{"id":"ref-for-string\u2465\u24ea"},{"id":"ref-for-string\u2465\u2460"},{"id":"ref-for-string\u2465\u2461"},{"id":"ref-for-string\u2465\u2462"}],"title":"3.45.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2463"},{"id":"ref-for-string\u2465\u2464"}],"title":"3.46.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2465"}],"title":"3.47.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2466"},{"id":"ref-for-string\u2465\u2467"},{"id":"ref-for-string\u2465\u2468"}],"title":"3.48.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u24ea"}],"title":"3.50.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2460"},{"id":"ref-for-string\u2466\u2461"},{"id":"ref-for-string\u2466\u2462"}],"title":"3.51.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2463"}],"title":"3.57.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2464"}],"title":"3.99.1. JSON Data Representation"}],"url":"#string"},
 "tag": {"dfnID":"tag","dfnText":"Tag","external":false,"refSections":[{"refs":[{"id":"ref-for-tag"}],"title":"3.47.1. Properties"}],"url":"#tag"},
 "timestamp": {"dfnID":"timestamp","dfnText":"Timestamp","external":false,"refSections":[{"refs":[{"id":"ref-for-timestamp"}],"title":"3.55.1. Properties"}],"url":"#timestamp"},
 "transferable": {"dfnID":"transferable","dfnText":"Transferable","external":false,"refSections":[],"url":"#transferable"},
@@ -11283,6 +11367,7 @@ let refsData = {
 "#enumdef-prooftype": {"displayText":"ProofType","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"ProofType","type":"enum","url":"#enumdef-prooftype"},
 "#enumdef-rectype": {"displayText":"RecType","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"RecType","type":"enum","url":"#enumdef-rectype"},
 "#enumdef-region": {"displayText":"Region","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"Region","type":"enum","url":"#enumdef-region"},
+"#enumdef-reportingfrequency": {"displayText":"ReportingFrequency","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"ReportingFrequency","type":"enum","url":"#enumdef-reportingfrequency"},
 "#enumdef-reversalrisk": {"displayText":"ReversalRisk","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"ReversalRisk","type":"enum","url":"#enumdef-reversalrisk"},
 "#enumdef-signatoryrole": {"displayText":"SignatoryRole","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"SignatoryRole","type":"enum","url":"#enumdef-signatoryrole"},
 "#enumdef-signaturetype": {"displayText":"SignatureType","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"SignatureType","type":"enum","url":"#enumdef-signaturetype"},
