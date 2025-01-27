@@ -451,6 +451,14 @@
             "nullable": true,
             "readOnly": true
           },
+          "mrvFormulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvFormula"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
           "accountableImpactOrganization": {
             "$ref": "#/components/schemas/AccountableImpactOrganization"
           }
@@ -777,6 +785,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MrvEntityExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "mrvVariables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvVariable"
             },
             "nullable": true,
             "readOnly": true
@@ -1570,6 +1586,10 @@
           "claimPeriod": {
             "$ref": "#/components/schemas/ClaimPeriod"
           },
+          "mrvExtensionSetId": {
+            "type": "string",
+            "nullable": true
+          },
           "mrvExtensionSet": {
             "$ref": "#/components/schemas/MrvExtensionSet"
           }
@@ -2187,6 +2207,22 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvFormula"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvVariable"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2229,6 +2265,93 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvFormula"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvVariable"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MrvFormula": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "formula": {
+            "type": "string",
+            "nullable": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvVariable"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MrvVariable": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/Unit"
           }
         },
         "additionalProperties": false

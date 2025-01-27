@@ -804,6 +804,28 @@ message MrvEntityExtension{
     AnyData serialized_data = 10; //the serialized data of the extension
 }
 
+//MrvFormula is used to define the formula for the calculation of a metric or indicator. The formula can be used to calculate the value of a metric or indicator based on the data provided in the MRV.
+message MrvFormula{
+    string id = 1; //unique identifier for the formula
+    string name = 2; //name of the formula
+    string version = 3; //version of the formula
+    string description = 4; //description of the formula
+    string documentation = 5; //optional documentation url of the formula
+    string formula = 6; //the formula to calculate the metric or indicator
+    repeated MrvVariable variables = 7; //list of variables in the formula
+}
+
+//MrvVariable is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
+message MrvVariable{
+    string id = 1; //unique identifier for the variable
+    string name = 2; //name of the variable
+    string version = 3; //version of the variable
+    string description = 4; //description of the variable
+    string documentation = 5; //optional documentation url of the variable
+    string instance_value = 6; //the value of the variable
+    Unit unit_of_measure = 7; //the unit of measure of the variable
+}
+
 message MrvExtensionSet{
     string id = 1; //unique identifier for the extension set
     string name = 2; //name of the extension set
@@ -813,6 +835,8 @@ message MrvExtensionSet{
     repeated MrvExtensionSetModule modules = 6; //list of extension set modules
     repeated MrvEntityExtension extensions = 7; //list of extensions in the set, these would apply to the entire set and not be scoped to a single module
     repeated MrvExtensionMessagePair messages = 8; //list of extension messages in the set, these would apply to the entire set and not be scoped to a single module
+    repeated MrvFormula formulas = 9; //list of formulas in the set, these would apply to the entire set and not be scoped to a single module
+    repeated MrvVariable variables = 10; //list of variables in the set, these would apply to the entire set and not be scoped to a single module
 }
 
 message MrvExtensionSetModule{
@@ -823,6 +847,8 @@ message MrvExtensionSetModule{
     string documentation = 5; //optional documentation url of the extension set module
     repeated MrvEntityExtension extensions = 6; //list of extensions in the set
     repeated MrvExtensionMessagePair messages = 7; //list of extension messages in the set
+    repeated MrvFormula formulas = 8; //list of formulas in the set
+    repeated MrvVariable variables = 9; //list of variables in the set
 }
 
 enum MethodologyAndTool{
