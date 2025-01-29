@@ -123,7 +123,7 @@ message ClaimSource
     common.ReportingFrequency reporting_frequency = 8; //the frequency that the claim source reports data.
     string source_identifier = 9; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
     repeated common.MrvEntityExtension extensions = 10; //an optional list of MRV extensions that can be used for source configuration or other metadata.
-    repeated common.MrvVariable mrv_variables = 11; //a list of MRV variables that are associated with the claim source.
+    common.MrvVariables mrv_variables = 11; //a list of MRV variables that are associated with the claim source.
 }
 
 message ImpactClaim
@@ -333,7 +333,8 @@ message VerificationProcessAgreement{
             ACTIVITY_IMPACT_MODULE = 5;
         }
         SignatoryRole signatory_role = 4; //role of the signatory
-        common.DigitalSignature signature = 5; //digital signature of the signatory
+        string vvb_id_for_aim = 5; //OPTIONAL: the the id of the VVB/verifier that is associated with the AIM, if there is a AIM group with multiple VVBs for different AIMs, this will be needed to map the VVB to the AIM.
+        common.DigitalSignature signature = 6; //digital signature of the signatory
     }
     bool is_aim_group = 4; //if true, this agreement is for a AIM group, if false, it is for a single AIM
     string aim_or_aim_group_id = 5; //the id of the AIM or AIM group that the agreement is associated with, if there is no group, this will be null.

@@ -812,7 +812,7 @@ message MrvFormula{
     string description = 4; //description of the formula
     string documentation = 5; //optional documentation url of the formula
     string formula = 6; //the formula to calculate the metric or indicator
-    repeated MrvVariable variables = 7; //list of variables in the formula
+    MrvVariables variables = 7; //list of variables in the formula
 }
 
 //MrvVariable is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
@@ -824,6 +824,10 @@ message MrvVariable{
     string documentation = 5; //optional documentation url of the variable
     string value = 6; //the value of the variable, either for an instance or a sum of instances
     Unit unit_of_measure = 7; //the unit of measure of the variable
+}
+
+message MrvVariables{
+    repeated MrvVariable variables = 1; //list of variables
 }
 
 message MrvExtensionSet{

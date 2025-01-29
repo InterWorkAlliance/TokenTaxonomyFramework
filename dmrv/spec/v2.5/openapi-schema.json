@@ -790,12 +790,7 @@
             "readOnly": true
           },
           "mrvVariables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvVariable"
-            },
-            "nullable": true,
-            "readOnly": true
+            "$ref": "#/components/schemas/MrvVariables"
           }
         },
         "additionalProperties": false
@@ -2313,12 +2308,7 @@
             "nullable": true
           },
           "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MrvVariable"
-            },
-            "nullable": true,
-            "readOnly": true
+            "$ref": "#/components/schemas/MrvVariables"
           }
         },
         "additionalProperties": false
@@ -2352,6 +2342,20 @@
           },
           "unitOfMeasure": {
             "$ref": "#/components/schemas/Unit"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MrvVariables": {
+        "type": "object",
+        "properties": {
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MrvVariable"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2861,6 +2865,10 @@
           },
           "signatoryRole": {
             "$ref": "#/components/schemas/SignatoryRole"
+          },
+          "vvbIdForAim": {
+            "type": "string",
+            "nullable": true
           },
           "signature": {
             "$ref": "#/components/schemas/DigitalSignature"

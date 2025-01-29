@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="db8c0b2a2a2fbb7cd631b10090f776584f35f7d2" name="revision">
+  <meta content="d2e6edd6c2af97c5a34d145d6f85cffd4c5fc70e" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2324,6 +2324,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <a href="#dt-mrv-variable"><span class="secno">3.24</span> <span class="content">Data Type: <span>MrvVariable</span></span></a>
        <ol class="toc">
         <li><a href="#dt-mrv-variable-properties"><span class="secno">3.24.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-mrv-variables"><span class="secno">3.24.2</span> <span class="content">Data Type: <span>MrvVariables</span></span></a>
        </ol>
       <li><a href="#extension-definition"><span class="secno">3.25</span> <span class="content">Extension Schema File: <span>ExtensionDefinition</span></span></a>
       <li><a href="#extension-documentation"><span class="secno">3.26</span> <span class="content">Extension Documentation: <span>ExtensionDocumentation</span></span></a>
@@ -2923,7 +2924,7 @@ the highlights of properties within the data types and does not include the full
    <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="3.2" id="data-model-detailed"><span class="secno">3.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.5-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x"></p>
+   <p><img alt="…" height="3008" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x" width="14698"></p>
    <h3 class="heading settled" data-level="3.3" id="dt-accountable-impact-organization"><span class="secno">3.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -4170,6 +4171,8 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type MrvVariable</figcaption>
    </figure>
+   <h4 class="heading settled" data-level="3.24.2" id="dt-mrv-variables"><span class="secno">3.24.2. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mrvvariables">MrvVariables</dfn></span><a class="self-link" href="#dt-mrv-variables"></a></h4>
+   <p>A collection of MrvVariable objects that are used in a MRV Extension Sets and Claims.</p>
    <h3 class="heading settled" data-level="3.25" id="extension-definition"><span class="secno">3.25. </span><span class="content">Extension Schema File: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="extensiondefinition">ExtensionDefinition</dfn></span><a class="self-link" href="#extension-definition"></a></h3>
    <p>MRV extensions MAY define a <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01">valid JSON Schema document according to the JSON Schema specification</a>.
       The extension schema file defines the data encoding and syntactical data validation details.</p>
@@ -5070,6 +5073,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The role of the signatory in the dMRV process. 
       <tr>
+       <td><dfn class="dfn-paneled" data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-vvbidforaim"><code>vvbIdForAim</code></dfn> : <code class="idl"><a data-link-type="idl">Id</a></code> 
+       <td>String 
+       <td>M 
+       <td>OPTIONAL: the the id of the VVB/verifier that is associated with the AIM, if there is a AIM group with multiple VVBs for different AIMs, this will be needed to map the VVB to the AIM. 
+      <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-signature"><code>signature</code></dfn> : <a data-link-type="dfn" href="#digitalsignature" id="ref-for-digitalsignature①">DigitalSignature</a> 
        <td>Object 
        <td>M 
@@ -5664,8 +5672,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.62" id="dt-itmo-id"><span class="secno">3.62. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-9b386006">
-    <a class="self-link" href="#example-9b386006"></a> 
+   <div class="example" id="example-1307a7fd">
+    <a class="self-link" href="#example-1307a7fd"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -9488,6 +9496,10 @@ public licenses.</p>
      <ul>
       <li data-md>
        <p>Renamed <code>instanceValue</code> to <code>value</code> in <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable①">MrvVariable</a> to better reflect the value of the variable as either an instance value or a sum of instances.</p>
+      <li data-md>
+       <p>Adding <a data-link-type="dfn" href="#mrvvariables" id="ref-for-mrvvariables">MrvVariables</a> to support a collection variables used in MRV formulas for <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①②">MrvEntityExtension</a>.</p>
+      <li data-md>
+       <p>Added <code>vvbIdForAim</code> to <a data-link-type="dfn" href="#signatory" id="ref-for-signatory①">Signatory</a> to support the VVB ID for the AIM when there is an AIM group with multiple VVBs.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250127"><span class="content">Version 2.5.0-20250127 (January 27th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250127"></a></h3>
      <ul>
@@ -9548,7 +9560,7 @@ public licenses.</p>
      <h3 class="heading settled" id="changelog-2.5.0-20240916"><span class="content">Version 2.5.0-20240916 (September 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240916"></a></h3>
      <ul>
       <li data-md>
-       <p>Renamed <code>MrvExtension</code> to <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①②">MrvEntityExtension</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvExtension</code> to <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①③">MrvEntityExtension</a> to better reflect the entity nature of the type.</p>
       <li data-md>
        <p>Added the <code>mrvEntityExtensions</code> array to the <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset③">MrvExtensionSet</a> type to support multiple extensions that can apply to the entire set, i.e. child modules.</p>
      </ul>
@@ -9583,7 +9595,7 @@ public licenses.</p>
      <h3 class="heading settled" id="changelog-2.5.0-20240524"><span class="content">Version 2.5.0-20240428 (May 24th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240524"></a></h3>
      <ul>
       <li data-md>
-       <p>Simplified and collapsed the <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①③">MrvEntityExtension</a> type removing untyped and typed into a single type.</p>
+       <p>Simplified and collapsed the <a data-link-type="dfn" href="#mrventityextension" id="ref-for-mrventityextension①④">MrvEntityExtension</a> type removing untyped and typed into a single type.</p>
       <li data-md>
        <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> type.</p>
       <li data-md>
@@ -10104,6 +10116,7 @@ public licenses.</p>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 3.54</span>
    <li><a href="#element-attrdef-verificationprocessagreement-mrvrequirements">mrvRequirements</a><span>, in § 3.29.1</span>
    <li><a href="#mrvvariable">MrvVariable</a><span>, in § 3.24</span>
+   <li><a href="#mrvvariables">MrvVariables</a><span>, in § 3.24.2</span>
    <li><a href="#dom-unit-mwh">MwH</a><span>, in § 3.98</span>
    <li><a href="#dom-projecttype-n20_destruction_in_adipic_acid_production">N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</a><span>, in § 3.91</span>
    <li><a href="#dom-projecttype-n20_destruction_in_nitric_acid_production">N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</a><span>, in § 3.91</span>
@@ -10302,6 +10315,7 @@ public licenses.</p>
    <li><a href="#element-attrdef-checkpointresult-verifiedlinktoprocessdataresult">verifiedLinkToProcessDataResult</a><span>, in § 3.28.1</span>
    <li><a href="#dom-standard-vos">VOS</a><span>, in § 3.94</span>
    <li><a href="#element-attrdef-processedclaim-vpaid">vpaId</a><span>, in § 3.27.2</span>
+   <li><a href="#element-attrdef-signatory-vvbidforaim">vvbIdForAim</a><span>, in § 3.43.1</span>
    <li><a href="#dom-projecttype-waste_diversion">WASTE_DIVERSION</a><span>, in § 3.91</span>
    <li><a href="#dom-projecttype-waste_gas_recovery">WASTE_GAS_RECOVERY</a><span>, in § 3.91</span>
    <li><a href="#dom-projecttype-waste_heat_recovery">WASTE_HEAT_RECOVERY</a><span>, in § 3.91</span>
@@ -10958,6 +10972,7 @@ let dfnPanelData = {
 "element-attrdef-replacement-replacesid": {"dfnID":"element-attrdef-replacement-replacesid","dfnText":"replacesId","external":false,"refSections":[],"url":"#element-attrdef-replacement-replacesid"},
 "element-attrdef-signatory-signatoryrole": {"dfnID":"element-attrdef-signatory-signatoryrole","dfnText":"signatoryRole","external":false,"refSections":[],"url":"#element-attrdef-signatory-signatoryrole"},
 "element-attrdef-signatory-signature": {"dfnID":"element-attrdef-signatory-signature","dfnText":"signature","external":false,"refSections":[],"url":"#element-attrdef-signatory-signature"},
+"element-attrdef-signatory-vvbidforaim": {"dfnID":"element-attrdef-signatory-vvbidforaim","dfnText":"vvbIdForAim","external":false,"refSections":[],"url":"#element-attrdef-signatory-vvbidforaim"},
 "element-attrdef-validation-requestdate": {"dfnID":"element-attrdef-validation-requestdate","dfnText":"requestDate","external":false,"refSections":[],"url":"#element-attrdef-validation-requestdate"},
 "element-attrdef-validation-validatingpartyid": {"dfnID":"element-attrdef-validation-validatingpartyid","dfnText":"validatingPartyId","external":false,"refSections":[],"url":"#element-attrdef-validation-validatingpartyid"},
 "element-attrdef-validation-validationdate": {"dfnID":"element-attrdef-validation-validationdate","dfnText":"validationDate","external":false,"refSections":[],"url":"#element-attrdef-validation-validationdate"},
@@ -11029,7 +11044,7 @@ let dfnPanelData = {
 "mintable": {"dfnID":"mintable","dfnText":"Mintable","external":false,"refSections":[],"url":"#mintable"},
 "mitigationactivity": {"dfnID":"mitigationactivity","dfnText":"MitigationActivity","external":false,"refSections":[{"refs":[{"id":"ref-for-mitigationactivity"}],"title":"3.31.1. Properties"}],"url":"#mitigationactivity"},
 "mrv-extension": {"dfnID":"mrv-extension","dfnText":"MRV Extension","external":false,"refSections":[],"url":"#mrv-extension"},
-"mrventityextension": {"dfnID":"mrventityextension","dfnText":"MrvEntityExtension","external":false,"refSections":[{"refs":[{"id":"ref-for-mrventityextension"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2461"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2462"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2463"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2464"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2465"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2466"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2467"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2468"}],"title":"3.27.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u24ea"}],"title":"3.28.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2460"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2461"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2462"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#mrventityextension"},
+"mrventityextension": {"dfnID":"mrventityextension","dfnText":"MrvEntityExtension","external":false,"refSections":[{"refs":[{"id":"ref-for-mrventityextension"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2461"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2462"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2463"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2464"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2465"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2466"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2467"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2468"}],"title":"3.27.2. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u24ea"}],"title":"3.28.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2460"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2461"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2462"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-mrventityextension\u2460\u2463"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#mrventityextension"},
 "mrvextensionmessage": {"dfnID":"mrvextensionmessage","dfnText":"MrvExtensionMessage","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvextensionmessage"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionmessage\u2460"}],"title":"Version 2.5.0-20240716 (July 16th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionmessage\u2461"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#mrvextensionmessage"},
 "mrvextensionmessagepair": {"dfnID":"mrvextensionmessagepair","dfnText":"MrvExtensionMessagePair","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvextensionmessagepair"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-mrvextensionmessagepair\u2460"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-mrvextensionmessagepair\u2461"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionmessagepair\u2462"},{"id":"ref-for-mrvextensionmessagepair\u2463"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#mrvextensionmessagepair"},
 "mrvextensionset": {"dfnID":"mrvextensionset","dfnText":"MrvExtensionSet","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvextensionset"}],"title":"2. Terminology"},{"refs":[{"id":"ref-for-mrvextensionset\u2460"},{"id":"ref-for-mrvextensionset\u2461"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-mrvextensionset\u2462"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionset\u2463"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionset\u2464"}],"title":"Version 2.5.0-20240605 (June 5th, 2024)"}],"url":"#mrvextensionset"},
@@ -11037,6 +11052,7 @@ let dfnPanelData = {
 "mrvformula": {"dfnID":"mrvformula","dfnText":"MrvFormula","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvformula"},{"id":"ref-for-mrvformula\u2460"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#mrvformula"},
 "mrvrequirements": {"dfnID":"mrvrequirements","dfnText":"MRVRequirements","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvrequirements"}],"title":"3.29.1. Properties"}],"url":"#mrvrequirements"},
 "mrvvariable": {"dfnID":"mrvvariable","dfnText":"MrvVariable","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvvariable"}],"title":"3.23.1. Properties"},{"refs":[{"id":"ref-for-mrvvariable\u2460"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-mrvvariable\u2461"},{"id":"ref-for-mrvvariable\u2462"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#mrvvariable"},
+"mrvvariables": {"dfnID":"mrvvariables","dfnText":"MrvVariables","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvvariables"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#mrvvariables"},
 "non-transferable": {"dfnID":"non-transferable","dfnText":"Non-transferable","external":false,"refSections":[],"url":"#non-transferable"},
 "offsetable-supply-control": {"dfnID":"offsetable-supply-control","dfnText":"Offsetable Supply Control","external":false,"refSections":[],"url":"#offsetable-supply-control"},
 "pacompliance": {"dfnID":"pacompliance","dfnText":"PACompliance","external":false,"refSections":[{"refs":[{"id":"ref-for-pacompliance"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-pacompliance\u2460"}],"title":"3.37.1. Properties"}],"url":"#pacompliance"},
@@ -11055,7 +11071,7 @@ let dfnPanelData = {
 "reversalmitigation": {"dfnID":"reversalmitigation","dfnText":"ReversalMitigation","external":false,"refSections":[{"refs":[{"id":"ref-for-reversalmitigation"}],"title":"3.32.1. Properties"}],"url":"#reversalmitigation"},
 "revokable": {"dfnID":"revokable","dfnText":"Revokable","external":false,"refSections":[],"url":"#revokable"},
 "roles": {"dfnID":"roles","dfnText":"Roles","external":false,"refSections":[],"url":"#roles"},
-"signatory": {"dfnID":"signatory","dfnText":"Signatory","external":false,"refSections":[{"refs":[{"id":"ref-for-signatory"}],"title":"3.29.1. Properties"}],"url":"#signatory"},
+"signatory": {"dfnID":"signatory","dfnText":"Signatory","external":false,"refSections":[{"refs":[{"id":"ref-for-signatory"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-signatory\u2460"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#signatory"},
 "string": {"dfnID":"string","dfnText":"String","external":false,"refSections":[{"refs":[{"id":"ref-for-string"}],"title":"3.4.1. Properties"},{"refs":[{"id":"ref-for-string\u2460"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-string\u2461"},{"id":"ref-for-string\u2462"},{"id":"ref-for-string\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-string\u2464"},{"id":"ref-for-string\u2465"},{"id":"ref-for-string\u2466"},{"id":"ref-for-string\u2467"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-string\u2468"},{"id":"ref-for-string\u2460\u24ea"},{"id":"ref-for-string\u2460\u2460"},{"id":"ref-for-string\u2460\u2461"}],"title":"3.17.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2462"},{"id":"ref-for-string\u2460\u2463"},{"id":"ref-for-string\u2460\u2464"},{"id":"ref-for-string\u2460\u2465"}],"title":"3.18.1. Properties"},{"refs":[{"id":"ref-for-string\u2460\u2466"},{"id":"ref-for-string\u2460\u2467"},{"id":"ref-for-string\u2460\u2468"}],"title":"3.19.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u24ea"},{"id":"ref-for-string\u2461\u2460"}],"title":"3.20.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2461"},{"id":"ref-for-string\u2461\u2462"},{"id":"ref-for-string\u2461\u2463"},{"id":"ref-for-string\u2461\u2464"},{"id":"ref-for-string\u2461\u2465"}],"title":"3.21.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2466"},{"id":"ref-for-string\u2461\u2467"}],"title":"3.22.1. Properties"},{"refs":[{"id":"ref-for-string\u2461\u2468"},{"id":"ref-for-string\u2462\u24ea"},{"id":"ref-for-string\u2462\u2460"},{"id":"ref-for-string\u2462\u2461"},{"id":"ref-for-string\u2462\u2462"}],"title":"3.23.1. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2463"},{"id":"ref-for-string\u2462\u2464"},{"id":"ref-for-string\u2462\u2465"},{"id":"ref-for-string\u2462\u2466"},{"id":"ref-for-string\u2462\u2467"}],"title":"3.24.1. Properties"},{"refs":[{"id":"ref-for-string\u2462\u2468"},{"id":"ref-for-string\u2463\u24ea"},{"id":"ref-for-string\u2463\u2460"},{"id":"ref-for-string\u2463\u2461"}],"title":"3.27.2. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2462"},{"id":"ref-for-string\u2463\u2463"},{"id":"ref-for-string\u2463\u2464"},{"id":"ref-for-string\u2463\u2465"}],"title":"3.28.1. Properties"},{"refs":[{"id":"ref-for-string\u2463\u2466"},{"id":"ref-for-string\u2463\u2467"},{"id":"ref-for-string\u2463\u2468"}],"title":"3.29.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u24ea"}],"title":"3.30.2. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2460"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2461"}],"title":"3.34.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2462"}],"title":"3.38.2. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2463"},{"id":"ref-for-string\u2464\u2464"},{"id":"ref-for-string\u2464\u2465"}],"title":"3.39.1. Properties"},{"refs":[{"id":"ref-for-string\u2464\u2466"},{"id":"ref-for-string\u2464\u2467"},{"id":"ref-for-string\u2464\u2468"}],"title":"3.40.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u24ea"}],"title":"3.41.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2460"},{"id":"ref-for-string\u2465\u2461"}],"title":"3.43.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2462"}],"title":"3.44.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2463"},{"id":"ref-for-string\u2465\u2464"},{"id":"ref-for-string\u2465\u2465"}],"title":"3.45.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2466"},{"id":"ref-for-string\u2465\u2467"}],"title":"3.46.1. Properties"},{"refs":[{"id":"ref-for-string\u2465\u2468"},{"id":"ref-for-string\u2466\u24ea"},{"id":"ref-for-string\u2466\u2460"},{"id":"ref-for-string\u2466\u2461"},{"id":"ref-for-string\u2466\u2462"}],"title":"3.47.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2463"},{"id":"ref-for-string\u2466\u2464"}],"title":"3.48.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2465"}],"title":"3.49.1. Properties"},{"refs":[{"id":"ref-for-string\u2466\u2466"},{"id":"ref-for-string\u2466\u2467"},{"id":"ref-for-string\u2466\u2468"}],"title":"3.50.1. Properties"},{"refs":[{"id":"ref-for-string\u2467\u24ea"}],"title":"3.52.1. Properties"},{"refs":[{"id":"ref-for-string\u2467\u2460"},{"id":"ref-for-string\u2467\u2461"},{"id":"ref-for-string\u2467\u2462"}],"title":"3.53.1. Properties"},{"refs":[{"id":"ref-for-string\u2467\u2463"}],"title":"3.59.1. Properties"},{"refs":[{"id":"ref-for-string\u2467\u2464"}],"title":"3.101.1. JSON Data Representation"}],"url":"#string"},
 "tag": {"dfnID":"tag","dfnText":"Tag","external":false,"refSections":[{"refs":[{"id":"ref-for-tag"}],"title":"3.49.1. Properties"}],"url":"#tag"},
 "timestamp": {"dfnID":"timestamp","dfnText":"Timestamp","external":false,"refSections":[{"refs":[{"id":"ref-for-timestamp"}],"title":"3.57.1. Properties"}],"url":"#timestamp"},
@@ -11534,6 +11550,7 @@ let refsData = {
 "#mrvformula": {"displayText":"mrvformula","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mrvformula","type":"dfn","url":"#mrvformula"},
 "#mrvrequirements": {"displayText":"mrvrequirements","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mrvrequirements","type":"dfn","url":"#mrvrequirements"},
 "#mrvvariable": {"displayText":"mrvvariable","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mrvvariable","type":"dfn","url":"#mrvvariable"},
+"#mrvvariables": {"displayText":"mrvvariables","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mrvvariables","type":"dfn","url":"#mrvvariables"},
 "#pacompliance": {"displayText":"pacompliance","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"pacompliance","type":"dfn","url":"#pacompliance"},
 "#precisionmix": {"displayText":"precisionmix","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"precisionmix","type":"dfn","url":"#precisionmix"},
 "#processedclaim": {"displayText":"processedclaim","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"processedclaim","type":"dfn","url":"#processedclaim"},
