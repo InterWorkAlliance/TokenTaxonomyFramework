@@ -2307,7 +2307,7 @@
             "type": "string",
             "nullable": true
           },
-          "variables": {
+          "mrvVariables": {
             "$ref": "#/components/schemas/MrvVariables"
           }
         },
