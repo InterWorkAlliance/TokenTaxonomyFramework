@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="b57826356b2d9acf5e28bb957d87f1a7a3ec0d02" name="revision">
+  <meta content="db8c0b2a2a2fbb7cd631b10090f776584f35f7d2" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2.5 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-01-27">27 January 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-01-29">29 January 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2734,6 +2734,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-2.5.0-20250129"><span class="secno"></span> <span class="content">Version 2.5.0-20250129 (January 29th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250127"><span class="secno"></span> <span class="content">Version 2.5.0-20250127 (January 27th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250120"><span class="secno"></span> <span class="content">Version 2.5.0-20250120 (January 20th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250107"><span class="secno"></span> <span class="content">Version 2.5.0-20250107 (January 7th, 2025)</span></a>
@@ -4157,10 +4158,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A link to the documentation for the MRV Variable, see <a href="#extension-documentation">§ 3.26 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
-       <td>instanceValue : <a data-link-type="dfn" href="#string" id="ref-for-string③⑧">String</a> 
+       <td>value : <a data-link-type="dfn" href="#string" id="ref-for-string③⑧">String</a> 
        <td>String 
        <td>M 
-       <td>The value of the MRV Variable for a given instance, this is a string that is defined by the verifier or verification automation. 
+       <td>The value of the MRV Variable either for a given instance or a sum of instances, this is a string that is defined by the verifier or verification automation. 
       <tr>
        <td>unitOfMeasure : <code class="idl"><a data-link-type="idl" href="#enumdef-unit" id="ref-for-enumdef-unit②">Unit</a></code> 
        <td>String 
@@ -5663,8 +5664,8 @@ the specification. Here is where a Quality Standard can prescribe a set of MRV E
    <h3 class="heading settled" data-level="3.62" id="dt-itmo-id"><span class="secno">3.62. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-a48ee966">
-    <a class="self-link" href="#example-a48ee966"></a> 
+   <div class="example" id="example-9b386006">
+    <a class="self-link" href="#example-9b386006"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -9483,16 +9484,21 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-2.5.0-20250129"><span class="content">Version 2.5.0-20250129 (January 29th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250129"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Renamed <code>instanceValue</code> to <code>value</code> in <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable①">MrvVariable</a> to better reflect the value of the variable as either an instance value or a sum of instances.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250127"><span class="content">Version 2.5.0-20250127 (January 27th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250127"></a></h3>
      <ul>
       <li data-md>
        <p>Added <a data-link-type="dfn" href="#mrvformula" id="ref-for-mrvformula">MrvFormula</a> to support formulas used in MRV calculations. Added to <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset①">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule①">MrvExtensionSetModule</a> to support formulas in extensions.</p>
       <li data-md>
-       <p>Added <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable①">MrvVariable</a> to support variables used in MRV formulas. Added to <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset②">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule②">MrvExtensionSetModule</a> to support variables in extensions.</p>
+       <p>Added <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable②">MrvVariable</a> to support variables used in MRV formulas. Added to <a data-link-type="dfn" href="#mrvextensionset" id="ref-for-mrvextensionset②">MrvExtensionSet</a> and <a data-link-type="dfn" href="#mrvextensionsetmodule" id="ref-for-mrvextensionsetmodule②">MrvExtensionSetModule</a> to support variables in extensions.</p>
       <li data-md>
        <p>Added <a data-link-type="dfn" href="#mrvformula" id="ref-for-mrvformula①">MrvFormula</a> to <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑥">ActivityImpactModule</a> to support formulas used in MRV calculations for the AIM.</p>
       <li data-md>
-       <p>Added <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable②">MrvVariable</a> to <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource②">ClaimSource</a> to support variables used in MRV formulas for the Claim Source.</p>
+       <p>Added <a data-link-type="dfn" href="#mrvvariable" id="ref-for-mrvvariable③">MrvVariable</a> to <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource②">ClaimSource</a> to support variables used in MRV formulas for the Claim Source.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250120"><span class="content">Version 2.5.0-20250120 (January 20th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250120"></a></h3>
      <ul>
@@ -11030,7 +11036,7 @@ let dfnPanelData = {
 "mrvextensionsetmodule": {"dfnID":"mrvextensionsetmodule","dfnText":"MrvExtensionSetModule","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvextensionsetmodule"}],"title":"3.16.1. Properties"},{"refs":[{"id":"ref-for-mrvextensionsetmodule\u2460"},{"id":"ref-for-mrvextensionsetmodule\u2461"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-mrvextensionsetmodule\u2462"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"},{"refs":[{"id":"ref-for-mrvextensionsetmodule\u2463"}],"title":"Version 2.5.0-20240605 (June 5th, 2024)"}],"url":"#mrvextensionsetmodule"},
 "mrvformula": {"dfnID":"mrvformula","dfnText":"MrvFormula","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvformula"},{"id":"ref-for-mrvformula\u2460"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#mrvformula"},
 "mrvrequirements": {"dfnID":"mrvrequirements","dfnText":"MRVRequirements","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvrequirements"}],"title":"3.29.1. Properties"}],"url":"#mrvrequirements"},
-"mrvvariable": {"dfnID":"mrvvariable","dfnText":"MrvVariable","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvvariable"}],"title":"3.23.1. Properties"},{"refs":[{"id":"ref-for-mrvvariable\u2460"},{"id":"ref-for-mrvvariable\u2461"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#mrvvariable"},
+"mrvvariable": {"dfnID":"mrvvariable","dfnText":"MrvVariable","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvvariable"}],"title":"3.23.1. Properties"},{"refs":[{"id":"ref-for-mrvvariable\u2460"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-mrvvariable\u2461"},{"id":"ref-for-mrvvariable\u2462"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#mrvvariable"},
 "non-transferable": {"dfnID":"non-transferable","dfnText":"Non-transferable","external":false,"refSections":[],"url":"#non-transferable"},
 "offsetable-supply-control": {"dfnID":"offsetable-supply-control","dfnText":"Offsetable Supply Control","external":false,"refSections":[],"url":"#offsetable-supply-control"},
 "pacompliance": {"dfnID":"pacompliance","dfnText":"PACompliance","external":false,"refSections":[{"refs":[{"id":"ref-for-pacompliance"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-pacompliance\u2460"}],"title":"3.37.1. Properties"}],"url":"#pacompliance"},

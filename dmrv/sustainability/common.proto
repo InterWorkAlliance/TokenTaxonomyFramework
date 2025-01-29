@@ -822,7 +822,7 @@ message MrvVariable{
     string version = 3; //version of the variable
     string description = 4; //description of the variable
     string documentation = 5; //optional documentation url of the variable
-    string instance_value = 6; //the value of the variable
+    string value = 6; //the value of the variable, either for an instance or a sum of instances
     Unit unit_of_measure = 7; //the unit of measure of the variable
 }
 

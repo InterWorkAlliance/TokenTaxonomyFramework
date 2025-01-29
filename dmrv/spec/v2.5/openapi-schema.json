@@ -2346,7 +2346,7 @@
             "type": "string",
             "nullable": true
           },
-          "instanceValue": {
+          "value": {
             "type": "string",
             "nullable": true
           },
