@@ -2,12 +2,15 @@
   "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
   "name": "Verification Process Agreement for Concrete Plant 3341",
   "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
+  "isAimGroup": false,
+  "aimOrAimGroupId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "signatories": [
     {
       "id": "60425f71-6d55-4875-b661-6bc1b1a4be8a",
       "name": "Puro.earth",
       "description": "Puro.earth is the world's leading platform for engineered carbon removal. Our mission is to mobilize the economy to reward carbon net negative emissions.",
       "signatoryRole": "IssuingRegistry",
+      "vvbIdForAim": "",
       "signature": {
         "type": "JWS",
         "jws": "epx324jkasdf883429f2lMMm8asxdz9ZW0",
@@ -21,6 +24,7 @@
       "name": "SustainCERT",
       "description": "SustainCERT is an organization...",
       "signatoryRole": "ValidationAndVerificationBody",
+      "vvbIdForAim": "",
       "signature": {
         "type": "JWS",
         "jws": "789908sa32980231ll132fsd89asdfa123",
@@ -34,6 +38,7 @@
       "name": "Eco-Earth Forest Growth",
       "description": "Eco-Earth Forest Growth is a forest management firm that...",
       "signatoryRole": "ProjectOwner",
+      "vvbIdForAim": "",
       "signature": {
         "type": "JWS",
         "jws": "1234567890asdfasdfas",
@@ -85,11 +90,12 @@
       "high": 0
     },
     "claimPeriod": "Annual",
-    "mrvExtensionSet": {
-      "id": "",
+    "extensionSetId": "",
+    "extensionSet": {
+      "id": "8e007232-8f7b-49e3-b2e6-272c784ce011",
       "name": "",
       "version": "",
-      "description": "",
+      "description": "Extension Set for VerificationProcessAgreement",
       "documentation": "",
       "modules": [
         {
@@ -98,39 +104,90 @@
           "version": "1.6",
           "description": "Methodology specific data attributes being tracked.",
           "documentation": "",
-          "extensions": [
+          "entityExtensionTemplates": [
             {
               "id": "",
               "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
               "version": "",
               "description": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)",
               "documentation": "",
-              "mrvExtensionContext": "DataPackageManifest",
-              "properties": [],
+              "extensionContext": "DataPackageManifest",
               "dataSchemaOrType": "",
-              "data": null,
-              "serializedData": null
+              "dataExample": ""
             }
           ],
-          "messages": []
+          "messagePairs": [],
+          "formulaTemplates": [],
+          "variableTemplates": []
         }
       ],
-      "extensions": [],
-      "messages": []
+      "entityExtensionTemplates": [
+        {
+          "id": "af27722d-bb20-4020-a28a-c8c9bfef317d",
+          "name": "Claim Source Make and Model",
+          "version": "",
+          "description": "An example entity extension for a Claim Source",
+          "documentation": "",
+          "extensionContext": "ClaimSource",
+          "dataSchemaOrType": "MeterDeviceMetadata",
+          "dataExample": "'{'make': 'Samsung', 'model': 'FuSIGon G20' }'"
+        }
+      ],
+      "messagePairs": [
+        {
+          "id": "81cd2f5e-448b-44da-ac69-7725793c4940",
+          "name": "Calibrate Sensor",
+          "version": "",
+          "description": "Sample request response message pair",
+          "documentation": "",
+          "extensionContext": "Checkpoint",
+          "requestDefinition": {
+            "protoData": null,
+            "dataType": "CalibrationRequest",
+            "value": "'{'deviceId': 'a21-3223a', 'sn': '324123d-23424a1FFs1' }'"
+          },
+          "responseDefinition": {
+            "protoData": null,
+            "dataType": "CalibrationResponse",
+            "value": "'{'deviceId': 'a21-3223a', 'sn': '324123d-23424a1FFs1', 'status': 'OK' }'"
+          }
+        }
+      ],
+      "formulaTemplates": [
+        {
+          "id": "0aef5985-bd98-4c97-a278-2303d3e02c4d",
+          "name": "Carbon Removal Formula",
+          "version": "1.0.0",
+          "description": "An example formula template for a Activity Impact Module",
+          "documentation": "",
+          "dataSchemaOrType": "CDRFormula",
+          "dataExample": "CDR = Cap - Emissions * 0.1",
+          "variableTemplates": null
+        }
+      ],
+      "variableTemplates": [
+        {
+          "id": "01200a1d-1f60-419c-840b-0e80421b09a9",
+          "name": "Carbon Removal Variable",
+          "version": "1.0.0",
+          "description": "An example variable template for a Activity Impact Module",
+          "documentation": "",
+          "dataSchemaOrType": "CDRVariable",
+          "dataExample": "CAP = Co2Capi,m"
+        }
+      ]
     }
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "9/16/2024"
+    "dateString": "2/4/2025"
   },
   "estimatedAnnualCredits": "15,000",
-  "isAimGroup": false,
-  "aimOrAimGroupId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "auditSchedule": "Quinquennial",
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "9/16/2024"
+      "dateString": "2/4/2025"
     },
     "auditReports": [
       {

@@ -8,35 +8,25 @@
     "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
     "created": {
       "date": {
-        "dateTime": "09/16/2024 20:49:14",
-        "dateString": "9/16/2024"
+        "dateTime": "02/04/2025 19:10:38",
+        "dateString": "2/4/2025"
       },
       "timeStamp": {
-        "seconds": 1726519754,
-        "nanos": 482404000
+        "seconds": 1738696238,
+        "nanos": 315754000
       }
     },
     "extensions": [
       {
-        "id": "",
-        "name": "VM0007 REDD+ Methodology Framework Extension",
-        "version": "1.6",
-        "description": "Methodology specific data attributes being tracked.",
-        "documentation": "",
-        "mrvExtensionContext": "DataPackageManifest",
-        "properties": [
-          {
-            "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-            "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
-          },
-          {
-            "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-            "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
-          }
-        ],
-        "dataSchemaOrType": "",
-        "data": null,
-        "serializedData": null
+        "id": "cff8d1df-b5b7-42ca-bd5e-c1ed04de613a",
+        "templateId": "6400f1b1-df0e-400b-af7a-82f7737b83f8",
+        "data": {
+          "protoData": null,
+          "dataType": "",
+          "value": ""
+        },
+        "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+        "extensionContext": "DataPackageManifest"
       }
     ],
     "dataFiles": [
@@ -48,29 +38,15 @@
         "claimSourceAttestation": "digital_signature",
         "extensions": [
           {
-            "id": "",
-            "name": "Carbonated Concrete Device Sensor Evidence File",
-            "version": "1.0",
-            "description": "Sensor data values required for evidence data.",
-            "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-            "mrvExtensionContext": "DataFile",
-            "properties": [
-              {
-                "key": "Starting Temperature Sensor Reading",
-                "value": "31.2c"
-              },
-              {
-                "key": "End Temperature Sensor Reading",
-                "value": "50.7c"
-              },
-              {
-                "key": "Dust Sensor Reading",
-                "value": "1.0002"
-              }
-            ],
-            "dataSchemaOrType": "",
-            "data": null,
-            "serializedData": null
+            "id": "899b17c6-3ced-4ae1-8da6-8f0491006e0c",
+            "templateId": "3b44525f-ae44-499b-8830-7347e69f3ac3",
+            "data": {
+              "protoData": null,
+              "dataType": "",
+              "value": ""
+            },
+            "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+            "extensionContext": "DataFile"
           }
         ]
       }

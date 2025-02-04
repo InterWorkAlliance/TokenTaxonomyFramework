@@ -40,25 +40,22 @@
       },
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
-      "reportingFrequency": "Daily",
+      "reportingFrequency": "SubHourly",
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "extensions": [
         {
-          "id": "",
-          "name": "",
-          "version": "",
-          "description": "",
-          "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-          "mrvExtensionContext": "ClaimSource",
-          "properties": [],
-          "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
-          "data": null,
-          "serializedData": {
-            "type": "",
-            "value": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
-          }
+          "id": "9af4e282-5607-4985-b85b-a6bcbffde246",
+          "templateId": "56b981f2-8b71-46f7-b8ef-4e4afcc71ceb",
+          "data": {
+            "protoData": null,
+            "dataType": "",
+            "value": ""
+          },
+          "entityId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+          "extensionContext": "ClaimSource"
         }
-      ]
+      ],
+      "variables": null
     }
   ],
   "impactClaims": [
@@ -66,6 +63,7 @@
       "id": "",
       "aimId": "",
       "processedClaimId": "",
+      "claimGroupId": "",
       "startDate": "",
       "endDate": "",
       "unit": "TonneCo2E",
@@ -78,28 +76,24 @@
   ],
   "extensions": [
     {
-      "id": "",
-      "name": "",
-      "version": "",
-      "description": "",
-      "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
-      "mrvExtensionContext": "AccountableImpactOrganization",
-      "properties": [],
-      "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
-      "data": null,
-      "serializedData": {
-        "type": "",
-        "value": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
-      }
+      "id": "b959b6e5-8321-496b-944f-2e5db0d94af3",
+      "templateId": "e7ee9d38-bec3-457f-89fa-78558524a1b5",
+      "data": {
+        "protoData": null,
+        "dataType": "",
+        "value": ""
+      },
+      "entityId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+      "extensionContext": "ActivityImpactModule"
     }
   ],
   "validations": [
     {
       "requestDate": "2021-04-01",
-      "validationDate": "9/16/2024",
+      "validationDate": "2/4/2025",
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
-      "validationExpirationDate": "9/16/2024",
+      "validationExpirationDate": "2/4/2025",
       "validationSteps": [
         {
           "validationStepName": "Project Plan",
@@ -117,5 +111,6 @@
     }
   ],
   "attestations": [],
+  "formulas": [],
   "accountableImpactOrganization": null
 }

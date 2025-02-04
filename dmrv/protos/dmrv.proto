@@ -1,0 +1,172 @@
+syntax = "proto3";
+
+package iwa.ttf.token.sustainability.dmrv;
+import "google/protobuf/any.proto";
+option csharp_namespace = "IWA.TTF.Token.Sustainability.Dmrv";
+option java_package = "org.iwa.ttf.token.sustainability.dMrv";
+option java_multiple_files = true;
+
+//the context for an Extension, i.e., the extension applies to
+enum ExtensionContext{
+    UNKNOWN_CONTEXT = 0; //Unknown context
+    ACCOUNTABLE_IMPACT_ORGANIZATION = 1; //Accountable Impact Organization context
+    ACTIVITY_IMPACT_MODULE = 2; //Activity Impact Module context
+    CLAIM_SOURCE = 3; // Claim Source context
+    IMPACT_CLAIM = 4; //Claim context
+    CHECKPOINT = 5; //Checkpoint context
+    CHECKPOINT_RESULT = 6; //Checkpoint Result context
+    DATA_PACKAGE_MANIFEST = 7; //DataPackage Manifest context
+    DATA_FILE = 8; //DataPackage File context
+    PROCESSED_CLAIM = 9; //Processed Checkpoint context
+    VERIFICATION_PROCESS_AGREEMENT = 10; //Verification Process Agreement context
+    ACTIVITY_IMPACT_MODULE_GROUP = 11; //Activity Impact Module Group context
+    IMPACT_CLAIM_GROUP = 12; //Impact Claim Group context
+    PROCESSED_CLAIM_GROUP = 13; //Processed Checkpoint Group context
+}
+
+//ExtensionMessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.
+message ExtensionMessagePair{
+    string id = 1; //unique identifier for the extension message pair
+    string name = 2; //name of the extension message pair
+    string version = 3; //version of the extension message pair
+    string description = 4; //description of the extension message pair
+    string documentation = 5; //optional documentation url of the extension message pair
+    ExtensionContext extension_context = 6; //the context for this message pair
+    AnyData request_definition = 7; //A request message definition, that provides details as to the type or kind of data that is expected in the request
+    AnyData response_definition = 8; //A response message definition, that provides details as to the type or kind of data that is expected in the response
+}
+
+message ExtensionMessageHeader{
+    string id = 1; //unique identifier for the extension message
+    enum MessageType{
+        REQUEST = 0; //request message
+        RESPONSE = 1; //response message
+    }
+    string message_pair_id = 2; //the message pair the message belongs to
+    MessageType message_type = 3; //type of the extension message
+    string sender_id = 4; //sender id of the extension message
+    string correlation_id = 5; //correlation id of the extension message, i.e., the id of the request message that the response is for
+    string conversation_id = 6; //conversation id of the extension message
+    optional bool closed = 7; //if the conversation is closed
+}
+
+//Definition of ExtensionMessage instance, used to send a message definition from a message pair 
+message ExtensionMessage{
+    ExtensionMessageHeader header = 1; //the header of the message
+    AnyData message = 2; //the data of the extension message
+}
+
+//For serialized any data to be represented as a serialize protobuf, or other data type as json or byte string. These are the actual custom messages that are defined for the extension.
+message AnyData{
+    google.protobuf.Any proto_data = 1; //the data of the extension message, if used the data_type and value will be empty
+    string data_type = 2; //if not a protobuf message, the type of the data
+    string value = 3; //if not a protobuf message, the serialized data
+}
+
+//The EntityExtensionTemplate is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
+message EntityExtensionTemplate{
+    string id = 1; //unique identifier for the extension template
+    string name = 2; //name of the extension
+    string version = 3; //version of the extension template
+    string description = 4; //description of the extension template
+    string documentation = 5; //optional documentation url of the extension template
+    ExtensionContext extension_context = 6; //context where the extension applies
+    string dataSchemaOrType = 7; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data_example = 8; //example of a data instance, typically some form of json
+}
+
+//an instance of a EntityExtensionTemplate
+message EntityExtension{
+    string id = 1; //the unique Id for the entity extension
+    string template_id = 2;  //the Id for the template the instance is from
+    AnyData data = 3; //the serialized data of the extension
+    string entity_id = 4; //OPTIONAL - depending on data layer implementation, entity id of the extended entity
+    ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies
+}
+
+//FormulaTemplate is used to define the formula for the calculation of a metric or indicator. The formula can be used to calculate the value of a metric or indicator based on the data provided in the MRV.
+message FormulaTemplate{
+    string id = 1; //unique identifier for the formula template
+    string name = 2; //name of the formula
+    string version = 3; //version of the formula template
+    string description = 4; //description of the formula template
+    string documentation = 5; //optional documentation url of the formula template
+    string dataSchemaOrType = 6; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data_example = 7; //example of a data instance, typically some form of json
+    VariableTemplates variable_templates = 8; //list of variables in the formula
+}
+
+//an instance of a Formula
+message Formula{
+    string id = 1; //the unique Id for the formula instance
+    string template_id = 2;  //the Id for the template the instance is from
+    AnyData data = 3; //the serialized data of the extension
+    string aim_id = 4; //OPTIONAL - depending on data layer implementation, Activity Impact Module id the formula instance belongs to
+}
+
+//VariableTemplate is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
+message VariableTemplate{
+    string id = 1; //unique identifier for the variable template
+    string name = 2; //name of the variable 
+    string version = 3; //version of the variable template
+    string description = 4; //description of the variable template
+    string documentation = 5; //optional documentation url of the variable template
+    string dataSchemaOrType = 6; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data_example = 7; //example of a data instance, typically some form of json
+}
+
+//list of VariableTemplates
+message VariableTemplates{
+    repeated VariableTemplate variable_templates = 1;
+}
+
+//an instance of a variable, variable instances should have at a minimum a value and a unit of measure
+message Variable{
+    string id = 1; //the unique Id for the formula instance
+    string template_id = 2;  //the Id for the template the instance is from
+    AnyData data = 3; //the serialized data of the extension
+    string entity_id = 4; ////OPTIONAL - depending on data layer implementation, Claim Source id the formula instance belongs to
+    ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
+}
+
+//a list or collection ov variable instances
+message Variables{
+    repeated Variable variables = 1;
+}
+
+//a collection of extension templates used by a Quality Standard
+message ExtensionSet{
+    string id = 1; //unique identifier for the extension set
+    string name = 2; //name of the extension set
+    string version = 3; //version of the extension set
+    string description = 4; //description of the extension set
+    string documentation = 5; //optional documentation url of the extension set
+    repeated ExtensionSetModule modules = 6; //list of extension set modules
+    repeated EntityExtensionTemplate entity_extension_templates = 7; //list of extension templates in the set, these would apply to the entire set and not be scoped to a single module
+    repeated ExtensionMessagePair message_pairs = 8; //list of extension message pairs in the set, these would apply to the entire set and not be scoped to a single module
+    repeated FormulaTemplate formula_templates = 9; //list of formula templates in the set, these would apply to the entire set and not be scoped to a single module
+    repeated VariableTemplate variable_templates = 10; //list of variable templates in the set, these would apply to the entire set and not be scoped to a single module
+}
+
+//a sub-module for an Extension Set
+message ExtensionSetModule{
+    string id = 1; //unique identifier for the extension set module
+    string name = 2; //name of the extension set module
+    string version = 3; //version of the extension set module
+    string description = 4; //description of the extension set module
+    string documentation = 5; //optional documentation url of the extension set module
+    repeated EntityExtensionTemplate entity_extension_templates = 6; //list of extension templates in the set
+    repeated ExtensionMessagePair message_pairs = 7; //list of extension message pairs in the set
+    repeated FormulaTemplate formula_templates = 8; //list of formula templates in the set
+    repeated VariableTemplate variable_templates = 9; //list of variable templates in the set
+}
+
+//a Data Package File global Entity Extension for the Data Package File and examples
+
+message DataPackageFileExtension{
+    message Property{
+        string name = 1;
+        string value = 2;
+    }
+    repeated Property properties = 1;
+}

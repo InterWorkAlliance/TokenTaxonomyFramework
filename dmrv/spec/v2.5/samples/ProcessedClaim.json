@@ -2,6 +2,7 @@
   "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "vpaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
   "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
+  "claimGroupId": "",
   "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
   "unit": "TonneCo2E",
   "quantity": "1.41",
@@ -18,28 +19,10 @@
   "extensions": [
     {
       "id": "",
-      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-      "version": "1.0",
-      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-      "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-      "mrvExtensionContext": "ProcessedClaim",
-      "properties": [
-        {
-          "key": "mCO2,i,d",
-          "value": "Mass of CO2 which was fed to the reactor system in within the monitoring period y"
-        },
-        {
-          "key": "CO2",
-          "value": "2"
-        },
-        {
-          "key": "y",
-          "value": "2"
-        }
-      ],
-      "dataSchemaOrType": "",
+      "templateId": "",
       "data": null,
-      "serializedData": null
+      "entityId": "",
+      "extensionContext": "UnknownContext"
     }
   ],
   "checkpointResults": [
@@ -57,35 +40,25 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "09/16/2024 20:48:34",
-                "dateString": "9/16/2024"
+                "dateTime": "02/04/2025 19:09:53",
+                "dateString": "2/4/2025"
               },
               "timeStamp": {
-                "seconds": 1726519714,
-                "nanos": 205090000
+                "seconds": 1738696193,
+                "nanos": 301360000
               }
             },
             "extensions": [
               {
-                "id": "",
-                "name": "VM0007 REDD+ Methodology Framework Extension",
-                "version": "1.6",
-                "description": "Methodology specific data attributes being tracked.",
-                "documentation": "",
-                "mrvExtensionContext": "DataPackageManifest",
-                "properties": [
-                  {
-                    "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                    "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
-                  },
-                  {
-                    "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                    "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
-                  }
-                ],
-                "dataSchemaOrType": "",
-                "data": null,
-                "serializedData": null
+                "id": "f51c1f67-6021-44ce-a183-79f55ab440dd",
+                "templateId": "93497466-b547-448d-9f5f-ee225a8ff9e1",
+                "data": {
+                  "protoData": null,
+                  "dataType": "",
+                  "value": ""
+                },
+                "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                "extensionContext": "DataPackageManifest"
               }
             ],
             "dataFiles": [
@@ -97,29 +70,15 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "",
-                    "name": "Carbonated Concrete Device Sensor Evidence File",
-                    "version": "1.0",
-                    "description": "Sensor data values required for evidence data.",
-                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                    "mrvExtensionContext": "DataFile",
-                    "properties": [
-                      {
-                        "key": "Starting Temperature Sensor Reading",
-                        "value": "31.2c"
-                      },
-                      {
-                        "key": "End Temperature Sensor Reading",
-                        "value": "50.7c"
-                      },
-                      {
-                        "key": "Dust Sensor Reading",
-                        "value": "1.0002"
-                      }
-                    ],
-                    "dataSchemaOrType": "",
-                    "data": null,
-                    "serializedData": null
+                    "id": "5a039dde-eba9-4fff-9329-717313b8567a",
+                    "templateId": "b81354c8-7b40-48af-b50a-a6e05ef66b77",
+                    "data": {
+                      "protoData": null,
+                      "dataType": "",
+                      "value": ""
+                    },
+                    "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                    "extensionContext": "DataFile"
                   }
                 ]
               }
@@ -143,15 +102,10 @@
       "extensions": [
         {
           "id": "",
-          "name": "",
-          "version": "",
-          "description": "",
-          "documentation": "",
-          "mrvExtensionContext": "UnknownContext",
-          "properties": [],
-          "dataSchemaOrType": "",
+          "templateId": "",
           "data": null,
-          "serializedData": null
+          "entityId": "",
+          "extensionContext": "UnknownContext"
         }
       ]
     }

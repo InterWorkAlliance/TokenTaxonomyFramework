@@ -2,6 +2,7 @@
   "id": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
   "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "processedClaimId": "",
+  "claimGroupId": "",
   "startDate": "2021-01-01",
   "endDate": "2021-12-31",
   "unit": "TonneCo2E",
@@ -30,21 +31,21 @@
         "startDate": {
           "date": {
             "dateTime": "",
-            "dateString": "9/16/2024"
+            "dateString": "2/4/2025"
           },
           "timeStamp": {
-            "seconds": 1726519671,
-            "nanos": 784551000
+            "seconds": 1738696062,
+            "nanos": 257176000
           }
         },
         "endDate": {
           "date": {
             "dateTime": "",
-            "dateString": "9/16/2024"
+            "dateString": "2/4/2025"
           },
           "timeStamp": {
-            "seconds": 1726519671,
-            "nanos": 784564000
+            "seconds": 1738696062,
+            "nanos": 257198000
           }
         }
       },
@@ -60,35 +61,25 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "09/16/2024 20:47:51",
-                "dateString": "9/16/2024"
+                "dateTime": "02/04/2025 19:07:42",
+                "dateString": "2/4/2025"
               },
               "timeStamp": {
-                "seconds": 1726519671,
-                "nanos": 784579000
+                "seconds": 1738696062,
+                "nanos": 257228000
               }
             },
             "extensions": [
               {
-                "id": "",
-                "name": "VM0007 REDD+ Methodology Framework Extension",
-                "version": "1.6",
-                "description": "Methodology specific data attributes being tracked.",
-                "documentation": "",
-                "mrvExtensionContext": "DataPackageManifest",
-                "properties": [
-                  {
-                    "key": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
-                    "value": "Change in carbon stock in biomass carbon pools in the project scenario in year 𝑡 (t C y-1)"
-                  },
-                  {
-                    "key": "Δ𝐶𝑊𝑃𝑤𝑜𝑜𝑑𝑦,𝑡",
-                    "value": "Average annual change in carbon stock in woody biomass in the project scenario in the monitoring interval ending in year 𝑡 (t C y-1)"
-                  }
-                ],
-                "dataSchemaOrType": "",
-                "data": null,
-                "serializedData": null
+                "id": "0e19904e-d058-4190-9781-612db7402e35",
+                "templateId": "c76d2f87-85ee-4337-96d3-d8968d2c5022",
+                "data": {
+                  "protoData": null,
+                  "dataType": "",
+                  "value": ""
+                },
+                "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                "extensionContext": "DataPackageManifest"
               }
             ],
             "dataFiles": [
@@ -100,29 +91,15 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "",
-                    "name": "Carbonated Concrete Device Sensor Evidence File",
-                    "version": "1.0",
-                    "description": "Sensor data values required for evidence data.",
-                    "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/sdp-file",
-                    "mrvExtensionContext": "DataFile",
-                    "properties": [
-                      {
-                        "key": "Starting Temperature Sensor Reading",
-                        "value": "31.2c"
-                      },
-                      {
-                        "key": "End Temperature Sensor Reading",
-                        "value": "50.7c"
-                      },
-                      {
-                        "key": "Dust Sensor Reading",
-                        "value": "1.0002"
-                      }
-                    ],
-                    "dataSchemaOrType": "",
-                    "data": null,
-                    "serializedData": null
+                    "id": "8f25fae7-1d56-4c56-bb80-c70d51b10005",
+                    "templateId": "aa7ed1c6-c7f1-482f-9f8b-dd7cd7eb5fbb",
+                    "data": {
+                      "protoData": null,
+                      "dataType": "",
+                      "value": ""
+                    },
+                    "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                    "extensionContext": "DataFile"
                   }
                 ]
               }
@@ -131,7 +108,7 @@
           "verifiedLinkToDataPackage": {
             "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
             "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
-            "description": "Link to the Span Data Package",
+            "description": "Link to the Data Package",
             "hashProof": "asdflkdfs889fj3l437098asdfi",
             "hashAlgorithm": "Sha256"
           }
@@ -142,32 +119,10 @@
   "extensions": [
     {
       "id": "",
-      "name": "Carbon Sequestration Through Accelerated Carbonation of Concrete Aggregate",
-      "version": "1.0",
-      "description": "Methodology for quantifying GHG emission reductions from carbon sequestration through accelerated carbonation of concrete aggregate",
-      "documentation": "EXAMPLE: https://verra.org/methodology/vm0026-sustainable-grassland-management-framework-extension/",
-      "mrvExtensionContext": "ImpactClaim",
-      "properties": [
-        {
-          "key": "MGy,i,d",
-          "value": "Mass of the concrete aggregate type i of a grain size distribution d in monitoring period y."
-        },
-        {
-          "key": "i",
-          "value": "limestone"
-        },
-        {
-          "key": "d",
-          "value": "0.5-1.0 mm"
-        },
-        {
-          "key": "y",
-          "value": "1"
-        }
-      ],
-      "dataSchemaOrType": "",
+      "templateId": "",
       "data": null,
-      "serializedData": null
+      "entityId": "",
+      "extensionContext": "UnknownContext"
     }
   ],
   "activityImpactModule": null
