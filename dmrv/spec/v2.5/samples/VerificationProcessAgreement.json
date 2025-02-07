@@ -92,7 +92,7 @@
     "claimPeriod": "Annual",
     "extensionSetId": "",
     "extensionSet": {
-      "id": "8e007232-8f7b-49e3-b2e6-272c784ce011",
+      "id": "0fd135bc-04fa-4fa0-80cd-6e1aef12967b",
       "name": "",
       "version": "",
       "description": "Extension Set for VerificationProcessAgreement",
@@ -104,7 +104,7 @@
           "version": "1.6",
           "description": "Methodology specific data attributes being tracked.",
           "documentation": "",
-          "entityExtensionTemplates": [
+          "entityTemplates": [
             {
               "id": "",
               "name": "Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡",
@@ -121,9 +121,9 @@
           "variableTemplates": []
         }
       ],
-      "entityExtensionTemplates": [
+      "entityTemplates": [
         {
-          "id": "af27722d-bb20-4020-a28a-c8c9bfef317d",
+          "id": "44eca494-0934-4019-9331-d6e0825511bc",
           "name": "Claim Source Make and Model",
           "version": "",
           "description": "An example entity extension for a Claim Source",
@@ -135,7 +135,7 @@
       ],
       "messagePairs": [
         {
-          "id": "81cd2f5e-448b-44da-ac69-7725793c4940",
+          "id": "7d3f1481-4c1a-453d-94d1-1835188bb788",
           "name": "Calibrate Sensor",
           "version": "",
           "description": "Sample request response message pair",
@@ -155,19 +155,19 @@
       ],
       "formulaTemplates": [
         {
-          "id": "0aef5985-bd98-4c97-a278-2303d3e02c4d",
+          "id": "195e9117-a4e3-4349-8277-3497fd7d1154",
           "name": "Carbon Removal Formula",
           "version": "1.0.0",
           "description": "An example formula template for a Activity Impact Module",
           "documentation": "",
           "dataSchemaOrType": "CDRFormula",
           "dataExample": "CDR = Cap - Emissions * 0.1",
-          "variableTemplates": null
+          "variableTemplates": []
         }
       ],
       "variableTemplates": [
         {
-          "id": "01200a1d-1f60-419c-840b-0e80421b09a9",
+          "id": "45750126-1187-4e53-b41e-2eea03921547",
           "name": "Carbon Removal Variable",
           "version": "1.0.0",
           "description": "An example variable template for a Activity Impact Module",
@@ -180,14 +180,14 @@
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "2/4/2025"
+    "dateString": "2/7/2025"
   },
   "estimatedAnnualCredits": "15,000",
   "auditSchedule": "Quinquennial",
   "audits": {
     "auditDate": {
       "dateTime": "",
-      "dateString": "2/4/2025"
+      "dateString": "2/7/2025"
     },
     "auditReports": [
       {

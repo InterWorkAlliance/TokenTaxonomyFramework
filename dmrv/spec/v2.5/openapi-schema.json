@@ -330,7 +330,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -430,7 +430,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -723,7 +723,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -781,13 +781,18 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
           },
           "variables": {
-            "$ref": "#/components/schemas/Variables"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Variable"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1257,7 +1262,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -1389,7 +1394,7 @@
         ],
         "type": "string"
       },
-      "EntityExtension": {
+      "Entity": {
         "type": "object",
         "properties": {
           "id": {
@@ -1413,7 +1418,7 @@
         },
         "additionalProperties": false
       },
-      "EntityExtensionTemplate": {
+      "EntityTemplate": {
         "type": "object",
         "properties": {
           "id": {
@@ -1469,41 +1474,6 @@
         ],
         "type": "string"
       },
-      "ExtensionMessagePair": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentation": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensionContext": {
-            "$ref": "#/components/schemas/ExtensionContext"
-          },
-          "requestDefinition": {
-            "$ref": "#/components/schemas/AnyData"
-          },
-          "responseDefinition": {
-            "$ref": "#/components/schemas/AnyData"
-          }
-        },
-        "additionalProperties": false
-      },
       "ExtensionSet": {
         "type": "object",
         "properties": {
@@ -1535,10 +1505,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "entityExtensionTemplates": {
+          "entityTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtensionTemplate"
+              "$ref": "#/components/schemas/EntityTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -1546,7 +1516,7 @@
           "messagePairs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ExtensionMessagePair"
+              "$ref": "#/components/schemas/MessagePair"
             },
             "nullable": true,
             "readOnly": true
@@ -1593,10 +1563,10 @@
             "type": "string",
             "nullable": true
           },
-          "entityExtensionTemplates": {
+          "entityTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtensionTemplate"
+              "$ref": "#/components/schemas/EntityTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -1604,7 +1574,7 @@
           "messagePairs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ExtensionMessagePair"
+              "$ref": "#/components/schemas/MessagePair"
             },
             "nullable": true,
             "readOnly": true
@@ -1657,6 +1627,17 @@
           "aimId": {
             "type": "string",
             "nullable": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Variable"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "extensionContext": {
+            "$ref": "#/components/schemas/ExtensionContext"
           }
         },
         "additionalProperties": false
@@ -1693,7 +1674,12 @@
             "nullable": true
           },
           "variableTemplates": {
-            "$ref": "#/components/schemas/VariableTemplates"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VariableTemplate"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1787,7 +1773,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -1835,7 +1821,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -1859,31 +1845,6 @@
           "Custodian"
         ],
         "type": "string"
-      },
-      "MRVRequirements": {
-        "type": "object",
-        "properties": {
-          "measurementSpecification": {
-            "$ref": "#/components/schemas/MeasurementSpecification"
-          },
-          "specificationLink": {
-            "$ref": "#/components/schemas/VerifiedLink"
-          },
-          "precision": {
-            "$ref": "#/components/schemas/PrecisionMix"
-          },
-          "claimPeriod": {
-            "$ref": "#/components/schemas/ClaimPeriod"
-          },
-          "extensionSetId": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensionSet": {
-            "$ref": "#/components/schemas/ExtensionSet"
-          }
-        },
-        "additionalProperties": false
       },
       "Manifest": {
         "type": "object",
@@ -1918,7 +1879,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -1941,6 +1902,41 @@
           "Iso140642"
         ],
         "type": "string"
+      },
+      "MessagePair": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentation": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensionContext": {
+            "$ref": "#/components/schemas/ExtensionContext"
+          },
+          "requestDefinition": {
+            "$ref": "#/components/schemas/AnyData"
+          },
+          "responseDefinition": {
+            "$ref": "#/components/schemas/AnyData"
+          }
+        },
+        "additionalProperties": false
       },
       "Method": {
         "enum": [
@@ -2352,6 +2348,31 @@
         },
         "additionalProperties": false
       },
+      "MrvRequirements": {
+        "type": "object",
+        "properties": {
+          "measurementSpecification": {
+            "$ref": "#/components/schemas/MeasurementSpecification"
+          },
+          "specificationLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
+          },
+          "precision": {
+            "$ref": "#/components/schemas/PrecisionMix"
+          },
+          "claimPeriod": {
+            "$ref": "#/components/schemas/ClaimPeriod"
+          },
+          "extensionSetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensionSet": {
+            "$ref": "#/components/schemas/ExtensionSet"
+          }
+        },
+        "additionalProperties": false
+      },
       "PACompliance": {
         "type": "object",
         "properties": {
@@ -2427,7 +2448,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true
@@ -3125,34 +3146,6 @@
         },
         "additionalProperties": false
       },
-      "VariableTemplates": {
-        "type": "object",
-        "properties": {
-          "variableTemplates_": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/VariableTemplate"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Variables": {
-        "type": "object",
-        "properties": {
-          "variables_": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Variable"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "VerificationProcessAgreement": {
         "type": "object",
         "properties": {
@@ -3187,7 +3180,7 @@
             "$ref": "#/components/schemas/QualityStandard"
           },
           "mrvRequirements": {
-            "$ref": "#/components/schemas/MRVRequirements"
+            "$ref": "#/components/schemas/MrvRequirements"
           },
           "agreementDate": {
             "$ref": "#/components/schemas/Date"
@@ -3205,7 +3198,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityExtension"
+              "$ref": "#/components/schemas/Entity"
             },
             "nullable": true,
             "readOnly": true

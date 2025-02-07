@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="ce4ebdabbeea5e26ea7d8ca0342c695fb2bd35e4" name="revision">
+  <meta content="a2fd81536999ad3781cf0314066cb95d86c9a988" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 2.5 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-02-04">4 February 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-02-06">6 February 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2293,13 +2293,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-extension-set-module-properties"><span class="secno">3.17.2</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-extension-message-pair"><span class="secno">3.18</span> <span class="content">Data Type: <span>ExtensionMessagePair</span></span></a>
+       <a href="#dt-extension-message-pair"><span class="secno">3.18</span> <span class="content">Data Type: <span>MessagePair</span></span></a>
        <ol class="toc">
         <li><a href="#dt-extension-message-pair-namespace"><span class="secno">3.18.1</span> <span class="content">Namespace</span></a>
         <li><a href="#dt-extension-message-pair-properties"><span class="secno">3.18.2</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-extension-message"><span class="secno">3.19</span> <span class="content">Data Type: <span>ExtensionMessage</span></span></a>
+       <a href="#dt-extension-message"><span class="secno">3.19</span> <span class="content">Data Type: <span>Message</span></span></a>
        <ol class="toc">
         <li><a href="#dt-extension-message-namespace"><span class="secno">3.19.1</span> <span class="content">Namespace</span></a>
         <li><a href="#dt-extension-message-properties"><span class="secno">3.19.2</span> <span class="content">Properties</span></a>
@@ -2311,13 +2311,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-any-data-properties"><span class="secno">3.20.2</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-entity-extension-template"><span class="secno">3.21</span> <span class="content">Data Type: <span>EntityExtensionTemplate</span></span></a>
+       <a href="#dt-entity-extension-template"><span class="secno">3.21</span> <span class="content">Data Type: <span>EntityTemplate</span></span></a>
        <ol class="toc">
         <li><a href="#dt-entity-extension-template-namespace"><span class="secno">3.21.1</span> <span class="content">Namespace</span></a>
         <li><a href="#dt-entity-extension-template-properties"><span class="secno">3.21.2</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-entity-extension"><span class="secno">3.22</span> <span class="content">Data Type: <span>EntityExtension</span></span></a>
+       <a href="#dt-entity-extension"><span class="secno">3.22</span> <span class="content">Data Type: <span>Entity</span></span></a>
        <ol class="toc">
         <li><a href="#dt-entity-extension-namespace"><span class="secno">3.22.1</span> <span class="content">Namespace</span></a>
         <li><a href="#dt-entity-extension-properties"><span class="secno">3.22.2</span> <span class="content">Properties</span></a>
@@ -3019,10 +3019,10 @@ the highlights of properties within the data types and does not include the full
        <td>M 
        <td>A collection of ActivityImpactModules that belong to this Accountable Impact Organization. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
     </table>
     <figcaption>Properties of data type AccountableImpactOrganization</figcaption>
    </figure>
@@ -3220,10 +3220,10 @@ It is bound to to Quality Standard and is where claims are issued from. An AIM c
        <td>O 
        <td>An array of optional attestations including tags. See<a href="#dt-attestation">§ 3.52 Data Type: Attestation</a> 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension①">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity①">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of entity extensions for the project. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of entity extensions for the project. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
       <tr>
        <td>mrvFormulas : <a data-link-type="dfn" href="#formula" id="ref-for-formula">Formula</a> 
        <td>Array 
@@ -3414,10 +3414,10 @@ a sensor or meter, an application that collects user data or reference data like
        <td>M 
        <td>this can be the unique identifier for the device, like a serial number, public key, etc. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension②">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity②">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of optional MrvExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
       <tr>
        <td>variables : <a data-link-type="dfn" href="#variable" id="ref-for-variable">Variable</a> 
        <td>Array 
@@ -3517,10 +3517,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoints for the ImpactClaim. See <a href="#dt-impact-claim-checkpoint">§ 3.11 Data Type: ImpactClaimCheckpoint</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension③">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity③">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of entity extensions for the claim. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of entity extensions for the claim. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
     </table>
     <figcaption>Properties of data type ImpactClaim</figcaption>
    </figure>
@@ -3580,10 +3580,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The date range for the checkpoint. See <a href="#dt-date-range">§ 3.59 Data Type: DateRange</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension④">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity④">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of entity extensions for the checkpoint. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of entity extensions for the checkpoint. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-datapackages"><code>dataPackages</code></dfn> : <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage①">DataPackage</a> 
        <td>Array 
@@ -3669,10 +3669,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The DatePoint that the Data Package was created. See <a href="#dt-date-point">§ 3.60 Data Type: DatePoint</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑤">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity⑤">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of one or more Entity Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of one or more Entity Extensions that are specific to the Quality Standard/Methodology the AIM is bound to. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
       <tr>
        <td>files : <a data-link-type="dfn" href="#datafile" id="ref-for-datafile">DataFile</a> 
        <td>Array 
@@ -3719,10 +3719,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>The source attestation or signature for the file. See <a href="#dt-digital-signature">§ 3.47 Data Type: DigitalSignature</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑥">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity⑥">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvExtensions. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of optional MrvExtensions. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
     </table>
     <figcaption>Properties of data type File</figcaption>
    </figure>
@@ -3817,15 +3817,15 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of Extension Modules for the Quality Standard. See <a href="#dt-extension-set-module">§ 3.17 Data Type: ExtensionSetModule</a> for details. 
       <tr>
-       <td>entityExtensionTemplates : <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate">EntityExtensionTemplate</a> 
+       <td>entityTemplates : <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate">EntityTemplate</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV Entity Extension Templates for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-entity-extension-template">§ 3.21 Data Type: EntityExtensionTemplate</a> for details. 
+       <td>A collection of MRV Entity Extension Templates for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-entity-extension-template">§ 3.21 Data Type: EntityTemplate</a> for details. 
       <tr>
-       <td>extensionMessages : <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair">ExtensionMessagePair</a> 
+       <td>extensionMessage : <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair">MessagePair</a> 
        <td>Array 
        <td>O 
-       <td>A collection of MRV Extension Message Pairs for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-extension-message-pair">§ 3.18 Data Type: ExtensionMessagePair</a> for details. 
+       <td>A collection of MRV Extension Message Pairs for the whole Quality Standard, meaning these can apply to all child modules as well. See <a href="#dt-extension-message-pair">§ 3.18 Data Type: MessagePair</a> for details. 
       <tr>
        <td>formulaTemplates : <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate">FormulaTemplate</a> 
        <td>Array 
@@ -3881,15 +3881,15 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A link to the documentation for the MRV Extension, see <a href="#extension-documentation">§ 3.29 Extension Documentation: ExtensionDocumentation</a> for details. 
       <tr>
-       <td>entityExtensionTemplates : <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate①">EntityExtensionTemplate</a> 
+       <td>entityTemplates : <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate①">EntityTemplate</a> 
        <td>Array 
        <td>M 
-       <td>A collection of Entity Extension Templates for the Module. See <a href="#dt-entity-extension-template">§ 3.21 Data Type: EntityExtensionTemplate</a> for details. 
+       <td>A collection of Entity Extension Templates for the Module. See <a href="#dt-entity-extension-template">§ 3.21 Data Type: EntityTemplate</a> for details. 
       <tr>
-       <td>messagePairs : <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair①">ExtensionMessagePair</a> 
+       <td>messagePairs : <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair①">MessagePair</a> 
        <td>Array 
        <td>O 
-       <td>A collection of Extension Message Pairs for the Module. See <a href="#dt-extension-message-pair">§ 3.18 Data Type: ExtensionMessagePair</a> for details. 
+       <td>A collection of Extension Message Pairs for the Module. See <a href="#dt-extension-message-pair">§ 3.18 Data Type: MessagePair</a> for details. 
       <tr>
        <td>formulaTemplates : <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate①">FormulaTemplate</a> 
        <td>Array 
@@ -3903,7 +3903,7 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type ExtensionSetModule</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.18" id="dt-extension-message-pair"><span class="secno">3.18. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="extensionmessagepair">ExtensionMessagePair</dfn></span><a class="self-link" href="#dt-extension-message-pair"></a></h3>
+   <h3 class="heading settled" data-level="3.18" id="dt-extension-message-pair"><span class="secno">3.18. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="messagepair">MessagePair</dfn></span><a class="self-link" href="#dt-extension-message-pair"></a></h3>
    <p>A Extension Message Pair is a defined set of Request and Response messages that used to communicate and drive MRV Process between the parties involved in the MRV process, i.e., the supplier, verifier, issuer.</p>
    <h4 class="heading settled" data-level="3.18.1" id="dt-extension-message-pair-namespace"><span class="secno">3.18.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-extension-message-pair-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
@@ -3946,16 +3946,16 @@ configured to control the processing of the ImpactClaim.</p>
        <td>requestDefinition : <a data-link-type="dfn" href="#anydata" id="ref-for-anydata">AnyData</a> 
        <td>Object 
        <td>M 
-       <td>The request message definition for the Extension Message Pair. See <a href="#dt-extension-message">§ 3.19 Data Type: ExtensionMessage</a> for details. 
+       <td>The request message definition for the Extension Message Pair. See <a href="#dt-extension-message">§ 3.19 Data Type: Message</a> for details. 
       <tr>
        <td>responseDefinition : <a data-link-type="dfn" href="#anydata" id="ref-for-anydata①">AnyData</a> 
        <td>Object 
        <td>M 
-       <td>The response message definition for the Extension Message Pair. See <a href="#dt-extension-message">§ 3.19 Data Type: ExtensionMessage</a> for details. 
+       <td>The response message definition for the Extension Message Pair. See <a href="#dt-extension-message">§ 3.19 Data Type: Message</a> for details. 
     </table>
     <figcaption>Properties of data type MrvExtensionMessagePair</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.19" id="dt-extension-message"><span class="secno">3.19. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="extensionmessage">ExtensionMessage</dfn></span><a class="self-link" href="#dt-extension-message"></a></h3>
+   <h3 class="heading settled" data-level="3.19" id="dt-extension-message"><span class="secno">3.19. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="message">Message</dfn></span><a class="self-link" href="#dt-extension-message"></a></h3>
    <p>A Extension Message is a defined message that is used to communicate and drive MRV Process between the parties involved, i.e., the supplier, verifier, issuer. It is recommended
     that these messages use Apache Avro and Json Schema to define the message structure, content and serialization.</p>
    <h4 class="heading settled" data-level="3.19.1" id="dt-extension-message-namespace"><span class="secno">3.19.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-extension-message-namespace"></a></h4>
@@ -3986,12 +3986,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The Id for the sender of the message. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="ExtensionMessage" data-dfn-type="element-attr" data-export id="element-attrdef-extensionmessage-correlationid"><code>correlationId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑧">String</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="Message" data-dfn-type="element-attr" data-export id="element-attrdef-message-correlationid"><code>correlationId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑧">String</a> 
        <td>String 
        <td>M 
        <td>The correlation Id for the message will be the same for related messages, typically the initial request message’s id. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="ExtensionMessage" data-dfn-type="element-attr" data-export id="element-attrdef-extensionmessage-conversationid"><code>conversationId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑨">String</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="Message" data-dfn-type="element-attr" data-export id="element-attrdef-message-conversationid"><code>conversationId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string①⑨">String</a> 
        <td>String 
        <td>O 
        <td>A conversation Id for the message, this is used to track the conversation between the parties and should be set for message pairs that may have multiple requests and responses tied to a process. 
@@ -4004,9 +4004,9 @@ configured to control the processing of the ImpactClaim.</p>
        <td>message : <a data-link-type="dfn" href="#anydata" id="ref-for-anydata②">AnyData</a> 
        <td>Object 
        <td>M 
-       <td>The message for the Extension, these are the custom messages defined for the extension. See <a href="#dt-extension-message">§ 3.19 Data Type: ExtensionMessage</a> for details. 
+       <td>The message for the Extension, these are the custom messages defined for the extension. See <a href="#dt-extension-message">§ 3.19 Data Type: Message</a> for details. 
     </table>
-    <figcaption>Properties of data type ExtensionMessage</figcaption>
+    <figcaption>Properties of data type Message</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.20" id="dt-any-data"><span class="secno">3.20. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="anydata">AnyData</dfn></span><a class="self-link" href="#dt-any-data"></a></h3>
    <p>Any data is used to represent a custom message type defined for Extensions. If the message is defined in a protocol buffer, the message will be serialized to protoData and the remaining fields will be null.
@@ -4041,9 +4041,9 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type AnyData</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.21" id="dt-entity-extension-template"><span class="secno">3.21. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entityextensiontemplate">EntityExtensionTemplate</dfn></span><a class="self-link" href="#dt-entity-extension-template"></a></h3>
+   <h3 class="heading settled" data-level="3.21" id="dt-entity-extension-template"><span class="secno">3.21. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entitytemplate">EntityTemplate</dfn></span><a class="self-link" href="#dt-entity-extension-template"></a></h3>
    <p>An Entity Extension Template is an extensible object (JSON, proto, etc.) that contains custom data that is specific to a Quality Standard/Methodology Entity. Entity Extension Templates
-    can be defined by the methdology developers or the verifier, or verification automation to include attributes or data that is helpful to have on the ledger. EntityExtensionTemplates are used to create <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑦">EntityExtension</a> instances and add to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑤">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim③">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a> types.</p>
+    can be defined by the methdology developers or the verifier, or verification automation to include attributes or data that is helpful to have on the ledger. entityTemplates are used to create <a data-link-type="dfn" href="#entity" id="ref-for-entity⑦">Entity</a> instances and add to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑤">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim③">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a> types.</p>
    <p>The Entity Extension Template is defined and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset①">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset②">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement①">VerificationProcessAgreement</a> and is used by participants
     to define the MRV process and data that is required for the verification process.</p>
    <h4 class="heading settled" data-level="3.21.1" id="dt-entity-extension-template-namespace"><span class="secno">3.21.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-entity-extension-template-namespace"></a></h4>
@@ -4079,7 +4079,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A description of the Entity Extension, this is a string that is defined by the verifier or verification automation describing the purpose of the extension. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="EntityExtensionTemplate" data-dfn-type="element-attr" data-export id="element-attrdef-entityextensiontemplate-documentation"><code>documentation</code></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string②⑥">String</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="EntityTemplate" data-dfn-type="element-attr" data-export id="element-attrdef-entitytemplate-documentation"><code>documentation</code></dfn> :<a data-link-type="dfn" href="#string" id="ref-for-string②⑥">String</a> 
        <td>String 
        <td>O 
        <td>A link to the documentation for the Entity Extension, see <a href="#extension-documentation">§ 3.29 Extension Documentation: ExtensionDocumentation</a> for details. 
@@ -4099,11 +4099,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O* 
        <td>A Json or byte string object that contains example data for the extension. 
     </table>
-    <figcaption>Properties of data type EntityExtensionTemplate</figcaption>
+    <figcaption>Properties of data type EntityTemplate</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="3.22" id="dt-entity-extension"><span class="secno">3.22. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entityextension">EntityExtension</dfn></span><a class="self-link" href="#dt-entity-extension"></a></h3>
-   <p>An Entity Extension is an extensible object (JSON, proto, etc.) that contains custom data that is specific to a Quality Standard/Methodology Entity. Entity Extensions are an instance of an <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate②">EntityExtensionTemplate</a> and can be added to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑥">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim④">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim③">ProcessedClaim</a> types. An Entity Extension is used to add custom data to the entity that is not part of the core schema.</p>
-   <p>Entity Extensions are defined and reference their <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate③">EntityExtensionTemplate</a> and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset③">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset④">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> and is used by participants
+   <h3 class="heading settled" data-level="3.22" id="dt-entity-extension"><span class="secno">3.22. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entity">Entity</dfn></span><a class="self-link" href="#dt-entity-extension"></a></h3>
+   <p>An Entity Extension is an extensible object (JSON, proto, etc.) that contains custom data that is specific to a Quality Standard/Methodology Entity. Entity Extensions are an instance of an <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate②">EntityTemplate</a> and can be added to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑥">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim④">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim③">ProcessedClaim</a> types. An Entity Extension is used to add custom data to the entity that is not part of the core schema.</p>
+   <p>Entity Extensions are defined and reference their <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate③">EntityTemplate</a> and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset③">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset④">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> and is used by participants
     as the repository of extensions used for the Quality Standard/Methodology.</p>
    <h4 class="heading settled" data-level="3.22.1" id="dt-entity-extension-namespace"><span class="secno">3.22.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-entity-extension-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
@@ -4143,7 +4143,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>OPTIONAL - depending on data layer implementation, the context of the extension. 
     </table>
-    <figcaption>Properties of data type EntityExtension</figcaption>
+    <figcaption>Properties of data type Entity</figcaption>
    </figure>
    <h3 class="heading settled" data-level="3.23" id="dt-formula-template"><span class="secno">3.23. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="formulatemplate">FormulaTemplate</dfn></span><a class="self-link" href="#dt-formula-template"></a></h3>
    <p>A Formula Template is a formula that is used to calculate the MRV data for a Quality Standard/Methodology. Formula Templates are composed into <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset⑤">ExtensionSet</a> and are used to calculate the MRV data for the Quality Standard/Methodology.
@@ -4235,6 +4235,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The data for the Formula, this is a custom object that is defined by the verifier or verification automation. 
       <tr>
+       <td>variables : <a data-link-type="dfn" href="#variable" id="ref-for-variable①">Variable</a> 
+       <td>Array 
+       <td>M 
+       <td>A collection of Variables that are used in the formula. 
+      <tr>
        <td>entityId : <a data-link-type="dfn" href="#id" id="ref-for-id③④">Id</a> 
        <td>String 
        <td>O 
@@ -4249,7 +4254,7 @@ configured to control the processing of the ImpactClaim.</p>
    </figure>
    <h3 class="heading settled" data-level="3.25" id="dt-variable-template"><span class="secno">3.25. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="variabletemplate">VariableTemplate</dfn></span><a class="self-link" href="#dt-variable-template"></a></h3>
    <p>A Variable Template is a variable that is used in a Formula Template to calculate the MRV data for a Quality Standard/Methodology. Variable Templates are composed into <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate③">FormulaTemplate</a> and are used to calculate the MRV data for the Quality Standard/Methodology.</p>
-   <p>A <a data-link-type="dfn" href="#variable" id="ref-for-variable①">Variable</a> is an instance from a Variable Template that is used to calculate the MRV data for a Quality Standard/Methodology and is applied to entities like a <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource①">ClaimSource</a>.</p>
+   <p>A <a data-link-type="dfn" href="#variable" id="ref-for-variable②">Variable</a> is an instance from a Variable Template that is used to calculate the MRV data for a Quality Standard/Methodology and is applied to entities like a <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource①">ClaimSource</a>.</p>
    <h4 class="heading settled" data-level="3.25.1" id="dt-variable-template-namespace"><span class="secno">3.25.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-variable-template-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
    <h4 class="heading settled" data-level="3.25.2" id="dt-variable-template-properties"><span class="secno">3.25.2. </span><span class="content">Properties</span><a class="self-link" href="#dt-variable-template-properties"></a></h4>
@@ -4453,10 +4458,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of checkpoint results for the ProcessedClaim. See <a href="#dt-checkpoint-result">§ 3.31 Data Type: CheckpointResult</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑧">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity⑧">Entity</a> 
        <td>Object 
        <td>O 
-       <td>A collection of entity extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of entity extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-issuancerequest"><code>issuanceRequest</code></dfn> : 
        <td>Object 
@@ -4512,10 +4517,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑨">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity⑨">Entity</a> 
        <td>Object 
        <td>O 
-       <td>A collection of entity extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of entity extensions that are specific to the Quality Standard/Methodology. See <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
     </table>
     <figcaption>Properties of data type CheckpointResult</figcaption>
    </figure>
@@ -4596,10 +4601,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The audits that are required for the verification agreement. See <a href="#dt-audits">§ 3.45 Data Type: Audits</a> for details. 
       <tr>
-       <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension①⓪">EntityExtension</a> 
+       <td>entityExtensions : <a data-link-type="dfn" href="#entity" id="ref-for-entity①⓪">Entity</a> 
        <td>Array 
        <td>O 
-       <td>A collection of optional MrvEntityExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: EntityExtension</a> for details. 
+       <td>A collection of optional MrvEntityExtensions, see <a href="#dt-entity-extension">§ 3.22 Data Type: Entity</a> for details. 
     </table>
     <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
    </figure>
@@ -5846,8 +5851,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="3.65" id="dt-itmo-id"><span class="secno">3.65. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-7fe5c5e4">
-    <a class="self-link" href="#example-7fe5c5e4"></a> 
+   <div class="example" id="example-09afbe47">
+    <a class="self-link" href="#example-09afbe47"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6917,8 +6922,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
      <h2 class="heading settled" data-level="4" id="data-samples"><span class="secno">4. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
      <div class="note" role="note">Non-normative</div>
      <h3 class="heading settled" data-level="4.1" id="example-full-credit-lineage"><span class="secno">4.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-     <div class="example" id="example-2f3edd13">
-      <a class="self-link" href="#example-2f3edd13"></a> CRU Full Lineage: 
+     <div class="example" id="example-8b5596cf">
+      <a class="self-link" href="#example-8b5596cf"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -6929,7 +6934,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
     <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
     <c- p>},</c->
     <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
     <c- f>"generationType"</c-><c- p>:</c-> <c- u>"Generated"</c-><c- p>,</c->
@@ -7050,18 +7055,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"02/04/2025 19:06:39"</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"02/07/2025 16:27:58"</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738695999</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>993291000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738945678</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>252996000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"id"</c-><c- p>:</c-> <c- u>"09ecfce1-ce4d-405b-bc28-cba0614c3e8f"</c-><c- p>,</c->
-                  <c- f>"templateId"</c-><c- p>:</c-> <c- u>"4f4749a2-b816-4109-8451-c4e0c8cd2530"</c-><c- p>,</c->
+                  <c- f>"id"</c-><c- p>:</c-> <c- u>"8d870c20-8023-4817-b4aa-b972d1125ed7"</c-><c- p>,</c->
+                  <c- f>"templateId"</c-><c- p>:</c-> <c- u>"9ea230f6-58c6-4a46-99b4-0774d3ecce27"</c-><c- p>,</c->
                   <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                     <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7080,8 +7085,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                   <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                   <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                     <c- p>{</c->
-                      <c- f>"id"</c-><c- p>:</c-> <c- u>"e693986b-bd29-4ff4-8ac2-d439301daa7f"</c-><c- p>,</c->
-                      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"d6158800-f8b3-4ca9-8408-c17df8e8f5f8"</c-><c- p>,</c->
+                      <c- f>"id"</c-><c- p>:</c-> <c- u>"f6522ff5-2863-4f76-8794-b2a1631f92d5"</c-><c- p>,</c->
+                      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"22f113c2-5419-4344-a7aa-a1f9bed907eb"</c-><c- p>,</c->
                       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                         <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7215,7 +7220,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
         <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
         <c- f>"extensionSet"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"8d8aa7fb-b1b2-4dcf-a834-86c703b76536"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"0156f13b-c71d-409f-9909-486545d438ea"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for VerificationProcessAgreement"</c-><c- p>,</c->
@@ -7227,7 +7232,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology specific data attributes being tracked."</c-><c- p>,</c->
               <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-              <c- f>"entityExtensionTemplates"</c-><c- p>:</c-> <c- p>[</c->
+              <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
                   <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
                   <c- f>"name"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡"</c-><c- p>,</c->
@@ -7244,9 +7249,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[]</c->
             <c- p>}</c->
           <c- p>],</c->
-          <c- f>"entityExtensionTemplates"</c-><c- p>:</c-> <c- p>[</c->
+          <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"f34944b2-7384-48db-a987-ca7352b02a37"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"878521a9-4afc-4688-9420-f1a1752af30e"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Claim Source Make and Model"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example entity extension for a Claim Source"</c-><c- p>,</c->
@@ -7258,7 +7263,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"0ad22c39-d042-429f-890a-2fa6b15994c1"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"b5f82b46-bc7a-40d0-a9b8-763b102b2815"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibrate Sensor"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"Sample request response message pair"</c-><c- p>,</c->
@@ -7278,19 +7283,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"206bbc5b-52d3-4e22-81a1-9d2b61c81002"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"3125a44d-40bc-4b8f-afc1-ed048bb7c04a"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Formula"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example formula template for a Activity Impact Module"</c-><c- p>,</c->
               <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
               <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"CDR = Cap - Emissions * 0.1"</c-><c- p>,</c->
-              <c- f>"variableTemplates"</c-><c- p>:</c-> <c- kc>null</c->
+              <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[]</c->
             <c- p>}</c->
           <c- p>],</c->
           <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"16582923-3bb3-4846-9a8d-a0f9b4612fae"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"139ff2fc-1308-4d42-bcf1-38f67833df5e"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Variable"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Activity Impact Module"</c-><c- p>,</c->
@@ -7303,14 +7308,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
@@ -7359,21 +7364,21 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738695999</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>997272000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738945678</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>255673000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738695999</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>997330000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738945678</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>255714000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
@@ -7389,18 +7394,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
                 <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"02/04/2025 19:06:39"</c-><c- p>,</c->
-                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+                    <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"02/07/2025 16:27:58"</c-><c- p>,</c->
+                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
                   <c- p>},</c->
                   <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738695999</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>997580000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1738945678</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>255887000</c->
                   <c- p>}</c->
                 <c- p>},</c->
                 <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"id"</c-><c- p>:</c-> <c- u>"0bf600c5-c5f9-4579-af37-5a50c291e39b"</c-><c- p>,</c->
-                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"73e6afce-acf8-4e90-891d-f6ab2888bd7d"</c-><c- p>,</c->
+                    <c- f>"id"</c-><c- p>:</c-> <c- u>"ec303d66-bbc4-468e-bf77-6d50378c6ab0"</c-><c- p>,</c->
+                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"0359ebf4-fa42-4721-a505-614c97da7a9a"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                       <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                       <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7419,8 +7424,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                     <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                     <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                       <c- p>{</c->
-                        <c- f>"id"</c-><c- p>:</c-> <c- u>"f8b691a5-51fd-48f8-ac19-a9ef0c168dae"</c-><c- p>,</c->
-                        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"bcd0f6ea-3289-4d61-896b-81f3cd1e87fd"</c-><c- p>,</c->
+                        <c- f>"id"</c-><c- p>:</c-> <c- u>"2667e8e9-b1ea-4b6d-817c-46cd63c69f0a"</c-><c- p>,</c->
+                        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"c8288b37-7535-41c5-808a-aea8001bc269"</c-><c- p>,</c->
                         <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                           <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                           <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7499,8 +7504,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
             <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"1c0f3968-fbec-4a32-91a6-4521925188d4"</c-><c- p>,</c->
-                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"5bc533e0-e11b-4f18-aab4-0ec59e04c8dd"</c-><c- p>,</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"94290cbb-c03c-4dfe-978c-a4533a7a5bc7"</c-><c- p>,</c->
+                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"51af988e-88a6-46dd-8bd6-e675dc2fad35"</c-><c- p>,</c->
                 <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7510,7 +7515,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"ClaimSource"</c->
               <c- p>}</c->
             <c- p>],</c->
-            <c- f>"variables"</c-><c- p>:</c-> <c- kc>null</c->
+            <c- f>"variables"</c-><c- p>:</c-> <c- p>[]</c->
           <c- p>}</c->
         <c- p>],</c->
         <c- f>"impactClaims"</c-><c- p>:</c-> <c- p>[</c->
@@ -7531,8 +7536,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>],</c->
         <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"6d92e019-83d7-488d-9827-293a662e5927"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"294de677-88dd-4d51-885d-ddcfd4d9f95d"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"650a3b8d-4b01-4a7e-b22d-3c743cc1b035"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"4e1a1375-505b-4ea8-83de-fffca6bd5a6a"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7545,10 +7550,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"2021-04-01"</c-><c- p>,</c->
-            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"2/4/2025"</c-><c- p>,</c->
+            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"2/7/2025"</c-><c- p>,</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"2/4/2025"</c-><c- p>,</c->
+            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"2/7/2025"</c-><c- p>,</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
                 <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
@@ -8218,8 +8223,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="4.7" id="example-verification-process-agreement"><span class="secno">4.7. </span><span class="content">Example Verification Process Agreement</span><a class="self-link" href="#example-verification-process-agreement"></a></h3>
-     <div class="example" id="example-4aa0317b">
-      <a class="self-link" href="#example-4aa0317b"></a> Verification Process Agreement: 
+     <div class="example" id="example-1496150b">
+      <a class="self-link" href="#example-1496150b"></a> Verification Process Agreement: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
@@ -8314,7 +8319,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
     <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
     <c- f>"extensionSet"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"8e007232-8f7b-49e3-b2e6-272c784ce011"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"0fd135bc-04fa-4fa0-80cd-6e1aef12967b"</c-><c- p>,</c->
       <c- f>"name"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for VerificationProcessAgreement"</c-><c- p>,</c->
@@ -8326,7 +8331,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.6"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Methodology specific data attributes being tracked."</c-><c- p>,</c->
           <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"entityExtensionTemplates"</c-><c- p>:</c-> <c- p>[</c->
+          <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
               <c- f>"id"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Δ𝐶𝑊𝑃𝑏𝑖𝑜𝑚𝑎𝑠𝑠,𝑡"</c-><c- p>,</c->
@@ -8343,9 +8348,9 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[]</c->
         <c- p>}</c->
       <c- p>],</c->
-      <c- f>"entityExtensionTemplates"</c-><c- p>:</c-> <c- p>[</c->
+      <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"af27722d-bb20-4020-a28a-c8c9bfef317d"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"44eca494-0934-4019-9331-d6e0825511bc"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Claim Source Make and Model"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example entity extension for a Claim Source"</c-><c- p>,</c->
@@ -8357,7 +8362,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"81cd2f5e-448b-44da-ac69-7725793c4940"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"7d3f1481-4c1a-453d-94d1-1835188bb788"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibrate Sensor"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Sample request response message pair"</c-><c- p>,</c->
@@ -8377,19 +8382,19 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"0aef5985-bd98-4c97-a278-2303d3e02c4d"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"195e9117-a4e3-4349-8277-3497fd7d1154"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Formula"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example formula template for a Activity Impact Module"</c-><c- p>,</c->
           <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
           <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"CDR = Cap - Emissions * 0.1"</c-><c- p>,</c->
-          <c- f>"variableTemplates"</c-><c- p>:</c-> <c- kc>null</c->
+          <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[]</c->
         <c- p>}</c->
       <c- p>],</c->
       <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"01200a1d-1f60-419c-840b-0e80421b09a9"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"45750126-1187-4e53-b41e-2eea03921547"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Variable"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Activity Impact Module"</c-><c- p>,</c->
@@ -8402,14 +8407,14 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"auditDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/4/2025"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"2/7/2025"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
@@ -9574,30 +9579,30 @@ public licenses.</p>
       <li data-md>
        <p>Renamed <code>MrvExtensionSetModule</code> to <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule①">ExtensionSetModule</a> to better reflect the entity nature of the type.</p>
       <li data-md>
-       <p>Renamed <code>MrvExtensionMessage</code> to <a data-link-type="dfn" href="#extensionmessage" id="ref-for-extensionmessage">ExtensionMessage</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvExtensionMessage</code> to <a data-link-type="dfn" href="#message" id="ref-for-message">Message</a> to better reflect the entity nature of the type.</p>
       <li data-md>
-       <p>Renamed <code>MrvExtensionMessagePair</code> to <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair②">ExtensionMessagePair</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvExtensionMessagePair</code> to <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair②">MessagePair</a> to better reflect the entity nature of the type.</p>
       <li data-md>
-       <p>Renamed <code>MrvEntityExtension</code> to <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate④">EntityExtensionTemplate</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvEntityExtension</code> to <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate④">EntityTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
        <p>Renamed <code>MrvFormula</code> to <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate④">FormulaTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
        <p>Renamed <code>MrvVariable</code> to <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate④">VariableTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
-       <p>Removed <code>Property</code> from the <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑤">EntityExtensionTemplate</a> type, no longer needed.</p>
+       <p>Removed <code>Property</code> from the <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate⑤">EntityTemplate</a> type, no longer needed.</p>
       <li data-md>
-       <p>Created <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension①①">EntityExtension</a> to support the extension of entities with custom data based on a <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑥">EntityExtensionTemplate</a>.</p>
+       <p>Created <a data-link-type="dfn" href="#entity" id="ref-for-entity①①">Entity</a> to support the extension of entities with custom data based on a <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate⑥">EntityTemplate</a>.</p>
       <li data-md>
        <p>Created <a data-link-type="dfn" href="#formula" id="ref-for-formula②">Formula</a> to support the use of formulas in MRV calculations based on a <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑤">FormulaTemplate</a>.</p>
       <li data-md>
-       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable②">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑤">VariableTemplate</a>.</p>
+       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable③">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑤">VariableTemplate</a>.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250129"><span class="content">Version 2.5.0-20250129 (January 29th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250129"></a></h3>
      <ul>
       <li data-md>
        <p>Renamed <code>instanceValue</code> to <code>value</code> in <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑥">VariableTemplate</a> to better reflect the value of the variable as either an instance value or a sum of instances.</p>
       <li data-md>
-       <p>Adding <a data-link-type="dfn" href="#variabletemplates" id="ref-for-variabletemplates">VariableTemplates</a> to support a collection variables used in MRV formulas for <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑦">EntityExtensionTemplate</a>.</p>
+       <p>Adding <a data-link-type="dfn" href="#variabletemplates" id="ref-for-variabletemplates">VariableTemplates</a> to support a collection variables used in MRV formulas for <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate⑦">EntityTemplate</a>.</p>
       <li data-md>
        <p>Added <code>vvbIdForAim</code> to <a data-link-type="dfn" href="#signatory" id="ref-for-signatory①">Signatory</a> to support the VVB ID for the AIM when there is an AIM group with multiple VVBs.</p>
      </ul>
@@ -9633,9 +9638,9 @@ public licenses.</p>
       <li data-md>
        <p>Added <a data-link-type="dfn" href="#anydata" id="ref-for-anydata⑥">AnyData</a> for defining custom MRV messages</p>
       <li data-md>
-       <p>Updated <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair③">ExtensionMessagePair</a> to use <a data-link-type="dfn" href="#anydata" id="ref-for-anydata⑦">AnyData</a> for <code>request</code> and <code>response</code> message definitions</p>
+       <p>Updated <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair③">MessagePair</a> to use <a data-link-type="dfn" href="#anydata" id="ref-for-anydata⑦">AnyData</a> for <code>request</code> and <code>response</code> message definitions</p>
       <li data-md>
-       <p>Updated <a data-link-type="dfn" href="#extensionmessage" id="ref-for-extensionmessage①">ExtensionMessage</a> to use <a data-link-type="dfn" href="#anydata" id="ref-for-anydata⑧">AnyData</a> for message contents.</p>
+       <p>Updated <a data-link-type="dfn" href="#message" id="ref-for-message①">Message</a> to use <a data-link-type="dfn" href="#anydata" id="ref-for-anydata⑧">AnyData</a> for message contents.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20241216"><span class="content">Version 2.5.0-20241216 (December 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241216"></a></h3>
      <ul>
@@ -9660,7 +9665,7 @@ public licenses.</p>
      <h3 class="heading settled" id="changelog-2.5.0-20240916"><span class="content">Version 2.5.0-20240916 (September 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240916"></a></h3>
      <ul>
       <li data-md>
-       <p>Renamed <code>MrvExtension</code> to <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑧">EntityExtensionTemplate</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvExtension</code> to <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate⑧">EntityTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
        <p>Added the <code>entityExtensions</code> array to the <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset⑨">ExtensionSet</a> type to support multiple extensions that can apply to the entire set, i.e. child modules.</p>
      </ul>
@@ -9674,16 +9679,16 @@ public licenses.</p>
      <h3 class="heading settled" id="changelog-2.5.0-20240716"><span class="content">Version 2.5.0-20240716 (July 16th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240716"></a></h3>
      <ul>
       <li data-md>
-       <p>Added the <code>Closed</code> optional property to the <a data-link-type="dfn" href="#extensionmessage" id="ref-for-extensionmessage②">ExtensionMessage</a> type to indicate that the message is closed for use in messaging implementations.</p>
+       <p>Added the <code>Closed</code> optional property to the <a data-link-type="dfn" href="#message" id="ref-for-message②">Message</a> type to indicate that the message is closed for use in messaging implementations.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20240614"><span class="content">Version 2.5.0-20240614 (June 14th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240614"></a></h3>
      <ul>
       <li data-md>
-       <p>Added the <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair④">ExtensionMessagePair</a> type to support sets of request/response messages to be defined to facilitate the MRV Process between the parties.</p>
+       <p>Added the <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair④">MessagePair</a> type to support sets of request/response messages to be defined to facilitate the MRV Process between the parties.</p>
       <li data-md>
-       <p>Added the <a data-link-type="dfn" href="#extensionmessage" id="ref-for-extensionmessage③">ExtensionMessage</a> type to support custom messages, used in pairs, to be defined to facilitate the MRV Process between the parties.</p>
+       <p>Added the <a data-link-type="dfn" href="#message" id="ref-for-message③">Message</a> type to support custom messages, used in pairs, to be defined to facilitate the MRV Process between the parties.</p>
       <li data-md>
-       <p>Added the <a data-link-type="dfn" href="#extensionmessagepair" id="ref-for-extensionmessagepair⑤">ExtensionMessagePair</a> array to both the <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset①⓪">ExtensionSet</a> and <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule④">ExtensionSetModule</a> to include message definitions in extension sets.</p>
+       <p>Added the <a data-link-type="dfn" href="#messagepair" id="ref-for-messagepair⑤">MessagePair</a> array to both the <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset①⓪">ExtensionSet</a> and <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule④">ExtensionSetModule</a> to include message definitions in extension sets.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20240605"><span class="content">Version 2.5.0-20240605 (June 5th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240605"></a></h3>
      <ul>
@@ -9695,7 +9700,7 @@ public licenses.</p>
      <h3 class="heading settled" id="changelog-2.5.0-20240524"><span class="content">Version 2.5.0-20240428 (May 24th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20240524"></a></h3>
      <ul>
       <li data-md>
-       <p>Simplified and collapsed the <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑨">EntityExtensionTemplate</a> type removing untyped and typed into a single type.</p>
+       <p>Simplified and collapsed the <a data-link-type="dfn" href="#entitytemplate" id="ref-for-entitytemplate⑨">EntityTemplate</a> type removing untyped and typed into a single type.</p>
       <li data-md>
        <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> type.</p>
       <li data-md>
@@ -9995,11 +10000,11 @@ public licenses.</p>
    <li><a href="#dom-projecttype-compost_addition_to_rangeland_soil">COMPOST_ADDITION_TO_RANGELAND_SOIL</a><span>, in § 3.94</span>
    <li><a href="#dom-projecttype-composting">COMPOSTING</a><span>, in § 3.94</span>
    <li><a href="#element-attrdef-credential-context">context</a><span>, in § 3.48.1</span>
-   <li><a href="#element-attrdef-extensionmessage-conversationid">conversationId</a><span>, in § 3.19.2</span>
+   <li><a href="#element-attrdef-message-conversationid">conversationId</a><span>, in § 3.19.2</span>
    <li><a href="#dom-projecttype-cookstoves">COOKSTOVES</a><span>, in § 3.94</span>
    <li><a href="#corecarbonprinciples">CoreCarbonPrinciples</a><span>, in § 3.34</span>
    <li><a href="#element-attrdef-cru-corecarbonprinciples">coreCarbonPrinciples</a><span>, in § 3.33.2</span>
-   <li><a href="#element-attrdef-extensionmessage-correlationid">correlationId</a><span>, in § 3.19.2</span>
+   <li><a href="#element-attrdef-message-correlationid">correlationId</a><span>, in § 3.19.2</span>
    <li><a href="#enumdef-correspondingadjustment">CorrespondingAdjustment</a><span>, in § 3.99</span>
    <li><a href="#element-attrdef-pacompliance-correspondingadjustment">correspondingAdjustment</a><span>, in § 3.40.1</span>
    <li>
@@ -10061,7 +10066,7 @@ public licenses.</p>
    <li>
     documentation
     <ul>
-     <li><a href="#element-attrdef-entityextensiontemplate-documentation">element-attr for EntityExtensionTemplate</a><span>, in § 3.21.2</span>
+     <li><a href="#element-attrdef-entitytemplate-documentation">element-attr for EntityTemplate</a><span>, in § 3.21.2</span>
      <li><a href="#element-attrdef-extensionset-documentation">element-attr for ExtensionSet</a><span>, in § 3.16.2</span>
      <li><a href="#element-attrdef-extensionsetmodule-documentation">element-attr for ExtensionSetModule</a><span>, in § 3.17.2</span>
      <li><a href="#element-attrdef-formulatemplate-documentation">element-attr for FormulaTemplate</a><span>, in § 3.23.2</span>
@@ -10079,8 +10084,8 @@ public licenses.</p>
    <li><a href="#element-attrdef-daterange-end">end</a><span>, in § 3.59.1</span>
    <li><a href="#dom-projecttype-energy_efficiency">ENERGY_EFFICIENCY</a><span>, in § 3.94</span>
    <li><a href="#dom-projecttype-enhanced_rock_weathering">ENHANCED_ROCK_WEATHERING</a><span>, in § 3.94</span>
-   <li><a href="#entityextension">EntityExtension</a><span>, in § 3.22</span>
-   <li><a href="#entityextensiontemplate">EntityExtensionTemplate</a><span>, in § 3.21</span>
+   <li><a href="#entity">Entity</a><span>, in § 3.22</span>
+   <li><a href="#entitytemplate">EntityTemplate</a><span>, in § 3.21</span>
    <li><a href="#element-attrdef-verificationprocessagreement-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 3.32.1</span>
    <li><a href="#dom-standard-eua">EUA</a><span>, in § 3.97</span>
    <li><a href="#dom-region-europe">EUROPE</a><span>, in § 3.86</span>
@@ -10091,8 +10096,6 @@ public licenses.</p>
    <li><a href="#enumdef-extensioncontext">ExtensionContext</a><span>, in § 3.70</span>
    <li><a href="#extensiondefinition">ExtensionDefinition</a><span>, in § 3.28</span>
    <li><a href="#extensiondocumentation">ExtensionDocumentation</a><span>, in § 3.29</span>
-   <li><a href="#extensionmessage">ExtensionMessage</a><span>, in § 3.19</span>
-   <li><a href="#extensionmessagepair">ExtensionMessagePair</a><span>, in § 3.18</span>
    <li><a href="#extensionset">ExtensionSet</a><span>, in § 3.16</span>
    <li><a href="#extensionsetmodule">ExtensionSetModule</a><span>, in § 3.17</span>
    <li><a href="#dom-projecttype-feed_additives">FEED_ADDITIVES</a><span>, in § 3.94</span>
@@ -10197,6 +10200,8 @@ public licenses.</p>
    <li><a href="#dom-projectscale-medium">MEDIUM</a><span>, in § 3.88</span>
    <li><a href="#dom-unit-megajoule">megajoule</a><span>, in § 3.101</span>
    <li><a href="#dom-unit-megawatt">megawatt</a><span>, in § 3.101</span>
+   <li><a href="#message">Message</a><span>, in § 3.19</span>
+   <li><a href="#messagepair">MessagePair</a><span>, in § 3.18</span>
    <li><a href="#enumdef-messagetype">MessageType</a><span>, in § 3.71</span>
    <li><a href="#dom-projecttype-methane_recovery_in_wastewater">METHANE_RECOVERY_IN_WASTEWATER</a><span>, in § 3.94</span>
    <li><a href="#enumdef-method">Method</a><span>, in § 3.84</span>
@@ -10670,7 +10675,7 @@ let dfnPanelData = {
 "accountableimpactorganization": {"dfnID":"accountableimpactorganization","dfnText":"AccountableImpactOrganization","external":false,"refSections":[{"refs":[{"id":"ref-for-accountableimpactorganization"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-accountableimpactorganization\u2460"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#accountableimpactorganization"},
 "activity-impact-module": {"dfnID":"activity-impact-module","dfnText":"Activity Impact Module","external":false,"refSections":[],"url":"#activity-impact-module"},
 "activity-impact-module-group": {"dfnID":"activity-impact-module-group","dfnText":"Activity Impact Module Group","external":false,"refSections":[],"url":"#activity-impact-module-group"},
-"activityimpactmodule": {"dfnID":"activityimpactmodule","dfnText":"ActivityImpactModule","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodule"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2461"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2462"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2464"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-activityimpactmodule\u2465"}],"title":"3.22. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-activityimpactmodule\u2466"}],"title":"3.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-activityimpactmodule\u2467"},{"id":"ref-for-activityimpactmodule\u2468"}],"title":"3.24. Data Type: Formula"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u24ea"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u2460"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u2461"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#activityimpactmodule"},
+"activityimpactmodule": {"dfnID":"activityimpactmodule","dfnText":"ActivityImpactModule","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodule"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2461"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2462"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2463"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-activityimpactmodule\u2464"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-activityimpactmodule\u2465"}],"title":"3.22. Data Type: Entity"},{"refs":[{"id":"ref-for-activityimpactmodule\u2466"}],"title":"3.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-activityimpactmodule\u2467"},{"id":"ref-for-activityimpactmodule\u2468"}],"title":"3.24. Data Type: Formula"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u24ea"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u2460"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"},{"refs":[{"id":"ref-for-activityimpactmodule\u2460\u2461"}],"title":"Version 2.5.0-20241209 (December 9th, 2024)"}],"url":"#activityimpactmodule"},
 "activityimpactmodulegroup": {"dfnID":"activityimpactmodulegroup","dfnText":"ActivityImpactModuleGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-activityimpactmodulegroup"}],"title":"Version 2.5.0-20250107 (January 7th, 2025)"},{"refs":[{"id":"ref-for-activityimpactmodulegroup\u2460"},{"id":"ref-for-activityimpactmodulegroup\u2461"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#activityimpactmodulegroup"},
 "address": {"dfnID":"address","dfnText":"Address","external":false,"refSections":[{"refs":[{"id":"ref-for-address"}],"title":"3.3.2. Properties"}],"url":"#address"},
 "anydata": {"dfnID":"anydata","dfnText":"AnyData","external":false,"refSections":[{"refs":[{"id":"ref-for-anydata"},{"id":"ref-for-anydata\u2460"}],"title":"3.18.2. Properties"},{"refs":[{"id":"ref-for-anydata\u2461"}],"title":"3.19.2. Properties"},{"refs":[{"id":"ref-for-anydata\u2462"}],"title":"3.22.2. Properties"},{"refs":[{"id":"ref-for-anydata\u2463"}],"title":"3.24.2. Properties"},{"refs":[{"id":"ref-for-anydata\u2464"}],"title":"3.26.2. Properties"},{"refs":[{"id":"ref-for-anydata\u2465"},{"id":"ref-for-anydata\u2466"},{"id":"ref-for-anydata\u2467"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"}],"url":"#anydata"},
@@ -11032,9 +11037,7 @@ let dfnPanelData = {
 "element-attrdef-durability-degradable": {"dfnID":"element-attrdef-durability-degradable","dfnText":"degradable","external":false,"refSections":[],"url":"#element-attrdef-durability-degradable"},
 "element-attrdef-durability-reversalmitigation": {"dfnID":"element-attrdef-durability-reversalmitigation","dfnText":"reversalMitigation","external":false,"refSections":[],"url":"#element-attrdef-durability-reversalmitigation"},
 "element-attrdef-durability-storagetype": {"dfnID":"element-attrdef-durability-storagetype","dfnText":"storageType","external":false,"refSections":[],"url":"#element-attrdef-durability-storagetype"},
-"element-attrdef-entityextensiontemplate-documentation": {"dfnID":"element-attrdef-entityextensiontemplate-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-entityextensiontemplate-documentation"},
-"element-attrdef-extensionmessage-conversationid": {"dfnID":"element-attrdef-extensionmessage-conversationid","dfnText":"conversationId","external":false,"refSections":[],"url":"#element-attrdef-extensionmessage-conversationid"},
-"element-attrdef-extensionmessage-correlationid": {"dfnID":"element-attrdef-extensionmessage-correlationid","dfnText":"correlationId","external":false,"refSections":[],"url":"#element-attrdef-extensionmessage-correlationid"},
+"element-attrdef-entitytemplate-documentation": {"dfnID":"element-attrdef-entitytemplate-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-entitytemplate-documentation"},
 "element-attrdef-extensionset-documentation": {"dfnID":"element-attrdef-extensionset-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-extensionset-documentation"},
 "element-attrdef-extensionsetmodule-documentation": {"dfnID":"element-attrdef-extensionsetmodule-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-extensionsetmodule-documentation"},
 "element-attrdef-formulatemplate-documentation": {"dfnID":"element-attrdef-formulatemplate-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-formulatemplate-documentation"},
@@ -11054,6 +11057,8 @@ let dfnPanelData = {
 "element-attrdef-impactclaimcheckpoint-efafter": {"dfnID":"element-attrdef-impactclaimcheckpoint-efafter","dfnText":"efAfter","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-efafter"},
 "element-attrdef-impactclaimcheckpoint-efbefore": {"dfnID":"element-attrdef-impactclaimcheckpoint-efbefore","dfnText":"efBefore","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-efbefore"},
 "element-attrdef-impactclaimcheckpoint-projectdeveloperid": {"dfnID":"element-attrdef-impactclaimcheckpoint-projectdeveloperid","dfnText":"projectDeveloperId","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-projectdeveloperid"},
+"element-attrdef-message-conversationid": {"dfnID":"element-attrdef-message-conversationid","dfnText":"conversationId","external":false,"refSections":[],"url":"#element-attrdef-message-conversationid"},
+"element-attrdef-message-correlationid": {"dfnID":"element-attrdef-message-correlationid","dfnText":"correlationId","external":false,"refSections":[],"url":"#element-attrdef-message-correlationid"},
 "element-attrdef-mitigationactivity-carboncategory": {"dfnID":"element-attrdef-mitigationactivity-carboncategory","dfnText":"carbonCategory","external":false,"refSections":[],"url":"#element-attrdef-mitigationactivity-carboncategory"},
 "element-attrdef-mitigationactivity-method": {"dfnID":"element-attrdef-mitigationactivity-method","dfnText":"method","external":false,"refSections":[],"url":"#element-attrdef-mitigationactivity-method"},
 "element-attrdef-mrvextensionmessagepair-documentation": {"dfnID":"element-attrdef-mrvextensionmessagepair-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-mrvextensionmessagepair-documentation"},
@@ -11096,8 +11101,8 @@ let dfnPanelData = {
 "element-attrdef-verifiedlink-hashalgorithm": {"dfnID":"element-attrdef-verifiedlink-hashalgorithm","dfnText":"hashAlgorithm","external":false,"refSections":[],"url":"#element-attrdef-verifiedlink-hashalgorithm"},
 "element-attrdef-verifiedlink-uri": {"dfnID":"element-attrdef-verifiedlink-uri","dfnText":"uri","external":false,"refSections":[],"url":"#element-attrdef-verifiedlink-uri"},
 "encumberable": {"dfnID":"encumberable","dfnText":"encumberable","external":false,"refSections":[],"url":"#encumberable"},
-"entityextension": {"dfnID":"entityextension","dfnText":"EntityExtension","external":false,"refSections":[{"refs":[{"id":"ref-for-entityextension"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-entityextension\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-entityextension\u2461"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2462"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-entityextension\u2463"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2464"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2465"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2466"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-entityextension\u2467"}],"title":"3.30.2. Properties"},{"refs":[{"id":"ref-for-entityextension\u2468"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2460\u24ea"}],"title":"3.32.1. Properties"},{"refs":[{"id":"ref-for-entityextension\u2460\u2460"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#entityextension"},
-"entityextensiontemplate": {"dfnID":"entityextensiontemplate","dfnText":"EntityExtensionTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-entityextensiontemplate"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2461"},{"id":"ref-for-entityextensiontemplate\u2462"}],"title":"3.22. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2463"},{"id":"ref-for-entityextensiontemplate\u2464"},{"id":"ref-for-entityextensiontemplate\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2466"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2467"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-entityextensiontemplate\u2468"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#entityextensiontemplate"},
+"entity": {"dfnID":"entity","dfnText":"Entity","external":false,"refSections":[{"refs":[{"id":"ref-for-entity"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-entity\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-entity\u2461"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-entity\u2462"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-entity\u2463"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-entity\u2464"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-entity\u2465"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-entity\u2466"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-entity\u2467"}],"title":"3.30.2. Properties"},{"refs":[{"id":"ref-for-entity\u2468"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-entity\u2460\u24ea"}],"title":"3.32.1. Properties"},{"refs":[{"id":"ref-for-entity\u2460\u2460"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#entity"},
+"entitytemplate": {"dfnID":"entitytemplate","dfnText":"EntityTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-entitytemplate"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-entitytemplate\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-entitytemplate\u2461"},{"id":"ref-for-entitytemplate\u2462"}],"title":"3.22. Data Type: Entity"},{"refs":[{"id":"ref-for-entitytemplate\u2463"},{"id":"ref-for-entitytemplate\u2464"},{"id":"ref-for-entitytemplate\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-entitytemplate\u2466"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-entitytemplate\u2467"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-entitytemplate\u2468"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#entitytemplate"},
 "enumdef-addresstype": {"dfnID":"enumdef-addresstype","dfnText":"AddressType","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-addresstype"}],"title":"3.4.1. Properties"}],"url":"#enumdef-addresstype"},
 "enumdef-attestationtype": {"dfnID":"enumdef-attestationtype","dfnText":"AttestationType","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-attestationtype"}],"title":"3.52.1. Properties"}],"url":"#enumdef-attestationtype"},
 "enumdef-auditschedule": {"dfnID":"enumdef-auditschedule","dfnText":"AuditSchedule","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-auditschedule"}],"title":"3.32.1. Properties"}],"url":"#enumdef-auditschedule"},
@@ -11137,9 +11142,7 @@ let dfnPanelData = {
 "extension": {"dfnID":"extension","dfnText":"Extension","external":false,"refSections":[],"url":"#extension"},
 "extensiondefinition": {"dfnID":"extensiondefinition","dfnText":"ExtensionDefinition","external":false,"refSections":[],"url":"#extensiondefinition"},
 "extensiondocumentation": {"dfnID":"extensiondocumentation","dfnText":"ExtensionDocumentation","external":false,"refSections":[],"url":"#extensiondocumentation"},
-"extensionmessage": {"dfnID":"extensionmessage","dfnText":"ExtensionMessage","external":false,"refSections":[{"refs":[{"id":"ref-for-extensionmessage"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-extensionmessage\u2460"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-extensionmessage\u2461"}],"title":"Version 2.5.0-20240716 (July 16th, 2024)"},{"refs":[{"id":"ref-for-extensionmessage\u2462"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#extensionmessage"},
-"extensionmessagepair": {"dfnID":"extensionmessagepair","dfnText":"ExtensionMessagePair","external":false,"refSections":[{"refs":[{"id":"ref-for-extensionmessagepair"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-extensionmessagepair\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-extensionmessagepair\u2461"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-extensionmessagepair\u2462"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-extensionmessagepair\u2463"},{"id":"ref-for-extensionmessagepair\u2464"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#extensionmessagepair"},
-"extensionset": {"dfnID":"extensionset","dfnText":"ExtensionSet","external":false,"refSections":[{"refs":[{"id":"ref-for-extensionset"}],"title":"2. Terminology"},{"refs":[{"id":"ref-for-extensionset\u2460"},{"id":"ref-for-extensionset\u2461"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-extensionset\u2462"},{"id":"ref-for-extensionset\u2463"}],"title":"3.22. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-extensionset\u2464"}],"title":"3.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-extensionset\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-extensionset\u2466"},{"id":"ref-for-extensionset\u2467"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-extensionset\u2468"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-extensionset\u2460\u24ea"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"},{"refs":[{"id":"ref-for-extensionset\u2460\u2460"}],"title":"Version 2.5.0-20240605 (June 5th, 2024)"}],"url":"#extensionset"},
+"extensionset": {"dfnID":"extensionset","dfnText":"ExtensionSet","external":false,"refSections":[{"refs":[{"id":"ref-for-extensionset"}],"title":"2. Terminology"},{"refs":[{"id":"ref-for-extensionset\u2460"},{"id":"ref-for-extensionset\u2461"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-extensionset\u2462"},{"id":"ref-for-extensionset\u2463"}],"title":"3.22. Data Type: Entity"},{"refs":[{"id":"ref-for-extensionset\u2464"}],"title":"3.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-extensionset\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-extensionset\u2466"},{"id":"ref-for-extensionset\u2467"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-extensionset\u2468"}],"title":"Version 2.5.0-20240916 (September 16th, 2024)"},{"refs":[{"id":"ref-for-extensionset\u2460\u24ea"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"},{"refs":[{"id":"ref-for-extensionset\u2460\u2460"}],"title":"Version 2.5.0-20240605 (June 5th, 2024)"}],"url":"#extensionset"},
 "extensionsetmodule": {"dfnID":"extensionsetmodule","dfnText":"ExtensionSetModule","external":false,"refSections":[{"refs":[{"id":"ref-for-extensionsetmodule"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-extensionsetmodule\u2460"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-extensionsetmodule\u2461"},{"id":"ref-for-extensionsetmodule\u2462"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-extensionsetmodule\u2463"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"},{"refs":[{"id":"ref-for-extensionsetmodule\u2464"}],"title":"Version 2.5.0-20240605 (June 5th, 2024)"}],"url":"#extensionsetmodule"},
 "formula": {"dfnID":"formula","dfnText":"Formula","external":false,"refSections":[{"refs":[{"id":"ref-for-formula"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-formula\u2460"}],"title":"3.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-formula\u2461"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#formula"},
 "formulatemplate": {"dfnID":"formulatemplate","dfnText":"FormulaTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-formulatemplate"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-formulatemplate\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-formulatemplate\u2461"}],"title":"3.24. Data Type: Formula"},{"refs":[{"id":"ref-for-formulatemplate\u2462"}],"title":"3.25. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-formulatemplate\u2463"},{"id":"ref-for-formulatemplate\u2464"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-formulatemplate\u2465"},{"id":"ref-for-formulatemplate\u2466"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#formulatemplate"},
@@ -11147,12 +11150,14 @@ let dfnPanelData = {
 "id": {"dfnID":"id","dfnText":"Id","external":false,"refSections":[{"refs":[{"id":"ref-for-id"},{"id":"ref-for-id\u2460"},{"id":"ref-for-id\u2461"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-id\u2462"},{"id":"ref-for-id\u2463"},{"id":"ref-for-id\u2464"},{"id":"ref-for-id\u2465"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-id\u2466"}],"title":"3.8.1. Properties"},{"refs":[{"id":"ref-for-id\u2467"},{"id":"ref-for-id\u2468"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u24ea"},{"id":"ref-for-id\u2460\u2460"},{"id":"ref-for-id\u2460\u2461"},{"id":"ref-for-id\u2460\u2462"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2463"}],"title":"3.11.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2464"},{"id":"ref-for-id\u2460\u2465"},{"id":"ref-for-id\u2460\u2466"},{"id":"ref-for-id\u2460\u2467"},{"id":"ref-for-id\u2460\u2468"}],"title":"3.13.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u24ea"}],"title":"3.14.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2460"},{"id":"ref-for-id\u2461\u2461"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2462"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2463"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2464"}],"title":"3.18.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2465"}],"title":"3.19.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2466"}],"title":"3.21.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2467"},{"id":"ref-for-id\u2461\u2468"},{"id":"ref-for-id\u2462\u24ea"}],"title":"3.22.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2460"}],"title":"3.23.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2461"},{"id":"ref-for-id\u2462\u2462"},{"id":"ref-for-id\u2462\u2463"}],"title":"3.24.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2464"}],"title":"3.25.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2465"},{"id":"ref-for-id\u2462\u2466"},{"id":"ref-for-id\u2462\u2467"}],"title":"3.26.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2468"}],"title":"3.30.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u24ea"}],"title":"3.32.1. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2460"},{"id":"ref-for-id\u2463\u2461"},{"id":"ref-for-id\u2463\u2462"},{"id":"ref-for-id\u2463\u2463"},{"id":"ref-for-id\u2463\u2464"}],"title":"3.33.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2465"}],"title":"3.34.1. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2466"},{"id":"ref-for-id\u2463\u2467"},{"id":"ref-for-id\u2463\u2468"},{"id":"ref-for-id\u2464\u24ea"},{"id":"ref-for-id\u2464\u2460"},{"id":"ref-for-id\u2464\u2461"}],"title":"3.41.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2462"}],"title":"3.43.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2463"}],"title":"3.44.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2464"},{"id":"ref-for-id\u2464\u2465"}],"title":"3.46.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2466"}],"title":"3.53.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2467"}],"title":"3.55.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2468"}],"title":"3.57.1. Properties"}],"url":"#id"},
 "impact-claim": {"dfnID":"impact-claim","dfnText":"Impact Claim","external":false,"refSections":[],"url":"#impact-claim"},
 "impact-claim-checkpoint": {"dfnID":"impact-claim-checkpoint","dfnText":"Impact Claim Checkpoint","external":false,"refSections":[],"url":"#impact-claim-checkpoint"},
-"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"3.22. Data Type: EntityExtension"}],"url":"#impactclaim"},
+"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"3.22. Data Type: Entity"}],"url":"#impactclaim"},
 "impactclaimcheckpoint": {"dfnID":"impactclaimcheckpoint","dfnText":"ImpactClaimCheckpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimcheckpoint"}],"title":"3.10.2. Properties"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2460"}],"title":"3.26. Data Type: Variable"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#impactclaimcheckpoint"},
 "indivisible": {"dfnID":"indivisible","dfnText":"Indivisible","external":false,"refSections":[],"url":"#indivisible"},
 "iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"3.5.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"3.106.1. JSON Representation"}],"url":"#iso3166cc"},
 "itmoid": {"dfnID":"itmoid","dfnText":"ITMOId","external":false,"refSections":[{"refs":[{"id":"ref-for-itmoid"}],"title":"3.40.1. Properties"}],"url":"#itmoid"},
 "manifest": {"dfnID":"manifest","dfnText":"Manifest","external":false,"refSections":[{"refs":[{"id":"ref-for-manifest"}],"title":"3.12.1. Properties"}],"url":"#manifest"},
+"message": {"dfnID":"message","dfnText":"Message","external":false,"refSections":[{"refs":[{"id":"ref-for-message"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-message\u2460"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-message\u2461"}],"title":"Version 2.5.0-20240716 (July 16th, 2024)"},{"refs":[{"id":"ref-for-message\u2462"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#message"},
+"messagepair": {"dfnID":"messagepair","dfnText":"MessagePair","external":false,"refSections":[{"refs":[{"id":"ref-for-messagepair"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-messagepair\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-messagepair\u2461"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-messagepair\u2462"}],"title":"Version 2.5.0-20241219 (December 19th, 2024)"},{"refs":[{"id":"ref-for-messagepair\u2463"},{"id":"ref-for-messagepair\u2464"}],"title":"Version 2.5.0-20240614 (June 14th, 2024)"}],"url":"#messagepair"},
 "mintable": {"dfnID":"mintable","dfnText":"Mintable","external":false,"refSections":[],"url":"#mintable"},
 "mitigationactivity": {"dfnID":"mitigationactivity","dfnText":"MitigationActivity","external":false,"refSections":[{"refs":[{"id":"ref-for-mitigationactivity"}],"title":"3.34.1. Properties"}],"url":"#mitigationactivity"},
 "mrvrequirements": {"dfnID":"mrvrequirements","dfnText":"MRVRequirements","external":false,"refSections":[{"refs":[{"id":"ref-for-mrvrequirements"}],"title":"3.32.1. Properties"}],"url":"#mrvrequirements"},
@@ -11161,7 +11166,7 @@ let dfnPanelData = {
 "pacompliance": {"dfnID":"pacompliance","dfnText":"PACompliance","external":false,"refSections":[{"refs":[{"id":"ref-for-pacompliance"}],"title":"3.34.1. Properties"},{"refs":[{"id":"ref-for-pacompliance\u2460"}],"title":"3.40.1. Properties"}],"url":"#pacompliance"},
 "precisionmix": {"dfnID":"precisionmix","dfnText":"PrecisionMix","external":false,"refSections":[{"refs":[{"id":"ref-for-precisionmix"}],"title":"3.57.1. Properties"}],"url":"#precisionmix"},
 "processed-claim": {"dfnID":"processed-claim","dfnText":"Processed Claim","external":false,"refSections":[],"url":"#processed-claim"},
-"processedclaim": {"dfnID":"processedclaim","dfnText":"ProcessedClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-processedclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-processedclaim\u2460"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-processedclaim\u2461"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-processedclaim\u2462"}],"title":"3.22. Data Type: EntityExtension"}],"url":"#processedclaim"},
+"processedclaim": {"dfnID":"processedclaim","dfnText":"ProcessedClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-processedclaim"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-processedclaim\u2460"}],"title":"3.15.1. Properties"},{"refs":[{"id":"ref-for-processedclaim\u2461"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-processedclaim\u2462"}],"title":"3.22. Data Type: Entity"}],"url":"#processedclaim"},
 "processedclaimcontrol": {"dfnID":"processedclaimcontrol","dfnText":"ProcessedClaimControl","external":false,"refSections":[],"url":"#processedclaimcontrol"},
 "proof": {"dfnID":"proof","dfnText":"Proof","external":false,"refSections":[{"refs":[{"id":"ref-for-proof"}],"title":"3.48.1. Properties"},{"refs":[{"id":"ref-for-proof\u2460"}],"title":"3.51.1. Properties"}],"url":"#proof"},
 "property-set": {"dfnID":"property-set","dfnText":"Property-Set","external":false,"refSections":[],"url":"#property-set"},
@@ -11180,14 +11185,14 @@ let dfnPanelData = {
 "transferable": {"dfnID":"transferable","dfnText":"Transferable","external":false,"refSections":[],"url":"#transferable"},
 "validation": {"dfnID":"validation","dfnText":"Validation","external":false,"refSections":[{"refs":[{"id":"ref-for-validation"}],"title":"3.5.2. Properties"}],"url":"#validation"},
 "validationstep": {"dfnID":"validationstep","dfnText":"ValidationStep","external":false,"refSections":[{"refs":[{"id":"ref-for-validationstep"}],"title":"3.6.1. Properties"}],"url":"#validationstep"},
-"variable": {"dfnID":"variable","dfnText":"Variable","external":false,"refSections":[{"refs":[{"id":"ref-for-variable"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-variable\u2460"}],"title":"3.25. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-variable\u2461"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#variable"},
+"variable": {"dfnID":"variable","dfnText":"Variable","external":false,"refSections":[{"refs":[{"id":"ref-for-variable"}],"title":"3.9.1. Properties"},{"refs":[{"id":"ref-for-variable\u2460"}],"title":"3.24.2. Properties"},{"refs":[{"id":"ref-for-variable\u2461"}],"title":"3.25. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-variable\u2462"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#variable"},
 "variables": {"dfnID":"variables","dfnText":"Variables","external":false,"refSections":[],"url":"#variables"},
 "variabletemplate": {"dfnID":"variabletemplate","dfnText":"VariableTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplate"}],"title":"3.16.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2460"}],"title":"3.17.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2461"}],"title":"3.23.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2462"}],"title":"3.26. Data Type: Variable"},{"refs":[{"id":"ref-for-variabletemplate\u2463"},{"id":"ref-for-variabletemplate\u2464"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2465"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2466"},{"id":"ref-for-variabletemplate\u2467"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#variabletemplate"},
 "variabletemplates": {"dfnID":"variabletemplates","dfnText":"VariableTemplates","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplates"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#variabletemplates"},
 "verifiablepresentation": {"dfnID":"verifiablepresentation","dfnText":"VerifiablePresentation","external":false,"refSections":[],"url":"#verifiablepresentation"},
 "verification-automation": {"dfnID":"verification-automation","dfnText":"Verification Automation","external":false,"refSections":[],"url":"#verification-automation"},
 "verification-process-agreement": {"dfnID":"verification-process-agreement","dfnText":"Verification Process Agreement","external":false,"refSections":[],"url":"#verification-process-agreement"},
-"verificationprocessagreement": {"dfnID":"verificationprocessagreement","dfnText":"VerificationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-verificationprocessagreement"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2460"}],"title":"3.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2461"}],"title":"3.22. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2462"}],"title":"3.98. Data Type: MethodologyAndTool"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2463"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#verificationprocessagreement"},
+"verificationprocessagreement": {"dfnID":"verificationprocessagreement","dfnText":"VerificationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-verificationprocessagreement"}],"title":"3. Tokens and their Data Model"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2460"}],"title":"3.21. Data Type: EntityTemplate"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2461"}],"title":"3.22. Data Type: Entity"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2462"}],"title":"3.98. Data Type: MethodologyAndTool"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2463"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#verificationprocessagreement"},
 "verifiedlink": {"dfnID":"verifiedlink","dfnText":"VerifiedLink","external":false,"refSections":[{"refs":[{"id":"ref-for-verifiedlink"},{"id":"ref-for-verifiedlink\u2460"}],"title":"3.3.2. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2461"}],"title":"3.7.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2462"}],"title":"3.12.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2463"}],"title":"3.31.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2464"}],"title":"3.39.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2465"}],"title":"3.40.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2466"}],"title":"3.44.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2467"}],"title":"3.45.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2468"}],"title":"3.55.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u24ea"}],"title":"3.56.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2460"}],"title":"3.57.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#verifiedlink"},
 "wholenumber": {"dfnID":"wholenumber","dfnText":"WholeNumber","external":false,"refSections":[{"refs":[{"id":"ref-for-wholenumber"}],"title":"3.35.1. Properties"},{"refs":[{"id":"ref-for-wholenumber\u2460"},{"id":"ref-for-wholenumber\u2461"}],"title":"3.36.1. Properties"}],"url":"#wholenumber"},
 };
@@ -11605,8 +11610,8 @@ let refsData = {
 "#degradable": {"displayText":"degradable","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"degradable","type":"dfn","url":"#degradable"},
 "#digitalsignature": {"displayText":"digitalsignature","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"digitalsignature","type":"dfn","url":"#digitalsignature"},
 "#durability": {"displayText":"durability","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"durability","type":"dfn","url":"#durability"},
-"#entityextension": {"displayText":"entityextension","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"entityextension","type":"dfn","url":"#entityextension"},
-"#entityextensiontemplate": {"displayText":"entityextensiontemplate","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"entityextensiontemplate","type":"dfn","url":"#entityextensiontemplate"},
+"#entity": {"displayText":"entity","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"entity","type":"dfn","url":"#entity"},
+"#entitytemplate": {"displayText":"entitytemplate","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"entitytemplate","type":"dfn","url":"#entitytemplate"},
 "#enumdef-addresstype": {"displayText":"AddressType","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"AddressType","type":"enum","url":"#enumdef-addresstype"},
 "#enumdef-attestationtype": {"displayText":"AttestationType","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"AttestationType","type":"enum","url":"#enumdef-attestationtype"},
 "#enumdef-auditschedule": {"displayText":"AuditSchedule","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"AuditSchedule","type":"enum","url":"#enumdef-auditschedule"},
@@ -11642,8 +11647,6 @@ let refsData = {
 "#enumdef-un-sdgs": {"displayText":"UN-SDGs","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"UN-SDGs","type":"enum","url":"#enumdef-un-sdgs"},
 "#enumdef-unit": {"displayText":"Unit","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"Unit","type":"enum","url":"#enumdef-unit"},
 "#enumdef-validationstepstatus": {"displayText":"ValidationStepStatus","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"ValidationStepStatus","type":"enum","url":"#enumdef-validationstepstatus"},
-"#extensionmessage": {"displayText":"extensionmessage","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"extensionmessage","type":"dfn","url":"#extensionmessage"},
-"#extensionmessagepair": {"displayText":"extensionmessagepair","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"extensionmessagepair","type":"dfn","url":"#extensionmessagepair"},
 "#extensionset": {"displayText":"extensionset","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"extensionset","type":"dfn","url":"#extensionset"},
 "#extensionsetmodule": {"displayText":"extensionsetmodule","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"extensionsetmodule","type":"dfn","url":"#extensionsetmodule"},
 "#formula": {"displayText":"formula","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"formula","type":"dfn","url":"#formula"},
@@ -11655,6 +11658,8 @@ let refsData = {
 "#iso3166cc": {"displayText":"iso3166cc","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"iso3166cc","type":"dfn","url":"#iso3166cc"},
 "#itmoid": {"displayText":"itmoid","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"itmoid","type":"dfn","url":"#itmoid"},
 "#manifest": {"displayText":"manifest","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"manifest","type":"dfn","url":"#manifest"},
+"#message": {"displayText":"message","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"message","type":"dfn","url":"#message"},
+"#messagepair": {"displayText":"messagepair","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"messagepair","type":"dfn","url":"#messagepair"},
 "#mitigationactivity": {"displayText":"mitigationactivity","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mitigationactivity","type":"dfn","url":"#mitigationactivity"},
 "#mrvrequirements": {"displayText":"mrvrequirements","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"mrvrequirements","type":"dfn","url":"#mrvrequirements"},
 "#pacompliance": {"displayText":"pacompliance","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v2.5","spec":"dmrv data-schema v2.5-1","status":"local","text":"pacompliance","type":"dfn","url":"#pacompliance"},

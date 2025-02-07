@@ -24,8 +24,8 @@ enum ExtensionContext{
     PROCESSED_CLAIM_GROUP = 13; //Processed Checkpoint Group context
 }
 
-//ExtensionMessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.
-message ExtensionMessagePair{
+//MessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.
+message MessagePair{
     string id = 1; //unique identifier for the extension message pair
     string name = 2; //name of the extension message pair
     string version = 3; //version of the extension message pair
@@ -36,7 +36,7 @@ message ExtensionMessagePair{
     AnyData response_definition = 8; //A response message definition, that provides details as to the type or kind of data that is expected in the response
 }
 
-message ExtensionMessageHeader{
+message MessageHeader{
     string id = 1; //unique identifier for the extension message
     enum MessageType{
         REQUEST = 0; //request message
@@ -50,9 +50,9 @@ message ExtensionMessageHeader{
     optional bool closed = 7; //if the conversation is closed
 }
 
-//Definition of ExtensionMessage instance, used to send a message definition from a message pair 
-message ExtensionMessage{
-    ExtensionMessageHeader header = 1; //the header of the message
+//Definition of Message instance, used to send a message definition from a message pair 
+message Message{
+    MessageHeader header = 1; //the header of the message
     AnyData message = 2; //the data of the extension message
 }
 
@@ -63,8 +63,8 @@ message AnyData{
     string value = 3; //if not a protobuf message, the serialized data
 }
 
-//The EntityExtensionTemplate is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
-message EntityExtensionTemplate{
+//The EntityTemplate is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
+message EntityTemplate{
     string id = 1; //unique identifier for the extension template
     string name = 2; //name of the extension
     string version = 3; //version of the extension template
@@ -75,8 +75,8 @@ message EntityExtensionTemplate{
     string data_example = 8; //example of a data instance, typically some form of json
 }
 
-//an instance of a EntityExtensionTemplate
-message EntityExtension{
+//an instance of a EntityTemplate
+message Entity{
     string id = 1; //the unique Id for the entity extension
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
@@ -93,7 +93,7 @@ message FormulaTemplate{
     string documentation = 5; //optional documentation url of the formula template
     string dataSchemaOrType = 6; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
     string data_example = 7; //example of a data instance, typically some form of json
-    VariableTemplates variable_templates = 8; //list of variables in the formula
+    repeated VariableTemplate variable_templates = 8; //list of variables in the formula
 }
 
 //an instance of a Formula
@@ -102,6 +102,8 @@ message Formula{
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
     string aim_id = 4; //OPTIONAL - depending on data layer implementation, Activity Impact Module id the formula instance belongs to
+    repeated Variable variables = 5; //list of variables in the formula
+    ExtensionContext extension_context = 6; //OPTIONAL - context where the extension applies, which entity id to map to.
 }
 
 //VariableTemplate is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
@@ -115,10 +117,6 @@ message VariableTemplate{
     string data_example = 7; //example of a data instance, typically some form of json
 }
 
-//list of VariableTemplates
-message VariableTemplates{
-    repeated VariableTemplate variable_templates = 1;
-}
 
 //an instance of a variable, variable instances should have at a minimum a value and a unit of measure
 message Variable{
@@ -129,11 +127,6 @@ message Variable{
     ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
 }
 
-//a list or collection ov variable instances
-message Variables{
-    repeated Variable variables = 1;
-}
-
 //a collection of extension templates used by a Quality Standard
 message ExtensionSet{
     string id = 1; //unique identifier for the extension set
@@ -142,8 +135,8 @@ message ExtensionSet{
     string description = 4; //description of the extension set
     string documentation = 5; //optional documentation url of the extension set
     repeated ExtensionSetModule modules = 6; //list of extension set modules
-    repeated EntityExtensionTemplate entity_extension_templates = 7; //list of extension templates in the set, these would apply to the entire set and not be scoped to a single module
-    repeated ExtensionMessagePair message_pairs = 8; //list of extension message pairs in the set, these would apply to the entire set and not be scoped to a single module
+    repeated EntityTemplate entity_templates = 7; //list of extension templates in the set, these would apply to the entire set and not be scoped to a single module
+    repeated MessagePair message_pairs = 8; //list of extension message pairs in the set, these would apply to the entire set and not be scoped to a single module
     repeated FormulaTemplate formula_templates = 9; //list of formula templates in the set, these would apply to the entire set and not be scoped to a single module
     repeated VariableTemplate variable_templates = 10; //list of variable templates in the set, these would apply to the entire set and not be scoped to a single module
 }
@@ -155,15 +148,14 @@ message ExtensionSetModule{
     string version = 3; //version of the extension set module
     string description = 4; //description of the extension set module
     string documentation = 5; //optional documentation url of the extension set module
-    repeated EntityExtensionTemplate entity_extension_templates = 6; //list of extension templates in the set
-    repeated ExtensionMessagePair message_pairs = 7; //list of extension message pairs in the set
+    repeated EntityTemplate entity_templates = 6; //list of extension templates in the set
+    repeated MessagePair message_pairs = 7; //list of extension message pairs in the set
     repeated FormulaTemplate formula_templates = 8; //list of formula templates in the set
     repeated VariableTemplate variable_templates = 9; //list of variable templates in the set
 }
 
-//a Data Package File global Entity Extension for the Data Package File and examples
-
-message DataPackageFileExtension{
+//a generic metadata extension that can be used to extend any message or entity
+message Metadata{
     message Property{
         string name = 1;
         string value = 2;
