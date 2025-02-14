@@ -451,10 +451,18 @@
             "nullable": true,
             "readOnly": true
           },
-          "formulas": {
+          "formulaTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Formula"
+              "$ref": "#/components/schemas/FormulaTemplate"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "fixedVariables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Variable"
             },
             "nullable": true,
             "readOnly": true
@@ -786,10 +794,10 @@
             "nullable": true,
             "readOnly": true
           },
-          "variables": {
+          "variableTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Variable"
+              "$ref": "#/components/schemas/VariableTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -1610,38 +1618,6 @@
         ],
         "type": "string"
       },
-      "Formula": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "templateId": {
-            "type": "string",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/AnyData"
-          },
-          "aimId": {
-            "type": "string",
-            "nullable": true
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Variable"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "extensionContext": {
-            "$ref": "#/components/schemas/ExtensionContext"
-          }
-        },
-        "additionalProperties": false
-      },
       "FormulaTemplate": {
         "type": "object",
         "properties": {
@@ -1654,6 +1630,10 @@
             "nullable": true
           },
           "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "formula": {
             "type": "string",
             "nullable": true
           },

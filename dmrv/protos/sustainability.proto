@@ -68,8 +68,9 @@ message ActivityImpactModule {
     }
     repeated Validation validations = 22; //in DRAFT, a collection of Validation workflow steps for a project
     repeated common.Attestation attestations = 23; //a collection of Attestation workflow steps for a project
-    repeated dmrv.Formula formulas = 24; //a list of MRV formulas that are associated with the project
-    AccountableImpactOrganization accountable_impact_organization = 25; //optional, for object navigation, the parent ecological project
+    repeated dmrv.FormulaTemplate formula_templates = 24; //a list of MRV formulas that are associated with the project
+    repeated dmrv.Variable fixed_variables = 25; //a list of fixed variables that are associated with the project, i.e., emission factors, etc.
+    AccountableImpactOrganization accountable_impact_organization = 26; //optional, for object navigation, the parent ecological project
 }
 
 /*
@@ -124,7 +125,7 @@ message ClaimSource
     common.ReportingFrequency reporting_frequency = 8; //the frequency that the claim source reports data.
     string source_identifier = 9; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
     repeated dmrv.Entity extensions = 10; //an optional list of MRV extensions that can be used for source configuration or other metadata.
-    repeated dmrv.Variable variables = 11; //a list of MRV variables that are associated with the claim source.
+    repeated dmrv.VariableTemplate variable_templates = 11; //a list of MRV variables that are associated with the claim source.
 }
 
 message ImpactClaim

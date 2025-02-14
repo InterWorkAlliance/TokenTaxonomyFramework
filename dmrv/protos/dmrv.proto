@@ -89,11 +89,12 @@ message FormulaTemplate{
     string id = 1; //unique identifier for the formula template
     string name = 2; //name of the formula
     string version = 3; //version of the formula template
-    string description = 4; //description of the formula template
-    string documentation = 5; //optional documentation url of the formula template
-    string dataSchemaOrType = 6; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
-    string data_example = 7; //example of a data instance, typically some form of json
-    repeated VariableTemplate variable_templates = 8; //list of variables in the formula
+    string formula = 4; //the formula expression
+    string description = 5; //description of the formula template
+    string documentation = 6; //optional documentation url of the formula template
+    string dataSchemaOrType = 7; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data_example = 8; //example of a data instance, typically some form of json
+    repeated VariableTemplate variable_templates = 9; //list of variables in the formula
 }
 
 //an instance of a Formula
