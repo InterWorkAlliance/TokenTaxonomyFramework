@@ -22,6 +22,10 @@ enum ExtensionContext{
     ACTIVITY_IMPACT_MODULE_GROUP = 11; //Activity Impact Module Group context
     IMPACT_CLAIM_GROUP = 12; //Impact Claim Group context
     PROCESSED_CLAIM_GROUP = 13; //Processed Checkpoint Group context
+    FORMULA_TEMPLATE = 14; //Formula Template context
+    FORMULA = 15; //Formula context
+    VARIABLE_TEMPLATE = 16; //Variable Template context
+    VARIABLE = 17; //Variable context
 }
 
 //MessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.

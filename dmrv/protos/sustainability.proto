@@ -219,7 +219,8 @@ message DataPackage{
         string project_developer_id = 6; //id of the project developer submitting the DataPackage
         common.DatePoint created = 7; //date the DataPackage was created
         repeated dmrv.Entity extensions = 8; //list of MRV extensions
-        repeated DataFile data_files = 9; //list of files in the DataPackage
+        repeated dmrv.Formula formulas = 9; //list of MRV formulas that are reporting in the DataPackage
+        repeated DataFile data_files = 10; //list of files in the DataPackage
     }
     Manifest manifest = 1; //manifest of the DataPackage
     common.VerifiedLink verified_link_to_data_package = 2; //a link to the checkpoint data package that is associated with the checkpoint.
