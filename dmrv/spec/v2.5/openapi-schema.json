@@ -1478,7 +1478,11 @@
           "VerificationProcessAgreement",
           "ActivityImpactModuleGroup",
           "ImpactClaimGroup",
-          "ProcessedClaimGroup"
+          "ProcessedClaimGroup",
+          "FormulaTemplate",
+          "Formula",
+          "VariableTemplate",
+          "Variable"
         ],
         "type": "string"
       },
@@ -1617,6 +1621,38 @@
           "DataOther"
         ],
         "type": "string"
+      },
+      "Formula": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "templateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AnyData"
+          },
+          "aimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Variable"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "extensionContext": {
+            "$ref": "#/components/schemas/ExtensionContext"
+          }
+        },
+        "additionalProperties": false
       },
       "FormulaTemplate": {
         "type": "object",
@@ -1849,6 +1885,10 @@
             "type": "string",
             "nullable": true
           },
+          "processedClaimId": {
+            "type": "string",
+            "nullable": true
+          },
           "projectDeveloperId": {
             "type": "string",
             "nullable": true
@@ -1860,6 +1900,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Entity"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Formula"
             },
             "nullable": true,
             "readOnly": true
