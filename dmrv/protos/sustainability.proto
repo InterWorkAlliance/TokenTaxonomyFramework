@@ -70,7 +70,7 @@ message ActivityImpactModule {
     repeated common.Attestation attestations = 23; //a collection of Attestation workflow steps for a project
     repeated dmrv.FormulaTemplate formula_templates = 24; //a list of MRV formulas that are associated with the project
     repeated dmrv.Variable fixed_variables = 25; //a list of fixed variables that are associated with the project, i.e., emission factors, etc.
-    AccountableImpactOrganization accountable_impact_organization = 26; //optional, for object navigation, the parent ecological project
+    AccountableImpactOrganization accountable_impact_organization = 26; //optional, for object navigation, the parent accountable impact organization
 }
 
 /*
@@ -139,7 +139,6 @@ message ImpactClaim
     common.Unit unit = 7; //unit of measure for the quantity
     string quantity = 8; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
     repeated common.CoBenefit co_benefits = 9; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
-    //a claim source is registered as a valid source for claim data, either raw source data or reference.
     repeated ImpactClaimCheckpoint checkpoints = 10; //a list of checkpoints that are associated with the claim.
     repeated dmrv.Entity extensions = 11; //a list of MRV extensions that are associated with the claim.
     ActivityImpactModule activity_impact_module = 12; //optional, for object navigation, the parent activity impact module
@@ -224,7 +223,7 @@ message DataPackage{
         repeated DataFile data_files = 11; //list of files in the DataPackage
     }
     Manifest manifest = 1; //manifest of the DataPackage
-    common.VerifiedLink verified_link_to_data_package = 2; //a link to the checkpoint data package that is associated with the checkpoint.
+    common.VerifiedLink verified_link_to_data_package = 2; //a link to the data package that is associated with the checkpoint or checkpoint_result.
 }
 
 
@@ -233,6 +232,7 @@ message Degradable{
     int32 factor = 2; //25 = .25 per year if linear or exponential starts at 25% of durability years.
     common.DegradationType degradation_type = 3; //does the sequestration degrade over time?
 }
+
 message ReversalMitigation{
     common.ReversalRisk reversal_risk = 1;
     common.DurabilityInsuranceType insurance_type = 2;
@@ -284,7 +284,7 @@ message CRU
         string metadata = 3; //metadata about the referenced credit, json serialized as a string
     }
     repeated ReferencedCru referenced_credits = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string applied_to_id = 10; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
+    string applied_to_reporting_period_id = 10; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
     string processed_claim_id = 11; //link to the processed claim id
     string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
     ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token.
@@ -313,7 +313,7 @@ message REC
         string metadata = 3; //metadata about the referenced credit, json serialized as a string
     }
     repeated ReferencedRec referenced_recs = 10; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string applied_to_id = 11; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
+    string applied_to_reporting_period_id = 11; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
     string processed_claim_id = 12; //link to the processed claim id
     string issuer_id = 13; //the account that is the issuer, recorded at issue/mint.
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
@@ -379,7 +379,7 @@ message VerificationProcessAgreement{
     common.Date agreement_date = 9; //start date of the agreement
     string estimated_annual_credits = 10; //estimated annual credits that will be issued under the agreement
     message Audits{
-        common.Date audit_date = 2; //date of the audit
+        common.Date last_audit_date = 2; //date of the last audit
         repeated common.VerifiedLink audit_reports = 3; //list of audit reports
     }
     common.AuditSchedule audit_schedule = 11; //schedule of audits

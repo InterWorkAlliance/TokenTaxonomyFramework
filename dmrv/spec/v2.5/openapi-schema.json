@@ -592,7 +592,7 @@
       "Audits": {
         "type": "object",
         "properties": {
-          "auditDate": {
+          "lastAuditDate": {
             "$ref": "#/components/schemas/Date"
           },
           "auditReports": {
@@ -673,7 +673,7 @@
             "nullable": true,
             "readOnly": true
           },
-          "appliedToId": {
+          "appliedToReportingPeriodId": {
             "type": "string",
             "nullable": true
           },
@@ -1416,7 +1416,7 @@
           "data": {
             "$ref": "#/components/schemas/AnyData"
           },
-          "entityId": {
+          "appliedToId": {
             "type": "string",
             "nullable": true
           },
@@ -1606,6 +1606,9 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "parentSet": {
+            "$ref": "#/components/schemas/ExtensionSet"
           }
         },
         "additionalProperties": false
@@ -2739,7 +2742,7 @@
             "nullable": true,
             "readOnly": true
           },
-          "appliedToId": {
+          "appliedToReportingPeriodId": {
             "type": "string",
             "nullable": true
           },
@@ -3130,7 +3133,7 @@
           "data": {
             "$ref": "#/components/schemas/AnyData"
           },
-          "entityId": {
+          "appliedToId": {
             "type": "string",
             "nullable": true
           },

@@ -8,7 +8,7 @@
     "assetId": "snei219123-998sdfl-sad21-1-1.41",
     "issuanceDate": {
       "dateTime": "",
-      "dateString": "2/7/2025"
+      "dateString": "3/20/2025"
     },
     "vintage": "2018",
     "generationType": "Generated",
@@ -84,7 +84,7 @@
       "metadata": "serialized json data"
     }
   ],
-  "appliedToId": "",
+  "appliedToReportingPeriodId": "",
   "processedClaimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
   "processedClaim": {
@@ -110,7 +110,7 @@
         "id": "",
         "templateId": "",
         "data": null,
-        "entityId": "",
+        "appliedToId": "",
         "extensionContext": "UnknownContext"
       }
     ],
@@ -126,30 +126,32 @@
               "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
               "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
               "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+              "processedClaimId": "",
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "02/07/2025 16:27:58",
-                  "dateString": "2/7/2025"
+                  "dateTime": "03/20/2025 17:22:43",
+                  "dateString": "3/20/2025"
                 },
                 "timeStamp": {
-                  "seconds": 1738945678,
-                  "nanos": 252996000
+                  "seconds": 1742491363,
+                  "nanos": 861642000
                 }
               },
               "extensions": [
                 {
-                  "id": "8d870c20-8023-4817-b4aa-b972d1125ed7",
-                  "templateId": "9ea230f6-58c6-4a46-99b4-0774d3ecce27",
+                  "id": "7662b2b6-e889-49c5-956f-575bcbd9960a",
+                  "templateId": "2fb3c5ea-6243-4560-83f3-30365f8c3ac9",
                   "data": {
                     "protoData": null,
                     "dataType": "",
                     "value": ""
                   },
-                  "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                  "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
                   "extensionContext": "DataPackageManifest"
                 }
               ],
+              "formulas": [],
               "dataFiles": [
                 {
                   "name": "Data from sensor",
@@ -159,14 +161,14 @@
                   "claimSourceAttestation": "digital_signature",
                   "extensions": [
                     {
-                      "id": "f6522ff5-2863-4f76-8794-b2a1631f92d5",
-                      "templateId": "22f113c2-5419-4344-a7aa-a1f9bed907eb",
+                      "id": "41614623-8843-4bc0-8e92-6d681920543c",
+                      "templateId": "a1707f69-6bdf-45d7-9f89-4475c4828633",
                       "data": {
                         "protoData": null,
                         "dataType": "",
                         "value": ""
                       },
-                      "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                      "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
                       "extensionContext": "DataFile"
                     }
                   ]
@@ -193,7 +195,7 @@
             "id": "",
             "templateId": "",
             "data": null,
-            "entityId": "",
+            "appliedToId": "",
             "extensionContext": "UnknownContext"
           }
         ]
@@ -294,7 +296,7 @@
         "claimPeriod": "Annual",
         "extensionSetId": "",
         "extensionSet": {
-          "id": "0156f13b-c71d-409f-9909-486545d438ea",
+          "id": "d2935622-fd03-4b31-a8d4-7bd876d607f9",
           "name": "",
           "version": "",
           "description": "Extension Set for VerificationProcessAgreement",
@@ -320,12 +322,13 @@
               ],
               "messagePairs": [],
               "formulaTemplates": [],
-              "variableTemplates": []
+              "variableTemplates": [],
+              "parentSet": null
             }
           ],
           "entityTemplates": [
             {
-              "id": "878521a9-4afc-4688-9420-f1a1752af30e",
+              "id": "27259534-8f7c-455a-9e6d-c97ebda6077a",
               "name": "Claim Source Make and Model",
               "version": "",
               "description": "An example entity extension for a Claim Source",
@@ -337,7 +340,7 @@
           ],
           "messagePairs": [
             {
-              "id": "b5f82b46-bc7a-40d0-a9b8-763b102b2815",
+              "id": "8484df1c-30d2-43e4-b597-fdba979ca45e",
               "name": "Calibrate Sensor",
               "version": "",
               "description": "Sample request response message pair",
@@ -357,9 +360,10 @@
           ],
           "formulaTemplates": [
             {
-              "id": "3125a44d-40bc-4b8f-afc1-ed048bb7c04a",
+              "id": "90a825b5-d2b1-41b5-ad06-a3ca099bd02e",
               "name": "Carbon Removal Formula",
               "version": "1.0.0",
+              "formula": "",
               "description": "An example formula template for a Activity Impact Module",
               "documentation": "",
               "dataSchemaOrType": "CDRFormula",
@@ -369,7 +373,7 @@
           ],
           "variableTemplates": [
             {
-              "id": "139ff2fc-1308-4d42-bcf1-38f67833df5e",
+              "id": "49bc2d54-b46d-433c-9c9f-458d435f8d88",
               "name": "Carbon Removal Variable",
               "version": "1.0.0",
               "description": "An example variable template for a Activity Impact Module",
@@ -382,14 +386,14 @@
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "2/7/2025"
+        "dateString": "3/20/2025"
       },
       "estimatedAnnualCredits": "15,000",
       "auditSchedule": "Quinquennial",
       "audits": {
-        "auditDate": {
+        "lastAuditDate": {
           "dateTime": "",
-          "dateString": "2/7/2025"
+          "dateString": "3/20/2025"
         },
         "auditReports": [
           {
@@ -438,21 +442,21 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "2/7/2025"
+                "dateString": "3/20/2025"
               },
               "timeStamp": {
-                "seconds": 1738945678,
-                "nanos": 255673000
+                "seconds": 1742491363,
+                "nanos": 865435000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "2/7/2025"
+                "dateString": "3/20/2025"
               },
               "timeStamp": {
-                "seconds": 1738945678,
-                "nanos": 255714000
+                "seconds": 1742491363,
+                "nanos": 865511000
               }
             }
           },
@@ -465,30 +469,32 @@
                 "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
                 "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
                 "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+                "processedClaimId": "",
                 "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
                 "created": {
                   "date": {
-                    "dateTime": "02/07/2025 16:27:58",
-                    "dateString": "2/7/2025"
+                    "dateTime": "03/20/2025 17:22:43",
+                    "dateString": "3/20/2025"
                   },
                   "timeStamp": {
-                    "seconds": 1738945678,
-                    "nanos": 255887000
+                    "seconds": 1742491363,
+                    "nanos": 865796000
                   }
                 },
                 "extensions": [
                   {
-                    "id": "ec303d66-bbc4-468e-bf77-6d50378c6ab0",
-                    "templateId": "0359ebf4-fa42-4721-a505-614c97da7a9a",
+                    "id": "8500c9b9-b26d-4b05-b6fb-502171944b79",
+                    "templateId": "2595f01a-9f01-44a9-9552-d611264d06f6",
                     "data": {
                       "protoData": null,
                       "dataType": "",
                       "value": ""
                     },
-                    "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                    "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
                     "extensionContext": "DataPackageManifest"
                   }
                 ],
+                "formulas": [],
                 "dataFiles": [
                   {
                     "name": "Data from sensor",
@@ -498,14 +504,14 @@
                     "claimSourceAttestation": "digital_signature",
                     "extensions": [
                       {
-                        "id": "2667e8e9-b1ea-4b6d-817c-46cd63c69f0a",
-                        "templateId": "c8288b37-7535-41c5-808a-aea8001bc269",
+                        "id": "16b1a26d-293c-40d1-9ec6-6742aea6ecaf",
+                        "templateId": "8171202d-9972-4550-aaef-98d72dbe26ac",
                         "data": {
                           "protoData": null,
                           "dataType": "",
                           "value": ""
                         },
-                        "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                        "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
                         "extensionContext": "DataFile"
                       }
                     ]
@@ -528,7 +534,7 @@
           "id": "",
           "templateId": "",
           "data": null,
-          "entityId": "",
+          "appliedToId": "",
           "extensionContext": "UnknownContext"
         }
       ],
@@ -578,18 +584,18 @@
             "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
             "extensions": [
               {
-                "id": "94290cbb-c03c-4dfe-978c-a4533a7a5bc7",
-                "templateId": "51af988e-88a6-46dd-8bd6-e675dc2fad35",
+                "id": "bdd7c465-6034-4bd4-8869-fc169ec1991a",
+                "templateId": "d2af892f-a2ac-42ba-bb5d-b017a677e33e",
                 "data": {
                   "protoData": null,
                   "dataType": "",
                   "value": ""
                 },
-                "entityId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+                "appliedToId": "147e7105-2333-4f5f-847c-6c984e5220dd",
                 "extensionContext": "ClaimSource"
               }
             ],
-            "variables": []
+            "variableTemplates": []
           }
         ],
         "impactClaims": [
@@ -610,24 +616,24 @@
         ],
         "extensions": [
           {
-            "id": "650a3b8d-4b01-4a7e-b22d-3c743cc1b035",
-            "templateId": "4e1a1375-505b-4ea8-83de-fffca6bd5a6a",
+            "id": "0e23197e-3b0a-4f2b-a237-1a35ad865759",
+            "templateId": "610dce02-b3b1-4cf5-88cc-ea7d66279c5e",
             "data": {
               "protoData": null,
               "dataType": "",
               "value": ""
             },
-            "entityId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+            "appliedToId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
             "extensionContext": "ActivityImpactModule"
           }
         ],
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "2/7/2025",
+            "validationDate": "3/20/2025",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "2/7/2025",
+            "validationExpirationDate": "3/20/2025",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",
@@ -645,7 +651,8 @@
           }
         ],
         "attestations": [],
-        "formulas": [],
+        "formulaTemplates": [],
+        "fixedVariables": [],
         "accountableImpactOrganization": {
           "id": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
           "name": "Eco-Earth Forest Growth",
