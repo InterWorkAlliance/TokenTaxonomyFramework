@@ -19,18 +19,18 @@ message AccountableImpactOrganization{
     repeated common.VerifiedLink media_links = 9; //Links to media that can be used for promotional materials about the organization
     repeated common.Attestation attestations = 10; //a collection of Attestation workflow steps for a project
     repeated ActivityImpactModule activity_impact_modules = 11; //list of activity impact modules
-    repeated dmrv.Entity extensions = 12; //list of MRV extensions for the organization
+    repeated dmrv.EntityExtension extensions = 12; //list of MRV extensions for the organization
 }
 
 //Can represent a single Project or a Module of a Project, if a project contains multiple AIMs, these can be correlated by the correlating_project_id.
 message ActivityImpactModule {
     string id = 1; //unique identifier for the activity impact project or module
     string aio_id = 2; //identifier for the parent organization
-    bool is_grouped = 3; //if true, this AIM is a part of at least one ActivityImpactModuleGroup. It can be a member of multiple groups, for example, if the project provides captured CO2 to multiple storage facilities.
+    bool is_grouped = 3; //if true, this AIM is a part of at least one multi-module Verification Process Agreement. It can be a member of multiple agreements, for example, if the project provides captured CO2 to multiple storage facilities.
     string name = 4; //descriptive name for the project
     common.ClassificationCategory classification_category = 5; //classification category for the project
     common.Method classification_method = 6; //classification method for the project
-    common.BenefitCategory benefit_category = 7; //ecological benefit category for the project
+    common.CoBenefit benefit_category = 7; //ecological benefit category for the project
     common.ProjectScope project_scope = 8; //scope of the project
     common.ProjectType project_type = 9; //type of the project
     common.ProjectScale project_scale = 10; //size of the project, small, medium, large
@@ -44,7 +44,7 @@ message ActivityImpactModule {
     repeated string sponsors = 18; //list of sponsors of the project, i.e., financial backers
     repeated ClaimSource claim_sources = 19; //a list of claim sources that can be used for claims from this activity impact module.
     repeated ImpactClaim impact_claims  = 20; //list of ecological claims for the project
-    repeated dmrv.Entity extensions = 21; //list of MRV extensions for the module
+    repeated dmrv.EntityExtension extensions = 21; //list of MRV extensions for the module
     //DRAFT
     message ValidationStep{
         string validation_step_name = 1; //name of the validation step as defined by the validation method
@@ -68,40 +68,21 @@ message ActivityImpactModule {
     }
     repeated Validation validations = 22; //in DRAFT, a collection of Validation workflow steps for a project
     repeated common.Attestation attestations = 23; //a collection of Attestation workflow steps for a project
-    repeated dmrv.FormulaTemplate formula_templates = 24; //a list of MRV formulas that are associated with the project
-    repeated dmrv.Variable fixed_variables = 25; //a list of fixed variables that are associated with the project, i.e., emission factors, etc.
-    AccountableImpactOrganization accountable_impact_organization = 26; //optional, for object navigation, the parent accountable impact organization
-}
-
-/*
-The ActivityImpactModuleGroup is a group of Activity Impact Modules that are grouped together in order to combine claims from multiple project, potentially from different organizations, into a single claim.
-A carbon credit may require several different modules and claims to be combined to create a single credit, the AIMs would be grouped together in an ActivityImpactGroup, even accross different organizations.
-
-For example, Carbon Capture and Storage (CCS) may require a project developer to capture CO2 from a plant, then hand it off to a different organization to transport the CO2 to a storage facility,
- then a third organization to store the CO2.  Each of these organizations would have their own AIM and claim, but only one credit will be issued for the combined claims. The AIMs would be grouped together in an ActivityImpactGroup,
- their claims would be combined into an ImpactClaimGroup and the VVB will group the verification into a ProcessedClaimGroup for a single credit to be issued for the group.
-*/
-message ActivityImpactModuleGroup
-{
-    string id = 1; //unique id for the group
-    repeated string aim_ids = 2; //list of AIM ids that are associated with the group
-    string name = 3; //the name of the group
-    string description = 4; //a description of the group
-    repeated dmrv.Entity extensions = 5; //a list of MRV extensions that are associated with the group
-    repeated ActivityImpactModule activity_impact_modules = 6; //for model navigation, the collection of child activity impact modules
-    repeated ClaimGroup claim_groups = 7; //for model navigation, the collection of child claim groups
+    repeated dmrv.Variable fixed_variables = 24; //a list of fixed variables that are associated with the project, i.e., emission factors, etc.
+    AccountableImpactOrganization accountable_impact_organization = 25; //optional, for object navigation, the parent accountable impact organization
 }
 
 //A ClaimGroup is a group of Impact and Processed Claim pairs that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for processing.
 message ClaimGroup
 {
     string id = 1; //unique id for the group
-    string activity_impact_module_group_id = 2; //the id of the ActivityImpactModuleGroup that the claim group is associated with.
+    string verification_process_agreement_id = 2; //the id of the Verification Process Agreement that the claim group is associated with.
     string name = 3; //the name of the group
     string description = 4; //a description of the group
-    repeated dmrv.Entity extensions = 5; //a list of MRV extensions that are associated with the group
-    repeated ImpactClaim impact_claims = 6; //for model navigation, the collection of child impact claims
-    repeated ProcessedClaim processed_claims = 7; //for model navigation, the collection of child processed claims
+    repeated dmrv.EntityExtension extensions = 5; //a list of MRV extensions that are associated with the group
+    repeated dmrv.Formula formulas = 6; //a list of MRV formulas that are associated with the group
+    repeated ImpactClaim impact_claims = 7; //for model navigation, the collection of child impact claims
+    repeated ProcessedClaim processed_claims = 8; //for model navigation, the collection of child processed claims
 }
 
 //A ClaimSource is a source of claim data that is registered with an AIM.  The claim source can be a sensor device, an application running on a device, or a reference source like a satellite or remote sensing data.
@@ -121,10 +102,10 @@ message ClaimSource
         OTHER = 4; //Other source type.
     }
     ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
-    common.Unit unit_of_measure = 7; //the unit of measure for the claim data.
+    common.UnitOfMeasure unit_of_measure = 7; //the unit of measure for the claim data.
     common.ReportingFrequency reporting_frequency = 8; //the frequency that the claim source reports data.
     string source_identifier = 9; //this can be a unique identifier for a device, a serial number, public key, or for a application/user can be the appId and UserId, for reference data it can be the URI for the reference source.
-    repeated dmrv.Entity extensions = 10; //an optional list of MRV extensions that can be used for source configuration or other metadata.
+    repeated dmrv.EntityExtension extensions = 10; //an optional list of MRV extensions that can be used for source configuration or other metadata.
     repeated dmrv.VariableTemplate variable_templates = 11; //a list of MRV variables that are associated with the claim source.
 }
 
@@ -136,12 +117,13 @@ message ImpactClaim
     string claim_group_id = 4; //the id of the ClaimGroup that the claim is associated with, will be null if not part of a group.
     string start_date = 5; //the start date of the claim, yyyy-mm-dd
     string end_date = 6; //the end date of the claim, yyyy-mm-dd
-    common.Unit unit = 7; //unit of measure for the quantity
+    common.UnitOfMeasure unit_of_measure = 7; //unit of measure for the quantity
     string quantity = 8; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
     repeated common.CoBenefit co_benefits = 9; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
-    repeated ImpactClaimCheckpoint checkpoints = 10; //a list of checkpoints that are associated with the claim.
-    repeated dmrv.Entity extensions = 11; //a list of MRV extensions that are associated with the claim.
-    ActivityImpactModule activity_impact_module = 12; //optional, for object navigation, the parent activity impact module
+    repeated dmrv.Formula formulas = 10; //a list of MRV formulas that are associated with the claim.
+    repeated ImpactClaimCheckpoint checkpoints = 11; //a list of checkpoints that are associated with the claim.
+    repeated dmrv.EntityExtension extensions = 12; //a list of MRV extensions that are associated with the claim.
+    ActivityImpactModule activity_impact_module = 13; //optional, for object navigation, the parent activity impact module
 }
 
 
@@ -153,10 +135,11 @@ message ProcessedClaim
     string impact_claim_id = 3; //the ID for the Ecological Claim being processed, will be null or missing if the implementation allows for the Id to be the same as the Impact Claim Id.
     string claim_group_id = 4; //the id of the ProcessedClaimGroup that the claim is associated with, will be null if not part of a group.
     string credit_id = 5; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
-    common.Unit unit = 6; //unit of measure for the quantity
+    common.UnitOfMeasure unit_of_measure = 6; //unit of measure for the quantity
     string quantity = 7; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
     repeated common.CoBenefit co_benefits = 8; //list of co-benefits for the claim
-    repeated dmrv.Entity extensions = 9; //a list of MRV extensions that are associated with the claim.
+    repeated dmrv.EntityExtension extensions = 9; //a list of MRV extensions that are associated with the claim.
+    repeated dmrv.Formula formulas = 10; //a list of MRV formulas that are associated with the claim.
     //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
     message CheckpointResult{
         string id = 1; //the id for the processed checkpoint
@@ -165,13 +148,13 @@ message ProcessedClaim
         common.DateRange date_range = 4; //Date range for the checkpoints processed
         string ef_before = 5; //verified environmental factor before project activities 
         string ef_after = 6; //verified environmental factor after project activities
-        repeated dmrv.Entity extensions = 7; //a list of MRV extensions that are associated with the claim.
+        repeated dmrv.EntityExtension extensions = 7; //a list of MRV extensions that are associated with the claim.
     }
-    repeated CheckpointResult checkpoint_results = 10; //summary and verified links for the the claim's checkpoint verification results.
-    google.protobuf.Any issuance_request = 11; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.  This allows the processed claim to be used as the source for any type of asset or credit.
-    VerificationProcessAgreement verification_process_agreement = 12; //optional, for object navigation - the verification process agreement used to verify the claim
-    ImpactClaim impact_claim = 13; //optional, for object navigation - the ecological claim being processed
-    google.protobuf.Any asset = 14; //optional, for object navigation, the asset that is issued for the processed claim.
+    repeated CheckpointResult checkpoint_results = 11; //summary and verified links for the the claim's checkpoint verification results.
+    google.protobuf.Any issuance_request = 12; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.  This allows the processed claim to be used as the source for any type of asset or credit.
+    VerificationProcessAgreement verification_process_agreement = 13; //optional, for object navigation - the verification process agreement used to verify the claim
+    ImpactClaim impact_claim = 14; //optional, for object navigation - the ecological claim being processed
+    google.protobuf.Any asset = 15; //optional, for object navigation, the asset that is issued for the processed claim.
 }
 
 message ImpactClaimCheckpoint
@@ -183,8 +166,10 @@ message ImpactClaimCheckpoint
     string ef_before = 5; //environmental factor before activity - i.e., total emissions = 3 tCO2e
     string ef_after = 6; //environmental factor after activity - i.e., total emissions = 2 tCO2e (for a 1 tonne reduction.)
     common.DateRange checkpoint_date_range = 7; //the date range that the checkpoint covers within the claim period.
-    repeated dmrv.Entity extensions = 8; //list of MRV extensions for the checkpoint
-    repeated DataPackage data_packages = 9; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
+    repeated dmrv.EntityExtension extensions = 8; //list of MRV extensions for the checkpoint
+    repeated dmrv.Variable variables = 9; //list of MRV variables that are associated with the checkpoint
+    repeated DataFile data_files = 10; //list of files that are associated with the checkpoint
+    repeated DataPackage data_packages = 11; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
 }
 
 // DataFile is file metadata for a file that is part of a DataPackage.  The DataFile is a file that is part of a DataPackage and is used to submit evidence data from registered claim sources in a claim checkpoint.
@@ -204,7 +189,7 @@ message DataFile{
     string description = 3; //description of the file
     string claim_source_id = 4; //the claim source id, registered with the AIM, for the file
     string claim_source_attestation = 5; //claim source attestation or signature for the file
-    repeated dmrv.Entity extensions = 6; //dmrv extensions for the file
+    repeated dmrv.EntityExtension extensions = 6; //dmrv extensions for the file
 }
 
 // Data Package, is a compression file/package, i.e., zip file, that contains a manifest.json file in the root that serves as a table of contents for the package. The DataPackage is a container that is used to submit 'evidence' data from registered claim sources in a claim checkpoint.
@@ -218,7 +203,7 @@ message DataPackage{
         string processed_claim_id = 6; //id of the processed claim
         string project_developer_id = 7; //id of the project developer submitting the DataPackage
         common.DatePoint created = 8; //date the DataPackage was created
-        repeated dmrv.Entity extensions = 9; //list of MRV extensions
+        repeated dmrv.EntityExtension extensions = 9; //list of MRV extensions
         repeated dmrv.Formula formulas = 10; //list of MRV formulas that are reporting in the DataPackage
         repeated DataFile data_files = 11; //list of files in the DataPackage
     }
@@ -233,19 +218,16 @@ message Degradable{
     common.DegradationType degradation_type = 3; //does the sequestration degrade over time?
 }
 
-message ReversalMitigation{
-    common.ReversalRisk reversal_risk = 1;
-    common.DurabilityInsuranceType insurance_type = 2;
-    common.InsurancePolicyOwner insurance_policy_owner = 3;
-    common.VerifiedLink insurance_policy_link = 4; //optional link to the insurance policy/product
-}
 
 message Durability
 {
     common.Storage storage_type = 1;
     int32 years = 2; //The term in years of how long the CO2 will be removed from the atmosphere, compared with the risk of CO2 reversion to the atmosphere before that term elapses.
-    Degradable degradable = 3;
-    ReversalMitigation reversal_mitigation = 4; //for removals, the risk of reversal needs to be defined and a mitigation strategy should be identified
+    Degradable degradable = 3; //optional, if the sequestration is degradable, this is the percentage of the sequestration that is expected to be released over time.
+    common.ReversalRisk reversal_risk = 4;
+    common.DurabilityInsuranceType insurance_type = 5;
+    common.InsurancePolicyOwner insurance_policy_owner = 6;
+    common.VerifiedLink insurance_policy_link = 7; //optional link to the insurance policy/product
 }
 
 message Replacement{
@@ -259,7 +241,7 @@ message CRU
 {
     string id = 1; //unique id for the token
     string quantity = 2; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity.
-    common.Unit unit = 3; //unit of measure for the quantity
+    common.UnitOfMeasure unit_of_measure = 3; //unit of measure for the quantity
     string owner_id = 4; //the unique id of the owner of the token         
     string listing_agent_id = 5; //AuthorizedId
     message CoreCarbonPrinciples{ 
@@ -302,7 +284,7 @@ message REC
     REC_Type rec_type = 2; //the type of REC
     string valid_jurisdiction = 3; //optional jurisdiction where of the REC can be redeemed, i.e. US-Texas, multiples separated by a comma.
     string quantity = 4; //fractional to represent up to 8 decimal places, use a string or decimal for the quantity, typically in MWh.
-    common.Unit unit = 5; //unit of measure for the quantity
+    common.UnitOfMeasure unit_of_measure = 5; //unit of measure for the quantity
     string owner_id = 6; //the unique id of the owner of the token         
     string listing_agent_id = 7; //AuthorizedId
     repeated common.ClimateLabel climate_labels = 8; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
@@ -319,6 +301,25 @@ message REC
     ProcessedClaim processed_claim = 14; //optional, for object navigation - the processed claim that was used to issue the token
 }
 
+/*
+Project Modules are used to represent the Activity Impact Modules associated with a Verification Process Agreement that are grouped together in order to combine claims from multiple project, potentially from different organizations, into a single claim.
+A carbon credit may require several different modules and claims to be combined to create a single credit, the AIMs would be grouped together in an VerificationProcessAgreement, even accross different organizations.
+
+For example, Carbon Capture and Storage (CCS) may require a project developer to capture CO2 from a plant, then hand it off to a different organization to transport the CO2 to a storage facility,
+ then a third organization to store the CO2.  Each of these organizations would have their own AIM and claim, but only one credit will be issued for the combined claims. 
+ Claims made under multi-module VPAs have their claims grouped, both impact and processed claims, so that the claims can be processed and issued against together.
+*/
+message ProjectModule{
+    string aim_id = 1; //the id of the activity impact module that the project module is associated with
+    string description = 2; //description of the project module, i.e., the Capture Module, Transport Module, Storage Module, etc.
+    //ExtensionSetModule is the id of the extension set module that the project module is associated with. It is not limited to the module, but can also use extension in the parent ExtensionSet.
+    string extension_set_id = 3; //the id of the extension set that the project module is associated with
+    string extension_set_module_id = 4; //the id of the extension set module that the project module is associated with
+    string vvb_id = 5; //the id of the VVB that is associated with the project module
+    string verification_platform_id = 6; //the id of the verification platform that is associated with the project module
+}
+
+
 //Define the required properties that a verification process agreement between a activity impact module, Verifier and Issuing Registry should have.
 message VerificationProcessAgreement{
     string id = 1; //unique identifier
@@ -332,16 +333,15 @@ message VerificationProcessAgreement{
             ISSUING_REGISTRY = 0;
             VALIDATION_AND_VERIFICATION_BODY = 1;
             PROJECT_OWNER = 2;
-            VERIFICATION_PLATFORM_PROVIDER = 3;
+            VERIFICATION_PLATFORM = 3;
             ACCOUNTABLE_IMPACT_ORGANIZATION = 4;
-            ACTIVITY_IMPACT_MODULE = 5;
+            PROJECT_DEVELOPER = 5;
+            PROJECT_SPONSOR = 6;
         }
         SignatoryRole signatory_role = 4; //role of the signatory
-        string vvb_id_for_aim = 5; //OPTIONAL: the the id of the VVB/verifier that is associated with the AIM, if there is a AIM group with multiple VVBs for different AIMs, this will be needed to map the VVB to the AIM.
-        common.DigitalSignature signature = 6; //digital signature of the signatory
+        common.DigitalSignature signature = 5; //digital signature of the signatory
     }
-    bool is_aim_group = 4; //if true, this agreement is for a AIM group, if false, it is for a single AIM
-    string aim_or_aim_group_id = 5; //the id of the AIM or AIM group that the agreement is associated with, if there is no group, this will be null.
+    repeated ProjectModule project_modules = 4; //list of project modules that are associated with the agreement
     repeated Signatory signatories = 6; //list of signatories to the agreement, by id
     message QualityStandard{
         string name = 1; //name of the standard
@@ -384,7 +384,7 @@ message VerificationProcessAgreement{
     }
     common.AuditSchedule audit_schedule = 11; //schedule of audits
     Audits audits = 12; //list of audits that have been performed under the agreement
-    repeated dmrv.Entity extensions = 13; //list of MRV extensions for the agreement
+    repeated dmrv.EntityExtension extensions = 13; //list of MRV extensions for the agreement
     ActivityImpactModule activity_impact_module = 14; //optional, for object navigation, the activity impact module that is being verified
     repeated ProcessedClaim processed_claims = 15; //optional, for object navigation, the processed claims that have been processed under the agreement
 }

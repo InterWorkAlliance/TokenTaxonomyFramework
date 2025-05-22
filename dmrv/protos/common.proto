@@ -83,11 +83,14 @@ enum ClassificationCategory{
     CARBON_REDUCTION = 1; //carbon reduction
     CARBON_REMOVAL = 2; //carbon removal
     WATER = 3; //water
+    BIODIVERSITY = 4; //biodiversity
+    RENEWABLE_SOLAR = 5; //solar
+    RENEWABLE_WIND = 6; //wind
     UNDEFINED = 50; //undefined
 }
 
 //not complete based on UN SDGs
-enum BenefitCategory {
+enum CoBenefit {
     NO_CATEGORY = 0;
     NO_POVERTY = 1;
     ZERO_HUNGER = 2;
@@ -210,10 +213,6 @@ message GeographicLocation{
     VerifiedLink geographic_location_file = 4; //link to a file containing geojson, kml or other geographic area data
 }
 
-message CoBenefit {
-    BenefitCategory un_sdg = 1; //high-level categories that map to the UN Sustainable Development Goals.
-    string description = 2; //description of the co-benefit and how it applies to the project or activity.
-}
 
 enum MeasurementSpecification{
     ISO_14064 = 0; //The activity claim is based on the ISO 14064 standard.
@@ -279,9 +278,10 @@ enum ReportingFrequency{
     WEEKLY = 4; //weekly reporting
     SUB_MONTHLY = 5; //sub-monthly reporting
     MONTHLY = 6; //monthly reporting
+    ONCE_PER_CLAIM = 7; //once per claim reporting
 }
 
-enum Unit{
+enum UnitOfMeasure{
     TONNE_CO2E = 0;
     TONNE_CO2 = 1;
     TONNE_CH4 = 2;

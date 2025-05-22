@@ -38,7 +38,7 @@
     {
       "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
       "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
-      "correlatingProjectId": "",
+      "isGrouped": false,
       "name": "Forest Plot 3341",
       "classificationCategory": "CarbonRemoval",
       "classificationMethod": "Natural",
@@ -77,24 +77,23 @@
           },
           "sourceType": "SensorDevice",
           "unitOfMeasure": "TonneCo2E",
+          "reportingFrequency": "SubHourly",
           "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
           "extensions": [
             {
-              "id": "",
-              "name": "",
-              "version": "",
-              "description": "",
-              "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
-              "mrvExtensionContext": "ClaimSource",
-              "properties": [],
-              "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
-              "data": null,
-              "serializedData": {
-                "type": "",
-                "value": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
-              }
+              "id": "aeaf130e-11d5-4909-87a1-e2614279559a",
+              "templateId": "f0424513-8978-43b0-9a62-f462bd83e338",
+              "data": {
+                "protoData": null,
+                "dataType": "",
+                "value": ""
+              },
+              "appliedToId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+              "extensionContext": "ClaimSource",
+              "template": null
             }
-          ]
+          ],
+          "variableTemplates": []
         }
       ],
       "impactClaims": [
@@ -102,11 +101,13 @@
           "id": "",
           "aimId": "",
           "processedClaimId": "",
+          "claimGroupId": "",
           "startDate": "",
           "endDate": "",
-          "unit": "TonneCo2E",
+          "unitOfMeasure": "TonneCo2E",
           "quantity": "",
           "coBenefits": [],
+          "formulas": [],
           "checkpoints": [],
           "extensions": [],
           "activityImpactModule": null
@@ -114,28 +115,25 @@
       ],
       "extensions": [
         {
-          "id": "",
-          "name": "",
-          "version": "",
-          "description": "",
-          "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
-          "mrvExtensionContext": "AccountableImpactOrganization",
-          "properties": [],
-          "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
-          "data": null,
-          "serializedData": {
-            "type": "",
-            "value": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
-          }
+          "id": "25c61ffc-d42c-435a-8188-cc1b69fcd9f3",
+          "templateId": "e1e0d5df-5cdb-4b9f-bb65-fe426d5e4415",
+          "data": {
+            "protoData": null,
+            "dataType": "",
+            "value": ""
+          },
+          "appliedToId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+          "extensionContext": "ActivityImpactModule",
+          "template": null
         }
       ],
       "validations": [
         {
           "requestDate": "2021-04-01",
-          "validationDate": "9/16/2024",
+          "validationDate": "5/22/2025",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": "9/16/2024",
+          "validationExpirationDate": "5/22/2025",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",
@@ -153,6 +151,7 @@
         }
       ],
       "attestations": [],
+      "fixedVariables": [],
       "accountableImpactOrganization": null
     }
   ],

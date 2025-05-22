@@ -4,27 +4,23 @@
   "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
   "claimGroupId": "",
   "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
-  "unit": "TonneCo2E",
+  "unitOfMeasure": "TonneCo2E",
   "quantity": "1.41",
   "coBenefits": [
-    {
-      "unSdg": "CleanWaterAndSanitation",
-      "description": "The project was found to significantly contribute towards the communities clean water program."
-    },
-    {
-      "unSdg": "ReducedInequalities",
-      "description": "By training and employing locals, this project is reducing inequalities in the country."
-    }
+    "CleanWaterAndSanitation",
+    "ReducedInequalities"
   ],
   "extensions": [
     {
       "id": "",
       "templateId": "",
       "data": null,
-      "entityId": "",
-      "extensionContext": "UnknownContext"
+      "appliedToId": "",
+      "extensionContext": "UnknownContext",
+      "template": null
     }
   ],
+  "formulas": [],
   "checkpointResults": [
     {
       "id": "5eda007d-e136-4b21-8c27-9374447c0212",
@@ -37,30 +33,33 @@
             "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
             "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
             "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+            "processedClaimId": "",
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "02/04/2025 19:09:53",
-                "dateString": "2/4/2025"
+                "dateTime": "05/22/2025 17:18:12",
+                "dateString": "5/22/2025"
               },
               "timeStamp": {
-                "seconds": 1738696193,
-                "nanos": 301360000
+                "seconds": 1747934292,
+                "nanos": 518622000
               }
             },
             "extensions": [
               {
-                "id": "f51c1f67-6021-44ce-a183-79f55ab440dd",
-                "templateId": "93497466-b547-448d-9f5f-ee225a8ff9e1",
+                "id": "07de0317-d1bd-46c5-a21d-14c5376c9284",
+                "templateId": "5112390a-caf1-48f6-868f-75a117528cfc",
                 "data": {
                   "protoData": null,
                   "dataType": "",
                   "value": ""
                 },
-                "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-                "extensionContext": "DataPackageManifest"
+                "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                "extensionContext": "DataPackageManifest",
+                "template": null
               }
             ],
+            "formulas": [],
             "dataFiles": [
               {
                 "name": "Data from sensor",
@@ -70,15 +69,16 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "5a039dde-eba9-4fff-9329-717313b8567a",
-                    "templateId": "b81354c8-7b40-48af-b50a-a6e05ef66b77",
+                    "id": "48a2bc58-ce59-445d-94b7-799f2f547708",
+                    "templateId": "c17bc2cc-cd71-431f-996a-ee67720e0f52",
                     "data": {
                       "protoData": null,
                       "dataType": "",
                       "value": ""
                     },
-                    "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-                    "extensionContext": "DataFile"
+                    "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                    "extensionContext": "DataFile",
+                    "template": null
                   }
                 ]
               }
@@ -104,8 +104,9 @@
           "id": "",
           "templateId": "",
           "data": null,
-          "entityId": "",
-          "extensionContext": "UnknownContext"
+          "appliedToId": "",
+          "extensionContext": "UnknownContext",
+          "template": null
         }
       ]
     }

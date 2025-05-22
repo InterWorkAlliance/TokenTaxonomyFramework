@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "DmrvApi",
     "version": "1.0"
@@ -330,7 +330,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -363,7 +363,7 @@
             "$ref": "#/components/schemas/Method"
           },
           "benefitCategory": {
-            "$ref": "#/components/schemas/BenefitCategory"
+            "$ref": "#/components/schemas/CoBenefit"
           },
           "projectScope": {
             "$ref": "#/components/schemas/ProjectScope"
@@ -430,7 +430,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -447,14 +447,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Attestation"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "formulaTemplates": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FormulaTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -606,29 +598,6 @@
         },
         "additionalProperties": false
       },
-      "BenefitCategory": {
-        "enum": [
-          "NoCategory",
-          "NoPoverty",
-          "ZeroHunger",
-          "GoodHealthAndWellBeing",
-          "QualityEducation",
-          "GenderEquality",
-          "CleanWaterAndSanitation",
-          "AffordableAndCleanEnergy",
-          "DecentWorkAndEconomicGrowth",
-          "IndustryInnovationAndInfrastructure",
-          "ReducedInequalities",
-          "SustainableCitiesAndCommunities",
-          "ResponsibleConsumptionAndProduction",
-          "ClimateAction",
-          "LifeBelowWater",
-          "LifeOnLand",
-          "PeaceJusticeAndStrongInstitutions",
-          "PartnershipsForTheGoals"
-        ],
-        "type": "string"
-      },
       "CRU": {
         "type": "object",
         "properties": {
@@ -640,8 +609,8 @@
             "type": "string",
             "nullable": true
           },
-          "unit": {
-            "$ref": "#/components/schemas/Unit"
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/UnitOfMeasure"
           },
           "ownerId": {
             "type": "string",
@@ -731,7 +700,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -777,7 +746,7 @@
             "$ref": "#/components/schemas/ClaimSourceType"
           },
           "unitOfMeasure": {
-            "$ref": "#/components/schemas/Unit"
+            "$ref": "#/components/schemas/UnitOfMeasure"
           },
           "reportingFrequency": {
             "$ref": "#/components/schemas/ReportingFrequency"
@@ -789,7 +758,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -821,6 +790,9 @@
           "CarbonReduction",
           "CarbonRemoval",
           "Water",
+          "Biodiversity",
+          "RenewableSolar",
+          "RenewableWind",
           "Undefined"
         ],
         "type": "string"
@@ -844,17 +816,27 @@
         "additionalProperties": false
       },
       "CoBenefit": {
-        "type": "object",
-        "properties": {
-          "unSdg": {
-            "$ref": "#/components/schemas/BenefitCategory"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
+        "enum": [
+          "NoCategory",
+          "NoPoverty",
+          "ZeroHunger",
+          "GoodHealthAndWellBeing",
+          "QualityEducation",
+          "GenderEquality",
+          "CleanWaterAndSanitation",
+          "AffordableAndCleanEnergy",
+          "DecentWorkAndEconomicGrowth",
+          "IndustryInnovationAndInfrastructure",
+          "ReducedInequalities",
+          "SustainableCitiesAndCommunities",
+          "ResponsibleConsumptionAndProduction",
+          "ClimateAction",
+          "LifeBelowWater",
+          "LifeOnLand",
+          "PeaceJusticeAndStrongInstitutions",
+          "PartnershipsForTheGoals"
+        ],
+        "type": "string"
       },
       "CoreCarbonPrinciples": {
         "type": "object",
@@ -1270,7 +1252,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1389,8 +1371,17 @@
           "degradable": {
             "$ref": "#/components/schemas/Degradable"
           },
-          "reversalMitigation": {
-            "$ref": "#/components/schemas/ReversalMitigation"
+          "reversalRisk": {
+            "$ref": "#/components/schemas/ReversalRisk"
+          },
+          "insuranceType": {
+            "$ref": "#/components/schemas/DurabilityInsuranceType"
+          },
+          "insurancePolicyOwner": {
+            "$ref": "#/components/schemas/InsurancePolicyOwner"
+          },
+          "insurancePolicyLink": {
+            "$ref": "#/components/schemas/VerifiedLink"
           }
         },
         "additionalProperties": false
@@ -1402,7 +1393,7 @@
         ],
         "type": "string"
       },
-      "Entity": {
+      "EntityExtension": {
         "type": "object",
         "properties": {
           "id": {
@@ -1422,11 +1413,14 @@
           },
           "extensionContext": {
             "$ref": "#/components/schemas/ExtensionContext"
+          },
+          "template": {
+            "$ref": "#/components/schemas/EntityExtensionTemplate"
           }
         },
         "additionalProperties": false
       },
-      "EntityTemplate": {
+      "EntityExtensionTemplate": {
         "type": "object",
         "properties": {
           "id": {
@@ -1477,8 +1471,7 @@
           "ProcessedClaim",
           "VerificationProcessAgreement",
           "ActivityImpactModuleGroup",
-          "ImpactClaimGroup",
-          "ProcessedClaimGroup",
+          "ClaimGroup",
           "FormulaTemplate",
           "Formula",
           "VariableTemplate",
@@ -1520,7 +1513,7 @@
           "entityTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityTemplate"
+              "$ref": "#/components/schemas/EntityExtensionTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -1578,7 +1571,7 @@
           "entityTemplates": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EntityTemplate"
+              "$ref": "#/components/schemas/EntityExtensionTemplate"
             },
             "nullable": true,
             "readOnly": true
@@ -1653,6 +1646,9 @@
           },
           "extensionContext": {
             "$ref": "#/components/schemas/ExtensionContext"
+          },
+          "template": {
+            "$ref": "#/components/schemas/FormulaTemplate"
           }
         },
         "additionalProperties": false
@@ -1766,8 +1762,8 @@
             "type": "string",
             "nullable": true
           },
-          "unit": {
-            "$ref": "#/components/schemas/Unit"
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/UnitOfMeasure"
           },
           "quantity": {
             "type": "string",
@@ -1777,6 +1773,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CoBenefit"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Formula"
             },
             "nullable": true,
             "readOnly": true
@@ -1792,7 +1796,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -1840,7 +1844,23 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Variable"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "dataFiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataFile"
             },
             "nullable": true,
             "readOnly": true
@@ -1902,7 +1922,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true
@@ -2461,8 +2481,8 @@
             "type": "string",
             "nullable": true
           },
-          "unit": {
-            "$ref": "#/components/schemas/Unit"
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/UnitOfMeasure"
           },
           "quantity": {
             "type": "string",
@@ -2479,7 +2499,15 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "formulas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Formula"
             },
             "nullable": true,
             "readOnly": true
@@ -2503,6 +2531,36 @@
           },
           "asset": {
             "$ref": "#/components/schemas/Any"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectModule": {
+        "type": "object",
+        "properties": {
+          "aimId": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensionSetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensionSetModuleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "vvbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "verificationPlatformId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2712,8 +2770,8 @@
             "type": "string",
             "nullable": true
           },
-          "unit": {
-            "$ref": "#/components/schemas/Unit"
+          "unitOfMeasure": {
+            "$ref": "#/components/schemas/UnitOfMeasure"
           },
           "ownerId": {
             "type": "string",
@@ -2848,27 +2906,10 @@
           "SubWeekly",
           "Weekly",
           "SubMonthly",
-          "Monthly"
+          "Monthly",
+          "OncePerClaim"
         ],
         "type": "string"
-      },
-      "ReversalMitigation": {
-        "type": "object",
-        "properties": {
-          "reversalRisk": {
-            "$ref": "#/components/schemas/ReversalRisk"
-          },
-          "insuranceType": {
-            "$ref": "#/components/schemas/DurabilityInsuranceType"
-          },
-          "insurancePolicyOwner": {
-            "$ref": "#/components/schemas/InsurancePolicyOwner"
-          },
-          "insurancePolicyLink": {
-            "$ref": "#/components/schemas/VerifiedLink"
-          }
-        },
-        "additionalProperties": false
       },
       "ReversalRisk": {
         "enum": [
@@ -2896,10 +2937,6 @@
           "signatoryRole": {
             "$ref": "#/components/schemas/SignatoryRole"
           },
-          "vvbIdForAim": {
-            "type": "string",
-            "nullable": true
-          },
           "signature": {
             "$ref": "#/components/schemas/DigitalSignature"
           }
@@ -2911,9 +2948,10 @@
           "IssuingRegistry",
           "ValidationAndVerificationBody",
           "ProjectOwner",
-          "VerificationPlatformProvider",
+          "VerificationPlatform",
           "AccountableImpactOrganization",
-          "ActivityImpactModule"
+          "ProjectDeveloper",
+          "ProjectSponsor"
         ],
         "type": "string"
       },
@@ -2996,7 +3034,7 @@
         },
         "additionalProperties": false
       },
-      "Unit": {
+      "UnitOfMeasure": {
         "enum": [
           "TonneCo2E",
           "TonneCo2",
@@ -3139,6 +3177,9 @@
           },
           "extensionContext": {
             "$ref": "#/components/schemas/ExtensionContext"
+          },
+          "template": {
+            "$ref": "#/components/schemas/VariableTemplate"
           }
         },
         "additionalProperties": false
@@ -3192,12 +3233,13 @@
             "type": "string",
             "nullable": true
           },
-          "isAimGroup": {
-            "type": "boolean"
-          },
-          "aimOrAimGroupId": {
-            "type": "string",
-            "nullable": true
+          "projectModules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectModule"
+            },
+            "nullable": true,
+            "readOnly": true
           },
           "signatories": {
             "type": "array",
@@ -3229,7 +3271,7 @@
           "extensions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Entity"
+              "$ref": "#/components/schemas/EntityExtension"
             },
             "nullable": true,
             "readOnly": true

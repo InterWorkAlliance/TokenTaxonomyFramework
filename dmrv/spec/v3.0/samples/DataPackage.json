@@ -5,30 +5,33 @@
     "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
     "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
     "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+    "processedClaimId": "",
     "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
     "created": {
       "date": {
-        "dateTime": "02/04/2025 19:10:38",
-        "dateString": "2/4/2025"
+        "dateTime": "05/22/2025 17:19:07",
+        "dateString": "5/22/2025"
       },
       "timeStamp": {
-        "seconds": 1738696238,
-        "nanos": 315754000
+        "seconds": 1747934347,
+        "nanos": 652331000
       }
     },
     "extensions": [
       {
-        "id": "cff8d1df-b5b7-42ca-bd5e-c1ed04de613a",
-        "templateId": "6400f1b1-df0e-400b-af7a-82f7737b83f8",
+        "id": "ec35dda5-fef3-4798-b35f-0abf13d0903a",
+        "templateId": "8a89b575-93c9-43b5-b331-54cdb805dfef",
         "data": {
           "protoData": null,
           "dataType": "",
           "value": ""
         },
-        "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-        "extensionContext": "DataPackageManifest"
+        "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+        "extensionContext": "DataPackageManifest",
+        "template": null
       }
     ],
+    "formulas": [],
     "dataFiles": [
       {
         "name": "Data from sensor",
@@ -38,15 +41,16 @@
         "claimSourceAttestation": "digital_signature",
         "extensions": [
           {
-            "id": "899b17c6-3ced-4ae1-8da6-8f0491006e0c",
-            "templateId": "3b44525f-ae44-499b-8830-7347e69f3ac3",
+            "id": "39458274-6365-47ac-a0b9-ce28d9252bb7",
+            "templateId": "7ed255c2-aa81-491f-a55e-df71558b3788",
             "data": {
               "protoData": null,
               "dataType": "",
               "value": ""
             },
-            "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-            "extensionContext": "DataFile"
+            "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+            "extensionContext": "DataFile",
+            "template": null
           }
         ]
       }

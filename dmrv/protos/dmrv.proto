@@ -20,12 +20,11 @@ enum ExtensionContext{
     PROCESSED_CLAIM = 9; //Processed Checkpoint context
     VERIFICATION_PROCESS_AGREEMENT = 10; //Verification Process Agreement context
     ACTIVITY_IMPACT_MODULE_GROUP = 11; //Activity Impact Module Group context
-    IMPACT_CLAIM_GROUP = 12; //Impact Claim Group context
-    PROCESSED_CLAIM_GROUP = 13; //Processed Checkpoint Group context
-    FORMULA_TEMPLATE = 14; //Formula Template context
-    FORMULA = 15; //Formula context
-    VARIABLE_TEMPLATE = 16; //Variable Template context
-    VARIABLE = 17; //Variable context
+    CLAIM_GROUP = 12; //Impact-Processed Claim Group context
+    FORMULA_TEMPLATE = 13; //Formula Template context
+    FORMULA = 14; //Formula context
+    VARIABLE_TEMPLATE = 15; //Variable Template context
+    VARIABLE = 16; //Variable context
 }
 
 //MessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.
@@ -49,10 +48,21 @@ message MessageHeader{
     }
     string message_pair_id = 2; //the message pair the message belongs to
     MessageType message_type = 3; //type of the extension message
-    string sender_id = 4; //sender id of the extension message
-    string correlation_id = 5; //correlation id of the extension message, i.e., the id of the request message that the response is for
-    string conversation_id = 6; //conversation id of the extension message
-    optional bool closed = 7; //if the conversation is closed
+    string message_definition_id = 4; //the message definition the message belongs to
+    string sender_id = 5; //sender id of the extension message
+    string correlation_id = 6; //correlation id of the extension message, i.e., the id of the request message that the response is for
+    string conversation_id = 7; //conversation id of the extension message
+    optional MessageStatus message_status = 8; //if the conversation is closed
+}
+
+enum MessageStatus{
+    UNKNOWN_STATUS = 0; //Unknown status
+    PENDING = 1; //Pending status
+    SENT = 2; //Sent status
+    RECEIVED = 3; //Received status
+    PROCESSED = 4; //Processed status
+    CONVERSATION_CLOSED = 5; //Conversation closed status
+    ERROR = 6; //Error status
 }
 
 //Definition of Message instance, used to send a message definition from a message pair, like an envelope that contains the message definition
@@ -68,8 +78,8 @@ message AnyData{
     string value = 3; //if not a protobuf message, the serialized data
 }
 
-//The EntityTemplate is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
-message EntityTemplate{
+//The EntityExtensionTemplate is used to extend the MRV protocol to hold additional data that is specific to the Quality Standard the MRV is following. Extensions can be applied to datatypes in the MRV Model for contextualization.
+message EntityExtensionTemplate{
     string id = 1; //unique identifier for the extension template
     string name = 2; //name of the extension
     string version = 3; //version of the extension template
@@ -80,13 +90,14 @@ message EntityTemplate{
     string data_example = 8; //example of a data instance, typically some form of json
 }
 
-//an instance of a EntityTemplate
-message Entity{
+//an instance of a EntityExtensionTemplate
+message EntityExtension{
     string id = 1; //the unique Id for the entity extension
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
     string applied_to_id = 4; //OPTIONAL - depending on data layer implementation, the id of the extended entity
     ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies
+    EntityExtensionTemplate template = 6; //OPTIONAL - the template the instance is from
 }
 
 //FormulaTemplate is used to define the formula for the calculation of a metric or indicator. The formula can be used to calculate the value of a metric or indicator based on the data provided in the MRV.
@@ -110,6 +121,7 @@ message Formula{
     string aim_id = 4; //OPTIONAL - depending on data layer implementation, Activity Impact Module id the formula instance belongs to
     repeated Variable variables = 5; //list of variables in the formula
     ExtensionContext extension_context = 6; //OPTIONAL - context where the extension applies, which entity id to map to.
+    FormulaTemplate template = 7; //OPTIONAL - the template the instance is from
 }
 
 //VariableTemplate is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
@@ -131,6 +143,7 @@ message Variable{
     AnyData data = 3; //the serialized data of the extension
     string applied_to_id = 4; //OPTIONAL - depending on data layer implementation, the id of the entity it is applied to
     ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
+    VariableTemplate template = 6; //OPTIONAL - the template the instance is from
 }
 
 //a collection of extension templates used by a Quality Standard
@@ -141,7 +154,7 @@ message ExtensionSet{
     string description = 4; //description of the extension set
     string documentation = 5; //optional documentation url of the extension set
     repeated ExtensionSetModule modules = 6; //list of extension set modules
-    repeated EntityTemplate entity_templates = 7; //list of extension templates in the set, these would apply to the entire set and not be scoped to a single module
+    repeated EntityExtensionTemplate entity_templates = 7; //list of extension templates in the set, these would apply to the entire set and not be scoped to a single module
     repeated MessagePair message_pairs = 8; //list of extension message pairs in the set, these would apply to the entire set and not be scoped to a single module
     repeated FormulaTemplate formula_templates = 9; //list of formula templates in the set, these would apply to the entire set and not be scoped to a single module
     repeated VariableTemplate variable_templates = 10; //list of variable templates in the set, these would apply to the entire set and not be scoped to a single module
@@ -154,7 +167,7 @@ message ExtensionSetModule{
     string version = 3; //version of the extension set module
     string description = 4; //description of the extension set module
     string documentation = 5; //optional documentation url of the extension set module
-    repeated EntityTemplate entity_templates = 6; //list of extension templates in the set
+    repeated EntityExtensionTemplate entity_templates = 6; //list of extension templates in the set
     repeated MessagePair message_pairs = 7; //list of extension message pairs in the set
     repeated FormulaTemplate formula_templates = 8; //list of formula templates in the set
     repeated VariableTemplate variable_templates = 9; //list of variable templates in the set

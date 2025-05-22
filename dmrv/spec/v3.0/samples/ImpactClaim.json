@@ -5,18 +5,13 @@
   "claimGroupId": "",
   "startDate": "2021-01-01",
   "endDate": "2021-12-31",
-  "unit": "TonneCo2E",
+  "unitOfMeasure": "TonneCo2E",
   "quantity": "1.41",
   "coBenefits": [
-    {
-      "unSdg": "ClimateAction",
-      "description": "Climate Action for this project includes: carbon removal, reduction and carbon avoidance."
-    },
-    {
-      "unSdg": "CleanWaterAndSanitation",
-      "description": "Clean Water and Sanitation for this project includes: water quality improvement, water availability and water access."
-    }
+    "ClimateAction",
+    "CleanWaterAndSanitation"
   ],
+  "formulas": [],
   "checkpoints": [
     {
       "id": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
@@ -31,25 +26,27 @@
         "startDate": {
           "date": {
             "dateTime": "",
-            "dateString": "2/4/2025"
+            "dateString": "5/22/2025"
           },
           "timeStamp": {
-            "seconds": 1738696062,
-            "nanos": 257176000
+            "seconds": 1747934234,
+            "nanos": 138125000
           }
         },
         "endDate": {
           "date": {
             "dateTime": "",
-            "dateString": "2/4/2025"
+            "dateString": "5/22/2025"
           },
           "timeStamp": {
-            "seconds": 1738696062,
-            "nanos": 257198000
+            "seconds": 1747934234,
+            "nanos": 139467000
           }
         }
       },
       "extensions": [],
+      "variables": [],
+      "dataFiles": [],
       "dataPackages": [
         {
           "manifest": {
@@ -58,30 +55,33 @@
             "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
             "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
             "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+            "processedClaimId": "",
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "02/04/2025 19:07:42",
-                "dateString": "2/4/2025"
+                "dateTime": "05/22/2025 17:17:14",
+                "dateString": "5/22/2025"
               },
               "timeStamp": {
-                "seconds": 1738696062,
-                "nanos": 257228000
+                "seconds": 1747934234,
+                "nanos": 145320000
               }
             },
             "extensions": [
               {
-                "id": "0e19904e-d058-4190-9781-612db7402e35",
-                "templateId": "c76d2f87-85ee-4337-96d3-d8968d2c5022",
+                "id": "1d92c7b8-e605-41c9-a10e-0a2279222460",
+                "templateId": "f2452204-020f-4bec-bb97-55a71fc9ef28",
                 "data": {
                   "protoData": null,
                   "dataType": "",
                   "value": ""
                 },
-                "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-                "extensionContext": "DataPackageManifest"
+                "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                "extensionContext": "DataPackageManifest",
+                "template": null
               }
             ],
+            "formulas": [],
             "dataFiles": [
               {
                 "name": "Data from sensor",
@@ -91,15 +91,16 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "8f25fae7-1d56-4c56-bb80-c70d51b10005",
-                    "templateId": "aa7ed1c6-c7f1-482f-9f8b-dd7cd7eb5fbb",
+                    "id": "72c0fdf0-12a2-462d-992c-2d35eb782474",
+                    "templateId": "5015e439-34ad-482f-96b3-eebe8448a336",
                     "data": {
                       "protoData": null,
                       "dataType": "",
                       "value": ""
                     },
-                    "entityId": "bd199e99-14e0-4440-af99-03b78096a24b",
-                    "extensionContext": "DataFile"
+                    "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+                    "extensionContext": "DataFile",
+                    "template": null
                   }
                 ]
               }
@@ -108,7 +109,7 @@
           "verifiedLinkToDataPackage": {
             "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
             "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
-            "description": "Link to the Data Package",
+            "description": "Link to the Span Data Package",
             "hashProof": "asdflkdfs889fj3l437098asdfi",
             "hashAlgorithm": "Sha256"
           }
@@ -121,8 +122,9 @@
       "id": "",
       "templateId": "",
       "data": null,
-      "entityId": "",
-      "extensionContext": "UnknownContext"
+      "appliedToId": "",
+      "extensionContext": "UnknownContext",
+      "template": null
     }
   ],
   "activityImpactModule": null
