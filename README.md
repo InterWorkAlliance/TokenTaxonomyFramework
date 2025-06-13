@@ -1,6 +1,6 @@
 # Contents
 
-©2023 InterWork Alliance Inc. ("IWA"). All Rights Reserved. This Github repository has been set up to provide information to the public. The use of the information in this repository is subject to the terms of the agreement in the [LICENSE](LICENSE) file.
+©2025 InterWork Alliance Inc. ("IWA"). All Rights Reserved. This Github repository has been set up to provide information to the public. The use of the information in this repository is subject to the terms of the agreement in the [LICENSE](LICENSE) file.
 
 [View this site as a web page.](https://interwork-alliance.github.io/TokenTaxonomyFramework/)
 

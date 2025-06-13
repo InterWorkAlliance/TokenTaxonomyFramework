@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="62d8825f4850627a5ca9c096c3da9bcbc9b7f7ae" name="revision">
+  <meta content="1a9a1dd1fcab383aee1a6b7ace710d456969d0a3" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-05-22">22 May 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-06-12">12 June 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2180,7 +2180,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dt>Issue Tracking:
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://microsoft.com">Marley Gray (Microsoft)</a> <a class="u-email email" href="mailto:marleyg@microsoft.com">marleyg@microsoft.com</a>
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://oxy.com">Marley Gray (Oxy)</a>
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://gbbc.org">Jackson Ross (GBBC)</a> <a class="u-email email" href="mailto:jackson.ross@gbbcouncil.org">jackson.ross@gbbcouncil.org</a>
     </dl>
    </div>
@@ -2758,6 +2758,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-3.0.0-20250612"><span class="secno"></span> <span class="content">Version 3.0.0-20250612 (June 12th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250522"><span class="secno"></span> <span class="content">Version 3.0.0-20250522 (May 22nd, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250320"><span class="secno"></span> <span class="content">Version 2.5.0-20250320 (March 20th, 2025)</span></a>
       <li><a href="#changelog-2.5.0-20250218"><span class="secno"></span> <span class="content">Version 2.5.0-20250218 (February18th, 2025)</span></a>
@@ -2992,10 +2993,10 @@ properties grouped together that can be used or composed into other property-set
    <h3 class="heading settled" data-level="4.1" id="data-model-highlevel"><span class="secno">4.1. </span><span class="content">Highlevel Data Model</span><a class="self-link" href="#data-model-highlevel"></a></h3>
    <p>The following diagram shows the highlevel data model for the tokens defined in this specification, including the relationships between the them. This model only includes
 the highlights of properties within the data types and does not include the full list of properties for each data type.</p>
-   <p><img alt="…" height="1454" src="./dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
+   <p><img alt="…" height="1454" src="dmrv-diagram-20230905.png" srcset="dmrv-diagram-20230905.png 2x" width="1523"></p>
    <h3 class="heading settled" data-level="4.2" id="data-model-detailed"><span class="secno">4.2. </span><span class="content">Data Model</span><a class="self-link" href="#data-model-detailed"></a></h3>
    <p>The following diagram shows the detailed data model for this specification, including the relationships between the them. This model is quite large can be downloaded from <a href="Vem-2.5-lt-hiera.png">here</a>.</p>
-   <p><img alt="…" src="./Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x"></p>
+   <p><img alt="…" src="Vem-2.5-lt-hiera.png" srcset="Vem-2.5-lt-hiera.png 2x"></p>
    <h3 class="heading settled" data-level="4.3" id="dt-accountable-impact-organization"><span class="secno">4.3. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accountableimpactorganization">AccountableImpactOrganization</dfn></span><a class="self-link" href="#dt-accountable-impact-organization"></a></h3>
    <p><code>AccountableImpactOrganization</code> is a data type which represents the individual or organization that will host one or more ActivityImpactModule(s).</p>
    <p>This data type is used to represent a one to many relationship that can occur when an Accountable Impact Organization wishes to create multiple types of ecological assets and not have to establish an organiazational identity for each type of asset.</p>
@@ -4370,6 +4371,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>String 
        <td>O 
        <td>A link to the documentation for the Variable, see <a href="#extension-documentation">§ 4.29 Extension Documentation: ExtensionDocumentation</a> for details. 
+      <tr>
+       <td>alias 
+       <td>String 
+       <td>O 
+       <td>An optional alias for the Variable, this is a useful for mapping external sources to the Variable. 
       <tr>
        <td>dataSchemaOrType : <a data-link-type="dfn" href="#string" id="ref-for-string③⑨">String</a> 
        <td>String 
@@ -5929,8 +5935,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.65" id="dt-itmo-id"><span class="secno">4.65. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-6e94ebf0">
-    <a class="self-link" href="#example-6e94ebf0"></a> 
+   <div class="example" id="example-0d36f18e">
+    <a class="self-link" href="#example-0d36f18e"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -9864,6 +9870,11 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-3.0.0-20250612"><span class="content">Version 3.0.0-20250612 (June 12th, 2025)</span><a class="self-link" href="#changelog-3.0.0-20250612"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Added <code>Alias</code> to <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑤">VariableTemplate</a> to support the use of aliases for variables in MRV calculations.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250522"><span class="content">Version 3.0.0-20250522 (May 22nd, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250522"></a></h3>
      <ul>
       <li data-md>
@@ -9911,7 +9922,7 @@ public licenses.</p>
       <li data-md>
        <p>Renamed <code>MrvFormula</code> to <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑤">FormulaTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
-       <p>Renamed <code>MrvVariable</code> to <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑤">VariableTemplate</a> to better reflect the entity nature of the type.</p>
+       <p>Renamed <code>MrvVariable</code> to <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑥">VariableTemplate</a> to better reflect the entity nature of the type.</p>
       <li data-md>
        <p>Removed <code>Property</code> from the <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑤">EntityExtensionTemplate</a> type, no longer needed.</p>
       <li data-md>
@@ -9919,12 +9930,12 @@ public licenses.</p>
       <li data-md>
        <p>Created <a data-link-type="dfn" href="#formula" id="ref-for-formula③">Formula</a> to support the use of formulas in MRV calculations based on a <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑥">FormulaTemplate</a>.</p>
       <li data-md>
-       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable④">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑥">VariableTemplate</a>.</p>
+       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable④">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑦">VariableTemplate</a>.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250129"><span class="content">Version 2.5.0-20250129 (January 29th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250129"></a></h3>
      <ul>
       <li data-md>
-       <p>Renamed <code>instanceValue</code> to <code>value</code> in <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑦">VariableTemplate</a> to better reflect the value of the variable as either an instance value or a sum of instances.</p>
+       <p>Renamed <code>instanceValue</code> to <code>value</code> in <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑧">VariableTemplate</a> to better reflect the value of the variable as either an instance value or a sum of instances.</p>
       <li data-md>
        <p>Adding <a data-link-type="dfn" href="#variabletemplates" id="ref-for-variabletemplates">VariableTemplates</a> to support a collection variables used in MRV formulas for <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate⑦">EntityExtensionTemplate</a>.</p>
       <li data-md>
@@ -9935,11 +9946,11 @@ public licenses.</p>
       <li data-md>
        <p>Added <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑦">FormulaTemplate</a> to support formulas used in MRV calculations. Added to <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset⑥">ExtensionSet</a> and <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule②">ExtensionSetModule</a> to support formulas in extensions.</p>
       <li data-md>
-       <p>Added <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑧">VariableTemplate</a> to support variables used in MRV formulas. Added to <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset⑦">ExtensionSet</a> and <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule③">ExtensionSetModule</a> to support variables in extensions.</p>
+       <p>Added <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑨">VariableTemplate</a> to support variables used in MRV formulas. Added to <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset⑦">ExtensionSet</a> and <a data-link-type="dfn" href="#extensionsetmodule" id="ref-for-extensionsetmodule③">ExtensionSetModule</a> to support variables in extensions.</p>
       <li data-md>
        <p>Added <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑧">FormulaTemplate</a> to <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑨">ActivityImpactModule</a> to support formulas used in MRV calculations for the AIM.</p>
       <li data-md>
-       <p>Added <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑨">VariableTemplate</a> to <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> to support variables used in MRV formulas for the Claim Source.</p>
+       <p>Added <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate①⓪">VariableTemplate</a> to <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource③">ClaimSource</a> to support variables used in MRV formulas for the Claim Source.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250120"><span class="content">Version 2.5.0-20250120 (January 20th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250120"></a></h3>
      <ul>
@@ -11507,7 +11518,7 @@ let dfnPanelData = {
 "validationstep": {"dfnID":"validationstep","dfnText":"ValidationStep","external":false,"refSections":[{"refs":[{"id":"ref-for-validationstep"}],"title":"4.6.1. Properties"}],"url":"#validationstep"},
 "variable": {"dfnID":"variable","dfnText":"Variable","external":false,"refSections":[{"refs":[{"id":"ref-for-variable"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-variable\u2460"}],"title":"4.11.1. Properties"},{"refs":[{"id":"ref-for-variable\u2461"}],"title":"4.24.2. Properties"},{"refs":[{"id":"ref-for-variable\u2462"}],"title":"4.25. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-variable\u2463"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#variable"},
 "variables": {"dfnID":"variables","dfnText":"Variables","external":false,"refSections":[],"url":"#variables"},
-"variabletemplate": {"dfnID":"variabletemplate","dfnText":"VariableTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplate"}],"title":"4.9.1. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2460"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2461"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2462"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2463"}],"title":"4.26. Data Type: Variable"},{"refs":[{"id":"ref-for-variabletemplate\u2464"},{"id":"ref-for-variabletemplate\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2466"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2467"},{"id":"ref-for-variabletemplate\u2468"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#variabletemplate"},
+"variabletemplate": {"dfnID":"variabletemplate","dfnText":"VariableTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplate"}],"title":"4.9.1. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2460"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2461"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2462"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2463"}],"title":"4.26. Data Type: Variable"},{"refs":[{"id":"ref-for-variabletemplate\u2464"}],"title":"Version 3.0.0-20250612 (June 12th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2465"},{"id":"ref-for-variabletemplate\u2466"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2467"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2468"},{"id":"ref-for-variabletemplate\u2460\u24ea"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#variabletemplate"},
 "variabletemplates": {"dfnID":"variabletemplates","dfnText":"VariableTemplates","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplates"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#variabletemplates"},
 "verifiablepresentation": {"dfnID":"verifiablepresentation","dfnText":"VerifiablePresentation","external":false,"refSections":[],"url":"#verifiablepresentation"},
 "verification-automation": {"dfnID":"verification-automation","dfnText":"Verification Automation","external":false,"refSections":[],"url":"#verification-automation"},

@@ -131,8 +131,9 @@ message VariableTemplate{
     string version = 3; //version of the variable template
     string description = 4; //description of the variable template
     string documentation = 5; //optional documentation url of the variable template
-    string dataSchemaOrType = 6; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
-    string data_example = 7; //example of a data instance, typically some form of json
+    string alias = 6; //optional alias for the variable, used to map external data to the variable
+    string dataSchemaOrType = 7; //the type name or URI/URL to the Json Schema for the extension or can be the data type name for direct deserialization
+    string data_example = 8; //example of a data instance, typically some form of json
 }
 
 
