@@ -118,10 +118,9 @@ message Formula{
     string id = 1; //the unique Id for the formula instance
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
-    string aim_id = 4; //OPTIONAL - depending on data layer implementation, Activity Impact Module id the formula instance belongs to
-    repeated Variable variables = 5; //list of variables in the formula
-    ExtensionContext extension_context = 6; //OPTIONAL - context where the extension applies, which entity id to map to.
-    FormulaTemplate template = 7; //OPTIONAL - the template the instance is from
+    repeated Variable variables = 4; //list of variables in the formula
+    ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
+    FormulaTemplate template = 6; //OPTIONAL - the template the instance is from
 }
 
 //VariableTemplate is used to define the variables that are used in the formula for the calculation of a metric or indicator. The variables can be used to define the data that is required to calculate the value of a metric or indicator based on the formula provided.
@@ -142,9 +141,8 @@ message Variable{
     string id = 1; //the unique Id for the formula instance
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
-    string applied_to_id = 4; //OPTIONAL - depending on data layer implementation, the id of the entity it is applied to
-    ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
-    VariableTemplate template = 6; //OPTIONAL - the template the instance is from
+    ExtensionContext extension_context = 4; //OPTIONAL - context where the extension applies, which entity id to map to.
+    VariableTemplate template = 5; //OPTIONAL - the template the instance is from
 }
 
 //a collection of extension templates used by a Quality Standard

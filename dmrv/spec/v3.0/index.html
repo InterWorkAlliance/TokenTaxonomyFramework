@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="1a9a1dd1fcab383aee1a6b7ace710d456969d0a3" name="revision">
+  <meta content="d0a0eef435b43fa6eecb4da7d515747b249e407e" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-06-12">12 June 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-07-10">10 July 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -4319,11 +4319,6 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A collection of Variables that are used in the formula. 
       <tr>
-       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id③⑨">Id</a> 
-       <td>String 
-       <td>O 
-       <td>OPTIONAL - depending on data layer implementation, the entity id that the extension applies to. 
-      <tr>
        <td>extensionContext : <code class="idl"><a data-link-type="idl" href="#enumdef-extensioncontext" id="ref-for-enumdef-extensioncontext②">ExtensionContext</a></code> 
        <td>String 
        <td>O 
@@ -4347,7 +4342,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⓪">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id③⑨">Id</a> 
        <td>String 
        <td>M 
        <td>A unique identifier for the Variable, this is a string that is defined by the verifier or verification automation. 
@@ -4407,12 +4402,12 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④①">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⓪">Id</a> 
        <td>String 
        <td>M 
        <td>A unique identifier for the Variable, this is a string that is defined by the verifier or verification automation. 
       <tr>
-       <td>templateId : <a data-link-type="dfn" href="#id" id="ref-for-id④②">Id</a> 
+       <td>templateId : <a data-link-type="dfn" href="#id" id="ref-for-id④①">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Variable Template that the Variable is based on. 
@@ -4421,11 +4416,6 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Object 
        <td>M 
        <td>The data for the Variable, this is a custom object that is defined by the verifier or verification automation. 
-      <tr>
-       <td>appliedToId : <a data-link-type="dfn" href="#id" id="ref-for-id④③">Id</a> 
-       <td>String 
-       <td>O 
-       <td>OPTIONAL - depending on data layer implementation, the entity id that the extension applies to. 
       <tr>
        <td>extensionContext : <code class="idl"><a data-link-type="idl" href="#enumdef-extensioncontext" id="ref-for-enumdef-extensioncontext③">ExtensionContext</a></code> 
        <td>String 
@@ -4512,7 +4502,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The unique identifier for the paired ImpactClaim, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-claimgroupid"><code>claimGroupId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id④④">Id</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-claimgroupid"><code>claimGroupId</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id④②">Id</a> 
        <td>String 
        <td>O 
        <td>The id of the ClaimGroup that the claim is associated with, will be null if not part of a group. 
@@ -4736,7 +4726,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⑤">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④③">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the CRU, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -4751,7 +4741,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 4.101 Data Type: UnitOfMeasure</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑥">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id④④">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the CRU, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -4783,17 +4773,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 4.44 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>appliedToReportingPeriodId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑦">Id</a> 
+       <td>appliedToReportingPeriodId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑤">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑧">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑥">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the CRU is based on, see <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑨">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑦">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -4813,7 +4803,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⓪">Id</a> 
+       <td>assetId : <a data-link-type="dfn" href="#id" id="ref-for-id④⑧">Id</a> 
        <td>String 
        <td>O 
        <td>Typically the issuing registry’s master id or serial number that resides on their registry system. Could be empty or the same as the token’s id if not needed. 
@@ -5107,7 +5097,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤①">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id④⑨">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the REC, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5132,12 +5122,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The string representation of the unit of measure, see <a href="#dt-unit">§ 4.101 Data Type: UnitOfMeasure</a> for details. 
       <tr>
-       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤②">Id</a> 
+       <td>ownerId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⓪">Id</a> 
        <td>string 
        <td>M 
        <td>The id for the owner of the REC, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>listingAgentId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤③">Id</a> 
+       <td>listingAgentId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤①">Id</a> 
        <td>String 
        <td>M 
        <td>The unique identifier for the listing agent, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. This could be a marketplace or exchange that has an encumberance on the REC and can split or transfer their representations of the 
@@ -5159,17 +5149,17 @@ configured to control the processing of the ImpactClaim.</p>
        <td>Used to hold values for reference a credits on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
               See <a href="#dt-referenced-credit">§ 4.44 Data Type: ReferencedCredit</a> for details. 
       <tr>
-       <td>appliedToReportingPeriodId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤④">Id</a> 
+       <td>appliedToReportingPeriodId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤②">Id</a> 
        <td>String 
        <td>O 
        <td>Optional link to the Id of the reporting period the asset was retired for, if supported.  See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑤">Id</a> 
+       <td>processedClaimId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤③">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the ProcessedClaim that the REC is based on, see <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑥">Id</a> 
+       <td>issuerId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤④">Id</a> 
        <td>String 
        <td>M 
        <td>The id for the Issuing Registry, see <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5220,7 +5210,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑦">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑤">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the VerifiedLink, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5260,7 +5250,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>referencedCreditId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑧">Id</a> 
+       <td>referencedCreditId : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑥">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the referenced credit, this can be a serial number or a master id on the external registry. 
@@ -5316,7 +5306,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑨">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑦">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the signatory, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5336,7 +5326,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>The role of the signatory in the dMRV process. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-vvbidforaim"><code>vvbIdForAim</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id⑥⓪">Id</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="Signatory" data-dfn-type="element-attr" data-export id="element-attrdef-signatory-vvbidforaim"><code>vvbIdForAim</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑧">Id</a> 
        <td>String 
        <td>M 
        <td>OPTIONAL: the the id of the VVB/verifier that is associated with the AIM, if there is a AIM group with multiple VVBs for different AIMs, this will be needed to map the VVB to the AIM. 
@@ -5615,7 +5605,7 @@ configured to control the processing of the ImpactClaim.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑥①">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑤⑨">Id</a> 
        <td>String 
        <td>M 
        <td>Id of the tag, see <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5677,7 +5667,7 @@ the string or file for the area must have a value.</p>
        <th>Specification 
      <tbody>
       <tr>
-       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑥②">Id</a> 
+       <td>id : <a data-link-type="dfn" href="#id" id="ref-for-id⑥⓪">Id</a> 
        <td>String 
        <td>M 
        <td>Unique identifier for the GNSS, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
@@ -5788,7 +5778,7 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
        <td>M 
        <td>The string representation of claim period for measurement and reporting. See <a href="#dt-claim-period">§ 4.87 Data Type: ClaimPeriod</a> for details. 
       <tr>
-       <td>extensionSetId : <a data-link-type="dfn" href="#id" id="ref-for-id⑥③">Id</a> 
+       <td>extensionSetId : <a data-link-type="dfn" href="#id" id="ref-for-id⑥①">Id</a> 
        <td>String 
        <td>M 
        <td>A collection of extensions, called a set, used in the verification process, see <a href="#dt-extension-set">§ 4.16 Data Type: ExtensionSet</a> for details. 
@@ -11476,7 +11466,7 @@ let dfnPanelData = {
 "formula": {"dfnID":"formula","dfnText":"Formula","external":false,"refSections":[{"refs":[{"id":"ref-for-formula"}],"title":"4.10.2. Properties"},{"refs":[{"id":"ref-for-formula\u2460"}],"title":"4.23. Data Type: FormulaTemplate"},{"refs":[{"id":"ref-for-formula\u2461"}],"title":"4.30.2. Properties"},{"refs":[{"id":"ref-for-formula\u2462"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#formula"},
 "formulatemplate": {"dfnID":"formulatemplate","dfnText":"FormulaTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-formulatemplate"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-formulatemplate\u2460"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-formulatemplate\u2461"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-formulatemplate\u2462"}],"title":"4.24. Data Type: Formula"},{"refs":[{"id":"ref-for-formulatemplate\u2463"}],"title":"4.25. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-formulatemplate\u2464"},{"id":"ref-for-formulatemplate\u2465"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-formulatemplate\u2466"},{"id":"ref-for-formulatemplate\u2467"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#formulatemplate"},
 "geographiclocation": {"dfnID":"geographiclocation","dfnText":"GeographicLocation","external":false,"refSections":[{"refs":[{"id":"ref-for-geographiclocation"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-geographiclocation\u2460"}],"title":"4.9.1. Properties"}],"url":"#geographiclocation"},
-"id": {"dfnID":"id","dfnText":"Id","external":false,"refSections":[{"refs":[{"id":"ref-for-id"},{"id":"ref-for-id\u2460"},{"id":"ref-for-id\u2461"}],"title":"4.3.2. Properties"},{"refs":[{"id":"ref-for-id\u2462"},{"id":"ref-for-id\u2463"},{"id":"ref-for-id\u2464"},{"id":"ref-for-id\u2465"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-id\u2466"},{"id":"ref-for-id\u2467"},{"id":"ref-for-id\u2468"},{"id":"ref-for-id\u2460\u24ea"},{"id":"ref-for-id\u2460\u2460"}],"title":"4.8.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2461"},{"id":"ref-for-id\u2460\u2462"}],"title":"4.9.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2463"},{"id":"ref-for-id\u2460\u2464"},{"id":"ref-for-id\u2460\u2465"},{"id":"ref-for-id\u2460\u2466"}],"title":"4.10.2. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2467"}],"title":"4.11.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2468"},{"id":"ref-for-id\u2461\u24ea"},{"id":"ref-for-id\u2461\u2460"},{"id":"ref-for-id\u2461\u2461"},{"id":"ref-for-id\u2461\u2462"},{"id":"ref-for-id\u2461\u2463"}],"title":"4.13.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2464"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2465"},{"id":"ref-for-id\u2461\u2466"}],"title":"4.15.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2467"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2468"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u24ea"}],"title":"4.18.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2460"}],"title":"4.19.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2461"}],"title":"4.21.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2462"},{"id":"ref-for-id\u2462\u2463"},{"id":"ref-for-id\u2462\u2464"}],"title":"4.22.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2465"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2466"},{"id":"ref-for-id\u2462\u2467"},{"id":"ref-for-id\u2462\u2468"}],"title":"4.24.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u24ea"}],"title":"4.25.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2460"},{"id":"ref-for-id\u2463\u2461"},{"id":"ref-for-id\u2463\u2462"}],"title":"4.26.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2463"}],"title":"4.30.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2464"},{"id":"ref-for-id\u2463\u2465"},{"id":"ref-for-id\u2463\u2466"},{"id":"ref-for-id\u2463\u2467"},{"id":"ref-for-id\u2463\u2468"}],"title":"4.33.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u24ea"}],"title":"4.34.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2460"},{"id":"ref-for-id\u2464\u2461"},{"id":"ref-for-id\u2464\u2462"},{"id":"ref-for-id\u2464\u2463"},{"id":"ref-for-id\u2464\u2464"},{"id":"ref-for-id\u2464\u2465"}],"title":"4.41.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2466"}],"title":"4.43.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2467"}],"title":"4.44.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2468"},{"id":"ref-for-id\u2465\u24ea"}],"title":"4.46.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2460"}],"title":"4.53.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2461"}],"title":"4.55.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2462"}],"title":"4.57.1. Properties"}],"url":"#id"},
+"id": {"dfnID":"id","dfnText":"Id","external":false,"refSections":[{"refs":[{"id":"ref-for-id"},{"id":"ref-for-id\u2460"},{"id":"ref-for-id\u2461"}],"title":"4.3.2. Properties"},{"refs":[{"id":"ref-for-id\u2462"},{"id":"ref-for-id\u2463"},{"id":"ref-for-id\u2464"},{"id":"ref-for-id\u2465"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-id\u2466"},{"id":"ref-for-id\u2467"},{"id":"ref-for-id\u2468"},{"id":"ref-for-id\u2460\u24ea"},{"id":"ref-for-id\u2460\u2460"}],"title":"4.8.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2461"},{"id":"ref-for-id\u2460\u2462"}],"title":"4.9.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2463"},{"id":"ref-for-id\u2460\u2464"},{"id":"ref-for-id\u2460\u2465"},{"id":"ref-for-id\u2460\u2466"}],"title":"4.10.2. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2467"}],"title":"4.11.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2468"},{"id":"ref-for-id\u2461\u24ea"},{"id":"ref-for-id\u2461\u2460"},{"id":"ref-for-id\u2461\u2461"},{"id":"ref-for-id\u2461\u2462"},{"id":"ref-for-id\u2461\u2463"}],"title":"4.13.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2464"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2465"},{"id":"ref-for-id\u2461\u2466"}],"title":"4.15.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2467"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2468"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u24ea"}],"title":"4.18.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2460"}],"title":"4.19.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2461"}],"title":"4.21.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2462"},{"id":"ref-for-id\u2462\u2463"},{"id":"ref-for-id\u2462\u2464"}],"title":"4.22.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2465"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2466"},{"id":"ref-for-id\u2462\u2467"}],"title":"4.24.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2468"}],"title":"4.25.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u24ea"},{"id":"ref-for-id\u2463\u2460"}],"title":"4.26.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2461"}],"title":"4.30.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2462"},{"id":"ref-for-id\u2463\u2463"},{"id":"ref-for-id\u2463\u2464"},{"id":"ref-for-id\u2463\u2465"},{"id":"ref-for-id\u2463\u2466"}],"title":"4.33.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2467"}],"title":"4.34.1. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2468"},{"id":"ref-for-id\u2464\u24ea"},{"id":"ref-for-id\u2464\u2460"},{"id":"ref-for-id\u2464\u2461"},{"id":"ref-for-id\u2464\u2462"},{"id":"ref-for-id\u2464\u2463"}],"title":"4.41.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2464"}],"title":"4.43.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2465"}],"title":"4.44.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2466"},{"id":"ref-for-id\u2464\u2467"}],"title":"4.46.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2468"}],"title":"4.53.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u24ea"}],"title":"4.55.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2460"}],"title":"4.57.1. Properties"}],"url":"#id"},
 "impact-claim": {"dfnID":"impact-claim","dfnText":"Impact Claim","external":false,"refSections":[],"url":"#impact-claim"},
 "impact-claim-checkpoint": {"dfnID":"impact-claim-checkpoint","dfnText":"Impact Claim Checkpoint","external":false,"refSections":[],"url":"#impact-claim-checkpoint"},
 "impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"4.5.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"4.15.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"4.21. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"4.22. Data Type: EntityExtension"}],"url":"#impactclaim"},
