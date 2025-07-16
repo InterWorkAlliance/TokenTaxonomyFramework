@@ -244,32 +244,32 @@ message CRU
     common.UnitOfMeasure unit_of_measure = 3; //unit of measure for the quantity
     string owner_id = 4; //the unique id of the owner of the token         
     string listing_agent_id = 5; //AuthorizedId
+    string asset_id = 6; //typically the issuing registry's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
+    common.Date issuance_date = 7; //the date the token was issued.
+    string vintage = 8;  //refers to the year that the emissions reduction or removal took place or will take place.
     message CoreCarbonPrinciples{ 
-        string asset_id = 1; //typically the issuing registry's master id or serial number that resides on their registry system. Could be empty or the same as the token's id if not needed.
-        common.Date issuance_date = 2; //the date the token was issued.
-        string vintage = 3;  //refers to the year that the emissions reduction or removal took place or will take place.
-        common.GenerationType generation_type = 4; //typically generated or ex-ante
-        common.Standard verification_standard = 5; //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
-        common.MitigationActivity mitigation_activity = 6; //the mitigation activity that is used to generate the ecological benefit token.
-        Durability durability = 7; //this is the recommendation that replaces permanence for CCPs as it includes the risk profile and not simply a boolean.
-        Replacement replacement = 8; //set if this credit replaces a revoked or adjusted credit.
-        common.PACompliance paris_agreement_compliance = 9; //set if using PA specific attributes like corresponding adjustment
-        repeated common.CoBenefit quantified_sdg_impacts = 10; //the quantified impacts of the token.
-        repeated common.CoBenefit adaptation_co_benefits = 11; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
+        common.GenerationType generation_type = 1; //typically generated or ex-ante
+        common.Standard verification_standard = 2; //the verification standard used to determine and issue a ecological benefit token. These can be a voluntary or compliance/regulatory standard.
+        common.MitigationActivity mitigation_activity = 3; //the mitigation activity that is used to generate the ecological benefit token.
+        Durability durability = 4; //this is the recommendation that replaces permanence for CCPs as it includes the risk profile and not simply a boolean.
+        Replacement replacement = 5; //set if this credit replaces a revoked or adjusted credit.
+        common.PACompliance paris_agreement_compliance = 6; //set if using PA specific attributes like corresponding adjustment
+        repeated common.CoBenefit quantified_sdg_impacts = 7; //the quantified impacts of the token.
+        repeated common.CoBenefit adaptation_co_benefits = 8; //the adaptation co-benefits of the token consistent with the host country’s priorities, consistent with the provisions under Article 7.1 of the Paris Agreement.
     }
-    CoreCarbonPrinciples core_carbon_principles = 6; //these are aligned with the ICVCM Core Carbon Principles
-    repeated common.ClimateLabel climate_labels = 7; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
-    common.CreditStatus status = 8; //the status of the token
+    CoreCarbonPrinciples core_carbon_principles = 9; //these are aligned with the ICVCM Core Carbon Principles
+    repeated common.ClimateLabel climate_labels = 10; //climate labels are registry specific and are not part of the CCPs, but generally are name/value pairs to describe attributes that are specific to the registry or credit type.
+    common.CreditStatus status = 11; //the status of the token
     message ReferencedCru{ //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
         string referenced_credit_id = 1; //the id of the referenced credit, this can be a serial number or a master id
         common.VerifiedLink registry_link = 2; //link to the registry that issued the referenced credit
         string metadata = 3; //metadata about the referenced credit, json serialized as a string
     }
-    repeated ReferencedCru referenced_credits = 9; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
-    string applied_to_reporting_period_id = 10; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
-    string processed_claim_id = 11; //link to the processed claim id
-    string issuer_id = 12; //the account that is the issuer, recorded at issue/mint.
-    ProcessedClaim processed_claim = 13; //optional, for object navigation - the processed claim that was used to issue the token.
+    repeated ReferencedCru referenced_credits = 12; //this is used to hold values for credits that reference a credit on another registry, there are likely to be more fields needed here so using a property-set instead of a single field.
+    string applied_to_reporting_period_id = 13; //optional link to external reporting system for the reporting period that the credit was retired and applied to.
+    string processed_claim_id = 14; //link to the processed claim id
+    string issuer_id = 15; //the account that is the issuer, recorded at issue/mint.
+    ProcessedClaim processed_claim = 16; //optional, for object navigation - the processed claim that was used to issue the token.
 }
 
 message REC
