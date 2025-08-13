@@ -12,7 +12,7 @@ option java_multiple_files = true;
 
 message DatePoint{
     string start_date = 1; //can be a simple date format DD/MM/YYYY or MM/DD/YYYY
-    google.protobuf.TimeStamp time_stamp = 2; //granular timestamp for precice range measurement
+    google.protobuf.Timestamp time_stamp = 2; //granular timestamp for precice range measurement
 }
 
 message DateRange{
