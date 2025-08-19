@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="004fd09c18aedd709f8247142c23034b8bc5561d" name="revision">
+  <meta content="de942108f9682b5b04eaef7dfb3bc41f2c2a68f9" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-07-16">16 July 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-08-07">7 August 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2980,14 +2980,14 @@ in place and is the <code>rule book</code> that governs the process.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim">ProcessedClaim</a>: contains information identifying a processed claim that will host one or more Checkpoint Result(s).</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains information identifying a verification agreement that will host one or more Checkpoint Result(s).</p>
+     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains the identifiers of the counterparties involved in the verification process and establishes the rules and procedures for the verification.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#cru" id="ref-for-cru">CRU</a>: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#rec" id="ref-for-rec">REC</a>: contains information identifying a renewable energy credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.</p>
    </ol>
    <p>Of these data types, the <a data-link-type="dfn" href="#cru" id="ref-for-cru①">CRU</a> and <a data-link-type="dfn" href="#rec" id="ref-for-rec①">REC</a> are the only tokens that are <code>traded</code> and <code>retired or redeemed</code> in the system. The other data types are used to support the origination process and provide the system of record for the data that backs the asset types.</p>
-   <p>Some data types, like the DataPackage, support extensible metadata. This means that the data type can be extended to support additional data types that are specific to the quality standard being followed. For example, the DataPackage data type can be extended to support the data types required
+   <p>Add data types, support data or entity extensions. This means that the data type can be extended to support additional data types that are specific to the quality standard being followed. For example, the DataPackage data type can be extended to support the data types required
 by specific methodologies or quality standards.</p>
    <p>Not all data types defined in this artifact are tokens, but are a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="property-set">Property-Set</dfn> which are a collection of
 properties grouped together that can be used or composed into other property-sets or be present in many token definitions.</p>
@@ -3819,10 +3819,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>Unique identifier for the ClaimGroup, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
-       <td>activityImpactModuleGroupId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
+       <td>vpaId : <a data-link-type="dfn" href="#id" id="ref-for-id②⑦">Id</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the Activity Impact Module Group the Claim Group belongs to, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
+       <td>Unique identifier for the Verification Process Agreement the Claim Group belongs to, See <a href="#dt-id">§ 4.105 Data Type: Id</a> for details. 
       <tr>
        <td>name 
        <td>String 
@@ -4553,7 +4553,7 @@ configured to control the processing of the ImpactClaim.</p>
     <figcaption>Properties of data type ProcessedClaim</figcaption>
    </figure>
    <h3 class="heading settled" data-level="4.31" id="dt-checkpoint-result"><span class="secno">4.31. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="checkpointresult">CheckpointResult</dfn></span><a class="self-link" href="#dt-checkpoint-result"></a></h3>
-   <p>A CheckpointResult is summary and verified links to verification results for the corresponding ImpactClaimCheckpoint.
+   <p>A CheckpointResult is summary and verified links to verification results for the corresponding ImpactClaimCheckpoint, that is a child of a ProcessedClaim.
     The CheckpointResult enables continous verification of the project and the ability to provide feedback to the developer
     during the verification process.</p>
    <h4 class="heading settled" data-level="4.31.1" id="dt-checkpoint-results-properties"><span class="secno">4.31.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-checkpoint-results-properties"></a></h4>
