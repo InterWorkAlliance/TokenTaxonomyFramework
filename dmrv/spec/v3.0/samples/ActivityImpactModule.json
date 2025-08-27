@@ -44,8 +44,8 @@
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "extensions": [
         {
-          "id": "eca2bf7a-a7cf-4052-8ec1-e93412b2a456",
-          "templateId": "aff4a2c0-df02-4819-a074-ed308f2e4a91",
+          "id": "13ef0c02-90b4-404b-85ae-ad4e10ed847e",
+          "templateId": "9c934f3e-2e71-4018-9dfa-fe95c344d2e2",
           "data": {
             "protoData": null,
             "dataType": "",
@@ -56,7 +56,18 @@
           "template": null
         }
       ],
-      "variableTemplates": []
+      "variableTemplates": [
+        {
+          "id": "744cde83-9d09-4a50-a446-31fa4119e731",
+          "name": "Soil Carbon Content",
+          "version": "1.0.0",
+          "description": "An example variable template for a Claim Source",
+          "documentation": "",
+          "alias": "",
+          "dataSchemaOrType": "SoilCarbonContent",
+          "dataExample": "SOIL_CARBON_CONTENT = 12.5"
+        }
+      ]
     }
   ],
   "impactClaims": [
@@ -78,8 +89,8 @@
   ],
   "extensions": [
     {
-      "id": "27f33797-fe05-49b2-8c7b-3c10d4d262d4",
-      "templateId": "ac8b2bfe-8015-4e14-8fd0-378db4ffd16a",
+      "id": "0174ca9a-f59c-4bd1-8aba-b7600e623830",
+      "templateId": "ca4fbfcd-4a99-478d-b617-2621ca44fe6a",
       "data": {
         "protoData": null,
         "dataType": "",
@@ -93,10 +104,10 @@
   "validations": [
     {
       "requestDate": "2021-04-01",
-      "validationDate": "5/22/2025",
+      "validationDate": "8/27/2025",
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
-      "validationExpirationDate": "5/22/2025",
+      "validationExpirationDate": "8/27/2025",
       "validationSteps": [
         {
           "validationStepName": "Project Plan",
@@ -114,6 +125,18 @@
     }
   ],
   "attestations": [],
-  "fixedVariables": [],
+  "fixedVariables": [
+    {
+      "id": "aea7dd72-88fb-4218-b611-368b0fff66f7",
+      "templateId": "3cdfa149-7724-4f86-9d5e-d7b51a06817b",
+      "data": {
+        "protoData": null,
+        "dataType": "GWPCH3",
+        "value": "32.12"
+      },
+      "extensionContext": "ActivityImpactModule",
+      "template": null
+    }
+  ],
   "accountableImpactOrganization": null
 }

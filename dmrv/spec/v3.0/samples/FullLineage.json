@@ -4,13 +4,13 @@
   "unitOfMeasure": "TonneCo2E",
   "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
   "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
+  "assetId": "snei219123-998sdfl-sad21-1-1.41",
+  "issuanceDate": {
+    "dateTime": "",
+    "dateString": "8/27/2025"
+  },
+  "vintage": "2018",
   "coreCarbonPrinciples": {
-    "assetId": "snei219123-998sdfl-sad21-1-1.41",
-    "issuanceDate": {
-      "dateTime": "",
-      "dateString": "5/22/2025"
-    },
-    "vintage": "2018",
     "generationType": "Generated",
     "verificationStandard": "Puro",
     "mitigationActivity": {
@@ -81,7 +81,7 @@
   "issuerId": "2ab239a3-63e6-42dc-a0aa-8ca26dd81cde",
   "processedClaim": {
     "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
-    "vpaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+    "opaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
     "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
     "claimGroupId": "",
     "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
@@ -101,7 +101,32 @@
         "template": null
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "5fa37cc7-f11d-4639-a946-9c58a60d4d21",
+        "templateId": "bbec7ecd-0b30-4ece-92aa-233cbac5c368",
+        "data": {
+          "protoData": null,
+          "dataType": "CDRFormula",
+          "value": "CDR = Cap - Emissions * 0.1"
+        },
+        "variables": [
+          {
+            "id": "c7988579-666f-4992-9413-c3b69f1728ff",
+            "templateId": "a9a62931-722f-4030-a7f0-d71afa9ff194",
+            "data": {
+              "protoData": null,
+              "dataType": "Cap",
+              "value": "CAP = 9912.21"
+            },
+            "extensionContext": "ImpactClaim",
+            "template": null
+          }
+        ],
+        "extensionContext": "ImpactClaim",
+        "template": null
+      }
+    ],
     "checkpointResults": [
       {
         "id": "5eda007d-e136-4b21-8c27-9374447c0212",
@@ -118,18 +143,18 @@
               "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
               "created": {
                 "date": {
-                  "dateTime": "05/22/2025 17:12:14",
-                  "dateString": "5/22/2025"
+                  "dateTime": "08/27/2025 17:09:58",
+                  "dateString": "8/27/2025"
                 },
                 "timeStamp": {
-                  "seconds": 1747933934,
-                  "nanos": 579827000
+                  "seconds": 1756314598,
+                  "nanos": 2602000
                 }
               },
               "extensions": [
                 {
-                  "id": "9e044314-ffb8-46ed-bf7b-8f5f8adaef5d",
-                  "templateId": "04622ed4-a804-4cf0-a796-d2052ef64249",
+                  "id": "662807bc-a352-4cbe-aab6-b2dbd4081170",
+                  "templateId": "d191d131-c3e6-4e6c-a3fb-2408445e21cd",
                   "data": {
                     "protoData": null,
                     "dataType": "",
@@ -150,8 +175,8 @@
                   "claimSourceAttestation": "digital_signature",
                   "extensions": [
                     {
-                      "id": "4051c53c-0c60-4784-9784-1ddf9cd00932",
-                      "templateId": "c870ad3f-704b-457d-b83d-c1424bc18245",
+                      "id": "29c7c830-2340-475b-a1af-aea1b8375132",
+                      "templateId": "6277a370-e15d-4a09-a2c3-de1944851217",
                       "data": {
                         "protoData": null,
                         "dataType": "",
@@ -189,11 +214,24 @@
             "extensionContext": "UnknownContext",
             "template": null
           }
+        ],
+        "variables": [
+          {
+            "id": "4376ceff-0bbe-4467-8ccb-72631c4c0ac2",
+            "templateId": "046f541a-00a8-486a-97e2-1c7aac054239",
+            "data": {
+              "protoData": null,
+              "dataType": "FRmass,x",
+              "value": "12.523, UOM=tonne"
+            },
+            "extensionContext": "ProcessedClaim",
+            "template": null
+          }
         ]
       }
     ],
     "issuanceRequest": null,
-    "verificationProcessAgreement": {
+    "originationProcessAgreement": {
       "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
       "name": "Verification Process Agreement for Concrete Plant 3341",
       "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
@@ -286,7 +324,7 @@
         "claimPeriod": "Annual",
         "extensionSetId": "",
         "extensionSet": {
-          "id": "0ec8d7bd-ee20-42f1-9651-c3f611a9a8de",
+          "id": "d4db7069-b66e-466b-9dcd-716d4b9bd0a2",
           "name": "",
           "version": "",
           "description": "Extension Set for VerificationProcessAgreement",
@@ -318,7 +356,7 @@
           ],
           "entityTemplates": [
             {
-              "id": "69e0b725-e5e6-46b5-96f0-4d5cf04f4252",
+              "id": "4d21f4b1-30ea-4bf3-ad8a-14c0ca54db67",
               "name": "Claim Source Make and Model",
               "version": "",
               "description": "An example entity extension for a Claim Source",
@@ -330,7 +368,7 @@
           ],
           "messagePairs": [
             {
-              "id": "eb610225-8854-4858-a743-c3dc37a3a389",
+              "id": "d69254a2-3539-4558-9354-2c42cc2389c9",
               "name": "Calibrate Sensor",
               "version": "",
               "description": "Sample request response message pair",
@@ -350,7 +388,7 @@
           ],
           "formulaTemplates": [
             {
-              "id": "1bec5f8b-080e-4425-b4c5-70b04e03097e",
+              "id": "d18d3dde-db46-4229-99e9-5438e86a0a70",
               "name": "Carbon Removal Formula",
               "version": "1.0.0",
               "formula": "",
@@ -363,11 +401,12 @@
           ],
           "variableTemplates": [
             {
-              "id": "ed860a26-1338-41e8-875c-0e29fdb43253",
+              "id": "f29fe8c6-6fed-4eac-adc4-1ec1ff6c2202",
               "name": "Carbon Removal Variable",
               "version": "1.0.0",
               "description": "An example variable template for a Activity Impact Module",
               "documentation": "",
+              "alias": "",
               "dataSchemaOrType": "CDRVariable",
               "dataExample": "CAP = Co2Capi,m"
             }
@@ -376,14 +415,14 @@
       },
       "agreementDate": {
         "dateTime": "",
-        "dateString": "5/22/2025"
+        "dateString": "8/27/2025"
       },
       "estimatedAnnualCredits": "15,000",
       "auditSchedule": "Quinquennial",
       "audits": {
         "lastAuditDate": {
           "dateTime": "",
-          "dateString": "5/22/2025"
+          "dateString": "8/27/2025"
         },
         "auditReports": [
           {
@@ -412,7 +451,32 @@
         "ClimateAction",
         "CleanWaterAndSanitation"
       ],
-      "formulas": [],
+      "formulas": [
+        {
+          "id": "ef1841e6-57be-45e8-ac7e-b4b5164eef1a",
+          "templateId": "b64de14a-c5ed-4f56-9092-a068eb1fea66",
+          "data": {
+            "protoData": null,
+            "dataType": "CDRFormula",
+            "value": "CDR = Cap - Emissions * 0.1"
+          },
+          "variables": [
+            {
+              "id": "599a52e0-9acd-45aa-8649-96e6864304c6",
+              "templateId": "5ed2bff2-dfeb-40fe-b9a0-675c8407dcee",
+              "data": {
+                "protoData": null,
+                "dataType": "Cap",
+                "value": "CAP = 9912.21"
+              },
+              "extensionContext": "ImpactClaim",
+              "template": null
+            }
+          ],
+          "extensionContext": "ImpactClaim",
+          "template": null
+        }
+      ],
       "checkpoints": [
         {
           "id": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
@@ -427,26 +491,38 @@
             "startDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "5/22/2025"
+                "dateString": "8/27/2025"
               },
               "timeStamp": {
-                "seconds": 1747933934,
-                "nanos": 579879000
+                "seconds": 1756314598,
+                "nanos": 2630000
               }
             },
             "endDate": {
               "date": {
                 "dateTime": "",
-                "dateString": "5/22/2025"
+                "dateString": "8/27/2025"
               },
               "timeStamp": {
-                "seconds": 1747933934,
-                "nanos": 579884000
+                "seconds": 1756314598,
+                "nanos": 2631000
               }
             }
           },
           "extensions": [],
-          "variables": [],
+          "variables": [
+            {
+              "id": "a3d2d72f-662e-426b-981f-394745e25f3c",
+              "templateId": "6a50fcca-9f69-4b9d-b6fc-f8fb0c527932",
+              "data": {
+                "protoData": null,
+                "dataType": "FRmass,x",
+                "value": "12.523, UOM=tonne"
+              },
+              "extensionContext": "ProcessedClaim",
+              "template": null
+            }
+          ],
           "dataFiles": [],
           "dataPackages": [
             {
@@ -460,18 +536,18 @@
                 "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
                 "created": {
                   "date": {
-                    "dateTime": "05/22/2025 17:12:14",
-                    "dateString": "5/22/2025"
+                    "dateTime": "08/27/2025 17:09:58",
+                    "dateString": "8/27/2025"
                   },
                   "timeStamp": {
-                    "seconds": 1747933934,
-                    "nanos": 579892000
+                    "seconds": 1756314598,
+                    "nanos": 2634000
                   }
                 },
                 "extensions": [
                   {
-                    "id": "dfbe7a03-0883-45fe-a599-36def2846de7",
-                    "templateId": "eca24f88-d20e-4db3-99cb-7d22c854c59d",
+                    "id": "af1a97b4-9b07-4232-b00d-a02a007fd4bf",
+                    "templateId": "66a57b7c-2d95-4847-9cd6-93f958126f2c",
                     "data": {
                       "protoData": null,
                       "dataType": "",
@@ -492,8 +568,8 @@
                     "claimSourceAttestation": "digital_signature",
                     "extensions": [
                       {
-                        "id": "9f730cb0-7dbe-4b40-97b3-0e5cfdc5a929",
-                        "templateId": "fb194fe7-35dc-4e3e-9e70-f64b2d898907",
+                        "id": "6371aa73-9724-48dd-aa58-7771a85288ea",
+                        "templateId": "978c907f-e590-4819-9c71-dc4944becd2c",
                         "data": {
                           "protoData": null,
                           "dataType": "",
@@ -574,8 +650,8 @@
             "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
             "extensions": [
               {
-                "id": "2a9b139d-2855-4f64-afdb-8fa39379dc49",
-                "templateId": "2c25a873-d2d1-4050-aa5f-45a7575a2d6c",
+                "id": "f8212552-df06-437f-80e6-5002dc818972",
+                "templateId": "85b451f6-699a-45ab-9cb6-d270e37cef1a",
                 "data": {
                   "protoData": null,
                   "dataType": "",
@@ -586,7 +662,18 @@
                 "template": null
               }
             ],
-            "variableTemplates": []
+            "variableTemplates": [
+              {
+                "id": "2a04489a-2022-4a34-bdfd-8e6c5cd0ad30",
+                "name": "Soil Carbon Content",
+                "version": "1.0.0",
+                "description": "An example variable template for a Claim Source",
+                "documentation": "",
+                "alias": "",
+                "dataSchemaOrType": "SoilCarbonContent",
+                "dataExample": "SOIL_CARBON_CONTENT = 12.5"
+              }
+            ]
           }
         ],
         "impactClaims": [
@@ -608,8 +695,8 @@
         ],
         "extensions": [
           {
-            "id": "8e158300-fac9-4ae4-b5b2-b8338475fe8f",
-            "templateId": "8612e1cb-7326-4cf1-b283-2c44829e0880",
+            "id": "d08873bd-8741-45c8-a18f-c1f89889aabc",
+            "templateId": "9c7c7376-5b06-4122-b9dd-04c20021b181",
             "data": {
               "protoData": null,
               "dataType": "",
@@ -623,10 +710,10 @@
         "validations": [
           {
             "requestDate": "2021-04-01",
-            "validationDate": "5/22/2025",
+            "validationDate": "8/27/2025",
             "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
             "validationMethod": "ISO 14064-3:2018",
-            "validationExpirationDate": "5/22/2025",
+            "validationExpirationDate": "8/27/2025",
             "validationSteps": [
               {
                 "validationStepName": "Project Plan",
@@ -644,8 +731,19 @@
           }
         ],
         "attestations": [],
-        "formulaTemplates": [],
-        "fixedVariables": [],
+        "fixedVariables": [
+          {
+            "id": "6f95c7e7-9a1b-461d-a7e7-1b337d2fd7e7",
+            "templateId": "593a6058-b871-4588-9888-79967588d3ca",
+            "data": {
+              "protoData": null,
+              "dataType": "GWPCH3",
+              "value": "32.12"
+            },
+            "extensionContext": "ActivityImpactModule",
+            "template": null
+          }
+        ],
         "accountableImpactOrganization": {
           "id": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
           "name": "Eco-Earth Forest Growth",
@@ -682,128 +780,7 @@
             }
           ],
           "attestations": [],
-          "activityImpactModules": [
-            {
-              "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-              "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
-              "isGrouped": false,
-              "name": "Forest Plot 3341",
-              "classificationCategory": "CarbonRemoval",
-              "classificationMethod": "Natural",
-              "benefitCategory": "ClimateAction",
-              "projectScope": "CarbonCaptureAndStorage",
-              "projectType": "CarbonCaptureAndEnhancedOilRecovery",
-              "projectScale": "Medium",
-              "country": "BR",
-              "region": "SouthAmerica",
-              "arbId": "",
-              "geographicLocation": {
-                "longitude": "41.40338",
-                "latitude": "2.17403",
-                "geoJsonOrKml": "{'type':'FeatureCollection','name':'1071','crs__type':'name','crs__properties__name':'urn:ogc:def:crs:OGC:1.3:CRS84','features__0__type':'Feature','features__0__properties__Name':'1071','features__0__properties__description':{},'features__0__properties__timestamp':{},'features__0__properties__begin':{},'features__0__properties__end':{},'features__0__properties__altitudeMode':{},'features__0__properties__tessellate':1,'features__0__properties__extrude':0,'features__0__properties__visibility':-1,'features__0__properties__drawOrder':{},'features__0__properties__icon':{},'features__0__geometry__type':'Polygon','features__0__geometry__coordinates__0__0__0':-17.44979726383285,'features__0__geometry__coordinates__0__0__1':14.6208620053651,'features__0__geometry__coordinates__0__0__2':0,'features__0__geometry__coordinates__0__1__0':-17.41480356186299,'features__0__geometry__coordinates__0__1__1':14.63868215949493,'features__0__geometry__coordinates__0__1__2':0,'features__0__geometry__coordinates__0__2__0':-17.39295299318011,'features__0__geometry__coordinates__0__2__1':14.67781171481277,'features__0__geometry__coordinates__0__2__2':0,'features__0__geometry__coordinates__0__3__0':-17.29563788678882,'features__0__geometry__coordinates__0__3__1':14.67680110195058,'features__0__geometry__coordinates__0__3__2':0,'features__0__geometry__coordinates__0__4__0':-17.17383924249105,'features__0__geometry__coordinates__0__4__1':14.59081467498821,'features__0__geometry__coordinates__0__4__2':0,'features__0__geometry__coordinates__0__5__0':-17.09360187476775,'features__0__geometry__coordinates__0__5__1':14.51585846117694,'features__0__geometry__coordinates__0__5__2':0,'features__0__geometry__coordinates__0__6__0':-17.08630514448674,'features__0__geometry__coordinates__0__6__1':14.47029974369886,'features__0__geometry__coordinates__0__6__2':0,'features__0__geometry__coordinates__0__7__0':-16.9635166358808,'features__0__geometry__coordinates__0__7__1':14.3497385970107,'features__0__geometry__coordinates__0__7__2':0,'features__0__geometry__coordinates__0__8__0':-16.94043127233231,'features__0__geometry__coordinates__0__8__1':14.28282669386156,'features__0__geometry__coordinates__0__8__2':0,'features__0__geometry__coordinates__0__9__0':-16.8524904710476,'features__0__geometry__coordinates__0__9__1':14.13282117800751,'features__0__geometry__coordinates__0__9__2':0,'features__0__geometry__coordinates__0__10__0':-16.76401571438566,'features__0__geometry__coordinates__0__10__1':13.94911098722119,'features__0__geometry__coordinates__0__10__2':0,'features__0__geometry__coordinates__0__11__0':-16.60258876944933,'features__0__geometry__coordinates__0__11__1':13.9482543830415,'features__0__geometry__coordinates__0__11__2':0,'features__0__geometry__coordinates__0__12__0':-16.35717663748357,'features__0__geometry__coordinates__0__12__1':13.94597928824933,'features__0__geometry__coordinates__0__12__2':0,'features__0__geometry__coordinates__0__13__0':-16.15567817482042,'features__0__geometry__coordinates__0__13__1':13.9444453347921,'features__0__geometry__coordinates__0__13__2':0,'features__0__geometry__coordinates__0__14__0':-15.84076599032189,'features__0__geometry__coordinates__0__14__1':13.96344759515951,'features__0__geometry__coordinates__0__14__2':0,'features__0__geometry__coordinates__0__15__0':-15.61023581159491,'features__0__geometry__coordinates__0__15__1':13.98459708145865,'features__0__geometry__coordinates__0__15__2':0,'features__0__geometry__coordinates__0__16__0':-15.51441146374702,'features__0__geometry__coordinates__0__16__1':14.03040839455136,'features__0__geometry__coordinates__0__16__2':0,'features__0__geometry__coordinates__0__17__0':-15.27072272145035,'features__0__geometry__coordinates__0__17__1':14.02255567674107,'features__0__geometry__coordinates__0__17__2':0,'features__0__geometry__coordinates__0__18__0':-15.26395397063758,'features__0__geometry__coordinates__0__18__1':14.13443659420945,'features__0__geometry__coordinates__0__18__2':0,'features__0__geometry__coordinates__0__19__0':-15.24023775131042,'features__0__geometry__coordinates__0__19__1':14.32904559912449,'features__0__geometry__coordinates__0__19__2':0,'features__0__geometry__coordinates__0__20__0':-15.21541086886319,'features__0__geometry__coordinates__0__20__1':14.58967912435987,'features__0__geometry__coordinates__0__20__2':0,'features__0__geometry__coordinates__0__21__0':-15.15515131233524,'features__0__geometry__coordinates__0__21__1':15.42311620512102,'features__0__geometry__coordinates__0__21__2':0,'features__0__geometry__coordinates__0__22__0':-15.45264670678973,'features__0__geometry__coordinates__0__22__1':15.42390739827185,'features__0__geometry__coordinates__0__22__2':0,'features__0__geometry__coordinates__0__23__0':-15.94444309310633,'features__0__geometry__coordinates__0__23__1':15.44371941768868,'features__0__geometry__coordinates__0__23__2':0,'features__0__geometry__coordinates__0__24__0':-16.3807688129775,'features__0__geometry__coordinates__0__24__1':15.45532235769231,'features__0__geometry__coordinates__0__24__2':0,'features__0__geometry__coordinates__0__25__0':-16.6574348263018,'features__0__geometry__coordinates__0__25__1':15.45077945422687,'features__0__geometry__coordinates__0__25__2':0,'features__0__geometry__coordinates__0__26__0':-16.75007765137733,'features__0__geometry__coordinates__0__26__1':15.41963731349297,'features__0__geometry__coordinates__0__26__2':0,'features__0__geometry__coordinates__0__27__0':-16.84991521854622,'features__0__geometry__coordinates__0__27__1':15.25813719688476,'features__0__geometry__coordinates__0__27__2':0,'features__0__geometry__coordinates__0__28__0':-16.94933674042656,'features__0__geometry__coordinates__0__28__1':15.12921501453258,'features__0__geometry__coordinates__0__28__2':0,'features__0__geometry__coordinates__0__29__0':-17.03626620967582,'features__0__geometry__coordinates__0__29__1':15.02938820681259,'features__0__geometry__coordinates__0__29__2':0,'features__0__geometry__coordinates__0__30__0':-17.10950928370794,'features__0__geometry__coordinates__0__30__1':14.94591580526796,'features__0__geometry__coordinates__0__30__2':0,'features__0__geometry__coordinates__0__31__0':-17.13088115585902,'features__0__geometry__coordinates__0__31__1':14.91578363643908,'features__0__geometry__coordinates__0__31__2':0,'features__0__geometry__coordinates__0__32__0':-17.27833470905615,'features__0__geometry__coordinates__0__32__1':14.84727548094827,'features__0__geometry__coordinates__0__32__2':0,'features__0__geometry__coordinates__0__33__0':-17.29778756226728,'features__0__geometry__coordinates__0__33__1':14.83767502076119,'features__0__geometry__coordinates__0__33__2':0,'features__0__geometry__coordinates__0__34__0':-17.30879441185855,'features__0__geometry__coordinates__0__34__1':14.8340737594179,'features__0__geometry__coordinates__0__34__2':0,'features__0__geometry__coordinates__0__35__0':-17.44096028793862,'features__0__geometry__coordinates__0__35__1':14.7932587077975,'features__0__geometry__coordinates__0__35__2':0,'features__0__geometry__coordinates__0__36__0':-17.53662598222956,'features__0__geometry__coordinates__0__36__1':14.76802543590545,'features__0__geometry__coordinates__0__36__2':0,'features__0__geometry__coordinates__0__37__0':-17.44979726383285,'features__0__geometry__coordinates__0__37__1':14.6208620053651,'features__0__geometry__coordinates__0__37__2':0}",
-                "geographicLocationFile": null
-              },
-              "firstYearIssuance": "2017",
-              "registryProjectId": "vef-1321-99da-1",
-              "developers": [
-                "9c6e926f-9603-45de-9933-8af01ac45f31"
-              ],
-              "sponsors": [
-                "sponsor"
-              ],
-              "claimSources": [
-                {
-                  "id": "147e7105-2333-4f5f-847c-6c984e5220dd",
-                  "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-                  "name": "Soil Sensor Device",
-                  "description": "Located in forest area e2",
-                  "location": {
-                    "longitude": "41.40338",
-                    "latitude": "2.17403",
-                    "geoJsonOrKml": "",
-                    "geographicLocationFile": null
-                  },
-                  "sourceType": "SensorDevice",
-                  "unitOfMeasure": "TonneCo2E",
-                  "reportingFrequency": "SubHourly",
-                  "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-                  "extensions": [
-                    {
-                      "id": "41a3a92b-6795-4683-a55d-4f6f5dcb7ac1",
-                      "templateId": "a309a0f1-0a97-4358-910a-d83cc933d74b",
-                      "data": {
-                        "protoData": null,
-                        "dataType": "",
-                        "value": ""
-                      },
-                      "appliedToId": "147e7105-2333-4f5f-847c-6c984e5220dd",
-                      "extensionContext": "ClaimSource",
-                      "template": null
-                    }
-                  ],
-                  "variableTemplates": []
-                }
-              ],
-              "impactClaims": [
-                {
-                  "id": "",
-                  "aimId": "",
-                  "processedClaimId": "",
-                  "claimGroupId": "",
-                  "startDate": "",
-                  "endDate": "",
-                  "unitOfMeasure": "TonneCo2E",
-                  "quantity": "",
-                  "coBenefits": [],
-                  "formulas": [],
-                  "checkpoints": [],
-                  "extensions": [],
-                  "activityImpactModule": null
-                }
-              ],
-              "extensions": [
-                {
-                  "id": "a3d7cb9d-ac2a-466e-a749-480bf6f648bc",
-                  "templateId": "50cd28e5-23d5-40a5-ad82-1825d7e95b55",
-                  "data": {
-                    "protoData": null,
-                    "dataType": "",
-                    "value": ""
-                  },
-                  "appliedToId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-                  "extensionContext": "ActivityImpactModule",
-                  "template": null
-                }
-              ],
-              "validations": [
-                {
-                  "requestDate": "2021-04-01",
-                  "validationDate": "5/22/2025",
-                  "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
-                  "validationMethod": "ISO 14064-3:2018",
-                  "validationExpirationDate": "5/22/2025",
-                  "validationSteps": [
-                    {
-                      "validationStepName": "Project Plan",
-                      "validationStepDescription": "Detailed project plan for the management of forest carbon sequestration",
-                      "validationStepStatus": "Completed",
-                      "validationStepDocumentLink": {
-                        "id": "456bf8d1-f090-47b1-b7c0-b539441e557e",
-                        "uri": "https://sustaincert.com/forestcarbonsequestration/projectplan.pdf",
-                        "description": "Project Plan",
-                        "hashProof": "0x32wasfd1234567890abcdef",
-                        "hashAlgorithm": "Sha256"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "attestations": [],
-              "formulaTemplates": [],
-              "fixedVariables": [],
-              "accountableImpactOrganization": null
-            }
-          ],
+          "activityImpactModules": [],
           "extensions": []
         }
       }

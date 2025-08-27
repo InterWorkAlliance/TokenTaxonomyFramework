@@ -11,7 +11,32 @@
     "ClimateAction",
     "CleanWaterAndSanitation"
   ],
-  "formulas": [],
+  "formulas": [
+    {
+      "id": "51276440-4065-4e6e-b95d-c780a682dcfe",
+      "templateId": "b924a4ac-142c-4ef3-bf61-c1474e9bf437",
+      "data": {
+        "protoData": null,
+        "dataType": "CDRFormula",
+        "value": "CDR = Cap - Emissions * 0.1"
+      },
+      "variables": [
+        {
+          "id": "91d12117-c15a-41ba-af46-8d40222796e7",
+          "templateId": "3fab9687-2ff5-48d5-8000-9bd83d658490",
+          "data": {
+            "protoData": null,
+            "dataType": "Cap",
+            "value": "CAP = 9912.21"
+          },
+          "extensionContext": "ImpactClaim",
+          "template": null
+        }
+      ],
+      "extensionContext": "ImpactClaim",
+      "template": null
+    }
+  ],
   "checkpoints": [
     {
       "id": "189bc8ee-b19c-4116-be65-e8ec1d0b7764",
@@ -26,26 +51,38 @@
         "startDate": {
           "date": {
             "dateTime": "",
-            "dateString": "5/22/2025"
+            "dateString": "8/27/2025"
           },
           "timeStamp": {
-            "seconds": 1747934234,
-            "nanos": 138125000
+            "seconds": 1756314690,
+            "nanos": 822516000
           }
         },
         "endDate": {
           "date": {
             "dateTime": "",
-            "dateString": "5/22/2025"
+            "dateString": "8/27/2025"
           },
           "timeStamp": {
-            "seconds": 1747934234,
-            "nanos": 139467000
+            "seconds": 1756314690,
+            "nanos": 822523000
           }
         }
       },
       "extensions": [],
-      "variables": [],
+      "variables": [
+        {
+          "id": "3b15eec3-8208-4e5d-a792-ef1041ec6c95",
+          "templateId": "583eebfb-6975-47a6-986a-014a4b19db46",
+          "data": {
+            "protoData": null,
+            "dataType": "FRmass,x",
+            "value": "12.523, UOM=tonne"
+          },
+          "extensionContext": "ProcessedClaim",
+          "template": null
+        }
+      ],
       "dataFiles": [],
       "dataPackages": [
         {
@@ -59,18 +96,18 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "05/22/2025 17:17:14",
-                "dateString": "5/22/2025"
+                "dateTime": "08/27/2025 17:11:30",
+                "dateString": "8/27/2025"
               },
               "timeStamp": {
-                "seconds": 1747934234,
-                "nanos": 145320000
+                "seconds": 1756314690,
+                "nanos": 822531000
               }
             },
             "extensions": [
               {
-                "id": "1d92c7b8-e605-41c9-a10e-0a2279222460",
-                "templateId": "f2452204-020f-4bec-bb97-55a71fc9ef28",
+                "id": "c9abd631-438e-4783-9a21-3f5627c80bd5",
+                "templateId": "113804e2-e7fd-4616-b4bf-f8af5adc1f73",
                 "data": {
                   "protoData": null,
                   "dataType": "",
@@ -91,8 +128,8 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "72c0fdf0-12a2-462d-992c-2d35eb782474",
-                    "templateId": "5015e439-34ad-482f-96b3-eebe8448a336",
+                    "id": "79ddf772-ac77-4a5b-876a-459a53ae0237",
+                    "templateId": "71fd987d-2d6f-4c6d-8121-4720dff42202",
                     "data": {
                       "protoData": null,
                       "dataType": "",

@@ -1,6 +1,6 @@
 {
   "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
-  "vpaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
+  "opaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
   "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
   "claimGroupId": "",
   "creditId": "bef817d3-e178-402c-93bd-b20aab360e71",
@@ -20,7 +20,32 @@
       "template": null
     }
   ],
-  "formulas": [],
+  "formulas": [
+    {
+      "id": "e59f09da-0edd-44e3-8bd0-ff2f13094f13",
+      "templateId": "1666eba1-d34d-443f-bd72-6ed0f4ae4943",
+      "data": {
+        "protoData": null,
+        "dataType": "CDRFormula",
+        "value": "CDR = Cap - Emissions * 0.1"
+      },
+      "variables": [
+        {
+          "id": "a3b90376-d4ed-4c5e-9151-789c03e9aea0",
+          "templateId": "b774af8c-e8ad-42e6-af31-49f92db08885",
+          "data": {
+            "protoData": null,
+            "dataType": "Cap",
+            "value": "CAP = 9912.21"
+          },
+          "extensionContext": "ImpactClaim",
+          "template": null
+        }
+      ],
+      "extensionContext": "ImpactClaim",
+      "template": null
+    }
+  ],
   "checkpointResults": [
     {
       "id": "5eda007d-e136-4b21-8c27-9374447c0212",
@@ -37,18 +62,18 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "05/22/2025 17:18:12",
-                "dateString": "5/22/2025"
+                "dateTime": "08/27/2025 17:12:26",
+                "dateString": "8/27/2025"
               },
               "timeStamp": {
-                "seconds": 1747934292,
-                "nanos": 518622000
+                "seconds": 1756314746,
+                "nanos": 862481000
               }
             },
             "extensions": [
               {
-                "id": "07de0317-d1bd-46c5-a21d-14c5376c9284",
-                "templateId": "5112390a-caf1-48f6-868f-75a117528cfc",
+                "id": "ddefd81e-4bb2-4b25-b1c5-144b96aafc51",
+                "templateId": "bbd78628-8232-4ae8-a9b8-4a67e4ede5ef",
                 "data": {
                   "protoData": null,
                   "dataType": "",
@@ -69,8 +94,8 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "48a2bc58-ce59-445d-94b7-799f2f547708",
-                    "templateId": "c17bc2cc-cd71-431f-996a-ee67720e0f52",
+                    "id": "c86c45b3-e5f0-4f4b-a485-6e3b6bdd0dac",
+                    "templateId": "c87a07b5-30a0-444f-82bf-abc9aa436ab9",
                     "data": {
                       "protoData": null,
                       "dataType": "",
@@ -108,11 +133,24 @@
           "extensionContext": "UnknownContext",
           "template": null
         }
+      ],
+      "variables": [
+        {
+          "id": "29b7370b-2607-4607-a153-c6e0b665dbd3",
+          "templateId": "59dbffe8-8cfc-48f1-9f6a-0cd64b40fa57",
+          "data": {
+            "protoData": null,
+            "dataType": "FRmass,x",
+            "value": "12.523, UOM=tonne"
+          },
+          "extensionContext": "ProcessedClaim",
+          "template": null
+        }
       ]
     }
   ],
   "issuanceRequest": null,
-  "verificationProcessAgreement": null,
+  "originationProcessAgreement": null,
   "impactClaim": null,
   "asset": null
 }
