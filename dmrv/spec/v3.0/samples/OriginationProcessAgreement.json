@@ -1,7 +1,7 @@
 {
   "id": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
-  "name": "Verification Process Agreement for Concrete Plant 3341",
-  "description": "Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
+  "name": "Origination Process Agreement for Concrete Plant 3341",
+  "description": "Origination Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT",
   "projectModules": [
     {
       "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
@@ -94,7 +94,7 @@
       "id": "c1b66ebf-cab9-4d52-87f5-5cb7daf9f09f",
       "name": "",
       "version": "",
-      "description": "Extension Set for VerificationProcessAgreement",
+      "description": "Extension Set for OriginationProcessAgreement",
       "documentation": "",
       "modules": [
         {
@@ -195,7 +195,7 @@
       {
         "id": "424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f",
         "uri": "https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216",
-        "description": "Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216",
+        "description": "Audit report for Origination Process Agreement e0d357b0-a75a-40fa-838b-5a5d444d2216",
         "hashProof": "0xzxWW-1234567890abcdefasdf",
         "hashAlgorithm": "Sha256"
       }
