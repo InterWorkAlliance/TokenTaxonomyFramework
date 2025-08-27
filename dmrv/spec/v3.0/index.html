@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html" rel="canonical">
-  <meta content="e3f2719caa2ce8cd541be5e7ca8ce61dac4dd806" name="revision">
+  <meta content="03555b09630e504b434ea0c0c789b0d93913d8f1" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2362,7 +2362,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-checkpoint-results-properties"><span class="secno">4.30.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-origination-process-agreement"><span class="secno">4.31</span> <span class="content">Agreement &amp; Data Type: <span>VerificationProcessAgreement</span></span></a>
+       <a href="#dt-origination-process-agreement"><span class="secno">4.31</span> <span class="content">Agreement &amp; Data Type: <span>OriginationProcessAgreement</span></span></a>
        <ol class="toc">
         <li><a href="#dt-origination-process-agreement-properties"><span class="secno">4.31.1</span> <span class="content">Properties</span></a>
        </ol>
@@ -2845,7 +2845,7 @@ within the TTF.</p>
    <p>Token definitions will be titled as <em>Token &amp; Data Type</em> to make it clear that the token is defined in the context of the data model.
 All other data types are considered Property Sets in the TTF.</p>
    <p>Placing all of the token definitions and especially the data model in a single artifact makes it easier to understand the relationships and dependencies between the tokens.</p>
-   <p>Additionally, a single agreement that governs the process of origination, the Origination Process Agreement, see <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: VerificationProcessAgreement</a>, is defined in this artifact. This agreement is used to establish the parties
+   <p>Additionally, a single agreement that governs the process of origination, the Origination Process Agreement, see <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: OriginationProcessAgreement</a>, is defined in this artifact. This agreement is used to establish the parties
 and their roles in the origination process.</p>
    <h3 class="heading settled" data-level="2.4" id="audience"><span class="secno">2.4. </span><span class="content">Intended Audience</span><a class="self-link" href="#audience"></a></h3>
    <p>This technical specification is for</p>
@@ -2883,7 +2883,7 @@ may have distinct modules for capture, transport, and storage phases. This struc
      <p>The encoding of an Accountable Impact Organization in the data model is specified in <a href="#dt-accountable-impact-organization">§ 4.2 Token &amp; Data Type: AccountableImpactOrganization</a></p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="activity-impact-module">Activity Impact Module</dfn> (AIM)
     <dd data-md>
-     <p>An Activity Impact Module, AIM, can represent a single project with all <a href="#dt-quality-standard">§ 4.55 Data Type QualityStandard</a> modules represented in a single AIM, or span multiple AIMs where each AIM represents a different module within a project and be grouped into project modules of a Origination Process Agreement <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: VerificationProcessAgreement</a>.
+     <p>An Activity Impact Module, AIM, can represent a single project with all <a href="#dt-quality-standard">§ 4.55 Data Type QualityStandard</a> modules represented in a single AIM, or span multiple AIMs where each AIM represents a different module within a project and be grouped into project modules of a Origination Process Agreement <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: OriginationProcessAgreement</a>.
 Each AIM has a defined scope and a defined set of activities that are intended to achieve a defined set of outcomes. The outcomes of the project are typically environmental benefits and follow a spcific Quality Standard, i.e. methodology.</p>
      <p>A AIM is scoped or bound to a quality standard/methodology that it follows along with a physical location or boundary that defines where the project activities occur. For example, a land based project would be scoped to an area/polygon on a map and an engineered sequestion based project would be scoped to a power plant/GPS/INSS.</p>
      <p>An Accountable Impact Organization can have multiple AIMs, but there cannot be another AIM using the same benefit type/quality standard/methodology and location.</p>
@@ -2931,7 +2931,7 @@ A carbon credit may require several different modules and claims to be combined 
 different organizations.</p>
      <p>For example, Carbon Capture and Storage (CCS) may require a project developer to capture CO2 from a plant, then hand it off to a different organization to transport the CO2 to a storage facility,
 then a third organization to store the CO2. Each of these organizations would have their own AIM and claim, but only one credit will be issued for the combined claims. 
-The AIMs would be grouped together in an VerificationProcessAgreement, their claims would be combined into an ClaimGroup for a single credit to be issued for the group. 
+The AIMs would be grouped together in an OriginationProcessAgreement, their claims would be combined into an ClaimGroup for a single credit to be issued for the group. 
 Since an Activity Impact Module can be a member of multiple agreement/groups, when a claim is created it must identify the Claim Group it will belong to.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="claim-group">Claim Group</dfn>
     <dd data-md>
@@ -2958,7 +2958,7 @@ Templates are defined in an Extension Set that is shared by all participants in 
      <p>A multiparty agreement between the parties involved in the origination and digital MRV process that is central to the process. It defines the roles,
 rules, quality standard and the ExtensionSet that can be used by the participants. Every dMRV origination process must have a Origination Process Agreement 
 in place and is the <code>rule book</code> that governs the process.</p>
-     <p>The encoding of a Origination Process Agreement in the data model is specified in <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: VerificationProcessAgreement</a></p>
+     <p>The encoding of a Origination Process Agreement in the data model is specified in <a href="#dt-origination-process-agreement">§ 4.31 Agreement &amp; Data Type: OriginationProcessAgreement</a></p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="carbon-removal-or-reduction-credit---cru">Carbon Removal or Reduction Credit - CRU</dfn>
     <dd data-md>
      <p>A CRU can represent either a carbon removal or reduction credit. The difference is that a carbon removal credit is a credit that is issued for the removal of carbon from the atmosphere, while a carbon reduction credit is a credit that is issued for the reduction of carbon emissions.</p>
@@ -2980,7 +2980,7 @@ in place and is the <code>rule book</code> that governs the process.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim">ProcessedClaim</a>: contains information identifying a processed claim that will host one or more Checkpoint Result(s).</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement">VerificationProcessAgreement</a>: contains the identifiers of the counterparties involved in the verification process and establishes the rules and procedures for the verification.</p>
+     <p><a data-link-type="dfn" href="#originationprocessagreement" id="ref-for-originationprocessagreement">OriginationProcessAgreement</a>: contains the identifiers of the counterparties involved in the verification process and establishes the rules and procedures for the verification.</p>
     <li data-md>
      <p><a data-link-type="dfn" href="#cru" id="ref-for-cru">CRU</a>: contains information identifying a carbon removal or reduction credit. This is the cononical example of an ecological asset and can be replaced by a different asset type, e.g., biodiversity, water, etc.</p>
     <li data-md>
@@ -4115,7 +4115,7 @@ configured to control the processing of the ImpactClaim.</p>
    <h3 class="heading settled" data-level="4.20" id="dt-entity-template"><span class="secno">4.20. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entityextensiontemplate">EntityExtensionTemplate</dfn></span><a class="self-link" href="#dt-entity-template"></a></h3>
    <p>An Entity Extension Template is an extensible object (JSON, proto, etc.) that contains custom data that is specific to a Quality Standard/Methodology Entity. Entity Extension Templates
     can be defined by the methdology developers or the verifier, or verification automation to include attributes or data that is helpful to have on the ledger. entityExtensionTemplates are used to create <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑦">EntityExtension</a> instances and add to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule④">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim③">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim②">ProcessedClaim</a> types.</p>
-   <p>The Entity Extension Template is defined and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset①">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement①">VerificationProcessAgreement</a> and is used by participants
+   <p>The Entity Extension Template is defined and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset①">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#originationprocessagreement" id="ref-for-originationprocessagreement①">OriginationProcessAgreement</a> and is used by participants
     to define the MRV process and data that is required for the verification process.</p>
    <h4 class="heading settled" data-level="4.20.1" id="dt-entity-template-namespace"><span class="secno">4.20.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-entity-template-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
@@ -4174,7 +4174,7 @@ configured to control the processing of the ImpactClaim.</p>
    </figure>
    <h3 class="heading settled" data-level="4.21" id="dt-entity"><span class="secno">4.21. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="entityextension">EntityExtension</dfn></span><a class="self-link" href="#dt-entity"></a></h3>
    <p>An Entity Extension is an extensible object (JSON, proto, etc.) that contains custom data that is specific to a Quality Standard/Methodology Entity. Entity Extensions are an instance of an <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate②">EntityExtensionTemplate</a> and can be added to most entity types, i.e., <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule⑤">ActivityImpactModule</a>, <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim④">ImpactClaim</a>, and <a data-link-type="dfn" href="#processedclaim" id="ref-for-processedclaim③">ProcessedClaim</a> types. An Entity Extension is used to add custom data to the entity that is not part of the core schema.</p>
-   <p>Entity Extensions are defined and reference their <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate③">EntityExtensionTemplate</a> and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset②">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset③">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement②">VerificationProcessAgreement</a> and is used by participants
+   <p>Entity Extensions are defined and reference their <a data-link-type="dfn" href="#entityextensiontemplate" id="ref-for-entityextensiontemplate③">EntityExtensionTemplate</a> and added to a <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset②">ExtensionSet</a> with an accompanying schema. The <a data-link-type="dfn" href="#extensionset" id="ref-for-extensionset③">ExtensionSet</a> is a part of the <a data-link-type="dfn" href="#originationprocessagreement" id="ref-for-originationprocessagreement②">OriginationProcessAgreement</a> and is used by participants
     as the repository of extensions used for the Quality Standard/Methodology.</p>
    <h4 class="heading settled" data-level="4.21.1" id="dt-entity-namespace"><span class="secno">4.21.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-entity-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
@@ -4492,7 +4492,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-opaid"><code>opaId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string④②">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the parent VerificationProcessAgreement, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
+       <td>The unique identifier for the parent OriginationProcessAgreement, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="ProcessedClaim" data-dfn-type="element-attr" data-export id="element-attrdef-processedclaim-impactclaimid"><code>impactClaimId</code></dfn> : <a data-link-type="dfn" href="#string" id="ref-for-string④③">String</a> 
        <td>String 
@@ -4600,11 +4600,11 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type CheckpointResult</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="4.31" id="dt-origination-process-agreement"><span class="secno">4.31. </span><span class="content">Agreement &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="verificationprocessagreement">VerificationProcessAgreement</dfn></span><a class="self-link" href="#dt-origination-process-agreement"></a></h3>
-   <p>A VerificationProcessAgreement is an agreement between a developer, verifier and registry that defines the
+   <h3 class="heading settled" data-level="4.31" id="dt-origination-process-agreement"><span class="secno">4.31. </span><span class="content">Agreement &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="originationprocessagreement">OriginationProcessAgreement</dfn></span><a class="self-link" href="#dt-origination-process-agreement"></a></h3>
+   <p>A OriginationProcessAgreement is an agreement between a developer, verifier and registry that defines the
   terms of the verification process. Shared properties of all the data entities in the validation and verification
   process are listed here, like the Quality Standard being used, the MRV Requirements, Claim Period, audit 
-  schedule, etc. The VerificationProcessAgreement is the indirect parent object for all the other data entities in the
+  schedule, etc. The OriginationProcessAgreement is the indirect parent object for all the other data entities in the
   origination process.</p>
    <h4 class="heading settled" data-level="4.31.1" id="dt-origination-process-agreement-properties"><span class="secno">4.31.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-origination-process-agreement-properties"></a></h4>
    <figure id="origination-process-agreement-properties-table">
@@ -4620,7 +4620,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : <a data-link-type="dfn" href="#string" id="ref-for-string④⑨">String</a> 
        <td>String 
        <td>M 
-       <td>Unique identifier for the VerificationProcessAgreement, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
+       <td>Unique identifier for the OriginationProcessAgreement, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
        <td>name : <a data-link-type="dfn" href="#string" id="ref-for-string⑤⓪">String</a> 
        <td>String 
@@ -4632,42 +4632,42 @@ configured to control the processing of the ImpactClaim.</p>
        <td>M 
        <td>A description of the Origination Process Agreement and where special instructions are provided. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-projectmodules"><code>projectModules</code></dfn> : <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule">ProjectModule</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-projectmodules"><code>projectModules</code></dfn> : <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule">ProjectModule</a> 
        <td>Object 
        <td>M 
        <td>A collection of project modules that are used in the verification process. See <a href="#dt-project-module">§ 4.7 Data Type: ProjectModule</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-signatories"><code>signatories</code></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-signatories"><code>signatories</code></dfn> : <a data-link-type="dfn" href="#signatory" id="ref-for-signatory">Signatory</a> 
        <td>Array 
        <td>M 
        <td>A collection of signatories, the AIM owner, Issuing Registry, VVB and verification platform are examples of signatories. See <a href="#dt-signatory">§ 4.45 Data Type: Signatory</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-qualitystandard"><code>qualityStandard</code></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-qualitystandard"><code>qualityStandard</code></dfn> : <a data-link-type="dfn" href="#qualitystandard" id="ref-for-qualitystandard">QualityStandard</a> 
        <td>Object 
        <td>M 
        <td>The quality standard being used for the verification. See <a href="#dt-quality-standard">§ 4.55 Data Type QualityStandard</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-mrvrequirements"><code>mrvRequirements</code></dfn> : <a data-link-type="dfn" href="#mrvrequirements" id="ref-for-mrvrequirements">MRVRequirements</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-mrvrequirements"><code>mrvRequirements</code></dfn> : <a data-link-type="dfn" href="#mrvrequirements" id="ref-for-mrvrequirements">MRVRequirements</a> 
        <td>Object 
        <td>M 
        <td>The MRV requirements being used for the verification. See <a href="#dt-mrv-requirements">§ 4.56 Data Type MRVRequirements</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-agreementdate"><code>agreementDate</code></dfn> : <a data-link-type="dfn" href="#datestring" id="ref-for-datestring⑤">DateString</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-agreementdate"><code>agreementDate</code></dfn> : <a data-link-type="dfn" href="#datestring" id="ref-for-datestring⑤">DateString</a> 
        <td>String 
        <td>M 
        <td>The date the agreement was signed. See <a href="#dt-date-string">§ 4.60 Data Type: DateString</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-estimatedannualcredits"><code>estimatedAnnualCredits</code></dfn> : 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-estimatedannualcredits"><code>estimatedAnnualCredits</code></dfn> : 
        <td>String 
        <td>O 
        <td>The quantity of credits that are expected to be generated annually. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-auditschedule"><code>AuditSchedule</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule">AuditSchedule</a></code> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-auditschedule"><code>AuditSchedule</code></dfn> : <code class="idl"><a data-link-type="idl" href="#enumdef-auditschedule" id="ref-for-enumdef-auditschedule">AuditSchedule</a></code> 
        <td>String 
        <td>M 
        <td>The string representation of the audit schedule, see <a href="#dt-audit-schedule">§ 4.90 Data Type: AuditSchedule</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="VerificationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-verificationprocessagreement-audits"><code>Audits</code></dfn> : <a data-link-type="dfn" href="#audits" id="ref-for-audits">Audits</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="OriginationProcessAgreement" data-dfn-type="element-attr" data-export id="element-attrdef-originationprocessagreement-audits"><code>Audits</code></dfn> : <a data-link-type="dfn" href="#audits" id="ref-for-audits">Audits</a> 
        <td>Object 
        <td>M 
        <td>The audits that are required for the verification agreement. See <a href="#dt-audits">§ 4.44 Data Type: Audits</a> for details. 
@@ -4677,7 +4677,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A collection of optional MrvEntityExtensions, see <a href="#dt-entity">§ 4.21 Data Type: EntityExtension</a> for details. 
     </table>
-    <figcaption>Properties of data type VerificationProcessAgreement</figcaption>
+    <figcaption>Properties of data type OriginationProcessAgreement</figcaption>
    </figure>
    <h3 class="heading settled" data-level="4.32" id="dt-cru"><span class="secno">4.32. </span><span class="content">Token &amp; Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cru">CRU</dfn></span><a class="self-link" href="#dt-cru"></a></h3>
    <p>The Carbon Removal or Reduction Unit, is a digital asset or token that services as a credit
@@ -5922,8 +5922,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.64" id="dt-itmo-id"><span class="secno">4.64. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-c3af8125">
-    <a class="self-link" href="#example-c3af8125"></a> 
+   <div class="example" id="example-f2ae22b1">
+    <a class="self-link" href="#example-f2ae22b1"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6844,7 +6844,7 @@ This list will be expanded to include other categories, like biodiversity, in th
      <h4 class="heading settled" data-level="4.96.1" id="dt-standard-json"><span class="secno">4.96.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-standard-json"></a></h4>
      <p>Each Standard is represented as a string in JSON.</p>
      <h3 class="heading settled" data-level="4.97" id="dt-methodology-and-tool"><span class="secno">4.97. </span><span class="content">Data Type: <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-methodologyandtool"><code>MethodologyAndTool</code></dfn></span><a class="self-link" href="#dt-methodology-and-tool"></a></h3>
-     <p>Each Quality Standard defined in the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement③">VerificationProcessAgreement</a>(#dt-origination-process-agreement) is has a Methodology and might also have multiple toolkits for Additionality, Leakage, and Baseline, etc.
+     <p>Each Quality Standard defined in the <a data-link-type="dfn" href="#originationprocessagreement" id="ref-for-originationprocessagreement③">OriginationProcessAgreement</a>(#dt-origination-process-agreement) is has a Methodology and might also have multiple toolkits for Additionality, Leakage, and Baseline, etc.
 This is not an exhaustive list of Methodologies and Tools as there can be hundreds of them.</p>
      <dl>
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="MethodologyAndTool" data-dfn-type="enum-value" data-export id="dom-methodologyandtool-cdm---am0007"><code>CDM - AM0007</code></dfn>
@@ -9993,7 +9993,7 @@ public licenses.</p>
       <li data-md>
        <p>Removed <code>ReversalMitigation</code> from <code>Durability</code> and added the properties in <code>ReversalMitigation</code> to <code>Durability</code> to better reflect the type.</p>
       <li data-md>
-       <p>Modified the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement④">VerificationProcessAgreement</a>, removing <code>IsAimGroup</code> and <code>AimOrAimGroupId</code> replacing with a collection of <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule①">ProjectModule</a> to more cleanly represent the relationship between the a opa and multiple AIMs.</p>
+       <p>Modified the <a data-link-type="dfn">VerificationProcessAgreement</a>, removing <code>IsAimGroup</code> and <code>AimOrAimGroupId</code> replacing with a collection of <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule①">ProjectModule</a> to more cleanly represent the relationship between the a opa and multiple AIMs.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250320"><span class="content">Version 2.5.0-20250320 (March 20th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250320"></a></h3>
      <ul>
@@ -10093,7 +10093,7 @@ public licenses.</p>
       <li data-md>
        <p>Removed the <code>correlatingProjectId</code> property to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule①⓪">ActivityImpactModule</a> type, no longer needed due to <a data-link-type="dfn">ActivityImpactModuleGroup</a>.</p>
       <li data-md>
-       <p>Update the <a data-link-type="dfn" href="#verificationprocessagreement" id="ref-for-verificationprocessagreement⑤">VerificationProcessAgreement</a>, rename <code>mbpId</code> to <code>mbpOrMbpGroupId</code> and added a <code>isMbpGroup</code> boolean to support single or multiple MBPs for a opa.</p>
+       <p>Update the <a data-link-type="dfn">VerificationProcessAgreement</a>, rename <code>mbpId</code> to <code>mbpOrMbpGroupId</code> and added a <code>isMbpGroup</code> boolean to support single or multiple MBPs for a opa.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20241209"><span class="content">Version 2.5.0-20241209 (December 9th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241209"></a></h3>
      <ul>
@@ -10307,7 +10307,7 @@ public licenses.</p>
    <li><a href="#dom-projecttype-advanced_refrigerants">ADVANCED_REFRIGERANTS</a><span>, in § 4.93</span>
    <li><a href="#dom-un-sdgs-affordable_and_clean_energy">AFFORDABLE_AND_CLEAN_ENERGY</a><span>, in § 4.91</span>
    <li><a href="#dom-projecttype-afforestation_reforestation">AFFORESTATION_REFORESTATION</a><span>, in § 4.93</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-agreementdate">agreementDate</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-agreementdate">agreementDate</a><span>, in § 4.31.1</span>
    <li><a href="#dom-projectscope-agriculture">AGRICULTURE</a><span>, in § 4.92</span>
    <li><a href="#element-attrdef-claimsource-aimid">aimId</a><span>, in § 4.8.1</span>
    <li><a href="#element-attrdef-activityimpactmodule-aioid">aioId</a><span>, in § 4.4.2</span>
@@ -10332,13 +10332,13 @@ public licenses.</p>
     Audits
     <ul>
      <li><a href="#audits">definition of</a><span>, in § 4.44</span>
-     <li><a href="#element-attrdef-verificationprocessagreement-audits">element-attr for VerificationProcessAgreement</a><span>, in § 4.31.1</span>
+     <li><a href="#element-attrdef-originationprocessagreement-audits">element-attr for OriginationProcessAgreement</a><span>, in § 4.31.1</span>
     </ul>
    <li>
     AuditSchedule
     <ul>
      <li><a href="#enumdef-auditschedule">(enum)</a><span>, in § 4.90</span>
-     <li><a href="#element-attrdef-verificationprocessagreement-auditschedule">element-attr for VerificationProcessAgreement</a><span>, in § 4.31.1</span>
+     <li><a href="#element-attrdef-originationprocessagreement-auditschedule">element-attr for OriginationProcessAgreement</a><span>, in § 4.31.1</span>
     </ul>
    <li><a href="#dom-projecttype-avoided_forest_conversion">AVOIDED_FOREST_CONVERSION</a><span>, in § 4.93</span>
    <li><a href="#dom-projecttype-avoided_grassland_conversion">AVOIDED_GRASSLAND_CONVERSION</a><span>, in § 4.93</span>
@@ -10516,7 +10516,7 @@ public licenses.</p>
    <li><a href="#dom-projecttype-enhanced_rock_weathering">ENHANCED_ROCK_WEATHERING</a><span>, in § 4.93</span>
    <li><a href="#entityextension">EntityExtension</a><span>, in § 4.21</span>
    <li><a href="#entityextensiontemplate">EntityExtensionTemplate</a><span>, in § 4.20</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-estimatedannualcredits">estimatedAnnualCredits</a><span>, in § 4.31.1</span>
    <li><a href="#dom-standard-eua">EUA</a><span>, in § 4.96</span>
    <li><a href="#dom-region-europe">EUROPE</a><span>, in § 4.85</span>
    <li><a href="#dom-generationtype-ex_ante">EX_ANTE</a><span>, in § 4.80</span>
@@ -10652,7 +10652,7 @@ public licenses.</p>
      <li><a href="#dom-reportingfrequency-monthly">enum-value for ReportingFrequency</a><span>, in § 4.99</span>
     </ul>
    <li><a href="#mrvrequirements">MRVRequirements</a><span>, in § 4.56</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-mrvrequirements">mrvRequirements</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-mrvrequirements">mrvRequirements</a><span>, in § 4.31.1</span>
    <li><a href="#dom-unitofmeasure-mwh">MwH</a><span>, in § 4.100</span>
    <li><a href="#dom-projecttype-n20_destruction_in_adipic_acid_production">N20_DESTRUCTION_IN_ADIPIC_ACID_PRODUCTION</a><span>, in § 4.93</span>
    <li><a href="#dom-projecttype-n20_destruction_in_nitric_acid_production">N20_DESTRUCTION_IN_NITRIC_ACID_PRODUCTION</a><span>, in § 4.93</span>
@@ -10674,6 +10674,7 @@ public licenses.</p>
    <li><a href="#dom-projecttype-oil_recycling">OIL_RECYCLING</a><span>, in § 4.93</span>
    <li><a href="#element-attrdef-processedclaim-opaid">opaId</a><span>, in § 4.29.2</span>
    <li><a href="#origination-process-agreement">Origination Process Agreement</a><span>, in § 3</span>
+   <li><a href="#originationprocessagreement">OriginationProcessAgreement</a><span>, in § 4.31</span>
    <li><a href="#dom-projectscope-other">OTHER</a><span>, in § 4.92</span>
    <li><a href="#element-attrdef-accountableimpactorganization-owners">owners</a><span>, in § 4.2.2</span>
    <li><a href="#dom-projecttype-ozone_depleting_substances_recovery_and_destruction">OZONE_DEPLETING_SUBSTANCES_RECOVERY_AND_DESTRUCTION</a><span>, in § 4.93</span>
@@ -10697,7 +10698,7 @@ public licenses.</p>
    <li><a href="#element-attrdef-impactclaimcheckpoint-projectdeveloperid">projectDeveloperId</a><span>, in § 4.10.1</span>
    <li><a href="#projectmodule">ProjectModule</a><span>, in § 4.7</span>
    <li><a href="#project-modules">Project Modules</a><span>, in § 3</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-projectmodules">projectModules</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-projectmodules">projectModules</a><span>, in § 4.31.1</span>
    <li><a href="#dom-signatoryrole-project_owner">PROJECT_OWNER</a><span>, in § 4.77</span>
    <li><a href="#enumdef-projectscale">ProjectScale</a><span>, in § 4.87</span>
    <li><a href="#element-attrdef-activityimpactmodule-projectscale">projectScale</a><span>, in § 4.4.2</span>
@@ -10714,7 +10715,7 @@ public licenses.</p>
    <li><a href="#dom-un-sdgs-quality_education">QUALITY_EDUCATION</a><span>, in § 4.91</span>
    <li><a href="#quality-standard">Quality Standard</a><span>, in § 3</span>
    <li><a href="#qualitystandard">QualityStandard</a><span>, in § 4.55</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-qualitystandard">qualityStandard</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-qualitystandard">qualityStandard</a><span>, in § 4.31.1</span>
    <li><a href="#dom-claimperiod-quarterly">QUARTERLY</a><span>, in § 4.86</span>
    <li><a href="#dom-auditschedule-quinquennial">QUINQUENNIAL</a><span>, in § 4.90</span>
    <li><a href="#dom-projecttype-re_bundled">RE_BUNDLED</a><span>, in § 4.93</span>
@@ -10761,7 +10762,7 @@ public licenses.</p>
    <li><a href="#dom-hashalgorithm-sha-256">SHA-256</a><span>, in § 4.72</span>
    <li><a href="#dom-hashalgorithm-sha3">SHA3</a><span>, in § 4.72</span>
    <li><a href="#dom-projecttype-shipping">SHIPPING</a><span>, in § 4.93</span>
-   <li><a href="#element-attrdef-verificationprocessagreement-signatories">signatories</a><span>, in § 4.31.1</span>
+   <li><a href="#element-attrdef-originationprocessagreement-signatories">signatories</a><span>, in § 4.31.1</span>
    <li><a href="#signatory">Signatory</a><span>, in § 4.45</span>
    <li><a href="#enumdef-signatoryrole">SignatoryRole</a><span>, in § 4.77</span>
    <li><a href="#element-attrdef-signatory-signatoryrole">signatoryRole</a><span>, in § 4.45.1</span>
@@ -10852,7 +10853,6 @@ public licenses.</p>
    <li><a href="#verification-automation">Verification Automation</a><span>, in § 3</span>
    <li><a href="#dom-signatoryrole-verification_platform_provider">VERIFICATION_PLATFORM_PROVIDER</a><span>, in § 4.77</span>
    <li><a href="#dom-extensioncontext-verification_process_agreement">VERIFICATION_PROCESS_AGREEMENT</a><span>, in § 4.69</span>
-   <li><a href="#verificationprocessagreement">VerificationProcessAgreement</a><span>, in § 4.31</span>
    <li><a href="#element-attrdef-corecarbonprinciples-verificationstandard">verificationStandard</a><span>, in § 4.33.1</span>
    <li><a href="#dom-signaturetype-verified_credential">VERIFIED_CREDENTIAL</a><span>, in § 4.76</span>
    <li><a href="#verifiedlink">VerifiedLink</a><span>, in § 4.42</span>
@@ -11496,6 +11496,14 @@ let dfnPanelData = {
 "element-attrdef-messagepair-documentation": {"dfnID":"element-attrdef-messagepair-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-messagepair-documentation"},
 "element-attrdef-mitigationactivity-carboncategory": {"dfnID":"element-attrdef-mitigationactivity-carboncategory","dfnText":"carbonCategory","external":false,"refSections":[],"url":"#element-attrdef-mitigationactivity-carboncategory"},
 "element-attrdef-mitigationactivity-method": {"dfnID":"element-attrdef-mitigationactivity-method","dfnText":"method","external":false,"refSections":[],"url":"#element-attrdef-mitigationactivity-method"},
+"element-attrdef-originationprocessagreement-agreementdate": {"dfnID":"element-attrdef-originationprocessagreement-agreementdate","dfnText":"agreementDate","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-agreementdate"},
+"element-attrdef-originationprocessagreement-audits": {"dfnID":"element-attrdef-originationprocessagreement-audits","dfnText":"Audits","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-audits"},
+"element-attrdef-originationprocessagreement-auditschedule": {"dfnID":"element-attrdef-originationprocessagreement-auditschedule","dfnText":"AuditSchedule","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-auditschedule"},
+"element-attrdef-originationprocessagreement-estimatedannualcredits": {"dfnID":"element-attrdef-originationprocessagreement-estimatedannualcredits","dfnText":"estimatedAnnualCredits","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-estimatedannualcredits"},
+"element-attrdef-originationprocessagreement-mrvrequirements": {"dfnID":"element-attrdef-originationprocessagreement-mrvrequirements","dfnText":"mrvRequirements","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-mrvrequirements"},
+"element-attrdef-originationprocessagreement-projectmodules": {"dfnID":"element-attrdef-originationprocessagreement-projectmodules","dfnText":"projectModules","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-projectmodules"},
+"element-attrdef-originationprocessagreement-qualitystandard": {"dfnID":"element-attrdef-originationprocessagreement-qualitystandard","dfnText":"qualityStandard","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-qualitystandard"},
+"element-attrdef-originationprocessagreement-signatories": {"dfnID":"element-attrdef-originationprocessagreement-signatories","dfnText":"signatories","external":false,"refSections":[],"url":"#element-attrdef-originationprocessagreement-signatories"},
 "element-attrdef-pacompliance-correspondingadjustment": {"dfnID":"element-attrdef-pacompliance-correspondingadjustment","dfnText":"correspondingAdjustment","external":false,"refSections":[],"url":"#element-attrdef-pacompliance-correspondingadjustment"},
 "element-attrdef-pacompliance-itmoid": {"dfnID":"element-attrdef-pacompliance-itmoid","dfnText":"itmoId","external":false,"refSections":[],"url":"#element-attrdef-pacompliance-itmoid"},
 "element-attrdef-pacompliance-letterofapproval": {"dfnID":"element-attrdef-pacompliance-letterofapproval","dfnText":"letterOfApproval","external":false,"refSections":[],"url":"#element-attrdef-pacompliance-letterofapproval"},
@@ -11525,14 +11533,6 @@ let dfnPanelData = {
 "element-attrdef-validationstep-validationstepname": {"dfnID":"element-attrdef-validationstep-validationstepname","dfnText":"validationStepName","external":false,"refSections":[],"url":"#element-attrdef-validationstep-validationstepname"},
 "element-attrdef-validationstep-validationstepstatus": {"dfnID":"element-attrdef-validationstep-validationstepstatus","dfnText":"validationStepStatus","external":false,"refSections":[],"url":"#element-attrdef-validationstep-validationstepstatus"},
 "element-attrdef-variabletemplate-documentation": {"dfnID":"element-attrdef-variabletemplate-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-variabletemplate-documentation"},
-"element-attrdef-verificationprocessagreement-agreementdate": {"dfnID":"element-attrdef-verificationprocessagreement-agreementdate","dfnText":"agreementDate","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-agreementdate"},
-"element-attrdef-verificationprocessagreement-audits": {"dfnID":"element-attrdef-verificationprocessagreement-audits","dfnText":"Audits","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-audits"},
-"element-attrdef-verificationprocessagreement-auditschedule": {"dfnID":"element-attrdef-verificationprocessagreement-auditschedule","dfnText":"AuditSchedule","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-auditschedule"},
-"element-attrdef-verificationprocessagreement-estimatedannualcredits": {"dfnID":"element-attrdef-verificationprocessagreement-estimatedannualcredits","dfnText":"estimatedAnnualCredits","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-estimatedannualcredits"},
-"element-attrdef-verificationprocessagreement-mrvrequirements": {"dfnID":"element-attrdef-verificationprocessagreement-mrvrequirements","dfnText":"mrvRequirements","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-mrvrequirements"},
-"element-attrdef-verificationprocessagreement-projectmodules": {"dfnID":"element-attrdef-verificationprocessagreement-projectmodules","dfnText":"projectModules","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-projectmodules"},
-"element-attrdef-verificationprocessagreement-qualitystandard": {"dfnID":"element-attrdef-verificationprocessagreement-qualitystandard","dfnText":"qualityStandard","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-qualitystandard"},
-"element-attrdef-verificationprocessagreement-signatories": {"dfnID":"element-attrdef-verificationprocessagreement-signatories","dfnText":"signatories","external":false,"refSections":[],"url":"#element-attrdef-verificationprocessagreement-signatories"},
 "element-attrdef-verifiedlink-hashalgorithm": {"dfnID":"element-attrdef-verifiedlink-hashalgorithm","dfnText":"hashAlgorithm","external":false,"refSections":[],"url":"#element-attrdef-verifiedlink-hashalgorithm"},
 "element-attrdef-verifiedlink-uri": {"dfnID":"element-attrdef-verifiedlink-uri","dfnText":"uri","external":false,"refSections":[],"url":"#element-attrdef-verifiedlink-uri"},
 "encumberable": {"dfnID":"encumberable","dfnText":"encumberable","external":false,"refSections":[],"url":"#encumberable"},
@@ -11600,6 +11600,7 @@ let dfnPanelData = {
 "non-transferable": {"dfnID":"non-transferable","dfnText":"Non-transferable","external":false,"refSections":[],"url":"#non-transferable"},
 "offsetable-supply-control": {"dfnID":"offsetable-supply-control","dfnText":"Offsetable Supply Control","external":false,"refSections":[],"url":"#offsetable-supply-control"},
 "origination-process-agreement": {"dfnID":"origination-process-agreement","dfnText":"Origination Process Agreement","external":false,"refSections":[],"url":"#origination-process-agreement"},
+"originationprocessagreement": {"dfnID":"originationprocessagreement","dfnText":"OriginationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-originationprocessagreement"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-originationprocessagreement\u2460"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-originationprocessagreement\u2461"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-originationprocessagreement\u2462"}],"title":"4.97. Data Type: MethodologyAndTool"}],"url":"#originationprocessagreement"},
 "pacompliance": {"dfnID":"pacompliance","dfnText":"PACompliance","external":false,"refSections":[{"refs":[{"id":"ref-for-pacompliance"}],"title":"4.33.1. Properties"},{"refs":[{"id":"ref-for-pacompliance\u2460"}],"title":"4.39.1. Properties"}],"url":"#pacompliance"},
 "precisionmix": {"dfnID":"precisionmix","dfnText":"PrecisionMix","external":false,"refSections":[{"refs":[{"id":"ref-for-precisionmix"}],"title":"4.56.1. Properties"}],"url":"#precisionmix"},
 "processed-claim": {"dfnID":"processed-claim","dfnText":"Processed Claim","external":false,"refSections":[],"url":"#processed-claim"},
@@ -11630,7 +11631,6 @@ let dfnPanelData = {
 "variabletemplates": {"dfnID":"variabletemplates","dfnText":"VariableTemplates","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplates"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#variabletemplates"},
 "verifiablepresentation": {"dfnID":"verifiablepresentation","dfnText":"VerifiablePresentation","external":false,"refSections":[],"url":"#verifiablepresentation"},
 "verification-automation": {"dfnID":"verification-automation","dfnText":"Verification Automation","external":false,"refSections":[],"url":"#verification-automation"},
-"verificationprocessagreement": {"dfnID":"verificationprocessagreement","dfnText":"VerificationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-verificationprocessagreement"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2460"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2461"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2462"}],"title":"4.97. Data Type: MethodologyAndTool"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2463"}],"title":"Version 3.0.0-20250522 (May 22nd, 2025)"},{"refs":[{"id":"ref-for-verificationprocessagreement\u2464"}],"title":"Version 2.5.0-20241216 (December 16th, 2024)"}],"url":"#verificationprocessagreement"},
 "verifiedlink": {"dfnID":"verifiedlink","dfnText":"VerifiedLink","external":false,"refSections":[{"refs":[{"id":"ref-for-verifiedlink"},{"id":"ref-for-verifiedlink\u2460"}],"title":"4.2.2. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2461"}],"title":"4.6.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2462"}],"title":"4.11.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2463"}],"title":"4.30.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2464"}],"title":"4.38.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2465"}],"title":"4.39.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2466"}],"title":"4.43.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2467"}],"title":"4.44.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2468"}],"title":"4.54.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u24ea"}],"title":"4.55.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2460"}],"title":"4.56.1. Properties"},{"refs":[{"id":"ref-for-verifiedlink\u2460\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#verifiedlink"},
 "wholenumber": {"dfnID":"wholenumber","dfnText":"WholeNumber","external":false,"refSections":[{"refs":[{"id":"ref-for-wholenumber"}],"title":"4.34.1. Properties"},{"refs":[{"id":"ref-for-wholenumber\u2460"},{"id":"ref-for-wholenumber\u2461"}],"title":"4.35.1. Properties"}],"url":"#wholenumber"},
 };
@@ -12099,6 +12099,7 @@ let refsData = {
 "#messagepair": {"displayText":"messagepair","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"messagepair","type":"dfn","url":"#messagepair"},
 "#mitigationactivity": {"displayText":"mitigationactivity","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"mitigationactivity","type":"dfn","url":"#mitigationactivity"},
 "#mrvrequirements": {"displayText":"mrvrequirements","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"mrvrequirements","type":"dfn","url":"#mrvrequirements"},
+"#originationprocessagreement": {"displayText":"originationprocessagreement","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"originationprocessagreement","type":"dfn","url":"#originationprocessagreement"},
 "#pacompliance": {"displayText":"pacompliance","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"pacompliance","type":"dfn","url":"#pacompliance"},
 "#precisionmix": {"displayText":"precisionmix","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"precisionmix","type":"dfn","url":"#precisionmix"},
 "#processedclaim": {"displayText":"processedclaim","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"processedclaim","type":"dfn","url":"#processedclaim"},
@@ -12118,7 +12119,6 @@ let refsData = {
 "#variable": {"displayText":"variable","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"variable","type":"dfn","url":"#variable"},
 "#variabletemplate": {"displayText":"variabletemplate","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"variabletemplate","type":"dfn","url":"#variabletemplate"},
 "#variabletemplates": {"displayText":"variabletemplates","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"variabletemplates","type":"dfn","url":"#variabletemplates"},
-"#verificationprocessagreement": {"displayText":"verificationprocessagreement","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"verificationprocessagreement","type":"dfn","url":"#verificationprocessagreement"},
 "#verifiedlink": {"displayText":"verifiedlink","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"verifiedlink","type":"dfn","url":"#verifiedlink"},
 "#wholenumber": {"displayText":"wholenumber","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"wholenumber","type":"dfn","url":"#wholenumber"},
 "https://infra.spec.whatwg.org/#boolean": {"displayText":"boolean","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"boolean","type":"dfn","url":"https://infra.spec.whatwg.org/#boolean"},
