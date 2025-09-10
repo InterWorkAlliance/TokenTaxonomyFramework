@@ -19,12 +19,13 @@ enum ExtensionContext{
     DATA_FILE = 8; //DataPackage File context
     PROCESSED_CLAIM = 9; //Processed Checkpoint context
     VERIFICATION_PROCESS_AGREEMENT = 10; //Verification Process Agreement context
-    ACTIVITY_IMPACT_MODULE_GROUP = 11; //Activity Impact Module Group context
-    CLAIM_GROUP = 12; //Impact-Processed Claim Group context
-    FORMULA_TEMPLATE = 13; //Formula Template context
-    FORMULA = 14; //Formula context
-    VARIABLE_TEMPLATE = 15; //Variable Template context
-    VARIABLE = 16; //Variable context
+    CLAIM_GROUP = 11; //Impact-Processed Claim Group context
+    FORMULA_TEMPLATE = 12; //Formula Template context
+    FORMULA = 13; //Formula context
+    VARIABLE_TEMPLATE = 14; //Variable Template context
+    VARIABLE = 15; //Variable context
+    EXTENSION_SET = 16; //Extension Set context
+    EXTENSION_SET_MODULE = 17; //Extension Set Module context
 }
 
 //MessagePair is used to extend the MRV protocol and process to facilitate ledger based collaboration between parties. The extension message pair is used to define the request and response messages for the extension.

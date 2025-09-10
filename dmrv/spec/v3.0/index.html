@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v3.0/index.html" rel="canonical">
-  <meta content="02868e6b3a8d33a1db73979c8baa1f2d96e286b8" name="revision">
+  <meta content="f4d248fd8b04143d9c71ad66d8f2394cf9c6ca4e" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-08-27">27 August 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-09-10">10 September 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2757,6 +2757,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-3.0.0-20250910"><span class="secno"></span> <span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250827"><span class="secno"></span> <span class="content">Version 3.0.0-20250827 (August 27nd, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250716"><span class="secno"></span> <span class="content">Version 3.0.0-20250716 (July 16th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250612"><span class="secno"></span> <span class="content">Version 3.0.0-20250612 (June 12th, 2025)</span></a>
@@ -5922,8 +5923,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.64" id="dt-itmo-id"><span class="secno">4.64. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-4482acee">
-    <a class="self-link" href="#example-4482acee"></a> 
+   <div class="example" id="example-e9a5d22a">
+    <a class="self-link" href="#example-e9a5d22a"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6046,6 +6047,27 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-verification_process_agreement"><code>VERIFICATION_PROCESS_AGREEMENT</code></dfn>
       <dd data-md>
        <p>Origination Process Agreement context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-claim_group"><code>CLAIM_GROUP</code></dfn>
+      <dd data-md>
+       <p>Impact-Processed Claim Group context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-formula_template"><code>FORMULA_TEMPLATE</code></dfn>
+      <dd data-md>
+       <p>Formula Template context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-formula"><code>FORMULA</code></dfn>
+      <dd data-md>
+       <p>Formula context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-variable_template"><code>VARIABLE_TEMPLATE</code></dfn>
+      <dd data-md>
+       <p>Variable Template context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-variable"><code>VARIABLE</code></dfn>
+      <dd data-md>
+       <p>Variable context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-extension_set"><code>EXTENSION_SET</code></dfn>
+      <dd data-md>
+       <p>Extension Set context</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ExtensionContext" data-dfn-type="enum-value" data-export id="dom-extensioncontext-extension_set_module"><code>EXTENSION_SET_MODULE</code></dfn>
+      <dd data-md>
+       <p>Extension Set Module context</p>
      </dl>
      <h4 class="heading settled" data-level="4.69.1" id="dt-extension-context-json"><span class="secno">4.69.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-extension-context-json"></a></h4>
      <p>Each ExtensionContext MUST be encoded as a JSON String.</p>
@@ -9961,6 +9983,11 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-3.0.0-20250910"><span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span><a class="self-link" href="#changelog-3.0.0-20250910"></a></h3>
+     <ul>
+      <li data-md>
+       <p>Added new contexts to the <code>ExtensionContext</code> enum.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-3.0.0-20250827"><span class="content">Version 3.0.0-20250827 (August 27nd, 2025)</span><a class="self-link" href="#changelog-3.0.0-20250827"></a></h3>
      <ul>
       <li data-md>
@@ -10395,6 +10422,7 @@ public licenses.</p>
    <li><a href="#dom-projectscope-chemical_processes">CHEMICAL_PROCESSES</a><span>, in § 4.92</span>
    <li><a href="#element-attrdef-address-city">city</a><span>, in § 4.3.1</span>
    <li><a href="#claim-group">Claim Group</a><span>, in § 3</span>
+   <li><a href="#dom-extensioncontext-claim_group">CLAIM_GROUP</a><span>, in § 4.69</span>
    <li><a href="#claimgroup">ClaimGroup</a><span>, in § 4.14</span>
    <li>
     claimGroupId
@@ -10527,14 +10555,18 @@ public licenses.</p>
    <li><a href="#extensiondefinition">ExtensionDefinition</a><span>, in § 4.27</span>
    <li><a href="#extensiondocumentation">ExtensionDocumentation</a><span>, in § 4.28</span>
    <li><a href="#extension-set">Extension Set</a><span>, in § 3</span>
+   <li><a href="#dom-extensioncontext-extension_set">EXTENSION_SET</a><span>, in § 4.69</span>
    <li><a href="#extensionset">ExtensionSet</a><span>, in § 4.15</span>
+   <li><a href="#dom-extensioncontext-extension_set_module">EXTENSION_SET_MODULE</a><span>, in § 4.69</span>
    <li><a href="#extensionsetmodule">ExtensionSetModule</a><span>, in § 4.16</span>
    <li><a href="#dom-projecttype-feed_additives">FEED_ADDITIVES</a><span>, in § 4.93</span>
    <li><a href="#enumdef-filetype">FileType</a><span>, in § 4.71</span>
    <li><a href="#element-attrdef-activityimpactmodule-firstyearissuance">firstYearIssuance</a><span>, in § 4.4.2</span>
    <li><a href="#dom-projecttype-fleet_efficiency">FLEET_EFFICIENCY</a><span>, in § 4.93</span>
    <li><a href="#dom-projectscope-forestry_and_land_use">FORESTRY_AND_LAND_USE</a><span>, in § 4.92</span>
+   <li><a href="#dom-extensioncontext-formula">FORMULA</a><span>, in § 4.69</span>
    <li><a href="#formula">Formula</a><span>, in § 4.23</span>
+   <li><a href="#dom-extensioncontext-formula_template">FORMULA_TEMPLATE</a><span>, in § 4.69</span>
    <li><a href="#formulatemplate">FormulaTemplate</a><span>, in § 4.22</span>
    <li><a href="#dom-projecttype-fuel_switching">FUEL_SWITCHING</a><span>, in § 4.93</span>
    <li><a href="#dom-projecttype-fuel_transport">FUEL_TRANSPORT</a><span>, in § 4.93</span>
@@ -10841,8 +10873,10 @@ public licenses.</p>
    <li><a href="#element-attrdef-validation-validationsteps">validationSteps</a><span>, in § 4.5.1</span>
    <li><a href="#enumdef-validationstepstatus">ValidationStepStatus</a><span>, in § 4.88</span>
    <li><a href="#element-attrdef-validationstep-validationstepstatus">validationStepStatus</a><span>, in § 4.6.1</span>
+   <li><a href="#dom-extensioncontext-variable">VARIABLE</a><span>, in § 4.69</span>
    <li><a href="#variable">Variable</a><span>, in § 4.25</span>
    <li><a href="#variables">Variables</a><span>, in § 4.26</span>
+   <li><a href="#dom-extensioncontext-variable_template">VARIABLE_TEMPLATE</a><span>, in § 4.69</span>
    <li><a href="#variabletemplate">VariableTemplate</a><span>, in § 4.24</span>
    <li><a href="#variabletemplates">VariableTemplates</a><span>, in § 4.24.3</span>
    <li><a href="#dom-attestationtype-vc">VC</a><span>, in § 4.73</span>
@@ -11192,12 +11226,19 @@ let dfnPanelData = {
 "dom-extensioncontext-activity_impact_module": {"dfnID":"dom-extensioncontext-activity_impact_module","dfnText":"ACTIVITY_IMPACT_MODULE","external":false,"refSections":[],"url":"#dom-extensioncontext-activity_impact_module"},
 "dom-extensioncontext-checkpoint": {"dfnID":"dom-extensioncontext-checkpoint","dfnText":"CHECKPOINT","external":false,"refSections":[],"url":"#dom-extensioncontext-checkpoint"},
 "dom-extensioncontext-checkpoint_result": {"dfnID":"dom-extensioncontext-checkpoint_result","dfnText":"CHECKPOINT_RESULT","external":false,"refSections":[],"url":"#dom-extensioncontext-checkpoint_result"},
+"dom-extensioncontext-claim_group": {"dfnID":"dom-extensioncontext-claim_group","dfnText":"CLAIM_GROUP","external":false,"refSections":[],"url":"#dom-extensioncontext-claim_group"},
 "dom-extensioncontext-claim_source": {"dfnID":"dom-extensioncontext-claim_source","dfnText":"CLAIM_SOURCE","external":false,"refSections":[],"url":"#dom-extensioncontext-claim_source"},
 "dom-extensioncontext-data_file": {"dfnID":"dom-extensioncontext-data_file","dfnText":"DATA_FILE","external":false,"refSections":[],"url":"#dom-extensioncontext-data_file"},
 "dom-extensioncontext-data_package_manifest": {"dfnID":"dom-extensioncontext-data_package_manifest","dfnText":"DATA_PACKAGE_MANIFEST","external":false,"refSections":[],"url":"#dom-extensioncontext-data_package_manifest"},
+"dom-extensioncontext-extension_set": {"dfnID":"dom-extensioncontext-extension_set","dfnText":"EXTENSION_SET","external":false,"refSections":[],"url":"#dom-extensioncontext-extension_set"},
+"dom-extensioncontext-extension_set_module": {"dfnID":"dom-extensioncontext-extension_set_module","dfnText":"EXTENSION_SET_MODULE","external":false,"refSections":[],"url":"#dom-extensioncontext-extension_set_module"},
+"dom-extensioncontext-formula": {"dfnID":"dom-extensioncontext-formula","dfnText":"FORMULA","external":false,"refSections":[],"url":"#dom-extensioncontext-formula"},
+"dom-extensioncontext-formula_template": {"dfnID":"dom-extensioncontext-formula_template","dfnText":"FORMULA_TEMPLATE","external":false,"refSections":[],"url":"#dom-extensioncontext-formula_template"},
 "dom-extensioncontext-impact_claim": {"dfnID":"dom-extensioncontext-impact_claim","dfnText":"IMPACT_CLAIM","external":false,"refSections":[],"url":"#dom-extensioncontext-impact_claim"},
 "dom-extensioncontext-processed_claim": {"dfnID":"dom-extensioncontext-processed_claim","dfnText":"PROCESSED_CLAIM","external":false,"refSections":[],"url":"#dom-extensioncontext-processed_claim"},
 "dom-extensioncontext-unknown_context": {"dfnID":"dom-extensioncontext-unknown_context","dfnText":"UNKNOWN_CONTEXT","external":false,"refSections":[],"url":"#dom-extensioncontext-unknown_context"},
+"dom-extensioncontext-variable": {"dfnID":"dom-extensioncontext-variable","dfnText":"VARIABLE","external":false,"refSections":[],"url":"#dom-extensioncontext-variable"},
+"dom-extensioncontext-variable_template": {"dfnID":"dom-extensioncontext-variable_template","dfnText":"VARIABLE_TEMPLATE","external":false,"refSections":[],"url":"#dom-extensioncontext-variable_template"},
 "dom-extensioncontext-verification_process_agreement": {"dfnID":"dom-extensioncontext-verification_process_agreement","dfnText":"VERIFICATION_PROCESS_AGREEMENT","external":false,"refSections":[],"url":"#dom-extensioncontext-verification_process_agreement"},
 "dom-filetype-data_avro": {"dfnID":"dom-filetype-data_avro","dfnText":"DATA_AVRO","external":false,"refSections":[],"url":"#dom-filetype-data_avro"},
 "dom-filetype-data_binary": {"dfnID":"dom-filetype-data_binary","dfnText":"DATA_BINARY","external":false,"refSections":[],"url":"#dom-filetype-data_binary"},
