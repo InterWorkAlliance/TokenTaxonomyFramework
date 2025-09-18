@@ -678,6 +678,75 @@
                 ],
                 "type": "string"
             },
+            "Checkpoint": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "claimId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "claimSourceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "projectDeveloperId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "efBefore": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "efAfter": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "checkpointDateRange": {
+                        "$ref": "#/components/schemas/DateRange"
+                    },
+                    "extensions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EntityExtension"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Variable"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "dataFiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DataFile"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "dataPackages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DataPackage"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "CheckpointResult": {
                 "type": "object",
                 "properties": {
@@ -720,6 +789,14 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Variable"
+                        },
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "dataPackages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DataPackage"
                         },
                         "nullable": true,
                         "readOnly": true
@@ -1478,12 +1555,13 @@
                     "DataFile",
                     "ProcessedClaim",
                     "VerificationProcessAgreement",
-                    "ActivityImpactModuleGroup",
                     "ClaimGroup",
                     "FormulaTemplate",
                     "Formula",
                     "VariableTemplate",
-                    "Variable"
+                    "Variable",
+                    "ExtensionSet",
+                    "ExtensionSetModule"
                 ],
                 "type": "string"
             },
@@ -1792,7 +1870,7 @@
                     "checkpoints": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/ImpactClaimCheckpoint"
+                            "$ref": "#/components/schemas/Checkpoint"
                         },
                         "nullable": true,
                         "readOnly": true
@@ -1807,75 +1885,6 @@
                     },
                     "activityImpactModule": {
                         "$ref": "#/components/schemas/ActivityImpactModule"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "ImpactClaimCheckpoint": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "claimId": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "claimSourceIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true,
-                        "readOnly": true
-                    },
-                    "projectDeveloperId": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "efBefore": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "efAfter": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "checkpointDateRange": {
-                        "$ref": "#/components/schemas/DateRange"
-                    },
-                    "extensions": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/EntityExtension"
-                        },
-                        "nullable": true,
-                        "readOnly": true
-                    },
-                    "variables": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Variable"
-                        },
-                        "nullable": true,
-                        "readOnly": true
-                    },
-                    "dataFiles": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/DataFile"
-                        },
-                        "nullable": true,
-                        "readOnly": true
-                    },
-                    "dataPackages": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/DataPackage"
-                        },
-                        "nullable": true,
-                        "readOnly": true
                     }
                 },
                 "additionalProperties": false

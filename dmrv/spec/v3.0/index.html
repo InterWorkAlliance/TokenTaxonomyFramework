@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v3.0/index.html" rel="canonical">
-  <meta content="f4d248fd8b04143d9c71ad66d8f2394cf9c6ca4e" name="revision">
+  <meta content="5653f98dcd4a10ba0b96d1453882eb47bd15eb03" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-09-10">10 September 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-09-18">18 September 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2256,9 +2256,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#dt-impact-claim-properties"><span class="secno">4.9.2</span> <span class="content">Properties</span></a>
        </ol>
       <li>
-       <a href="#dt-impact-claim-checkpoint"><span class="secno">4.10</span> <span class="content">Data Type: <span>ImpactClaimCheckpoint</span></span></a>
+       <a href="#dt-checkpoint"><span class="secno">4.10</span> <span class="content">Data Type: Checkpoint</span></a>
        <ol class="toc">
-        <li><a href="#dt-impact-claim-checkpoint-properties"><span class="secno">4.10.1</span> <span class="content">Properties</span></a>
+        <li><a href="#dt-checkpoint-properties"><span class="secno">4.10.1</span> <span class="content">Properties</span></a>
        </ol>
       <li>
        <a href="#dt-data-package"><span class="secno">4.11</span> <span class="content">Data Type: <span>DataPackage</span></span></a>
@@ -2757,6 +2757,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
+      <li><a href="#changelog-current"><span class="secno"></span> <span class="content">Current Version 3.0.0-20250910 (September 18th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250910"><span class="secno"></span> <span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250827"><span class="secno"></span> <span class="content">Version 3.0.0-20250827 (August 27nd, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250716"><span class="secno"></span> <span class="content">Version 3.0.0-20250716 (July 16th, 2025)</span></a>
@@ -2904,11 +2905,11 @@ these platforms or services may automate and prepare findings data that are eval
      <p>An impact claim is a collection of the evidence data submitted according to the quality standard being followed by the AIM for a claim period.
 A claim period is typically the same as the issuing cadence, i.e., monthly or annually. An impact claim is composed of one or more checkpoints.</p>
      <p>The encoding of an Impact Claim in the data model is specified in <a href="#dt-impact-claim">§ 4.9 Token &amp; Data Type: ImpactClaim</a></p>
-    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="impact-claim-checkpoint">Impact Claim Checkpoint</dfn>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="checkpoint">Checkpoint</dfn>
     <dd data-md>
      <p>An impact claim checkpoint is a collection of the evidence data submitted periodically to an impact claim.
 The checkpoint is a cryptographic fingerprint of the evidence data contained within a Data Package to establish the provenance and integrity of the evidence being submitted.</p>
-     <p>The encoding of an Impact Claim Checkpoint in the data model is specified in <a href="#dt-impact-claim-checkpoint">§ 4.10 Data Type: ImpactClaimCheckpoint</a></p>
+     <p>The encoding of an Checkpoint in the data model is specified in <a href="#dt-checkpoint">§ 4.10 Data Type: Checkpoint</a></p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="data-package">Data Package</dfn>
     <dd data-md>
      <p>A data package, is the data package file, i.e. .zip file, that contains the raw evidence data being submitted with a checkpoint.</p>
@@ -2923,7 +2924,7 @@ The checkpoint is a cryptographic fingerprint of the evidence data contained wit
      <p>The encoding of a Processed Claim in the data model is specified in <a href="#dt-processed-claim">§ 4.29 Token &amp; Data Type: ProcessedClaim</a></p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="checkpoint-result">Checkpoint Result</dfn>
     <dd data-md>
-     <p>A Checkpoint Result is paired with a corresponding Impact Claim Checkpoint for the claim being processed and contains the results of the verification of the checkpoint.</p>
+     <p>A Checkpoint Result is paired with a corresponding Checkpoint for the claim being processed and contains the results of the verification of the checkpoint.</p>
      <p>The encoding of a Checkpoint Result in the data model is specified in <a href="#dt-checkpoint-result">§ 4.30 Data Type: CheckpointResult</a></p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="project-modules">Project Modules</dfn>
     <dd data-md>
@@ -3569,10 +3570,10 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>Optional list of co-benefits associated with the ImpactClaim. See <a href="#dt-co-benefit">§ 4.37 Data Type: Co-Benefit</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-checkpoints"><code>checkpoints</code></dfn> : <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint">ImpactClaimCheckpoint</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="ImpactClaim" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaim-checkpoints"><code>checkpoints</code></dfn> : <a data-link-type="dfn" href="#checkpoint" id="ref-for-checkpoint">Checkpoint</a> 
        <td>Object 
        <td>M 
-       <td>A collection of checkpoints for the ImpactClaim. See <a href="#dt-impact-claim-checkpoint">§ 4.10 Data Type: ImpactClaimCheckpoint</a> for details. 
+       <td>A collection of checkpoints for the ImpactClaim. See <a href="#dt-checkpoint">§ 4.10 Data Type: Checkpoint</a> for details. 
       <tr>
        <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension③">EntityExtension</a> 
        <td>Array 
@@ -3586,7 +3587,7 @@ configured to control the processing of the ImpactClaim.</p>
     </table>
     <figcaption>Properties of data type ImpactClaim</figcaption>
    </figure>
-   <h3 class="heading settled" data-level="4.10" id="dt-impact-claim-checkpoint"><span class="secno">4.10. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="impactclaimcheckpoint">ImpactClaimCheckpoint</dfn></span><a class="self-link" href="#dt-impact-claim-checkpoint"></a></h3>
+   <h3 class="heading settled" data-level="4.10" id="dt-checkpoint"><span class="secno">4.10. </span><span class="content">Data Type: Checkpoint</span><a class="self-link" href="#dt-checkpoint"></a></h3>
    <p>The impact claim checkpoint is a collection of evidence that is submitted by the developer to support
   the claim. The VVB or verification automation will review the evidence and provide a status of the evidence
   in a corresponding CheckpointResult in the processed claim.</p>
@@ -3594,8 +3595,8 @@ configured to control the processing of the ImpactClaim.</p>
   to the VVB or verification automation. This enables the development of continous verification of the project
   and the ability to provide feedback to the developer on the status of the project and the evidence submitted
   before the end of the claim period.</p>
-   <h4 class="heading settled" data-level="4.10.1" id="dt-impact-claim-checkpoint-properties"><span class="secno">4.10.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-impact-claim-checkpoint-properties"></a></h4>
-   <figure id="impact-claim-checkpoint-properties-table">
+   <h4 class="heading settled" data-level="4.10.1" id="dt-checkpoint-properties"><span class="secno">4.10.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-checkpoint-properties"></a></h4>
+   <figure id="checkpoint-properties-table">
     <table class="data">
      <thead>
       <tr>
@@ -3608,36 +3609,36 @@ configured to control the processing of the ImpactClaim.</p>
        <td>id : 
        <td>String 
        <td>M 
-       <td>Unique identifier for the ImpactClaimCheckpoint, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
+       <td>Unique identifier for the Checkpoint, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-claimid"><code>claimId</code></dfn> : 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-claimid"><code>claimId</code></dfn> : 
        <td>String 
        <td>M 
        <td>The unique identifier for the parent ImpactClaim, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-claimsourceids"><code>claimSourceIds</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-claimsourceids"><code>claimSourceIds</code></dfn> : <a data-link-type="dfn" href="#id" id="ref-for-id①⑧">Id</a> 
        <td>Array 
        <td>M 
        <td>A list of registered claim sources submitting evidence in this checkpoint. See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-projectdeveloperid"><code>projectDeveloperId</code></dfn> : 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-projectdeveloperid"><code>projectDeveloperId</code></dfn> : 
        <td>String 
        <td>M 
        <td>The Id of the project developer that is submitting the checkpoint, must be a developer registered in the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule②">ActivityImpactModule</a>. 
               This is used when multiple identities may submit a checkpoint for a claim, for example one party may submit evidence of carbon capture and
               another may submit evidence of sequestration to support a carbon removal claim. See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-efbefore"><code>efBefore</code></dfn> : 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-efbefore"><code>efBefore</code></dfn> : 
        <td>String 
        <td>O 
        <td>Environmental factor before activity - i.e., total emissions = 3 tCO2e 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-efafter"><code>efAfter</code></dfn> : 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-efafter"><code>efAfter</code></dfn> : 
        <td>String 
        <td>O 
        <td>Environmental factor after activity - i.e., total emissions = 2 tCO2e. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-checkpointdaterange"><code>checkpointDateRange</code></dfn> : <a data-link-type="dfn" href="#daterange" id="ref-for-daterange">DateRange</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-checkpointdaterange"><code>checkpointDateRange</code></dfn> : <a data-link-type="dfn" href="#daterange" id="ref-for-daterange">DateRange</a> 
        <td>DateRange 
        <td>M 
        <td>The date range for the checkpoint. See <a href="#dt-date-range">§ 4.58 Data Type: DateRange</a> for details. 
@@ -3652,12 +3653,12 @@ configured to control the processing of the ImpactClaim.</p>
        <td>O 
        <td>A collection of variables for the checkpoint, i.e. sensor reading summaries, etc. See <a href="#dt-variable">§ 4.25 Data Type: Variable</a> for details. 
       <tr>
-       <td><dfn class="dfn-paneled" data-dfn-for="impactClaimCheckpoint" data-dfn-type="element-attr" data-export id="element-attrdef-impactclaimcheckpoint-datapackages"><code>dataPackages</code></dfn> : <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage①">DataPackage</a> 
+       <td><dfn class="dfn-paneled" data-dfn-for="checkpoint" data-dfn-type="element-attr" data-export id="element-attrdef-checkpoint-datapackages"><code>dataPackages</code></dfn> : <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage①">DataPackage</a> 
        <td>Array 
        <td>O 
        <td>Optional, collect and store the data packages for the checkpoint, this contains be the Json string contents of the manifest.json in the Data Package root and the <a href="#dt-verified-link">§ 4.42 Data Type: VerifiedLink</a> to the data file. See <a href="#dt-data-package">§ 4.11 Data Type: DataPackage</a> for details. 
     </table>
-    <figcaption>Properties of data type ImpactClaimCheckpoint</figcaption>
+    <figcaption>Properties of data type Checkpoint</figcaption>
    </figure>
    <h3 class="heading settled" data-level="4.11" id="dt-data-package"><span class="secno">4.11. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="datapackage">DataPackage</dfn></span><a class="self-link" href="#dt-data-package"></a></h3>
    <p>A data package is an index and metadata file that is stored in the root of the DataPackage file
@@ -4386,7 +4387,7 @@ configured to control the processing of the ImpactClaim.</p>
    <p>A collection of VariableTemplate objects that are used in a Extension Sets and Claims.</p>
    <h3 class="heading settled" data-level="4.25" id="dt-variable"><span class="secno">4.25. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="variable">Variable</dfn></span><a class="self-link" href="#dt-variable"></a></h3>
    <p>A Variable is an instance of a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate④">VariableTemplate</a> that is used to calculate the MRV data for a Quality Standard/Methodology. Variables are used in Formula Templates to calculate the MRV
-    data for the Quality Standard/Methodology. Variables are applied to entities like a <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource②">ClaimSource</a> or <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint①">ImpactClaimCheckpoint</a>.</p>
+    data for the Quality Standard/Methodology. Variables are applied to entities like a <a data-link-type="dfn" href="#claimsource" id="ref-for-claimsource②">ClaimSource</a> or <a data-link-type="dfn" href="#checkpoint" id="ref-for-checkpoint①">Checkpoint</a>.</p>
    <h4 class="heading settled" data-level="4.25.1" id="dt-variable-namespace"><span class="secno">4.25.1. </span><span class="content">Namespace</span><a class="self-link" href="#dt-variable-namespace"></a></h4>
    <p>The ExtensionSet is a part of the <code>dmrv</code> namespace.</p>
    <h4 class="heading settled" data-level="4.25.2" id="dt-variable-properties"><span class="secno">4.25.2. </span><span class="content">Properties</span><a class="self-link" href="#dt-variable-properties"></a></h4>
@@ -4550,7 +4551,7 @@ configured to control the processing of the ImpactClaim.</p>
     <figcaption>Properties of data type ProcessedClaim</figcaption>
    </figure>
    <h3 class="heading settled" data-level="4.30" id="dt-checkpoint-result"><span class="secno">4.30. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="checkpointresult">CheckpointResult</dfn></span><a class="self-link" href="#dt-checkpoint-result"></a></h3>
-   <p>A CheckpointResult is summary and verified links to verification results for the corresponding ImpactClaimCheckpoint, that is a child of a ProcessedClaim.
+   <p>A CheckpointResult is summary and verified links to verification results for the corresponding Checkpoint, that is a child of a ProcessedClaim.
     The CheckpointResult enables continous verification of the project and the ability to provide feedback to the developer
     during the verification process.</p>
    <h4 class="heading settled" data-level="4.30.1" id="dt-checkpoint-results-properties"><span class="secno">4.30.1. </span><span class="content">Properties</span><a class="self-link" href="#dt-checkpoint-results-properties"></a></h4>
@@ -4572,7 +4573,7 @@ configured to control the processing of the ImpactClaim.</p>
        <td>checkpointId : <a data-link-type="dfn" href="#string" id="ref-for-string④⑥">String</a> 
        <td>String 
        <td>M 
-       <td>The unique identifier for the corresponding ImpactClaimCheckpoint being processed, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
+       <td>The unique identifier for the corresponding Checkpoint being processed, See <a href="#dt-id">§ 4.104 Data Type: Id</a> for details. 
       <tr>
        <td><dfn class="dfn-paneled" data-dfn-for="CheckpointResult" data-dfn-type="element-attr" data-export id="element-attrdef-checkpointresult-verifiedlinktoprocessdataresult"><code>verifiedLinkToProcessDataResult</code></dfn> : <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink④">VerifiedLink</a> 
        <td>Object 
@@ -4593,6 +4594,11 @@ configured to control the processing of the ImpactClaim.</p>
        <td>String 
        <td>O 
        <td>Verified environmental factor after activity - i.e., total emissions = 2 tCO2e. 
+      <tr>
+       <td>variables : <a data-link-type="dfn" href="#variable" id="ref-for-variable④">Variable</a> 
+       <td>Array 
+       <td>O 
+       <td>A collection of variables for the checkpoint_result, i.e. verified sensor reading summaries, etc. See <a href="#dt-variable">§ 4.25 Data Type: Variable</a> for details. 
       <tr>
        <td>entityExtensions : <a data-link-type="dfn" href="#entityextension" id="ref-for-entityextension⑨">EntityExtension</a> 
        <td>Object 
@@ -5923,8 +5929,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.64" id="dt-itmo-id"><span class="secno">4.64. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-e9a5d22a">
-    <a class="self-link" href="#example-e9a5d22a"></a> 
+   <div class="example" id="example-8a361fd2">
+    <a class="self-link" href="#example-8a361fd2"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -7021,8 +7027,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
      <h2 class="heading settled" data-level="5" id="data-samples"><span class="secno">5. </span><span class="content">Data Samples</span><a class="self-link" href="#data-samples"></a></h2>
      <div class="note" role="note">Non-normative</div>
      <h3 class="heading settled" data-level="5.1" id="example-full-credit-lineage"><span class="secno">5.1. </span><span class="content">Example Full Credit Lineage</span><a class="self-link" href="#example-full-credit-lineage"></a></h3>
-     <div class="example" id="example-f3858178">
-      <a class="self-link" href="#example-f3858178"></a> CRU Full Lineage: 
+     <div class="example" id="example-6ed18f62">
+      <a class="self-link" href="#example-6ed18f62"></a> CRU Full Lineage: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -7032,7 +7038,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
   <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
   <c- p>},</c->
   <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
   <c- f>"coreCarbonPrinciples"</c-><c- p>:</c-> <c- p>{</c->
@@ -7128,8 +7134,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>],</c->
     <c- f>"formulas"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"5fa37cc7-f11d-4639-a946-9c58a60d4d21"</c-><c- p>,</c->
-        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"bbec7ecd-0b30-4ece-92aa-233cbac5c368"</c-><c- p>,</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"9ebdeac2-a13d-4947-a0b1-9f2a21237c27"</c-><c- p>,</c->
+        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"8a2fb0bc-ece0-417e-9739-4e55f3f78a87"</c-><c- p>,</c->
         <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"dataType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
@@ -7137,8 +7143,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>},</c->
         <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"c7988579-666f-4992-9413-c3b69f1728ff"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"a9a62931-722f-4030-a7f0-d71afa9ff194"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"021e20ef-272d-4906-b571-24bffdf6461e"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"e17a0777-29d5-415c-9457-70b0199058eb"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>"Cap"</c-><c- p>,</c->
@@ -7168,18 +7174,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
               <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
               <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"08/27/2025 17:09:58"</c-><c- p>,</c->
-                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                  <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"09/18/2025 14:05:27"</c-><c- p>,</c->
+                  <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
                 <c- p>},</c->
                 <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314598</c-><c- p>,</c->
-                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>2602000</c->
+                  <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204327</c-><c- p>,</c->
+                  <c- f>"nanos"</c-><c- p>:</c-> <c- mi>352544000</c->
                 <c- p>}</c->
               <c- p>},</c->
               <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                 <c- p>{</c->
-                  <c- f>"id"</c-><c- p>:</c-> <c- u>"662807bc-a352-4cbe-aab6-b2dbd4081170"</c-><c- p>,</c->
-                  <c- f>"templateId"</c-><c- p>:</c-> <c- u>"d191d131-c3e6-4e6c-a3fb-2408445e21cd"</c-><c- p>,</c->
+                  <c- f>"id"</c-><c- p>:</c-> <c- u>"9dd28b8c-2a97-4aeb-a413-43d3a0efe782"</c-><c- p>,</c->
+                  <c- f>"templateId"</c-><c- p>:</c-> <c- u>"364d853a-4897-4614-ad70-872a3c0df63b"</c-><c- p>,</c->
                   <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                     <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                     <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7200,8 +7206,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                   <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                   <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                     <c- p>{</c->
-                      <c- f>"id"</c-><c- p>:</c-> <c- u>"29c7c830-2340-475b-a1af-aea1b8375132"</c-><c- p>,</c->
-                      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"6277a370-e15d-4a09-a2c3-de1944851217"</c-><c- p>,</c->
+                      <c- f>"id"</c-><c- p>:</c-> <c- u>"ce31b69f-6903-48d5-9d5b-6b6c4f69f9e6"</c-><c- p>,</c->
+                      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"4a4fa2a0-1dfd-424c-88f4-b774e1c793f6"</c-><c- p>,</c->
                       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                         <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7242,8 +7248,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>],</c->
         <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"4376ceff-0bbe-4467-8ccb-72631c4c0ac2"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"046f541a-00a8-486a-97e2-1c7aac054239"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"60ce2a37-2df9-4656-9b04-56697c4da83e"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"d9947a4c-e4c5-4eea-ac14-f144c56fb1ab"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>"FRmass,x"</c-><c- p>,</c->
@@ -7252,14 +7258,15 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaim"</c-><c- p>,</c->
             <c- f>"template"</c-><c- p>:</c-> <c- kc>null</c->
           <c- p>}</c->
-        <c- p>]</c->
+        <c- p>],</c->
+        <c- f>"dataPackages"</c-><c- p>:</c-> <c- p>[]</c->
       <c- p>}</c->
     <c- p>],</c->
     <c- f>"issuanceRequest"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
     <c- f>"originationProcessAgreement"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-      <c- f>"name"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Verification Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"Origination Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Origination Process Agreement for Concrete Plant 3341, with issuer Puro and verifier SustainCERT"</c-><c- p>,</c->
       <c- f>"projectModules"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -7349,10 +7356,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
         <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
         <c- f>"extensionSet"</c-><c- p>:</c-> <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"d4db7069-b66e-466b-9dcd-716d4b9bd0a2"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"593f9277-eb99-4af5-b80a-7c96728818ae"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for VerificationProcessAgreement"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for OrigintationProcessAgreement"</c-><c- p>,</c->
           <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"modules"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
@@ -7381,7 +7388,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"4d21f4b1-30ea-4bf3-ad8a-14c0ca54db67"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"80e8a91e-fb7a-411b-9ffa-83e80cf2b8c3"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Claim Source Make and Model"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example entity extension for a Claim Source"</c-><c- p>,</c->
@@ -7393,7 +7400,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"d69254a2-3539-4558-9354-2c42cc2389c9"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"88694db0-0b6c-4389-bf61-83c33a39038a"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibrate Sensor"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"Sample request response message pair"</c-><c- p>,</c->
@@ -7413,7 +7420,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"d18d3dde-db46-4229-99e9-5438e86a0a70"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"203c70fd-5aa4-4a2f-86d2-c398d9ec0371"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Formula"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
               <c- f>"formula"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7426,7 +7433,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"f29fe8c6-6fed-4eac-adc4-1ec1ff6c2202"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"66e2f405-0c20-4539-aec3-77b8570d244b"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Variable"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Activity Impact Module"</c-><c- p>,</c->
@@ -7440,20 +7447,20 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
       <c- p>},</c->
       <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
       <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
       <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+          <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
         <c- p>},</c->
         <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
             <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-            <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for verification process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for Origintation process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
             <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
             <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
           <c- p>}</c->
@@ -7478,8 +7485,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"formulas"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"ef1841e6-57be-45e8-ac7e-b4b5164eef1a"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"b64de14a-c5ed-4f56-9092-a068eb1fea66"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"1a311218-8558-4b1d-b201-5975313506a2"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"09d22547-de44-4683-9c10-478ab0f8ac09"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
@@ -7487,8 +7494,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>},</c->
           <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"599a52e0-9acd-45aa-8649-96e6864304c6"</c-><c- p>,</c->
-              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"5ed2bff2-dfeb-40fe-b9a0-675c8407dcee"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"d11c8215-ffb5-4aee-aa2e-e75d1cd57c33"</c-><c- p>,</c->
+              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"b172ab66-ed15-4e8d-aa05-43afa856a5d6"</c-><c- p>,</c->
               <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                 <c- f>"dataType"</c-><c- p>:</c-> <c- u>"Cap"</c-><c- p>,</c->
@@ -7516,29 +7523,29 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314598</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>2630000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204327</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>358712000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314598</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>2631000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204327</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>358791000</c->
               <c- p>}</c->
             <c- p>}</c->
           <c- p>},</c->
           <c- f>"extensions"</c-><c- p>:</c-> <c- p>[],</c->
           <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"a3d2d72f-662e-426b-981f-394745e25f3c"</c-><c- p>,</c->
-              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"6a50fcca-9f69-4b9d-b6fc-f8fb0c527932"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"5820718b-1651-48af-b6b5-52e941318fe4"</c-><c- p>,</c->
+              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"6d2276d0-9fd8-41ba-b026-a6c6cf0f7fa0"</c-><c- p>,</c->
               <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                 <c- f>"dataType"</c-><c- p>:</c-> <c- u>"FRmass,x"</c-><c- p>,</c->
@@ -7561,18 +7568,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
                 <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"08/27/2025 17:09:58"</c-><c- p>,</c->
-                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                    <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"09/18/2025 14:05:27"</c-><c- p>,</c->
+                    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
                   <c- p>},</c->
                   <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314598</c-><c- p>,</c->
-                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>2634000</c->
+                    <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204327</c-><c- p>,</c->
+                    <c- f>"nanos"</c-><c- p>:</c-> <c- mi>359113000</c->
                   <c- p>}</c->
                 <c- p>},</c->
                 <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"id"</c-><c- p>:</c-> <c- u>"af1a97b4-9b07-4232-b00d-a02a007fd4bf"</c-><c- p>,</c->
-                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"66a57b7c-2d95-4847-9cd6-93f958126f2c"</c-><c- p>,</c->
+                    <c- f>"id"</c-><c- p>:</c-> <c- u>"de4ea4c6-475a-4f66-ba85-a79188baa8fc"</c-><c- p>,</c->
+                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"3b166046-8f3a-4e95-b20f-707b5b60e025"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                       <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                       <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7593,8 +7600,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                     <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                     <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                       <c- p>{</c->
-                        <c- f>"id"</c-><c- p>:</c-> <c- u>"6371aa73-9724-48dd-aa58-7771a85288ea"</c-><c- p>,</c->
-                        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"978c907f-e590-4819-9c71-dc4944becd2c"</c-><c- p>,</c->
+                        <c- f>"id"</c-><c- p>:</c-> <c- u>"455d5583-684a-40af-a84c-2a1352214130"</c-><c- p>,</c->
+                        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"ad4758c5-d74e-4e5b-be19-39e5b27a4d6e"</c-><c- p>,</c->
                         <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                           <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                           <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7675,8 +7682,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
             <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"f8212552-df06-437f-80e6-5002dc818972"</c-><c- p>,</c->
-                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"85b451f6-699a-45ab-9cb6-d270e37cef1a"</c-><c- p>,</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"6177cc90-a6e9-45d0-a2d0-d1fd6cf547aa"</c-><c- p>,</c->
+                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"2405616d-dadb-43a7-b5b4-e7efcb2cd6ff"</c-><c- p>,</c->
                 <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7689,7 +7696,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- p>],</c->
             <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"2a04489a-2022-4a34-bdfd-8e6c5cd0ad30"</c-><c- p>,</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"995c4450-ed9d-4125-bb59-d4683c7c1484"</c-><c- p>,</c->
                 <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Carbon Content"</c-><c- p>,</c->
                 <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
                 <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Claim Source"</c-><c- p>,</c->
@@ -7720,8 +7727,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- p>],</c->
         <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"d08873bd-8741-45c8-a18f-c1f89889aabc"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"9c7c7376-5b06-4122-b9dd-04c20021b181"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"d288c0c9-d2b2-4644-ae0b-85e20e9878eb"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"9090f843-f403-4a63-94d6-a86f277ee43d"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7735,10 +7742,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
             <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"2021-04-01"</c-><c- p>,</c->
-            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+            <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
             <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
             <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+            <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
             <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
                 <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
@@ -7758,8 +7765,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"attestations"</c-><c- p>:</c-> <c- p>[],</c->
         <c- f>"fixedVariables"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"6f95c7e7-9a1b-461d-a7e7-1b337d2fd7e7"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"593a6058-b871-4588-9888-79967588d3ca"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"f712a6bf-f7e4-43fa-9cca-725a2b0a47a7"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"32de2b15-f4b7-46ba-9a78-fcf1656c4ad7"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>"GWPCH3"</c-><c- p>,</c->
@@ -7812,11 +7819,12 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>},</c->
     <c- f>"asset"</c-><c- p>:</c-> <c- kc>null</c->
   <c- p>}</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
      </div>
      <h3 class="heading settled" data-level="5.2" id="example-accountable-impact-organization"><span class="secno">5.2. </span><span class="content">Example Accountable Impact Organization</span><a class="self-link" href="#example-accountable-impact-organization"></a></h3>
-     <div class="example" id="example-b8b206bd">
-      <a class="self-link" href="#example-b8b206bd"></a> Accountable Impact Organization: 
+     <div class="example" id="example-0ebb25c1">
+      <a class="self-link" href="#example-0ebb25c1"></a> Accountable Impact Organization: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Eco-Earth Forest Growth"</c-><c- p>,</c->
@@ -7900,8 +7908,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
           <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"10b1063b-86f9-4052-bd10-d7a6514f997e"</c-><c- p>,</c->
-              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"6f61ec6b-5c98-43c9-87aa-0df5dd868f1f"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"817c6747-a6dd-4064-963b-0ebc94608339"</c-><c- p>,</c->
+              <c- f>"templateId"</c-><c- p>:</c-> <c- u>"7e42b319-a04b-49b5-ba7d-d3a7576d7d23"</c-><c- p>,</c->
               <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                 <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                 <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7914,7 +7922,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- p>],</c->
           <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
-              <c- f>"id"</c-><c- p>:</c-> <c- u>"79396a08-b14e-4e06-97dc-268cff5eb795"</c-><c- p>,</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"386294d5-3b8e-4ed8-8895-a92cdfc77d08"</c-><c- p>,</c->
               <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Carbon Content"</c-><c- p>,</c->
               <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
               <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Claim Source"</c-><c- p>,</c->
@@ -7945,8 +7953,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"771962f6-d35a-4871-98a7-61651b22a094"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"bc1c0f9c-07bf-4d5b-8819-6d89f9227258"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"bb505c73-891b-4e3f-82db-7d8396da838c"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"c6afe9d9-9ee6-495f-bb28-c493324aa62e"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -7960,10 +7968,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"2021-04-01"</c-><c- p>,</c->
-          <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+          <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
           <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
           <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-          <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+          <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
           <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
             <c- p>{</c->
               <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
@@ -7983,8 +7991,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"attestations"</c-><c- p>:</c-> <c- p>[],</c->
       <c- f>"fixedVariables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"3aa8e631-352b-4779-83f1-d4c3d1640da4"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"2536ebe4-f5e6-429e-8af0-7b7133b5723a"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"9fac140f-9cbe-4ad1-9f7c-94c65c92c7e5"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"e957f3fd-fa85-42da-b03d-fab3e35abda7"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"GWPCH3"</c-><c- p>,</c->
@@ -7998,11 +8006,13 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"extensions"</c-><c- p>:</c-> <c- p>[]</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+Respo<c- kc>nse</c-> headers
+ co<c- kc>ntent</c-><c- mi>-</c-><c- kc>t</c->ype<c- p>:</c-> applica<c- kc>t</c->io<c- kc>n</c->/</pre>
      </div>
      <h3 class="heading settled" data-level="5.3" id="example-activity-impact-module"><span class="secno">5.3. </span><span class="content">Example Activity Impact Module</span><a class="self-link" href="#example-activity-impact-module"></a></h3>
-     <div class="example" id="example-6a883c21">
-      <a class="self-link" href="#example-6a883c21"></a> Activity Impact Module: 
+     <div class="example" id="example-f7b2a5c2">
+      <a class="self-link" href="#example-f7b2a5c2"></a> Activity Impact Module: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
   <c- f>"aioId"</c-><c- p>:</c-> <c- u>"8ce532c6-c344-4eee-90bb-13a8a19c5910"</c-><c- p>,</c->
@@ -8049,8 +8059,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b"</c-><c- p>,</c->
       <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"13ef0c02-90b4-404b-85ae-ad4e10ed847e"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"9c934f3e-2e71-4018-9dfa-fe95c344d2e2"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"81f9102f-eab9-4af4-a216-0fa45e984dc5"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"48ea546b-3ae3-433e-bb0a-203d2f8dd4cb"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8063,7 +8073,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"744cde83-9d09-4a50-a446-31fa4119e731"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"32f8ccd2-63c1-4c96-82c1-995a5c42a9c1"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Soil Carbon Content"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Claim Source"</c-><c- p>,</c->
@@ -8094,8 +8104,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"0174ca9a-f59c-4bd1-8aba-b7600e623830"</c-><c- p>,</c->
-      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"ca4fbfcd-4a99-478d-b617-2621ca44fe6a"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"3213586c-b2c8-4155-b98c-0b9548151516"</c-><c- p>,</c->
+      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"2bcb933c-7113-4a6b-a4b5-28cf64738493"</c-><c- p>,</c->
       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8109,10 +8119,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
       <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"2021-04-01"</c-><c- p>,</c->
-      <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+      <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
       <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"8226ece8-27b8-46f7-b21f-f531705c11cb"</c-><c- p>,</c->
       <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"ISO 14064-3:2018"</c-><c- p>,</c->
-      <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"8/27/2025"</c-><c- p>,</c->
+      <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"9/18/2025"</c-><c- p>,</c->
       <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"Project Plan"</c-><c- p>,</c->
@@ -8132,8 +8142,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"attestations"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"fixedVariables"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"aea7dd72-88fb-4218-b611-368b0fff66f7"</c-><c- p>,</c->
-      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"3cdfa149-7724-4f86-9d5e-d7b51a06817b"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"9c1f1fa4-8196-48e6-bbff-bdd0fb266f1c"</c-><c- p>,</c->
+      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"37978f23-1890-4f3d-9739-9354ed339514"</c-><c- p>,</c->
       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"dataType"</c-><c- p>:</c-> <c- u>"GWPCH3"</c-><c- p>,</c->
@@ -8147,8 +8157,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="5.4" id="example-impact-claim"><span class="secno">5.4. </span><span class="content">Example Impact Claim</span><a class="self-link" href="#example-impact-claim"></a></h3>
-     <div class="example" id="example-68b54525">
-      <a class="self-link" href="#example-68b54525"></a> Impact Claim: 
+     <div class="example" id="example-8ed818ad">
+      <a class="self-link" href="#example-8ed818ad"></a> Impact Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"a5cd2fbe-0b18-4cb7-99e8-624dc96acafa"</c-><c- p>,</c->
   <c- f>"aimId"</c-><c- p>:</c-> <c- u>"d5a9cf0c-4102-4c9d-941a-408001b12147"</c-><c- p>,</c->
@@ -8164,8 +8174,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"formulas"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"51276440-4065-4e6e-b95d-c780a682dcfe"</c-><c- p>,</c->
-      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"b924a4ac-142c-4ef3-bf61-c1474e9bf437"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"45076f44-6007-4871-8915-8549a1112325"</c-><c- p>,</c->
+      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"707cd1a4-b1ce-41a4-ab48-ff20aec07847"</c-><c- p>,</c->
       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"dataType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
@@ -8173,8 +8183,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"91d12117-c15a-41ba-af46-8d40222796e7"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"3fab9687-2ff5-48d5-8000-9bd83d658490"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"17b5c7b6-9152-4311-a631-bca6ccd4e487"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"279af96f-e57d-44c3-b9b5-91bd5704a2fc"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"Cap"</c-><c- p>,</c->
@@ -8202,29 +8212,29 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"startDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314690</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>822516000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204444</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>326890000</c->
           <c- p>}</c->
         <c- p>},</c->
         <c- f>"endDate"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+            <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
           <c- p>},</c->
           <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314690</c-><c- p>,</c->
-            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>822523000</c->
+            <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204444</c-><c- p>,</c->
+            <c- f>"nanos"</c-><c- p>:</c-> <c- mi>326953000</c->
           <c- p>}</c->
         <c- p>}</c->
       <c- p>},</c->
       <c- f>"extensions"</c-><c- p>:</c-> <c- p>[],</c->
       <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"3b15eec3-8208-4e5d-a792-ef1041ec6c95"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"583eebfb-6975-47a6-986a-014a4b19db46"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"9abad61f-5b95-401c-95c3-138554d59ddb"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"10b92c39-5f26-47d1-84bb-ac523cd2355b"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"FRmass,x"</c-><c- p>,</c->
@@ -8247,18 +8257,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
             <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"08/27/2025 17:11:30"</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"09/18/2025 14:07:24"</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314690</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>822531000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204444</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>326975000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"c9abd631-438e-4783-9a21-3f5627c80bd5"</c-><c- p>,</c->
-                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"113804e2-e7fd-4616-b4bf-f8af5adc1f73"</c-><c- p>,</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"5844e097-c809-4d81-bda0-802a8d53b934"</c-><c- p>,</c->
+                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"f9b388c0-456b-4f92-86a3-dd6523fab23d"</c-><c- p>,</c->
                 <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8279,8 +8289,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                 <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"id"</c-><c- p>:</c-> <c- u>"79ddf772-ac77-4a5b-876a-459a53ae0237"</c-><c- p>,</c->
-                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"71fd987d-2d6f-4c6d-8121-4720dff42202"</c-><c- p>,</c->
+                    <c- f>"id"</c-><c- p>:</c-> <c- u>"bea845d3-ed81-4adb-86c5-f7ac62c9219b"</c-><c- p>,</c->
+                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"d46cc509-82f7-43fa-a36e-580679834dc9"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                       <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                       <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8316,11 +8326,12 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c->
-<c- p>}</c-></pre>
+<c- p>}</c->
+</pre>
      </div>
      <h3 class="heading settled" data-level="5.5" id="example-data-package"><span class="secno">5.5. </span><span class="content">Example Data Package</span><a class="self-link" href="#example-data-package"></a></h3>
-     <div class="example" id="example-48c94901">
-      <a class="self-link" href="#example-48c94901"></a> Data Package: 
+     <div class="example" id="example-4c9bf99d">
+      <a class="self-link" href="#example-4c9bf99d"></a> Data Package: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"manifest"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"bd199e99-14e0-4440-af99-03b78096a24b"</c-><c- p>,</c->
@@ -8332,18 +8343,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
     <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"08/27/2025 17:13:26"</c-><c- p>,</c->
-        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+        <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"09/18/2025 14:09:30"</c-><c- p>,</c->
+        <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
       <c- p>},</c->
       <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314806</c-><c- p>,</c->
-        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>553030000</c->
+        <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204570</c-><c- p>,</c->
+        <c- f>"nanos"</c-><c- p>:</c-> <c- mi>756700000</c->
       <c- p>}</c->
     <c- p>},</c->
     <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
-        <c- f>"id"</c-><c- p>:</c-> <c- u>"6be340f8-2bc0-46d0-b092-2bb26bef7b91"</c-><c- p>,</c->
-        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"913eff41-70a6-495b-8a59-3ffff09424f5"</c-><c- p>,</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"b616c128-ae03-43f5-865f-200888da3d8d"</c-><c- p>,</c->
+        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"ddafd081-6adc-4d98-96e7-fa6798e0e952"</c-><c- p>,</c->
         <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
           <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
           <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8364,8 +8375,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
         <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
         <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
           <c- p>{</c->
-            <c- f>"id"</c-><c- p>:</c-> <c- u>"640bbf67-33a6-4819-9ab8-5e3724c2b58b"</c-><c- p>,</c->
-            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"1fe06d80-84f6-4455-b76b-2465ad4dfe94"</c-><c- p>,</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"fae1ffc6-a849-4884-8685-fa101c6b7088"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"938d8769-94e3-4d71-8953-e913591367a3"</c-><c- p>,</c->
             <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
               <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8389,8 +8400,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="5.6" id="example-processed-claim"><span class="secno">5.6. </span><span class="content">Example Processed Claim</span><a class="self-link" href="#example-processed-claim"></a></h3>
-     <div class="example" id="example-905f80e2">
-      <a class="self-link" href="#example-905f80e2"></a> Processed Claim: 
+     <div class="example" id="example-3de9efb6">
+      <a class="self-link" href="#example-3de9efb6"></a> Processed Claim: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"2d17d155-ca8b-4208-8cc0-6dc3a85e2c34"</c-><c- p>,</c->
   <c- f>"opaId"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
@@ -8415,8 +8426,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>],</c->
   <c- f>"formulas"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"e59f09da-0edd-44e3-8bd0-ff2f13094f13"</c-><c- p>,</c->
-      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"1666eba1-d34d-443f-bd72-6ed0f4ae4943"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"3da9b143-4915-458a-98d1-606f279007b5"</c-><c- p>,</c->
+      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"87cdf679-b571-4dfa-8d17-29b972225237"</c-><c- p>,</c->
       <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
         <c- f>"dataType"</c-><c- p>:</c-> <c- u>"CDRFormula"</c-><c- p>,</c->
@@ -8424,8 +8435,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>},</c->
       <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"a3b90376-d4ed-4c5e-9151-789c03e9aea0"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"b774af8c-e8ad-42e6-af31-49f92db08885"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"d95a1525-6f7f-4444-b093-75941909406b"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"de2511e3-7b5d-460c-aab2-3157f790ceb0"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"Cap"</c-><c- p>,</c->
@@ -8455,18 +8466,18 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
             <c- f>"projectDeveloperId"</c-><c- p>:</c-> <c- u>"9c6e926f-9603-45de-9933-8af01ac45f31"</c-><c- p>,</c->
             <c- f>"created"</c-><c- p>:</c-> <c- p>{</c->
               <c- f>"date"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"08/27/2025 17:12:26"</c-><c- p>,</c->
-                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+                <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"09/18/2025 14:08:24"</c-><c- p>,</c->
+                <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
               <c- p>},</c->
               <c- f>"timeStamp"</c-><c- p>:</c-> <c- p>{</c->
-                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1756314746</c-><c- p>,</c->
-                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>862481000</c->
+                <c- f>"seconds"</c-><c- p>:</c-> <c- mi>1758204504</c-><c- p>,</c->
+                <c- f>"nanos"</c-><c- p>:</c-> <c- mi>819347000</c->
               <c- p>}</c->
             <c- p>},</c->
             <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
               <c- p>{</c->
-                <c- f>"id"</c-><c- p>:</c-> <c- u>"ddefd81e-4bb2-4b25-b1c5-144b96aafc51"</c-><c- p>,</c->
-                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"bbd78628-8232-4ae8-a9b8-4a67e4ede5ef"</c-><c- p>,</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"5f44ebcc-0dce-4560-9471-9aac88a65b6e"</c-><c- p>,</c->
+                <c- f>"templateId"</c-><c- p>:</c-> <c- u>"44994127-b61c-4384-87e2-288d93d19613"</c-><c- p>,</c->
                 <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                   <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                   <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8487,8 +8498,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
                 <c- f>"claimSourceAttestation"</c-><c- p>:</c-> <c- u>"digital_signature"</c-><c- p>,</c->
                 <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
                   <c- p>{</c->
-                    <c- f>"id"</c-><c- p>:</c-> <c- u>"c86c45b3-e5f0-4f4b-a485-6e3b6bdd0dac"</c-><c- p>,</c->
-                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"c87a07b5-30a0-444f-82bf-abc9aa436ab9"</c-><c- p>,</c->
+                    <c- f>"id"</c-><c- p>:</c-> <c- u>"640104df-5090-491f-bec0-407420b79230"</c-><c- p>,</c->
+                    <c- f>"templateId"</c-><c- p>:</c-> <c- u>"1923c894-fdea-4249-ac8f-375b9ca05ad3"</c-><c- p>,</c->
                     <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
                       <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
                       <c- f>"dataType"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8529,8 +8540,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"variables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"29b7370b-2607-4607-a153-c6e0b665dbd3"</c-><c- p>,</c->
-          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"59dbffe8-8cfc-48f1-9f6a-0cd64b40fa57"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"7c8406f9-2835-4c7c-8559-18e6df7fc22f"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"6d6659ce-3fb8-4aa2-b725-acdd56cf08f5"</c-><c- p>,</c->
           <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
             <c- f>"protoData"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
             <c- f>"dataType"</c-><c- p>:</c-> <c- u>"FRmass,x"</c-><c- p>,</c->
@@ -8539,7 +8550,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
           <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"ProcessedClaim"</c-><c- p>,</c->
           <c- f>"template"</c-><c- p>:</c-> <c- kc>null</c->
         <c- p>}</c->
-      <c- p>]</c->
+      <c- p>],</c->
+      <c- f>"dataPackages"</c-><c- p>:</c-> <c- p>[]</c->
     <c- p>}</c->
   <c- p>],</c->
   <c- f>"issuanceRequest"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
@@ -8549,8 +8561,8 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="5.7" id="example-origination-process-agreement"><span class="secno">5.7. </span><span class="content">Example Origination Process Agreement</span><a class="self-link" href="#example-origination-process-agreement"></a></h3>
-     <div class="example" id="example-05704854">
-      <a class="self-link" href="#example-05704854"></a> Origination Process Agreement: 
+     <div class="example" id="example-8f1cdc9e">
+      <a class="self-link" href="#example-8f1cdc9e"></a> Origination Process Agreement: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
   <c- f>"name"</c-><c- p>:</c-> <c- u>"Origination Process Agreement for Concrete Plant 3341"</c-><c- p>,</c->
@@ -8644,10 +8656,10 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
     <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
     <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
     <c- f>"extensionSet"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"id"</c-><c- p>:</c-> <c- u>"c1b66ebf-cab9-4d52-87f5-5cb7daf9f09f"</c-><c- p>,</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"f80272c5-4520-4f2b-ac4e-32bd60359f57"</c-><c- p>,</c->
       <c- f>"name"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for OriginationProcessAgreement"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"Extension Set for OrigintationProcessAgreement"</c-><c- p>,</c->
       <c- f>"documentation"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
       <c- f>"modules"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
@@ -8676,7 +8688,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"ee9aef3f-2410-48b8-a87c-00e6c54e6563"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"7f006d05-f123-4265-af98-53736405c39b"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Claim Source Make and Model"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example entity extension for a Claim Source"</c-><c- p>,</c->
@@ -8688,7 +8700,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"94fe69bd-1efd-4a21-afea-2dda6158e3be"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"a1f1ed53-291b-474d-8da3-cde38b8d7a5b"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Calibrate Sensor"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"Sample request response message pair"</c-><c- p>,</c->
@@ -8708,7 +8720,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"bca56348-c685-47a3-a75c-8c1ac1876eec"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"3b190685-32e7-48c9-b11f-b2dbfb8da79a"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Formula"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
           <c- f>"formula"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
@@ -8721,7 +8733,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
       <c- p>],</c->
       <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
-          <c- f>"id"</c-><c- p>:</c-> <c- u>"b6dd1828-8c3e-40a5-8bb5-91b78b946908"</c-><c- p>,</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"c3f9f479-8bc1-4c6d-bbf2-58cf686b94a0"</c-><c- p>,</c->
           <c- f>"name"</c-><c- p>:</c-> <c- u>"Carbon Removal Variable"</c-><c- p>,</c->
           <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
           <c- f>"description"</c-><c- p>:</c-> <c- u>"An example variable template for a Activity Impact Module"</c-><c- p>,</c->
@@ -8735,20 +8747,20 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- p>},</c->
   <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
   <c- p>},</c->
   <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"15,000"</c-><c- p>,</c->
   <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Quinquennial"</c-><c- p>,</c->
   <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
       <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
     <c- p>},</c->
     <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
       <c- p>{</c->
         <c- f>"id"</c-><c- p>:</c-> <c- u>"424613f8-bec9-4ca0-b5ec-b6f5d4b02d8f"</c-><c- p>,</c->
         <c- f>"uri"</c-><c- p>:</c-> <c- u>"https://sustaincert.com/audit/e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for Origination Process Agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Audit report for Origintation process agreement e0d357b0-a75a-40fa-838b-5a5d444d2216"</c-><c- p>,</c->
         <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"0xzxWW-1234567890abcdefasdf"</c-><c- p>,</c->
         <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
       <c- p>}</c->
@@ -8757,11 +8769,683 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"extensions"</c-><c- p>:</c-> <c- p>[],</c->
   <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- kc>null</c-><c- p>,</c->
   <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[]</c->
+<c- p>}</c->
+Respo<c- kc>nse</c-> headers
+ co<c- kc>ntent</c-><c- mi>-</c-><c- kc>t</c->ype<c- p>:</c-> applica<c- kc>t</c->io<c- kc>n</c->/jso<c- kc>n</c->; charse<c- kc>t</c->=u<c- kc>tf</c-><c- mi>-8</c-> 
+ da<c- kc>te</c-><c- p>:</c-> Thu<c- p>,</c-><c- mi>18</c-> Sep <c- mi>2025</c-> <c- mi>14</c-><c- p>:</c-><c- mi>08</c-><c- p>:</c-><c- mi>51</c-> GMT 
+ server<c- p>:</c-> Kes<c- kc>trel</c-> 
+Respo<c- kc>nses</c->
+Code	Descrip<c- kc>t</c->io<c- kc>n</c->	Li<c- kc>n</c->ks
+<c- mi>200</c->	
+OK
+
+Media <c- kc>t</c->ype
+
+<c- kc>te</c->x<c- kc>t</c->/plai<c- kc>n</c->
+Co<c- kc>ntr</c->ols Accep<c- kc>t</c-> header.
+Example Value
+Schema
+<c- p>{</c->
+  <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+  <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+  <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+  <c- f>"projectModules"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"aimId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"extensionSetModuleId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"vvbId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"verificationPlatformId"</c-><c- p>:</c-> <c- u>"string"</c->
+    <c- p>}</c->
+  <c- p>],</c->
+  <c- f>"signatories"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"signatoryRole"</c-><c- p>:</c-> <c- u>"IssuingRegistry"</c-><c- p>,</c->
+      <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+        <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
+        <c- f>"vc"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"context"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"string"</c->
+          <c- p>],</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"type"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"VerifiableCredential"</c->
+          <c- p>],</c->
+          <c- f>"issuer"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"issuanceDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"credentialSubject"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"property"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"string"</c->
+            <c- p>]</c->
+          <c- p>},</c->
+          <c- f>"proof"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"Jwt"</c-><c- p>,</c->
+            <c- f>"created"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"proofPurpose"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"verificationMethod"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"challenge"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"domain"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>}</c->
+        <c- p>},</c->
+        <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"None"</c->
+      <c- p>}</c->
+    <c- p>}</c->
+  <c- p>],</c->
+  <c- f>"qualityStandard"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"standard"</c-><c- p>:</c-> <c- u>"GSVer"</c-><c- p>,</c->
+    <c- f>"methodologyAndTools"</c-><c- p>:</c-> <c- p>[</c->
+      <c- u>"UnknownMethod"</c->
+    <c- p>],</c->
+    <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"coBenefits"</c-><c- p>:</c-> <c- p>[</c->
+      <c- u>"NoCategory"</c->
+    <c- p>],</c->
+    <c- f>"standardLink"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+    <c- p>}</c->
+  <c- p>},</c->
+  <c- f>"mrvRequirements"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"measurementSpecification"</c-><c- p>:</c-> <c- u>"Iso14064"</c-><c- p>,</c->
+    <c- f>"specificationLink"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+    <c- p>},</c->
+    <c- f>"precision"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"low"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+      <c- f>"medium"</c-><c- p>:</c-> <c- mi>0</c-><c- p>,</c->
+      <c- f>"high"</c-><c- p>:</c-> <c- mi>0</c->
+    <c- p>},</c->
+    <c- f>"claimPeriod"</c-><c- p>:</c-> <c- u>"Daily"</c-><c- p>,</c->
+    <c- f>"extensionSetId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"extensionSet"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"modules"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+              <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+              <c- f>"requestDefinition"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- mi>0</c->
+                  <c- p>]</c->
+                <c- p>},</c->
+                <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+              <c- p>},</c->
+              <c- f>"responseDefinition"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+                  <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                    <c- mi>0</c->
+                  <c- p>]</c->
+                <c- p>},</c->
+                <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+              <c- p>}</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"formula"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
+                <c- p>{</c->
+                  <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                  <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+                <c- p>}</c->
+              <c- p>]</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>}</c->
+          <c- p>],</c->
+          <c- f>"parentSet"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"entityTemplates"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+          <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"messagePairs"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+          <c- f>"requestDefinition"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                <c- mi>0</c->
+              <c- p>]</c->
+            <c- p>},</c->
+            <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>},</c->
+          <c- f>"responseDefinition"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                <c- mi>0</c->
+              <c- p>]</c->
+            <c- p>},</c->
+            <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>}</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"formulaTemplates"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"formula"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
+            <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>}</c->
+          <c- p>]</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>]</c->
+    <c- p>}</c->
+  <c- p>},</c->
+  <c- f>"agreementDate"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"string"</c->
+  <c- p>},</c->
+  <c- f>"estimatedAnnualCredits"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+  <c- f>"auditSchedule"</c-><c- p>:</c-> <c- u>"Annual"</c-><c- p>,</c->
+  <c- f>"audits"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"lastAuditDate"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"dateTime"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"dateString"</c-><c- p>:</c-> <c- u>"string"</c->
+    <c- p>},</c->
+    <c- f>"auditReports"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>}</c->
+    <c- p>]</c->
+  <c- p>},</c->
+  <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
+    <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"templateId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+            <c- mi>0</c->
+          <c- p>]</c->
+        <c- p>},</c->
+        <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+      <c- p>},</c->
+      <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+      <c- f>"template"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+        <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+      <c- p>}</c->
+    <c- p>}</c->
+  <c- p>],</c->
+  <c- f>"activityImpactModule"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"aioId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"isGrouped"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
+    <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"classificationCategory"</c-><c- p>:</c-> <c- u>"CarbonAvoidance"</c-><c- p>,</c->
+    <c- f>"classificationMethod"</c-><c- p>:</c-> <c- u>"Natural"</c-><c- p>,</c->
+    <c- f>"benefitCategory"</c-><c- p>:</c-> <c- u>"NoCategory"</c-><c- p>,</c->
+    <c- f>"projectScope"</c-><c- p>:</c-> <c- u>"Other"</c-><c- p>,</c->
+    <c- f>"projectType"</c-><c- p>:</c-> <c- u>"AdvancedRefriderants"</c-><c- p>,</c->
+    <c- f>"projectScale"</c-><c- p>:</c-> <c- u>"Micro"</c-><c- p>,</c->
+    <c- f>"country"</c-><c- p>:</c-> <c- u>"Unknown"</c-><c- p>,</c->
+    <c- f>"region"</c-><c- p>:</c-> <c- u>"Global"</c-><c- p>,</c->
+    <c- f>"arbId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"geographicLocation"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"longitude"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"latitude"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>}</c->
+    <c- p>},</c->
+    <c- f>"firstYearIssuance"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"registryProjectId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"developers"</c-><c- p>:</c-> <c- p>[</c->
+      <c- u>"string"</c->
+    <c- p>],</c->
+    <c- f>"sponsors"</c-><c- p>:</c-> <c- p>[</c->
+      <c- u>"string"</c->
+    <c- p>],</c->
+    <c- f>"claimSources"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"aimId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"location"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"longitude"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"latitude"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"geoJsonOrKml"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"geographicLocationFile"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+          <c- p>}</c->
+        <c- p>},</c->
+        <c- f>"sourceType"</c-><c- p>:</c-> <c- u>"SensorDevice"</c-><c- p>,</c->
+        <c- f>"unitOfMeasure"</c-><c- p>:</c-> <c- u>"TonneCo2E"</c-><c- p>,</c->
+        <c- f>"reportingFrequency"</c-><c- p>:</c-> <c- u>"SubHourly"</c-><c- p>,</c->
+        <c- f>"sourceIdentifier"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"templateId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- mi>0</c->
+                <c- p>]</c->
+              <c- p>},</c->
+              <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>},</c->
+            <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+            <c- f>"template"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+              <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>}</c->
+          <c- p>}</c->
+        <c- p>],</c->
+        <c- f>"variableTemplates"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>}</c->
+        <c- p>]</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"impactClaims"</c-><c- p>:</c-> <c- p>[</c->
+      <c- u>"string"</c->
+    <c- p>],</c->
+    <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+              <c- mi>0</c->
+            <c- p>]</c->
+          <c- p>},</c->
+          <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>},</c->
+        <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+        <c- f>"template"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+          <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"validations"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"requestDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"validationDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"validatingPartyId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"validationMethod"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"validationExpirationDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"validationSteps"</c-><c- p>:</c-> <c- p>[</c->
+          <c- p>{</c->
+            <c- f>"validationStepName"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"validationStepDescription"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"validationStepStatus"</c-><c- p>:</c-> <c- u>"NotStarted"</c-><c- p>,</c->
+            <c- f>"validationStepDocumentLink"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+            <c- p>}</c->
+          <c- p>}</c->
+        <c- p>]</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"attestations"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"tag"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"context"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"string"</c->
+          <c- p>],</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"data"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>},</c->
+        <c- f>"type"</c-><c- p>:</c-> <c- u>"Rs256"</c-><c- p>,</c->
+        <c- f>"proofType"</c-><c- p>:</c-> <c- u>"Jwt"</c-><c- p>,</c->
+        <c- f>"attestor"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+          <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
+          <c- f>"vc"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"context"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"string"</c->
+            <c- p>],</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"VerifiableCredential"</c->
+            <c- p>],</c->
+            <c- f>"issuer"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"issuanceDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"credentialSubject"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"property"</c-><c- p>:</c-> <c- p>[</c->
+                <c- u>"string"</c->
+              <c- p>]</c->
+            <c- p>},</c->
+            <c- f>"proof"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"type"</c-><c- p>:</c-> <c- u>"Jwt"</c-><c- p>,</c->
+              <c- f>"created"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"proofPurpose"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"verificationMethod"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"challenge"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"domain"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c->
+            <c- p>}</c->
+          <c- p>},</c->
+          <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"None"</c->
+        <c- p>}</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"fixedVariables"</c-><c- p>:</c-> <c- p>[</c->
+      <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"templateId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+              <c- mi>0</c->
+            <c- p>]</c->
+          <c- p>},</c->
+          <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>},</c->
+        <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+        <c- f>"template"</c-><c- p>:</c-> <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"alias"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>}</c->
+    <c- p>],</c->
+    <c- f>"accountableImpactOrganization"</c-><c- p>:</c-> <c- p>{</c->
+      <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+      <c- f>"addresses"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"addressType"</c-><c- p>:</c-> <c- u>"Postal"</c-><c- p>,</c->
+          <c- f>"addressLines"</c-><c- p>:</c-> <c- p>[</c->
+            <c- u>"string"</c->
+          <c- p>],</c->
+          <c- f>"city"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"state"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"zip"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"country"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"owners"</c-><c- p>:</c-> <c- p>[</c->
+        <c- u>"string"</c->
+      <c- p>],</c->
+      <c- f>"informationLink"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+        <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+      <c- p>},</c->
+      <c- f>"mediaLinks"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"uri"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"hashProof"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"hashAlgorithm"</c-><c- p>:</c-> <c- u>"Sha256"</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"attestations"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"tag"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"context"</c-><c- p>:</c-> <c- p>[</c->
+              <c- u>"string"</c->
+            <c- p>],</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"data"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>},</c->
+          <c- f>"type"</c-><c- p>:</c-> <c- u>"Rs256"</c-><c- p>,</c->
+          <c- f>"proofType"</c-><c- p>:</c-> <c- u>"Jwt"</c-><c- p>,</c->
+          <c- f>"attestor"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"signature"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"JWS"</c-><c- p>,</c->
+            <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"hasJws"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
+            <c- f>"vc"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"context"</c-><c- p>:</c-> <c- p>[</c->
+                <c- u>"string"</c->
+              <c- p>],</c->
+              <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"type"</c-><c- p>:</c-> <c- p>[</c->
+                <c- u>"VerifiableCredential"</c->
+              <c- p>],</c->
+              <c- f>"issuer"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"issuanceDate"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"credentialSubject"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"property"</c-><c- p>:</c-> <c- p>[</c->
+                  <c- u>"string"</c->
+                <c- p>]</c->
+              <c- p>},</c->
+              <c- f>"proof"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"type"</c-><c- p>:</c-> <c- u>"Jwt"</c-><c- p>,</c->
+                <c- f>"created"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"proofPurpose"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"verificationMethod"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"challenge"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"domain"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+                <c- f>"jws"</c-><c- p>:</c-> <c- u>"string"</c->
+              <c- p>}</c->
+            <c- p>},</c->
+            <c- f>"signatureCase"</c-><c- p>:</c-> <c- u>"None"</c->
+          <c- p>}</c->
+        <c- p>}</c->
+      <c- p>],</c->
+      <c- f>"activityImpactModules"</c-><c- p>:</c-> <c- p>[</c->
+        <c- u>"string"</c->
+      <c- p>],</c->
+      <c- f>"extensions"</c-><c- p>:</c-> <c- p>[</c->
+        <c- p>{</c->
+          <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"templateId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"data"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"protoData"</c-><c- p>:</c-> <c- p>{</c->
+              <c- f>"typeUrl"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+              <c- f>"value"</c-><c- p>:</c-> <c- p>[</c->
+                <c- mi>0</c->
+              <c- p>]</c->
+            <c- p>},</c->
+            <c- f>"dataType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"value"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>},</c->
+          <c- f>"appliedToId"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+          <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+          <c- f>"template"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"id"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"name"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"version"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"description"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"documentation"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"extensionContext"</c-><c- p>:</c-> <c- u>"UnknownContext"</c-><c- p>,</c->
+            <c- f>"dataSchemaOrType"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"dataExample"</c-><c- p>:</c-> <c- u>"string"</c->
+          <c- p>}</c->
+        <c- p>}</c->
+      <c- p>]</c->
+    <c- p>}</c->
+  <c- p>},</c->
+  <c- f>"processedClaims"</c-><c- p>:</c-> <c- p>[</c->
+    <c- u>"string"</c->
+  <c- p>]</c->
 <c- p>}</c-></pre>
      </div>
      <h3 class="heading settled" data-level="5.8" id="example-cru"><span class="secno">5.8. </span><span class="content">Example Carbon Reduction or Removal Unit</span><a class="self-link" href="#example-cru"></a></h3>
-     <div class="example" id="example-3e99634e">
-      <a class="self-link" href="#example-3e99634e"></a> Carbon Reduction or Removal Unit: 
+     <div class="example" id="example-e64ba5ad">
+      <a class="self-link" href="#example-e64ba5ad"></a> Carbon Reduction or Removal Unit: 
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bef817d3-e178-402c-93bd-b20aab360e71"</c-><c- p>,</c->
   <c- f>"quantity"</c-><c- p>:</c-> <c- u>"1.41"</c-><c- p>,</c->
@@ -8771,7 +9455,7 @@ This is not an exhaustive list of Methodologies and Tools as there can be hundre
   <c- f>"assetId"</c-><c- p>:</c-> <c- u>"snei219123-998sdfl-sad21-1-1.41"</c-><c- p>,</c->
   <c- f>"issuanceDate"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"dateTime"</c-><c- p>:</c-> <c- u>""</c-><c- p>,</c->
-    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"8/27/2025"</c->
+    <c- f>"dateString"</c-><c- p>:</c-> <c- u>"9/18/2025"</c->
   <c- p>},</c->
   <c- f>"vintage"</c-><c- p>:</c-> <c- u>"2018"</c-><c- p>,</c->
   <c- f>"coreCarbonPrinciples"</c-><c- p>:</c-> <c- p>{</c->
@@ -9983,6 +10667,14 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
+     <h3 class="heading settled" id="changelog-current"><span class="content">Current Version 3.0.0-20250910 (September 18th, 2025)</span><a class="self-link" href="#changelog-current"></a></h3>
+     <p>This is the current version of the specification.</p>
+     <ul>
+      <li data-md>
+       <p>Fixed naming of <code>ImpactClaimCheckpoint</code> to <code>Checkpoint</code> in the <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim⑤">ImpactClaim</a> to match the definition.</p>
+      <li data-md>
+       <p>Added missing <code>Variables</code> property to the <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> to match the definition.</p>
+     </ul>
      <h3 class="heading settled" id="changelog-3.0.0-20250910"><span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span><a class="self-link" href="#changelog-3.0.0-20250910"></a></h3>
      <ul>
       <li data-md>
@@ -10020,7 +10712,7 @@ public licenses.</p>
       <li data-md>
        <p>Removed <code>ReversalMitigation</code> from <code>Durability</code> and added the properties in <code>ReversalMitigation</code> to <code>Durability</code> to better reflect the type.</p>
       <li data-md>
-       <p>Modified the <a data-link-type="dfn">VerificationProcessAgreement</a>, removing <code>IsAimGroup</code> and <code>AimOrAimGroupId</code> replacing with a collection of <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule①">ProjectModule</a> to more cleanly represent the relationship between the a opa and multiple AIMs.</p>
+       <p>Modified the <code>VerificationProcessAgreement</code>, removing <code>IsAimGroup</code> and <code>AimOrAimGroupId</code> replacing with a collection of <a data-link-type="dfn" href="#projectmodule" id="ref-for-projectmodule①">ProjectModule</a> to more cleanly represent the relationship between the a opa and multiple AIMs.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250320"><span class="content">Version 2.5.0-20250320 (March 20th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250320"></a></h3>
      <ul>
@@ -10060,7 +10752,7 @@ public licenses.</p>
       <li data-md>
        <p>Created <a data-link-type="dfn" href="#formula" id="ref-for-formula③">Formula</a> to support the use of formulas in MRV calculations based on a <a data-link-type="dfn" href="#formulatemplate" id="ref-for-formulatemplate⑥">FormulaTemplate</a>.</p>
       <li data-md>
-       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable④">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑦">VariableTemplate</a>.</p>
+       <p>Created <a data-link-type="dfn" href="#variable" id="ref-for-variable⑤">Variable</a> to support the use of variables in MRV calculations based on a <a data-link-type="dfn" href="#variabletemplate" id="ref-for-variabletemplate⑦">VariableTemplate</a>.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20250129"><span class="content">Version 2.5.0-20250129 (January 29th, 2025)</span><a class="self-link" href="#changelog-2.5.0-20250129"></a></h3>
      <ul>
@@ -10096,7 +10788,7 @@ public licenses.</p>
       <li data-md>
        <p>Collapsed the Impact and Processed Claim Groups into a single <a data-link-type="dfn" href="#claimgroup" id="ref-for-claimgroup">ClaimGroup</a>, since a claim pair is defined by default, a impact and processed claim will always be paired and can only be a member of one Claim Group.</p>
       <li data-md>
-       <p>A <a data-link-type="dfn" href="#claimgroup" id="ref-for-claimgroup①">ClaimGroup</a> must be a member of a <a data-link-type="dfn">ActivityImpactModuleGroup</a></p>
+       <p>A <a data-link-type="dfn" href="#claimgroup" id="ref-for-claimgroup①">ClaimGroup</a> must be a member of a <a data-link-type="dfn" href="#originationprocessagreement" id="ref-for-originationprocessagreement④">OriginationProcessAgreement</a></p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20241219"><span class="content">Version 2.5.0-20241219 (December 19th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241219"></a></h3>
      <ul>
@@ -10112,15 +10804,15 @@ public licenses.</p>
       <li data-md>
        <p>Added support for grouping Activity Impact Modules, Impact and Processed Claims to support credits issued by <code>Quality Standards</code> that require multiple modules that may be operated by different parties resulting in multiple Activities and Claims to be composed together for processing.  CCS is a good example of this.</p>
       <li data-md>
-       <p>Added <a data-link-type="dfn">ActivityImpactModuleGroup</a> to support a collection of Activity Impact Modules that would contribute to composite claims across modules for issuance.</p>
+       <p>Added <code>ActivityImpactModuleGroup</code> to support a collection of Activity Impact Modules that would contribute to composite claims across modules for issuance.</p>
       <li data-md>
        <p>Added ImpactClaimGroup to support Impact Claims that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for processing.</p>
       <li data-md>
        <p>Added ProcessedClaimGroup to support Processed Claims that are grouped together in order to combine claims from multiple projects (AIM), potentially from different organizations, into a single claim for issuance.</p>
       <li data-md>
-       <p>Removed the <code>correlatingProjectId</code> property to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule①⓪">ActivityImpactModule</a> type, no longer needed due to <a data-link-type="dfn">ActivityImpactModuleGroup</a>.</p>
+       <p>Removed the <code>correlatingProjectId</code> property to the <a data-link-type="dfn" href="#activityimpactmodule" id="ref-for-activityimpactmodule①⓪">ActivityImpactModule</a> type, no longer needed due to <code>ActivityImpactModuleGroup</code>.</p>
       <li data-md>
-       <p>Update the <a data-link-type="dfn">VerificationProcessAgreement</a>, rename <code>mbpId</code> to <code>mbpOrMbpGroupId</code> and added a <code>isMbpGroup</code> boolean to support single or multiple MBPs for a opa.</p>
+       <p>Update the <code>VerificationProcessAgreement</code>, rename <code>mbpId</code> to <code>mbpOrMbpGroupId</code> and added a <code>isMbpGroup</code> boolean to support single or multiple MBPs for a opa.</p>
      </ul>
      <h3 class="heading settled" id="changelog-2.5.0-20241209"><span class="content">Version 2.5.0-20241209 (December 9th, 2024)</span><a class="self-link" href="#changelog-2.5.0-20241209"></a></h3>
      <ul>
@@ -10169,7 +10861,7 @@ public licenses.</p>
       <li data-md>
        <p>Moved <a data-link-type="dfn" href="#verifiedlink" id="ref-for-verifiedlink①②">VerifiedLink</a> for the Data Package in a checkpoint into the <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage③">DataPackage</a> type.</p>
       <li data-md>
-       <p>Added arrays of <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage④">DataPackage</a> to both <a data-link-type="dfn" href="#impactclaimcheckpoint" id="ref-for-impactclaimcheckpoint②">ImpactClaimCheckpoint</a> and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> types to support a checkpoint having more than one Data Package.</p>
+       <p>Added arrays of <a data-link-type="dfn" href="#datapackage" id="ref-for-datapackage④">DataPackage</a> to both <a data-link-type="dfn" href="#checkpoint" id="ref-for-checkpoint②">Checkpoint</a> and <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult②">CheckpointResult</a> types to support a checkpoint having more than one Data Package.</p>
       <li data-md>
        <p>Added <code>AVRO</code> as a supported data format for a <a data-link-type="dfn" href="#datafile" id="ref-for-datafile①">DataFile</a>.</p>
      </ul>
@@ -10413,7 +11105,8 @@ public licenses.</p>
    <li><a href="#dom-region-central_america">CENTRAL_AMERICA</a><span>, in § 4.85</span>
    <li><a href="#dom-region-central_asia">CENTRAL_ASIA</a><span>, in § 4.85</span>
    <li><a href="#dom-extensioncontext-checkpoint">CHECKPOINT</a><span>, in § 4.69</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-checkpointdaterange">checkpointDateRange</a><span>, in § 4.10.1</span>
+   <li><a href="#checkpoint">Checkpoint</a><span>, in § 3</span>
+   <li><a href="#element-attrdef-checkpoint-checkpointdaterange">checkpointDateRange</a><span>, in § 4.10.1</span>
    <li><a href="#checkpoint-result">Checkpoint Result</a><span>, in § 3</span>
    <li><a href="#dom-extensioncontext-checkpoint_result">CHECKPOINT_RESULT</a><span>, in § 4.69</span>
    <li><a href="#checkpointresult">CheckpointResult</a><span>, in § 4.30</span>
@@ -10430,11 +11123,11 @@ public licenses.</p>
      <li><a href="#element-attrdef-impactclaim-claimgroupid">element-attr for ImpactClaim</a><span>, in § 4.9.2</span>
      <li><a href="#element-attrdef-processedclaim-claimgroupid">element-attr for ProcessedClaim</a><span>, in § 4.29.2</span>
     </ul>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-claimid">claimId</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-claimid">claimId</a><span>, in § 4.10.1</span>
    <li><a href="#enumdef-claimperiod">ClaimPeriod</a><span>, in § 4.86</span>
    <li><a href="#dom-extensioncontext-claim_source">CLAIM_SOURCE</a><span>, in § 4.69</span>
    <li><a href="#claimsource">ClaimSource</a><span>, in § 4.8</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-claimsourceids">claimSourceIds</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-claimsourceids">claimSourceIds</a><span>, in § 4.10.1</span>
    <li><a href="#element-attrdef-activityimpactmodule-claimsources">claimSources</a><span>, in § 4.4.2</span>
    <li><a href="#enumdef-claimsourcetype">ClaimSourceType</a><span>, in § 4.82</span>
    <li><a href="#enumdef-classificationcategory">ClassificationCategory</a><span>, in § 4.78</span>
@@ -10498,7 +11191,7 @@ public licenses.</p>
    <li><a href="#datapackage">DataPackage</a><span>, in § 4.11</span>
    <li><a href="#data-package-manifest">Data Package Manifest</a><span>, in § 3</span>
    <li><a href="#dom-extensioncontext-data_package_manifest">DATA_PACKAGE_MANIFEST</a><span>, in § 4.69</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-datapackages">dataPackages</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-datapackages">dataPackages</a><span>, in § 4.10.1</span>
    <li><a href="#dom-filetype-data_xml">DATA_XML</a><span>, in § 4.71</span>
    <li><a href="#date">Date</a><span>, in § 4.61</span>
    <li><a href="#element-attrdef-datepoint-date">date</a><span>, in § 4.59.1</span>
@@ -10535,8 +11228,8 @@ public licenses.</p>
    <li><a href="#element-attrdef-corecarbonprinciples-durability">durability</a><span>, in § 4.33.1</span>
    <li><a href="#enumdef-durabilityinsurancetype">DurabilityInsuranceType</a><span>, in § 4.67</span>
    <li><a href="#dom-region-east_asia">EAST_ASIA</a><span>, in § 4.85</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-efafter">efAfter</a><span>, in § 4.10.1</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-efbefore">efBefore</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-efafter">efAfter</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-efbefore">efBefore</a><span>, in § 4.10.1</span>
    <li><a href="#dom-projecttype-electric_vehicles_and_charging">ELECTRIC_VEHICLES_AND_CHARGING</a><span>, in § 4.93</span>
    <li><a href="#encumberable">encumberable</a><span>, in § 4.9.1</span>
    <li><a href="#element-attrdef-daterange-end">end</a><span>, in § 4.58.1</span>
@@ -10599,8 +11292,6 @@ public licenses.</p>
    <li><a href="#impact-claim">Impact Claim</a><span>, in § 3</span>
    <li><a href="#dom-extensioncontext-impact_claim">IMPACT_CLAIM</a><span>, in § 4.69</span>
    <li><a href="#impactclaim">ImpactClaim</a><span>, in § 4.9</span>
-   <li><a href="#impact-claim-checkpoint">Impact Claim Checkpoint</a><span>, in § 3</span>
-   <li><a href="#impactclaimcheckpoint">ImpactClaimCheckpoint</a><span>, in § 4.10</span>
    <li><a href="#element-attrdef-processedclaim-impactclaimid">impactClaimId</a><span>, in § 4.29.2</span>
    <li>
     impactClaims
@@ -10727,7 +11418,7 @@ public licenses.</p>
    <li><a href="#processedclaimcontrol">ProcessedClaimControl</a><span>, in § 4.9.1</span>
    <li><a href="#element-attrdef-impactclaim-processedclaimid">processedClaimId</a><span>, in § 4.9.2</span>
    <li><a href="#element-attrdef-claimgroup-processedclaims">processedClaims</a><span>, in § 4.14.1</span>
-   <li><a href="#element-attrdef-impactclaimcheckpoint-projectdeveloperid">projectDeveloperId</a><span>, in § 4.10.1</span>
+   <li><a href="#element-attrdef-checkpoint-projectdeveloperid">projectDeveloperId</a><span>, in § 4.10.1</span>
    <li><a href="#projectmodule">ProjectModule</a><span>, in § 4.7</span>
    <li><a href="#project-modules">Project Modules</a><span>, in § 3</span>
    <li><a href="#element-attrdef-originationprocessagreement-projectmodules">projectModules</a><span>, in § 4.31.1</span>
@@ -11152,8 +11843,9 @@ let dfnPanelData = {
 "behavior-group": {"dfnID":"behavior-group","dfnText":"Behavior-Group","external":false,"refSections":[],"url":"#behavior-group"},
 "burnable": {"dfnID":"burnable","dfnText":"Burnable","external":false,"refSections":[],"url":"#burnable"},
 "carbon-removal-or-reduction-credit---cru": {"dfnID":"carbon-removal-or-reduction-credit---cru","dfnText":"Carbon Removal or Reduction Credit - CRU","external":false,"refSections":[],"url":"#carbon-removal-or-reduction-credit---cru"},
+"checkpoint": {"dfnID":"checkpoint","dfnText":"Checkpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpoint"}],"title":"4.9.2. Properties"},{"refs":[{"id":"ref-for-checkpoint\u2460"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-checkpoint\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpoint"},
 "checkpoint-result": {"dfnID":"checkpoint-result","dfnText":"Checkpoint Result","external":false,"refSections":[],"url":"#checkpoint-result"},
-"checkpointresult": {"dfnID":"checkpointresult","dfnText":"CheckpointResult","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpointresult"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-checkpointresult\u2460"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpointresult"},
+"checkpointresult": {"dfnID":"checkpointresult","dfnText":"CheckpointResult","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpointresult"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-checkpointresult\u2460"}],"title":"Current Version 3.0.0-20250910 (September 18th, 2025)"},{"refs":[{"id":"ref-for-checkpointresult\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpointresult"},
 "claim-group": {"dfnID":"claim-group","dfnText":"Claim Group","external":false,"refSections":[],"url":"#claim-group"},
 "claimgroup": {"dfnID":"claimgroup","dfnText":"ClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-claimgroup"},{"id":"ref-for-claimgroup\u2460"}],"title":"Version 2.5.0-20250107 (January 7th, 2025)"}],"url":"#claimgroup"},
 "claimsource": {"dfnID":"claimsource","dfnText":"ClaimSource","external":false,"refSections":[{"refs":[{"id":"ref-for-claimsource"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-claimsource\u2460"}],"title":"4.24. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-claimsource\u2461"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-claimsource\u2462"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-claimsource\u2463"}],"title":"Version 2.5.0-20250120 (January 20th, 2025)"}],"url":"#claimsource"},
@@ -11479,6 +12171,13 @@ let dfnPanelData = {
 "element-attrdef-address-country": {"dfnID":"element-attrdef-address-country","dfnText":"country","external":false,"refSections":[],"url":"#element-attrdef-address-country"},
 "element-attrdef-address-postalcode": {"dfnID":"element-attrdef-address-postalcode","dfnText":"postalCode","external":false,"refSections":[],"url":"#element-attrdef-address-postalcode"},
 "element-attrdef-address-state": {"dfnID":"element-attrdef-address-state","dfnText":"state","external":false,"refSections":[],"url":"#element-attrdef-address-state"},
+"element-attrdef-checkpoint-checkpointdaterange": {"dfnID":"element-attrdef-checkpoint-checkpointdaterange","dfnText":"checkpointDateRange","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-checkpointdaterange"},
+"element-attrdef-checkpoint-claimid": {"dfnID":"element-attrdef-checkpoint-claimid","dfnText":"claimId","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-claimid"},
+"element-attrdef-checkpoint-claimsourceids": {"dfnID":"element-attrdef-checkpoint-claimsourceids","dfnText":"claimSourceIds","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-claimsourceids"},
+"element-attrdef-checkpoint-datapackages": {"dfnID":"element-attrdef-checkpoint-datapackages","dfnText":"dataPackages","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-datapackages"},
+"element-attrdef-checkpoint-efafter": {"dfnID":"element-attrdef-checkpoint-efafter","dfnText":"efAfter","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-efafter"},
+"element-attrdef-checkpoint-efbefore": {"dfnID":"element-attrdef-checkpoint-efbefore","dfnText":"efBefore","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-efbefore"},
+"element-attrdef-checkpoint-projectdeveloperid": {"dfnID":"element-attrdef-checkpoint-projectdeveloperid","dfnText":"projectDeveloperId","external":false,"refSections":[],"url":"#element-attrdef-checkpoint-projectdeveloperid"},
 "element-attrdef-checkpointresult-daterange": {"dfnID":"element-attrdef-checkpointresult-daterange","dfnText":"dateRange","external":false,"refSections":[],"url":"#element-attrdef-checkpointresult-daterange"},
 "element-attrdef-checkpointresult-verifiedlinktoprocessdataresult": {"dfnID":"element-attrdef-checkpointresult-verifiedlinktoprocessdataresult","dfnText":"verifiedLinkToProcessDataResult","external":false,"refSections":[],"url":"#element-attrdef-checkpointresult-verifiedlinktoprocessdataresult"},
 "element-attrdef-claimgroup-impactclaims": {"dfnID":"element-attrdef-claimgroup-impactclaims","dfnText":"impactClaims","external":false,"refSections":[],"url":"#element-attrdef-claimgroup-impactclaims"},
@@ -11525,13 +12224,6 @@ let dfnPanelData = {
 "element-attrdef-impactclaim-co-benefits": {"dfnID":"element-attrdef-impactclaim-co-benefits","dfnText":"co-benefits","external":false,"refSections":[],"url":"#element-attrdef-impactclaim-co-benefits"},
 "element-attrdef-impactclaim-processedclaimid": {"dfnID":"element-attrdef-impactclaim-processedclaimid","dfnText":"processedClaimId","external":false,"refSections":[],"url":"#element-attrdef-impactclaim-processedclaimid"},
 "element-attrdef-impactclaim-unit": {"dfnID":"element-attrdef-impactclaim-unit","dfnText":"unit","external":false,"refSections":[],"url":"#element-attrdef-impactclaim-unit"},
-"element-attrdef-impactclaimcheckpoint-checkpointdaterange": {"dfnID":"element-attrdef-impactclaimcheckpoint-checkpointdaterange","dfnText":"checkpointDateRange","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-checkpointdaterange"},
-"element-attrdef-impactclaimcheckpoint-claimid": {"dfnID":"element-attrdef-impactclaimcheckpoint-claimid","dfnText":"claimId","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-claimid"},
-"element-attrdef-impactclaimcheckpoint-claimsourceids": {"dfnID":"element-attrdef-impactclaimcheckpoint-claimsourceids","dfnText":"claimSourceIds","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-claimsourceids"},
-"element-attrdef-impactclaimcheckpoint-datapackages": {"dfnID":"element-attrdef-impactclaimcheckpoint-datapackages","dfnText":"dataPackages","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-datapackages"},
-"element-attrdef-impactclaimcheckpoint-efafter": {"dfnID":"element-attrdef-impactclaimcheckpoint-efafter","dfnText":"efAfter","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-efafter"},
-"element-attrdef-impactclaimcheckpoint-efbefore": {"dfnID":"element-attrdef-impactclaimcheckpoint-efbefore","dfnText":"efBefore","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-efbefore"},
-"element-attrdef-impactclaimcheckpoint-projectdeveloperid": {"dfnID":"element-attrdef-impactclaimcheckpoint-projectdeveloperid","dfnText":"projectDeveloperId","external":false,"refSections":[],"url":"#element-attrdef-impactclaimcheckpoint-projectdeveloperid"},
 "element-attrdef-message-conversationid": {"dfnID":"element-attrdef-message-conversationid","dfnText":"conversationId","external":false,"refSections":[],"url":"#element-attrdef-message-conversationid"},
 "element-attrdef-message-correlationid": {"dfnID":"element-attrdef-message-correlationid","dfnText":"correlationId","external":false,"refSections":[],"url":"#element-attrdef-message-correlationid"},
 "element-attrdef-messagepair-documentation": {"dfnID":"element-attrdef-messagepair-documentation","dfnText":"documentation","external":false,"refSections":[],"url":"#element-attrdef-messagepair-documentation"},
@@ -11626,9 +12318,7 @@ let dfnPanelData = {
 "geographiclocation": {"dfnID":"geographiclocation","dfnText":"GeographicLocation","external":false,"refSections":[{"refs":[{"id":"ref-for-geographiclocation"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-geographiclocation\u2460"}],"title":"4.8.1. Properties"}],"url":"#geographiclocation"},
 "id": {"dfnID":"id","dfnText":"Id","external":false,"refSections":[{"refs":[{"id":"ref-for-id"},{"id":"ref-for-id\u2460"},{"id":"ref-for-id\u2461"}],"title":"4.2.2. Properties"},{"refs":[{"id":"ref-for-id\u2462"},{"id":"ref-for-id\u2463"},{"id":"ref-for-id\u2464"},{"id":"ref-for-id\u2465"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-id\u2466"},{"id":"ref-for-id\u2467"},{"id":"ref-for-id\u2468"},{"id":"ref-for-id\u2460\u24ea"},{"id":"ref-for-id\u2460\u2460"}],"title":"4.7.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2461"},{"id":"ref-for-id\u2460\u2462"}],"title":"4.8.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2463"},{"id":"ref-for-id\u2460\u2464"},{"id":"ref-for-id\u2460\u2465"},{"id":"ref-for-id\u2460\u2466"}],"title":"4.9.2. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2467"}],"title":"4.10.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2468"},{"id":"ref-for-id\u2461\u24ea"},{"id":"ref-for-id\u2461\u2460"},{"id":"ref-for-id\u2461\u2461"},{"id":"ref-for-id\u2461\u2462"},{"id":"ref-for-id\u2461\u2463"}],"title":"4.12.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2464"}],"title":"4.13.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2465"},{"id":"ref-for-id\u2461\u2466"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2467"}],"title":"4.15.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2468"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u24ea"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2460"}],"title":"4.18.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2461"}],"title":"4.20.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2462"},{"id":"ref-for-id\u2462\u2463"},{"id":"ref-for-id\u2462\u2464"}],"title":"4.21.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2465"}],"title":"4.22.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2466"},{"id":"ref-for-id\u2462\u2467"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2468"}],"title":"4.24.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u24ea"},{"id":"ref-for-id\u2463\u2460"}],"title":"4.25.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2461"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2462"},{"id":"ref-for-id\u2463\u2463"},{"id":"ref-for-id\u2463\u2464"},{"id":"ref-for-id\u2463\u2465"},{"id":"ref-for-id\u2463\u2466"},{"id":"ref-for-id\u2463\u2467"}],"title":"4.32.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2468"},{"id":"ref-for-id\u2464\u24ea"},{"id":"ref-for-id\u2464\u2460"},{"id":"ref-for-id\u2464\u2461"},{"id":"ref-for-id\u2464\u2462"},{"id":"ref-for-id\u2464\u2463"}],"title":"4.40.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2464"}],"title":"4.42.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2465"}],"title":"4.43.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2466"},{"id":"ref-for-id\u2464\u2467"}],"title":"4.45.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2468"}],"title":"4.52.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u24ea"}],"title":"4.54.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2460"}],"title":"4.56.1. Properties"}],"url":"#id"},
 "impact-claim": {"dfnID":"impact-claim","dfnText":"Impact Claim","external":false,"refSections":[],"url":"#impact-claim"},
-"impact-claim-checkpoint": {"dfnID":"impact-claim-checkpoint","dfnText":"Impact Claim Checkpoint","external":false,"refSections":[],"url":"#impact-claim-checkpoint"},
-"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"4.21. Data Type: EntityExtension"}],"url":"#impactclaim"},
-"impactclaimcheckpoint": {"dfnID":"impactclaimcheckpoint","dfnText":"ImpactClaimCheckpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaimcheckpoint"}],"title":"4.9.2. Properties"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2460"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-impactclaimcheckpoint\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#impactclaimcheckpoint"},
+"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-impactclaim\u2464"}],"title":"Current Version 3.0.0-20250910 (September 18th, 2025)"}],"url":"#impactclaim"},
 "indivisible": {"dfnID":"indivisible","dfnText":"Indivisible","external":false,"refSections":[],"url":"#indivisible"},
 "iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"4.105.1. JSON Representation"}],"url":"#iso3166cc"},
 "itmoid": {"dfnID":"itmoid","dfnText":"ITMOId","external":false,"refSections":[{"refs":[{"id":"ref-for-itmoid"}],"title":"4.39.1. Properties"}],"url":"#itmoid"},
@@ -11641,7 +12331,7 @@ let dfnPanelData = {
 "non-transferable": {"dfnID":"non-transferable","dfnText":"Non-transferable","external":false,"refSections":[],"url":"#non-transferable"},
 "offsetable-supply-control": {"dfnID":"offsetable-supply-control","dfnText":"Offsetable Supply Control","external":false,"refSections":[],"url":"#offsetable-supply-control"},
 "origination-process-agreement": {"dfnID":"origination-process-agreement","dfnText":"Origination Process Agreement","external":false,"refSections":[],"url":"#origination-process-agreement"},
-"originationprocessagreement": {"dfnID":"originationprocessagreement","dfnText":"OriginationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-originationprocessagreement"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-originationprocessagreement\u2460"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-originationprocessagreement\u2461"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-originationprocessagreement\u2462"}],"title":"4.97. Data Type: MethodologyAndTool"}],"url":"#originationprocessagreement"},
+"originationprocessagreement": {"dfnID":"originationprocessagreement","dfnText":"OriginationProcessAgreement","external":false,"refSections":[{"refs":[{"id":"ref-for-originationprocessagreement"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-originationprocessagreement\u2460"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-originationprocessagreement\u2461"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-originationprocessagreement\u2462"}],"title":"4.97. Data Type: MethodologyAndTool"},{"refs":[{"id":"ref-for-originationprocessagreement\u2463"}],"title":"Version 2.5.0-20250107 (January 7th, 2025)"}],"url":"#originationprocessagreement"},
 "pacompliance": {"dfnID":"pacompliance","dfnText":"PACompliance","external":false,"refSections":[{"refs":[{"id":"ref-for-pacompliance"}],"title":"4.33.1. Properties"},{"refs":[{"id":"ref-for-pacompliance\u2460"}],"title":"4.39.1. Properties"}],"url":"#pacompliance"},
 "precisionmix": {"dfnID":"precisionmix","dfnText":"PrecisionMix","external":false,"refSections":[{"refs":[{"id":"ref-for-precisionmix"}],"title":"4.56.1. Properties"}],"url":"#precisionmix"},
 "processed-claim": {"dfnID":"processed-claim","dfnText":"Processed Claim","external":false,"refSections":[],"url":"#processed-claim"},
@@ -11666,7 +12356,7 @@ let dfnPanelData = {
 "transferable": {"dfnID":"transferable","dfnText":"Transferable","external":false,"refSections":[],"url":"#transferable"},
 "validation": {"dfnID":"validation","dfnText":"Validation","external":false,"refSections":[{"refs":[{"id":"ref-for-validation"}],"title":"4.4.2. Properties"}],"url":"#validation"},
 "validationstep": {"dfnID":"validationstep","dfnText":"ValidationStep","external":false,"refSections":[{"refs":[{"id":"ref-for-validationstep"}],"title":"4.5.1. Properties"}],"url":"#validationstep"},
-"variable": {"dfnID":"variable","dfnText":"Variable","external":false,"refSections":[{"refs":[{"id":"ref-for-variable"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-variable\u2460"}],"title":"4.10.1. Properties"},{"refs":[{"id":"ref-for-variable\u2461"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-variable\u2462"}],"title":"4.24. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-variable\u2463"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#variable"},
+"variable": {"dfnID":"variable","dfnText":"Variable","external":false,"refSections":[{"refs":[{"id":"ref-for-variable"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-variable\u2460"}],"title":"4.10.1. Properties"},{"refs":[{"id":"ref-for-variable\u2461"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-variable\u2462"}],"title":"4.24. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-variable\u2463"}],"title":"4.30.1. Properties"},{"refs":[{"id":"ref-for-variable\u2464"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"}],"url":"#variable"},
 "variables": {"dfnID":"variables","dfnText":"Variables","external":false,"refSections":[],"url":"#variables"},
 "variabletemplate": {"dfnID":"variabletemplate","dfnText":"VariableTemplate","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplate"}],"title":"4.8.1. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2460"}],"title":"4.15.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2461"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2462"}],"title":"4.22.2. Properties"},{"refs":[{"id":"ref-for-variabletemplate\u2463"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-variabletemplate\u2464"}],"title":"Version 3.0.0-20250612 (June 12th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2465"},{"id":"ref-for-variabletemplate\u2466"}],"title":"Version 2.5.0-20250204 (February 4th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2467"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"},{"refs":[{"id":"ref-for-variabletemplate\u2468"},{"id":"ref-for-variabletemplate\u2460\u24ea"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"}],"url":"#variabletemplate"},
 "variabletemplates": {"dfnID":"variabletemplates","dfnText":"VariableTemplates","external":false,"refSections":[{"refs":[{"id":"ref-for-variabletemplates"}],"title":"Version 2.5.0-20250129 (January 29th, 2025)"}],"url":"#variabletemplates"},
@@ -12068,6 +12758,7 @@ let refsData = {
 "#anydata": {"displayText":"anydata","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"anydata","type":"dfn","url":"#anydata"},
 "#attestation": {"displayText":"attestation","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"attestation","type":"dfn","url":"#attestation"},
 "#audits": {"displayText":"audits","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"audits","type":"dfn","url":"#audits"},
+"#checkpoint": {"displayText":"checkpoint","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"checkpoint","type":"dfn","url":"#checkpoint"},
 "#checkpointresult": {"displayText":"checkpointresult","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"checkpointresult","type":"dfn","url":"#checkpointresult"},
 "#claimgroup": {"displayText":"claimgroup","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"claimgroup","type":"dfn","url":"#claimgroup"},
 "#claimsource": {"displayText":"claimsource","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"claimsource","type":"dfn","url":"#claimsource"},
@@ -12132,7 +12823,6 @@ let refsData = {
 "#geographiclocation": {"displayText":"geographiclocation","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"geographiclocation","type":"dfn","url":"#geographiclocation"},
 "#id": {"displayText":"id","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"id","type":"dfn","url":"#id"},
 "#impactclaim": {"displayText":"impactclaim","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"impactclaim","type":"dfn","url":"#impactclaim"},
-"#impactclaimcheckpoint": {"displayText":"impactclaimcheckpoint","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"impactclaimcheckpoint","type":"dfn","url":"#impactclaimcheckpoint"},
 "#iso3166cc": {"displayText":"iso3166cc","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"iso3166cc","type":"dfn","url":"#iso3166cc"},
 "#itmoid": {"displayText":"itmoid","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"itmoid","type":"dfn","url":"#itmoid"},
 "#manifest": {"displayText":"manifest","export":true,"for_":[],"level":"1","normative":true,"shortname":"dmrv data-schema v3.0","spec":"dmrv data-schema v3.0-1","status":"local","text":"manifest","type":"dfn","url":"#manifest"},

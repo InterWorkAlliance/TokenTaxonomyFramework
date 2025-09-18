@@ -26,7 +26,7 @@ message AccountableImpactOrganization{
 message ActivityImpactModule {
     string id = 1; //unique identifier for the activity impact project or module
     string aio_id = 2; //identifier for the parent organization
-    bool is_grouped = 3; //if true, this AIM is a part of at least one multi-module Verification Process Agreement. It can be a member of multiple agreements, for example, if the project provides captured CO2 to multiple storage facilities.
+    bool is_grouped = 3; //if true, this AIM is a part of at least one multi-module Origination Process Agreement. It can be a member of multiple agreements, for example, if the project provides captured CO2 to multiple storage facilities.
     string name = 4; //descriptive name for the project
     common.ClassificationCategory classification_category = 5; //classification category for the project
     common.Method classification_method = 6; //classification method for the project
@@ -76,7 +76,7 @@ message ActivityImpactModule {
 message ClaimGroup
 {
     string id = 1; //unique id for the group
-    string verification_process_agreement_id = 2; //the id of the Verification Process Agreement that the claim group is associated with.
+    string opa_id = 2; //the id of the Origination Process Agreement that the claim group is associated with.
     string name = 3; //the name of the group
     string description = 4; //a description of the group
     repeated dmrv.EntityExtension extensions = 5; //a list of MRV extensions that are associated with the group
@@ -121,43 +121,12 @@ message ImpactClaim
     string quantity = 8; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal.
     repeated common.CoBenefit co_benefits = 9; //a list of co-benefits associated with the claim.  Co-benefits are benefits that are not directly related to the environmental factor, but are related to the activity that is being claimed.  I.e. a carbon claim may have a co-benefit of Quality Education.
     repeated dmrv.Formula formulas = 10; //a list of MRV formulas that are associated with the claim.
-    repeated ImpactClaimCheckpoint checkpoints = 11; //a list of checkpoints that are associated with the claim.
+    repeated Checkpoint checkpoints = 11; //a list of checkpoints that are associated with the claim.
     repeated dmrv.EntityExtension extensions = 12; //a list of MRV extensions that are associated with the claim.
     ActivityImpactModule activity_impact_module = 13; //optional, for object navigation, the parent activity impact module
 }
 
-
-//Processed Claim token schema - not a part of certification
-message ProcessedClaim
-{
-    string id = 1; //the id for the processed claim
-    string vpa_id = 2; //Id for the verification process agreement
-    string impact_claim_id = 3; //the ID for the Ecological Claim being processed, will be null or missing if the implementation allows for the Id to be the same as the Impact Claim Id.
-    string claim_group_id = 4; //the id of the ProcessedClaimGroup that the claim is associated with, will be null if not part of a group.
-    string credit_id = 5; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
-    common.UnitOfMeasure unit_of_measure = 6; //unit of measure for the quantity
-    string quantity = 7; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
-    repeated common.CoBenefit co_benefits = 8; //list of co-benefits for the claim
-    repeated dmrv.EntityExtension extensions = 9; //a list of MRV extensions that are associated with the claim.
-    repeated dmrv.Formula formulas = 10; //a list of MRV formulas that are associated with the claim.
-    //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
-    message CheckpointResult{
-        string id = 1; //the id for the processed checkpoint
-        string checkpoint_id = 2; //The unique identifier for the corresponding ImpactClaimCheckpoint being processed.
-        repeated DataPackage processed_data = 3; //Processed data findings, one for each data package in the checkpoint.
-        common.DateRange date_range = 4; //Date range for the checkpoints processed
-        string ef_before = 5; //verified environmental factor before project activities 
-        string ef_after = 6; //verified environmental factor after project activities
-        repeated dmrv.EntityExtension extensions = 7; //a list of MRV extensions that are associated with the claim.
-    }
-    repeated CheckpointResult checkpoint_results = 11; //summary and verified links for the the claim's checkpoint verification results.
-    google.protobuf.Any issuance_request = 12; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.  This allows the processed claim to be used as the source for any type of asset or credit.
-    VerificationProcessAgreement verification_process_agreement = 13; //optional, for object navigation - the verification process agreement used to verify the claim
-    ImpactClaim impact_claim = 14; //optional, for object navigation - the ecological claim being processed
-    google.protobuf.Any asset = 15; //optional, for object navigation, the asset that is issued for the processed claim.
-}
-
-message ImpactClaimCheckpoint
+message Checkpoint
 {
     string id = 1; //unique id for the checkpoint
     string claim_id = 2; //the id of the claim that the checkpoint is associated with.
@@ -171,6 +140,40 @@ message ImpactClaimCheckpoint
     repeated DataFile data_files = 10; //list of files that are associated with the checkpoint
     repeated DataPackage data_packages = 11; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
 }
+
+//Processed Claim token schema - not a part of certification
+message ProcessedClaim
+{
+    string id = 1; //the id for the processed claim
+    string opa_id = 2; //Id for the Origination Process Agreement
+    string impact_claim_id = 3; //the ID for the Ecological Claim being processed, will be null or missing if the implementation allows for the Id to be the same as the Impact Claim Id.
+    string claim_group_id = 4; //the id of the ProcessedClaimGroup that the claim is associated with, will be null if not part of a group.
+    string credit_id = 5; //when a credit is issued, the processed claim will be retired and the credit id issued will be recorded.
+    common.UnitOfMeasure unit_of_measure = 6; //unit of measure for the quantity
+    string quantity = 7; //the estimated cumulative benefits summing the Environmental Factor (EF) before and after difference for the entire claim. I.e. 5 for a carbon claim would be 5 tCO2e. Use a string or decimal
+    repeated common.CoBenefit co_benefits = 8; //list of co-benefits for the claim
+    repeated dmrv.EntityExtension extensions = 9; //a list of MRV extensions that are associated with the claim.
+    repeated dmrv.Formula formulas = 10; //a list of MRV formulas that are associated with the claim.
+    //basically the same data structure as the checkpoint with different field names, so can reuse the Ecological Checkpoint property set.
+    repeated CheckpointResult checkpoint_results = 11; //summary and verified links for the the claim's checkpoint verification results.
+    google.protobuf.Any issuance_request = 12; //Since a processed claim is generic, it can contain a proposed asset type with values to the issuing registry to use as a consideration.  For example, this field could contain as the proposed asset a CRU Token with the values that the verifier proposes after verification.  This allows the processed claim to be used as the source for any type of asset or credit.
+    OriginationProcessAgreement origination_process_agreement = 13; //optional, for object navigation - the Origination Process Agreement used to verify the claim
+    ImpactClaim impact_claim = 14; //optional, for object navigation - the ecological claim being processed
+    google.protobuf.Any asset = 15; //optional, for object navigation, the asset that is issued for the processed claim.
+}
+
+message CheckpointResult{
+    string id = 1; //the id for the processed checkpoint
+    string checkpoint_id = 2; //The unique identifier for the corresponding ImpactClaimCheckpoint being processed.
+    repeated DataPackage processed_data = 3; //Processed data findings, one for each data package in the checkpoint.
+    common.DateRange date_range = 4; //Date range for the checkpoints processed
+    string ef_before = 5; //verified environmental factor before project activities 
+    string ef_after = 6; //verified environmental factor after project activities
+    repeated dmrv.EntityExtension extensions = 7; //a list of MRV extensions that are associated with the claim.
+    repeated dmrv.Variable variables = 8; //list of MRV variables that are associated with the checkpoint result
+    repeated DataPackage data_packages = 9; //the manifest from the Data Package is a 'table of contents' of evidence files and the sources.
+}
+
 
 // DataFile is file metadata for a file that is part of a DataPackage.  The DataFile is a file that is part of a DataPackage and is used to submit evidence data from registered claim sources in a claim checkpoint.
 message DataFile{
@@ -302,8 +305,8 @@ message REC
 }
 
 /*
-Project Modules are used to represent the Activity Impact Modules associated with a Verification Process Agreement that are grouped together in order to combine claims from multiple project, potentially from different organizations, into a single claim.
-A carbon credit may require several different modules and claims to be combined to create a single credit, the AIMs would be grouped together in an VerificationProcessAgreement, even accross different organizations.
+Project Modules are used to represent the Activity Impact Modules associated with a Origination Process Agreement that are grouped together in order to combine claims from multiple project, potentially from different organizations, into a single claim.
+A carbon credit may require several different modules and claims to be combined to create a single credit, the AIMs would be grouped together in an OriginationProcessAgreement, even accross different organizations.
 
 For example, Carbon Capture and Storage (CCS) may require a project developer to capture CO2 from a plant, then hand it off to a different organization to transport the CO2 to a storage facility,
  then a third organization to store the CO2.  Each of these organizations would have their own AIM and claim, but only one credit will be issued for the combined claims. 
@@ -320,8 +323,8 @@ message ProjectModule{
 }
 
 
-//Define the required properties that a verification process agreement between a activity impact module, Verifier and Issuing Registry should have.
-message VerificationProcessAgreement{
+//Define the required properties that a Origination Process Agreement between a activity impact module, Verifier and Issuing Registry should have.
+message OriginationProcessAgreement{
     string id = 1; //unique identifier
     string name = 2; //name of the agreement
     string description = 3; //description of the agreement

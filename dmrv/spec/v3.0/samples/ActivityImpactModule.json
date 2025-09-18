@@ -44,8 +44,8 @@
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
       "extensions": [
         {
-          "id": "13ef0c02-90b4-404b-85ae-ad4e10ed847e",
-          "templateId": "9c934f3e-2e71-4018-9dfa-fe95c344d2e2",
+          "id": "81f9102f-eab9-4af4-a216-0fa45e984dc5",
+          "templateId": "48ea546b-3ae3-433e-bb0a-203d2f8dd4cb",
           "data": {
             "protoData": null,
             "dataType": "",
@@ -58,7 +58,7 @@
       ],
       "variableTemplates": [
         {
-          "id": "744cde83-9d09-4a50-a446-31fa4119e731",
+          "id": "32f8ccd2-63c1-4c96-82c1-995a5c42a9c1",
           "name": "Soil Carbon Content",
           "version": "1.0.0",
           "description": "An example variable template for a Claim Source",
@@ -89,8 +89,8 @@
   ],
   "extensions": [
     {
-      "id": "0174ca9a-f59c-4bd1-8aba-b7600e623830",
-      "templateId": "ca4fbfcd-4a99-478d-b617-2621ca44fe6a",
+      "id": "3213586c-b2c8-4155-b98c-0b9548151516",
+      "templateId": "2bcb933c-7113-4a6b-a4b5-28cf64738493",
       "data": {
         "protoData": null,
         "dataType": "",
@@ -104,10 +104,10 @@
   "validations": [
     {
       "requestDate": "2021-04-01",
-      "validationDate": "8/27/2025",
+      "validationDate": "9/18/2025",
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
-      "validationExpirationDate": "8/27/2025",
+      "validationExpirationDate": "9/18/2025",
       "validationSteps": [
         {
           "validationStepName": "Project Plan",
@@ -127,8 +127,8 @@
   "attestations": [],
   "fixedVariables": [
     {
-      "id": "aea7dd72-88fb-4218-b611-368b0fff66f7",
-      "templateId": "3cdfa149-7724-4f86-9d5e-d7b51a06817b",
+      "id": "9c1f1fa4-8196-48e6-bbff-bdd0fb266f1c",
+      "templateId": "37978f23-1890-4f3d-9739-9354ed339514",
       "data": {
         "protoData": null,
         "dataType": "GWPCH3",

@@ -81,8 +81,8 @@
           "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
           "extensions": [
             {
-              "id": "10b1063b-86f9-4052-bd10-d7a6514f997e",
-              "templateId": "6f61ec6b-5c98-43c9-87aa-0df5dd868f1f",
+              "id": "817c6747-a6dd-4064-963b-0ebc94608339",
+              "templateId": "7e42b319-a04b-49b5-ba7d-d3a7576d7d23",
               "data": {
                 "protoData": null,
                 "dataType": "",
@@ -95,7 +95,7 @@
           ],
           "variableTemplates": [
             {
-              "id": "79396a08-b14e-4e06-97dc-268cff5eb795",
+              "id": "386294d5-3b8e-4ed8-8895-a92cdfc77d08",
               "name": "Soil Carbon Content",
               "version": "1.0.0",
               "description": "An example variable template for a Claim Source",
@@ -126,8 +126,8 @@
       ],
       "extensions": [
         {
-          "id": "771962f6-d35a-4871-98a7-61651b22a094",
-          "templateId": "bc1c0f9c-07bf-4d5b-8819-6d89f9227258",
+          "id": "bb505c73-891b-4e3f-82db-7d8396da838c",
+          "templateId": "c6afe9d9-9ee6-495f-bb28-c493324aa62e",
           "data": {
             "protoData": null,
             "dataType": "",
@@ -141,10 +141,10 @@
       "validations": [
         {
           "requestDate": "2021-04-01",
-          "validationDate": "8/27/2025",
+          "validationDate": "9/18/2025",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": "8/27/2025",
+          "validationExpirationDate": "9/18/2025",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",
@@ -164,8 +164,8 @@
       "attestations": [],
       "fixedVariables": [
         {
-          "id": "3aa8e631-352b-4779-83f1-d4c3d1640da4",
-          "templateId": "2536ebe4-f5e6-429e-8af0-7b7133b5723a",
+          "id": "9fac140f-9cbe-4ad1-9f7c-94c65c92c7e5",
+          "templateId": "e957f3fd-fa85-42da-b03d-fab3e35abda7",
           "data": {
             "protoData": null,
             "dataType": "GWPCH3",
@@ -180,3 +180,5 @@
   ],
   "extensions": []
 }
+Response headers
+ content-type: application/
