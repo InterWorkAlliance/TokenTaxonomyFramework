@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v3.0/index.html" rel="canonical">
-  <meta content="5653f98dcd4a10ba0b96d1453882eb47bd15eb03" name="revision">
+  <meta content="fa7ad0c18d660ac46a497fa78b39ffdfc471ff5f" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2189,7 +2189,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document presents the second major version of the Digital Measurement, Reporting &amp; Verification (dMRV) Framework, initially published in late 2021. The InterWork Alliance (IWA) and Global Blockchain Business Council (GBBC) members have extensively shared the framework throughout the sustainability ecosystem, identifying missing elements, refining definitions, and striving to establish common standards for unifying ecological and environmental product manufacturing or origination processes, such as voluntary carbon credits. This specification supersedes its predecessor entirely due to the diligent efforts and collaboration of its contributors.</p>
+   <p>This document is the technical specification for the draft Digital MRV Framework Version 3.0 for public comment. It is intended for software developers, business analysts, data scientists, and ecosystem stakeholders involved in designing or implementing digital MRV solutions for environmental assets. This document presents a revision to the second version of the Digital Measurement, Reporting &amp; Verification (dMRV) Framework, published in late 2023. The InterWork Alliance (IWA) and Global Blockchain Business Council (GBBC) members have extensively shared the framework throughout the sustainability ecosystem, identifying missing elements, refining definitions, and striving to establish common standards for unifying ecological and environmental product manufacturing or origination processes, such as for voluntary carbon credits. This specification supersedes its predecessor entirely due to the diligent efforts and collaboration of its contributors. The biggest change in Version 3.0 is the introduction of Extension Sets, a grouping of templates which encompasses entities, messages, formulae, and variables that are specific to the Quality Standard or Methodology that the Activity Impact Module is bound to. They are typically composed of multiple MRV Extensions for modules or activities and can be defined by the supplier, verifier, and issuer based on a set of methodology modules. Extension Sets can be organized into Extension Set Modules that act as a shared library of MRV Extensions available to participants in the dMRV process. Through this process, we aim to create reusable libraries that dMRV participants can use while allowing for the contribution of new Extension Sets from third parties as methodologies are further digitized. Version 3.0 also includes the renaming and grouping of certain data fields for clarity based on feedback received by the IWA from various stakeholders. Please send any feedback you may have on this draft specification to iwa@gbbcouncil.org by October 24, 2025.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -2796,42 +2796,48 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="background"><span class="secno">1. </span><span class="content">Background</span><a class="self-link" href="#background"></a></h2>
-   <p>This document presents the second major version of the Digital Measurement, Reporting &amp; Verification (dMRV) Framework, initially published in late 2021.
-The InterWork Alliance (IWA) and Global Blockchain Business Council (GBBC) members have extensively shared the framework throughout the sustainability ecosystem, identifying missing elements, refining definitions, and striving to establish common standards for unifying ecological and environmental product manufacturing or origination processes, such as voluntary carbon credits. 
-This specification supersedes its predecessor entirely due to the diligent efforts and collaboration of its contributors.</p>
    <p>The lifecycle of environmental or ecological credits, such as carbon or renewable energy credits, includes two main phases: origination (or manufacturing) and distribution.
-The origination phase involves the creation or issuance of a credit from an issuing authority, comparable to commodity origination processes like agriculture or raw materials, 
-where the work is done to grow and harvest the crop in preparation for distribution. 
-The transition from origination to distribution necessitates different infrastructure and requirements, ranging from supporting data collection and verification during manufacturing to facilitating marketplace and 
-exchange activities for trading and settlement. The dMRV Framework focuses specifically on the origination phase of ecological assets.</p>
-   <p>Within the origination phase, there are two sub-phases: Validation and Verification. The validation phase entails the process for a project to be validated by an issuing program before credits can be issued.
-This phase encompasses project design, location, plan, involved parties, governance, adjacent impacts on society, and establishing a baseline for measuring impacts.
-The outcome of this phase typically results in a Project Design Description (PDD) document, which serves as the official recognition and resource for project information.
-The validation phase is governed by the issuing registry and conducted by a Validation and Verification Body (VVB), usually validated for multiple years.</p>
+The origination phase involves the creation or issuance of a credit from an issuing authority, comparable to commodity origination processes like agriculture
+or raw materials, where the work is done to grow and harvest the crop in preparation for distribution. The transition from origination to distribution necessitates
+different infrastructure and requirements, ranging from supporting data collection and verification during manufacturing to facilitating marketplace and exchange
+activities for trading and settlement. The dMRV Framework focuses specifically on the origination phase of ecological assets.</p>
+   <p>Within the origination phase, there are two sub-phases: Validation and Verification. The validation phase entails the process for a project to
+be validated by an issuing program before credits can be issued. This phase encompasses project design, location, plan, involved parties, governance, adjacent
+impacts on society, and establishing a baseline for measuring impacts. The outcome of this phase typically results in a Project Design Description (PDD) document,
+which serves as the official recognition and resource for project information. The validation phase is governed by the issuing registry and conducted by a 
+Validation and Verification Body (VVB). A project is usually validated for multiple years.</p>
    <p>The verification phase involves subsequent monitoring of the data points outlined in the validation phase and reporting this data to the VVB for verification.
-The verification findings are then reported to the issuing registry, which issues a credit for the verified impact to the project. Historically, the validation phase has represented the majority 
-of the effort for establishing projects and issuing credits, often taking a year or more to complete. This extended timeframe is primarily due to early projects being land- and nature-based, 
-such as forestry or land use, which could not produce direct evidence of impact over short periods. Consequently, trust anchors were established based on the validation phase, 
-with annual issuances relying on indirect evidence or factoring to calculate carbon reduction or avoidance.</p>
-   <p>Recently, environmental markets have shifted with the introduction of engineered projects and a focus on carbon removal rather than reductions or avoidances. These new technology-based solutions,
-such as solar, wind, or direct air capture, utilize digital sensors that produce large volumes of highly accurate and verifiable data. This shift emphasizes verification during the origination
- phase over project validation.</p>
-   <p>Engineered projects are typically operated by established corporate entities, have smaller land footprints, and require faster issuance times—monthly instead of annually.
-Engineered environmental projects, including renewable energy and carbon capture and storage, should prioritize verification over validation, reflecting the shift in trust anchors 
-from a project’s reputation established during validation to proof of impact accurately measured in near real-time. The Digital MRV Framework is optimized for these new types of engineered projects,
- which generate substantial quantities of precise measurement data for verification, thereby directly proving energy output or carbon sequestration.</p>
-   <p>Currently, there are multiple open standard initiatives, such as the Carbon Data Open Protocol, aimed at unifying carbon project data from project validation and credit issuance. The Digital MRV Framework can introduce an open standard for verification and implement a new "effort scale" between validation and verification based on project type, moving away from a one-size-fits-all approach.</p>
+The verification findings are then reported to the issuing registry, which issues a credit for the verified impact to the project. Historically, the validation
+phase has represented the majority of the effort for establishing projects and issuing credits, often taking a year or more to complete. This extended timeframe
+is primarily due to early projects being land- and nature-based, such as forestry or land use, which could not produce direct evidence of impact over short 
+periods of time. Consequently, trust anchors were established based on the validation phase, with annual issuances relying on indirect evidence or factoring to
+calculate carbon reduction or avoidance.</p>
+   <p>Recently, environmental markets have shifted with the introduction of engineered projects and a focus on carbon removal rather than reductions or avoidances.
+These new technology-based solutions, such as solar, wind, or direct air capture, utilize digital sensors that produce large volumes of highly accurate and 
+verifiable data. This shift emphasizes verification during the origination phase over project validation.</p>
+   <p>Engineered projects are typically operated by established corporate entities, have smaller land footprints, and require faster issuance times—often monthly
+instead of annually. Engineered environmental projects, including renewable energy and carbon capture and storage, should prioritize verification over validation,
+reflecting the shift in trust anchors from a project’s reputation established during validation to proof of impact accurately measured in near real-time during
+verification. The Digital MRV Framework is optimized for these new types of engineered projects, which generate substantial quantities of precise measurement data
+for verification, thereby directly proving energy output or carbon sequestration.</p>
+   <p>Currently, there are multiple open standard initiatives, such as the Carbon Data Open Protocol (CDOP) and the Integrity Council for the
+Voluntary Carbon Market (ICVCM), aimed at unifying carbon project data from project validation and credit issuance. The Digital MRV Framework can introduce
+an open standard for verification and implement a new "effort scale" between validation and verification based on project type, moving away from a 
+one-size-fits-all approach.</p>
    <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>The Digital MRV (dMRV) Framework outlines the terminology, roles, process workflows, generic evidence packaging, and attestations that digital MRV solutions should follow to create the next generation
-of environmental credits as digital assets. The framework establishes a common roles-based process along with an extensible data model to maintain a consistent taxonomy across infrastructure and asset 
-classes, allowing for customization to accommodate various activities that can produce these new assets. It describes an asset origination supply chain (dMRV network), where different roles are responsible 
-for different parts of the process.</p>
-   <p>For instance, a project developer, who performs the work generating environmental benefits, provides raw measurement data and evidence into the supply chain. The verifier then validates this evidence against
-a quality standard, such as methodology, ensuring its accuracy and reliability. The verifier generates a report used to issue the digital asset, such as a carbon credit, to the issuing registry.</p>
-   <p>The framework aims to support investments in and the generation of high-quality, data-backed ecological assets at scale. It specifies the entities and processes enabling the application of various standards,
- protocols, and technologies that can collaboratively produce high-quality projects and claims, ready for validation and verification.</p>
-   <p>This document serves as the technical specification for the dMRV Framework. It is intended for software developers, business analysts, data scientists, and others seeking to understand the data model and its
-entities, such as tokens, agreements, and data extensions, defined by this specification.</p>
+   <p>The Digital MRV (dMRV) Framework outlines the terminology, roles, process workflows, generic evidence packaging, and attestations that digital MRV solutions
+should follow to create the next generation of environmental credits as digital assets. The framework establishes a common roles-based process along with an 
+extensible data model to maintain a consistent taxonomy across infrastructure and asset classes, allowing for customization to accommodate various activities
+that can produce these new assets. It describes an asset origination supply chain (dMRV network), where different roles are responsible for different parts of 
+the process.</p>
+   <p>For instance, a project developer, who performs the work generating environmental benefits, provides raw measurement data and evidence into the supply chain.
+The verifier then validates this evidence against a quality standard, such as methodology, ensuring its accuracy and reliability. The verifier generates a 
+report used to issue the digital asset, such as a carbon credit, and passes the report to the issuing registry.</p>
+   <p>The framework aims to support investments in, and the generation of, high-quality, data-backed ecological assets at scale. It specifies the entities and
+processes enabling the application of various standards, protocols, and technologies that can collaboratively produce high-quality projects and claims,
+ready for validation and verification.</p>
+   <p>This document serves as the technical specification for the dMRV Framework. It is intended for software developers, business analysts, data scientists, and
+others seeking to understand the data model and its entities, such as tokens, agreements, and data extensions, defined by this specification.</p>
    <h3 class="heading settled" data-level="2.1" id="doc-status"><span class="secno">2.1. </span><span class="content">Status of this Document</span><a class="self-link" href="#doc-status"></a></h3>
    <p>Although this is the released Version 3.0 of the framework, comments regarding the document are welcome, for IWA members, please file issues directly on <a href="https://github.com/InterWorkAlliance/TTF/issues">GitHub</a>, using the <code>dMRV</code> label.
 Branching feedback can be made via pull request by branching and editing the <a href="https://github.com/InterWorkAlliance/TTF/blob/main/dmrv/spec/index.bs">GitHub Spec</a> Bikeshed source directly.</p>
@@ -5929,8 +5935,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.64" id="dt-itmo-id"><span class="secno">4.64. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-8a361fd2">
-    <a class="self-link" href="#example-8a361fd2"></a> 
+   <div class="example" id="example-5b4a42ff">
+    <a class="self-link" href="#example-5b4a42ff"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -10674,6 +10680,8 @@ public licenses.</p>
        <p>Fixed naming of <code>ImpactClaimCheckpoint</code> to <code>Checkpoint</code> in the <a data-link-type="dfn" href="#impactclaim" id="ref-for-impactclaim⑤">ImpactClaim</a> to match the definition.</p>
       <li data-md>
        <p>Added missing <code>Variables</code> property to the <a data-link-type="dfn" href="#checkpointresult" id="ref-for-checkpointresult①">CheckpointResult</a> to match the definition.</p>
+      <li data-md>
+       <p>Update the Abstract, Introduction, and Background sections to better reflect the purpose of the specification.</p>
      </ul>
      <h3 class="heading settled" id="changelog-3.0.0-20250910"><span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span><a class="self-link" href="#changelog-3.0.0-20250910"></a></h3>
      <ul>
