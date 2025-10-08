@@ -18,7 +18,7 @@ enum ExtensionContext{
     DATA_PACKAGE_MANIFEST = 7; //DataPackage Manifest context
     DATA_FILE = 8; //DataPackage File context
     PROCESSED_CLAIM = 9; //Processed Checkpoint context
-    VERIFICATION_PROCESS_AGREEMENT = 10; //Verification Process Agreement context
+    ORIGINATION_PROCESS_AGREEMENT = 10; //Origination Process Agreement context
     CLAIM_GROUP = 11; //Impact-Processed Claim Group context
     FORMULA_TEMPLATE = 12; //Formula Template context
     FORMULA = 13; //Formula context
@@ -142,8 +142,9 @@ message Variable{
     string id = 1; //the unique Id for the formula instance
     string template_id = 2;  //the Id for the template the instance is from
     AnyData data = 3; //the serialized data of the extension
-    ExtensionContext extension_context = 4; //OPTIONAL - context where the extension applies, which entity id to map to.
-    VariableTemplate template = 5; //OPTIONAL - the template the instance is from
+    string claim_source_id = 4; //OPTIONAL - the id of the claim source the value of the variable is from
+    ExtensionContext extension_context = 5; //OPTIONAL - context where the extension applies, which entity id to map to.
+    VariableTemplate template = 6; //OPTIONAL - the template the instance is from
 }
 
 //a collection of extension templates used by a Quality Standard
