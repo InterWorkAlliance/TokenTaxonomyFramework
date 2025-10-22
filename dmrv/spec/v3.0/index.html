@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
   <link href="https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v3.0/index.html" rel="canonical">
-  <meta content="51b70a0d4abc07925134869d62b74e0aa2e275a2" name="revision">
+  <meta content="17a234bc2dfbf9ac0ee29c570dcd70bd1b2ee48b" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2172,7 +2172,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Technical Specifications for IWA Digital Measurement, Reporting and Verification (dMRV) Framework, Version 3.0 (DRAFT)</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-10-08">8 October 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-10-22">22 October 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2757,7 +2757,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix B: Changelog</span></a>
      <ol class="toc">
-      <li><a href="#changelog-current"><span class="secno"></span> <span class="content">Current Version 3.0.0-20250910 (September 18th, 2025)</span></a>
+      <li><a href="#changelog-current-draft"><span class="secno"></span> <span class="content">Current Draft Version 3.0.0-20251022 (October 22nd, 2025)</span></a>
+      <li><a href="#changelog-current"><span class="secno"></span> <span class="content">Version 3.0.0-20250910 (September 18th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250910"><span class="secno"></span> <span class="content">Version 3.0.0-20250910 (September 10th, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250827"><span class="secno"></span> <span class="content">Version 3.0.0-20250827 (August 27nd, 2025)</span></a>
       <li><a href="#changelog-3.0.0-20250716"><span class="secno"></span> <span class="content">Version 3.0.0-20250716 (July 16th, 2025)</span></a>
@@ -5940,8 +5941,8 @@ the specification. Here is where a Quality Standard can prescribe a set of Exten
    <h3 class="heading settled" data-level="4.64" id="dt-itmo-id"><span class="secno">4.64. </span><span class="content">Data Type: <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="itmoid">ITMOId</dfn></span><a class="self-link" href="#dt-itmo-id"></a></h3>
    <p>An ITMOId is a unique identifier for an Internationally Transferred Mitigation Outcome. It is a unique composite identifier made up of 6 parts, separated by a <code>-</code>.</p>
    <p>Example:</p>
-   <div class="example" id="example-5b4a42ff">
-    <a class="self-link" href="#example-5b4a42ff"></a> 
+   <div class="example" id="example-43c194fe">
+    <a class="self-link" href="#example-43c194fe"></a> 
     <ul>
      <li data-md>
       <p><code>CA12-EU01-SP-1236500-2022-NIO</code></p>
@@ -6294,7 +6295,16 @@ This list will be expanded to include other categories, like biodiversity, in th
        <p>An application running on a device, iPad, etc. that uses the device’s sensors like GPS, date/time and user authentication as evidence of source claim data.</p>
       <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ClaimSourceType" data-dfn-type="enum-value" data-export id="dom-claimsourcetype-reference"><code>REFERENCE</code></dfn>
       <dd data-md>
-       <p>Reference data like satellite imagery, remote sensing, analytical models, etc.</p>
+       <p>Reference data like factor library, satellite imagery, remote sensing, analytical models, etc.</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ClaimSourceType" data-dfn-type="enum-value" data-export id="dom-claimsourcetype-calculated"><code>CALCULATED</code></dfn>
+      <dd data-md>
+       <p>A calculated source, derived from other data.</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ClaimSourceType" data-dfn-type="enum-value" data-export id="dom-claimsourcetype-document"><code>DOCUMENT</code></dfn>
+      <dd data-md>
+       <p>A document source, i.e., PDD</p>
+      <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="ClaimSourceType" data-dfn-type="enum-value" data-export id="dom-claimsourcetype-other"><code>OTHER</code></dfn>
+      <dd data-md>
+       <p>Other source type.</p>
      </dl>
      <h4 class="heading settled" data-level="4.82.1" id="dt-claim-source-type-json"><span class="secno">4.82.1. </span><span class="content">JSON Representation</span><a class="self-link" href="#dt-claim-source-type-json"></a></h4>
      <p>Each ClaimSourceType MUST be encoded as a JSON String.</p>
@@ -10678,7 +10688,13 @@ public licenses.</p>
      <p>Creative Commons may be contacted at creativecommons.org.</p>
      <h2 class="heading settled" id="changelog"><span class="content">Appendix B: Changelog</span><a class="self-link" href="#changelog"></a></h2>
      <p>Here we will document changes in the specification as they are made.</p>
-     <h3 class="heading settled" id="changelog-current"><span class="content">Current Version 3.0.0-20250910 (September 18th, 2025)</span><a class="self-link" href="#changelog-current"></a></h3>
+     <h3 class="heading settled" id="changelog-current-draft"><span class="content">Current Draft Version 3.0.0-20251022 (October 22nd, 2025)</span><a class="self-link" href="#changelog-current-draft"></a></h3>
+      This is the current draft version of the specification. 
+     <ul>
+      <li data-md>
+       <p>Added <code>Calculated</code> to ClaimSourceType enum to support calculated claim sources.</p>
+     </ul>
+     <h3 class="heading settled" id="changelog-current"><span class="content">Version 3.0.0-20250910 (September 18th, 2025)</span><a class="self-link" href="#changelog-current"></a></h3>
      <p>This is the current version of the specification.</p>
      <ul>
       <li data-md>
@@ -11094,6 +11110,7 @@ public licenses.</p>
    <li><a href="#dom-projecttype-bundled_compost_production_and_soil_application">BUNDLED_COMPOST_PRODUCTION_AND_SOIL_APPLICATION</a><span>, in § 4.93</span>
    <li><a href="#dom-projecttype-bundled_energy_efficiency">BUNDLED_ENERGY_EFFICIENCY</a><span>, in § 4.93</span>
    <li><a href="#burnable">Burnable</a><span>, in § 4.2.1</span>
+   <li><a href="#dom-claimsourcetype-calculated">CALCULATED</a><span>, in § 4.82</span>
    <li><a href="#dom-projecttype-carbonated_materials">CARBONATED_MATERIALS</a><span>, in § 4.93</span>
    <li><a href="#dom-classificationcategory-carbon_avoidance">CARBON_AVOIDANCE</a><span>, in § 4.78</span>
    <li><a href="#dom-projecttype-carbon_capture_and_enhanced_oil_recovery">CARBON_CAPTURE_AND_ENHANCED_OIL_RECOVERY</a><span>, in § 4.93</span>
@@ -11227,6 +11244,7 @@ public licenses.</p>
    <li><a href="#dom-prooftype-dip">DIP</a><span>, in § 4.74</span>
    <li><a href="#divisible">Divisible</a><span>, in § 4.2.1</span>
    <li><a href="#dmrv">dMRV</a><span>, in § 3</span>
+   <li><a href="#dom-claimsourcetype-document">DOCUMENT</a><span>, in § 4.82</span>
    <li>
     documentation
     <ul>
@@ -11411,7 +11429,12 @@ public licenses.</p>
    <li><a href="#element-attrdef-processedclaim-opaid">opaId</a><span>, in § 4.29.2</span>
    <li><a href="#origination-process-agreement">Origination Process Agreement</a><span>, in § 3</span>
    <li><a href="#originationprocessagreement">OriginationProcessAgreement</a><span>, in § 4.31</span>
-   <li><a href="#dom-projectscope-other">OTHER</a><span>, in § 4.92</span>
+   <li>
+    OTHER
+    <ul>
+     <li><a href="#dom-claimsourcetype-other">enum-value for ClaimSourceType</a><span>, in § 4.82</span>
+     <li><a href="#dom-projectscope-other">enum-value for ProjectScope</a><span>, in § 4.92</span>
+    </ul>
    <li><a href="#element-attrdef-accountableimpactorganization-owners">owners</a><span>, in § 4.2.2</span>
    <li><a href="#dom-projecttype-ozone_depleting_substances_recovery_and_destruction">OZONE_DEPLETING_SUBSTANCES_RECOVERY_AND_DESTRUCTION</a><span>, in § 4.93</span>
    <li><a href="#pacompliance">PACompliance</a><span>, in § 4.39</span>
@@ -11858,7 +11881,7 @@ let dfnPanelData = {
 "carbon-removal-or-reduction-credit---cru": {"dfnID":"carbon-removal-or-reduction-credit---cru","dfnText":"Carbon Removal or Reduction Credit - CRU","external":false,"refSections":[],"url":"#carbon-removal-or-reduction-credit---cru"},
 "checkpoint": {"dfnID":"checkpoint","dfnText":"Checkpoint","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpoint"}],"title":"4.9.2. Properties"},{"refs":[{"id":"ref-for-checkpoint\u2460"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-checkpoint\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpoint"},
 "checkpoint-result": {"dfnID":"checkpoint-result","dfnText":"Checkpoint Result","external":false,"refSections":[],"url":"#checkpoint-result"},
-"checkpointresult": {"dfnID":"checkpointresult","dfnText":"CheckpointResult","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpointresult"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-checkpointresult\u2460"}],"title":"Current Version 3.0.0-20250910 (September 18th, 2025)"},{"refs":[{"id":"ref-for-checkpointresult\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpointresult"},
+"checkpointresult": {"dfnID":"checkpointresult","dfnText":"CheckpointResult","external":false,"refSections":[{"refs":[{"id":"ref-for-checkpointresult"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-checkpointresult\u2460"}],"title":"Version 3.0.0-20250910 (September 18th, 2025)"},{"refs":[{"id":"ref-for-checkpointresult\u2461"}],"title":"Version 2.5.0-20240428 (May 24th, 2024)"}],"url":"#checkpointresult"},
 "claim-group": {"dfnID":"claim-group","dfnText":"Claim Group","external":false,"refSections":[],"url":"#claim-group"},
 "claimgroup": {"dfnID":"claimgroup","dfnText":"ClaimGroup","external":false,"refSections":[{"refs":[{"id":"ref-for-claimgroup"},{"id":"ref-for-claimgroup\u2460"}],"title":"Version 2.5.0-20250107 (January 7th, 2025)"}],"url":"#claimgroup"},
 "claimsource": {"dfnID":"claimsource","dfnText":"ClaimSource","external":false,"refSections":[{"refs":[{"id":"ref-for-claimsource"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-claimsource\u2460"}],"title":"4.24. Data Type: VariableTemplate"},{"refs":[{"id":"ref-for-claimsource\u2461"}],"title":"4.25. Data Type: Variable"},{"refs":[{"id":"ref-for-claimsource\u2462"}],"title":"Version 2.5.0-20250127 (January 27th, 2025)"},{"refs":[{"id":"ref-for-claimsource\u2463"}],"title":"Version 2.5.0-20250120 (January 20th, 2025)"}],"url":"#claimsource"},
@@ -11904,6 +11927,9 @@ let dfnPanelData = {
 "dom-claimperiod-quarterly": {"dfnID":"dom-claimperiod-quarterly","dfnText":"QUARTERLY","external":false,"refSections":[],"url":"#dom-claimperiod-quarterly"},
 "dom-claimperiod-semiannual": {"dfnID":"dom-claimperiod-semiannual","dfnText":"SEMIANNUAL","external":false,"refSections":[],"url":"#dom-claimperiod-semiannual"},
 "dom-claimperiod-weekly": {"dfnID":"dom-claimperiod-weekly","dfnText":"WEEKLY","external":false,"refSections":[],"url":"#dom-claimperiod-weekly"},
+"dom-claimsourcetype-calculated": {"dfnID":"dom-claimsourcetype-calculated","dfnText":"CALCULATED","external":false,"refSections":[],"url":"#dom-claimsourcetype-calculated"},
+"dom-claimsourcetype-document": {"dfnID":"dom-claimsourcetype-document","dfnText":"DOCUMENT","external":false,"refSections":[],"url":"#dom-claimsourcetype-document"},
+"dom-claimsourcetype-other": {"dfnID":"dom-claimsourcetype-other","dfnText":"OTHER","external":false,"refSections":[],"url":"#dom-claimsourcetype-other"},
 "dom-claimsourcetype-reference": {"dfnID":"dom-claimsourcetype-reference","dfnText":"REFERENCE","external":false,"refSections":[],"url":"#dom-claimsourcetype-reference"},
 "dom-claimsourcetype-sensor_device": {"dfnID":"dom-claimsourcetype-sensor_device","dfnText":"SENSOR_DEVICE","external":false,"refSections":[],"url":"#dom-claimsourcetype-sensor_device"},
 "dom-claimsourcetype-user_application": {"dfnID":"dom-claimsourcetype-user_application","dfnText":"USER_APPLICATION","external":false,"refSections":[],"url":"#dom-claimsourcetype-user_application"},
@@ -12331,7 +12357,7 @@ let dfnPanelData = {
 "geographiclocation": {"dfnID":"geographiclocation","dfnText":"GeographicLocation","external":false,"refSections":[{"refs":[{"id":"ref-for-geographiclocation"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-geographiclocation\u2460"}],"title":"4.8.1. Properties"}],"url":"#geographiclocation"},
 "id": {"dfnID":"id","dfnText":"Id","external":false,"refSections":[{"refs":[{"id":"ref-for-id"},{"id":"ref-for-id\u2460"},{"id":"ref-for-id\u2461"}],"title":"4.2.2. Properties"},{"refs":[{"id":"ref-for-id\u2462"},{"id":"ref-for-id\u2463"},{"id":"ref-for-id\u2464"},{"id":"ref-for-id\u2465"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-id\u2466"},{"id":"ref-for-id\u2467"},{"id":"ref-for-id\u2468"},{"id":"ref-for-id\u2460\u24ea"},{"id":"ref-for-id\u2460\u2460"}],"title":"4.7.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2461"},{"id":"ref-for-id\u2460\u2462"}],"title":"4.8.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2463"},{"id":"ref-for-id\u2460\u2464"},{"id":"ref-for-id\u2460\u2465"},{"id":"ref-for-id\u2460\u2466"}],"title":"4.9.2. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2467"}],"title":"4.10.1. Properties"},{"refs":[{"id":"ref-for-id\u2460\u2468"},{"id":"ref-for-id\u2461\u24ea"},{"id":"ref-for-id\u2461\u2460"},{"id":"ref-for-id\u2461\u2461"},{"id":"ref-for-id\u2461\u2462"},{"id":"ref-for-id\u2461\u2463"}],"title":"4.12.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2464"}],"title":"4.13.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2465"},{"id":"ref-for-id\u2461\u2466"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2467"}],"title":"4.15.2. Properties"},{"refs":[{"id":"ref-for-id\u2461\u2468"}],"title":"4.16.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u24ea"}],"title":"4.17.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2460"}],"title":"4.18.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2461"}],"title":"4.20.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2462"},{"id":"ref-for-id\u2462\u2463"},{"id":"ref-for-id\u2462\u2464"}],"title":"4.21.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2465"}],"title":"4.22.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2466"},{"id":"ref-for-id\u2462\u2467"}],"title":"4.23.2. Properties"},{"refs":[{"id":"ref-for-id\u2462\u2468"}],"title":"4.24.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u24ea"},{"id":"ref-for-id\u2463\u2460"},{"id":"ref-for-id\u2463\u2461"}],"title":"4.25.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2462"}],"title":"4.29.2. Properties"},{"refs":[{"id":"ref-for-id\u2463\u2463"},{"id":"ref-for-id\u2463\u2464"},{"id":"ref-for-id\u2463\u2465"},{"id":"ref-for-id\u2463\u2466"},{"id":"ref-for-id\u2463\u2467"},{"id":"ref-for-id\u2463\u2468"}],"title":"4.32.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u24ea"},{"id":"ref-for-id\u2464\u2460"},{"id":"ref-for-id\u2464\u2461"},{"id":"ref-for-id\u2464\u2462"},{"id":"ref-for-id\u2464\u2463"},{"id":"ref-for-id\u2464\u2464"}],"title":"4.40.2. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2465"}],"title":"4.42.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2466"}],"title":"4.43.1. Properties"},{"refs":[{"id":"ref-for-id\u2464\u2467"},{"id":"ref-for-id\u2464\u2468"}],"title":"4.45.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u24ea"}],"title":"4.52.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2460"}],"title":"4.54.1. Properties"},{"refs":[{"id":"ref-for-id\u2465\u2461"}],"title":"4.56.1. Properties"}],"url":"#id"},
 "impact-claim": {"dfnID":"impact-claim","dfnText":"Impact Claim","external":false,"refSections":[],"url":"#impact-claim"},
-"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-impactclaim\u2464"}],"title":"Current Version 3.0.0-20250910 (September 18th, 2025)"}],"url":"#impactclaim"},
+"impactclaim": {"dfnID":"impactclaim","dfnText":"ImpactClaim","external":false,"refSections":[{"refs":[{"id":"ref-for-impactclaim"}],"title":"4. Tokens and their Data Model"},{"refs":[{"id":"ref-for-impactclaim\u2460"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2461"}],"title":"4.14.1. Properties"},{"refs":[{"id":"ref-for-impactclaim\u2462"}],"title":"4.20. Data Type: EntityExtensionTemplate"},{"refs":[{"id":"ref-for-impactclaim\u2463"}],"title":"4.21. Data Type: EntityExtension"},{"refs":[{"id":"ref-for-impactclaim\u2464"}],"title":"Version 3.0.0-20250910 (September 18th, 2025)"}],"url":"#impactclaim"},
 "indivisible": {"dfnID":"indivisible","dfnText":"Indivisible","external":false,"refSections":[],"url":"#indivisible"},
 "iso3166cc": {"dfnID":"iso3166cc","dfnText":"ISO3166CC","external":false,"refSections":[{"refs":[{"id":"ref-for-iso3166cc"}],"title":"4.4.2. Properties"},{"refs":[{"id":"ref-for-iso3166cc\u2460"}],"title":"4.105.1. JSON Representation"}],"url":"#iso3166cc"},
 "itmoid": {"dfnID":"itmoid","dfnText":"ITMOId","external":false,"refSections":[{"refs":[{"id":"ref-for-itmoid"}],"title":"4.39.1. Properties"}],"url":"#itmoid"},

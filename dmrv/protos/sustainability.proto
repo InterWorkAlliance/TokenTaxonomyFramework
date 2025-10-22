@@ -97,9 +97,10 @@ message ClaimSource
     {
         SENSOR_DEVICE = 0; //IoT, meter, etc.
         USER_APPLICATION = 1; //An application running on a device, iPad, etc. that uses the device's sensors like GPS, date/time and user authentication as evidence of source claim data.
-        REFERENCE = 2; //Satellite, Remote Sensing, Analytical Models, etc.
+        REFERENCE = 2; //Factor Library, Satellite, Remote Sensing, Analytical Models, etc.
         DOCUMENT = 3; //A document that is used as a reference source.
-        OTHER = 4; //Other source type.
+        CALCULATED = 4; //A calculated source, derived from other data.
+        OTHER = 5; //Other source type.
     }
     ClaimSourceType source_type = 6; //the type of source that is providing the claim data.
     common.UnitOfMeasure unit_of_measure = 7; //the unit of measure for the claim data.
@@ -310,7 +311,7 @@ A carbon credit may require several different modules and claims to be combined 
 
 For example, Carbon Capture and Storage (CCS) may require a project developer to capture CO2 from a plant, then hand it off to a different organization to transport the CO2 to a storage facility,
  then a third organization to store the CO2.  Each of these organizations would have their own AIM and claim, but only one credit will be issued for the combined claims. 
- Claims made under multi-module VPAs have their claims grouped, both impact and processed claims, so that the claims can be processed and issued against together.
+ Claims made under multi-module OPAs have their claims grouped, both impact and processed claims, so that the claims can be processed and issued against together.
 */
 message ProjectModule{
     string aim_id = 1; //the id of the activity impact module that the project module is associated with
