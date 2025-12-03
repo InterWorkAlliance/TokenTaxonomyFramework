@@ -166,7 +166,7 @@ message ProcessedClaim
 enum CheckpointResultStatus{
     PENDING = 0; //verification hasn't begun
     IN_PROGRESS = 1; //verification has started
-    EXCEPTION_PROCESS = 2; //an exception has been found and is being resolved with the Supplier via ECS Messaging
+    EXCEPTION_PROCESS = 2; //an exception has been found and is being resolved with the Supplier via Messaging
     VERIFIED = 3; //verification was complete
     REJECTED = 4; //verification was rejected
 }
