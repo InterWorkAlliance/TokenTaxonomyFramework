@@ -777,6 +777,13 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "status": {
+                        "$ref": "#/components/schemas/CheckpointResultStatus"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "extensions": {
                         "type": "array",
                         "items": {
@@ -803,6 +810,16 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "CheckpointResultStatus": {
+                "enum": [
+                    "Pending",
+                    "InProgress",
+                    "ExceptionProcess",
+                    "Verified",
+                    "Rejected"
+                ],
+                "type": "string"
             },
             "ClaimPeriod": {
                 "enum": [
@@ -876,6 +893,7 @@
                     "UserApplication",
                     "Reference",
                     "Document",
+                    "Calculated",
                     "Other"
                 ],
                 "type": "string"
@@ -1554,7 +1572,7 @@
                     "DataPackageManifest",
                     "DataFile",
                     "ProcessedClaim",
-                    "VerificationProcessAgreement",
+                    "OriginationProcessAgreement",
                     "ClaimGroup",
                     "FormulaTemplate",
                     "Formula",
@@ -3256,6 +3274,10 @@
                     "data": {
                         "$ref": "#/components/schemas/AnyData"
                     },
+                    "claimSourceId": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "extensionContext": {
                         "$ref": "#/components/schemas/ExtensionContext"
                     },
@@ -3329,5 +3351,10 @@
                 "additionalProperties": false
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "DMrv"
+        }
+    ]
 }

@@ -1,4 +1,4 @@
-{
+'{
   "id": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
   "opaId": "e0d357b0-a75a-40fa-838b-5a5d444d2216",
   "impactClaimId": "a5cd2fbe-0b18-4cb7-99e8-624dc96acafa",
@@ -22,8 +22,8 @@
   ],
   "formulas": [
     {
-      "id": "3da9b143-4915-458a-98d1-606f279007b5",
-      "templateId": "87cdf679-b571-4dfa-8d17-29b972225237",
+      "id": "b227052c-83de-4bb5-b135-7beb5c1d29fa",
+      "templateId": "7a88b026-67f6-477e-a52b-a2d2ce336ffc",
       "data": {
         "protoData": null,
         "dataType": "CDRFormula",
@@ -31,13 +31,14 @@
       },
       "variables": [
         {
-          "id": "d95a1525-6f7f-4444-b093-75941909406b",
-          "templateId": "de2511e3-7b5d-460c-aab2-3157f790ceb0",
+          "id": "c43d6499-cb40-49a6-b7e8-41d24e554baf",
+          "templateId": "84500d5a-fb6e-4fcb-86c6-aa08ee54ebb1",
           "data": {
             "protoData": null,
             "dataType": "Cap",
             "value": "CAP = 9912.21"
           },
+          "claimSourceId": "",
           "extensionContext": "ImpactClaim",
           "template": null
         }
@@ -62,18 +63,18 @@
             "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
             "created": {
               "date": {
-                "dateTime": "09/18/2025 14:08:24",
-                "dateString": "9/18/2025"
+                "dateTime": "12/03/2025 14:16:15",
+                "dateString": "12/3/2025"
               },
               "timeStamp": {
-                "seconds": 1758204504,
-                "nanos": 819347000
+                "seconds": 1764771375,
+                "nanos": 426944000
               }
             },
             "extensions": [
               {
-                "id": "5f44ebcc-0dce-4560-9471-9aac88a65b6e",
-                "templateId": "44994127-b61c-4384-87e2-288d93d19613",
+                "id": "16bce8cd-c53b-4587-80b6-e3ada62c86f3",
+                "templateId": "6c07d7be-586b-4df1-a65f-d72fba3deb24",
                 "data": {
                   "protoData": null,
                   "dataType": "",
@@ -94,8 +95,8 @@
                 "claimSourceAttestation": "digital_signature",
                 "extensions": [
                   {
-                    "id": "640104df-5090-491f-bec0-407420b79230",
-                    "templateId": "1923c894-fdea-4249-ac8f-375b9ca05ad3",
+                    "id": "10e29463-9b46-42b7-a289-0e70fe91d0b6",
+                    "templateId": "2ec35062-7bbf-46a8-8615-4f3244994171",
                     "data": {
                       "protoData": null,
                       "dataType": "",
@@ -124,6 +125,8 @@
       },
       "efBefore": "",
       "efAfter": "",
+      "status": "Pending",
+      "comment": "",
       "extensions": [
         {
           "id": "",
@@ -136,13 +139,14 @@
       ],
       "variables": [
         {
-          "id": "7c8406f9-2835-4c7c-8559-18e6df7fc22f",
-          "templateId": "6d6659ce-3fb8-4aa2-b725-acdd56cf08f5",
+          "id": "c94c12a2-fa94-45cb-b568-75a39e9a0ec5",
+          "templateId": "0568f107-5938-4d32-8cec-77582f8a04a9",
           "data": {
             "protoData": null,
             "dataType": "FRmass,x",
             "value": "12.523, UOM=tonne"
           },
+          "claimSourceId": "",
           "extensionContext": "ProcessedClaim",
           "template": null
         }
@@ -154,4 +158,1947 @@
   "originationProcessAgreement": null,
   "impactClaim": null,
   "asset": null
+}
+Response headers
+ content-type: application/json; charset=utf-8 
+ date: Wed,03 Dec 2025 14:16:15 GMT 
+ server: Kestrel 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "string",
+  "opaId": "string",
+  "impactClaimId": "string",
+  "claimGroupId": "string",
+  "creditId": "string",
+  "unitOfMeasure": "TonneCo2E",
+  "quantity": "string",
+  "coBenefits": [
+    "NoCategory"
+  ],
+  "extensions": [
+    {
+      "id": "string",
+      "templateId": "string",
+      "data": {
+        "protoData": {
+          "typeUrl": "string",
+          "value": [
+            0
+          ]
+        },
+        "dataType": "string",
+        "value": "string"
+      },
+      "appliedToId": "string",
+      "extensionContext": "UnknownContext",
+      "template": {
+        "id": "string",
+        "name": "string",
+        "version": "string",
+        "description": "string",
+        "documentation": "string",
+        "extensionContext": "UnknownContext",
+        "dataSchemaOrType": "string",
+        "dataExample": "string"
+      }
+    }
+  ],
+  "formulas": [
+    {
+      "id": "string",
+      "templateId": "string",
+      "data": {
+        "protoData": {
+          "typeUrl": "string",
+          "value": [
+            0
+          ]
+        },
+        "dataType": "string",
+        "value": "string"
+      },
+      "variables": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "claimSourceId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "extensionContext": "UnknownContext",
+      "template": {
+        "id": "string",
+        "name": "string",
+        "version": "string",
+        "formula": "string",
+        "description": "string",
+        "documentation": "string",
+        "dataSchemaOrType": "string",
+        "dataExample": "string",
+        "variableTemplates": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "checkpointResults": [
+    {
+      "id": "string",
+      "checkpointId": "string",
+      "processedData": [
+        {
+          "manifest": {
+            "id": "string",
+            "version": "string",
+            "aioId": "string",
+            "aimId": "string",
+            "claimId": "string",
+            "processedClaimId": "string",
+            "projectDeveloperId": "string",
+            "created": {
+              "date": {
+                "dateTime": "string",
+                "dateString": "string"
+              },
+              "timeStamp": {
+                "seconds": 0,
+                "nanos": 0
+              }
+            },
+            "extensions": [
+              {
+                "id": "string",
+                "templateId": "string",
+                "data": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "appliedToId": "string",
+                "extensionContext": "UnknownContext",
+                "template": {
+                  "id": "string",
+                  "name": "string",
+                  "version": "string",
+                  "description": "string",
+                  "documentation": "string",
+                  "extensionContext": "UnknownContext",
+                  "dataSchemaOrType": "string",
+                  "dataExample": "string"
+                }
+              }
+            ],
+            "formulas": [
+              {
+                "id": "string",
+                "templateId": "string",
+                "data": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "variables": [
+                  {
+                    "id": "string",
+                    "templateId": "string",
+                    "data": {
+                      "protoData": {
+                        "typeUrl": "string",
+                        "value": [
+                          0
+                        ]
+                      },
+                      "dataType": "string",
+                      "value": "string"
+                    },
+                    "claimSourceId": "string",
+                    "extensionContext": "UnknownContext",
+                    "template": {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "alias": "string",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  }
+                ],
+                "extensionContext": "UnknownContext",
+                "template": {
+                  "id": "string",
+                  "name": "string",
+                  "version": "string",
+                  "formula": "string",
+                  "description": "string",
+                  "documentation": "string",
+                  "dataSchemaOrType": "string",
+                  "dataExample": "string",
+                  "variableTemplates": [
+                    {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "alias": "string",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  ]
+                }
+              }
+            ],
+            "dataFiles": [
+              {
+                "name": "string",
+                "type": "DataBinary",
+                "description": "string",
+                "claimSourceId": "string",
+                "claimSourceAttestation": "string",
+                "extensions": [
+                  {
+                    "id": "string",
+                    "templateId": "string",
+                    "data": {
+                      "protoData": {
+                        "typeUrl": "string",
+                        "value": [
+                          0
+                        ]
+                      },
+                      "dataType": "string",
+                      "value": "string"
+                    },
+                    "appliedToId": "string",
+                    "extensionContext": "UnknownContext",
+                    "template": {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "extensionContext": "UnknownContext",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "verifiedLinkToDataPackage": {
+            "id": "string",
+            "uri": "string",
+            "description": "string",
+            "hashProof": "string",
+            "hashAlgorithm": "Sha256"
+          }
+        }
+      ],
+      "dateRange": {
+        "startDate": {
+          "date": {
+            "dateTime": "string",
+            "dateString": "string"
+          },
+          "timeStamp": {
+            "seconds": 0,
+            "nanos": 0
+          }
+        },
+        "endDate": {
+          "date": {
+            "dateTime": "string",
+            "dateString": "string"
+          },
+          "timeStamp": {
+            "seconds": 0,
+            "nanos": 0
+          }
+        }
+      },
+      "efBefore": "string",
+      "efAfter": "string",
+      "status": "Pending",
+      "comment": "string",
+      "extensions": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "appliedToId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "extensionContext": "UnknownContext",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "variables": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "claimSourceId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "dataPackages": [
+        {
+          "manifest": {
+            "id": "string",
+            "version": "string",
+            "aioId": "string",
+            "aimId": "string",
+            "claimId": "string",
+            "processedClaimId": "string",
+            "projectDeveloperId": "string",
+            "created": {
+              "date": {
+                "dateTime": "string",
+                "dateString": "string"
+              },
+              "timeStamp": {
+                "seconds": 0,
+                "nanos": 0
+              }
+            },
+            "extensions": [
+              {
+                "id": "string",
+                "templateId": "string",
+                "data": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "appliedToId": "string",
+                "extensionContext": "UnknownContext",
+                "template": {
+                  "id": "string",
+                  "name": "string",
+                  "version": "string",
+                  "description": "string",
+                  "documentation": "string",
+                  "extensionContext": "UnknownContext",
+                  "dataSchemaOrType": "string",
+                  "dataExample": "string"
+                }
+              }
+            ],
+            "formulas": [
+              {
+                "id": "string",
+                "templateId": "string",
+                "data": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "variables": [
+                  {
+                    "id": "string",
+                    "templateId": "string",
+                    "data": {
+                      "protoData": {
+                        "typeUrl": "string",
+                        "value": [
+                          0
+                        ]
+                      },
+                      "dataType": "string",
+                      "value": "string"
+                    },
+                    "claimSourceId": "string",
+                    "extensionContext": "UnknownContext",
+                    "template": {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "alias": "string",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  }
+                ],
+                "extensionContext": "UnknownContext",
+                "template": {
+                  "id": "string",
+                  "name": "string",
+                  "version": "string",
+                  "formula": "string",
+                  "description": "string",
+                  "documentation": "string",
+                  "dataSchemaOrType": "string",
+                  "dataExample": "string",
+                  "variableTemplates": [
+                    {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "alias": "string",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  ]
+                }
+              }
+            ],
+            "dataFiles": [
+              {
+                "name": "string",
+                "type": "DataBinary",
+                "description": "string",
+                "claimSourceId": "string",
+                "claimSourceAttestation": "string",
+                "extensions": [
+                  {
+                    "id": "string",
+                    "templateId": "string",
+                    "data": {
+                      "protoData": {
+                        "typeUrl": "string",
+                        "value": [
+                          0
+                        ]
+                      },
+                      "dataType": "string",
+                      "value": "string"
+                    },
+                    "appliedToId": "string",
+                    "extensionContext": "UnknownContext",
+                    "template": {
+                      "id": "string",
+                      "name": "string",
+                      "version": "string",
+                      "description": "string",
+                      "documentation": "string",
+                      "extensionContext": "UnknownContext",
+                      "dataSchemaOrType": "string",
+                      "dataExample": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "verifiedLinkToDataPackage": {
+            "id": "string",
+            "uri": "string",
+            "description": "string",
+            "hashProof": "string",
+            "hashAlgorithm": "Sha256"
+          }
+        }
+      ]
+    }
+  ],
+  "issuanceRequest": {
+    "typeUrl": "string",
+    "value": [
+      0
+    ]
+  },
+  "originationProcessAgreement": {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "projectModules": [
+      {
+        "aimId": "string",
+        "description": "string",
+        "extensionSetId": "string",
+        "extensionSetModuleId": "string",
+        "vvbId": "string",
+        "verificationPlatformId": "string"
+      }
+    ],
+    "signatories": [
+      {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "signatoryRole": "IssuingRegistry",
+        "signature": {
+          "type": "JWS",
+          "jws": "string",
+          "hasJws": true,
+          "vc": {
+            "context": [
+              "string"
+            ],
+            "id": "string",
+            "type": [
+              "VerifiableCredential"
+            ],
+            "issuer": "string",
+            "issuanceDate": "string",
+            "credentialSubject": {
+              "id": "string",
+              "property": [
+                "string"
+              ]
+            },
+            "proof": {
+              "type": "Jwt",
+              "created": "string",
+              "proofPurpose": "string",
+              "verificationMethod": "string",
+              "challenge": "string",
+              "domain": "string",
+              "jws": "string"
+            }
+          },
+          "signatureCase": "None"
+        }
+      }
+    ],
+    "qualityStandard": {
+      "name": "string",
+      "description": "string",
+      "standard": "GSVer",
+      "methodologyAndTools": [
+        "UnknownMethod"
+      ],
+      "version": "string",
+      "coBenefits": [
+        "NoCategory"
+      ],
+      "standardLink": {
+        "id": "string",
+        "uri": "string",
+        "description": "string",
+        "hashProof": "string",
+        "hashAlgorithm": "Sha256"
+      }
+    },
+    "mrvRequirements": {
+      "measurementSpecification": "Iso14064",
+      "specificationLink": {
+        "id": "string",
+        "uri": "string",
+        "description": "string",
+        "hashProof": "string",
+        "hashAlgorithm": "Sha256"
+      },
+      "precision": {
+        "low": 0,
+        "medium": 0,
+        "high": 0
+      },
+      "claimPeriod": "Daily",
+      "extensionSetId": "string",
+      "extensionSet": {
+        "id": "string",
+        "name": "string",
+        "version": "string",
+        "description": "string",
+        "documentation": "string",
+        "modules": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "entityTemplates": [
+              {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "extensionContext": "UnknownContext",
+                "dataSchemaOrType": "string",
+                "dataExample": "string"
+              }
+            ],
+            "messagePairs": [
+              {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "extensionContext": "UnknownContext",
+                "requestDefinition": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "responseDefinition": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                }
+              }
+            ],
+            "formulaTemplates": [
+              {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "formula": "string",
+                "description": "string",
+                "documentation": "string",
+                "dataSchemaOrType": "string",
+                "dataExample": "string",
+                "variableTemplates": [
+                  {
+                    "id": "string",
+                    "name": "string",
+                    "version": "string",
+                    "description": "string",
+                    "documentation": "string",
+                    "alias": "string",
+                    "dataSchemaOrType": "string",
+                    "dataExample": "string"
+                  }
+                ]
+              }
+            ],
+            "variableTemplates": [
+              {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "alias": "string",
+                "dataSchemaOrType": "string",
+                "dataExample": "string"
+              }
+            ],
+            "parentSet": "string"
+          }
+        ],
+        "entityTemplates": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "extensionContext": "UnknownContext",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        ],
+        "messagePairs": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "extensionContext": "UnknownContext",
+            "requestDefinition": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "responseDefinition": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            }
+          }
+        ],
+        "formulaTemplates": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "formula": "string",
+            "description": "string",
+            "documentation": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string",
+            "variableTemplates": [
+              {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "alias": "string",
+                "dataSchemaOrType": "string",
+                "dataExample": "string"
+              }
+            ]
+          }
+        ],
+        "variableTemplates": [
+          {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        ]
+      }
+    },
+    "agreementDate": {
+      "dateTime": "string",
+      "dateString": "string"
+    },
+    "estimatedAnnualCredits": "string",
+    "auditSchedule": "Annual",
+    "audits": {
+      "lastAuditDate": {
+        "dateTime": "string",
+        "dateString": "string"
+      },
+      "auditReports": [
+        {
+          "id": "string",
+          "uri": "string",
+          "description": "string",
+          "hashProof": "string",
+          "hashAlgorithm": "Sha256"
+        }
+      ]
+    },
+    "extensions": [
+      {
+        "id": "string",
+        "templateId": "string",
+        "data": {
+          "protoData": {
+            "typeUrl": "string",
+            "value": [
+              0
+            ]
+          },
+          "dataType": "string",
+          "value": "string"
+        },
+        "appliedToId": "string",
+        "extensionContext": "UnknownContext",
+        "template": {
+          "id": "string",
+          "name": "string",
+          "version": "string",
+          "description": "string",
+          "documentation": "string",
+          "extensionContext": "UnknownContext",
+          "dataSchemaOrType": "string",
+          "dataExample": "string"
+        }
+      }
+    ],
+    "activityImpactModule": {
+      "id": "string",
+      "aioId": "string",
+      "isGrouped": true,
+      "name": "string",
+      "classificationCategory": "CarbonAvoidance",
+      "classificationMethod": "Natural",
+      "benefitCategory": "NoCategory",
+      "projectScope": "Other",
+      "projectType": "AdvancedRefriderants",
+      "projectScale": "Micro",
+      "country": "Unknown",
+      "region": "Global",
+      "arbId": "string",
+      "geographicLocation": {
+        "longitude": "string",
+        "latitude": "string",
+        "geoJsonOrKml": "string",
+        "geographicLocationFile": {
+          "id": "string",
+          "uri": "string",
+          "description": "string",
+          "hashProof": "string",
+          "hashAlgorithm": "Sha256"
+        }
+      },
+      "firstYearIssuance": "string",
+      "registryProjectId": "string",
+      "developers": [
+        "string"
+      ],
+      "sponsors": [
+        "string"
+      ],
+      "claimSources": [
+        {
+          "id": "string",
+          "aimId": "string",
+          "name": "string",
+          "description": "string",
+          "location": {
+            "longitude": "string",
+            "latitude": "string",
+            "geoJsonOrKml": "string",
+            "geographicLocationFile": {
+              "id": "string",
+              "uri": "string",
+              "description": "string",
+              "hashProof": "string",
+              "hashAlgorithm": "Sha256"
+            }
+          },
+          "sourceType": "SensorDevice",
+          "unitOfMeasure": "TonneCo2E",
+          "reportingFrequency": "SubHourly",
+          "sourceIdentifier": "string",
+          "extensions": [
+            {
+              "id": "string",
+              "templateId": "string",
+              "data": {
+                "protoData": {
+                  "typeUrl": "string",
+                  "value": [
+                    0
+                  ]
+                },
+                "dataType": "string",
+                "value": "string"
+              },
+              "appliedToId": "string",
+              "extensionContext": "UnknownContext",
+              "template": {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "extensionContext": "UnknownContext",
+                "dataSchemaOrType": "string",
+                "dataExample": "string"
+              }
+            }
+          ],
+          "variableTemplates": [
+            {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "alias": "string",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          ]
+        }
+      ],
+      "impactClaims": [
+        "string"
+      ],
+      "extensions": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "appliedToId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "extensionContext": "UnknownContext",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "validations": [
+        {
+          "requestDate": "string",
+          "validationDate": "string",
+          "validatingPartyId": "string",
+          "validationMethod": "string",
+          "validationExpirationDate": "string",
+          "validationSteps": [
+            {
+              "validationStepName": "string",
+              "validationStepDescription": "string",
+              "validationStepStatus": "NotStarted",
+              "validationStepDocumentLink": {
+                "id": "string",
+                "uri": "string",
+                "description": "string",
+                "hashProof": "string",
+                "hashAlgorithm": "Sha256"
+              }
+            }
+          ]
+        }
+      ],
+      "attestations": [
+        {
+          "tag": {
+            "name": "string",
+            "context": [
+              "string"
+            ],
+            "description": "string",
+            "data": "string"
+          },
+          "type": "Rs256",
+          "proofType": "Jwt",
+          "attestor": "string",
+          "signature": {
+            "type": "JWS",
+            "jws": "string",
+            "hasJws": true,
+            "vc": {
+              "context": [
+                "string"
+              ],
+              "id": "string",
+              "type": [
+                "VerifiableCredential"
+              ],
+              "issuer": "string",
+              "issuanceDate": "string",
+              "credentialSubject": {
+                "id": "string",
+                "property": [
+                  "string"
+                ]
+              },
+              "proof": {
+                "type": "Jwt",
+                "created": "string",
+                "proofPurpose": "string",
+                "verificationMethod": "string",
+                "challenge": "string",
+                "domain": "string",
+                "jws": "string"
+              }
+            },
+            "signatureCase": "None"
+          }
+        }
+      ],
+      "fixedVariables": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "claimSourceId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "accountableImpactOrganization": {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "addresses": [
+          {
+            "addressType": "Postal",
+            "addressLines": [
+              "string"
+            ],
+            "city": "string",
+            "state": "string",
+            "zip": "string",
+            "country": "string"
+          }
+        ],
+        "owners": [
+          "string"
+        ],
+        "informationLink": {
+          "id": "string",
+          "uri": "string",
+          "description": "string",
+          "hashProof": "string",
+          "hashAlgorithm": "Sha256"
+        },
+        "mediaLinks": [
+          {
+            "id": "string",
+            "uri": "string",
+            "description": "string",
+            "hashProof": "string",
+            "hashAlgorithm": "Sha256"
+          }
+        ],
+        "attestations": [
+          {
+            "tag": {
+              "name": "string",
+              "context": [
+                "string"
+              ],
+              "description": "string",
+              "data": "string"
+            },
+            "type": "Rs256",
+            "proofType": "Jwt",
+            "attestor": "string",
+            "signature": {
+              "type": "JWS",
+              "jws": "string",
+              "hasJws": true,
+              "vc": {
+                "context": [
+                  "string"
+                ],
+                "id": "string",
+                "type": [
+                  "VerifiableCredential"
+                ],
+                "issuer": "string",
+                "issuanceDate": "string",
+                "credentialSubject": {
+                  "id": "string",
+                  "property": [
+                    "string"
+                  ]
+                },
+                "proof": {
+                  "type": "Jwt",
+                  "created": "string",
+                  "proofPurpose": "string",
+                  "verificationMethod": "string",
+                  "challenge": "string",
+                  "domain": "string",
+                  "jws": "string"
+                }
+              },
+              "signatureCase": "None"
+            }
+          }
+        ],
+        "activityImpactModules": [
+          "string"
+        ],
+        "extensions": [
+          {
+            "id": "string",
+            "templateId": "string",
+            "data": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "appliedToId": "string",
+            "extensionContext": "UnknownContext",
+            "template": {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "extensionContext": "UnknownContext",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          }
+        ]
+      }
+    },
+    "processedClaims": [
+      "string"
+    ]
+  },
+  "impactClaim": {
+    "id": "string",
+    "aimId": "string",
+    "processedClaimId": "string",
+    "claimGroupId": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "unitOfMeasure": "TonneCo2E",
+    "quantity": "string",
+    "coBenefits": [
+      "NoCategory"
+    ],
+    "formulas": [
+      {
+        "id": "string",
+        "templateId": "string",
+        "data": {
+          "protoData": {
+            "typeUrl": "string",
+            "value": [
+              0
+            ]
+          },
+          "dataType": "string",
+          "value": "string"
+        },
+        "variables": [
+          {
+            "id": "string",
+            "templateId": "string",
+            "data": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "claimSourceId": "string",
+            "extensionContext": "UnknownContext",
+            "template": {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "alias": "string",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          }
+        ],
+        "extensionContext": "UnknownContext",
+        "template": {
+          "id": "string",
+          "name": "string",
+          "version": "string",
+          "formula": "string",
+          "description": "string",
+          "documentation": "string",
+          "dataSchemaOrType": "string",
+          "dataExample": "string",
+          "variableTemplates": [
+            {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "alias": "string",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          ]
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "id": "string",
+        "claimId": "string",
+        "claimSourceIds": [
+          "string"
+        ],
+        "projectDeveloperId": "string",
+        "efBefore": "string",
+        "efAfter": "string",
+        "checkpointDateRange": {
+          "startDate": {
+            "date": {
+              "dateTime": "string",
+              "dateString": "string"
+            },
+            "timeStamp": {
+              "seconds": 0,
+              "nanos": 0
+            }
+          },
+          "endDate": {
+            "date": {
+              "dateTime": "string",
+              "dateString": "string"
+            },
+            "timeStamp": {
+              "seconds": 0,
+              "nanos": 0
+            }
+          }
+        },
+        "extensions": [
+          {
+            "id": "string",
+            "templateId": "string",
+            "data": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "appliedToId": "string",
+            "extensionContext": "UnknownContext",
+            "template": {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "extensionContext": "UnknownContext",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          }
+        ],
+        "variables": [
+          {
+            "id": "string",
+            "templateId": "string",
+            "data": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "claimSourceId": "string",
+            "extensionContext": "UnknownContext",
+            "template": {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "alias": "string",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          }
+        ],
+        "dataFiles": [
+          {
+            "name": "string",
+            "type": "DataBinary",
+            "description": "string",
+            "claimSourceId": "string",
+            "claimSourceAttestation": "string",
+            "extensions": [
+              {
+                "id": "string",
+                "templateId": "string",
+                "data": {
+                  "protoData": {
+                    "typeUrl": "string",
+                    "value": [
+                      0
+                    ]
+                  },
+                  "dataType": "string",
+                  "value": "string"
+                },
+                "appliedToId": "string",
+                "extensionContext": "UnknownContext",
+                "template": {
+                  "id": "string",
+                  "name": "string",
+                  "version": "string",
+                  "description": "string",
+                  "documentation": "string",
+                  "extensionContext": "UnknownContext",
+                  "dataSchemaOrType": "string",
+                  "dataExample": "string"
+                }
+              }
+            ]
+          }
+        ],
+        "dataPackages": [
+          {
+            "manifest": {
+              "id": "string",
+              "version": "string",
+              "aioId": "string",
+              "aimId": "string",
+              "claimId": "string",
+              "processedClaimId": "string",
+              "projectDeveloperId": "string",
+              "created": {
+                "date": {
+                  "dateTime": "string",
+                  "dateString": "string"
+                },
+                "timeStamp": {
+                  "seconds": 0,
+                  "nanos": 0
+                }
+              },
+              "extensions": [
+                {
+                  "id": "string",
+                  "templateId": "string",
+                  "data": {
+                    "protoData": {
+                      "typeUrl": "string",
+                      "value": [
+                        0
+                      ]
+                    },
+                    "dataType": "string",
+                    "value": "string"
+                  },
+                  "appliedToId": "string",
+                  "extensionContext": "UnknownContext",
+                  "template": {
+                    "id": "string",
+                    "name": "string",
+                    "version": "string",
+                    "description": "string",
+                    "documentation": "string",
+                    "extensionContext": "UnknownContext",
+                    "dataSchemaOrType": "string",
+                    "dataExample": "string"
+                  }
+                }
+              ],
+              "formulas": [
+                {
+                  "id": "string",
+                  "templateId": "string",
+                  "data": {
+                    "protoData": {
+                      "typeUrl": "string",
+                      "value": [
+                        0
+                      ]
+                    },
+                    "dataType": "string",
+                    "value": "string"
+                  },
+                  "variables": [
+                    {
+                      "id": "string",
+                      "templateId": "string",
+                      "data": {
+                        "protoData": {
+                          "typeUrl": "string",
+                          "value": [
+                            0
+                          ]
+                        },
+                        "dataType": "string",
+                        "value": "string"
+                      },
+                      "claimSourceId": "string",
+                      "extensionContext": "UnknownContext",
+                      "template": {
+                        "id": "string",
+                        "name": "string",
+                        "version": "string",
+                        "description": "string",
+                        "documentation": "string",
+                        "alias": "string",
+                        "dataSchemaOrType": "string",
+                        "dataExample": "string"
+                      }
+                    }
+                  ],
+                  "extensionContext": "UnknownContext",
+                  "template": {
+                    "id": "string",
+                    "name": "string",
+                    "version": "string",
+                    "formula": "string",
+                    "description": "string",
+                    "documentation": "string",
+                    "dataSchemaOrType": "string",
+                    "dataExample": "string",
+                    "variableTemplates": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "version": "string",
+                        "description": "string",
+                        "documentation": "string",
+                        "alias": "string",
+                        "dataSchemaOrType": "string",
+                        "dataExample": "string"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "dataFiles": [
+                {
+                  "name": "string",
+                  "type": "DataBinary",
+                  "description": "string",
+                  "claimSourceId": "string",
+                  "claimSourceAttestation": "string",
+                  "extensions": [
+                    {
+                      "id": "string",
+                      "templateId": "string",
+                      "data": {
+                        "protoData": {
+                          "typeUrl": "string",
+                          "value": [
+                            0
+                          ]
+                        },
+                        "dataType": "string",
+                        "value": "string"
+                      },
+                      "appliedToId": "string",
+                      "extensionContext": "UnknownContext",
+                      "template": {
+                        "id": "string",
+                        "name": "string",
+                        "version": "string",
+                        "description": "string",
+                        "documentation": "string",
+                        "extensionContext": "UnknownContext",
+                        "dataSchemaOrType": "string",
+                        "dataExample": "string"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "verifiedLinkToDataPackage": {
+              "id": "string",
+              "uri": "string",
+              "description": "string",
+              "hashProof": "string",
+              "hashAlgorithm": "Sha256"
+            }
+          }
+        ]
+      }
+    ],
+    "extensions": [
+      {
+        "id": "string",
+        "templateId": "string",
+        "data": {
+          "protoData": {
+            "typeUrl": "string",
+            "value": [
+              0
+            ]
+          },
+          "dataType": "string",
+          "value": "string"
+        },
+        "appliedToId": "string",
+        "extensionContext": "UnknownContext",
+        "template": {
+          "id": "string",
+          "name": "string",
+          "version": "string",
+          "description": "string",
+          "documentation": "string",
+          "extensionContext": "UnknownContext",
+          "dataSchemaOrType": "string",
+          "dataExample": "string"
+        }
+      }
+    ],
+    "activityImpactModule": {
+      "id": "string",
+      "aioId": "string",
+      "isGrouped": true,
+      "name": "string",
+      "classificationCategory": "CarbonAvoidance",
+      "classificationMethod": "Natural",
+      "benefitCategory": "NoCategory",
+      "projectScope": "Other",
+      "projectType": "AdvancedRefriderants",
+      "projectScale": "Micro",
+      "country": "Unknown",
+      "region": "Global",
+      "arbId": "string",
+      "geographicLocation": {
+        "longitude": "string",
+        "latitude": "string",
+        "geoJsonOrKml": "string",
+        "geographicLocationFile": {
+          "id": "string",
+          "uri": "string",
+          "description": "string",
+          "hashProof": "string",
+          "hashAlgorithm": "Sha256"
+        }
+      },
+      "firstYearIssuance": "string",
+      "registryProjectId": "string",
+      "developers": [
+        "string"
+      ],
+      "sponsors": [
+        "string"
+      ],
+      "claimSources": [
+        {
+          "id": "string",
+          "aimId": "string",
+          "name": "string",
+          "description": "string",
+          "location": {
+            "longitude": "string",
+            "latitude": "string",
+            "geoJsonOrKml": "string",
+            "geographicLocationFile": {
+              "id": "string",
+              "uri": "string",
+              "description": "string",
+              "hashProof": "string",
+              "hashAlgorithm": "Sha256"
+            }
+          },
+          "sourceType": "SensorDevice",
+          "unitOfMeasure": "TonneCo2E",
+          "reportingFrequency": "SubHourly",
+          "sourceIdentifier": "string",
+          "extensions": [
+            {
+              "id": "string",
+              "templateId": "string",
+              "data": {
+                "protoData": {
+                  "typeUrl": "string",
+                  "value": [
+                    0
+                  ]
+                },
+                "dataType": "string",
+                "value": "string"
+              },
+              "appliedToId": "string",
+              "extensionContext": "UnknownContext",
+              "template": {
+                "id": "string",
+                "name": "string",
+                "version": "string",
+                "description": "string",
+                "documentation": "string",
+                "extensionContext": "UnknownContext",
+                "dataSchemaOrType": "string",
+                "dataExample": "string"
+              }
+            }
+          ],
+          "variableTemplates": [
+            {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "alias": "string",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          ]
+        }
+      ],
+      "impactClaims": [
+        "string"
+      ],
+      "extensions": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "appliedToId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "extensionContext": "UnknownContext",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "validations": [
+        {
+          "requestDate": "string",
+          "validationDate": "string",
+          "validatingPartyId": "string",
+          "validationMethod": "string",
+          "validationExpirationDate": "string",
+          "validationSteps": [
+            {
+              "validationStepName": "string",
+              "validationStepDescription": "string",
+              "validationStepStatus": "NotStarted",
+              "validationStepDocumentLink": {
+                "id": "string",
+                "uri": "string",
+                "description": "string",
+                "hashProof": "string",
+                "hashAlgorithm": "Sha256"
+              }
+            }
+          ]
+        }
+      ],
+      "attestations": [
+        {
+          "tag": {
+            "name": "string",
+            "context": [
+              "string"
+            ],
+            "description": "string",
+            "data": "string"
+          },
+          "type": "Rs256",
+          "proofType": "Jwt",
+          "attestor": "string",
+          "signature": {
+            "type": "JWS",
+            "jws": "string",
+            "hasJws": true,
+            "vc": {
+              "context": [
+                "string"
+              ],
+              "id": "string",
+              "type": [
+                "VerifiableCredential"
+              ],
+              "issuer": "string",
+              "issuanceDate": "string",
+              "credentialSubject": {
+                "id": "string",
+                "property": [
+                  "string"
+                ]
+              },
+              "proof": {
+                "type": "Jwt",
+                "created": "string",
+                "proofPurpose": "string",
+                "verificationMethod": "string",
+                "challenge": "string",
+                "domain": "string",
+                "jws": "string"
+              }
+            },
+            "signatureCase": "None"
+          }
+        }
+      ],
+      "fixedVariables": [
+        {
+          "id": "string",
+          "templateId": "string",
+          "data": {
+            "protoData": {
+              "typeUrl": "string",
+              "value": [
+                0
+              ]
+            },
+            "dataType": "string",
+            "value": "string"
+          },
+          "claimSourceId": "string",
+          "extensionContext": "UnknownContext",
+          "template": {
+            "id": "string",
+            "name": "string",
+            "version": "string",
+            "description": "string",
+            "documentation": "string",
+            "alias": "string",
+            "dataSchemaOrType": "string",
+            "dataExample": "string"
+          }
+        }
+      ],
+      "accountableImpactOrganization": {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "addresses": [
+          {
+            "addressType": "Postal",
+            "addressLines": [
+              "string"
+            ],
+            "city": "string",
+            "state": "string",
+            "zip": "string",
+            "country": "string"
+          }
+        ],
+        "owners": [
+          "string"
+        ],
+        "informationLink": {
+          "id": "string",
+          "uri": "string",
+          "description": "string",
+          "hashProof": "string",
+          "hashAlgorithm": "Sha256"
+        },
+        "mediaLinks": [
+          {
+            "id": "string",
+            "uri": "string",
+            "description": "string",
+            "hashProof": "string",
+            "hashAlgorithm": "Sha256"
+          }
+        ],
+        "attestations": [
+          {
+            "tag": {
+              "name": "string",
+              "context": [
+                "string"
+              ],
+              "description": "string",
+              "data": "string"
+            },
+            "type": "Rs256",
+            "proofType": "Jwt",
+            "attestor": "string",
+            "signature": {
+              "type": "JWS",
+              "jws": "string",
+              "hasJws": true,
+              "vc": {
+                "context": [
+                  "string"
+                ],
+                "id": "string",
+                "type": [
+                  "VerifiableCredential"
+                ],
+                "issuer": "string",
+                "issuanceDate": "string",
+                "credentialSubject": {
+                  "id": "string",
+                  "property": [
+                    "string"
+                  ]
+                },
+                "proof": {
+                  "type": "Jwt",
+                  "created": "string",
+                  "proofPurpose": "string",
+                  "verificationMethod": "string",
+                  "challenge": "string",
+                  "domain": "string",
+                  "jws": "string"
+                }
+              },
+              "signatureCase": "None"
+            }
+          }
+        ],
+        "activityImpactModules": [
+          "string"
+        ],
+        "extensions": [
+          {
+            "id": "string",
+            "templateId": "string",
+            "data": {
+              "protoData": {
+                "typeUrl": "string",
+                "value": [
+                  0
+                ]
+              },
+              "dataType": "string",
+              "value": "string"
+            },
+            "appliedToId": "string",
+            "extensionContext": "UnknownContext",
+            "template": {
+              "id": "string",
+              "name": "string",
+              "version": "string",
+              "description": "string",
+              "documentation": "string",
+              "extensionContext": "UnknownContext",
+              "dataSchemaOrType": "string",
+              "dataExample": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "asset": {
+    "typeUrl": "string",
+    "value": [
+      0
+    ]
+  }
 }
