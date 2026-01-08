@@ -29,7 +29,8 @@ Once an Extension Set is created, it can be contributed back to the IWA where it
 
 Once an Extension Set has been developed alongside the relevant stakeholders, it can be contributed to the IWA's repository of Extension Sets by issuing a pull request to this folder in the IWA's GitHub repository: https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extension-sets 
 
-The IWA will review the Extension Set for completeness and to ensure that sample data has been provided. If approved, the pull request will be accepted and the Extension Set will be added to the library.
+The IWA will review the Extension Set for completeness and to ensure that sample data has been provided. If approved, the pull request will be accepted and the Extension Set will be added to the library. If not approved, the IWA will reach out with feedback on what changes need to be made for the submission to be approved.
 
 
 NOTE: The IWA will not verify the accuracy of the formulae, variables, entities, or messages contained in the Extension Sets as they are often the product of lengthy conversations between multiple parties. Due to the complexity and differentiation between methodologies and registries, organizations looking to use the Extension Sets to accelerate their development cycles should perform due diligence when using the Extension Sets to ensure alignment with existing registry requirements.
+
