@@ -14,15 +14,13 @@ The overview document is written using Microsoft Word or Google Docs and the tec
 
 ## NEW - dMRV Technical Specification
 
-[Spec](https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html)
-[V3 Spec Working Draft](https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v3.0/index.html)
+[Current v3.0 Spec](https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/index.html)
+[Previous V2 Spec](https://interworkalliance.github.io/TokenTaxonomyFramework/dmrv/spec/v2/index.html)
 
 ## dMRV Token Schemas
 
 The dMRV taskforce is defining token schemas initially with Protocol Buffers and then converting them to Json and documenting them using Bikeshed.  The token and one contract, Verification Contract, schemas are defined in
 the [sustainability.proto](protos/sustainability.proto) file with common definitions in the [commmon.proto](protos/common.proto) file and [dmrv.proto](protos/dmrv.proto).
-
-The [index.bs](spec/index.bs) file is used to document the token schemas using Bikeshed.
 
 ## Token Instance Data Samples
 

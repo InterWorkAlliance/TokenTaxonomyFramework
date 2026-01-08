@@ -3,7 +3,7 @@
   "recType": "IRec",
   "validJurisdiction": "US",
   "quantity": "1.3121",
-  "unitOfMeasure": "MwH",
+  "unit": "MwH",
   "ownerId": "396a2870-851e-4c93-bd97-e330c0d2d3c1",
   "listingAgentId": "ac497050-23eb-4fac-b9e5-1ec9039b2d34",
   "climateLabels": [
@@ -27,7 +27,7 @@
       "metadata": "serialized json data"
     }
   ],
-  "appliedToReportingPeriodId": "",
+  "appliedToId": "",
   "processedClaimId": "45a85f6e-472d-46cf-87b6-73d3a34b4020",
   "issuerId": "c2862fe4-c97d-4494-afd0-b6c8d7efccd9",
   "processedClaim": null

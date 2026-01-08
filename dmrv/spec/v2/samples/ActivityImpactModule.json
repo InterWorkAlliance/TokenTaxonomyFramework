@@ -1,7 +1,6 @@
 {
   "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
   "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
-  "isGrouped": false,
   "name": "Forest Plot 3341",
   "classificationCategory": "CarbonRemoval",
   "classificationMethod": "Natural",
@@ -9,8 +8,6 @@
   "projectScope": "CarbonCaptureAndStorage",
   "projectType": "CarbonCaptureAndEnhancedOilRecovery",
   "projectScale": "Medium",
-  "country": "BR",
-  "region": "SouthAmerica",
   "arbId": "",
   "geographicLocation": {
     "longitude": "41.40338",
@@ -40,32 +37,18 @@
       },
       "sourceType": "SensorDevice",
       "unitOfMeasure": "TonneCo2E",
-      "reportingFrequency": "SubHourly",
       "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-      "extensions": [
+      "mrvExtensions": [
         {
-          "id": "81f9102f-eab9-4af4-a216-0fa45e984dc5",
-          "templateId": "48ea546b-3ae3-433e-bb0a-203d2f8dd4cb",
-          "data": {
-            "protoData": null,
-            "dataType": "",
-            "value": ""
-          },
-          "appliedToId": "147e7105-2333-4f5f-847c-6c984e5220dd",
-          "extensionContext": "ClaimSource",
-          "template": null
-        }
-      ],
-      "variableTemplates": [
-        {
-          "id": "32f8ccd2-63c1-4c96-82c1-995a5c42a9c1",
-          "name": "Soil Carbon Content",
-          "version": "1.0.0",
-          "description": "An example variable template for a Claim Source",
-          "documentation": "",
-          "alias": "",
-          "dataSchemaOrType": "SoilCarbonContent",
-          "dataExample": "SOIL_CARBON_CONTENT = 12.5"
+          "id": "",
+          "name": "",
+          "version": "",
+          "description": "",
+          "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+          "mrvExtensionContext": "AimClaimSourceMrvExtension",
+          "properties": [],
+          "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+          "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
         }
       ]
     }
@@ -75,39 +58,36 @@
       "id": "",
       "aimId": "",
       "processedClaimId": "",
-      "claimGroupId": "",
       "startDate": "",
       "endDate": "",
-      "unitOfMeasure": "TonneCo2E",
+      "unit": "TonneCo2E",
       "quantity": "",
       "coBenefits": [],
-      "formulas": [],
       "checkpoints": [],
-      "extensions": [],
+      "mrvExtensions": [],
       "activityImpactModule": null
     }
   ],
-  "extensions": [
+  "mrvExtensions": [
     {
-      "id": "3213586c-b2c8-4155-b98c-0b9548151516",
-      "templateId": "2bcb933c-7113-4a6b-a4b5-28cf64738493",
-      "data": {
-        "protoData": null,
-        "dataType": "",
-        "value": ""
-      },
-      "appliedToId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-      "extensionContext": "ActivityImpactModule",
-      "template": null
+      "id": "",
+      "name": "",
+      "version": "",
+      "description": "",
+      "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
+      "mrvExtensionContext": "AimMrvExtension",
+      "properties": [],
+      "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+      "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
     }
   ],
   "validations": [
     {
       "requestDate": "2021-04-01",
-      "validationDate": "9/18/2025",
+      "validationDate": "5/22/2024",
       "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
       "validationMethod": "ISO 14064-3:2018",
-      "validationExpirationDate": "9/18/2025",
+      "validationExpirationDate": "5/22/2024",
       "validationSteps": [
         {
           "validationStepName": "Project Plan",
@@ -125,18 +105,5 @@
     }
   ],
   "attestations": [],
-  "fixedVariables": [
-    {
-      "id": "9c1f1fa4-8196-48e6-bbff-bdd0fb266f1c",
-      "templateId": "37978f23-1890-4f3d-9739-9354ed339514",
-      "data": {
-        "protoData": null,
-        "dataType": "GWPCH3",
-        "value": "32.12"
-      },
-      "extensionContext": "ActivityImpactModule",
-      "template": null
-    }
-  ],
   "accountableImpactOrganization": null
 }

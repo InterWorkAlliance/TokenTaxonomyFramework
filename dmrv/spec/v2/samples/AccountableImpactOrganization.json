@@ -17,6 +17,8 @@
   "owners": [
     "owner"
   ],
+  "country": "BR",
+  "region": "SouthAmerica",
   "informationLink": {
     "id": "7edef2c7-ff0e-41fc-b5e7-dda5aa65e850",
     "uri": "https://www.ecoearth.com/forest-growth.html",
@@ -38,7 +40,6 @@
     {
       "id": "d5a9cf0c-4102-4c9d-941a-408001b12147",
       "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
-      "isGrouped": false,
       "name": "Forest Plot 3341",
       "classificationCategory": "CarbonRemoval",
       "classificationMethod": "Natural",
@@ -46,8 +47,6 @@
       "projectScope": "CarbonCaptureAndStorage",
       "projectType": "CarbonCaptureAndEnhancedOilRecovery",
       "projectScale": "Medium",
-      "country": "BR",
-      "region": "SouthAmerica",
       "arbId": "",
       "geographicLocation": {
         "longitude": "41.40338",
@@ -77,32 +76,18 @@
           },
           "sourceType": "SensorDevice",
           "unitOfMeasure": "TonneCo2E",
-          "reportingFrequency": "SubHourly",
           "sourceIdentifier": "key:efc0b0b0-0b0b-0b0b-0b0b-0b0b0b0b0b0b",
-          "extensions": [
+          "mrvExtensions": [
             {
-              "id": "817c6747-a6dd-4064-963b-0ebc94608339",
-              "templateId": "7e42b319-a04b-49b5-ba7d-d3a7576d7d23",
-              "data": {
-                "protoData": null,
-                "dataType": "",
-                "value": ""
-              },
-              "appliedToId": "147e7105-2333-4f5f-847c-6c984e5220dd",
-              "extensionContext": "ClaimSource",
-              "template": null
-            }
-          ],
-          "variableTemplates": [
-            {
-              "id": "386294d5-3b8e-4ed8-8895-a92cdfc77d08",
-              "name": "Soil Carbon Content",
-              "version": "1.0.0",
-              "description": "An example variable template for a Claim Source",
-              "documentation": "",
-              "alias": "",
-              "dataSchemaOrType": "SoilCarbonContent",
-              "dataExample": "SOIL_CARBON_CONTENT = 12.5"
+              "id": "",
+              "name": "",
+              "version": "",
+              "description": "",
+              "documentation": "EXAMPLE: https://puro.earth/removal-methods/carbonated-concrete/mrv-extension/concrete-device-sensor/",
+              "mrvExtensionContext": "AimClaimSourceMrvExtension",
+              "properties": [],
+              "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-claim-source-mrv-extension.json",
+              "data": "{data: Device ID, value: 1234567890, data: Calibration Offset, value: .0028, data: Calibration Slope, value: 1.0002}"
             }
           ]
         }
@@ -112,39 +97,36 @@
           "id": "",
           "aimId": "",
           "processedClaimId": "",
-          "claimGroupId": "",
           "startDate": "",
           "endDate": "",
-          "unitOfMeasure": "TonneCo2E",
+          "unit": "TonneCo2E",
           "quantity": "",
           "coBenefits": [],
-          "formulas": [],
           "checkpoints": [],
-          "extensions": [],
+          "mrvExtensions": [],
           "activityImpactModule": null
         }
       ],
-      "extensions": [
+      "mrvExtensions": [
         {
-          "id": "bb505c73-891b-4e3f-82db-7d8396da838c",
-          "templateId": "c6afe9d9-9ee6-495f-bb28-c493324aa62e",
-          "data": {
-            "protoData": null,
-            "dataType": "",
-            "value": ""
-          },
-          "appliedToId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
-          "extensionContext": "ActivityImpactModule",
-          "template": null
+          "id": "",
+          "name": "",
+          "version": "",
+          "description": "",
+          "documentation": "EXAMPLE: https:/puro.earth/mrv-extensions/mbp-mrv-extension/",
+          "mrvExtensionContext": "AimMrvExtension",
+          "properties": [],
+          "dataSchemaOrType": "https://puro.earth/schemas/mrv-extension/v1.0/mbp-mrv-extension.json",
+          "data": "{data: Baseline Scenario, value: Most plausible baseline scenario, data: Barrier analysis, value: Barrier analysis for alternative land use, data: Alternative land use: Cattle ranching, value: Barrier analysis found that cattle ranching was not a viable alternative land use because of the low productivity of the land and the high cost of fencing.}"
         }
       ],
       "validations": [
         {
           "requestDate": "2021-04-01",
-          "validationDate": "9/18/2025",
+          "validationDate": "5/22/2024",
           "validatingPartyId": "8226ece8-27b8-46f7-b21f-f531705c11cb",
           "validationMethod": "ISO 14064-3:2018",
-          "validationExpirationDate": "9/18/2025",
+          "validationExpirationDate": "5/22/2024",
           "validationSteps": [
             {
               "validationStepName": "Project Plan",
@@ -162,23 +144,8 @@
         }
       ],
       "attestations": [],
-      "fixedVariables": [
-        {
-          "id": "9fac140f-9cbe-4ad1-9f7c-94c65c92c7e5",
-          "templateId": "e957f3fd-fa85-42da-b03d-fab3e35abda7",
-          "data": {
-            "protoData": null,
-            "dataType": "GWPCH3",
-            "value": "32.12"
-          },
-          "extensionContext": "ActivityImpactModule",
-          "template": null
-        }
-      ],
       "accountableImpactOrganization": null
     }
   ],
-  "extensions": []
+  "mrvExtensions": []
 }
-Response headers
- content-type: application/
