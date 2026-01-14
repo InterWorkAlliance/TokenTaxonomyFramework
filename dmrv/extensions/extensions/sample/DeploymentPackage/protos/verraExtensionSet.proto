@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package ccs.extensionSet.verra;
+option csharp_namespace = "Ccs.ExtensionSet.Verra";
+option java_package = "ccs.extensionSet.verra";
+option java_multiple_files = true;
+
+// VerraProject represents a Verra project and is an extension to the Activity Impact Module.
+message VerraProject {
+    string id = 1; //the project id assigned to the AIM or AIM Group
+    string name = 2;
+    string description = 3;
+}
+
+//Verra options start with 1, so the default value of 0 can be used to indicate "not set".
+enum CO2MeasurementOption{
+    NOT_APPLICABLE = 0; //CO2 measurement does not apply.
+    MASS_FLOW = 1; //Measurement of total mass flow rate of the captured gas stream and CO2 concentration.
+    VOLUMETRIC_FLOW = 2; //Measurement of total volumetric flow rate of the captured gas stream and CO2 concentration.
+    BOTH_MASS_AND_VOLUMETRIC_FLOW = 3; //If set for a variable, it is used in both mass flow and volumetric flow measurement methods. e.g., Xk, XCO2
+}
+
+//Verra options start with 1, so the default value of 0 can be used to indicate "not set".
+enum IntentionalDischargeMeasurementApproach{
+  IS_NOT_APPLICABLE = 0; //Intentional discharge does not apply.
+  MEASUREMENT_OF_VENTING = 1; //Measurement of CO2 in the vented gas stream.
+  ESTIMATION_OF_SURFACE_VENTING_FOR_ISOLATED_VOLUMES = 2; //Where any part of an isolated section of pipe is downstream of the mandatory monitoring point and is depressurized, project proponents must estimate the vented mass of CO2 using the volume of the isolated pipe.
+  ESTIMATION_OF_SURFACE_VENTING_FOR_NON_ISOLATED_VOLUMES = 3; //Estimation of CO2 in the vented gas stream using a mass balance approach, where the volume of the isolated pipe cannot be determined or the venting event was from a non-isolated and flowing pipe.
+}
+
+enum EmissionSourceForUnintentionalSurfaceDischarge{
+    DOESNT_APPLY = 0; //Unintentional surface discharge does not apply.
+    FUGITIVE_EMISSIONS = 1; //Use fugitive emissions as the emission source for unintentional discharge.
+    RUPTURE_OR_LINE_BREAK = 2; //Use rupture or line break as the emission source for unintentional discharge.
+    BOTH = 3; //Use both fugitive emissions and rupture or line break as the emission source for unintentional discharge.
+}
+
+//Verra options start with 1, so the default value of 0 can be used to indicate "not set".
+enum CalculatingLeakageFromBiomassCultivationOptions
+{
+    NOT_USED = 0; //Leakage emissions from cultivation are not applicable.
+    DEFAULT_VALUE = 1; //Use a default value to calculate leakage emissions from cultivation.
+    EMBODIED_EMISSIONS_FACTOR = 2; //Use an embodied emissions factor, determined through a life cycle assessment (LCA) to calculate leakage emissions from cultivation.
+    CALCULATE_LEAKAGE_EMISSIONS = 3; //Calculate leakage emissions from cultivation based on the type and amount of biomass cultivated.
+}
+
+//Verra options start with 1, so the default value of 0 can be used to indicate "not set".
+enum AllocateProjectAndLeakageEmissionOptions{
+    DOES_NOT_APPLY = 0; //Use a default value to allocate project and leakage emissions.
+    DIFFERENTIATION_METHOD = 1; //Use the differentiation method to allocate project and leakage emissions.
+    MASS_BALANCE_METHOD = 2; //Use the mass balance method to allocate project and leakage emissions.
+}
+
+//SECTION CCS+ Module Options
+message VM0049Options{
+  CO2MeasurementOption co2_measurement_option = 1; //Option for measuring CO2 in the captured gas stream
+}
+
+message VMD0056Options{
+  bool uses_fossil_fuels = 1; //Indicates if the capture facility or third party uses fossil fuels in the capture process.
+}
+
+message VMD0057Options{
+  bool uses_fossil_fuels = 1; //Indicates if the capture facility or third party uses fossil fuels in the transport process.
+  bool direct_monitoring = 2; //Indicates if direct monitoring of CO2 transport is used, will use default values if false.
+}
+
+message VMD0058Options{
+  IntentionalDischargeMeasurementApproach intentional_discharge_measurement_approach = 1; //Option for measuring intentional CO2 discharged gas stream
+  CO2MeasurementOption intentional_surface_discharge_measurement_option = 2; //Option for measuring CO2 in the intentionally discharged gas stream surface
+  CO2MeasurementOption intentional_subsurface_discharge_measurement_option = 3; //Option for measuring CO2 in the intentionally discharged gas stream subsurface
+  EmissionSourceForUnintentionalSurfaceDischarge unintentional_surface_discharge_emission_source = 4; //Option for determining the emission source for unintentional surface discharge
+}
+
+message VMD0059Options{
+    CalculatingLeakageFromBiomassCultivationOptions calculating_leakage_from_biomass_cultivation_options = 1; //Option for calculating leakage emissions from biomass cultivation
+}
+
+message VT0013Options{
+  AllocateProjectAndLeakageEmissionOptions allocate_project_and_leakage_emission_options = 1; //Option for allocating project and leakage emissions
+}
+
+//SECTION Variable Options
+
+message VariableTemplateOptions{
+  CO2MeasurementOption applies_for_co2_measurement_type = 1; //Option for measuring CO2 in the captured gas stream
+  bool applies_for_fossil_fuel_use = 2; //Indicates if the capture facility or third party uses fossil fuels in the capture process.
+  bool transport_direct_monitoring = 3; //Indicates if direct monitoring of CO2 transport is used, will use default values if false.
+  IntentionalDischargeMeasurementApproach storage_intentional_discharge_measurement_approach = 4; //Option for measuring CO2 in the surface discharged gas stream
+  CO2MeasurementOption storage_surface_intentional_discharge_measurement = 5; //Option for measuring CO2 in the intentionally discharged gas stream
+  CO2MeasurementOption storage_subsurface_intentional_discharge_measurement = 6; //Option for measuring CO2 in the intentionally discharged gas stream
+  EmissionSourceForUnintentionalSurfaceDischarge storage_unintentional_surface_discharge_emission_source =7; //Option for determining the emission source for unintentional surface discharge
+  CalculatingLeakageFromBiomassCultivationOptions beccs_biomass_cultivation_leakage_calculation = 8; //Option for calculating leakage emissions from biomass cultivation in BECCS projects
+  AllocateProjectAndLeakageEmissionOptions vt0013_allocate_project_and_leakage_emissions = 9; //Option for allocating project and leakage emissions in storage projects
+}

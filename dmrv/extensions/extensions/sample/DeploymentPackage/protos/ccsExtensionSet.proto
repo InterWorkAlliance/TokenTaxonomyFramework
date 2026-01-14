@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package ccs.extensionSet;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "Ccs.ExtensionSet";
+option java_package = "ccs.extensionSet";
+option java_multiple_files = true;
+
+
+//SECTION Basic Types
+message DoubleValue{
+  double value = 1;
+  string u_o_m = 2;
+}
+
+message IntegerValue{
+  int32 value = 1;
+  string u_o_m = 2;
+}
+
+
+//SECTION: Message Pairs
+
+//part of a message pair
+message CalibrateInstrumentRequest {
+  string claim_id = 1;
+  string checkpoint_id = 2;
+  string claim_source_id = 3;
+}
+
+//part of a message pair
+message CalibrateInstrumentResponse {
+  string claim_id = 1;
+  string checkpoint_id = 2;
+  string claim_source_id = 3;
+  CalibrationResult calibration_data = 4;
+}
+
+//sent as part of a CalibrateInstrumentResponse
+message CalibrationResult {
+  google.protobuf.Timestamp calibration_timestamp = 1;
+  double percentage_accuracy = 2; //percentage
+  google.protobuf.Any calibration_data = 3; //define the calibration data for the different kinds of instruments
+}

@@ -1,0 +1,86 @@
+{
+  "name": "VM0049",
+  "description": "Extension set for carbon capture and storage (CCS) projects",
+  "version": "1.0",
+  "documentation": "https://verra.org/methodologies/vm0049-carbon-capture-and-storage/",
+  "entityExtensions": [
+    {
+      "templateId": "1a00284e-6cd1-486f-8630-91b58efae4c4",
+      "dataType": "ccs.extensionSet.verra.VM0049Options",
+      "data": "{\"co2MeasurementOption\": \"MassFlow\"}",
+      "extensionContext": "ExtensionSet"
+    }
+  ],
+  "modules": [
+    {
+      "name": "VMD0056",
+      "description": "Direct Air Capture (DAC) module",
+      "version": "1.0",
+      "documentation": "https://verra.org/methodologies/vmd0056-co2-capture-from-air-direct-air-capture-v1-0/",
+      "entityExtensions": [
+        {
+          "templateId": "08e67d02-f35d-4361-b39f-f69d189f41a2",
+          "dataType": "ccs.extensionSet.verra.VMD0056Options",
+          "data": "{\"usesFossilFuels\": \"true\"}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "name": "VMD0057",
+      "description": "CO2 Transport for CCS Projects module",
+      "version": "1.0",
+      "documentation": "https://verra.org/methodologies/vmd0057-co2-transport-for-ccs-projects-v1-0/",
+      "entityExtensions": [
+        {
+          "templateId": "0f5e31e8-15a6-4b9b-9554-c2ce65500495",
+          "dataType": "ccs.extensionSet.verra.VMD0057Options",
+          "data": "{\"usesFossilFuels\": \"true\", \"DirectMonitoring\": \"true\"}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "name": "VMD0058",
+      "description": "VMD0058 CO2 Storage in Saline Aquifers and Depleted Hydrocarbon Reservoirs",
+      "version": "1.0",
+      "documentation": "https://verra.org/methodologies/vmd0058-co2-storage-in-saline-aquifers-and-depleted-hydrocarbon-reservoirs-v1-0/",
+      "entityExtensions": [
+        {
+          "templateId": "6d9a2629-b66b-4338-a210-3d176f4d9209",
+          "dataType": "ccs.extensionSet.verra.VMD0058Options",
+          "data": "{\"surfaceDischargeMeasurementOption\": \"MeasurementOfVenting\", \"intentionalDischargeMeasurementApproach\": \"MassFlow\", \"intentionalSubsurfaceDischargeMeasurementOption\": \"MassFlow\", \"unintentionalSurfaceDischargeEmissionSource\": \"FugitiveEmissions\"}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "name": "VMD0059",
+      "description": "VMD0059 CO2 Capture FROM Bioenergy (BECCS)",
+      "version": "1.0",
+      "documentation": "https://verra.org/wp-content/uploads/2025/04/VMD0059-CO2-Capture-from-Bioenergy-final-publication.pdf",
+      "entityExtensions": [
+        {
+          "templateId": "5523bc7c-0eb6-48c2-84a4-c032b8175fb9",
+          "dataType": "ccs.extensionSet.verra.VMD0059Options",
+          "data": "{\"calculatingLeakageFromBiomassCultivationOptions\": \"CalculateLeakageEmissions\"}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "name": "VT0013",
+      "description": "VT0013 Differentiating Reductions and Removals in CCS Projects, v1.0",
+      "version": "1.0",
+      "documentation": "https://verra.org/documents/vt0013-differentiating-reductions-and-removals-in-css-projects/",
+      "entityExtensions": [
+        {
+          "templateId": "f3e2e2b1-1c7e-4f0c-8a4e-1d3f3e5b6c7d",
+          "dataType": "ccs.extensionSet.verra.VT0013Options",
+          "data": "{\"allocateProjectAndLeakageEmissionOptions\": \"MassBalanceMethod\"}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    }
+  ]
+}

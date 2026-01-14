@@ -1,0 +1,156 @@
+{
+  "variableTemplates": [
+    {
+      "id": "QCO2injectediy",
+      "name": "QCO2,injected,i,y",
+      "description": "The total amount of carbon dioxide that has been extracted from the atmosphere and collected for sequestration. This maps to the Verra QuantityCo2Injected parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.0, \"uOM\": \"tonnes\" }",
+      "suggestedUnit": "tonnes",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": true, \"transportDirectMonitoring\": true, \"storageIntentionalDischargeMeasurementApproach\": \"MEASUREMENT_OF_VENTING\", \"storageSurfaceIntentionalDischargeMeasurement\": \"MASS_FLOW\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"MASS_FLOW\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "QCO2nonVCSinjectediy",
+      "name": "QCO2,nonVCS,injected,i,y",
+      "description": "The total amount of carbon dioxide that was captured and injected from sources in the process of capturing CO2 from the atmosphere, but was not captured directly from the atmosphere, e.g., captured from natural gas. This maps to the Verra QuantityCo2NonVcsInjected parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.0, \"uOM\": \"tonnes\" }",
+      "suggestedUnit": "tonnes",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": true, \"transportDirectMonitoring\": true, \"storageIntentionalDischargeMeasurementApproach\": \"MEASUREMENT_OF_VENTING\", \"storageSurfaceIntentionalDischargeMeasurement\": \"MASS_FLOW\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"MASS_FLOW\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "FRmassx",
+      "name": "FRmass,x",
+      "description": "Total mass flow measured by mass flow meter x during the monitoring period. This maps to the Verra TotalMassFlow parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.0, \"uOM\": \"tonnes\" }",
+      "suggestedUnit": "tonnes",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": false, \"transportDirectMonitoring\": false, \"storageIntentionalDischargeMeasurementApproach\": \"MEASUREMENT_OF_VENTING\", \"storageSurfaceIntentionalDischargeMeasurement\": \"VOLUMETRIC_FLOW\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"MASS_FLOW\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "pCO2massx",
+      "name": "%CO2mass,x",
+      "description": "Mass fraction of CO2 in flow at flow meter x",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 99.0, \"uOM\": \"p\" }",
+      "suggestedUnit": "p mass",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": false,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": false, \"transportDirectMonitoring\": false, \"storageIntentionalDischargeMeasurementApproach\": \"IS_NOT_APPLICABLE\", \"storageSurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "MCO2",
+      "name": "MCO2",
+      "description": "Molar mass of CO2. This maps to the Verra ValidationVariablesIncluded.MCO2 parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 44.0095, \"uOM\": \"g/mol\" }",
+      "suggestedUnit": "g/mol",
+      "requiredAtValidation": true,
+      "requiredAtMonitoring": false,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": false, \"transportDirectMonitoring\": false, \"storageIntentionalDischargeMeasurementApproach\": \"IS_NOT_APPLICABLE\", \"storageSurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "XCO2",
+      "name": "XCO2",
+      "description": "Mole fraction of CO2 in flow at flow meter x. This maps to the Verra MoleFractionOfCo2 parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.99, \"uOM\": \"p mole\" }",
+      "suggestedUnit": "PercentMole",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true
+    },
+    {
+      "id": "Mk",
+      "name": "Mk",
+      "description": "Molar mass of component k. This maps to the Verra MolarMassOfComponent parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 44.0095, \"uOM\": \"g/mol\" }",
+      "suggestedUnit": "g/mol",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true,
+      "entityExtensions": [
+        {
+          "templateId": "6001624e-64de-4d7f-88d8-ecbe61613618",
+          "dataType": "ccs.extensionSet.verra.VariableTemplateOptions",
+          "data": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": false, \"transportDirectMonitoring\": false, \"storageIntentionalDischargeMeasurementApproach\": \"IS_NOT_APPLICABLE\", \"storageSurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageSubsurfaceIntentionalDischargeMeasurement\": \"NOT_APPLICABLE\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"DOESNT_APPLY\", \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\" }",
+          "extensionContext": "VariableTemplate"
+        }
+      ]
+    },
+    {
+      "id": "Xk",
+      "name": "Xk",
+      "description": "Mole fraction of component k in flow at flow meter x. This maps to the Verra MoleFractionOfComponent parameter.",
+      "documentation": "inherited",
+      "alias": "",
+      "version": "VM0049:1.0",
+      "dataSchemaOrType": "ccs.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.01, \"uOM\": \"p mole\" }",
+      "suggestedUnit": "PercentMole",
+      "requiredAtValidation": false,
+      "requiredAtMonitoring": true
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "entityExtensionTemplates": [
+    {
+      "id": "169a3a6e-dbde-4ec3-b5e1-1bae840e98a5",
+      "name": "Verra Project",
+      "version": "1.0.0",
+      "description": "This extension provides the Verra Registry Project data needed for interaction with the Registry and Project Portal",
+      "documentation": "https://verra.org/wp-content/project-metadata.pdf",
+      "extensionContext": "ActivityImpactModule",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VerraProject",
+      "dataExample": "{}",
+      "modules": [
+        "VM0049"
+      ]
+    },
+    {
+      "id": "1a00284e-6cd1-486f-8630-91b58efae4c4",
+      "name": "VM0049 Options",
+      "version": "1.0.0",
+      "description": "This extension records the VM0049 options that will apply to all formula and variables for the module that are specific to each option.",
+      "documentation": "",
+      "extensionContext": "ExtensionSet",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VM0049Options",
+      "dataExample": "{ \"cO2MeasurementOption\": \"MassFlow\"}",
+      "modules": [
+        "VM0049"
+      ]
+    },
+    {
+      "id": "08e67d02-f35d-4361-b39f-f69d189f41a2",
+      "name": "VMD0056 Options",
+      "version": "1.0.0",
+      "description": "This extension records the VMD0056, DAC, options that will apply to all formula and variables for the module that are specific to each option.",
+      "documentation": "",
+      "extensionContext": "ExtensionSetModule",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VMD0056Options",
+      "dataExample": "{ \"usesFossilFuels\": true }",
+      "modules": [
+        "VMD0056"
+      ]
+    },
+    {
+      "id": "0f5e31e8-15a6-4b9b-9554-c2ce65500495",
+      "name": "VMD0057 Options",
+      "version": "1.0.0",
+      "description": "This extension records the VMD0057, CO2 Transport, options that will apply to all formula and variables for the module that are specific to each option.",
+      "documentation": "",
+      "extensionContext": "ExtensionSetModule",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VMD0057Options",
+      "dataExample": "{ \"usesFossilFuels\": true, \"directMonitoring\": false }",
+      "modules": [
+        "VMD0057"
+      ]
+    },
+    {
+      "id": "6d9a2629-b66b-4338-a210-3d176f4d9209",
+      "name": "VMD0058 Options",
+      "version": "1.0.0",
+      "description": "This extension records the VMD0058, CO2 Storage, options that will apply to all formula and variables for the module that are specific to each option.",
+      "documentation": "",
+      "extensionContext": "ExtensionSetModule",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VMD0058Options",
+      "dataExample": "{\"surfaceDischargeMeasurementOption\": \"MeasurementOfVenting\", \"intentionalSurfaceDischargeMeasurementOption\": \"MassFlow\", \"intentionalSubsurfaceDischargeMeasurementOption\": \"MassFlow\", \"unintentionalSurfaceDischargeEmissionSource\": \"FugitiveEmissions\"}",
+      "modules": [
+        "VMD0058"
+      ]
+    },
+    {
+      "id": "5523bc7c-0eb6-48c2-84a4-c032b8175fb9",
+      "name": "VMD0059 Options",
+      "version": "1.0.0",
+      "description": "This extension records the VMD0059, BECCS, options that will apply to all formula and variables for the module that are specific to each option.",
+      "documentation": "",
+      "extensionContext": "ExtensionSetModule",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VMD0059Options",
+      "dataExample": "{ \"calculatingLeakageFromBiomassCultivationOptions\": \"EmbodiedEmissionsFactor\" }",
+      "modules": [
+        "VMD0059"
+      ]
+    },
+    {
+      "id": "f3e2e2b1-1c7e-4f0c-8a4e-1d3f3e5b6c7d",
+      "name": "VT0013 Options",
+        "version": "1.0.0",
+        "description": "This extension records the VT0013, Differentiating Reductions and Removals in CCS Projects, options that will apply to all formula and variables for the module that are specific to each option.",
+        "documentation": "",
+        "extensionContext": "ExtensionSetModule",
+        "dataSchemaOrType": "ccs.extensionSet.verra.VT0013Options",
+        "dataExample": "{ \"allocateProjectAndLeakageEmissionOptions\": \"DifferentiationMethod\" }",
+        "modules": [
+            "VT0013"
+        ]
+    },
+    {
+      "id": "6001624e-64de-4d7f-88d8-ecbe61613618",
+      "name": "Variable Template Options",
+      "version": "1.0.0",
+      "description": "This extension applies to Variable Templates to record module specific options that can include or exclude variables based on the options selected.",
+      "documentation": "",
+      "extensionContext": "VariableTemplate",
+      "dataSchemaOrType": "ccs.extensionSet.verra.VariableTemplateOptions",
+      "dataExample": "{ \"appliesForCo2MeasurementType\": \"MASS_FLOW\", \"appliesForFossilFuelUse\": true, \"transportDirectMonitoring\": true, \"storageSurfaceDischargeMeasurementOption\": \"MEASUREMENT_OF_VENTING\", \"storageIntentionalSurfaceDischargeMeasurementOption\": \"FUGITIVE_EMISSIONS\", \"storageIntentionalSubsurfaceDischargeMeasurementOption\": \"MASS_FLOW\", \"storageUnintentionalSurfaceDischargeEmissionSource\": \"MASS_FLOW\", { \"beccsBiomassCultivationLeakageCalculation\": \"NOT_USED\", \"vt0013AllocateProjectAndLeakageEmissions\": \"DOES_NOT_APPLY\"  }",
+      "modules": [
+        "VM0049"
+      ]
+    }
+  ]
+}

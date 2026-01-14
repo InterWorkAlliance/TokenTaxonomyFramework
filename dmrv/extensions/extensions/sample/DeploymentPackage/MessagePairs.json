@@ -1,0 +1,40 @@
+{
+    "messagePairs": [
+        {
+            "id": "a47e91c3-9435-485d-b5af-0bf544d17e59",
+            "name": "Calibrate Instrument Message Pair",
+            "version": "1.0.0",
+            "description": "This message pair provides the request/response messages for calibrating an instrument used in monitoring. Because there are different monitoring types, the CalibrateInstrument response includes a CalibrationResult object that can have different calibration data for different types of instruments. Receiving an CalibrationResult will require inspecting via reflection the data type in the CalibrationData object to properly deserialize.",
+            "documentation": "",
+            "requestMessageDefinition": {
+                "dataSchemaOrType": "ccs.extensionSet.CalibrateInstrumentRequest",
+                "definition": "{\n          \"@type\": \"type.googleapis.com/ccs.extensionSet.CalibrateInstrumentRequest\",\n          \"claimId\": \"\",\n          \"checkpointId\": \"\",\n          \"claimSourceId\": \"\"\n        }"
+            },
+            "responseMessageDefinition": {
+                "dataSchemaOrType": "ccs.extensionSet.CalibrateInstrumentResponse",
+                "definition": "{\n          \"@type\": \"type.googleapis.com/ccs.extensionSet.CalibrateInstrumentResponse\",\n          \"claimId\": \"\",\n          \"checkpointId\": \"\",\n          \"claimSourceId\": \"\"\n        }"
+            },
+            "modules": [
+                "VM0049"
+            ]
+        },
+        {
+            "id": "db8d69ac-a01d-44be-8e37-6093d7721b39",
+            "name": "Verification Exception Message Pair",
+            "version": "1.0.0",
+            "description": "This message pair provides the request/response messages for verifying exceptions in the monitoring process. The VerificationExceptionRequest includes details about the exception to be verified, while the VerificationExceptionResponse confirms the verification result.",
+            "documentation": "",
+            "requestMessageDefinition": {
+                "dataSchemaOrType": "ccs.extensionSet.VerificationExceptionRequest",
+                "definition": "{\n          \"@type\": \"type.googleapis.com/ccs.extensionSet.VerificationExceptionRequest\",\n          \"exceptionType\": \"LEDGER_VARIABLE\",\n          \"id\": \"\",\n          \"variableId\": \"\"\n    \"variableTemplateId\": \"\"\n  \"description\": \"\"\n  }"
+            },
+            "responseMessageDefinition": {
+                "dataSchemaOrType": "ccs.extensionSet.VerificationExceptionMitigationResponse",
+                "definition": "{\n          \"@type\": \"type.googleapis.com/ccs.extensionSet.VerificationExceptionMitigationResponse\",\n          \"verificationExceptionId\": \"\",\n          \"description\": \"\",\n          }"
+            },
+            "modules": [
+                "VM0049"
+            ]
+        }
+    ]
+}

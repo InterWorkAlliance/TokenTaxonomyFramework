@@ -1,0 +1,104 @@
+{
+    "claimSources": [
+        {
+            "description": "Mass fraction of CO2 in flow at flow meter x",
+            "name": "FlowMeter-2213-CO2MassFraction",
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "tonnes",
+            "reportingFrequency": "Monthly",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "pCO2massx",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "fm2213-co2massfraction"
+                }
+            ]
+        },
+        {
+            "description": "Mole fraction of CO2 in flow at flow meter x. This maps to the Verra MoleFractionOfCo2 parameter.",
+            "name": "FlowMeter-2213-CO2MoleFraction",
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "tonnes",
+            "reportingFrequency": "Daily",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "XCO2",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "fm2213-co2molefraction"
+                }
+            ]
+        },
+        {
+            "description": "Total mass flow measured by mass flow meter x during the monitoring period. This maps to the Verra TotalMassFlow parameter.",
+            "name": "FlowMeter-2213-TotalMassFlow",
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "tonnes",
+            "reportingFrequency": "Daily",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "FRmassx",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "fm2213-totalmassflow"
+                }
+            ]
+        },
+        {
+            "description": "Mass of nonVCS CO2, coming from DAC",
+            "name": "FlowMeter-2213-NonVCSInjectedCO2Mass",
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "tonnes",
+            "reportingFrequency": "Daily",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "QCO2nonVCSinjectediy",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "fm2213-nonvcsinjectedco2mass"
+                }
+            ]
+        },
+        {
+            "description": "Mass of CO2 coming from DAC",
+            "name": "FlowMeter-2213-CO2MassOut",
+            "sourceType": "SensorDevice",
+            "unitOfMeasure": "tonnes",
+            "reportingFrequency": "Daily",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "QCO2injectediy",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "fm2213-co2massout"
+                }
+            ]
+        },
+        {
+            "description": "Project Design Description Document - PDD",
+            "name": "Project Design Document",
+            "sourceType": "Document",
+            "unitOfMeasure": "Unit Varies",
+            "reportingFrequency": "Monthly",
+            "entityExtensions": [],
+            "variableTemplates": [
+                {
+                    "variableTemplateId": "Mk",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "PDD:Mk"
+                },
+                {
+                    "variableTemplateId": "Xk",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "PDD:Xk"
+                },
+                {
+                    "variableTemplateId": "MCO2",
+                    "variableTemplateVersion": "VM0049:1.0",
+                    "sourceIdentifier": "PDD:MCO2"
+                }
+            ]
+        }
+    ]
+}

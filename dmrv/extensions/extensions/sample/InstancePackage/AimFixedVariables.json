@@ -1,0 +1,10 @@
+{
+  "aimFixedVariables": [
+    {
+      "variableTemplateId": "GWPCH4",
+      "variableTemplateVersion": "VM0049:1.0",
+      "value": "{ \"value\": 28, \"uOM\": \"tCO2e/tCH4\" }",
+      "dataType": "ccs.extensionSet.DoubleValue"
+    }
+  ]
+}

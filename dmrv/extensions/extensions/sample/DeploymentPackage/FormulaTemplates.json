@@ -1,0 +1,82 @@
+{
+  "formulaTemplates": [
+    {
+      "id": "5415a359-ca29-427b-88cd-a5d02f1e91d4",
+      "name": "VM0049 Baseline Emissions - Equation 1",
+      "description": "Baseline emissions in year y (tCO2e) = Mass of CO2 injected (tCO2) and monitored at injection point i in year y at the storage site(s) minus the QCO2,nonVCS,injected.",
+      "documentation": "inherited",
+      "version": "1.0",
+      "dataSchemaOrType": "ccs.extensionSet.Co2QuantityCapturedFormula",
+      "dataExample": "{}",
+      "formula": "BEy = Σ_i QCO2,injected,i,y - Σ_i QCO2,nonVCS,injected,i,y",
+      "variableTemplates": [
+        {
+          "id": "QCO2injectediy",
+          "version": "VM0049:1.0"
+        },
+        {
+          "id": "QCO2nonVCSinjectediy",
+          "version": "VM0049:1.0"
+        }
+      ],
+      "modules": [
+        "VM0049"
+      ]
+    },
+    {
+      "id": "7c90069b-911a-4604-9b80-0a907c8d8c84",
+      "name": "VM0049 Measurement based on Total Mass Flow. Equation 1, option 1 - Equation 2",
+      "description": "To determine the quantity of CO2 using total mass flow measurements, the project proponent must multiply the total mass flow by the concentration of CO2 in that flow.",
+      "documentation": "inherited",
+      "version": "1.0",
+      "dataSchemaOrType": "ccs.extensionSet.QuantityOfCo2InjectedFormula",
+      "dataExample": "{}",
+      "formula": "QCO2,x = FRmass,x * pCO2mass,x",
+      "variableTemplates": [
+        {
+          "id": "FRmassx",
+          "version": "VM0049:1.0"
+        },
+        {
+          "id": "pCO2massx",
+          "version": "VM0049:1.0"
+        }
+      ],
+      "modules": [
+        "VM0049",
+        "VMD0058"
+      ]
+    },
+    {
+      "id": "4b060e44-3a30-4e2d-8fce-9758c1db4839",
+      "name": "VM0049 Derive Mass fraction from the mole fraction (XCO2) measured - Equation 3.",
+      "description": "M_CO2 = Molar mass of CO2 (g/mol), X_CO2 = Mole fraction of CO2 in flow at flow meter x (% mole), M_k = Molar mass of component k (g/mol), X_k = Mole fraction of component k in flow at flow meter x (% mole), n = Number of components in the mixture with a mole fraction greater than 0.5% (5000 ppm), or for supercritical conditions greater than 0.25% (2500 ppm)",
+      "documentation": "inherited",
+      "version": "1.0",
+      "dataSchemaOrType": "",
+      "dataExample": "{}",
+      "formula": "%CO2mass,x = MCO2 * XCO2 / Σ Mk * Xk",
+      "variableTemplates": [
+        {
+          "id": "MCO2",
+          "version": "VM0049:1.0"
+        },
+        {
+          "id": "XCO2",
+          "version": "VM0049:1.0"
+        },
+        {
+          "id": "Mk",
+          "version": "VM0049:1.0"
+        },
+        {
+          "id": "Xk",
+          "version": "VM0049:1.0"
+        }
+      ],
+      "modules": [
+        "VM0049"
+      ]
+    }
+  ]
+}
