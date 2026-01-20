@@ -1,10 +1,10 @@
-What are MRV Extension Sets?
+<h2>What are MRV Extension Sets?</h2>
 
 Version 3.0 introduces MRV Extension Sets, a grouping of templates which encompass entities, messages, formulae, and variables that are specific to the Quality Standard or Methodology that the Activity Impact Module is bound to. They are typically composed of multiple MRV Extensions for modules or activities and can be defined by the supplier, verifier, and issuer based on a set of methodology modules. To support Quality Standards that have multiple modules or phases of a process (e.g., Carbon Capture, Transport and Storage or projects which are making claims related to both soil and water), Extension Sets can be organized into Extension Set Modules that act as a shared library of MRV Extensions available to participants in the dMRV process. Through this process, we aim to create reusable libraries that dMRV participants can use as a starting place for conversations with registries and other relevant stakeholders while allowing for the contribution of new Extension Sets from third parties as methodologies are further digitized.
 
 
 
-How to Build and Use Extenstion Sets
+<h2>How to Build and Use Extenstion Sets</h2>
 
 Issuing Registries govern a set of methodologies under their issuing programs for specific types of projects. These methodologies are large documents that describe the process a project must follow in order to have credits issued based on their activities. For example, methodologies use formulae and parameters, or variables, to determine the quantity of credits that will be issued that all the parties involved use to document and verify activity outcomes.
 
@@ -25,10 +25,11 @@ Once an Extension Set is created, it can be contributed back to the IWA where it
 
 
 
-How to Contribute an Extension Set
+<h2>How to Contribute an Extension Set</h2>
 
 Once an Extension Set has been developed alongside the relevant stakeholders, it can be contributed to the IWA's repository of Extension Sets by issuing a pull request to this folder in the IWA's GitHub repository: https://github.com/InterWorkAlliance/TokenTaxonomyFramework/tree/main/dmrv/extension-sets 
 
 The IWA will review the Extension Set for completeness and to ensure that sample data has been provided. If approved, the pull request will be accepted and the Extension Set will be added to the library.
+
 
 NOTE: The IWA will not verify the accuracy of the formulae, variables, entities, or messages contained in the Extension Sets as they are often the product of lengthy conversations between multiple parties. Due to the complexity and differentiation between methodologies and registries, organizations looking to use the Extension Sets to accelerate their development cycles should perform due diligence when using the Extension Sets to ensure alignment with existing registry requirements.
