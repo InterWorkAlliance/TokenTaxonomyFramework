@@ -8,7 +8,7 @@ option csharp_namespace = "VreParfe.ExtensionSet";
 option java_package = "vreparfe.extensionSet";
 option java_multiple_files = true;
 
-// ─── Basic scalar wrapper types ────────────────────────────────────────────────
+// --- Basic scalar wrapper types ------------------------------------------------
 
 // A numeric measurement value with a unit of measure.
 message DoubleValue {
@@ -26,12 +26,12 @@ message StringValue {
   string value = 1;
 }
 
-// ─── Monitoring type enum ──────────────────────────────────────────────────────
+// --- Monitoring type enum ------------------------------------------------------
 // Maps to MONITORING_TYPE_MAP in SCHEMAS_V2.js.
 // Determines which token type is minted from a sensor's telemetry:
-//   GENERATION, SOLAR, HYDRO, WIND → REC
-//   WATER_FLOW, WATER_CONSUMPTION  → H2O
-//   CARBON_OFFSET, EMISSIONS       → CO2
+//   GENERATION, SOLAR, HYDRO, WIND -> REC
+//   WATER_FLOW, WATER_CONSUMPTION  -> H2O
+//   CARBON_OFFSET, EMISSIONS       -> CO2
 
 enum MonitoringType {
   GENERATION = 0;
@@ -44,16 +44,16 @@ enum MonitoringType {
   EMISSIONS = 7;
 }
 
-// ─── Token type enum ────────────────────────────────────────────────────────
+// --- Token type enum --------------------------------------------------------
 // Maps to TOKEN_TYPES in SCHEMAS_V2.js.
 
 enum TokenType {
-  REC = 0;  // Renewable Energy Certificate – unit: kWh
-  H2O = 1;  // Water Stewardship Certificate – unit: m³
-  CO2 = 2;  // Carbon Offset Certificate – unit: kgCO₂e
+  REC = 0;  // Renewable Energy Certificate - unit: kWh
+  H2O = 1;  // Water Stewardship Certificate - unit: m3
+  CO2 = 2;  // Carbon Offset Certificate - unit: kgCO2e
 }
 
-// ─── GEF source enum ────────────────────────────────────────────────────────
+// --- GEF source enum --------------------------------------------------------
 // Determines whether the Grid Emission Factor (GEF) is a hardcoded constant
 // (testnet) or a per-licensee value retrieved from the LICENSE_GRANT HCS record
 // (production).
@@ -63,9 +63,9 @@ enum GefSource {
   LICENSE_GRANT_HCS_RECORD = 1;  // Production: per-licensee GEF from HCS governance record
 }
 
-// ─── Entity extension messages ──────────────────────────────────────────────────
+// --- Entity extension messages --------------------------------------------------
 
-// VRE PARFE Site Options – extensionContext: ExtensionSet
+// VRE PARFE Site Options - extensionContext: ExtensionSet
 // Set once at site commissioning by the issuing authority.
 message SiteOptions {
   MonitoringType monitoring_type = 1;
@@ -73,28 +73,43 @@ message SiteOptions {
   string jurisdiction = 3; // ISO 3166 Alpha-2 country code (e.g. "MU" for Mauritius)
 }
 
-// REC Module Options – extensionContext: ExtensionSetModule (REC-MODULE)
+// REC Module Options - extensionContext: ExtensionSetModule (REC-MODULE)
 message RECModuleOptions {
   MonitoringType generation_type = 1;
   double mint_threshold_kwh = 2; // Default: 100 kWh. At production: stored in LICENSE_GRANT HCS record.
 }
 
-// H2O Module Options – extensionContext: ExtensionSetModule (H2O-MODULE)
+// H2O Module Options - extensionContext: ExtensionSetModule (H2O-MODULE)
 message H2OModuleOptions {
   string water_source_type = 1; // e.g. "River", "Reservoir"
   double mint_threshold_litres = 2; // Default: 5000 L. At production: stored in LICENSE_GRANT HCS record.
 }
 
-// CO2 Module Options – extensionContext: ExtensionSetModule (CO2-MODULE)
+// CO2 Module Options - extensionContext: ExtensionSetModule (CO2-MODULE)
 message CO2ModuleOptions {
   GefSource gef_source = 1;
-  double gef_value = 2; // Mauritius baseline: 0.9908 kgCO₂e/kWh
+  double gef_value = 2; // Mauritius baseline: 0.9908 kgCO2e/kWh
 }
 
-// Physics Gate Options – extensionContext: ExtensionSet
+// Physics Gate Options - extensionContext: ExtensionSet
 // The physics gate is a mandatory fraud-prevention mechanism.
 // capacityMW is stored in the GATEWAY_DEPLOY HCS record at commissioning.
 // The edge notary hydrates physicsLimitKwh at startup from the HCS record.
 message PhysicsGateOptions {
   double capacity_mw = 1;         // Installed generation capacity in megawatts
-  double max_kwh_per_reading = 2; // Derived: capacityMW × 1000 × readingIntervalHours
+  double max_kwh_per_reading = 2; // Derived: capacityMW x 1000 x readingIntervalHours
+}
+
+// Ledger Attestation Options - extensionContext: ExtensionSet
+// Records the ledger anchoring configuration: every TELEMETRY record is
+// written to Hedera Consensus Service with an Ed25519 signature over a
+// SHA-256 hash of the stable-stringified payload, and the full Ed25519
+// public key PEM is embedded in sig.pub of every message, enabling
+// fully self-contained verification without an external key registry.
+message LedgerAttestationOptions {
+  string ledger = 1;               // e.g. "Hedera"
+  string network = 2;              // e.g. "mainnet" | "testnet"
+  string signature_algorithm = 3;  // e.g. "Ed25519"
+  string schema_immutability = 4;  // e.g. "FROZEN_OBJECT"
+  bool pub_key_in_payload = 5;     // true: sig.pub is embedded in every TELEMETRY message
+}
