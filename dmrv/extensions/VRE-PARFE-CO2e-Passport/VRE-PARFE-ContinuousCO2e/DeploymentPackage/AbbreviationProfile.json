@@ -1,0 +1,11 @@
+{
+  "profileId": "VRE-PARFE-CO2e-Passport-Abbreviated-v1",
+  "profileVersion": "1.0.0",
+  "canonicalSource": "VRE-PARFE-CO2e-Passport",
+  "localPackageId": "VRE-PARFE-ContinuousCO2e",
+  "profileType": "LOSSLESS_SCOPED_TRANSPORT_VIEW",
+  "losslessReconstructionRequired": true,
+  "evidenceDefaultingAllowed": false,
+  "telemetryCoordinatesForbidden": true,
+  "phase": "PHASE_5_KEY_LEVEL_MAPPING"
+}
