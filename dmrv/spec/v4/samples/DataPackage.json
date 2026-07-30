@@ -1,0 +1,66 @@
+{
+  "manifest": {
+    "id": "bd199e99-14e0-4440-af99-03b78096a24b",
+    "version": "1",
+    "aioId": "8ce532c6-c344-4eee-90bb-13a8a19c5910",
+    "aimId": "d5a9cf0c-4102-4c9d-941a-408001b12147",
+    "claimId": "2d17d155-ca8b-4208-8cc0-6dc3a85e2c34",
+    "processedClaimId": "",
+    "projectDeveloperId": "9c6e926f-9603-45de-9933-8af01ac45f31",
+    "created": {
+      "date": {
+        "dateTime": "09/18/2025 14:09:30",
+        "dateString": "9/18/2025"
+      },
+      "timeStamp": {
+        "seconds": 1758204570,
+        "nanos": 756700000
+      }
+    },
+    "extensions": [
+      {
+        "id": "b616c128-ae03-43f5-865f-200888da3d8d",
+        "templateId": "ddafd081-6adc-4d98-96e7-fa6798e0e952",
+        "data": {
+          "protoData": null,
+          "dataType": "",
+          "value": ""
+        },
+        "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+        "extensionContext": "DataPackageManifest",
+        "template": null
+      }
+    ],
+    "formulas": [],
+    "dataFiles": [
+      {
+        "name": "Data from sensor",
+        "type": "DataBinary",
+        "description": "Primary source data from sensor.",
+        "claimSourceId": "147e7105-2333-4f5f-847c-6c984e5220dd",
+        "claimSourceAttestation": "digital_signature",
+        "extensions": [
+          {
+            "id": "fae1ffc6-a849-4884-8685-fa101c6b7088",
+            "templateId": "938d8769-94e3-4d71-8953-e913591367a3",
+            "data": {
+              "protoData": null,
+              "dataType": "",
+              "value": ""
+            },
+            "appliedToId": "bd199e99-14e0-4440-af99-03b78096a24b",
+            "extensionContext": "DataFile",
+            "template": null
+          }
+        ]
+      }
+    ]
+  },
+  "verifiedLinkToDataPackage": {
+    "id": "8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+    "uri": "https://span.com/8403c1d7-af52-4f9b-aa5d-ea07e6e80d05",
+    "description": "Link to the Span Data Package",
+    "hashProof": "asdflkdfs889fj3l437098asdfi",
+    "hashAlgorithm": "Sha256"
+  }
+}
