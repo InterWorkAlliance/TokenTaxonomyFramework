@@ -25,7 +25,8 @@
         "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
-      }
+      },
+      "vvbIdForAim": ""
     },
     {
       "id": "58827053-14ab-441d-8699-7108de68e687",
@@ -38,7 +39,8 @@
         "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
-      }
+      },
+      "vvbIdForAim": ""
     },
     {
       "id": "9431e6b8-9601-460b-b0e3-c3da409da3de",
@@ -51,7 +53,8 @@
         "hasJws": true,
         "vc": null,
         "signatureCase": "Jws"
-      }
+      },
+      "vvbIdForAim": ""
     }
   ],
   "qualityStandard": {
@@ -92,23 +95,23 @@
     "claimPeriod": "Annual",
     "extensionSetId": "",
     "extensionSet": {
-      "id": "d092c721-5d8f-42e5-bfc8-5b244e047a91",
-      "masterTemplateId": "00d9ee64-02d5-4312-b826-b1a277c96649",
+      "id": "4004fcdd-db9a-4ebf-a288-c13a9b62013d",
+      "masterTemplateId": "c826c0b0-2e02-4615-b805-d0bf43988ae5",
       "name": "",
       "version": "1.0.0",
       "description": "Extension Set for OriginationProcessAgreement",
       "documentation": "",
       "modules": [
         {
-          "id": "609df474-a6a6-4091-9426-7cf45eb9d7cb",
-          "masterTemplateId": "f697ff23-57c5-458d-b2e7-873dc5ebd231",
+          "id": "9bfd1f89-19ef-4fe8-99a2-853df718f296",
+          "masterTemplateId": "715b7ee8-b508-421b-9780-30a79dfe3172",
           "name": "",
           "version": "1.0.0",
           "description": "Extension SetModule for OriginationProcessAgreement",
           "documentation": "",
           "entityTemplates": [
             {
-              "id": "c6f3bdda-0757-48d0-b4e8-c4b2635c3eaf",
+              "id": "39b89dce-91a9-4b64-b751-b9388a8bae2a",
               "masterTemplateId": "",
               "name": "Origination Process Agreement - Land Title Document",
               "version": "",
@@ -119,9 +122,9 @@
               "dataExample": "'{'owner': 'John Doe', 'landArea': '100 hectares', 'location': 'Amazon Rainforest' }'"
             }
           ],
-          "messagePairs": [
+          "messagePairTemplates": [
             {
-              "id": "52dcce98-2746-4bef-8c05-b4c5e47b95c9",
+              "id": "bb9bed0e-1591-4865-9da6-67901729a95d",
               "masterTemplateId": "",
               "name": "Submit Land Title Document",
               "version": "",
@@ -142,7 +145,7 @@
           ],
           "formulaTemplates": [
             {
-              "id": "7305e9a4-3840-4adb-8d81-ddfc0727bd83",
+              "id": "bf7c0133-797a-40a5-9532-856f6e679784",
               "masterTemplateId": "",
               "name": "Origination Process Emission Factor Calculation",
               "version": "1.0.0",
@@ -156,7 +159,7 @@
           ],
           "variableTemplates": [
             {
-              "id": "234ed90b-0fbe-400e-867f-0b576435a343",
+              "id": "1dc44ce6-4f1d-4146-a3f4-c743aff40402",
               "masterTemplateId": "",
               "name": "Baseline Emissions",
               "version": "1.0.0",
@@ -190,7 +193,7 @@
               "dataExample": ""
             }
           ],
-          "messagePairs": [],
+          "messagePairTemplates": [],
           "formulaTemplates": [],
           "variableTemplates": [],
           "parentSet": null
@@ -200,14 +203,14 @@
   },
   "agreementDate": {
     "dateTime": "",
-    "dateString": "5/20/2026"
+    "dateString": "9/9/2026"
   },
   "estimatedAnnualCredits": "15,000",
   "auditSchedule": "Quinquennial",
   "audits": {
     "lastAuditDate": {
       "dateTime": "",
-      "dateString": "5/20/2026"
+      "dateString": "9/9/2026"
     },
     "auditReports": [
       {
