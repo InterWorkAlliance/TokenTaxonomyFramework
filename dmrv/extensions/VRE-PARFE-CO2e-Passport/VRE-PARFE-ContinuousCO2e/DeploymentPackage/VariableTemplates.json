@@ -1,0 +1,6 @@
+{
+  "variableTemplates": [
+    { "id": "standardFamily", "name": "standardFamily", "description": "Standard family identifier. Fixed value: GBBC_IWA_DMRV.", "version": "VRE-PARFE-ContinuousCO2e:1.0.0", "documentation": "inhe[...]"},
+    { "id": "standardVersion", "name": "standardVersion", "description": "GBBC/IWA dMRV specification version this Extension Set is built against.", "version": "VRE-PARFE-ContinuousCO2e:1.0.0", "do[...]"}
+  ]
+}
