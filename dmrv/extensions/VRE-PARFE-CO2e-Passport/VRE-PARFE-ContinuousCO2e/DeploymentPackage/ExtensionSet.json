@@ -1,0 +1,75 @@
+{
+  "name": "VRE-PARFE-ContinuousCO2e",
+  "adoptedTitle": "Vre Parfe CO2 Passport",
+  "description": "VRE-PARFE-ContinuousCO2e is the sovereign CO2e passport extension set for Vre Parfe-issued CO2 tonne-lots, where CO2 issuance is derived from issued REC evidence, governed CO2 methodology scope, emission-factor scope, allocation reconciliation, HCS replayability, and HTS lifecycle state. CO2 issuance does not originate directly from raw telemetry: the governed dependency chain is Telemetry -> REC issuance -> REC allocation -> CO2 methodology -> CO2 passport / HTS unit. Raw readings remain available for audit through the REC evidence chain, reached by traversing this passport's parentRecEvidence references; CO2 itself is a Passport from governed REC evidence, not a second, parallel telemetry consumer. The externalMethodology citation is distinct from the sovereign methodology identity and must be explicitly declared in governed CO2_METHOD_SCOPE_GRANT evidence; runtimes must not silently default missing external methodology values.",
+  "version": "1.0.0",
+  "documentation": "inherited",
+  "entityExtensions": [
+    {
+      "templateId": "a1c2e3f4-0001-4a10-9c01-000000000001",
+      "dataType": "vreparfe.continuousco2e.StandardEnvelopeOptions",
+      "data": "{}",
+      "extensionContext": "ExtensionSet"
+    },
+    {
+      "templateId": "a1c2e3f4-0001-4a10-9c01-000000000002",
+      "dataType": "vreparfe.continuousco2e.ExternalMethodologyOptions",
+      "data": "{}",
+      "extensionContext": "ExtensionSet"
+    }
+  ],
+  "modules": [
+    {
+      "id": "CONTINUOUS-VERIFICATION-MODULE",
+      "name": "CO2 Methodology & Evidence Verification Module",
+      "description": "Verifies CO2's own governance surface as a system state: is the CO2 methodology and GEF/emission-factor scope governed and current, does every parentRecEvidence entry resolve to a valid, minted REC token, does the allocation sum reconcile against the issued quantity, and can the full chain be replayed from this CO2 passport back through REC to telemetry. This module does not itself hold sensor/gateway/signature/physics-gate status -- those are properties of the REC/telemetry evidence layer (VRE-PARFE-HydroRE), inherited here only by reference via parentRecEvidence, never duplicated or asserted independently at the CO2 level.",
+      "entityExtensions": [
+        {
+          "templateId": "a1c2e3f4-0001-4a10-9c01-000000000003",
+          "dataType": "vreparfe.continuousco2e.ContinuousVerificationOptions",
+          "data": "{}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "id": "AUDIT-ASSURANCE-MODULE",
+      "name": "Audit Assurance Module",
+      "description": "Defines the assurance model an independent auditor, regulator, sovereign authority, or VVB uses to inspect the evidence chain, and the exact HCS control-evidence coordinates (topic IDs and sequence numbers) needed to replay CO2's own governance record. Replay past CO2 into REC uses this passport's existing parentRecEvidence references (finalHcsTopicId/finalHcsSequence per parent REC); replay from REC down into raw telemetry is a property of the REC's own passport record, out of scope for this extension set. A VVB is referenced only where required for external assurance, sovereign approval, Article 6/compliance use, or methodology recognition -- never as the primary source of truth for routine issuance.",
+      "entityExtensions": [
+        {
+          "templateId": "a1c2e3f4-0001-4a10-9c01-000000000004",
+          "dataType": "vreparfe.continuousco2e.AuditAssuranceOptions",
+          "data": "{}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "id": "CO2-LOT-MODULE",
+      "name": "Sovereign CO2e Tonne-Lot Module",
+      "description": "Issues serialised CO2e tonne-lot units (HTS NFTs) whose quantity is derived from allocating governed GEF scope across issued, minted parent REC evidence -- not from raw generation readings directly. Extends the CO2 Offset Certificate concept from VRE-PARFE-HydroRE with an explicit lifecycle state machine (minted / transferred / retired / cancelled / suspended / revoked).",
+      "entityExtensions": [
+        {
+          "templateId": "a1c2e3f4-0001-4a10-9c01-000000000005",
+          "dataType": "vreparfe.continuousco2e.IssuedUnitOptions",
+          "data": "{}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    },
+    {
+      "id": "REGISTRY-RECONSTRUCTION-MODULE",
+      "name": "Registry Reconstruction & Abbreviated Passport Profile Module",
+      "description": "Defines the lossless scoped alias map used by registry-layer tools to render compact CO2e Passport records and reconstruct them back to the canonical five-envelope form. This module is a transport/view profile only: it does not mint, verify, re-sign, default evidence values, or introduce direct CO2-level telemetry coordinates.",
+      "entityExtensions": [
+        {
+          "templateId": "a1c2e3f4-0001-4a10-9c01-000000000006",
+          "dataType": "vreparfe.continuousco2e.AbbreviatedPassportProfileOptions",
+          "data": "{}",
+          "extensionContext": "ExtensionSetModule"
+        }
+      ]
+    }
+  ]
+}

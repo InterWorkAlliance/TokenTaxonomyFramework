@@ -1,0 +1,107 @@
+{
+  "messagePairs": [
+    {
+      "id": "c3e4a516-0003-4c30-9e03-000000000001",
+      "name": "CO2 Governance Verification State Message Pair",
+      "description": "Request/response for retrieving CO2's own governance-state gates for a given lot: methodology/GEF currency, parent-REC validity, and allocation reconciliation. Does not return telemetry-layer gates (sensor/gateway/signature/physics/fraud/sequence-integrity) -- those belong to the REC/telemetry evidence layer and are queried via the parent REC's own passport, not this pair.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "requestMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.ContinuousVerificationStateRequest",
+        "definition": { "lotId": "string" }
+      },
+      "responseMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.ContinuousVerificationStateResponse",
+        "definition": {
+          "lotId": "string",
+          "recEvidenceValidityStatus": "string",
+          "methodologyGovernanceStatus": "string",
+          "gefScopeGovernanceStatus": "string",
+          "allocationReconciliationStatus": "string"
+        }
+      },
+      "modules": ["CONTINUOUS-VERIFICATION-MODULE"]
+    },
+    {
+      "id": "c3e4a516-0003-4c30-9e03-000000000002",
+      "name": "Audit Replay Message Pair (CO2 stage, via REC)",
+      "description": "Request/response for independently replaying a CO2 passport's own evidence chain from public HCS records (governance spine, passport, confirmation) and confirming each referenced parent REC resolves to a valid record. A caller wanting to continue the replay down into raw telemetry follows the returned recEvidenceRefs into the REC's own passport and audit-replay mechanism -- that second hop is outside this message pair's scope.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "requestMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.AuditReplayRequest",
+        "definition": {
+          "governanceTopicId": "string",
+          "methodScopeHcsSequence": "string",
+          "mintEventsTopicId": "string",
+          "passportHcsSequence": "string",
+          "confirmationHcsSequence": "string"
+        }
+      },
+      "responseMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.AuditReplayResponse",
+        "definition": {
+          "auditReplayStatus": "string",
+          "allocationReconciliationStatus": "string",
+          "recEvidenceRefs": "string[]",
+          "unresolvedCoordinates": "string[]"
+        }
+      },
+      "modules": ["AUDIT-ASSURANCE-MODULE"]
+    },
+    {
+      "id": "c3e4a516-0003-4c30-9e03-000000000003",
+      "name": "Lifecycle Transition Message Pair",
+      "description": "Request/response for recording a lifecycle transition on an issued CO2e tonne-lot unit: mint, transfer, retire, cancel, suspend, or revoke.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "requestMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.LifecycleTransitionRequest",
+        "definition": {
+          "tokenId": "string",
+          "serial": "string",
+          "fromStatus": "string",
+          "toStatus": "string",
+          "reasonCode": "string",
+          "timestamp": "Timestamp"
+        }
+      },
+      "responseMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.LifecycleTransitionResponse",
+        "definition": {
+          "tokenId": "string",
+          "serial": "string",
+          "lifecycleStatus": "string",
+          "retirementStatus": "string",
+          "hcsTopicId": "string",
+          "hcsSequence": "string"
+        }
+      },
+      "modules": ["CO2-LOT-MODULE"]
+    },
+    {
+      "id": "c3e4a516-0003-4c30-9e03-000000000004",
+      "name": "Registry Passport Reconstruction Message Pair",
+      "description": "Request/response for registry-layer canonicalization or abbreviation of a CO2e Passport record using the scoped alias profile. This pair is a quasi-verification tool for display and audit workflows: it maps names, preserves unknown fields, reports warnings, and confirms lossless reconstruction. It does not mint, re-sign, default evidence values, or add direct CO2-level telemetry coordinates.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "requestMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.PassportReconstructionRequest",
+        "definition": {
+          "targetForm": "string",
+          "recordJson": "string"
+        }
+      },
+      "responseMessageDefinition": {
+        "dataSchemaOrType": "vreparfe.continuousco2e.PassportReconstructionResponse",
+        "definition": {
+          "detectedForm": "string",
+          "recordJson": "string",
+          "warnings": "string[]",
+          "losslessReconstructionConfirmed": "boolean"
+        }
+      },
+      "modules": ["REGISTRY-RECONSTRUCTION-MODULE"]
+    }
+  ]
+}

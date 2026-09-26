@@ -1,0 +1,52 @@
+{
+  "formulaTemplates": [
+    {
+      "id": "b2d3f405-0002-4b20-9d02-000000000001",
+      "name": "VRE-PARFE-ContinuousCO2e Quantity Conversion  -  Equation 1",
+      "description": "Converts the issued unit quantity from milligrams to kilograms CO2e. Verified against fresh live HCS data: quantityMgCO2e 1,000,000,000 -> quantityKgCO2e '1000.000000' at HCS topic 0.0.8585272, sequence 374200/374205.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.continuousco2e.QuantityConversionFormula",
+      "dataExample": "{}",
+      "formula": "quantityKgCO2e = quantityMgCO2e / 1000000",
+      "variableTemplates": [
+        { "variableTemplateId": "quantityKgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "quantityMgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" }
+      ],
+      "modules": ["CO2-LOT-MODULE"]
+    },
+    {
+      "id": "b2d3f405-0002-4b20-9d02-000000000002",
+      "name": "VRE-PARFE-ContinuousCO2e Allocation Reconciliation  -  Equation 2",
+      "description": "The sum of all parent-REC allocation entries consumed into a CO2e tonne-lot must equal the lot's total quantity. Verified against fresh live data: allocations 491,200,000 + 508,800,000 mgCO2e = totalMgCO2e 1,000,000,000 (HCS topic 0.0.8585272, seq 374200-374205). This is the CO2 layer's own reconciliation check -- it verifies that CO2's allocation of issued REC evidence is arithmetically sound. It does not itself re-verify the underlying telemetry that produced each parent REC; that is the REC evidence layer's own responsibility, reached only by traversal (see Equation 3).",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.continuousco2e.AllocationReconciliationFormula",
+      "dataExample": "{}",
+      "formula": "allocationReconciliationStatus = PASSED if sum(allocations[].consumedMgCO2e) == quantityMgCO2e else FAILED",
+      "variableTemplates": [
+        { "variableTemplateId": "allocationReconciliationStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "quantityMgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "consumedMgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" }
+      ],
+      "modules": ["CO2-LOT-MODULE", "CONTINUOUS-VERIFICATION-MODULE"]
+    },
+    {
+      "id": "b2d3f405-0002-4b20-9d02-000000000003",
+      "name": "VRE-PARFE-ContinuousCO2e Replay Completeness (via REC)  -  Equation 3",
+      "description": "Formalises the governed dependency chain Telemetry -> REC issuance -> REC allocation -> CO2 methodology -> CO2 passport / HTS unit as a two-stage replay check. Stage A (this extension set's own responsibility): every controlEvidence coordinate (governanceTopicId+methodScopeHcsSequence, mintEventsTopicId+passportHcsSequence, mintEventsTopicId+confirmationHcsSequence) resolves to a real, signature-valid HCS message, AND every parentRecEvidence entry resolves to a valid, minted, non-revoked REC token at its stated finalHcsTopicId/finalHcsSequence (= recEvidenceValidityStatus). Stage B (the REC evidence layer's own responsibility, out of scope for this extension set): each resolved REC record is itself replayable back to its originating signed telemetry, per VRE-PARFE-HydroRE's own verification chain. auditReplayStatus = REPLAYABLE_VIA_REC asserts Stage A only; it does not assert Stage B, and does not require this extension set to hold a telemetry topic ID directly.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.continuousco2e.ReplayCompletenessFormula",
+      "dataExample": "{}",
+      "formula": "auditReplayStatus = REPLAYABLE_VIA_REC if (all(resolve(topicId, sequence) is signature_valid for (topicId, sequence) in controlEvidence.coordinates) and recEvidenceValidityStatus == PASSED) else NOT_REPLAYABLE",
+      "variableTemplates": [
+        { "variableTemplateId": "auditReplayStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "recEvidenceValidityStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "governanceTopicId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" },
+        { "variableTemplateId": "mintEventsTopicId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0" }
+      ],
+      "modules": ["AUDIT-ASSURANCE-MODULE", "CONTINUOUS-VERIFICATION-MODULE"]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+syntax = "proto3";
+
+package vreparfe.continuousco2e;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "VreParfe.ContinuousCO2e";
+option java_package = "vreparfe.continuousco2e";
+option java_multiple_files = true;
+
+// --- Basic scalar wrapper types ------------------------------------------------
+
+message StringValue {
+  string value = 1;
+}
+
+message StringArrayValue {
+  repeated string value = 1;
+}
+
+message Int64Value {
+  int64 value = 1;
+}
+
+// A gate/status wrapper used for every governance/verification check.
+// Values are constrained by GateStatus below but carried as string on the
+// wire for forward-compatibility with new gate types.
+message GateStatusValue {
+  string value = 1;
+}
+
+// --- Enums ------------------------------------------------------------------
+
+enum GateStatus {
+  NOT_CHECKED = 0;
+  PASSED = 1;
+  FAILED = 2;
+  AUTHORIZED = 3;
+  UNAUTHORIZED = 4;
+  REPLAYABLE_VIA_REC = 5;   // renamed from REPLAYABLE: replay is via REC, not direct telemetry
+  NOT_REPLAYABLE = 6;
+}
+
+enum LifecycleStatus {
+  MINTED = 0;
+  TRANSFERRED = 1;
+  RETIRED = 2;
+  CANCELLED = 3;
+  SUSPENDED = 4;
+  REVOKED = 5;
+}
+
+enum RetirementStatus {
+  NOT_RETIRED = 0;
+  RETIRED = 1;
+}
+
+enum VvbDependency {
+  NOT_REQUIRED_FOR_PREPRODUCTION_OR_AUTOMATED_ISSUANCE = 0;
+  REQUIRED = 1;
+}
+
+// --- Envelope 1: Standard Envelope ------------------------------------------
+// extensionContext: ExtensionSet
+// Identifies the GBBC/IWA dMRV standard, this Extension Set, and the
+// sovereign methodology a passport was issued under. Adopted title:
+// "Vre Parfe CO2 Passport" -- a CO2 passport from governed REC evidence,
+// not a second telemetry consumer.
+message StandardEnvelopeOptions {
+  string standard_family = 1;          // e.g. "GBBC_IWA_DMRV"
+  string standard_version = 2;         // e.g. "3.0"
+  string extension_set_id = 3;         // e.g. "VRE-PARFE-ContinuousCO2e"
+  string extension_set_version = 4;    // e.g. "1.0.0"
+  string methodology_system = 5;       // e.g. "VRE_PARFE_SOVEREIGN_DMRV"
+  string methodology_authority = 6;    // e.g. "VRE_PARFE"
+  string methodology_id = 7;           // e.g. "VP-CO2E-RE-GRID-001"
+  string methodology_version = 8;      // e.g. "V1"
+  string quality_standard_role = 9;    // e.g. "SOVEREIGN_DIGITAL_DMRV_METHOD"
+}
+
+// --- Envelope 2: External Methodology ---------------------------------------
+// extensionContext: ExtensionSet
+// Reference-only link to an external methodology (e.g. UNFCCC/CDM).
+// dependencyStatus makes explicit that this is not an issuance dependency.
+// The external citation is distinct from the sovereign methodology identity
+// and MUST be explicitly declared in governed CO2_METHOD_SCOPE_GRANT evidence.
+// Runtimes must not silently default missing methodology_id or
+// validation_ref_codes values.
+message ExternalMethodologyOptions {
+  string authority = 1;                 // e.g. "UNFCCC_CDM"
+  string methodology_id = 2;             // e.g. "AMS-I.D"
+  string methodology_name = 3;
+  string document_version = 4;
+  string document_ref = 5;
+  string document_hash = 6;
+  repeated string validation_ref_codes = 7;
+  string purpose = 8;                    // e.g. "METHODOLOGY_AND_ADDITIONALITY_REFERENCE_ONLY"
+  string dependency_status = 9;          // e.g. "REFERENCE_ONLY_NOT_ISSUANCE_AUTHORITY"
+}
+
+// --- Envelope 3: Continuous Verification (CO2's own governance surface) -----
+// extensionContext: ExtensionSetModule (CONTINUOUS-VERIFICATION-MODULE)
+//
+// IMPORTANT DEPENDENCY NOTE: CO2 issuance is derived from issued REC evidence,
+// not from raw telemetry directly. The governed chain is:
+//   Telemetry -> REC issuance -> REC allocation -> CO2 methodology -> CO2 passport / HTS unit
+//
+// This message therefore does NOT carry sensor/gateway/signature/physics-gate/
+// fraud-gate/sequence-integrity/duplicate-prevention status -- those are
+// properties of the REC/telemetry evidence layer (VRE-PARFE-HydroRE) and are
+// reached only by traversing this passport's parent_rec_evidence references,
+// never duplicated or independently asserted here. What CO2 verifies about
+// itself is: is its own methodology/GEF scope governed and current, does every
+// referenced parent REC resolve to a valid minted token, does the allocation
+// arithmetic reconcile, and can the whole chain be replayed starting from this
+// passport.
+message ContinuousVerificationOptions {
+  string mode = 1;                              // e.g. "CONTINUOUS_MONITORING_AND_VERIFICATION_VIA_REC_EVIDENCE"
+  string source_of_truth = 2;                   // e.g. "HCS"
+  string verification_engine = 3;               // e.g. "VRE_PARFE_EDGE_NOTARY_AND_HCS_REPLAY" (operates at the REC/telemetry layer; CO2 inherits its result by traversal)
+  GateStatus rec_evidence_validity_status = 4;      // do all parent_rec_evidence entries resolve to valid, minted, non-revoked REC tokens?
+  GateStatus methodology_governance_status = 5;     // is methodScope current against the governance topic?
+  GateStatus gef_scope_governance_status = 6;       // is gefScope current against its governance grant?
+  GateStatus allocation_reconciliation_status = 7;  // sum(allocations[].consumedMgCO2e) == quantityMgCO2e ?
+  GateStatus audit_replay_status = 8;               // REPLAYABLE_VIA_REC | NOT_REPLAYABLE
+}
+
+// --- Envelope 4: Audit Assurance ---------------------------------------------
+// extensionContext: ExtensionSetModule (AUDIT-ASSURANCE-MODULE)
+// States the assurance model explicitly and gives the auditor the exact
+// HCS coordinates needed to replay CO2's own governance record. Traversal
+// from CO2 into REC uses the passport's existing parent_rec_evidence array
+// (finalHcsTopicId/finalHcsSequence per parent REC) -- deliberately NOT
+// duplicated here. Traversal from REC down into raw telemetry is a property
+// of the REC's own passport record and is out of scope for this control
+// evidence block; this extension set does not cache a telemetry topic ID at
+// the CO2 level, because CO2 does not depend on telemetry directly.
+message ControlEvidence {
+  string schema_version = 1;
+  string governance_topic_id = 2;
+  reserved 3;               // formerly telemetry_topic_id -- removed: not a CO2-level dependency, see message comment
+  reserved "telemetry_topic_id";
+  string mint_events_topic_id = 4;
+  string method_scope_hcs_sequence = 5;
+  string passport_hcs_sequence = 6;
+  string confirmation_hcs_sequence = 7;
+}
+
+message AuditAssuranceOptions {
+  string assurance_model = 1;             // e.g. "SYSTEM_CONTROLS_AND_EVIDENCE_REPLAY"
+  string auditor_role = 2;                // e.g. "INDEPENDENT_REPLAY_AND_CONTROL_ASSURANCE"
+  VvbDependency vvb_dependency = 3;
+  repeated string vvb_use_where_required = 4;
+  ControlEvidence control_evidence = 5;
+}
+
+// --- Envelope 5: Issued Unit -------------------------------------------------
+// extensionContext: ExtensionSetModule (CO2-LOT-MODULE)
+// Describes the serialised HTS unit and its explicit lifecycle state.
+message IssuedUnitOptions {
+  string asset_type = 1;                 // e.g. "CO2_TONNE_LOT"
+  string claim_type = 2;                 // e.g. "SOVEREIGN_CO2E_DISPLACEMENT_CLAIM"
+  int64 quantity_mg_co2e = 3;
+  string quantity_kg_co2e = 4;
+  string unit = 5;                        // e.g. "tCO2e"
+  string token_id = 6;
+  string serial = 7;
+  string hts_tx_id = 8;
+  LifecycleStatus lifecycle_status = 9;
+  RetirementStatus retirement_status = 10;
+}
+
+// --- Registry reconstruction / abbreviated transport profile ----------------
+// extensionContext: ExtensionSetModule (REGISTRY-RECONSTRUCTION-MODULE)
+//
+// This is a lossless transport/view profile for registry tooling. It does not
+// replace the canonical envelope messages above, does not default evidence
+// values, and does not create a direct CO2-level telemetry dependency.
+message AliasMapping {
+  string scope = 1;              // "$", "standardEnvelope", "controlEvidence", etc.
+  string canonical_name = 2;
+  string abbreviated_name = 3;
+  bool compatibility_alias = 4;  // true when accepting legacy field names that reconstruct to the canonical name
+}
+
+message AbbreviatedPassportProfileOptions {
+  string profile_id = 1;         // e.g. "VRE-PARFE-CO2e-Passport-Abbreviated-v1"
+  string profile_version = 2;    // e.g. "1.0.0"
+  string canonical_source = 3;   // e.g. "VRE-PARFE-CO2e-Passport"
+  string profile_type = 4;       // e.g. "LOSSLESS_SCOPED_TRANSPORT_VIEW"
+  string map_ref = 5;            // e.g. "DeploymentPackage/AbbreviationProfile.json"
+  repeated AliasMapping aliases = 6;
+  bool lossless_reconstruction_required = 7;
+  bool evidence_defaulting_allowed = 8;      // false for this profile
+  bool telemetry_coordinates_forbidden = 9;  // true at CO2 level
+}
+
+// -----------------------------------------------------------------------------
+// Formula template payloads
+
+message QuantityConversionFormula {
+  int64 quantity_mg_co2e = 1;
+  string quantity_kg_co2e = 2;
+}
+
+message AllocationReconciliationFormula {
+  int64 quantity_mg_co2e = 1;
+  repeated int64 allocation_mg_co2e = 2;
+  GateStatus allocation_reconciliation_status = 3;
+}
+
+message ReplayCompletenessFormula {
+  ControlEvidence control_evidence = 1;
+  GateStatus rec_evidence_validity_status = 2;
+  GateStatus audit_replay_status = 3;
+  repeated string rec_evidence_refs = 4;
+  repeated string unresolved_coordinates = 5;
+}
+
+// -----------------------------------------------------------------------------
+// Message pair payloads
+
+message ContinuousVerificationStateRequest {
+  string lot_id = 1;
+}
+
+message ContinuousVerificationStateResponse {
+  string lot_id = 1;
+  GateStatus rec_evidence_validity_status = 2;
+  GateStatus methodology_governance_status = 3;
+  GateStatus gef_scope_governance_status = 4;
+  GateStatus allocation_reconciliation_status = 5;
+}
+
+message AuditReplayRequest {
+  string governance_topic_id = 1;
+  string method_scope_hcs_sequence = 2;
+  string mint_events_topic_id = 3;
+  string passport_hcs_sequence = 4;
+  string confirmation_hcs_sequence = 5;
+}
+
+message AuditReplayResponse {
+  GateStatus audit_replay_status = 1;
+  GateStatus allocation_reconciliation_status = 2;
+  repeated string rec_evidence_refs = 3;
+  repeated string unresolved_coordinates = 4;
+}
+
+message LifecycleTransitionRequest {
+  string token_id = 1;
+  string serial = 2;
+  LifecycleStatus from_status = 3;
+  LifecycleStatus to_status = 4;
+  string reason_code = 5;
+  google.protobuf.Timestamp timestamp = 6;
+}
+
+message LifecycleTransitionResponse {
+  string token_id = 1;
+  string serial = 2;
+  LifecycleStatus lifecycle_status = 3;
+  RetirementStatus retirement_status = 4;
+  string hcs_topic_id = 5;
+  string hcs_sequence = 6;
+}
+
+message PassportReconstructionRequest {
+  string target_form = 1;  // "canonical" or "abbreviated"
+  string record_json = 2;  // JSON object serialized as text for registry-layer reconstruction
+}
+
+message PassportReconstructionResponse {
+  string detected_form = 1;  // "canonical", "abbreviated", "mixed", or "unknown"
+  string record_json = 2;    // reconstructed JSON object serialized as text
+  repeated string warnings = 3;
+  bool lossless_reconstruction_confirmed = 4;
+}

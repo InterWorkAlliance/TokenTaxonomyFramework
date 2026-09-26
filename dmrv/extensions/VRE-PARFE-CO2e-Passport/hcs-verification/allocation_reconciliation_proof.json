@@ -3,9 +3,73 @@
   "timestamp": "2026-07-27T11:09:29.142Z",
   "hcs_sequence": 492366,
   "hcs_topic": "0.0.8585272",
+  "co2_lot_id": "CO2-TONNE-761BDFEE717C1E8A3714C1D6",
+  "co2_token_id": "0.0.8585274",
+  "co2_hts_serial": "34113",
+  "co2_hts_mint_tx": "0.0.8411690-1785150559-950681884",
+  "parent_recs": [
+    {
+      "allocation_index": 0,
+      "rec_claim_id": "PC-MU-REC-1785144990395",
+      "rec_token_id": "0.0.8585273",
+      "rec_hts_serial": "36798",
+      "rec_hcs_topic": "0.0.8585272",
+      "rec_hcs_sequence": "492102",
+      "consumed_mg_co2e": 1268000000,
+      "consumed_kg_co2e": "1268.000000",
+      "consumed_tonne_co2e": "1.268",
+      "source_kwh": 10000,
+      "implied_gef_kg_per_kwh": 0.1268
+    },
+    {
+      "allocation_index": 1,
+      "rec_claim_id": "PC-MU-REC-1785150553855",
+      "rec_token_id": "0.0.8585273",
+      "rec_hts_serial": "36799",
+      "rec_hcs_topic": "0.0.8585272",
+      "rec_hcs_sequence": "492359",
+      "consumed_mg_co2e": 8732000000,
+      "consumed_kg_co2e": "8732.000000",
+      "consumed_tonne_co2e": "8.732",
+      "source_kwh": 10000,
+      "implied_gef_kg_per_kwh": 0.8732
+    }
+  ],
   "reconciliation": {
     "total_allocated_mg_co2e": 10000000000,
+    "total_allocated_kg_co2e": "10000.000000",
+    "total_allocated_tonne_co2e": "10.000",
+    "issued_quantity_mg_co2e": 10000000000,
+    "issued_quantity_kg_co2e": "10000.000000",
+    "issued_quantity_tonne_co2e": "10.000",
+    "difference_mg": 0,
+    "difference_kg": "0.000000",
     "reconciliation_status": "PASSED",
+    "formula": "sum(allocations[].consumedMgCO2e) = issuedUnit.quantityMgCO2e",
     "verification": "1,268,000,000 + 8,732,000,000 = 10,000,000,000 ✓"
-  }
+  },
+  "governance_anchor": {
+    "governance_topic_id": "0.0.8479702",
+    "method_scope_hcs_sequence": "84",
+    "method_scope_record_type": "CO2_METHOD_SCOPE_GRANT",
+    "external_methodology_id": "AMS-I.D",
+    "validation_ref_codes": ["ARTICLE_6_4_PRINCIPLES"],
+    "gef_value_kg_per_kwh": 0.9908,
+    "link": "Governance topic 0.0.8479702 sequence 84 defines the methodology scope and GEF baseline"
+  },
+  "regulatory_compliance": {
+    "iso_14064_1_2018": "✓ Quantification & reporting verified",
+    "eu_cbam": "✓ Carbon content traced and documented",
+    "us_gaap_s2": "✓ Asset serialization on HTS",
+    "corsia": "✓ Eligible renewable energy with methodology reference",
+    "iwa_gbbc_dmrv_3_0": "✓ TTF dMRV 3.0 extension set implemented"
+  },
+  "notes": [
+    "Allocation reconciliation is a mandatory gate before CO2 passport submission (FormulaTemplates.json Equation 2).",
+    "Both parent RECs are valid, minted, non-revoked REC tokens on HTS token 0.0.8585273.",
+    "CO2 does not re-consume raw telemetry; it verifies REC evidence only via parentRecEvidence.",
+    "Each parent REC traces back through its own passport to the telemetry layer (Sequence 492363).",
+    "The two GEF values (0.1268 and 0.8732) are implicit in the parent REC claims and their governance.",
+    "Verification can be performed independently using Hedera Mirror Node API."
+  ]
 }

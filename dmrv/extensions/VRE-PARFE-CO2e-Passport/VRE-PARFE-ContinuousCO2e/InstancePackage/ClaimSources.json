@@ -1,0 +1,60 @@
+{
+  "claimSources": [
+    {
+      "id": "d4f5b627-0004-4d40-9f04-000000000001",
+      "name": "HCS Sovereign Governance Spine",
+      "description": "Immutable governance topic holding LICENSE_GRANT, GATEWAY_DEPLOY, SENSOR_LINK, and methodScope commissioning records. This is CO2's own governance reference (its methodScope), not a telemetry source. Verified live coordinate: topic 0.0.8479702, methodScope sequence 77, with explicit AMS-I.D external methodology declared at sequences 76-77 and governance audit event at sequence 78.",
+      "sourceType": "Reference",
+      "reportingFrequency": "OneTime",
+      "sourceIdentifier": "hedera:hcs:1:0.0.8479702",
+      "variableTemplates": [
+        { "variableTemplateId": "governanceTopicId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8479702-topicId" },
+        { "variableTemplateId": "methodScopeHcsSequence", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8479702-seq-77" },
+        { "variableTemplateId": "methodologyGovernanceStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8479702-methodologyGovernanceStatus" }
+      ]
+    },
+    {
+      "id": "d4f5b627-0004-4d40-9f04-000000000002",
+      "name": "Parent REC Evidence (traversal into the REC evidence layer)",
+      "description": "CO2's direct dependency is issued, minted REC evidence -- not raw telemetry. Each entry in the passport's existing parentRecEvidence array (claimId, tokenId, serial, finalHcsTopicId, finalHcsSequence -- already present in the live payload, unchanged by this extension set) is the claim source CO2 actually allocates from. Resolving a parentRecEvidence entry means fetching the REC's own passport record at finalHcsTopicId/finalHcsSequence; that REC record is, in turn, responsible for referencing the raw signed-telemetry topic that backs it (analogous to VRE-PARFE-HydroRE topic 0.0.8480236). That second-hop reference is a property of the REC passport format and is out of scope for VRE-PARFE-ContinuousCO2e.",
+      "sourceType": "Reference",
+      "reportingFrequency": "EventStream",
+      "sourceIdentifier": "hedera:hcs:1:0.0.8585272#parentRecEvidence",
+      "variableTemplates": [
+        { "variableTemplateId": "recEvidenceValidityStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-parentRecEvidence-recEvidenceValidityStatus" },
+        { "variableTemplateId": "consumedMgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-parentRecEvidence-consumedMgCO2e" }
+      ]
+    },
+    {
+      "id": "d4f5b627-0004-4d40-9f04-000000000003",
+      "name": "HCS CO2 Passport & Confirmation Topic",
+      "description": "Topic where CO2_REGULATORY_PASSPORT and CO2_OFFSET_LOT_CONFIRMATION messages are written by Mission Control (buildCo2RegulatoryPassportPayload / buildCo2OffsetLotConfirmationPayload). Verified live coordinate: topic 0.0.8585272, passport sequence 374200, confirmation sequence 374205, both carrying AMS-I.D from governed methodScope sequence 77.",
+      "sourceType": "Reference",
+      "reportingFrequency": "EventStream",
+      "sourceIdentifier": "hedera:hcs:1:0.0.8585272",
+      "variableTemplates": [
+        { "variableTemplateId": "mintEventsTopicId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-topicId" },
+        { "variableTemplateId": "passportHcsSequence", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-seq-374200" },
+        { "variableTemplateId": "confirmationHcsSequence", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-seq-374205" },
+        { "variableTemplateId": "quantityMgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-seq-374200-quantityMgCO2e" },
+        { "variableTemplateId": "quantityKgCO2e", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-seq-374200-quantityKgCO2e" },
+        { "variableTemplateId": "allocationReconciliationStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hcs:1:0.0.8585272-seq-374200-allocationReconciliationStatus" }
+      ]
+    },
+    {
+      "id": "d4f5b627-0004-4d40-9f04-000000000004",
+      "name": "HTS CO2e Tonne-Lot Token",
+      "description": "The minted HTS NFT representing the issued unit. Verified fresh live coordinate: tokenId 0.0.8585274, serial 31371, htsTxId 0.0.8411690-1783339679-479003501.",
+      "sourceType": "Reference",
+      "reportingFrequency": "OneTime",
+      "sourceIdentifier": "hedera:hts:0.0.8585274:31371",
+      "variableTemplates": [
+        { "variableTemplateId": "tokenId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hts:0.0.8585274-tokenId" },
+        { "variableTemplateId": "serial", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hts:0.0.8585274:31371-serial" },
+        { "variableTemplateId": "htsTxId", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hts:0.0.8585274:31371-htsTxId" },
+        { "variableTemplateId": "lifecycleStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hts:0.0.8585274:31371-lifecycleStatus" },
+        { "variableTemplateId": "retirementStatus", "variableTemplateVersion": "VRE-PARFE-ContinuousCO2e:1.0.0", "sourceIdentifier": "hedera:hts:0.0.8585274:31371-retirementStatus" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "type": "CO2_REGULATORY_PASSPORT",
+  "assetType": "CO2_TONNE_LOT",
+  "co2Claim": "PC-MU-CO2-1783960768617",
+  "lot": "CO2-TONNE-42C41681957721DEEC92F2E6",
+  "scope": "CO2_SCOPE_MU_GRID_RE",
+  "clm": {
+    "type": "SOVEREIGN_CO2E_DISPLACEMENT_CLAIM",
+    "methSys": "VRE_PARFE_SOVEREIGN_DMRV",
+    "methAuth": "VRE_PARFE",
+    "ttf": "GBBC_IWA_DMRV_EXTENSION_SET",
+    "market": "VOLUNTARY_AND_SOVEREIGN_DIGITAL_CO2E",
+    "art64": "REFERENCE_ONLY_PENDING_RECOGNITION",
+    "valRefs": [
+      "ARTICLE_6_4_PRINCIPLES"
+    ],
+    "use": "CO2E_DISPLACEMENT_FROM_ALLOCATED_RENEWABLE_ENERGY_CERTIFICATES",
+    "methId": "VP-CO2E-RE-GRID-001",
+    "methVer": "V1",
+    "factorYear": null,
+    "factorRef": null,
+    "valStatus": "PREPRODUCTION_SYSTEM_VALIDATED",
+    "verStatus": "CONTINUOUSLY_VERIFIED_FROM_PARENT_REC_EVIDENCE"
+  },
+  "acct": {
+    "boundary": "GRID_CONNECTED_RENEWABLE_ELECTRICITY_DISPLACEMENT",
+    "calc": "ALLOCATED_REC_MWH_TIMES_GOVERNED_GRID_EMISSION_FACTOR",
+    "baseline": "GRID_ELECTRICITY_DISPLACED",
+    "baseEmis": "GOVERNED_GEF_SCOPE",
+    "projEmis": "ZERO_OPERATIONAL_EMISSIONS_FOR_RENEWABLE_GENERATION",
+    "leakage": "NOT_APPLICABLE_TO_THIS_PREPRODUCTION_SCOPE",
+    "deduct": "NONE_BEYOND_ALLOCATION_RECONCILIATION",
+    "uncert": "CONTROLLED_BY_REC_EVIDENCE_AND_GEF_SCOPE",
+    "netRule": "SUM_ALLOCATED_PARENT_REC_CO2E_MUST_EQUAL_TONNE_LOT",
+    "monPlan": "VRE-PARFE-CO2E-REC-ALLOCATION-MONITORING-PLAN"
+  },
+  "parentRec": [
+    {
+      "claim": "PC-MU-REC-1783960458452",
+      "tok": "0.0.8585272",
+      "ser": "34283",
+      "topic": "0.0.8585272",
+      "seq": "408487"
+    },
+    {
+      "claim": "PC-MU-REC-1783960758451",
+      "tok": "0.0.8585272",
+      "ser": "34284",
+      "topic": "0.0.8585272",
+      "seq": "408504"
+    }
+  ],
+  "gef": {
+    "grant": "GEF-SCOPE-29E3085ED2BF83D7DBB9586B",
+    "methId": "VP-CO2E-RE-GRID-001",
+    "methVer": "V1",
+    "kgPerKwh": 0.82,
+    "srcRef": "VRE-PARFE-GOVERNED-GEF-SCOPE-MU-2026",
+    "srcType": "SOVEREIGN_GOVERNANCE_GRANT",
+    "region": "MU",
+    "jur": "MAURITIUS"
+  },
+  "method": {
+    "methodId": "CO2-METHOD-C0973123529FCB32073DB4CF",
+    "topic": "0.0.8479702",
+    "seq": "84",
+    "project": "VRE-PARFE-MU-GRID-RE",
+    "tech": "RENEWABLE_ELECTRICITY",
+    "state": "ACTIVE"
+  },
+  "std": {
+    "sf": "GBBC_IWA_DMRV",
+    "sv": "3.0",
+    "esId": "VRE-PARFE-ContinuousCO2e",
+    "esVer": "1.0.0",
+    "methSys": "VRE_PARFE_SOVEREIGN_DMRV",
+    "methAuth": "VRE_PARFE",
+    "methId": "VP-CO2E-RE-GRID-001",
+    "methVer": "V1",
+    "qsRole": "SOVEREIGN_DIGITAL_DMRV_METHOD"
+  },
+  "extMethod": {
+    "extAuth": "UNFCCC_CDM",
+    "extId": "AMS-I.D",
+    "extName": "Small-scale grid-connected renewable electricity",
+    "docVer": null,
+    "docRef": null,
+    "docHash": null,
+    "valRefs": [
+      "ARTICLE_6_4_PRINCIPLES"
+    ],
+    "purp": "METHODOLOGY_AND_ADDITIONALITY_REFERENCE_ONLY",
+    "depStatus": "REFERENCE_ONLY_NOT_ISSUANCE_AUTHORITY"
+  },
+  "cv": {
+    "mode": "CONTINUOUS_MONITORING_AND_VERIFICATION_VIA_REC_EVIDENCE",
+    "srcTruth": "HCS",
+    "verEng": "VRE_PARFE_EDGE_NOTARY_AND_HCS_REPLAY",
+    "recValid": "PASSED",
+    "methodGov": "PASSED",
+    "gefGov": "PASSED",
+    "allocRecon": "PASSED",
+    "replay": "REPLAYABLE_VIA_REC"
+  },
+  "audit": {
+    "assrModel": "SYSTEM_CONTROLS_AND_EVIDENCE_REPLAY",
+    "audRole": "INDEPENDENT_REPLAY_AND_CONTROL_ASSURANCE",
+    "vvbDep": "NOT_REQUIRED_FOR_PREPRODUCTION_OR_AUTOMATED_ISSUANCE",
+    "vvbUse": [
+      "METHODOLOGY_RECOGNITION",
+      "SOVEREIGN_APPROVAL",
+      "EXTERNAL_ASSURANCE",
+      "ARTICLE_6_OR_COMPLIANCE_USE_IF_REQUIRED"
+    ],
+    "ctrl": {
+      "schemaVer": "SCHEMAS_V2_OR_LATER",
+      "govTopic": "0.0.8479702",
+      "mintTopic": "0.0.8585272",
+      "methodSeq": "84",
+      "passportSeq": "408505",
+      "confirmSeq": "408506"
+    }
+  },
+  "unit": {
+    "asset": "CO2_TONNE_LOT",
+    "claim": "SOVEREIGN_CO2E_DISPLACEMENT_CLAIM",
+    "qtyMg": 1000000000,
+    "qtyKg": "1000.000000",
+    "u": "tCO2e",
+    "tok": "0.0.8585274",
+    "ser": "31964",
+    "htsTx": "0.0.8411690-1783960765-664408196",
+    "life": "MINTED",
+    "retire": "NOT_RETIRED"
+  },
+  "alloc": [
+    {
+      "ent": 53875,
+      "recClaim": "PC-MU-REC-1783960458452",
+      "consMg": 820000000,
+      "kwh": 1000,
+      "recTok": "0.0.8585272",
+      "recSer": "34283",
+      "recTopic": "0.0.8585272",
+      "recSeq": "408487"
+    },
+    {
+      "ent": 54014,
+      "recClaim": "PC-MU-REC-1783960758451",
+      "consMg": 180000000,
+      "kwh": 1000,
+      "recTok": "0.0.8585272",
+      "recSer": "34284",
+      "recTopic": "0.0.8585272",
+      "recSeq": "408504"
+    }
+  ],
+  "netMg": 1000000000,
+  "lotMg": 1000000000,
+  "status": "PASSPORT_SUBMITTED",
+  "ts": "2026-07-13T16:39:28.617Z",
+  "meta": {
+    "authorityRef": "0.0.8411690",
+    "issuer": "Three T's (Mauritius) Limited",
+    "registrationNo": "C19166743",
+    "network": "hedera-mainnet"
+  }
+}

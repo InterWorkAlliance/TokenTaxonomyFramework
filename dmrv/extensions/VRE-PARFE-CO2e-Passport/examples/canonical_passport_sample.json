@@ -1,0 +1,168 @@
+{
+  "type": "CO2_REGULATORY_PASSPORT",
+  "assetType": "CO2_TONNE_LOT",
+  "co2ClaimId": "PC-MU-CO2-1783960768617",
+  "lotId": "CO2-TONNE-42C41681957721DEEC92F2E6",
+  "scopeKey": "CO2_SCOPE_MU_GRID_RE",
+  "claim": {
+    "claimType": "SOVEREIGN_CO2E_DISPLACEMENT_CLAIM",
+    "methodologySystem": "VRE_PARFE_SOVEREIGN_DMRV",
+    "methodologyAuthority": "VRE_PARFE",
+    "ttfAlignment": "GBBC_IWA_DMRV_EXTENSION_SET",
+    "marketAlignment": "VOLUNTARY_AND_SOVEREIGN_DIGITAL_CO2E",
+    "article64Applicability": "REFERENCE_ONLY_PENDING_RECOGNITION",
+    "validationRefCodes": [
+      "ARTICLE_6_4_PRINCIPLES"
+    ],
+    "claimUse": "CO2E_DISPLACEMENT_FROM_ALLOCATED_RENEWABLE_ENERGY_CERTIFICATES",
+    "methodologyId": "VP-CO2E-RE-GRID-001",
+    "methodologyVersion": "V1",
+    "factorVintageYear": null,
+    "factorDocumentRef": null,
+    "validationStatus": "PREPRODUCTION_SYSTEM_VALIDATED",
+    "verificationStatus": "CONTINUOUSLY_VERIFIED_FROM_PARENT_REC_EVIDENCE"
+  },
+  "accounting": {
+    "accountingBoundary": "GRID_CONNECTED_RENEWABLE_ELECTRICITY_DISPLACEMENT",
+    "calculationMethod": "ALLOCATED_REC_MWH_TIMES_GOVERNED_GRID_EMISSION_FACTOR",
+    "baselineScenario": "GRID_ELECTRICITY_DISPLACED",
+    "baselineEmissionsTreatment": "GOVERNED_GEF_SCOPE",
+    "projectEmissionsTreatment": "ZERO_OPERATIONAL_EMISSIONS_FOR_RENEWABLE_GENERATION",
+    "leakageTreatment": "NOT_APPLICABLE_TO_THIS_PREPRODUCTION_SCOPE",
+    "deductionsTreatment": "NONE_BEYOND_ALLOCATION_RECONCILIATION",
+    "uncertaintyTreatment": "CONTROLLED_BY_REC_EVIDENCE_AND_GEF_SCOPE",
+    "nettingRule": "SUM_ALLOCATED_PARENT_REC_CO2E_MUST_EQUAL_TONNE_LOT",
+    "monitoringPlanRef": "VRE-PARFE-CO2E-REC-ALLOCATION-MONITORING-PLAN"
+  },
+  "parentRecEvidence": [
+    {
+      "claimId": "PC-MU-REC-1783960458452",
+      "tokenId": "0.0.8585272",
+      "serial": "34283",
+      "finalHcsTopicId": "0.0.8585272",
+      "finalHcsSequence": "408487"
+    },
+    {
+      "claimId": "PC-MU-REC-1783960758451",
+      "tokenId": "0.0.8585272",
+      "serial": "34284",
+      "finalHcsTopicId": "0.0.8585272",
+      "finalHcsSequence": "408504"
+    }
+  ],
+  "gefScope": {
+    "grantId": "GEF-SCOPE-29E3085ED2BF83D7DBB9586B",
+    "methodologyId": "VP-CO2E-RE-GRID-001",
+    "methodologyVersion": "V1",
+    "gefValueKgPerKwh": 0.82,
+    "sourceRef": "VRE-PARFE-GOVERNED-GEF-SCOPE-MU-2026",
+    "sourceType": "SOVEREIGN_GOVERNANCE_GRANT",
+    "regionCode": "MU",
+    "jurisdiction": "MAURITIUS"
+  },
+  "methodScope": {
+    "methodScopeId": "CO2-METHOD-C0973123529FCB32073DB4CF",
+    "hcsTopicId": "0.0.8479702",
+    "hcsSequence": "84",
+    "projectRef": "VRE-PARFE-MU-GRID-RE",
+    "technologyType": "RENEWABLE_ELECTRICITY",
+    "status": "ACTIVE"
+  },
+  "standardEnvelope": {
+    "standardFamily": "GBBC_IWA_DMRV",
+    "standardVersion": "3.0",
+    "extensionSetId": "VRE-PARFE-ContinuousCO2e",
+    "extensionSetVersion": "1.0.0",
+    "methodologySystem": "VRE_PARFE_SOVEREIGN_DMRV",
+    "methodologyAuthority": "VRE_PARFE",
+    "methodologyId": "VP-CO2E-RE-GRID-001",
+    "methodologyVersion": "V1",
+    "qualityStandardRole": "SOVEREIGN_DIGITAL_DMRV_METHOD"
+  },
+  "externalMethodology": {
+    "authority": "UNFCCC_CDM",
+    "methodologyId": "AMS-I.D",
+    "methodologyName": "Small-scale grid-connected renewable electricity",
+    "documentVersion": null,
+    "documentRef": null,
+    "documentHash": null,
+    "validationRefCodes": [
+      "ARTICLE_6_4_PRINCIPLES"
+    ],
+    "purpose": "METHODOLOGY_AND_ADDITIONALITY_REFERENCE_ONLY",
+    "dependencyStatus": "REFERENCE_ONLY_NOT_ISSUANCE_AUTHORITY"
+  },
+  "continuousVerification": {
+    "mode": "CONTINUOUS_MONITORING_AND_VERIFICATION_VIA_REC_EVIDENCE",
+    "sourceOfTruth": "HCS",
+    "verificationEngine": "VRE_PARFE_EDGE_NOTARY_AND_HCS_REPLAY",
+    "recEvidenceValidityStatus": "PASSED",
+    "methodologyGovernanceStatus": "PASSED",
+    "gefScopeGovernanceStatus": "PASSED",
+    "allocationReconciliationStatus": "PASSED",
+    "auditReplayStatus": "REPLAYABLE_VIA_REC"
+  },
+  "auditAssurance": {
+    "assuranceModel": "SYSTEM_CONTROLS_AND_EVIDENCE_REPLAY",
+    "auditorRole": "INDEPENDENT_REPLAY_AND_CONTROL_ASSURANCE",
+    "vvbDependency": "NOT_REQUIRED_FOR_PREPRODUCTION_OR_AUTOMATED_ISSUANCE",
+    "vvbUseWhereRequired": [
+      "METHODOLOGY_RECOGNITION",
+      "SOVEREIGN_APPROVAL",
+      "EXTERNAL_ASSURANCE",
+      "ARTICLE_6_OR_COMPLIANCE_USE_IF_REQUIRED"
+    ],
+    "controlEvidence": {
+      "schemaVersion": "SCHEMAS_V2_OR_LATER",
+      "governanceTopicId": "0.0.8479702",
+      "mintEventsTopicId": "0.0.8585272",
+      "methodScopeHcsSequence": "84",
+      "passportHcsSequence": "408505",
+      "confirmationHcsSequence": "408506"
+    }
+  },
+  "issuedUnit": {
+    "assetType": "CO2_TONNE_LOT",
+    "claimType": "SOVEREIGN_CO2E_DISPLACEMENT_CLAIM",
+    "quantityMgCO2e": 1000000000,
+    "quantityKgCO2e": "1000.000000",
+    "unit": "tCO2e",
+    "tokenId": "0.0.8585274",
+    "serial": "31964",
+    "htsTxId": "0.0.8411690-1783960765-664408196",
+    "lifecycleStatus": "MINTED",
+    "retirementStatus": "NOT_RETIRED"
+  },
+  "allocations": [
+    {
+      "entitlementId": 53875,
+      "parentRecClaimId": "PC-MU-REC-1783960458452",
+      "consumedMgCO2e": 820000000,
+      "sourceKwh": 1000,
+      "parentRecTokenId": "0.0.8585272",
+      "parentRecSerial": "34283",
+      "parentRecFinalHcsTopicId": "0.0.8585272",
+      "parentRecFinalHcsSequence": "408487"
+    },
+    {
+      "entitlementId": 54014,
+      "parentRecClaimId": "PC-MU-REC-1783960758451",
+      "consumedMgCO2e": 180000000,
+      "sourceKwh": 1000,
+      "parentRecTokenId": "0.0.8585272",
+      "parentRecSerial": "34284",
+      "parentRecFinalHcsTopicId": "0.0.8585272",
+      "parentRecFinalHcsSequence": "408504"
+    }
+  ],
+  "netCo2eMg": 1000000000,
+  "tonneLotMgCO2e": 1000000000,
+  "status": "PASSPORT_SUBMITTED",
+  "ts": "2026-07-13T16:39:28.617Z",
+  "meta": {
+    "authorityRef": "0.0.8411690",
+    "issuer": "Three T's (Mauritius) Limited",
+    "registrationNo": "C19166743",
+    "network": "hedera-mainnet"
+  }
+}

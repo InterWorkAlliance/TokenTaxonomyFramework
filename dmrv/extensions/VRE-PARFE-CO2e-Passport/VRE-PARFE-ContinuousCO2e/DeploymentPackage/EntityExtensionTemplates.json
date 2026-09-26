@@ -1,0 +1,68 @@
+{
+  "entityExtensionTemplates": [
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000001",
+      "name": "Standard Envelope Options",
+      "description": "Identifies which GBBC/IWA dMRV standard, extension set, and sovereign methodology a passport was issued under. Adopted title: 'Vre Parfe CO2 Passport'. This is metadata about the standard itself, not the emissions claim -- it is not currently emitted by Mission Control's buildCo2RegulatoryPassportPayload() and must be added.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSet",
+      "dataSchemaOrType": "vreparfe.continuousco2e.StandardEnvelopeOptions",
+      "dataExample": "{ \"standardFamily\": \"GBBC_IWA_DMRV\", \"standardVersion\": \"3.0\", \"extensionSetId\": \"VRE-PARFE-ContinuousCO2e\", \"extensionSetVersion\": \"1.0.0\", \"methodologySystem\": \"VRE_PARFE_SOVEREIGN_DMRV\", \"methodologyAuthority\": \"VRE_PARFE\", \"methodologyId\": \"VP-CO2E-RE-GRID-001\", \"methodologyVersion\": \"V1\", \"qualityStandardRole\": \"SOVEREIGN_DIGITAL_DMRV_METHOD\" }"
+    },
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000002",
+      "name": "External Methodology Options",
+      "description": "Reference-only link to an external methodology (e.g. UNFCCC/CDM) used for baseline and additionality logic. The external methodology citation is distinct from the sovereign Vre Parfe methodology identity and must be explicitly declared in governed CO2_METHOD_SCOPE_GRANT evidence; runtimes must not silently default it. Verified live correction: governance topic 0.0.8479702 seq 76-77 explicitly declares AMS-I.D with ARTICLE_6_4_PRINCIPLES, and HCS topic 0.0.8585272 seq 374200-374208 carries that AMS-I.D citation in both passport and confirmation. documentVersion, documentRef, documentHash, purpose, and dependencyStatus make explicit that this reference does not grant UNFCCC issuance authority.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSet",
+      "dataSchemaOrType": "vreparfe.continuousco2e.ExternalMethodologyOptions",
+      "dataExample": "{ \"authority\": \"UNFCCC_CDM\", \"methodologyId\": \"AMS-I.D\", \"methodologyName\": \"Small-scale grid-connected renewable electricity\", \"documentVersion\": null, \"documentRef\": null, \"documentHash\": null, \"validationRefCodes\": [\"ARTICLE_6_4_PRINCIPLES\"], \"purpose\": \"METHODOLOGY_AND_ADDITIONALITY_REFERENCE_ONLY\", \"dependencyStatus\": \"REFERENCE_ONLY_NOT_ISSUANCE_AUTHORITY\" }"
+    },
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000003",
+      "name": "Continuous Verification Options (CO2's own governance surface)",
+      "description": "CO2 issuance is derived from issued REC evidence, not from raw telemetry directly: Telemetry -> REC issuance -> REC allocation -> CO2 methodology -> CO2 passport / HTS unit. Accordingly this template covers only what CO2 verifies about itself -- methodology/GEF governance currency, parent-REC validity, and allocation reconciliation -- plus a chain-wide replay status. It deliberately does NOT include sensorAuthorizationStatus, gatewayAuthorizationStatus, signatureVerificationStatus, physicsGateStatus, fraudGateStatus, sequenceIntegrityStatus, or duplicatePreventionStatus; those remain properties of the REC/telemetry evidence layer (VRE-PARFE-HydroRE), reached only by traversing parentRecEvidence, never duplicated at the CO2 level.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSetModule",
+      "modules": ["CONTINUOUS-VERIFICATION-MODULE"],
+      "dataSchemaOrType": "vreparfe.continuousco2e.ContinuousVerificationOptions",
+      "dataExample": "{ \"mode\": \"CONTINUOUS_MONITORING_AND_VERIFICATION_VIA_REC_EVIDENCE\", \"sourceOfTruth\": \"HCS\", \"verificationEngine\": \"VRE_PARFE_EDGE_NOTARY_AND_HCS_REPLAY\", \"recEvidenceValidityStatus\": \"PASSED\", \"methodologyGovernanceStatus\": \"PASSED\", \"gefScopeGovernanceStatus\": \"PASSED\", \"allocationReconciliationStatus\": \"PASSED\", \"auditReplayStatus\": \"REPLAYABLE_VIA_REC\" }"
+    },
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000004",
+      "name": "Audit Assurance Options",
+      "description": "States the assurance model explicitly and gives an auditor the exact HCS coordinates needed to replay CO2's own governance record. governanceTopicId, methodScopeHcsSequence, mintEventsTopicId, and passportHcsSequence/confirmationHcsSequence are already recoverable from live fields -- verified against governance topic 0.0.8479702 seq 77 and mint-events topic 0.0.8585272 seq 374200/374205. Traversal from CO2 into REC uses the passport's existing parentRecEvidence array (finalHcsTopicId/finalHcsSequence per parent REC) and is deliberately not duplicated in controlEvidence. Traversal from REC down into raw telemetry is a property of the REC's own passport record (out of scope here) -- this template no longer carries a telemetryTopicId field, correcting an earlier draft that implied CO2 depends on telemetry directly.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSetModule",
+      "modules": ["AUDIT-ASSURANCE-MODULE"],
+      "dataSchemaOrType": "vreparfe.continuousco2e.AuditAssuranceOptions",
+      "dataExample": "{ \"assuranceModel\": \"SYSTEM_CONTROLS_AND_EVIDENCE_REPLAY\", \"auditorRole\": \"INDEPENDENT_REPLAY_AND_CONTROL_ASSURANCE\", \"vvbDependency\": \"NOT_REQUIRED_FOR_PREPRODUCTION_OR_AUTOMATED_ISSUANCE\", \"vvbUseWhereRequired\": [\"METHODOLOGY_RECOGNITION\", \"SOVEREIGN_APPROVAL\", \"EXTERNAL_ASSURANCE\", \"ARTICLE_6_OR_COMPLIANCE_USE_IF_REQUIRED\"], \"controlEvidence\": { \"schemaVersion\": \"SCHEMAS_V2_OR_LATER\", \"governanceTopicId\": \"0.0.8479702\", \"mintEventsTopicId\": \"0.0.8585272\", \"methodScopeHcsSequence\": \"77\", \"passportHcsSequence\": \"374200\", \"confirmationHcsSequence\": \"374205\" } }"
+    },
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000005",
+      "name": "Issued Unit Options",
+      "description": "Describes the serialised unit that was minted, whose quantity is derived from allocating governed GEF scope across issued, minted parent REC evidence -- not from raw generation readings directly. quantityMgCO2e/quantityKgCO2e/tokenId/serial/htsTxId are emitted live (verified fresh run: 1000000000 mg = 1000.000000 kg, tokenId 0.0.8585274, serial 31371, htsTxId 0.0.8411690-1783339679-479003501). unit, lifecycleStatus, and retirementStatus are now part of the five-envelope payload model.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSetModule",
+      "modules": ["CO2-LOT-MODULE"],
+      "dataSchemaOrType": "vreparfe.continuousco2e.IssuedUnitOptions",
+      "dataExample": "{ \"assetType\": \"CO2_TONNE_LOT\", \"claimType\": \"SOVEREIGN_CO2E_DISPLACEMENT_CLAIM\", \"quantityMgCO2e\": 1000000000, \"quantityKgCO2e\": \"1000.000000\", \"unit\": \"tCO2e\", \"tokenId\": \"0.0.8585274\", \"serial\": \"31371\", \"htsTxId\": \"0.0.8411690-1783339679-479003501\", \"lifecycleStatus\": \"MINTED\", \"retirementStatus\": \"NOT_RETIRED\" }"
+    },
+    {
+      "id": "a1c2e3f4-0001-4a10-9c01-000000000006",
+      "name": "Abbreviated Passport Transport Profile Options",
+      "description": "Defines the registry-layer, lossless scoped alias profile for rendering compact CO2e Passport records and reconstructing them back to canonical five-envelope form. This is a transport/view profile only: canonical terms remain the source of truth, unknown fields are preserved, no evidence values are defaulted, and direct CO2-level telemetry coordinates remain forbidden. The full machine-readable map is provided in DeploymentPackage/AbbreviationProfile.json.",
+      "version": "VRE-PARFE-ContinuousCO2e:1.0.0",
+      "documentation": "inherited",
+      "extensionContext": "ExtensionSetModule",
+      "modules": ["REGISTRY-RECONSTRUCTION-MODULE"],
+      "dataSchemaOrType": "vreparfe.continuousco2e.AbbreviatedPassportProfileOptions",
+      "dataExample": "{ \"profileId\": \"VRE-PARFE-CO2e-Passport-Abbreviated-v1\", \"profileVersion\": \"1.0.0\", \"canonicalSource\": \"VRE-PARFE-CO2e-Passport\", \"profileType\": \"LOSSLESS_SCOPED_TRANSPORT_VIEW\", \"mapRef\": \"DeploymentPackage/AbbreviationProfile.json\", \"losslessReconstructionRequired\": true, \"evidenceDefaultingAllowed\": false, \"telemetryCoordinatesForbidden\": true }"
+    }
+  ]
+}
